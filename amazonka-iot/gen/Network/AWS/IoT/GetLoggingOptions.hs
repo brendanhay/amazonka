@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IoT.GetLoggingOptions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the logging options.
+--
+--
 module Network.AWS.IoT.GetLoggingOptions
     (
     -- * Creating a Request
@@ -34,25 +36,29 @@ module Network.AWS.IoT.GetLoggingOptions
     , glorsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the GetLoggingOptions operation.
 --
+--
+--
 -- /See:/ 'getLoggingOptions' smart constructor.
 data GetLoggingOptions =
-    GetLoggingOptions'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  GetLoggingOptions'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetLoggingOptions' with the minimum fields required to make a request.
 --
 getLoggingOptions
     :: GetLoggingOptions
 getLoggingOptions = GetLoggingOptions'
+
 
 instance AWSRequest GetLoggingOptions where
         type Rs GetLoggingOptions = GetLoggingOptionsResponse
@@ -64,9 +70,9 @@ instance AWSRequest GetLoggingOptions where
                    (x .?> "logLevel") <*> (x .?> "roleArn") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetLoggingOptions
+instance Hashable GetLoggingOptions where
 
-instance NFData GetLoggingOptions
+instance NFData GetLoggingOptions where
 
 instance ToHeaders GetLoggingOptions where
         toHeaders = const mempty
@@ -79,31 +85,35 @@ instance ToQuery GetLoggingOptions where
 
 -- | The output from the GetLoggingOptions operation.
 --
+--
+--
 -- /See:/ 'getLoggingOptionsResponse' smart constructor.
 data GetLoggingOptionsResponse = GetLoggingOptionsResponse'
-    { _glorsLogLevel       :: !(Maybe LogLevel)
-    , _glorsRoleARN        :: !(Maybe Text)
-    , _glorsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _glorsLogLevel       :: !(Maybe LogLevel)
+  , _glorsRoleARN        :: !(Maybe Text)
+  , _glorsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetLoggingOptionsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'glorsLogLevel'
+-- * 'glorsLogLevel' - The logging level.
 --
--- * 'glorsRoleARN'
+-- * 'glorsRoleARN' - The ARN of the IAM role that grants access.
 --
--- * 'glorsResponseStatus'
+-- * 'glorsResponseStatus' - -- | The response status code.
 getLoggingOptionsResponse
     :: Int -- ^ 'glorsResponseStatus'
     -> GetLoggingOptionsResponse
 getLoggingOptionsResponse pResponseStatus_ =
-    GetLoggingOptionsResponse'
-    { _glorsLogLevel = Nothing
-    , _glorsRoleARN = Nothing
-    , _glorsResponseStatus = pResponseStatus_
-    }
+  GetLoggingOptionsResponse'
+  { _glorsLogLevel = Nothing
+  , _glorsRoleARN = Nothing
+  , _glorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The logging level.
 glorsLogLevel :: Lens' GetLoggingOptionsResponse (Maybe LogLevel)
@@ -113,8 +123,8 @@ glorsLogLevel = lens _glorsLogLevel (\ s a -> s{_glorsLogLevel = a});
 glorsRoleARN :: Lens' GetLoggingOptionsResponse (Maybe Text)
 glorsRoleARN = lens _glorsRoleARN (\ s a -> s{_glorsRoleARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 glorsResponseStatus :: Lens' GetLoggingOptionsResponse Int
 glorsResponseStatus = lens _glorsResponseStatus (\ s a -> s{_glorsResponseStatus = a});
 
-instance NFData GetLoggingOptionsResponse
+instance NFData GetLoggingOptionsResponse where

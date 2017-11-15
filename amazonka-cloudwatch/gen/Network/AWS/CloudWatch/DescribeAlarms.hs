@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DescribeAlarms
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves alarms with the specified names. If no name is specified, all alarms for the user are returned. Alarms can be retrieved by using only a prefix for the alarm name, the alarm state, or a prefix for any action.
+-- Retrieves the specified alarms. If no alarms are specified, all alarms are returned. Alarms can be retrieved by using only a prefix for the alarm name, the alarm state, or a prefix for any action.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatch.DescribeAlarms
@@ -43,54 +45,54 @@ module Network.AWS.CloudWatch.DescribeAlarms
     , darsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Describes the inputs for DescribeAlarms.
---
--- /See:/ 'describeAlarms' smart constructor.
+-- | /See:/ 'describeAlarms' smart constructor.
 data DescribeAlarms = DescribeAlarms'
-    { _daAlarmNamePrefix :: !(Maybe Text)
-    , _daActionPrefix    :: !(Maybe Text)
-    , _daNextToken       :: !(Maybe Text)
-    , _daStateValue      :: !(Maybe StateValue)
-    , _daAlarmNames      :: !(Maybe [Text])
-    , _daMaxRecords      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daAlarmNamePrefix :: !(Maybe Text)
+  , _daActionPrefix    :: !(Maybe Text)
+  , _daNextToken       :: !(Maybe Text)
+  , _daStateValue      :: !(Maybe StateValue)
+  , _daAlarmNames      :: !(Maybe [Text])
+  , _daMaxRecords      :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAlarms' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daAlarmNamePrefix'
+-- * 'daAlarmNamePrefix' - The alarm name prefix. If this parameter is specified, you cannot specify @AlarmNames@ .
 --
--- * 'daActionPrefix'
+-- * 'daActionPrefix' - The action name prefix.
 --
--- * 'daNextToken'
+-- * 'daNextToken' - The token returned by a previous call to indicate that there is more data available.
 --
--- * 'daStateValue'
+-- * 'daStateValue' - The state value to be used in matching alarms.
 --
--- * 'daAlarmNames'
+-- * 'daAlarmNames' - The names of the alarms.
 --
--- * 'daMaxRecords'
+-- * 'daMaxRecords' - The maximum number of alarm descriptions to retrieve.
 describeAlarms
     :: DescribeAlarms
 describeAlarms =
-    DescribeAlarms'
-    { _daAlarmNamePrefix = Nothing
-    , _daActionPrefix = Nothing
-    , _daNextToken = Nothing
-    , _daStateValue = Nothing
-    , _daAlarmNames = Nothing
-    , _daMaxRecords = Nothing
-    }
+  DescribeAlarms'
+  { _daAlarmNamePrefix = Nothing
+  , _daActionPrefix = Nothing
+  , _daNextToken = Nothing
+  , _daStateValue = Nothing
+  , _daAlarmNames = Nothing
+  , _daMaxRecords = Nothing
+  }
 
--- | The alarm name prefix. 'AlarmNames' cannot be specified if this parameter is specified.
+
+-- | The alarm name prefix. If this parameter is specified, you cannot specify @AlarmNames@ .
 daAlarmNamePrefix :: Lens' DescribeAlarms (Maybe Text)
 daAlarmNamePrefix = lens _daAlarmNamePrefix (\ s a -> s{_daAlarmNamePrefix = a});
 
@@ -106,7 +108,7 @@ daNextToken = lens _daNextToken (\ s a -> s{_daNextToken = a});
 daStateValue :: Lens' DescribeAlarms (Maybe StateValue)
 daStateValue = lens _daStateValue (\ s a -> s{_daStateValue = a});
 
--- | A list of alarm names to retrieve information for.
+-- | The names of the alarms.
 daAlarmNames :: Lens' DescribeAlarms [Text]
 daAlarmNames = lens _daAlarmNames (\ s a -> s{_daAlarmNames = a}) . _Default . _Coerce;
 
@@ -133,9 +135,9 @@ instance AWSRequest DescribeAlarms where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAlarms
+instance Hashable DescribeAlarms where
 
-instance NFData DescribeAlarms
+instance NFData DescribeAlarms where
 
 instance ToHeaders DescribeAlarms where
         toHeaders = const mempty
@@ -156,44 +158,44 @@ instance ToQuery DescribeAlarms where
                  toQuery (toQueryList "member" <$> _daAlarmNames),
                "MaxRecords" =: _daMaxRecords]
 
--- | The output for < DescribeAlarms>.
---
--- /See:/ 'describeAlarmsResponse' smart constructor.
+-- | /See:/ 'describeAlarmsResponse' smart constructor.
 data DescribeAlarmsResponse = DescribeAlarmsResponse'
-    { _darsMetricAlarms   :: !(Maybe [MetricAlarm])
-    , _darsNextToken      :: !(Maybe Text)
-    , _darsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _darsMetricAlarms   :: !(Maybe [MetricAlarm])
+  , _darsNextToken      :: !(Maybe Text)
+  , _darsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAlarmsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darsMetricAlarms'
+-- * 'darsMetricAlarms' - The information for the specified alarms.
 --
--- * 'darsNextToken'
+-- * 'darsNextToken' - The token that marks the start of the next batch of returned results.
 --
--- * 'darsResponseStatus'
+-- * 'darsResponseStatus' - -- | The response status code.
 describeAlarmsResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DescribeAlarmsResponse
 describeAlarmsResponse pResponseStatus_ =
-    DescribeAlarmsResponse'
-    { _darsMetricAlarms = Nothing
-    , _darsNextToken = Nothing
-    , _darsResponseStatus = pResponseStatus_
-    }
+  DescribeAlarmsResponse'
+  { _darsMetricAlarms = Nothing
+  , _darsNextToken = Nothing
+  , _darsResponseStatus = pResponseStatus_
+  }
 
--- | A list of information for the specified alarms.
+
+-- | The information for the specified alarms.
 darsMetricAlarms :: Lens' DescribeAlarmsResponse [MetricAlarm]
 darsMetricAlarms = lens _darsMetricAlarms (\ s a -> s{_darsMetricAlarms = a}) . _Default . _Coerce;
 
--- | A string that marks the start of the next batch of returned results.
+-- | The token that marks the start of the next batch of returned results.
 darsNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
 darsNextToken = lens _darsNextToken (\ s a -> s{_darsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeAlarmsResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 
-instance NFData DescribeAlarmsResponse
+instance NFData DescribeAlarmsResponse where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.KMS.EnableKey
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Marks a key as enabled, thereby permitting its use.
+-- Sets the state of a customer master key (CMK) to enabled, thereby permitting its use for cryptographic operations. You cannot perform this operation on a CMK in a different AWS account.
+--
+--
 module Network.AWS.KMS.EnableKey
     (
     -- * Creating a Request
@@ -32,37 +34,31 @@ module Network.AWS.KMS.EnableKey
     , EnableKeyResponse
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'enableKey' smart constructor.
 newtype EnableKey = EnableKey'
-    { _ekKeyId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ekKeyId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableKey' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ekKeyId'
+-- * 'ekKeyId' - A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 enableKey
     :: Text -- ^ 'ekKeyId'
     -> EnableKey
-enableKey pKeyId_ =
-    EnableKey'
-    { _ekKeyId = pKeyId_
-    }
+enableKey pKeyId_ = EnableKey' {_ekKeyId = pKeyId_}
 
--- | A unique identifier for the customer master key. This value can be a globally unique identifier or the fully specified ARN to a key.
---
--- -   Key ARN Example - arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
---
--- -   Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
---
+
+-- | A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 ekKeyId :: Lens' EnableKey Text
 ekKeyId = lens _ekKeyId (\ s a -> s{_ekKeyId = a});
 
@@ -71,9 +67,9 @@ instance AWSRequest EnableKey where
         request = postJSON kms
         response = receiveNull EnableKeyResponse'
 
-instance Hashable EnableKey
+instance Hashable EnableKey where
 
-instance NFData EnableKey
+instance NFData EnableKey where
 
 instance ToHeaders EnableKey where
         toHeaders
@@ -96,8 +92,9 @@ instance ToQuery EnableKey where
 
 -- | /See:/ 'enableKeyResponse' smart constructor.
 data EnableKeyResponse =
-    EnableKeyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  EnableKeyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableKeyResponse' with the minimum fields required to make a request.
 --
@@ -105,4 +102,5 @@ enableKeyResponse
     :: EnableKeyResponse
 enableKeyResponse = EnableKeyResponse'
 
-instance NFData EnableKeyResponse
+
+instance NFData EnableKeyResponse where

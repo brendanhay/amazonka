@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DetachGroupPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the specified managed policy from the specified IAM group.
 --
--- A group can also have inline policies embedded with it. To delete an inline policy, use the < DeleteGroupPolicy> API. For information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+--
+-- A group can also have inline policies embedded with it. To delete an inline policy, use the 'DeleteGroupPolicy' API. For information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.DetachGroupPolicy
     (
     -- * Creating a Request
@@ -35,45 +37,40 @@ module Network.AWS.IAM.DetachGroupPolicy
     , DetachGroupPolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'detachGroupPolicy' smart constructor.
 data DetachGroupPolicy = DetachGroupPolicy'
-    { _dgpGroupName :: !Text
-    , _dgpPolicyARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgpGroupName :: !Text
+  , _dgpPolicyARN :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachGroupPolicy' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgpGroupName'
+-- * 'dgpGroupName' - The name (friendly name, not ARN) of the IAM group to detach the policy from. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'dgpPolicyARN'
+-- * 'dgpPolicyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to detach. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 detachGroupPolicy
     :: Text -- ^ 'dgpGroupName'
     -> Text -- ^ 'dgpPolicyARN'
     -> DetachGroupPolicy
 detachGroupPolicy pGroupName_ pPolicyARN_ =
-    DetachGroupPolicy'
-    { _dgpGroupName = pGroupName_
-    , _dgpPolicyARN = pPolicyARN_
-    }
+  DetachGroupPolicy' {_dgpGroupName = pGroupName_, _dgpPolicyARN = pPolicyARN_}
 
--- | The name (friendly name, not ARN) of the IAM group to detach the policy from.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+
+-- | The name (friendly name, not ARN) of the IAM group to detach the policy from. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 dgpGroupName :: Lens' DetachGroupPolicy Text
 dgpGroupName = lens _dgpGroupName (\ s a -> s{_dgpGroupName = a});
 
--- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
---
--- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
+-- | The Amazon Resource Name (ARN) of the IAM policy you want to detach. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 dgpPolicyARN :: Lens' DetachGroupPolicy Text
 dgpPolicyARN = lens _dgpPolicyARN (\ s a -> s{_dgpPolicyARN = a});
 
@@ -82,9 +79,9 @@ instance AWSRequest DetachGroupPolicy where
         request = postQuery iam
         response = receiveNull DetachGroupPolicyResponse'
 
-instance Hashable DetachGroupPolicy
+instance Hashable DetachGroupPolicy where
 
-instance NFData DetachGroupPolicy
+instance NFData DetachGroupPolicy where
 
 instance ToHeaders DetachGroupPolicy where
         toHeaders = const mempty
@@ -102,8 +99,9 @@ instance ToQuery DetachGroupPolicy where
 
 -- | /See:/ 'detachGroupPolicyResponse' smart constructor.
 data DetachGroupPolicyResponse =
-    DetachGroupPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DetachGroupPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachGroupPolicyResponse' with the minimum fields required to make a request.
 --
@@ -111,4 +109,5 @@ detachGroupPolicyResponse
     :: DetachGroupPolicyResponse
 detachGroupPolicyResponse = DetachGroupPolicyResponse'
 
-instance NFData DetachGroupPolicyResponse
+
+instance NFData DetachGroupPolicyResponse where

@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.RegisterInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers instances with a specified stack that were created outside of AWS OpsWorks.
+-- Registers instances that were created outside of AWS OpsWorks Stacks with a specified stack.
 --
--- We do not recommend using this action to register instances. The complete registration operation has two primary steps, installing the AWS OpsWorks agent on the instance and registering the instance with the stack. 'RegisterInstance' handles only the second step. You should instead use the AWS CLI 'register' command, which performs the entire registration operation. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html Registering an Instance with an AWS OpsWorks Stack>.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- Registered instances have the same requirements as instances that are created by using the 'CreateInstance' API. For example, registered instances must be running a supported Linux-based operating system, and they must have a supported instance type. For more information about requirements for instances that you want to register, see <http://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register-registering-preparer.html Preparing the Instance> .
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.RegisterInstance
     (
     -- * Creating a Request
@@ -45,68 +47,70 @@ module Network.AWS.OpsWorks.RegisterInstance
     , rirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'registerInstance' smart constructor.
 data RegisterInstance = RegisterInstance'
-    { _riPrivateIP               :: !(Maybe Text)
-    , _riHostname                :: !(Maybe Text)
-    , _riInstanceIdentity        :: !(Maybe InstanceIdentity)
-    , _riPublicIP                :: !(Maybe Text)
-    , _riRsaPublicKeyFingerprint :: !(Maybe Text)
-    , _riRsaPublicKey            :: !(Maybe Text)
-    , _riStackId                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _riPrivateIP               :: !(Maybe Text)
+  , _riHostname                :: !(Maybe Text)
+  , _riInstanceIdentity        :: !(Maybe InstanceIdentity)
+  , _riPublicIP                :: !(Maybe Text)
+  , _riRsaPublicKeyFingerprint :: !(Maybe Text)
+  , _riRsaPublicKey            :: !(Maybe Text)
+  , _riStackId                 :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterInstance' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'riPrivateIP'
+-- * 'riPrivateIP' - The instance's private IP address.
 --
--- * 'riHostname'
+-- * 'riHostname' - The instance's hostname.
 --
--- * 'riInstanceIdentity'
+-- * 'riInstanceIdentity' - An InstanceIdentity object that contains the instance's identity.
 --
--- * 'riPublicIP'
+-- * 'riPublicIP' - The instance's public IP address.
 --
--- * 'riRsaPublicKeyFingerprint'
+-- * 'riRsaPublicKeyFingerprint' - The instances public RSA key fingerprint.
 --
--- * 'riRsaPublicKey'
+-- * 'riRsaPublicKey' - The instances public RSA key. This key is used to encrypt communication between the instance and the service.
 --
--- * 'riStackId'
+-- * 'riStackId' - The ID of the stack that the instance is to be registered with.
 registerInstance
     :: Text -- ^ 'riStackId'
     -> RegisterInstance
 registerInstance pStackId_ =
-    RegisterInstance'
-    { _riPrivateIP = Nothing
-    , _riHostname = Nothing
-    , _riInstanceIdentity = Nothing
-    , _riPublicIP = Nothing
-    , _riRsaPublicKeyFingerprint = Nothing
-    , _riRsaPublicKey = Nothing
-    , _riStackId = pStackId_
-    }
+  RegisterInstance'
+  { _riPrivateIP = Nothing
+  , _riHostname = Nothing
+  , _riInstanceIdentity = Nothing
+  , _riPublicIP = Nothing
+  , _riRsaPublicKeyFingerprint = Nothing
+  , _riRsaPublicKey = Nothing
+  , _riStackId = pStackId_
+  }
 
--- | The instance\'s private IP address.
+
+-- | The instance's private IP address.
 riPrivateIP :: Lens' RegisterInstance (Maybe Text)
 riPrivateIP = lens _riPrivateIP (\ s a -> s{_riPrivateIP = a});
 
--- | The instance\'s hostname.
+-- | The instance's hostname.
 riHostname :: Lens' RegisterInstance (Maybe Text)
 riHostname = lens _riHostname (\ s a -> s{_riHostname = a});
 
--- | An InstanceIdentity object that contains the instance\'s identity.
+-- | An InstanceIdentity object that contains the instance's identity.
 riInstanceIdentity :: Lens' RegisterInstance (Maybe InstanceIdentity)
 riInstanceIdentity = lens _riInstanceIdentity (\ s a -> s{_riInstanceIdentity = a});
 
--- | The instance\'s public IP address.
+-- | The instance's public IP address.
 riPublicIP :: Lens' RegisterInstance (Maybe Text)
 riPublicIP = lens _riPublicIP (\ s a -> s{_riPublicIP = a});
 
@@ -131,9 +135,9 @@ instance AWSRequest RegisterInstance where
                  RegisterInstanceResponse' <$>
                    (x .?> "InstanceId") <*> (pure (fromEnum s)))
 
-instance Hashable RegisterInstance
+instance Hashable RegisterInstance where
 
-instance NFData RegisterInstance
+instance NFData RegisterInstance where
 
 instance ToHeaders RegisterInstance where
         toHeaders
@@ -163,36 +167,38 @@ instance ToPath RegisterInstance where
 instance ToQuery RegisterInstance where
         toQuery = const mempty
 
--- | Contains the response to a 'RegisterInstanceResult' request.
+-- | Contains the response to a @RegisterInstanceResult@ request.
+--
+--
 --
 -- /See:/ 'registerInstanceResponse' smart constructor.
 data RegisterInstanceResponse = RegisterInstanceResponse'
-    { _rirsInstanceId     :: !(Maybe Text)
-    , _rirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rirsInstanceId     :: !(Maybe Text)
+  , _rirsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterInstanceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rirsInstanceId'
+-- * 'rirsInstanceId' - The registered instance's AWS OpsWorks Stacks ID.
 --
--- * 'rirsResponseStatus'
+-- * 'rirsResponseStatus' - -- | The response status code.
 registerInstanceResponse
     :: Int -- ^ 'rirsResponseStatus'
     -> RegisterInstanceResponse
 registerInstanceResponse pResponseStatus_ =
-    RegisterInstanceResponse'
-    { _rirsInstanceId = Nothing
-    , _rirsResponseStatus = pResponseStatus_
-    }
+  RegisterInstanceResponse'
+  {_rirsInstanceId = Nothing, _rirsResponseStatus = pResponseStatus_}
 
--- | The registered instance\'s AWS OpsWorks ID.
+
+-- | The registered instance's AWS OpsWorks Stacks ID.
 rirsInstanceId :: Lens' RegisterInstanceResponse (Maybe Text)
 rirsInstanceId = lens _rirsInstanceId (\ s a -> s{_rirsInstanceId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rirsResponseStatus :: Lens' RegisterInstanceResponse Int
 rirsResponseStatus = lens _rirsResponseStatus (\ s a -> s{_rirsResponseStatus = a});
 
-instance NFData RegisterInstanceResponse
+instance NFData RegisterInstanceResponse where

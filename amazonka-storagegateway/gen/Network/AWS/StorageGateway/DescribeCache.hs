@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeCache
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the cache of a gateway. This operation is supported only for the gateway-cached volume architecture.
+-- Returns information about the cache of a gateway. This operation is only supported in the cached volume,tape and file gateway architectures.
+--
 --
 -- The response includes disk IDs that are configured as cache, and it includes the amount of cache allocated and used.
+--
 module Network.AWS.StorageGateway.DescribeCache
     (
     -- * Creating a Request
@@ -43,30 +45,29 @@ module Network.AWS.StorageGateway.DescribeCache
     , dcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'describeCache' smart constructor.
 newtype DescribeCache = DescribeCache'
-    { _dcGatewayARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcGatewayARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCache' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcGatewayARN'
+-- * 'dcGatewayARN' - Undocumented member.
 describeCache
     :: Text -- ^ 'dcGatewayARN'
     -> DescribeCache
-describeCache pGatewayARN_ =
-    DescribeCache'
-    { _dcGatewayARN = pGatewayARN_
-    }
+describeCache pGatewayARN_ = DescribeCache' {_dcGatewayARN = pGatewayARN_}
+
 
 -- | Undocumented member.
 dcGatewayARN :: Lens' DescribeCache Text
@@ -87,9 +88,9 @@ instance AWSRequest DescribeCache where
                      <*> (x .?> "CacheDirtyPercentage")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeCache
+instance Hashable DescribeCache where
 
-instance NFData DescribeCache
+instance NFData DescribeCache where
 
 instance ToHeaders DescribeCache where
         toHeaders
@@ -114,49 +115,51 @@ instance ToQuery DescribeCache where
 
 -- | /See:/ 'describeCacheResponse' smart constructor.
 data DescribeCacheResponse = DescribeCacheResponse'
-    { _dcrsGatewayARN            :: !(Maybe Text)
-    , _dcrsDiskIds               :: !(Maybe [Text])
-    , _dcrsCacheUsedPercentage   :: !(Maybe Double)
-    , _dcrsCacheHitPercentage    :: !(Maybe Double)
-    , _dcrsCacheMissPercentage   :: !(Maybe Double)
-    , _dcrsCacheAllocatedInBytes :: !(Maybe Integer)
-    , _dcrsCacheDirtyPercentage  :: !(Maybe Double)
-    , _dcrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrsGatewayARN            :: !(Maybe Text)
+  , _dcrsDiskIds               :: !(Maybe [Text])
+  , _dcrsCacheUsedPercentage   :: !(Maybe Double)
+  , _dcrsCacheHitPercentage    :: !(Maybe Double)
+  , _dcrsCacheMissPercentage   :: !(Maybe Double)
+  , _dcrsCacheAllocatedInBytes :: !(Maybe Integer)
+  , _dcrsCacheDirtyPercentage  :: !(Maybe Double)
+  , _dcrsResponseStatus        :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCacheResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrsGatewayARN'
+-- * 'dcrsGatewayARN' - Undocumented member.
 --
--- * 'dcrsDiskIds'
+-- * 'dcrsDiskIds' - Undocumented member.
 --
--- * 'dcrsCacheUsedPercentage'
+-- * 'dcrsCacheUsedPercentage' - Undocumented member.
 --
--- * 'dcrsCacheHitPercentage'
+-- * 'dcrsCacheHitPercentage' - Undocumented member.
 --
--- * 'dcrsCacheMissPercentage'
+-- * 'dcrsCacheMissPercentage' - Undocumented member.
 --
--- * 'dcrsCacheAllocatedInBytes'
+-- * 'dcrsCacheAllocatedInBytes' - Undocumented member.
 --
--- * 'dcrsCacheDirtyPercentage'
+-- * 'dcrsCacheDirtyPercentage' - Undocumented member.
 --
--- * 'dcrsResponseStatus'
+-- * 'dcrsResponseStatus' - -- | The response status code.
 describeCacheResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeCacheResponse
 describeCacheResponse pResponseStatus_ =
-    DescribeCacheResponse'
-    { _dcrsGatewayARN = Nothing
-    , _dcrsDiskIds = Nothing
-    , _dcrsCacheUsedPercentage = Nothing
-    , _dcrsCacheHitPercentage = Nothing
-    , _dcrsCacheMissPercentage = Nothing
-    , _dcrsCacheAllocatedInBytes = Nothing
-    , _dcrsCacheDirtyPercentage = Nothing
-    , _dcrsResponseStatus = pResponseStatus_
-    }
+  DescribeCacheResponse'
+  { _dcrsGatewayARN = Nothing
+  , _dcrsDiskIds = Nothing
+  , _dcrsCacheUsedPercentage = Nothing
+  , _dcrsCacheHitPercentage = Nothing
+  , _dcrsCacheMissPercentage = Nothing
+  , _dcrsCacheAllocatedInBytes = Nothing
+  , _dcrsCacheDirtyPercentage = Nothing
+  , _dcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 dcrsGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
@@ -186,8 +189,8 @@ dcrsCacheAllocatedInBytes = lens _dcrsCacheAllocatedInBytes (\ s a -> s{_dcrsCac
 dcrsCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
 dcrsCacheDirtyPercentage = lens _dcrsCacheDirtyPercentage (\ s a -> s{_dcrsCacheDirtyPercentage = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeCacheResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 
-instance NFData DescribeCacheResponse
+instance NFData DescribeCacheResponse where

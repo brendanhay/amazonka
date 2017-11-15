@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetDevice
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a unique device type.
+--
+--
 module Network.AWS.DeviceFarm.GetDevice
     (
     -- * Creating a Request
@@ -35,34 +37,35 @@ module Network.AWS.DeviceFarm.GetDevice
     , gdrsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the get device request.
 --
+--
+--
 -- /See:/ 'getDevice' smart constructor.
 newtype GetDevice = GetDevice'
-    { _gdArn :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdArn :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDevice' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdArn'
+-- * 'gdArn' - The device type's ARN.
 getDevice
     :: Text -- ^ 'gdArn'
     -> GetDevice
-getDevice pArn_ =
-    GetDevice'
-    { _gdArn = pArn_
-    }
+getDevice pArn_ = GetDevice' {_gdArn = pArn_}
 
--- | The device type\'s ARN.
+
+-- | The device type's ARN.
 gdArn :: Lens' GetDevice Text
 gdArn = lens _gdArn (\ s a -> s{_gdArn = a});
 
@@ -75,9 +78,9 @@ instance AWSRequest GetDevice where
                  GetDeviceResponse' <$>
                    (x .?> "device") <*> (pure (fromEnum s)))
 
-instance Hashable GetDevice
+instance Hashable GetDevice where
 
-instance NFData GetDevice
+instance NFData GetDevice where
 
 instance ToHeaders GetDevice where
         toHeaders
@@ -100,34 +103,36 @@ instance ToQuery GetDevice where
 
 -- | Represents the result of a get device request.
 --
+--
+--
 -- /See:/ 'getDeviceResponse' smart constructor.
 data GetDeviceResponse = GetDeviceResponse'
-    { _gdrsDevice         :: !(Maybe Device)
-    , _gdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdrsDevice         :: !(Maybe Device)
+  , _gdrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDeviceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdrsDevice'
+-- * 'gdrsDevice' - An object containing information about the requested device.
 --
--- * 'gdrsResponseStatus'
+-- * 'gdrsResponseStatus' - -- | The response status code.
 getDeviceResponse
     :: Int -- ^ 'gdrsResponseStatus'
     -> GetDeviceResponse
 getDeviceResponse pResponseStatus_ =
-    GetDeviceResponse'
-    { _gdrsDevice = Nothing
-    , _gdrsResponseStatus = pResponseStatus_
-    }
+  GetDeviceResponse'
+  {_gdrsDevice = Nothing, _gdrsResponseStatus = pResponseStatus_}
 
--- | Undocumented member.
+
+-- | An object containing information about the requested device.
 gdrsDevice :: Lens' GetDeviceResponse (Maybe Device)
 gdrsDevice = lens _gdrsDevice (\ s a -> s{_gdrsDevice = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gdrsResponseStatus :: Lens' GetDeviceResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
 
-instance NFData GetDeviceResponse
+instance NFData GetDeviceResponse where

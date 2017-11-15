@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.SetTagsForResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets tags (key and value pairs) to the assessment template that is specified by the ARN of the assessment template.
+--
+--
 module Network.AWS.Inspector.SetTagsForResource
     (
     -- * Creating a Request
@@ -33,34 +35,33 @@ module Network.AWS.Inspector.SetTagsForResource
     , SetTagsForResourceResponse
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'setTagsForResource' smart constructor.
 data SetTagsForResource = SetTagsForResource'
-    { _stfrTags        :: !(Maybe [Tag])
-    , _stfrResourceARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stfrTags        :: !(Maybe [Tag])
+  , _stfrResourceARN :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetTagsForResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'stfrTags'
+-- * 'stfrTags' - A collection of key and value pairs that you want to set to the assessment template.
 --
--- * 'stfrResourceARN'
+-- * 'stfrResourceARN' - The ARN of the assessment template that you want to set tags to.
 setTagsForResource
     :: Text -- ^ 'stfrResourceARN'
     -> SetTagsForResource
 setTagsForResource pResourceARN_ =
-    SetTagsForResource'
-    { _stfrTags = Nothing
-    , _stfrResourceARN = pResourceARN_
-    }
+  SetTagsForResource' {_stfrTags = Nothing, _stfrResourceARN = pResourceARN_}
+
 
 -- | A collection of key and value pairs that you want to set to the assessment template.
 stfrTags :: Lens' SetTagsForResource [Tag]
@@ -76,9 +77,9 @@ instance AWSRequest SetTagsForResource where
         request = postJSON inspector
         response = receiveNull SetTagsForResourceResponse'
 
-instance Hashable SetTagsForResource
+instance Hashable SetTagsForResource where
 
-instance NFData SetTagsForResource
+instance NFData SetTagsForResource where
 
 instance ToHeaders SetTagsForResource where
         toHeaders
@@ -105,8 +106,9 @@ instance ToQuery SetTagsForResource where
 
 -- | /See:/ 'setTagsForResourceResponse' smart constructor.
 data SetTagsForResourceResponse =
-    SetTagsForResourceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetTagsForResourceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetTagsForResourceResponse' with the minimum fields required to make a request.
 --
@@ -114,4 +116,5 @@ setTagsForResourceResponse
     :: SetTagsForResourceResponse
 setTagsForResourceResponse = SetTagsForResourceResponse'
 
-instance NFData SetTagsForResourceResponse
+
+instance NFData SetTagsForResourceResponse where

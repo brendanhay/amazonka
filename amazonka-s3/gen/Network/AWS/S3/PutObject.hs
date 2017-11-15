@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutObject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,6 +39,7 @@ module Network.AWS.S3.PutObject
     , poSSEKMSKeyId
     , poGrantFullControl
     , poContentEncoding
+    , poTagging
     , poContentMD5
     , poMetadata
     , poCacheControl
@@ -66,128 +67,134 @@ module Network.AWS.S3.PutObject
     , porsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putObject' smart constructor.
 data PutObject = PutObject'
-    { _poContentLength           :: !(Maybe Integer)
-    , _poExpires                 :: !(Maybe RFC822)
-    , _poGrantReadACP            :: !(Maybe Text)
-    , _poSSECustomerAlgorithm    :: !(Maybe Text)
-    , _poSSECustomerKey          :: !(Maybe (Sensitive Text))
-    , _poRequestPayer            :: !(Maybe RequestPayer)
-    , _poGrantWriteACP           :: !(Maybe Text)
-    , _poWebsiteRedirectLocation :: !(Maybe Text)
-    , _poGrantRead               :: !(Maybe Text)
-    , _poStorageClass            :: !(Maybe StorageClass)
-    , _poSSECustomerKeyMD5       :: !(Maybe Text)
-    , _poSSEKMSKeyId             :: !(Maybe (Sensitive Text))
-    , _poGrantFullControl        :: !(Maybe Text)
-    , _poContentEncoding         :: !(Maybe Text)
-    , _poContentMD5              :: !(Maybe Text)
-    , _poMetadata                :: !(Map Text Text)
-    , _poCacheControl            :: !(Maybe Text)
-    , _poContentLanguage         :: !(Maybe Text)
-    , _poACL                     :: !(Maybe ObjectCannedACL)
-    , _poContentDisposition      :: !(Maybe Text)
-    , _poServerSideEncryption    :: !(Maybe ServerSideEncryption)
-    , _poContentType             :: !(Maybe Text)
-    , _poBucket                  :: !BucketName
-    , _poKey                     :: !ObjectKey
-    , _poBody                    :: !RqBody
-    } deriving (Show,Generic)
+  { _poContentLength           :: !(Maybe Integer)
+  , _poExpires                 :: !(Maybe RFC822)
+  , _poGrantReadACP            :: !(Maybe Text)
+  , _poSSECustomerAlgorithm    :: !(Maybe Text)
+  , _poSSECustomerKey          :: !(Maybe (Sensitive Text))
+  , _poRequestPayer            :: !(Maybe RequestPayer)
+  , _poGrantWriteACP           :: !(Maybe Text)
+  , _poWebsiteRedirectLocation :: !(Maybe Text)
+  , _poGrantRead               :: !(Maybe Text)
+  , _poStorageClass            :: !(Maybe StorageClass)
+  , _poSSECustomerKeyMD5       :: !(Maybe Text)
+  , _poSSEKMSKeyId             :: !(Maybe (Sensitive Text))
+  , _poGrantFullControl        :: !(Maybe Text)
+  , _poContentEncoding         :: !(Maybe Text)
+  , _poTagging                 :: !(Maybe Text)
+  , _poContentMD5              :: !(Maybe Text)
+  , _poMetadata                :: !(Map Text Text)
+  , _poCacheControl            :: !(Maybe Text)
+  , _poContentLanguage         :: !(Maybe Text)
+  , _poACL                     :: !(Maybe ObjectCannedACL)
+  , _poContentDisposition      :: !(Maybe Text)
+  , _poServerSideEncryption    :: !(Maybe ServerSideEncryption)
+  , _poContentType             :: !(Maybe Text)
+  , _poBucket                  :: !BucketName
+  , _poKey                     :: !ObjectKey
+  , _poBody                    :: !RqBody
+  } deriving (Show, Generic)
+
 
 -- | Creates a value of 'PutObject' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'poContentLength'
+-- * 'poContentLength' - Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
 --
--- * 'poExpires'
+-- * 'poExpires' - The date and time at which the object is no longer cacheable.
 --
--- * 'poGrantReadACP'
+-- * 'poGrantReadACP' - Allows grantee to read the object ACL.
 --
--- * 'poSSECustomerAlgorithm'
+-- * 'poSSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (e.g., AES256).
 --
--- * 'poSSECustomerKey'
+-- * 'poSSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.
 --
--- * 'poRequestPayer'
+-- * 'poRequestPayer' - Undocumented member.
 --
--- * 'poGrantWriteACP'
+-- * 'poGrantWriteACP' - Allows grantee to write the ACL for the applicable object.
 --
--- * 'poWebsiteRedirectLocation'
+-- * 'poWebsiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
 --
--- * 'poGrantRead'
+-- * 'poGrantRead' - Allows grantee to read the object data and its metadata.
 --
--- * 'poStorageClass'
+-- * 'poStorageClass' - The type of storage to use for the object. Defaults to 'STANDARD'.
 --
--- * 'poSSECustomerKeyMD5'
+-- * 'poSSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
 --
--- * 'poSSEKMSKeyId'
+-- * 'poSSEKMSKeyId' - Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version
 --
--- * 'poGrantFullControl'
+-- * 'poGrantFullControl' - Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
 --
--- * 'poContentEncoding'
+-- * 'poContentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 --
--- * 'poContentMD5'
+-- * 'poTagging' - The tag-set for the object. The tag-set must be encoded as URL Query parameters
 --
--- * 'poMetadata'
+-- * 'poContentMD5' - The base64-encoded 128-bit MD5 digest of the part data.
 --
--- * 'poCacheControl'
+-- * 'poMetadata' - A map of metadata to store with the object in S3.
 --
--- * 'poContentLanguage'
+-- * 'poCacheControl' - Specifies caching behavior along the request/reply chain.
 --
--- * 'poACL'
+-- * 'poContentLanguage' - The language the content is in.
 --
--- * 'poContentDisposition'
+-- * 'poACL' - The canned ACL to apply to the object.
 --
--- * 'poServerSideEncryption'
+-- * 'poContentDisposition' - Specifies presentational information for the object.
 --
--- * 'poContentType'
+-- * 'poServerSideEncryption' - The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 --
--- * 'poBucket'
+-- * 'poContentType' - A standard MIME type describing the format of the object data.
 --
--- * 'poKey'
+-- * 'poBucket' - Name of the bucket to which the PUT operation was initiated.
 --
--- * 'poBody'
+-- * 'poKey' - Object key for which the PUT operation was initiated.
+--
+-- * 'poBody' - Object data.
 putObject
     :: BucketName -- ^ 'poBucket'
     -> ObjectKey -- ^ 'poKey'
     -> RqBody -- ^ 'poBody'
     -> PutObject
 putObject pBucket_ pKey_ pBody_ =
-    PutObject'
-    { _poContentLength = Nothing
-    , _poExpires = Nothing
-    , _poGrantReadACP = Nothing
-    , _poSSECustomerAlgorithm = Nothing
-    , _poSSECustomerKey = Nothing
-    , _poRequestPayer = Nothing
-    , _poGrantWriteACP = Nothing
-    , _poWebsiteRedirectLocation = Nothing
-    , _poGrantRead = Nothing
-    , _poStorageClass = Nothing
-    , _poSSECustomerKeyMD5 = Nothing
-    , _poSSEKMSKeyId = Nothing
-    , _poGrantFullControl = Nothing
-    , _poContentEncoding = Nothing
-    , _poContentMD5 = Nothing
-    , _poMetadata = mempty
-    , _poCacheControl = Nothing
-    , _poContentLanguage = Nothing
-    , _poACL = Nothing
-    , _poContentDisposition = Nothing
-    , _poServerSideEncryption = Nothing
-    , _poContentType = Nothing
-    , _poBucket = pBucket_
-    , _poKey = pKey_
-    , _poBody = pBody_
-    }
+  PutObject'
+  { _poContentLength = Nothing
+  , _poExpires = Nothing
+  , _poGrantReadACP = Nothing
+  , _poSSECustomerAlgorithm = Nothing
+  , _poSSECustomerKey = Nothing
+  , _poRequestPayer = Nothing
+  , _poGrantWriteACP = Nothing
+  , _poWebsiteRedirectLocation = Nothing
+  , _poGrantRead = Nothing
+  , _poStorageClass = Nothing
+  , _poSSECustomerKeyMD5 = Nothing
+  , _poSSEKMSKeyId = Nothing
+  , _poGrantFullControl = Nothing
+  , _poContentEncoding = Nothing
+  , _poTagging = Nothing
+  , _poContentMD5 = Nothing
+  , _poMetadata = mempty
+  , _poCacheControl = Nothing
+  , _poContentLanguage = Nothing
+  , _poACL = Nothing
+  , _poContentDisposition = Nothing
+  , _poServerSideEncryption = Nothing
+  , _poContentType = Nothing
+  , _poBucket = pBucket_
+  , _poKey = pKey_
+  , _poBody = pBody_
+  }
+
 
 -- | Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
 poContentLength :: Lens' PutObject (Maybe Integer)
@@ -225,7 +232,7 @@ poWebsiteRedirectLocation = lens _poWebsiteRedirectLocation (\ s a -> s{_poWebsi
 poGrantRead :: Lens' PutObject (Maybe Text)
 poGrantRead = lens _poGrantRead (\ s a -> s{_poGrantRead = a});
 
--- | The type of storage to use for the object. Defaults to \'STANDARD\'.
+-- | The type of storage to use for the object. Defaults to 'STANDARD'.
 poStorageClass :: Lens' PutObject (Maybe StorageClass)
 poStorageClass = lens _poStorageClass (\ s a -> s{_poStorageClass = a});
 
@@ -233,7 +240,7 @@ poStorageClass = lens _poStorageClass (\ s a -> s{_poStorageClass = a});
 poSSECustomerKeyMD5 :: Lens' PutObject (Maybe Text)
 poSSECustomerKeyMD5 = lens _poSSECustomerKeyMD5 (\ s a -> s{_poSSECustomerKeyMD5 = a});
 
--- | Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/UsingAWSSDK.html#specify-signature-version
+-- | Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version
 poSSEKMSKeyId :: Lens' PutObject (Maybe Text)
 poSSEKMSKeyId = lens _poSSEKMSKeyId (\ s a -> s{_poSSEKMSKeyId = a}) . mapping _Sensitive;
 
@@ -245,6 +252,10 @@ poGrantFullControl = lens _poGrantFullControl (\ s a -> s{_poGrantFullControl = 
 poContentEncoding :: Lens' PutObject (Maybe Text)
 poContentEncoding = lens _poContentEncoding (\ s a -> s{_poContentEncoding = a});
 
+-- | The tag-set for the object. The tag-set must be encoded as URL Query parameters
+poTagging :: Lens' PutObject (Maybe Text)
+poTagging = lens _poTagging (\ s a -> s{_poTagging = a});
+
 -- | The base64-encoded 128-bit MD5 digest of the part data.
 poContentMD5 :: Lens' PutObject (Maybe Text)
 poContentMD5 = lens _poContentMD5 (\ s a -> s{_poContentMD5 = a});
@@ -253,7 +264,7 @@ poContentMD5 = lens _poContentMD5 (\ s a -> s{_poContentMD5 = a});
 poMetadata :: Lens' PutObject (HashMap Text Text)
 poMetadata = lens _poMetadata (\ s a -> s{_poMetadata = a}) . _Map;
 
--- | Specifies caching behavior along the request\/reply chain.
+-- | Specifies caching behavior along the request/reply chain.
 poCacheControl :: Lens' PutObject (Maybe Text)
 poCacheControl = lens _poCacheControl (\ s a -> s{_poCacheControl = a});
 
@@ -291,7 +302,7 @@ poBody = lens _poBody (\ s a -> s{_poBody = a});
 
 instance AWSRequest PutObject where
         type Rs PutObject = PutObjectResponse
-        request = putBody s3
+        request = expectHeader . putBody s3
         response
           = receiveEmpty
               (\ s h x ->
@@ -335,6 +346,7 @@ instance ToHeaders PutObject where
                  _poSSEKMSKeyId,
                "x-amz-grant-full-control" =# _poGrantFullControl,
                "Content-Encoding" =# _poContentEncoding,
+               "x-amz-tagging" =# _poTagging,
                "Content-MD5" =# _poContentMD5,
                "x-amz-meta-" =# _poMetadata,
                "Cache-Control" =# _poCacheControl,
@@ -354,53 +366,55 @@ instance ToQuery PutObject where
 
 -- | /See:/ 'putObjectResponse' smart constructor.
 data PutObjectResponse = PutObjectResponse'
-    { _porsRequestCharged       :: !(Maybe RequestCharged)
-    , _porsETag                 :: !(Maybe ETag)
-    , _porsVersionId            :: !(Maybe ObjectVersionId)
-    , _porsExpiration           :: !(Maybe Text)
-    , _porsSSECustomerAlgorithm :: !(Maybe Text)
-    , _porsSSECustomerKeyMD5    :: !(Maybe Text)
-    , _porsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
-    , _porsServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _porsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _porsRequestCharged       :: !(Maybe RequestCharged)
+  , _porsETag                 :: !(Maybe ETag)
+  , _porsVersionId            :: !(Maybe ObjectVersionId)
+  , _porsExpiration           :: !(Maybe Text)
+  , _porsSSECustomerAlgorithm :: !(Maybe Text)
+  , _porsSSECustomerKeyMD5    :: !(Maybe Text)
+  , _porsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+  , _porsServerSideEncryption :: !(Maybe ServerSideEncryption)
+  , _porsResponseStatus       :: !Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutObjectResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'porsRequestCharged'
+-- * 'porsRequestCharged' - Undocumented member.
 --
--- * 'porsETag'
+-- * 'porsETag' - Entity tag for the uploaded object.
 --
--- * 'porsVersionId'
+-- * 'porsVersionId' - Version of the object.
 --
--- * 'porsExpiration'
+-- * 'porsExpiration' - If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
 --
--- * 'porsSSECustomerAlgorithm'
+-- * 'porsSSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
 --
--- * 'porsSSECustomerKeyMD5'
+-- * 'porsSSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
 --
--- * 'porsSSEKMSKeyId'
+-- * 'porsSSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
 --
--- * 'porsServerSideEncryption'
+-- * 'porsServerSideEncryption' - The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 --
--- * 'porsResponseStatus'
+-- * 'porsResponseStatus' - -- | The response status code.
 putObjectResponse
     :: Int -- ^ 'porsResponseStatus'
     -> PutObjectResponse
 putObjectResponse pResponseStatus_ =
-    PutObjectResponse'
-    { _porsRequestCharged = Nothing
-    , _porsETag = Nothing
-    , _porsVersionId = Nothing
-    , _porsExpiration = Nothing
-    , _porsSSECustomerAlgorithm = Nothing
-    , _porsSSECustomerKeyMD5 = Nothing
-    , _porsSSEKMSKeyId = Nothing
-    , _porsServerSideEncryption = Nothing
-    , _porsResponseStatus = pResponseStatus_
-    }
+  PutObjectResponse'
+  { _porsRequestCharged = Nothing
+  , _porsETag = Nothing
+  , _porsVersionId = Nothing
+  , _porsExpiration = Nothing
+  , _porsSSECustomerAlgorithm = Nothing
+  , _porsSSECustomerKeyMD5 = Nothing
+  , _porsSSEKMSKeyId = Nothing
+  , _porsServerSideEncryption = Nothing
+  , _porsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 porsRequestCharged :: Lens' PutObjectResponse (Maybe RequestCharged)
@@ -434,8 +448,8 @@ porsSSEKMSKeyId = lens _porsSSEKMSKeyId (\ s a -> s{_porsSSEKMSKeyId = a}) . map
 porsServerSideEncryption :: Lens' PutObjectResponse (Maybe ServerSideEncryption)
 porsServerSideEncryption = lens _porsServerSideEncryption (\ s a -> s{_porsServerSideEncryption = a});
 
--- | The response status code.
+-- | -- | The response status code.
 porsResponseStatus :: Lens' PutObjectResponse Int
 porsResponseStatus = lens _porsResponseStatus (\ s a -> s{_porsResponseStatus = a});
 
-instance NFData PutObjectResponse
+instance NFData PutObjectResponse where

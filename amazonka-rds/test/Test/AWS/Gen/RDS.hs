@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.RDS
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.RDS where
 
 import Data.Proxy
+import Network.AWS.RDS
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.Tasty
-import Network.AWS.RDS
 import Test.AWS.RDS.Internal
+import Test.Tasty
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -36,6 +36,9 @@ import Test.AWS.RDS.Internal
 --
 --         , requestDescribeDBEngineVersions $
 --             describeDBEngineVersions
+--
+--         , requestStopDBInstance $
+--             stopDBInstance
 --
 --         , requestCopyDBSnapshot $
 --             copyDBSnapshot
@@ -151,6 +154,9 @@ import Test.AWS.RDS.Internal
 --         , requestDeleteDBClusterSnapshot $
 --             deleteDBClusterSnapshot
 --
+--         , requestDescribeValidDBInstanceModifications $
+--             describeValidDBInstanceModifications
+--
 --         , requestDescribeOptionGroupOptions $
 --             describeOptionGroupOptions
 --
@@ -190,6 +196,9 @@ import Test.AWS.RDS.Internal
 --         , requestDescribeEventCategories $
 --             describeEventCategories
 --
+--         , requestStartDBInstance $
+--             startDBInstance
+--
 --         , requestModifyDBClusterParameterGroup $
 --             modifyDBClusterParameterGroup
 --
@@ -199,8 +208,14 @@ import Test.AWS.RDS.Internal
 --         , requestDescribeDBClusterSnapshotAttributes $
 --             describeDBClusterSnapshotAttributes
 --
+--         , requestModifyDBSnapshot $
+--             modifyDBSnapshot
+--
 --         , requestDescribePendingMaintenanceActions $
 --             describePendingMaintenanceActions
+--
+--         , requestAddRoleToDBCluster $
+--             addRoleToDBCluster
 --
 --         , requestCopyDBClusterSnapshot $
 --             copyDBClusterSnapshot
@@ -210,6 +225,9 @@ import Test.AWS.RDS.Internal
 --
 --         , requestCreateDBCluster $
 --             createDBCluster
+--
+--         , requestRemoveRoleFromDBCluster $
+--             removeRoleFromDBCluster
 --
 --         , requestFailoverDBCluster $
 --             failoverDBCluster
@@ -291,6 +309,9 @@ import Test.AWS.RDS.Internal
 --
 --         , responseDescribeDBEngineVersions $
 --             describeDBEngineVersionsResponse
+--
+--         , responseStopDBInstance $
+--             stopDBInstanceResponse
 --
 --         , responseCopyDBSnapshot $
 --             copyDBSnapshotResponse
@@ -406,6 +427,9 @@ import Test.AWS.RDS.Internal
 --         , responseDeleteDBClusterSnapshot $
 --             deleteDBClusterSnapshotResponse
 --
+--         , responseDescribeValidDBInstanceModifications $
+--             describeValidDBInstanceModificationsResponse
+--
 --         , responseDescribeOptionGroupOptions $
 --             describeOptionGroupOptionsResponse
 --
@@ -445,6 +469,9 @@ import Test.AWS.RDS.Internal
 --         , responseDescribeEventCategories $
 --             describeEventCategoriesResponse
 --
+--         , responseStartDBInstance $
+--             startDBInstanceResponse
+--
 --         , responseModifyDBClusterParameterGroup $
 --             dbClusterParameterGroupNameMessage
 --
@@ -454,8 +481,14 @@ import Test.AWS.RDS.Internal
 --         , responseDescribeDBClusterSnapshotAttributes $
 --             describeDBClusterSnapshotAttributesResponse
 --
+--         , responseModifyDBSnapshot $
+--             modifyDBSnapshotResponse
+--
 --         , responseDescribePendingMaintenanceActions $
 --             describePendingMaintenanceActionsResponse
+--
+--         , responseAddRoleToDBCluster $
+--             addRoleToDBClusterResponse
 --
 --         , responseCopyDBClusterSnapshot $
 --             copyDBClusterSnapshotResponse
@@ -465,6 +498,9 @@ import Test.AWS.RDS.Internal
 --
 --         , responseCreateDBCluster $
 --             createDBClusterResponse
+--
+--         , responseRemoveRoleFromDBCluster $
+--             removeRoleFromDBClusterResponse
 --
 --         , responseFailoverDBCluster $
 --             failoverDBClusterResponse
@@ -554,6 +590,11 @@ requestDescribeDBEngineVersions :: DescribeDBEngineVersions -> TestTree
 requestDescribeDBEngineVersions = req
     "DescribeDBEngineVersions"
     "fixture/DescribeDBEngineVersions.yaml"
+
+requestStopDBInstance :: StopDBInstance -> TestTree
+requestStopDBInstance = req
+    "StopDBInstance"
+    "fixture/StopDBInstance.yaml"
 
 requestCopyDBSnapshot :: CopyDBSnapshot -> TestTree
 requestCopyDBSnapshot = req
@@ -745,6 +786,11 @@ requestDeleteDBClusterSnapshot = req
     "DeleteDBClusterSnapshot"
     "fixture/DeleteDBClusterSnapshot.yaml"
 
+requestDescribeValidDBInstanceModifications :: DescribeValidDBInstanceModifications -> TestTree
+requestDescribeValidDBInstanceModifications = req
+    "DescribeValidDBInstanceModifications"
+    "fixture/DescribeValidDBInstanceModifications.yaml"
+
 requestDescribeOptionGroupOptions :: DescribeOptionGroupOptions -> TestTree
 requestDescribeOptionGroupOptions = req
     "DescribeOptionGroupOptions"
@@ -810,6 +856,11 @@ requestDescribeEventCategories = req
     "DescribeEventCategories"
     "fixture/DescribeEventCategories.yaml"
 
+requestStartDBInstance :: StartDBInstance -> TestTree
+requestStartDBInstance = req
+    "StartDBInstance"
+    "fixture/StartDBInstance.yaml"
+
 requestModifyDBClusterParameterGroup :: ModifyDBClusterParameterGroup -> TestTree
 requestModifyDBClusterParameterGroup = req
     "ModifyDBClusterParameterGroup"
@@ -825,10 +876,20 @@ requestDescribeDBClusterSnapshotAttributes = req
     "DescribeDBClusterSnapshotAttributes"
     "fixture/DescribeDBClusterSnapshotAttributes.yaml"
 
+requestModifyDBSnapshot :: ModifyDBSnapshot -> TestTree
+requestModifyDBSnapshot = req
+    "ModifyDBSnapshot"
+    "fixture/ModifyDBSnapshot.yaml"
+
 requestDescribePendingMaintenanceActions :: DescribePendingMaintenanceActions -> TestTree
 requestDescribePendingMaintenanceActions = req
     "DescribePendingMaintenanceActions"
     "fixture/DescribePendingMaintenanceActions.yaml"
+
+requestAddRoleToDBCluster :: AddRoleToDBCluster -> TestTree
+requestAddRoleToDBCluster = req
+    "AddRoleToDBCluster"
+    "fixture/AddRoleToDBCluster.yaml"
 
 requestCopyDBClusterSnapshot :: CopyDBClusterSnapshot -> TestTree
 requestCopyDBClusterSnapshot = req
@@ -844,6 +905,11 @@ requestCreateDBCluster :: CreateDBCluster -> TestTree
 requestCreateDBCluster = req
     "CreateDBCluster"
     "fixture/CreateDBCluster.yaml"
+
+requestRemoveRoleFromDBCluster :: RemoveRoleFromDBCluster -> TestTree
+requestRemoveRoleFromDBCluster = req
+    "RemoveRoleFromDBCluster"
+    "fixture/RemoveRoleFromDBCluster.yaml"
 
 requestFailoverDBCluster :: FailoverDBCluster -> TestTree
 requestFailoverDBCluster = req
@@ -982,6 +1048,13 @@ responseDescribeDBEngineVersions = res
     "fixture/DescribeDBEngineVersionsResponse.proto"
     rds
     (Proxy :: Proxy DescribeDBEngineVersions)
+
+responseStopDBInstance :: StopDBInstanceResponse -> TestTree
+responseStopDBInstance = res
+    "StopDBInstanceResponse"
+    "fixture/StopDBInstanceResponse.proto"
+    rds
+    (Proxy :: Proxy StopDBInstance)
 
 responseCopyDBSnapshot :: CopyDBSnapshotResponse -> TestTree
 responseCopyDBSnapshot = res
@@ -1249,6 +1322,13 @@ responseDeleteDBClusterSnapshot = res
     rds
     (Proxy :: Proxy DeleteDBClusterSnapshot)
 
+responseDescribeValidDBInstanceModifications :: DescribeValidDBInstanceModificationsResponse -> TestTree
+responseDescribeValidDBInstanceModifications = res
+    "DescribeValidDBInstanceModificationsResponse"
+    "fixture/DescribeValidDBInstanceModificationsResponse.proto"
+    rds
+    (Proxy :: Proxy DescribeValidDBInstanceModifications)
+
 responseDescribeOptionGroupOptions :: DescribeOptionGroupOptionsResponse -> TestTree
 responseDescribeOptionGroupOptions = res
     "DescribeOptionGroupOptionsResponse"
@@ -1340,6 +1420,13 @@ responseDescribeEventCategories = res
     rds
     (Proxy :: Proxy DescribeEventCategories)
 
+responseStartDBInstance :: StartDBInstanceResponse -> TestTree
+responseStartDBInstance = res
+    "StartDBInstanceResponse"
+    "fixture/StartDBInstanceResponse.proto"
+    rds
+    (Proxy :: Proxy StartDBInstance)
+
 responseModifyDBClusterParameterGroup :: DBClusterParameterGroupNameMessage -> TestTree
 responseModifyDBClusterParameterGroup = res
     "ModifyDBClusterParameterGroupResponse"
@@ -1361,12 +1448,26 @@ responseDescribeDBClusterSnapshotAttributes = res
     rds
     (Proxy :: Proxy DescribeDBClusterSnapshotAttributes)
 
+responseModifyDBSnapshot :: ModifyDBSnapshotResponse -> TestTree
+responseModifyDBSnapshot = res
+    "ModifyDBSnapshotResponse"
+    "fixture/ModifyDBSnapshotResponse.proto"
+    rds
+    (Proxy :: Proxy ModifyDBSnapshot)
+
 responseDescribePendingMaintenanceActions :: DescribePendingMaintenanceActionsResponse -> TestTree
 responseDescribePendingMaintenanceActions = res
     "DescribePendingMaintenanceActionsResponse"
     "fixture/DescribePendingMaintenanceActionsResponse.proto"
     rds
     (Proxy :: Proxy DescribePendingMaintenanceActions)
+
+responseAddRoleToDBCluster :: AddRoleToDBClusterResponse -> TestTree
+responseAddRoleToDBCluster = res
+    "AddRoleToDBClusterResponse"
+    "fixture/AddRoleToDBClusterResponse.proto"
+    rds
+    (Proxy :: Proxy AddRoleToDBCluster)
 
 responseCopyDBClusterSnapshot :: CopyDBClusterSnapshotResponse -> TestTree
 responseCopyDBClusterSnapshot = res
@@ -1388,6 +1489,13 @@ responseCreateDBCluster = res
     "fixture/CreateDBClusterResponse.proto"
     rds
     (Proxy :: Proxy CreateDBCluster)
+
+responseRemoveRoleFromDBCluster :: RemoveRoleFromDBClusterResponse -> TestTree
+responseRemoveRoleFromDBCluster = res
+    "RemoveRoleFromDBClusterResponse"
+    "fixture/RemoveRoleFromDBClusterResponse.proto"
+    rds
+    (Proxy :: Proxy RemoveRoleFromDBCluster)
 
 responseFailoverDBCluster :: FailoverDBClusterResponse -> TestTree
 responseFailoverDBCluster = res

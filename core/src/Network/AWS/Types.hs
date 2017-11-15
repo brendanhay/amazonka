@@ -11,9 +11,9 @@
 
 -- |
 -- Module      : Network.AWS.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
@@ -25,9 +25,14 @@ module Network.AWS.Types
     , SecretKey      (..)
     , SessionToken   (..)
     -- ** Environment
-    , AuthEnv        (..)
     , Auth           (..)
     , withAuth
+
+    , AuthEnv        (..)
+    , accessKeyId
+    , secretAccessKey
+    , sessionToken
+    , expiration
 
     -- * Logging
     , LogLevel       (..)
@@ -126,11 +131,12 @@ import Control.DeepSeq
 import Control.Exception
 import Control.Monad.IO.Class
 import Control.Monad.Trans.Resource
-import Data.Aeson                   hiding (Error)
-import Data.ByteString.Builder      (Builder)
+
+import Data.Aeson              hiding (Error)
+import Data.ByteString.Builder (Builder)
 import Data.Coerce
 import Data.Conduit
-import Data.Data                    (Data, Typeable)
+import Data.Data               (Data, Typeable)
 import Data.Hashable
 import Data.IORef
 import Data.Maybe
@@ -138,25 +144,28 @@ import Data.Monoid
 import Data.Proxy
 import Data.String
 import Data.Time
-import GHC.Generics                 (Generic)
+
+import GHC.Generics (Generic)
+
 import Network.AWS.Data.Body
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.JSON
 import Network.AWS.Data.Log
 import Network.AWS.Data.Path
 import Network.AWS.Data.Query
+import Network.AWS.Data.Sensitive  (Sensitive, _Sensitive)
 import Network.AWS.Data.Text
+import Network.AWS.Data.Time       (ISO8601, _Time)
 import Network.AWS.Data.XML
-import Network.AWS.Lens             (Iso', Lens', Prism', Setter')
-import Network.AWS.Lens             (exception, iso, lens, prism, sets)
-import Network.HTTP.Conduit         hiding (Proxy, Request, Response)
+import Network.AWS.Lens            (Iso', Lens', Prism', Setter')
+import Network.AWS.Lens            (exception, iso, lens, mapping, prism, sets,
+                                    view)
+import Network.HTTP.Conduit        hiding (Proxy, Request, Response)
 import Network.HTTP.Types.Header
 import Network.HTTP.Types.Method
-import Network.HTTP.Types.Status    (Status)
+import Network.HTTP.Types.Status   (Status)
 
-import qualified Data.ByteString      as BS
 import qualified Data.Text            as Text
-import qualified Data.Text.Encoding   as Text
 import qualified Network.HTTP.Conduit as Client
 
 -- | A convenience alias to avoid type ambiguity.
@@ -502,49 +511,134 @@ class AWSRequest a where
              -> ClientResponse
              -> m (Response a)
 
--- | Access key credential.
+-- | An access key ID.
+--
+-- For example: @AKIAIOSFODNN7EXAMPLE@
+--
+-- /See:/ <http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html Understanding and Getting Your Security Credentials>.
 newtype AccessKey = AccessKey ByteString
-    deriving (Eq, Show, IsString, ToText, ToByteString, ToLog)
+    deriving
+        ( Eq
+        , Show
+        , Read
+        , Data
+        , Typeable
+        , IsString
+        , ToText
+        , FromText
+        , ToByteString
+        , ToLog
+        , FromXML
+        , ToXML
+        , ToQuery
+        , Hashable
+        , NFData
+        )
 
--- | Secret key credential.
+instance ToJSON   AccessKey where toJSON    = toJSONText
+instance FromJSON AccessKey where parseJSON = parseJSONText "AccessKey"
+
+-- | Secret access key credential.
+--
+-- For example: @wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKE@
+--
+-- /See:/ <http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html Understanding and Getting Your Security Credentials>.
 newtype SecretKey = SecretKey ByteString
-    deriving (Eq, IsString, ToText, ToByteString)
+    deriving
+        ( Eq
+        , Data
+        , Typeable
+        , IsString
+        , ToText
+        , FromText
+        , ToByteString
+        , FromXML
+        , ToXML
+        , Hashable
+        , NFData
+        )
+
+instance ToJSON   SecretKey where toJSON    = toJSONText
+instance FromJSON SecretKey where parseJSON = parseJSONText "SecretKey"
 
 -- | A session token used by STS to temporarily authorise access to
 -- an AWS resource.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html Temporary Security Credentials>.
 newtype SessionToken = SessionToken ByteString
-    deriving (Eq, IsString, ToText, ToByteString)
+    deriving
+        ( Eq
+        , Data
+        , Typeable
+        , IsString
+        , ToText
+        , FromText
+        , ToByteString
+        , FromXML
+        , ToXML
+        , Hashable
+        , NFData
+        )
 
--- | The authorisation environment.
+instance ToJSON   SessionToken where toJSON    = toJSONText
+instance FromJSON SessionToken where parseJSON = parseJSONText "SessionToken"
+
+-- | The AuthN/AuthZ credential environment.
 data AuthEnv = AuthEnv
     { _authAccess :: !AccessKey
-    , _authSecret :: !SecretKey
-    , _authToken  :: Maybe SessionToken
-    , _authExpiry :: Maybe UTCTime
-    }
+    , _authSecret :: !(Sensitive SecretKey)
+    , _authToken  :: Maybe (Sensitive SessionToken)
+    , _authExpiry :: Maybe ISO8601
+    } deriving (Eq, Show, Data, Typeable, Generic)
+
+instance NFData AuthEnv
 
 instance ToLog AuthEnv where
     build AuthEnv{..} = buildLines
         [ "[Amazonka Auth] {"
-        , "  access key     = ****" <> key _authAccess
-        , "  secret key     = ****"
-        , "  security token = " <> build (const "****" <$> _authToken :: Maybe Builder)
-        , "  expiry         = " <> build _authExpiry
+        , "  access key id     = " <> build _authAccess
+        , "  secret access key = " <> build _authSecret
+        , "  session token     = " <> build _authToken
+        , "  expiration        = " <> build (fmap (view _Time) _authExpiry)
         , "}"
         ]
-      where
-        -- An attempt to preserve sanity when debugging which keys
-        -- have been loaded by the auth module.
-        key (AccessKey k) = build . BS.reverse . BS.take 6 $ BS.reverse k
 
 instance FromJSON AuthEnv where
     parseJSON = withObject "AuthEnv" $ \o -> AuthEnv
-        <$> f AccessKey (o .: "AccessKeyId")
-        <*> f SecretKey (o .: "SecretAccessKey")
-        <*> fmap (f SessionToken) (o .:? "Token")
+        <$> o .:  "AccessKeyId"
+        <*> o .:  "SecretAccessKey"
+        <*> o .:? "Token"
         <*> o .:? "Expiration"
-      where
-        f g = fmap (g . Text.encodeUtf8)
+
+instance FromXML AuthEnv where
+    parseXML x = AuthEnv
+        <$> x .@  "AccessKeyId"
+        <*> x .@  "SecretAccessKey"
+        <*> x .@? "SessionToken"
+        <*> x .@? "Expiration"
+
+-- | The access key ID that identifies the temporary security credentials.
+accessKeyId :: Lens' AuthEnv AccessKey
+accessKeyId = lens _authAccess (\s a -> s{ _authAccess = a })
+
+-- | The secret access key that can be used to sign requests.
+secretAccessKey :: Lens' AuthEnv SecretKey
+secretAccessKey =
+    lens _authSecret (\s a -> s { _authSecret = a })
+        . _Sensitive
+
+-- | The token that users must pass to the service API to use the temporary
+-- credentials.
+sessionToken :: Lens' AuthEnv (Maybe SessionToken)
+sessionToken =
+    lens _authToken (\s a -> s { _authToken = a })
+        . mapping _Sensitive
+
+-- | The date on which the current credentials expire.
+expiration :: Lens' AuthEnv (Maybe UTCTime)
+expiration =
+    lens _authExpiry (\s a -> s { _authExpiry = a })
+        . mapping _Time
 
 -- | An authorisation environment containing AWS credentials, and potentially
 -- a reference which can be refreshed out-of-band as temporary credentials expire.
@@ -560,58 +654,71 @@ withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a
 withAuth (Ref _ r) f = liftIO (readIORef r) >>= f
 withAuth (Auth  e) f = f e
 
--- | The sum of available AWS regions.
+-- | The available AWS regions.
 data Region
-    = Ireland         -- ^ Europe / eu-west-1
-    | Frankfurt       -- ^ Europe / eu-central-1
-    | Tokyo           -- ^ Asia Pacific / ap-northeast-1
-    | Singapore       -- ^ Asia Pacific / ap-southeast-1
-    | Sydney          -- ^ Asia Pacific / ap-southeast-2
-    | Bombay          -- ^ Asia Pacific / ap-south-1
-    | Beijing         -- ^ China / cn-north-1
-    | NorthVirginia   -- ^ US / us-east-1
-    | NorthCalifornia -- ^ US / us-west-1
-    | Oregon          -- ^ US / us-west-2
-    | GovCloud        -- ^ AWS GovCloud / us-gov-west-1
-    | GovCloudFIPS    -- ^ AWS GovCloud (FIPS 140-2) S3 Only / fips-us-gov-west-1
-    | SaoPaulo        -- ^ South America / sa-east-1
-      deriving (Eq, Ord, Read, Show, Data, Typeable, Generic)
+    = NorthVirginia   -- ^ US East ('us-east-1').
+    | Ohio            -- ^ US East ('us-east-2').
+    | NorthCalifornia -- ^ US West ('us-west-1').
+    | Oregon          -- ^ US West ('us-west-2').
+    | Montreal        -- ^ Canada ('ca-central-1').
+    | Tokyo           -- ^ Asia Pacific ('ap-northeast-1').
+    | Seoul           -- ^ Asia Pacific ('ap-northeast-2').
+    | Mumbai          -- ^ Asia Pacific ('ap-south-1').
+    | Singapore       -- ^ Asia Pacific ('ap-southeast-1').
+    | Sydney          -- ^ Asia Pacific ('ap-southeast-2').
+    | SaoPaulo        -- ^ South America ('sa-east-1').
+    | Ireland         -- ^ EU ('eu-west-1').
+    | London          -- ^ EU ('eu-west-2').
+    | Frankfurt       -- ^ EU ('eu-central-1').
+    | GovCloud        -- ^ US GovCloud ('us-gov-west-1').
+    | GovCloudFIPS    -- ^ US GovCloud FIPS (S3 Only, 'fips-us-gov-west-1').
+    | Beijing         -- ^ China ('cn-north-1').
+      deriving (Eq, Ord, Read, Enum, Bounded, Show, Data, Typeable, Generic)
 
 instance Hashable Region
 instance NFData   Region
 
 instance FromText Region where
     parser = takeLowerText >>= \case
-        "eu-west-1"          -> pure Ireland
-        "eu-central-1"       -> pure Frankfurt
+        "us-east-1"          -> pure NorthVirginia
+        "us-east-2"          -> pure Ohio
+        "us-west-1"          -> pure NorthCalifornia
+        "us-west-2"          -> pure Oregon
+        "ca-central-1"       -> pure Montreal
         "ap-northeast-1"     -> pure Tokyo
+        "ap-northeast-2"     -> pure Seoul
+        "ap-south-1"         -> pure Mumbai
         "ap-southeast-1"     -> pure Singapore
         "ap-southeast-2"     -> pure Sydney
-        "ap-south-1"         -> pure Bombay
-        "cn-north-1"         -> pure Beijing
-        "us-east-1"          -> pure NorthVirginia
-        "us-west-2"          -> pure Oregon
-        "us-west-1"          -> pure NorthCalifornia
+        "sa-east-1"          -> pure SaoPaulo
+        "eu-west-1"          -> pure Ireland
+        "eu-west-2"          -> pure London
+        "eu-central-1"       -> pure Frankfurt
         "us-gov-west-1"      -> pure GovCloud
         "fips-us-gov-west-1" -> pure GovCloudFIPS
-        "sa-east-1"          -> pure SaoPaulo
-        e                    -> fromTextError $ "Failure parsing Region from " <> e
+        "cn-north-1"         -> pure Beijing
+        e                    ->
+            fromTextError $ "Failure parsing Region from " <> e
 
 instance ToText Region where
     toText = \case
-        Ireland         -> "eu-west-1"
-        Frankfurt       -> "eu-central-1"
-        Tokyo           -> "ap-northeast-1"
-        Singapore       -> "ap-southeast-1"
-        Sydney          -> "ap-southeast-2"
-        Bombay          -> "ap-south-1"
-        Beijing         -> "cn-north-1"
         NorthVirginia   -> "us-east-1"
+        Ohio            -> "us-east-2"
         NorthCalifornia -> "us-west-1"
         Oregon          -> "us-west-2"
+        Montreal        -> "ca-central-1"
+        Tokyo           -> "ap-northeast-1"
+        Seoul           -> "ap-northeast-2"
+        Mumbai          -> "ap-south-1"
+        Singapore       -> "ap-southeast-1"
+        Sydney          -> "ap-southeast-2"
+        SaoPaulo        -> "sa-east-1"
+        Ireland         -> "eu-west-1"
+        London          -> "eu-west-2"
+        Frankfurt       -> "eu-central-1"
         GovCloud        -> "us-gov-west-1"
         GovCloudFIPS    -> "fips-us-gov-west-1"
-        SaoPaulo        -> "sa-east-1"
+        Beijing         -> "cn-north-1"
 
 instance ToByteString Region
 

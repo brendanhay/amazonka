@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DetachNetworkInterface
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Detaches a network interface from an instance.
+--
+--
 module Network.AWS.EC2.DetachNetworkInterface
     (
     -- * Creating a Request
@@ -34,46 +36,47 @@ module Network.AWS.EC2.DetachNetworkInterface
     , DetachNetworkInterfaceResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DetachNetworkInterface.
 --
+--
+--
 -- /See:/ 'detachNetworkInterface' smart constructor.
 data DetachNetworkInterface = DetachNetworkInterface'
-    { _dniForce        :: !(Maybe Bool)
-    , _dniDryRun       :: !(Maybe Bool)
-    , _dniAttachmentId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dniForce        :: !(Maybe Bool)
+  , _dniDryRun       :: !(Maybe Bool)
+  , _dniAttachmentId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachNetworkInterface' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dniForce'
+-- * 'dniForce' - Specifies whether to force a detachment.
 --
--- * 'dniDryRun'
+-- * 'dniDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dniAttachmentId'
+-- * 'dniAttachmentId' - The ID of the attachment.
 detachNetworkInterface
     :: Text -- ^ 'dniAttachmentId'
     -> DetachNetworkInterface
 detachNetworkInterface pAttachmentId_ =
-    DetachNetworkInterface'
-    { _dniForce = Nothing
-    , _dniDryRun = Nothing
-    , _dniAttachmentId = pAttachmentId_
-    }
+  DetachNetworkInterface'
+  {_dniForce = Nothing, _dniDryRun = Nothing, _dniAttachmentId = pAttachmentId_}
+
 
 -- | Specifies whether to force a detachment.
 dniForce :: Lens' DetachNetworkInterface (Maybe Bool)
 dniForce = lens _dniForce (\ s a -> s{_dniForce = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dniDryRun :: Lens' DetachNetworkInterface (Maybe Bool)
 dniDryRun = lens _dniDryRun (\ s a -> s{_dniDryRun = a});
 
@@ -88,9 +91,9 @@ instance AWSRequest DetachNetworkInterface where
         response
           = receiveNull DetachNetworkInterfaceResponse'
 
-instance Hashable DetachNetworkInterface
+instance Hashable DetachNetworkInterface where
 
-instance NFData DetachNetworkInterface
+instance NFData DetachNetworkInterface where
 
 instance ToHeaders DetachNetworkInterface where
         toHeaders = const mempty
@@ -103,14 +106,15 @@ instance ToQuery DetachNetworkInterface where
           = mconcat
               ["Action" =:
                  ("DetachNetworkInterface" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "Force" =: _dniForce, "DryRun" =: _dniDryRun,
                "AttachmentId" =: _dniAttachmentId]
 
 -- | /See:/ 'detachNetworkInterfaceResponse' smart constructor.
 data DetachNetworkInterfaceResponse =
-    DetachNetworkInterfaceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DetachNetworkInterfaceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachNetworkInterfaceResponse' with the minimum fields required to make a request.
 --
@@ -118,4 +122,5 @@ detachNetworkInterfaceResponse
     :: DetachNetworkInterfaceResponse
 detachNetworkInterfaceResponse = DetachNetworkInterfaceResponse'
 
-instance NFData DetachNetworkInterfaceResponse
+
+instance NFData DetachNetworkInterfaceResponse where

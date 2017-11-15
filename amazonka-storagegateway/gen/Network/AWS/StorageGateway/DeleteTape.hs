@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DeleteTape
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified virtual tape.
+-- Deletes the specified virtual tape. This operation is only supported in the tape gateway architecture.
+--
+--
 module Network.AWS.StorageGateway.DeleteTape
     (
     -- * Creating a Request
@@ -36,39 +38,40 @@ module Network.AWS.StorageGateway.DeleteTape
     , dtrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | DeleteTapeInput
 --
+--
+--
 -- /See:/ 'deleteTape' smart constructor.
 data DeleteTape = DeleteTape'
-    { _delGatewayARN :: !Text
-    , _delTapeARN    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delGatewayARN :: !Text
+  , _delTapeARN    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTape' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delGatewayARN'
+-- * 'delGatewayARN' - The unique Amazon Resource Name (ARN) of the gateway that the virtual tape to delete is associated with. Use the 'ListGateways' operation to return a list of gateways for your account and region.
 --
--- * 'delTapeARN'
+-- * 'delTapeARN' - The Amazon Resource Name (ARN) of the virtual tape to delete.
 deleteTape
     :: Text -- ^ 'delGatewayARN'
     -> Text -- ^ 'delTapeARN'
     -> DeleteTape
 deleteTape pGatewayARN_ pTapeARN_ =
-    DeleteTape'
-    { _delGatewayARN = pGatewayARN_
-    , _delTapeARN = pTapeARN_
-    }
+  DeleteTape' {_delGatewayARN = pGatewayARN_, _delTapeARN = pTapeARN_}
 
--- | The unique Amazon Resource Name (ARN) of the gateway that the virtual tape to delete is associated with. Use the < ListGateways> operation to return a list of gateways for your account and region.
+
+-- | The unique Amazon Resource Name (ARN) of the gateway that the virtual tape to delete is associated with. Use the 'ListGateways' operation to return a list of gateways for your account and region.
 delGatewayARN :: Lens' DeleteTape Text
 delGatewayARN = lens _delGatewayARN (\ s a -> s{_delGatewayARN = a});
 
@@ -85,9 +88,9 @@ instance AWSRequest DeleteTape where
                  DeleteTapeResponse' <$>
                    (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteTape
+instance Hashable DeleteTape where
 
-instance NFData DeleteTape
+instance NFData DeleteTape where
 
 instance ToHeaders DeleteTape where
         toHeaders
@@ -113,34 +116,36 @@ instance ToQuery DeleteTape where
 
 -- | DeleteTapeOutput
 --
+--
+--
 -- /See:/ 'deleteTapeResponse' smart constructor.
 data DeleteTapeResponse = DeleteTapeResponse'
-    { _dtrsTapeARN        :: !(Maybe Text)
-    , _dtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrsTapeARN        :: !(Maybe Text)
+  , _dtrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTapeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrsTapeARN'
+-- * 'dtrsTapeARN' - The Amazon Resource Name (ARN) of the deleted virtual tape.
 --
--- * 'dtrsResponseStatus'
+-- * 'dtrsResponseStatus' - -- | The response status code.
 deleteTapeResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DeleteTapeResponse
 deleteTapeResponse pResponseStatus_ =
-    DeleteTapeResponse'
-    { _dtrsTapeARN = Nothing
-    , _dtrsResponseStatus = pResponseStatus_
-    }
+  DeleteTapeResponse'
+  {_dtrsTapeARN = Nothing, _dtrsResponseStatus = pResponseStatus_}
+
 
 -- | The Amazon Resource Name (ARN) of the deleted virtual tape.
 dtrsTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
 dtrsTapeARN = lens _dtrsTapeARN (\ s a -> s{_dtrsTapeARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dtrsResponseStatus :: Lens' DeleteTapeResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 
-instance NFData DeleteTapeResponse
+instance NFData DeleteTapeResponse where

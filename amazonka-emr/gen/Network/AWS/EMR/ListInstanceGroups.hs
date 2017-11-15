@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ListInstanceGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides all available details about the instance groups in a cluster.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListInstanceGroups
@@ -39,37 +41,38 @@ module Network.AWS.EMR.ListInstanceGroups
     , ligrsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This input determines which instance groups to retrieve.
 --
+--
+--
 -- /See:/ 'listInstanceGroups' smart constructor.
 data ListInstanceGroups = ListInstanceGroups'
-    { _ligMarker    :: !(Maybe Text)
-    , _ligClusterId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ligMarker    :: !(Maybe Text)
+  , _ligClusterId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListInstanceGroups' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ligMarker'
+-- * 'ligMarker' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'ligClusterId'
+-- * 'ligClusterId' - The identifier of the cluster for which to list the instance groups.
 listInstanceGroups
     :: Text -- ^ 'ligClusterId'
     -> ListInstanceGroups
 listInstanceGroups pClusterId_ =
-    ListInstanceGroups'
-    { _ligMarker = Nothing
-    , _ligClusterId = pClusterId_
-    }
+  ListInstanceGroups' {_ligMarker = Nothing, _ligClusterId = pClusterId_}
+
 
 -- | The pagination token that indicates the next set of results to retrieve.
 ligMarker :: Lens' ListInstanceGroups (Maybe Text)
@@ -98,9 +101,9 @@ instance AWSRequest ListInstanceGroups where
                      (x .?> "InstanceGroups" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListInstanceGroups
+instance Hashable ListInstanceGroups where
 
-instance NFData ListInstanceGroups
+instance NFData ListInstanceGroups where
 
 instance ToHeaders ListInstanceGroups where
         toHeaders
@@ -127,31 +130,35 @@ instance ToQuery ListInstanceGroups where
 
 -- | This input determines which instance groups to retrieve.
 --
+--
+--
 -- /See:/ 'listInstanceGroupsResponse' smart constructor.
 data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
-    { _ligrsMarker         :: !(Maybe Text)
-    , _ligrsInstanceGroups :: !(Maybe [InstanceGroup])
-    , _ligrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ligrsMarker         :: !(Maybe Text)
+  , _ligrsInstanceGroups :: !(Maybe [InstanceGroup])
+  , _ligrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListInstanceGroupsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ligrsMarker'
+-- * 'ligrsMarker' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'ligrsInstanceGroups'
+-- * 'ligrsInstanceGroups' - The list of instance groups for the cluster and given filters.
 --
--- * 'ligrsResponseStatus'
+-- * 'ligrsResponseStatus' - -- | The response status code.
 listInstanceGroupsResponse
     :: Int -- ^ 'ligrsResponseStatus'
     -> ListInstanceGroupsResponse
 listInstanceGroupsResponse pResponseStatus_ =
-    ListInstanceGroupsResponse'
-    { _ligrsMarker = Nothing
-    , _ligrsInstanceGroups = Nothing
-    , _ligrsResponseStatus = pResponseStatus_
-    }
+  ListInstanceGroupsResponse'
+  { _ligrsMarker = Nothing
+  , _ligrsInstanceGroups = Nothing
+  , _ligrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The pagination token that indicates the next set of results to retrieve.
 ligrsMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
@@ -161,8 +168,8 @@ ligrsMarker = lens _ligrsMarker (\ s a -> s{_ligrsMarker = a});
 ligrsInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
 ligrsInstanceGroups = lens _ligrsInstanceGroups (\ s a -> s{_ligrsInstanceGroups = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ligrsResponseStatus :: Lens' ListInstanceGroupsResponse Int
 ligrsResponseStatus = lens _ligrsResponseStatus (\ s a -> s{_ligrsResponseStatus = a});
 
-instance NFData ListInstanceGroupsResponse
+instance NFData ListInstanceGroupsResponse where

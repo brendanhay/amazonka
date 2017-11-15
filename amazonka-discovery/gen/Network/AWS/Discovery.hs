@@ -5,157 +5,33 @@
 
 -- |
 -- Module      : Network.AWS.Discovery
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The AWS Application Discovery Service helps Systems Integrators quickly and reliably plan application migration projects by automatically identifying applications running in on-premises data centers, their associated dependencies, and their performance profile.
+-- __AWS Application Discovery Service__
 --
--- Planning data center migrations can involve thousands of workloads that are often deeply interdependent. Application discovery and dependency mapping are important early first steps in the migration process, but difficult to perform at scale due to the lack of automated tools.
+-- AWS Application Discovery Service helps you plan application migration projects by automatically identifying servers, virtual machines (VMs), software, and software dependencies running in your on-premises data centers. Application Discovery Service also collects application performance data, which can help you assess the outcome of your migration. The data collected by Application Discovery Service is securely retained in an Amazon-hosted and managed database in the cloud. You can export the data as a CSV or XML file into your preferred visualization tool or cloud-migration solution to plan your migration. For more information, see the Application Discovery Service <http://aws.amazon.com/application-discovery/faqs/ FAQ> .
 --
--- The AWS Application Discovery Service automatically collects configuration and usage data from servers to develop a list of applications, how they perform, and how they are interdependent. This information is securely retained in an AWS Application Discovery Service database which you can export as a CSV file into your preferred visualization tool or cloud migration solution to help reduce the complexity and time in planning your cloud migration.
+-- Application Discovery Service offers two modes of operation.
 --
--- The Application Discovery Service is currently available for preview. Only customers who are engaged with <https://aws.amazon.com/professional-services/ AWS Professional Services> or a certified AWS partner can use the service. To see the list of certified partners and request access to the Application Discovery Service, complete the following <http://aws.amazon.com/application-discovery/preview/ preview form>.
+--     * __Agentless discovery__ mode is recommended for environments that use VMware vCenter Server. This mode doesn't require you to install an agent on each host. Agentless discovery gathers server information regardless of the operating systems, which minimizes the time required for initial on-premises infrastructure assessment. Agentless discovery doesn't collect information about software and software dependencies. It also doesn't work in non-VMware environments. We recommend that you use agent-based discovery for non-VMware environments and if you want to collect information about software and software dependencies. You can also run agent-based and agentless discovery simultaneously. Use agentless discovery to quickly complete the initial infrastructure assessment and then install agents on select hosts to gather information about software and software dependencies.
 --
--- This API reference provides descriptions, syntax, and usage examples for each of the actions and data types for the Discovery Service. The topic for each action shows the API request parameters and the response. Alternatively, you can use one of the AWS SDKs to access an API that is tailored to the programming language or platform that you\'re using. For more information, see <http://aws.amazon.com/tools/#SDKs AWS SDKs>.
+--     * __Agent-based discovery__ mode collects a richer set of data than agentless discovery by using Amazon software, the AWS Application Discovery Agent, which you install on one or more hosts in your data center. The agent captures infrastructure and application information, including an inventory of installed software applications, system and process performance, resource utilization, and network dependencies between workloads. The information collected by agents is secured at rest and in transit to the Application Discovery Service database in the cloud.
 --
--- This guide is intended for use with the <http://docs.aws.amazon.com/application-discovery/latest/userguide/what-is-appdiscovery.html AWS Discovery Service User Guide>.
 --
--- The following are short descriptions of each API action, organized by function.
 --
--- __Managing AWS Agents Using the Application Discovery Service__
+-- Application Discovery Service integrates with application discovery solutions from AWS Partner Network (APN) partners. Third-party application discovery tools can query Application Discovery Service and write to the Application Discovery Service database using a public API. You can then import the data into either a visualization tool or cloud-migration solution.
 --
--- An AWS agent is software that you install on on-premises servers and virtual machines that are targeted for discovery and migration. Agents run on Linux and Windows Server and collect server configuration and activity information about your applications and infrastructure. Specifically, agents collect the following information and send it to the Application Discovery Service using Secure Sockets Layer (SSL) encryption:
+-- /Important:/ Application Discovery Service doesn't gather sensitive information. All data is handled according to the <http://aws.amazon.com/privacy/ AWS Privacy Policy> . You can operate Application Discovery Service using offline mode to inspect collected data before it is shared with the service.
 --
--- -   User information (user name, home directory)
+-- Your AWS account must be granted access to Application Discovery Service, a process called /whitelisting/ . This is true for AWS partners and customers alike. To request access, sign up for AWS Application Discovery Service <http://aws.amazon.com/application-discovery/preview/ here> . We send you information about how to get started.
 --
--- -   Group information (name)
+-- This API reference provides descriptions, syntax, and usage examples for each of the actions and data types for Application Discovery Service. The topic for each action shows the API request parameters and the response. Alternatively, you can use one of the AWS SDKs to access an API that is tailored to the programming language or platform that you're using. For more information, see <http://aws.amazon.com/tools/#SDKs AWS SDKs> .
 --
--- -   List of installed packages
---
--- -   List of kernel modules
---
--- -   All create and stop process events
---
--- -   DNS queries
---
--- -   NIC information
---
--- -   TCP\/UDP process listening ports
---
--- -   TCPV4\/V6 connections
---
--- -   Operating system information
---
--- -   System performance
---
--- -   Process performance
---
--- The Application Discovery Service API includes the following actions to manage AWS agents:
---
--- -   /StartDataCollectionByAgentIds/: Instructs the specified agents to start collecting data. The Application Discovery Service takes several minutes to receive and process data after you initiate data collection.
---
--- -   /StopDataCollectionByAgentIds/: Instructs the specified agents to stop collecting data.
---
--- -   /DescribeAgents/: Lists AWS agents by ID or lists all agents associated with your user account if you did not specify an agent ID. The output includes agent IDs, IP addresses, media access control (MAC) addresses, agent health, host name where the agent resides, and the version number of each agent.
---
--- __Querying Configuration Items__
---
--- A /configuration item/ is an IT asset that was discovered in your data center by an AWS agent. When you use the Application Discovery Service, you can specify filters and query specific configuration items. The service supports Server, Process, and Connection configuration items. This means you can specify a value for the following keys and query your IT assets:
---
--- __Server__
---
--- -   server.HostName
---
--- -   server.osName
---
--- -   server.osVersion
---
--- -   server.configurationId
---
--- -   server.agentId
---
--- __Process__
---
--- -   process.name
---
--- -   process.CommandLine
---
--- -   process.configurationId
---
--- -   server.hostName
---
--- -   server.osName
---
--- -   server.osVersion
---
--- -   server.configurationId
---
--- -   server.agentId
---
--- __Connection__
---
--- -   connection.sourceIp
---
--- -   connection.sourcePort
---
--- -   connection.destinationIp
---
--- -   connection.destinationPort
---
--- -   sourceProcess.configurationId
---
--- -   sourceProcess.commandLine
---
--- -   sourceProcess.name
---
--- -   destinationProcessId.configurationId
---
--- -   destinationProcess.commandLine
---
--- -   destinationProcess.name
---
--- -   sourceServer.configurationId
---
--- -   sourceServer.hostName
---
--- -   sourceServer.osName
---
--- -   sourceServer.osVersion
---
--- -   destinationServer.configurationId
---
--- -   destinationServer.hostName
---
--- -   destinationServer.osName
---
--- -   destinationServer.osVersion
---
--- The Application Discovery Service includes the following actions for querying configuration items.
---
--- -   /DescribeConfigurations/: Retrieves a list of attributes for a specific configuration ID. For example, the output for a /server/ configuration item includes a list of attributes about the server, including host name, operating system, number of network cards, etc.
---
--- -   /ListConfigurations/: Retrieves a list of configuration items according to the criteria you specify in a filter. The filter criteria identify relationship requirements. For example, you can specify filter criteria of process.name with values of /nginx/ and /apache/.
---
--- __Tagging Discovered Configuration Items__
---
--- You can tag discovered configuration items. Tags are metadata that help you categorize IT assets in your data center. Tags use a /key/-/value/ format. For example, '{\"key\": \"serverType\", \"value\": \"webServer\"}'.
---
--- -   /CreateTags/: Creates one or more tags for a configuration items.
---
--- -   /DescribeTags/: Retrieves a list of configuration items that are tagged with a specific tag. /Or/, retrieves a list of all tags assigned to a specific configuration item.
---
--- -   /DeleteTags/: Deletes the association between a configuration item and one or more tags.
---
--- __Exporting Data__
---
--- You can export data as a CSV file to an Amazon S3 bucket or into your preferred visualization tool or cloud migration solution to help reduce the complexity and time in planning your cloud migration.
---
--- -   /ExportConfigurations/: Exports all discovered configuration data to an Amazon S3 bucket. Data includes tags and tag associations, processes, connections, servers, and system performance. This API returns an export ID which you can query using the GetExportStatus API.
---
--- -   /DescribeExportConfigurations/: Gets the status of the data export. When the export is complete, the service returns an Amazon S3 URL where you can download CSV files that include the data.
+-- This guide is intended for use with the <http://docs.aws.amazon.com/application-discovery/latest/userguide/ /AWS Application Discovery Service User Guide/ > .
 --
 module Network.AWS.Discovery
     (
@@ -192,9 +68,6 @@ module Network.AWS.Discovery
     -- ** DescribeTags
     , module Network.AWS.Discovery.DescribeTags
 
-    -- ** ExportConfigurations
-    , module Network.AWS.Discovery.ExportConfigurations
-
     -- ** StopDataCollectionByAgentIds
     , module Network.AWS.Discovery.StopDataCollectionByAgentIds
 
@@ -204,8 +77,17 @@ module Network.AWS.Discovery
     -- ** DeleteTags
     , module Network.AWS.Discovery.DeleteTags
 
+    -- ** DeleteApplications
+    , module Network.AWS.Discovery.DeleteApplications
+
+    -- ** UpdateApplication
+    , module Network.AWS.Discovery.UpdateApplication
+
     -- ** DescribeConfigurations
     , module Network.AWS.Discovery.DescribeConfigurations
+
+    -- ** CreateApplication
+    , module Network.AWS.Discovery.CreateApplication
 
     -- ** ListConfigurations
     , module Network.AWS.Discovery.ListConfigurations
@@ -213,11 +95,26 @@ module Network.AWS.Discovery
     -- ** DescribeAgents
     , module Network.AWS.Discovery.DescribeAgents
 
-    -- ** DescribeExportConfigurations
-    , module Network.AWS.Discovery.DescribeExportConfigurations
+    -- ** DescribeExportTasks
+    , module Network.AWS.Discovery.DescribeExportTasks
 
     -- ** StartDataCollectionByAgentIds
     , module Network.AWS.Discovery.StartDataCollectionByAgentIds
+
+    -- ** GetDiscoverySummary
+    , module Network.AWS.Discovery.GetDiscoverySummary
+
+    -- ** DisassociateConfigurationItemsFromApplication
+    , module Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
+
+    -- ** AssociateConfigurationItemsToApplication
+    , module Network.AWS.Discovery.AssociateConfigurationItemsToApplication
+
+    -- ** ListServerNeighbors
+    , module Network.AWS.Discovery.ListServerNeighbors
+
+    -- ** StartExportTask
+    , module Network.AWS.Discovery.StartExportTask
 
     -- * Types
 
@@ -227,8 +124,14 @@ module Network.AWS.Discovery
     -- ** ConfigurationItemType
     , ConfigurationItemType (..)
 
+    -- ** ExportDataFormat
+    , ExportDataFormat (..)
+
     -- ** ExportStatus
     , ExportStatus (..)
+
+    -- ** OrderString
+    , OrderString (..)
 
     -- ** AgentConfigurationStatus
     , AgentConfigurationStatus
@@ -241,11 +144,15 @@ module Network.AWS.Discovery
     , AgentInfo
     , agentInfo
     , aiHostName
+    , aiLastHealthPingTime
     , aiAgentNetworkInfoList
     , aiConnectorId
     , aiHealth
     , aiAgentId
     , aiVersion
+    , aiCollectionStatus
+    , aiRegisteredTime
+    , aiAgentType
 
     -- ** AgentNetworkInfo
     , AgentNetworkInfo
@@ -262,10 +169,42 @@ module Network.AWS.Discovery
     , ctValue
     , ctKey
 
+    -- ** CustomerAgentInfo
+    , CustomerAgentInfo
+    , customerAgentInfo
+    , caiActiveAgents
+    , caiHealthyAgents
+    , caiBlackListedAgents
+    , caiShutdownAgents
+    , caiUnhealthyAgents
+    , caiTotalAgents
+    , caiUnknownAgents
+
+    -- ** CustomerConnectorInfo
+    , CustomerConnectorInfo
+    , customerConnectorInfo
+    , cciActiveConnectors
+    , cciHealthyConnectors
+    , cciBlackListedConnectors
+    , cciShutdownConnectors
+    , cciUnhealthyConnectors
+    , cciTotalConnectors
+    , cciUnknownConnectors
+
+    -- ** ExportFilter
+    , ExportFilter
+    , exportFilter
+    , efName
+    , efValues
+    , efCondition
+
     -- ** ExportInfo
     , ExportInfo
     , exportInfo
     , eiConfigurationsDownloadURL
+    , eiRequestedStartTime
+    , eiRequestedEndTime
+    , eiIsTruncated
     , eiExportId
     , eiExportStatus
     , eiStatusMessage
@@ -277,6 +216,21 @@ module Network.AWS.Discovery
     , fName
     , fValues
     , fCondition
+
+    -- ** NeighborConnectionDetail
+    , NeighborConnectionDetail
+    , neighborConnectionDetail
+    , ncdTransportProtocol
+    , ncdDestinationPort
+    , ncdSourceServerId
+    , ncdDestinationServerId
+    , ncdConnectionsCount
+
+    -- ** OrderByElement
+    , OrderByElement
+    , orderByElement
+    , obeSortOrder
+    , obeFieldName
 
     -- ** Tag
     , Tag
@@ -291,18 +245,25 @@ module Network.AWS.Discovery
     , tfValues
     ) where
 
-import           Network.AWS.Discovery.CreateTags
-import           Network.AWS.Discovery.DeleteTags
-import           Network.AWS.Discovery.DescribeAgents
-import           Network.AWS.Discovery.DescribeConfigurations
-import           Network.AWS.Discovery.DescribeExportConfigurations
-import           Network.AWS.Discovery.DescribeTags
-import           Network.AWS.Discovery.ExportConfigurations
-import           Network.AWS.Discovery.ListConfigurations
-import           Network.AWS.Discovery.StartDataCollectionByAgentIds
-import           Network.AWS.Discovery.StopDataCollectionByAgentIds
-import           Network.AWS.Discovery.Types
-import           Network.AWS.Discovery.Waiters
+import Network.AWS.Discovery.AssociateConfigurationItemsToApplication
+import Network.AWS.Discovery.CreateApplication
+import Network.AWS.Discovery.CreateTags
+import Network.AWS.Discovery.DeleteApplications
+import Network.AWS.Discovery.DeleteTags
+import Network.AWS.Discovery.DescribeAgents
+import Network.AWS.Discovery.DescribeConfigurations
+import Network.AWS.Discovery.DescribeExportTasks
+import Network.AWS.Discovery.DescribeTags
+import Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
+import Network.AWS.Discovery.GetDiscoverySummary
+import Network.AWS.Discovery.ListConfigurations
+import Network.AWS.Discovery.ListServerNeighbors
+import Network.AWS.Discovery.StartDataCollectionByAgentIds
+import Network.AWS.Discovery.StartExportTask
+import Network.AWS.Discovery.StopDataCollectionByAgentIds
+import Network.AWS.Discovery.Types
+import Network.AWS.Discovery.UpdateApplication
+import Network.AWS.Discovery.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

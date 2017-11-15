@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.OpsWorks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.OpsWorks where
 
 import Data.Proxy
+import Network.AWS.OpsWorks
 import Test.AWS.Fixture
+import Test.AWS.OpsWorks.Internal
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.OpsWorks
-import Test.AWS.OpsWorks.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -187,6 +187,12 @@ import Test.AWS.OpsWorks.Internal
 --         , requestDescribeStackProvisioningParameters $
 --             describeStackProvisioningParameters
 --
+--         , requestTagResource $
+--             tagResource
+--
+--         , requestListTags $
+--             listTags
+--
 --         , requestUnassignInstance $
 --             unassignInstance
 --
@@ -204,6 +210,9 @@ import Test.AWS.OpsWorks.Internal
 --
 --         , requestRegisterRDSDBInstance $
 --             registerRDSDBInstance
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestStartStack $
 --             startStack
@@ -400,6 +409,12 @@ import Test.AWS.OpsWorks.Internal
 --         , responseDescribeStackProvisioningParameters $
 --             describeStackProvisioningParametersResponse
 --
+--         , responseTagResource $
+--             tagResourceResponse
+--
+--         , responseListTags $
+--             listTagsResponse
+--
 --         , responseUnassignInstance $
 --             unassignInstanceResponse
 --
@@ -417,6 +432,9 @@ import Test.AWS.OpsWorks.Internal
 --
 --         , responseRegisterRDSDBInstance $
 --             registerRDSDBInstanceResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responseStartStack $
 --             startStackResponse
@@ -721,6 +739,16 @@ requestDescribeStackProvisioningParameters = req
     "DescribeStackProvisioningParameters"
     "fixture/DescribeStackProvisioningParameters.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestListTags :: ListTags -> TestTree
+requestListTags = req
+    "ListTags"
+    "fixture/ListTags.yaml"
+
 requestUnassignInstance :: UnassignInstance -> TestTree
 requestUnassignInstance = req
     "UnassignInstance"
@@ -750,6 +778,11 @@ requestRegisterRDSDBInstance :: RegisterRDSDBInstance -> TestTree
 requestRegisterRDSDBInstance = req
     "RegisterRDSDBInstance"
     "fixture/RegisterRDSDBInstance.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestStartStack :: StartStack -> TestTree
 requestStartStack = req
@@ -1179,6 +1212,20 @@ responseDescribeStackProvisioningParameters = res
     opsWorks
     (Proxy :: Proxy DescribeStackProvisioningParameters)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    opsWorks
+    (Proxy :: Proxy TagResource)
+
+responseListTags :: ListTagsResponse -> TestTree
+responseListTags = res
+    "ListTagsResponse"
+    "fixture/ListTagsResponse.proto"
+    opsWorks
+    (Proxy :: Proxy ListTags)
+
 responseUnassignInstance :: UnassignInstanceResponse -> TestTree
 responseUnassignInstance = res
     "UnassignInstanceResponse"
@@ -1220,6 +1267,13 @@ responseRegisterRDSDBInstance = res
     "fixture/RegisterRDSDBInstanceResponse.proto"
     opsWorks
     (Proxy :: Proxy RegisterRDSDBInstance)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    opsWorks
+    (Proxy :: Proxy UntagResource)
 
 responseStartStack :: StartStackResponse -> TestTree
 responseStartStack = res

@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ECR.InitiateLayerUpload
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Notify Amazon ECR that you intend to upload an image layer.
 --
--- This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers. Use the 'docker' CLI to pull, tag, and push images.
+--
 module Network.AWS.ECR.InitiateLayerUpload
     (
     -- * Creating a Request
@@ -39,40 +39,40 @@ module Network.AWS.ECR.InitiateLayerUpload
     , ilursResponseStatus
     ) where
 
-import           Network.AWS.ECR.Types
-import           Network.AWS.ECR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECR.Types
+import Network.AWS.ECR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'initiateLayerUpload' smart constructor.
 data InitiateLayerUpload = InitiateLayerUpload'
-    { _iluRegistryId     :: !(Maybe Text)
-    , _iluRepositoryName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iluRegistryId     :: !(Maybe Text)
+  , _iluRepositoryName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InitiateLayerUpload' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iluRegistryId'
+-- * 'iluRegistryId' - The AWS account ID associated with the registry to which you intend to upload layers. If you do not specify a registry, the default registry is assumed.
 --
--- * 'iluRepositoryName'
+-- * 'iluRepositoryName' - The name of the repository to which you intend to upload layers.
 initiateLayerUpload
     :: Text -- ^ 'iluRepositoryName'
     -> InitiateLayerUpload
 initiateLayerUpload pRepositoryName_ =
-    InitiateLayerUpload'
-    { _iluRegistryId = Nothing
-    , _iluRepositoryName = pRepositoryName_
-    }
+  InitiateLayerUpload'
+  {_iluRegistryId = Nothing, _iluRepositoryName = pRepositoryName_}
 
--- | The AWS account ID associated with the registry that you intend to upload layers to. If you do not specify a registry, the default registry is assumed.
+
+-- | The AWS account ID associated with the registry to which you intend to upload layers. If you do not specify a registry, the default registry is assumed.
 iluRegistryId :: Lens' InitiateLayerUpload (Maybe Text)
 iluRegistryId = lens _iluRegistryId (\ s a -> s{_iluRegistryId = a});
 
--- | The name of the repository that you intend to upload layers to.
+-- | The name of the repository to which you intend to upload layers.
 iluRepositoryName :: Lens' InitiateLayerUpload Text
 iluRepositoryName = lens _iluRepositoryName (\ s a -> s{_iluRepositoryName = a});
 
@@ -87,9 +87,9 @@ instance AWSRequest InitiateLayerUpload where
                    (x .?> "partSize") <*> (x .?> "uploadId") <*>
                      (pure (fromEnum s)))
 
-instance Hashable InitiateLayerUpload
+instance Hashable InitiateLayerUpload where
 
-instance NFData InitiateLayerUpload
+instance NFData InitiateLayerUpload where
 
 instance ToHeaders InitiateLayerUpload where
         toHeaders
@@ -116,40 +116,42 @@ instance ToQuery InitiateLayerUpload where
 
 -- | /See:/ 'initiateLayerUploadResponse' smart constructor.
 data InitiateLayerUploadResponse = InitiateLayerUploadResponse'
-    { _ilursPartSize       :: !(Maybe Nat)
-    , _ilursUploadId       :: !(Maybe Text)
-    , _ilursResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ilursPartSize       :: !(Maybe Nat)
+  , _ilursUploadId       :: !(Maybe Text)
+  , _ilursResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InitiateLayerUploadResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ilursPartSize'
+-- * 'ilursPartSize' - The size, in bytes, that Amazon ECR expects future layer part uploads to be.
 --
--- * 'ilursUploadId'
+-- * 'ilursUploadId' - The upload ID for the layer upload. This parameter is passed to further 'UploadLayerPart' and 'CompleteLayerUpload' operations.
 --
--- * 'ilursResponseStatus'
+-- * 'ilursResponseStatus' - -- | The response status code.
 initiateLayerUploadResponse
     :: Int -- ^ 'ilursResponseStatus'
     -> InitiateLayerUploadResponse
 initiateLayerUploadResponse pResponseStatus_ =
-    InitiateLayerUploadResponse'
-    { _ilursPartSize = Nothing
-    , _ilursUploadId = Nothing
-    , _ilursResponseStatus = pResponseStatus_
-    }
+  InitiateLayerUploadResponse'
+  { _ilursPartSize = Nothing
+  , _ilursUploadId = Nothing
+  , _ilursResponseStatus = pResponseStatus_
+  }
+
 
 -- | The size, in bytes, that Amazon ECR expects future layer part uploads to be.
 ilursPartSize :: Lens' InitiateLayerUploadResponse (Maybe Natural)
 ilursPartSize = lens _ilursPartSize (\ s a -> s{_ilursPartSize = a}) . mapping _Nat;
 
--- | The upload ID for the layer upload. This parameter is passed to further < UploadLayerPart> and < CompleteLayerUpload> operations.
+-- | The upload ID for the layer upload. This parameter is passed to further 'UploadLayerPart' and 'CompleteLayerUpload' operations.
 ilursUploadId :: Lens' InitiateLayerUploadResponse (Maybe Text)
 ilursUploadId = lens _ilursUploadId (\ s a -> s{_ilursUploadId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ilursResponseStatus :: Lens' InitiateLayerUploadResponse Int
 ilursResponseStatus = lens _ilursResponseStatus (\ s a -> s{_ilursResponseStatus = a});
 
-instance NFData InitiateLayerUploadResponse
+instance NFData InitiateLayerUploadResponse where

@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateRDSDBInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates an Amazon RDS instance.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.UpdateRDSDBInstance
     (
     -- * Creating a Request
@@ -36,38 +38,40 @@ module Network.AWS.OpsWorks.UpdateRDSDBInstance
     , UpdateRDSDBInstanceResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateRDSDBInstance' smart constructor.
 data UpdateRDSDBInstance = UpdateRDSDBInstance'
-    { _urdiDBUser           :: !(Maybe Text)
-    , _urdiDBPassword       :: !(Maybe Text)
-    , _urdiRDSDBInstanceARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urdiDBUser           :: !(Maybe Text)
+  , _urdiDBPassword       :: !(Maybe Text)
+  , _urdiRDSDBInstanceARN :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateRDSDBInstance' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urdiDBUser'
+-- * 'urdiDBUser' - The master user name.
 --
--- * 'urdiDBPassword'
+-- * 'urdiDBPassword' - The database password.
 --
--- * 'urdiRDSDBInstanceARN'
+-- * 'urdiRDSDBInstanceARN' - The Amazon RDS instance's ARN.
 updateRDSDBInstance
     :: Text -- ^ 'urdiRDSDBInstanceARN'
     -> UpdateRDSDBInstance
 updateRDSDBInstance pRDSDBInstanceARN_ =
-    UpdateRDSDBInstance'
-    { _urdiDBUser = Nothing
-    , _urdiDBPassword = Nothing
-    , _urdiRDSDBInstanceARN = pRDSDBInstanceARN_
-    }
+  UpdateRDSDBInstance'
+  { _urdiDBUser = Nothing
+  , _urdiDBPassword = Nothing
+  , _urdiRDSDBInstanceARN = pRDSDBInstanceARN_
+  }
+
 
 -- | The master user name.
 urdiDBUser :: Lens' UpdateRDSDBInstance (Maybe Text)
@@ -77,7 +81,7 @@ urdiDBUser = lens _urdiDBUser (\ s a -> s{_urdiDBUser = a});
 urdiDBPassword :: Lens' UpdateRDSDBInstance (Maybe Text)
 urdiDBPassword = lens _urdiDBPassword (\ s a -> s{_urdiDBPassword = a});
 
--- | The Amazon RDS instance\'s ARN.
+-- | The Amazon RDS instance's ARN.
 urdiRDSDBInstanceARN :: Lens' UpdateRDSDBInstance Text
 urdiRDSDBInstanceARN = lens _urdiRDSDBInstanceARN (\ s a -> s{_urdiRDSDBInstanceARN = a});
 
@@ -87,9 +91,9 @@ instance AWSRequest UpdateRDSDBInstance where
         request = postJSON opsWorks
         response = receiveNull UpdateRDSDBInstanceResponse'
 
-instance Hashable UpdateRDSDBInstance
+instance Hashable UpdateRDSDBInstance where
 
-instance NFData UpdateRDSDBInstance
+instance NFData UpdateRDSDBInstance where
 
 instance ToHeaders UpdateRDSDBInstance where
         toHeaders
@@ -117,8 +121,9 @@ instance ToQuery UpdateRDSDBInstance where
 
 -- | /See:/ 'updateRDSDBInstanceResponse' smart constructor.
 data UpdateRDSDBInstanceResponse =
-    UpdateRDSDBInstanceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateRDSDBInstanceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateRDSDBInstanceResponse' with the minimum fields required to make a request.
 --
@@ -126,4 +131,5 @@ updateRDSDBInstanceResponse
     :: UpdateRDSDBInstanceResponse
 updateRDSDBInstanceResponse = UpdateRDSDBInstanceResponse'
 
-instance NFData UpdateRDSDBInstanceResponse
+
+instance NFData UpdateRDSDBInstanceResponse where

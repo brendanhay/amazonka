@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.SES
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.SES where
 
 import Data.Proxy
+import Network.AWS.SES
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.Tasty
-import Network.AWS.SES
 import Test.AWS.SES.Internal
+import Test.Tasty
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -28,7 +28,16 @@ import Test.AWS.SES.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateReceiptRuleSet $
+--         [ requestCreateTemplate $
+--             createTemplate
+--
+--         , requestDeleteConfigurationSetTrackingOptions $
+--             deleteConfigurationSetTrackingOptions
+--
+--         , requestUpdateConfigurationSetTrackingOptions $
+--             updateConfigurationSetTrackingOptions
+--
+--         , requestCreateReceiptRuleSet $
 --             createReceiptRuleSet
 --
 --         , requestSetIdentityHeadersInNotificationsEnabled $
@@ -36,6 +45,9 @@ import Test.AWS.SES.Internal
 --
 --         , requestGetSendQuota $
 --             getSendQuota
+--
+--         , requestDescribeConfigurationSet $
+--             describeConfigurationSet
 --
 --         , requestPutIdentityPolicy $
 --             putIdentityPolicy
@@ -64,11 +76,23 @@ import Test.AWS.SES.Internal
 --         , requestCreateReceiptFilter $
 --             createReceiptFilter
 --
+--         , requestUpdateConfigurationSetEventDestination $
+--             updateConfigurationSetEventDestination
+--
+--         , requestDeleteConfigurationSetEventDestination $
+--             deleteConfigurationSetEventDestination
+--
 --         , requestSetIdentityMailFromDomain $
 --             setIdentityMailFromDomain
 --
 --         , requestSetIdentityFeedbackForwardingEnabled $
 --             setIdentityFeedbackForwardingEnabled
+--
+--         , requestListConfigurationSets $
+--             listConfigurationSets
+--
+--         , requestDeleteConfigurationSet $
+--             deleteConfigurationSet
 --
 --         , requestGetIdentityVerificationAttributes $
 --             getIdentityVerificationAttributes
@@ -76,8 +100,17 @@ import Test.AWS.SES.Internal
 --         , requestGetIdentityPolicies $
 --             getIdentityPolicies
 --
+--         , requestListTemplates $
+--             listTemplates
+--
 --         , requestVerifyDomainIdentity $
 --             verifyDomainIdentity
+--
+--         , requestUpdateTemplate $
+--             updateTemplate
+--
+--         , requestDeleteTemplate $
+--             deleteTemplate
 --
 --         , requestReorderReceiptRuleSet $
 --             reorderReceiptRuleSet
@@ -97,8 +130,17 @@ import Test.AWS.SES.Internal
 --         , requestGetIdentityDkimAttributes $
 --             getIdentityDkimAttributes
 --
+--         , requestSendTemplatedEmail $
+--             sendTemplatedEmail
+--
 --         , requestVerifyDomainDkim $
 --             verifyDomainDkim
+--
+--         , requestTestRenderTemplate $
+--             testRenderTemplate
+--
+--         , requestSendBulkTemplatedEmail $
+--             sendBulkTemplatedEmail
 --
 --         , requestSendRawEmail $
 --             sendRawEmail
@@ -145,11 +187,23 @@ import Test.AWS.SES.Internal
 --         , requestCloneReceiptRuleSet $
 --             cloneReceiptRuleSet
 --
+--         , requestCreateConfigurationSetEventDestination $
+--             createConfigurationSetEventDestination
+--
 --         , requestCreateReceiptRule $
 --             createReceiptRule
 --
+--         , requestGetTemplate $
+--             getTemplate
+--
 --         , requestSetActiveReceiptRuleSet $
 --             setActiveReceiptRuleSet
+--
+--         , requestCreateConfigurationSet $
+--             createConfigurationSet
+--
+--         , requestCreateConfigurationSetTrackingOptions $
+--             createConfigurationSetTrackingOptions
 --
 --         , requestDescribeActiveReceiptRuleSet $
 --             describeActiveReceiptRuleSet
@@ -157,7 +211,16 @@ import Test.AWS.SES.Internal
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateReceiptRuleSet $
+--         [ responseCreateTemplate $
+--             createTemplateResponse
+--
+--         , responseDeleteConfigurationSetTrackingOptions $
+--             deleteConfigurationSetTrackingOptionsResponse
+--
+--         , responseUpdateConfigurationSetTrackingOptions $
+--             updateConfigurationSetTrackingOptionsResponse
+--
+--         , responseCreateReceiptRuleSet $
 --             createReceiptRuleSetResponse
 --
 --         , responseSetIdentityHeadersInNotificationsEnabled $
@@ -165,6 +228,9 @@ import Test.AWS.SES.Internal
 --
 --         , responseGetSendQuota $
 --             getSendQuotaResponse
+--
+--         , responseDescribeConfigurationSet $
+--             describeConfigurationSetResponse
 --
 --         , responsePutIdentityPolicy $
 --             putIdentityPolicyResponse
@@ -193,11 +259,23 @@ import Test.AWS.SES.Internal
 --         , responseCreateReceiptFilter $
 --             createReceiptFilterResponse
 --
+--         , responseUpdateConfigurationSetEventDestination $
+--             updateConfigurationSetEventDestinationResponse
+--
+--         , responseDeleteConfigurationSetEventDestination $
+--             deleteConfigurationSetEventDestinationResponse
+--
 --         , responseSetIdentityMailFromDomain $
 --             setIdentityMailFromDomainResponse
 --
 --         , responseSetIdentityFeedbackForwardingEnabled $
 --             setIdentityFeedbackForwardingEnabledResponse
+--
+--         , responseListConfigurationSets $
+--             listConfigurationSetsResponse
+--
+--         , responseDeleteConfigurationSet $
+--             deleteConfigurationSetResponse
 --
 --         , responseGetIdentityVerificationAttributes $
 --             getIdentityVerificationAttributesResponse
@@ -205,8 +283,17 @@ import Test.AWS.SES.Internal
 --         , responseGetIdentityPolicies $
 --             getIdentityPoliciesResponse
 --
+--         , responseListTemplates $
+--             listTemplatesResponse
+--
 --         , responseVerifyDomainIdentity $
 --             verifyDomainIdentityResponse
+--
+--         , responseUpdateTemplate $
+--             updateTemplateResponse
+--
+--         , responseDeleteTemplate $
+--             deleteTemplateResponse
 --
 --         , responseReorderReceiptRuleSet $
 --             reorderReceiptRuleSetResponse
@@ -226,8 +313,17 @@ import Test.AWS.SES.Internal
 --         , responseGetIdentityDkimAttributes $
 --             getIdentityDkimAttributesResponse
 --
+--         , responseSendTemplatedEmail $
+--             sendTemplatedEmailResponse
+--
 --         , responseVerifyDomainDkim $
 --             verifyDomainDkimResponse
+--
+--         , responseTestRenderTemplate $
+--             testRenderTemplateResponse
+--
+--         , responseSendBulkTemplatedEmail $
+--             sendBulkTemplatedEmailResponse
 --
 --         , responseSendRawEmail $
 --             sendRawEmailResponse
@@ -274,11 +370,23 @@ import Test.AWS.SES.Internal
 --         , responseCloneReceiptRuleSet $
 --             cloneReceiptRuleSetResponse
 --
+--         , responseCreateConfigurationSetEventDestination $
+--             createConfigurationSetEventDestinationResponse
+--
 --         , responseCreateReceiptRule $
 --             createReceiptRuleResponse
 --
+--         , responseGetTemplate $
+--             getTemplateResponse
+--
 --         , responseSetActiveReceiptRuleSet $
 --             setActiveReceiptRuleSetResponse
+--
+--         , responseCreateConfigurationSet $
+--             createConfigurationSetResponse
+--
+--         , responseCreateConfigurationSetTrackingOptions $
+--             createConfigurationSetTrackingOptionsResponse
 --
 --         , responseDescribeActiveReceiptRuleSet $
 --             describeActiveReceiptRuleSetResponse
@@ -287,6 +395,21 @@ import Test.AWS.SES.Internal
 --     ]
 
 -- Requests
+
+requestCreateTemplate :: CreateTemplate -> TestTree
+requestCreateTemplate = req
+    "CreateTemplate"
+    "fixture/CreateTemplate.yaml"
+
+requestDeleteConfigurationSetTrackingOptions :: DeleteConfigurationSetTrackingOptions -> TestTree
+requestDeleteConfigurationSetTrackingOptions = req
+    "DeleteConfigurationSetTrackingOptions"
+    "fixture/DeleteConfigurationSetTrackingOptions.yaml"
+
+requestUpdateConfigurationSetTrackingOptions :: UpdateConfigurationSetTrackingOptions -> TestTree
+requestUpdateConfigurationSetTrackingOptions = req
+    "UpdateConfigurationSetTrackingOptions"
+    "fixture/UpdateConfigurationSetTrackingOptions.yaml"
 
 requestCreateReceiptRuleSet :: CreateReceiptRuleSet -> TestTree
 requestCreateReceiptRuleSet = req
@@ -302,6 +425,11 @@ requestGetSendQuota :: GetSendQuota -> TestTree
 requestGetSendQuota = req
     "GetSendQuota"
     "fixture/GetSendQuota.yaml"
+
+requestDescribeConfigurationSet :: DescribeConfigurationSet -> TestTree
+requestDescribeConfigurationSet = req
+    "DescribeConfigurationSet"
+    "fixture/DescribeConfigurationSet.yaml"
 
 requestPutIdentityPolicy :: PutIdentityPolicy -> TestTree
 requestPutIdentityPolicy = req
@@ -348,6 +476,16 @@ requestCreateReceiptFilter = req
     "CreateReceiptFilter"
     "fixture/CreateReceiptFilter.yaml"
 
+requestUpdateConfigurationSetEventDestination :: UpdateConfigurationSetEventDestination -> TestTree
+requestUpdateConfigurationSetEventDestination = req
+    "UpdateConfigurationSetEventDestination"
+    "fixture/UpdateConfigurationSetEventDestination.yaml"
+
+requestDeleteConfigurationSetEventDestination :: DeleteConfigurationSetEventDestination -> TestTree
+requestDeleteConfigurationSetEventDestination = req
+    "DeleteConfigurationSetEventDestination"
+    "fixture/DeleteConfigurationSetEventDestination.yaml"
+
 requestSetIdentityMailFromDomain :: SetIdentityMailFromDomain -> TestTree
 requestSetIdentityMailFromDomain = req
     "SetIdentityMailFromDomain"
@@ -357,6 +495,16 @@ requestSetIdentityFeedbackForwardingEnabled :: SetIdentityFeedbackForwardingEnab
 requestSetIdentityFeedbackForwardingEnabled = req
     "SetIdentityFeedbackForwardingEnabled"
     "fixture/SetIdentityFeedbackForwardingEnabled.yaml"
+
+requestListConfigurationSets :: ListConfigurationSets -> TestTree
+requestListConfigurationSets = req
+    "ListConfigurationSets"
+    "fixture/ListConfigurationSets.yaml"
+
+requestDeleteConfigurationSet :: DeleteConfigurationSet -> TestTree
+requestDeleteConfigurationSet = req
+    "DeleteConfigurationSet"
+    "fixture/DeleteConfigurationSet.yaml"
 
 requestGetIdentityVerificationAttributes :: GetIdentityVerificationAttributes -> TestTree
 requestGetIdentityVerificationAttributes = req
@@ -368,10 +516,25 @@ requestGetIdentityPolicies = req
     "GetIdentityPolicies"
     "fixture/GetIdentityPolicies.yaml"
 
+requestListTemplates :: ListTemplates -> TestTree
+requestListTemplates = req
+    "ListTemplates"
+    "fixture/ListTemplates.yaml"
+
 requestVerifyDomainIdentity :: VerifyDomainIdentity -> TestTree
 requestVerifyDomainIdentity = req
     "VerifyDomainIdentity"
     "fixture/VerifyDomainIdentity.yaml"
+
+requestUpdateTemplate :: UpdateTemplate -> TestTree
+requestUpdateTemplate = req
+    "UpdateTemplate"
+    "fixture/UpdateTemplate.yaml"
+
+requestDeleteTemplate :: DeleteTemplate -> TestTree
+requestDeleteTemplate = req
+    "DeleteTemplate"
+    "fixture/DeleteTemplate.yaml"
 
 requestReorderReceiptRuleSet :: ReorderReceiptRuleSet -> TestTree
 requestReorderReceiptRuleSet = req
@@ -403,10 +566,25 @@ requestGetIdentityDkimAttributes = req
     "GetIdentityDkimAttributes"
     "fixture/GetIdentityDkimAttributes.yaml"
 
+requestSendTemplatedEmail :: SendTemplatedEmail -> TestTree
+requestSendTemplatedEmail = req
+    "SendTemplatedEmail"
+    "fixture/SendTemplatedEmail.yaml"
+
 requestVerifyDomainDkim :: VerifyDomainDkim -> TestTree
 requestVerifyDomainDkim = req
     "VerifyDomainDkim"
     "fixture/VerifyDomainDkim.yaml"
+
+requestTestRenderTemplate :: TestRenderTemplate -> TestTree
+requestTestRenderTemplate = req
+    "TestRenderTemplate"
+    "fixture/TestRenderTemplate.yaml"
+
+requestSendBulkTemplatedEmail :: SendBulkTemplatedEmail -> TestTree
+requestSendBulkTemplatedEmail = req
+    "SendBulkTemplatedEmail"
+    "fixture/SendBulkTemplatedEmail.yaml"
 
 requestSendRawEmail :: SendRawEmail -> TestTree
 requestSendRawEmail = req
@@ -483,15 +661,35 @@ requestCloneReceiptRuleSet = req
     "CloneReceiptRuleSet"
     "fixture/CloneReceiptRuleSet.yaml"
 
+requestCreateConfigurationSetEventDestination :: CreateConfigurationSetEventDestination -> TestTree
+requestCreateConfigurationSetEventDestination = req
+    "CreateConfigurationSetEventDestination"
+    "fixture/CreateConfigurationSetEventDestination.yaml"
+
 requestCreateReceiptRule :: CreateReceiptRule -> TestTree
 requestCreateReceiptRule = req
     "CreateReceiptRule"
     "fixture/CreateReceiptRule.yaml"
 
+requestGetTemplate :: GetTemplate -> TestTree
+requestGetTemplate = req
+    "GetTemplate"
+    "fixture/GetTemplate.yaml"
+
 requestSetActiveReceiptRuleSet :: SetActiveReceiptRuleSet -> TestTree
 requestSetActiveReceiptRuleSet = req
     "SetActiveReceiptRuleSet"
     "fixture/SetActiveReceiptRuleSet.yaml"
+
+requestCreateConfigurationSet :: CreateConfigurationSet -> TestTree
+requestCreateConfigurationSet = req
+    "CreateConfigurationSet"
+    "fixture/CreateConfigurationSet.yaml"
+
+requestCreateConfigurationSetTrackingOptions :: CreateConfigurationSetTrackingOptions -> TestTree
+requestCreateConfigurationSetTrackingOptions = req
+    "CreateConfigurationSetTrackingOptions"
+    "fixture/CreateConfigurationSetTrackingOptions.yaml"
 
 requestDescribeActiveReceiptRuleSet :: DescribeActiveReceiptRuleSet -> TestTree
 requestDescribeActiveReceiptRuleSet = req
@@ -499,6 +697,27 @@ requestDescribeActiveReceiptRuleSet = req
     "fixture/DescribeActiveReceiptRuleSet.yaml"
 
 -- Responses
+
+responseCreateTemplate :: CreateTemplateResponse -> TestTree
+responseCreateTemplate = res
+    "CreateTemplateResponse"
+    "fixture/CreateTemplateResponse.proto"
+    ses
+    (Proxy :: Proxy CreateTemplate)
+
+responseDeleteConfigurationSetTrackingOptions :: DeleteConfigurationSetTrackingOptionsResponse -> TestTree
+responseDeleteConfigurationSetTrackingOptions = res
+    "DeleteConfigurationSetTrackingOptionsResponse"
+    "fixture/DeleteConfigurationSetTrackingOptionsResponse.proto"
+    ses
+    (Proxy :: Proxy DeleteConfigurationSetTrackingOptions)
+
+responseUpdateConfigurationSetTrackingOptions :: UpdateConfigurationSetTrackingOptionsResponse -> TestTree
+responseUpdateConfigurationSetTrackingOptions = res
+    "UpdateConfigurationSetTrackingOptionsResponse"
+    "fixture/UpdateConfigurationSetTrackingOptionsResponse.proto"
+    ses
+    (Proxy :: Proxy UpdateConfigurationSetTrackingOptions)
 
 responseCreateReceiptRuleSet :: CreateReceiptRuleSetResponse -> TestTree
 responseCreateReceiptRuleSet = res
@@ -520,6 +739,13 @@ responseGetSendQuota = res
     "fixture/GetSendQuotaResponse.proto"
     ses
     (Proxy :: Proxy GetSendQuota)
+
+responseDescribeConfigurationSet :: DescribeConfigurationSetResponse -> TestTree
+responseDescribeConfigurationSet = res
+    "DescribeConfigurationSetResponse"
+    "fixture/DescribeConfigurationSetResponse.proto"
+    ses
+    (Proxy :: Proxy DescribeConfigurationSet)
 
 responsePutIdentityPolicy :: PutIdentityPolicyResponse -> TestTree
 responsePutIdentityPolicy = res
@@ -584,6 +810,20 @@ responseCreateReceiptFilter = res
     ses
     (Proxy :: Proxy CreateReceiptFilter)
 
+responseUpdateConfigurationSetEventDestination :: UpdateConfigurationSetEventDestinationResponse -> TestTree
+responseUpdateConfigurationSetEventDestination = res
+    "UpdateConfigurationSetEventDestinationResponse"
+    "fixture/UpdateConfigurationSetEventDestinationResponse.proto"
+    ses
+    (Proxy :: Proxy UpdateConfigurationSetEventDestination)
+
+responseDeleteConfigurationSetEventDestination :: DeleteConfigurationSetEventDestinationResponse -> TestTree
+responseDeleteConfigurationSetEventDestination = res
+    "DeleteConfigurationSetEventDestinationResponse"
+    "fixture/DeleteConfigurationSetEventDestinationResponse.proto"
+    ses
+    (Proxy :: Proxy DeleteConfigurationSetEventDestination)
+
 responseSetIdentityMailFromDomain :: SetIdentityMailFromDomainResponse -> TestTree
 responseSetIdentityMailFromDomain = res
     "SetIdentityMailFromDomainResponse"
@@ -597,6 +837,20 @@ responseSetIdentityFeedbackForwardingEnabled = res
     "fixture/SetIdentityFeedbackForwardingEnabledResponse.proto"
     ses
     (Proxy :: Proxy SetIdentityFeedbackForwardingEnabled)
+
+responseListConfigurationSets :: ListConfigurationSetsResponse -> TestTree
+responseListConfigurationSets = res
+    "ListConfigurationSetsResponse"
+    "fixture/ListConfigurationSetsResponse.proto"
+    ses
+    (Proxy :: Proxy ListConfigurationSets)
+
+responseDeleteConfigurationSet :: DeleteConfigurationSetResponse -> TestTree
+responseDeleteConfigurationSet = res
+    "DeleteConfigurationSetResponse"
+    "fixture/DeleteConfigurationSetResponse.proto"
+    ses
+    (Proxy :: Proxy DeleteConfigurationSet)
 
 responseGetIdentityVerificationAttributes :: GetIdentityVerificationAttributesResponse -> TestTree
 responseGetIdentityVerificationAttributes = res
@@ -612,12 +866,33 @@ responseGetIdentityPolicies = res
     ses
     (Proxy :: Proxy GetIdentityPolicies)
 
+responseListTemplates :: ListTemplatesResponse -> TestTree
+responseListTemplates = res
+    "ListTemplatesResponse"
+    "fixture/ListTemplatesResponse.proto"
+    ses
+    (Proxy :: Proxy ListTemplates)
+
 responseVerifyDomainIdentity :: VerifyDomainIdentityResponse -> TestTree
 responseVerifyDomainIdentity = res
     "VerifyDomainIdentityResponse"
     "fixture/VerifyDomainIdentityResponse.proto"
     ses
     (Proxy :: Proxy VerifyDomainIdentity)
+
+responseUpdateTemplate :: UpdateTemplateResponse -> TestTree
+responseUpdateTemplate = res
+    "UpdateTemplateResponse"
+    "fixture/UpdateTemplateResponse.proto"
+    ses
+    (Proxy :: Proxy UpdateTemplate)
+
+responseDeleteTemplate :: DeleteTemplateResponse -> TestTree
+responseDeleteTemplate = res
+    "DeleteTemplateResponse"
+    "fixture/DeleteTemplateResponse.proto"
+    ses
+    (Proxy :: Proxy DeleteTemplate)
 
 responseReorderReceiptRuleSet :: ReorderReceiptRuleSetResponse -> TestTree
 responseReorderReceiptRuleSet = res
@@ -661,12 +936,33 @@ responseGetIdentityDkimAttributes = res
     ses
     (Proxy :: Proxy GetIdentityDkimAttributes)
 
+responseSendTemplatedEmail :: SendTemplatedEmailResponse -> TestTree
+responseSendTemplatedEmail = res
+    "SendTemplatedEmailResponse"
+    "fixture/SendTemplatedEmailResponse.proto"
+    ses
+    (Proxy :: Proxy SendTemplatedEmail)
+
 responseVerifyDomainDkim :: VerifyDomainDkimResponse -> TestTree
 responseVerifyDomainDkim = res
     "VerifyDomainDkimResponse"
     "fixture/VerifyDomainDkimResponse.proto"
     ses
     (Proxy :: Proxy VerifyDomainDkim)
+
+responseTestRenderTemplate :: TestRenderTemplateResponse -> TestTree
+responseTestRenderTemplate = res
+    "TestRenderTemplateResponse"
+    "fixture/TestRenderTemplateResponse.proto"
+    ses
+    (Proxy :: Proxy TestRenderTemplate)
+
+responseSendBulkTemplatedEmail :: SendBulkTemplatedEmailResponse -> TestTree
+responseSendBulkTemplatedEmail = res
+    "SendBulkTemplatedEmailResponse"
+    "fixture/SendBulkTemplatedEmailResponse.proto"
+    ses
+    (Proxy :: Proxy SendBulkTemplatedEmail)
 
 responseSendRawEmail :: SendRawEmailResponse -> TestTree
 responseSendRawEmail = res
@@ -773,6 +1069,13 @@ responseCloneReceiptRuleSet = res
     ses
     (Proxy :: Proxy CloneReceiptRuleSet)
 
+responseCreateConfigurationSetEventDestination :: CreateConfigurationSetEventDestinationResponse -> TestTree
+responseCreateConfigurationSetEventDestination = res
+    "CreateConfigurationSetEventDestinationResponse"
+    "fixture/CreateConfigurationSetEventDestinationResponse.proto"
+    ses
+    (Proxy :: Proxy CreateConfigurationSetEventDestination)
+
 responseCreateReceiptRule :: CreateReceiptRuleResponse -> TestTree
 responseCreateReceiptRule = res
     "CreateReceiptRuleResponse"
@@ -780,12 +1083,33 @@ responseCreateReceiptRule = res
     ses
     (Proxy :: Proxy CreateReceiptRule)
 
+responseGetTemplate :: GetTemplateResponse -> TestTree
+responseGetTemplate = res
+    "GetTemplateResponse"
+    "fixture/GetTemplateResponse.proto"
+    ses
+    (Proxy :: Proxy GetTemplate)
+
 responseSetActiveReceiptRuleSet :: SetActiveReceiptRuleSetResponse -> TestTree
 responseSetActiveReceiptRuleSet = res
     "SetActiveReceiptRuleSetResponse"
     "fixture/SetActiveReceiptRuleSetResponse.proto"
     ses
     (Proxy :: Proxy SetActiveReceiptRuleSet)
+
+responseCreateConfigurationSet :: CreateConfigurationSetResponse -> TestTree
+responseCreateConfigurationSet = res
+    "CreateConfigurationSetResponse"
+    "fixture/CreateConfigurationSetResponse.proto"
+    ses
+    (Proxy :: Proxy CreateConfigurationSet)
+
+responseCreateConfigurationSetTrackingOptions :: CreateConfigurationSetTrackingOptionsResponse -> TestTree
+responseCreateConfigurationSetTrackingOptions = res
+    "CreateConfigurationSetTrackingOptionsResponse"
+    "fixture/CreateConfigurationSetTrackingOptionsResponse.proto"
+    ses
+    (Proxy :: Proxy CreateConfigurationSetTrackingOptions)
 
 responseDescribeActiveReceiptRuleSet :: DescribeActiveReceiptRuleSetResponse -> TestTree
 responseDescribeActiveReceiptRuleSet = res

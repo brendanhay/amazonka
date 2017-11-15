@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RevokeSecurityGroupEgress
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- [EC2-VPC only] Removes one or more egress rules from a security group for EC2-VPC. This action doesn\'t apply to security groups for use in EC2-Classic. The values that you specify in the revoke request (for example, ports) must match the existing rule\'s values for the rule to be revoked.
+-- [EC2-VPC only] Removes one or more egress rules from a security group for EC2-VPC. This action doesn't apply to security groups for use in EC2-Classic. To remove a rule, the values that you specify (for example, ports) must match the existing rule's values exactly.
 --
--- Each rule consists of the protocol and the CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code.
+--
+-- Each rule consists of the protocol and the IPv4 or IPv6 CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.
 --
 -- Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
+--
 module Network.AWS.EC2.RevokeSecurityGroupEgress
     (
     -- * Creating a Request
@@ -33,7 +35,7 @@ module Network.AWS.EC2.RevokeSecurityGroupEgress
     , rsgeIPPermissions
     , rsgeIPProtocol
     , rsgeToPort
-    , rsgeCIdRIP
+    , rsgeCidrIP
     , rsgeSourceSecurityGroupOwnerId
     , rsgeSourceSecurityGroupName
     , rsgeDryRun
@@ -44,94 +46,98 @@ module Network.AWS.EC2.RevokeSecurityGroupEgress
     , RevokeSecurityGroupEgressResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for RevokeSecurityGroupEgress.
 --
+--
+--
 -- /See:/ 'revokeSecurityGroupEgress' smart constructor.
 data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
-    { _rsgeFromPort                   :: !(Maybe Int)
-    , _rsgeIPPermissions              :: !(Maybe [IPPermission])
-    , _rsgeIPProtocol                 :: !(Maybe Text)
-    , _rsgeToPort                     :: !(Maybe Int)
-    , _rsgeCIdRIP                     :: !(Maybe Text)
-    , _rsgeSourceSecurityGroupOwnerId :: !(Maybe Text)
-    , _rsgeSourceSecurityGroupName    :: !(Maybe Text)
-    , _rsgeDryRun                     :: !(Maybe Bool)
-    , _rsgeGroupId                    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsgeFromPort                   :: !(Maybe Int)
+  , _rsgeIPPermissions              :: !(Maybe [IPPermission])
+  , _rsgeIPProtocol                 :: !(Maybe Text)
+  , _rsgeToPort                     :: !(Maybe Int)
+  , _rsgeCidrIP                     :: !(Maybe Text)
+  , _rsgeSourceSecurityGroupOwnerId :: !(Maybe Text)
+  , _rsgeSourceSecurityGroupName    :: !(Maybe Text)
+  , _rsgeDryRun                     :: !(Maybe Bool)
+  , _rsgeGroupId                    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RevokeSecurityGroupEgress' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsgeFromPort'
+-- * 'rsgeFromPort' - Not supported. Use a set of IP permissions to specify the port.
 --
--- * 'rsgeIPPermissions'
+-- * 'rsgeIPPermissions' - One or more sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.
 --
--- * 'rsgeIPProtocol'
+-- * 'rsgeIPProtocol' - Not supported. Use a set of IP permissions to specify the protocol name or number.
 --
--- * 'rsgeToPort'
+-- * 'rsgeToPort' - Not supported. Use a set of IP permissions to specify the port.
 --
--- * 'rsgeCIdRIP'
+-- * 'rsgeCidrIP' - Not supported. Use a set of IP permissions to specify the CIDR.
 --
--- * 'rsgeSourceSecurityGroupOwnerId'
+-- * 'rsgeSourceSecurityGroupOwnerId' - Not supported. Use a set of IP permissions to specify a destination security group.
 --
--- * 'rsgeSourceSecurityGroupName'
+-- * 'rsgeSourceSecurityGroupName' - Not supported. Use a set of IP permissions to specify a destination security group.
 --
--- * 'rsgeDryRun'
+-- * 'rsgeDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'rsgeGroupId'
+-- * 'rsgeGroupId' - The ID of the security group.
 revokeSecurityGroupEgress
     :: Text -- ^ 'rsgeGroupId'
     -> RevokeSecurityGroupEgress
 revokeSecurityGroupEgress pGroupId_ =
-    RevokeSecurityGroupEgress'
-    { _rsgeFromPort = Nothing
-    , _rsgeIPPermissions = Nothing
-    , _rsgeIPProtocol = Nothing
-    , _rsgeToPort = Nothing
-    , _rsgeCIdRIP = Nothing
-    , _rsgeSourceSecurityGroupOwnerId = Nothing
-    , _rsgeSourceSecurityGroupName = Nothing
-    , _rsgeDryRun = Nothing
-    , _rsgeGroupId = pGroupId_
-    }
+  RevokeSecurityGroupEgress'
+  { _rsgeFromPort = Nothing
+  , _rsgeIPPermissions = Nothing
+  , _rsgeIPProtocol = Nothing
+  , _rsgeToPort = Nothing
+  , _rsgeCidrIP = Nothing
+  , _rsgeSourceSecurityGroupOwnerId = Nothing
+  , _rsgeSourceSecurityGroupName = Nothing
+  , _rsgeDryRun = Nothing
+  , _rsgeGroupId = pGroupId_
+  }
 
--- | The start of port range for the TCP and UDP protocols, or an ICMP type number. We recommend that you specify the port range in a set of IP permissions instead.
+
+-- | Not supported. Use a set of IP permissions to specify the port.
 rsgeFromPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
 rsgeFromPort = lens _rsgeFromPort (\ s a -> s{_rsgeFromPort = a});
 
--- | A set of IP permissions. You can\'t specify a destination security group and a CIDR IP address range.
+-- | One or more sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.
 rsgeIPPermissions :: Lens' RevokeSecurityGroupEgress [IPPermission]
 rsgeIPPermissions = lens _rsgeIPPermissions (\ s a -> s{_rsgeIPPermissions = a}) . _Default . _Coerce;
 
--- | The IP protocol name or number. We recommend that you specify the protocol in a set of IP permissions instead.
+-- | Not supported. Use a set of IP permissions to specify the protocol name or number.
 rsgeIPProtocol :: Lens' RevokeSecurityGroupEgress (Maybe Text)
 rsgeIPProtocol = lens _rsgeIPProtocol (\ s a -> s{_rsgeIPProtocol = a});
 
--- | The end of port range for the TCP and UDP protocols, or an ICMP type number. We recommend that you specify the port range in a set of IP permissions instead.
+-- | Not supported. Use a set of IP permissions to specify the port.
 rsgeToPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
 rsgeToPort = lens _rsgeToPort (\ s a -> s{_rsgeToPort = a});
 
--- | The CIDR IP address range. We recommend that you specify the CIDR range in a set of IP permissions instead.
-rsgeCIdRIP :: Lens' RevokeSecurityGroupEgress (Maybe Text)
-rsgeCIdRIP = lens _rsgeCIdRIP (\ s a -> s{_rsgeCIdRIP = a});
+-- | Not supported. Use a set of IP permissions to specify the CIDR.
+rsgeCidrIP :: Lens' RevokeSecurityGroupEgress (Maybe Text)
+rsgeCidrIP = lens _rsgeCidrIP (\ s a -> s{_rsgeCidrIP = a});
 
--- | The AWS account number for a destination security group. To revoke outbound access to a destination security group, we recommend that you use a set of IP permissions instead.
+-- | Not supported. Use a set of IP permissions to specify a destination security group.
 rsgeSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupEgress (Maybe Text)
 rsgeSourceSecurityGroupOwnerId = lens _rsgeSourceSecurityGroupOwnerId (\ s a -> s{_rsgeSourceSecurityGroupOwnerId = a});
 
--- | The name of a destination security group. To revoke outbound access to a destination security group, we recommend that you use a set of IP permissions instead.
+-- | Not supported. Use a set of IP permissions to specify a destination security group.
 rsgeSourceSecurityGroupName :: Lens' RevokeSecurityGroupEgress (Maybe Text)
 rsgeSourceSecurityGroupName = lens _rsgeSourceSecurityGroupName (\ s a -> s{_rsgeSourceSecurityGroupName = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rsgeDryRun :: Lens' RevokeSecurityGroupEgress (Maybe Bool)
 rsgeDryRun = lens _rsgeDryRun (\ s a -> s{_rsgeDryRun = a});
 
@@ -146,9 +152,9 @@ instance AWSRequest RevokeSecurityGroupEgress where
         response
           = receiveNull RevokeSecurityGroupEgressResponse'
 
-instance Hashable RevokeSecurityGroupEgress
+instance Hashable RevokeSecurityGroupEgress where
 
-instance NFData RevokeSecurityGroupEgress
+instance NFData RevokeSecurityGroupEgress where
 
 instance ToHeaders RevokeSecurityGroupEgress where
         toHeaders = const mempty
@@ -161,12 +167,12 @@ instance ToQuery RevokeSecurityGroupEgress where
           = mconcat
               ["Action" =:
                  ("RevokeSecurityGroupEgress" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "FromPort" =: _rsgeFromPort,
                toQuery
                  (toQueryList "IpPermissions" <$> _rsgeIPPermissions),
                "IpProtocol" =: _rsgeIPProtocol,
-               "ToPort" =: _rsgeToPort, "CidrIp" =: _rsgeCIdRIP,
+               "ToPort" =: _rsgeToPort, "CidrIp" =: _rsgeCidrIP,
                "SourceSecurityGroupOwnerId" =:
                  _rsgeSourceSecurityGroupOwnerId,
                "SourceSecurityGroupName" =:
@@ -175,8 +181,9 @@ instance ToQuery RevokeSecurityGroupEgress where
 
 -- | /See:/ 'revokeSecurityGroupEgressResponse' smart constructor.
 data RevokeSecurityGroupEgressResponse =
-    RevokeSecurityGroupEgressResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RevokeSecurityGroupEgressResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RevokeSecurityGroupEgressResponse' with the minimum fields required to make a request.
 --
@@ -184,4 +191,6 @@ revokeSecurityGroupEgressResponse
     :: RevokeSecurityGroupEgressResponse
 revokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse'
 
+
 instance NFData RevokeSecurityGroupEgressResponse
+         where

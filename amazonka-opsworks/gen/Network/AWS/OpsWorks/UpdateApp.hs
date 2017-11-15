@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateApp
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a specified app.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Deploy or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Deploy or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.UpdateApp
     (
     -- * Creating a Request
@@ -44,80 +46,78 @@ module Network.AWS.OpsWorks.UpdateApp
     , UpdateAppResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateApp' smart constructor.
 data UpdateApp = UpdateApp'
-    { _uaSSLConfiguration :: !(Maybe SSLConfiguration)
-    , _uaEnvironment      :: !(Maybe [EnvironmentVariable])
-    , _uaEnableSSL        :: !(Maybe Bool)
-    , _uaDataSources      :: !(Maybe [DataSource])
-    , _uaAppSource        :: !(Maybe Source)
-    , _uaAttributes       :: !(Maybe (Map AppAttributesKeys Text))
-    , _uaName             :: !(Maybe Text)
-    , _uaType             :: !(Maybe AppType)
-    , _uaDomains          :: !(Maybe [Text])
-    , _uaDescription      :: !(Maybe Text)
-    , _uaAppId            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uaSSLConfiguration :: !(Maybe SSLConfiguration)
+  , _uaEnvironment      :: !(Maybe [EnvironmentVariable])
+  , _uaEnableSSL        :: !(Maybe Bool)
+  , _uaDataSources      :: !(Maybe [DataSource])
+  , _uaAppSource        :: !(Maybe Source)
+  , _uaAttributes       :: !(Maybe (Map AppAttributesKeys Text))
+  , _uaName             :: !(Maybe Text)
+  , _uaType             :: !(Maybe AppType)
+  , _uaDomains          :: !(Maybe [Text])
+  , _uaDescription      :: !(Maybe Text)
+  , _uaAppId            :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateApp' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaSSLConfiguration'
+-- * 'uaSSLConfiguration' - An @SslConfiguration@ object with the SSL configuration.
 --
--- * 'uaEnvironment'
+-- * 'uaEnvironment' - An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances.For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> . There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 10KB)."
 --
--- * 'uaEnableSSL'
+-- * 'uaEnableSSL' - Whether SSL is enabled for the app.
 --
--- * 'uaDataSources'
+-- * 'uaDataSources' - The app's data sources.
 --
--- * 'uaAppSource'
+-- * 'uaAppSource' - A @Source@ object that specifies the app repository.
 --
--- * 'uaAttributes'
+-- * 'uaAttributes' - One or more user-defined key/value pairs to be added to the stack attributes.
 --
--- * 'uaName'
+-- * 'uaName' - The app name.
 --
--- * 'uaType'
+-- * 'uaType' - The app type.
 --
--- * 'uaDomains'
+-- * 'uaDomains' - The app's virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
 --
--- * 'uaDescription'
+-- * 'uaDescription' - A description of the app.
 --
--- * 'uaAppId'
+-- * 'uaAppId' - The app ID.
 updateApp
     :: Text -- ^ 'uaAppId'
     -> UpdateApp
 updateApp pAppId_ =
-    UpdateApp'
-    { _uaSSLConfiguration = Nothing
-    , _uaEnvironment = Nothing
-    , _uaEnableSSL = Nothing
-    , _uaDataSources = Nothing
-    , _uaAppSource = Nothing
-    , _uaAttributes = Nothing
-    , _uaName = Nothing
-    , _uaType = Nothing
-    , _uaDomains = Nothing
-    , _uaDescription = Nothing
-    , _uaAppId = pAppId_
-    }
+  UpdateApp'
+  { _uaSSLConfiguration = Nothing
+  , _uaEnvironment = Nothing
+  , _uaEnableSSL = Nothing
+  , _uaDataSources = Nothing
+  , _uaAppSource = Nothing
+  , _uaAttributes = Nothing
+  , _uaName = Nothing
+  , _uaType = Nothing
+  , _uaDomains = Nothing
+  , _uaDescription = Nothing
+  , _uaAppId = pAppId_
+  }
 
--- | An 'SslConfiguration' object with the SSL configuration.
+
+-- | An @SslConfiguration@ object with the SSL configuration.
 uaSSLConfiguration :: Lens' UpdateApp (Maybe SSLConfiguration)
 uaSSLConfiguration = lens _uaSSLConfiguration (\ s a -> s{_uaSSLConfiguration = a});
 
--- | An array of 'EnvironmentVariable' objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances.For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables>.
---
--- There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables\' names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, \"Environment: is too large (maximum is 10KB).\"
---
--- This parameter is supported only by Chef 11.10 stacks. If you have specified one or more environment variables, you cannot modify the stack\'s Chef version.
+-- | An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances.For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> . There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 10KB)."
 uaEnvironment :: Lens' UpdateApp [EnvironmentVariable]
 uaEnvironment = lens _uaEnvironment (\ s a -> s{_uaEnvironment = a}) . _Default . _Coerce;
 
@@ -125,15 +125,15 @@ uaEnvironment = lens _uaEnvironment (\ s a -> s{_uaEnvironment = a}) . _Default 
 uaEnableSSL :: Lens' UpdateApp (Maybe Bool)
 uaEnableSSL = lens _uaEnableSSL (\ s a -> s{_uaEnableSSL = a});
 
--- | The app\'s data sources.
+-- | The app's data sources.
 uaDataSources :: Lens' UpdateApp [DataSource]
 uaDataSources = lens _uaDataSources (\ s a -> s{_uaDataSources = a}) . _Default . _Coerce;
 
--- | A 'Source' object that specifies the app repository.
+-- | A @Source@ object that specifies the app repository.
 uaAppSource :: Lens' UpdateApp (Maybe Source)
 uaAppSource = lens _uaAppSource (\ s a -> s{_uaAppSource = a});
 
--- | One or more user-defined key\/value pairs to be added to the stack attributes.
+-- | One or more user-defined key/value pairs to be added to the stack attributes.
 uaAttributes :: Lens' UpdateApp (HashMap AppAttributesKeys Text)
 uaAttributes = lens _uaAttributes (\ s a -> s{_uaAttributes = a}) . _Default . _Map;
 
@@ -145,7 +145,7 @@ uaName = lens _uaName (\ s a -> s{_uaName = a});
 uaType :: Lens' UpdateApp (Maybe AppType)
 uaType = lens _uaType (\ s a -> s{_uaType = a});
 
--- | The app\'s virtual host settings, with multiple domains separated by commas. For example: '\'www.example.com, example.com\''
+-- | The app's virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
 uaDomains :: Lens' UpdateApp [Text]
 uaDomains = lens _uaDomains (\ s a -> s{_uaDomains = a}) . _Default . _Coerce;
 
@@ -162,9 +162,9 @@ instance AWSRequest UpdateApp where
         request = postJSON opsWorks
         response = receiveNull UpdateAppResponse'
 
-instance Hashable UpdateApp
+instance Hashable UpdateApp where
 
-instance NFData UpdateApp
+instance NFData UpdateApp where
 
 instance ToHeaders UpdateApp where
         toHeaders
@@ -198,8 +198,9 @@ instance ToQuery UpdateApp where
 
 -- | /See:/ 'updateAppResponse' smart constructor.
 data UpdateAppResponse =
-    UpdateAppResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateAppResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAppResponse' with the minimum fields required to make a request.
 --
@@ -207,4 +208,5 @@ updateAppResponse
     :: UpdateAppResponse
 updateAppResponse = UpdateAppResponse'
 
-instance NFData UpdateAppResponse
+
+instance NFData UpdateAppResponse where

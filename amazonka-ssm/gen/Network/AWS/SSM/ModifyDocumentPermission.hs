@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ModifyDocumentPermission
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Share a document publicly or privately. If you share a document privately, you must specify the AWS user account IDs for those people who can use the document. If you share a document publicly, you must specify /All/ as the account ID.
+-- Shares a Systems Manager document publicly or privately. If you share a document privately, you must specify the AWS user account IDs for those people who can use the document. If you share a document publicly, you must specify /All/ as the account ID.
+--
+--
 module Network.AWS.SSM.ModifyDocumentPermission
     (
     -- * Creating a Request
@@ -37,49 +39,51 @@ module Network.AWS.SSM.ModifyDocumentPermission
     , mdprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'modifyDocumentPermission' smart constructor.
 data ModifyDocumentPermission = ModifyDocumentPermission'
-    { _mdpAccountIdsToAdd    :: !(Maybe [Text])
-    , _mdpAccountIdsToRemove :: !(Maybe [Text])
-    , _mdpName               :: !Text
-    , _mdpPermissionType     :: !DocumentPermissionType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdpAccountIdsToAdd    :: !(Maybe [Text])
+  , _mdpAccountIdsToRemove :: !(Maybe [Text])
+  , _mdpName               :: !Text
+  , _mdpPermissionType     :: !DocumentPermissionType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyDocumentPermission' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mdpAccountIdsToAdd'
+-- * 'mdpAccountIdsToAdd' - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or /All/ .
 --
--- * 'mdpAccountIdsToRemove'
+-- * 'mdpAccountIdsToRemove' - The AWS user accounts that should no longer have access to the document. The AWS user account can either be a group of account IDs or /All/ . This action has a higher priority than /AccountIdsToAdd/ . If you specify an account ID to add and the same ID to remove, the system removes access to the document.
 --
--- * 'mdpName'
+-- * 'mdpName' - The name of the document that you want to share.
 --
--- * 'mdpPermissionType'
+-- * 'mdpPermissionType' - The permission type for the document. The permission type can be /Share/ .
 modifyDocumentPermission
     :: Text -- ^ 'mdpName'
     -> DocumentPermissionType -- ^ 'mdpPermissionType'
     -> ModifyDocumentPermission
 modifyDocumentPermission pName_ pPermissionType_ =
-    ModifyDocumentPermission'
-    { _mdpAccountIdsToAdd = Nothing
-    , _mdpAccountIdsToRemove = Nothing
-    , _mdpName = pName_
-    , _mdpPermissionType = pPermissionType_
-    }
+  ModifyDocumentPermission'
+  { _mdpAccountIdsToAdd = Nothing
+  , _mdpAccountIdsToRemove = Nothing
+  , _mdpName = pName_
+  , _mdpPermissionType = pPermissionType_
+  }
 
--- | The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or /All/.
+
+-- | The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or /All/ .
 mdpAccountIdsToAdd :: Lens' ModifyDocumentPermission [Text]
 mdpAccountIdsToAdd = lens _mdpAccountIdsToAdd (\ s a -> s{_mdpAccountIdsToAdd = a}) . _Default . _Coerce;
 
--- | The AWS user accounts that should no longer have access to the document. The AWS user account can either be a group of account IDs or /All/. This action has a higher priority than /AccountIdsToAdd/. If you specify an account ID to add and the same ID to remove, the system removes access to the document.
+-- | The AWS user accounts that should no longer have access to the document. The AWS user account can either be a group of account IDs or /All/ . This action has a higher priority than /AccountIdsToAdd/ . If you specify an account ID to add and the same ID to remove, the system removes access to the document.
 mdpAccountIdsToRemove :: Lens' ModifyDocumentPermission [Text]
 mdpAccountIdsToRemove = lens _mdpAccountIdsToRemove (\ s a -> s{_mdpAccountIdsToRemove = a}) . _Default . _Coerce;
 
@@ -87,7 +91,7 @@ mdpAccountIdsToRemove = lens _mdpAccountIdsToRemove (\ s a -> s{_mdpAccountIdsTo
 mdpName :: Lens' ModifyDocumentPermission Text
 mdpName = lens _mdpName (\ s a -> s{_mdpName = a});
 
--- | The permission type for the document. The permission type can be /Share/.
+-- | The permission type for the document. The permission type can be /Share/ .
 mdpPermissionType :: Lens' ModifyDocumentPermission DocumentPermissionType
 mdpPermissionType = lens _mdpPermissionType (\ s a -> s{_mdpPermissionType = a});
 
@@ -101,9 +105,9 @@ instance AWSRequest ModifyDocumentPermission where
                  ModifyDocumentPermissionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable ModifyDocumentPermission
+instance Hashable ModifyDocumentPermission where
 
-instance NFData ModifyDocumentPermission
+instance NFData ModifyDocumentPermission where
 
 instance ToHeaders ModifyDocumentPermission where
         toHeaders
@@ -131,24 +135,25 @@ instance ToQuery ModifyDocumentPermission where
 
 -- | /See:/ 'modifyDocumentPermissionResponse' smart constructor.
 newtype ModifyDocumentPermissionResponse = ModifyDocumentPermissionResponse'
-    { _mdprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyDocumentPermissionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mdprsResponseStatus'
+-- * 'mdprsResponseStatus' - -- | The response status code.
 modifyDocumentPermissionResponse
     :: Int -- ^ 'mdprsResponseStatus'
     -> ModifyDocumentPermissionResponse
 modifyDocumentPermissionResponse pResponseStatus_ =
-    ModifyDocumentPermissionResponse'
-    { _mdprsResponseStatus = pResponseStatus_
-    }
+  ModifyDocumentPermissionResponse' {_mdprsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 mdprsResponseStatus :: Lens' ModifyDocumentPermissionResponse Int
 mdprsResponseStatus = lens _mdprsResponseStatus (\ s a -> s{_mdprsResponseStatus = a});
 
 instance NFData ModifyDocumentPermissionResponse
+         where

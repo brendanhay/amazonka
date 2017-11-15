@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.SES.DeleteIdentity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified identity (an email address or a domain) from the list of verified identities.
 --
--- This action is throttled at one request per second.
+--
+-- You can execute this operation no more than once per second.
+--
 module Network.AWS.SES.DeleteIdentity
     (
     -- * Creating a Request
@@ -36,32 +38,33 @@ module Network.AWS.SES.DeleteIdentity
     , dirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to delete one of your Amazon SES identities (an email address or domain).
 --
+--
+--
 -- /See:/ 'deleteIdentity' smart constructor.
 newtype DeleteIdentity = DeleteIdentity'
-    { _diIdentity :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diIdentity :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIdentity' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diIdentity'
+-- * 'diIdentity' - The identity to be removed from the list of identities for the AWS Account.
 deleteIdentity
     :: Text -- ^ 'diIdentity'
     -> DeleteIdentity
-deleteIdentity pIdentity_ =
-    DeleteIdentity'
-    { _diIdentity = pIdentity_
-    }
+deleteIdentity pIdentity_ = DeleteIdentity' {_diIdentity = pIdentity_}
+
 
 -- | The identity to be removed from the list of identities for the AWS Account.
 diIdentity :: Lens' DeleteIdentity Text
@@ -75,9 +78,9 @@ instance AWSRequest DeleteIdentity where
               (\ s h x ->
                  DeleteIdentityResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteIdentity
+instance Hashable DeleteIdentity where
 
-instance NFData DeleteIdentity
+instance NFData DeleteIdentity where
 
 instance ToHeaders DeleteIdentity where
         toHeaders = const mempty
@@ -94,26 +97,28 @@ instance ToQuery DeleteIdentity where
 
 -- | An empty element returned on a successful request.
 --
+--
+--
 -- /See:/ 'deleteIdentityResponse' smart constructor.
 newtype DeleteIdentityResponse = DeleteIdentityResponse'
-    { _dirsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dirsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIdentityResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dirsResponseStatus'
+-- * 'dirsResponseStatus' - -- | The response status code.
 deleteIdentityResponse
     :: Int -- ^ 'dirsResponseStatus'
     -> DeleteIdentityResponse
 deleteIdentityResponse pResponseStatus_ =
-    DeleteIdentityResponse'
-    { _dirsResponseStatus = pResponseStatus_
-    }
+  DeleteIdentityResponse' {_dirsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 dirsResponseStatus :: Lens' DeleteIdentityResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
 
-instance NFData DeleteIdentityResponse
+instance NFData DeleteIdentityResponse where

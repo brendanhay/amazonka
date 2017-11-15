@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CreatePolicyVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new version of the specified AWS IoT policy. To update a policy, create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must use < DeletePolicyVersion> to delete an existing version before you create a new one.
+-- Creates a new version of the specified AWS IoT policy. To update a policy, create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must use 'DeletePolicyVersion' to delete an existing version before you create a new one.
 --
--- Optionally, you can set the new version as the policy\'s default version. The default version is the operative version (that is, the version that is in effect for the certificates to which the policy is attached).
+--
+-- Optionally, you can set the new version as the policy's default version. The default version is the operative version (that is, the version that is in effect for the certificates to which the policy is attached).
+--
 module Network.AWS.IoT.CreatePolicyVersion
     (
     -- * Creating a Request
@@ -42,41 +44,45 @@ module Network.AWS.IoT.CreatePolicyVersion
     , cpvrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the CreatePolicyVersion operation.
 --
+--
+--
 -- /See:/ 'createPolicyVersion' smart constructor.
 data CreatePolicyVersion = CreatePolicyVersion'
-    { _cpvSetAsDefault   :: !(Maybe Bool)
-    , _cpvPolicyName     :: !Text
-    , _cpvPolicyDocument :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpvSetAsDefault   :: !(Maybe Bool)
+  , _cpvPolicyName     :: !Text
+  , _cpvPolicyDocument :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePolicyVersion' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpvSetAsDefault'
+-- * 'cpvSetAsDefault' - Specifies whether the policy version is set as the default. When this parameter is true, the new policy version becomes the operative version (that is, the version that is in effect for the certificates to which the policy is attached).
 --
--- * 'cpvPolicyName'
+-- * 'cpvPolicyName' - The policy name.
 --
--- * 'cpvPolicyDocument'
+-- * 'cpvPolicyDocument' - The JSON document that describes the policy. Minimum length of 1. Maximum length of 2048, excluding whitespaces
 createPolicyVersion
     :: Text -- ^ 'cpvPolicyName'
     -> Text -- ^ 'cpvPolicyDocument'
     -> CreatePolicyVersion
 createPolicyVersion pPolicyName_ pPolicyDocument_ =
-    CreatePolicyVersion'
-    { _cpvSetAsDefault = Nothing
-    , _cpvPolicyName = pPolicyName_
-    , _cpvPolicyDocument = pPolicyDocument_
-    }
+  CreatePolicyVersion'
+  { _cpvSetAsDefault = Nothing
+  , _cpvPolicyName = pPolicyName_
+  , _cpvPolicyDocument = pPolicyDocument_
+  }
+
 
 -- | Specifies whether the policy version is set as the default. When this parameter is true, the new policy version becomes the operative version (that is, the version that is in effect for the certificates to which the policy is attached).
 cpvSetAsDefault :: Lens' CreatePolicyVersion (Maybe Bool)
@@ -104,9 +110,9 @@ instance AWSRequest CreatePolicyVersion where
                      <*> (x .?> "isDefaultVersion")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreatePolicyVersion
+instance Hashable CreatePolicyVersion where
 
-instance NFData CreatePolicyVersion
+instance NFData CreatePolicyVersion where
 
 instance ToHeaders CreatePolicyVersion where
         toHeaders = const mempty
@@ -128,39 +134,43 @@ instance ToQuery CreatePolicyVersion where
 
 -- | The output of the CreatePolicyVersion operation.
 --
+--
+--
 -- /See:/ 'createPolicyVersionResponse' smart constructor.
 data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
-    { _cpvrsPolicyDocument   :: !(Maybe Text)
-    , _cpvrsPolicyVersionId  :: !(Maybe Text)
-    , _cpvrsPolicyARN        :: !(Maybe Text)
-    , _cpvrsIsDefaultVersion :: !(Maybe Bool)
-    , _cpvrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpvrsPolicyDocument   :: !(Maybe Text)
+  , _cpvrsPolicyVersionId  :: !(Maybe Text)
+  , _cpvrsPolicyARN        :: !(Maybe Text)
+  , _cpvrsIsDefaultVersion :: !(Maybe Bool)
+  , _cpvrsResponseStatus   :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePolicyVersionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpvrsPolicyDocument'
+-- * 'cpvrsPolicyDocument' - The JSON document that describes the policy.
 --
--- * 'cpvrsPolicyVersionId'
+-- * 'cpvrsPolicyVersionId' - The policy version ID.
 --
--- * 'cpvrsPolicyARN'
+-- * 'cpvrsPolicyARN' - The policy ARN.
 --
--- * 'cpvrsIsDefaultVersion'
+-- * 'cpvrsIsDefaultVersion' - Specifies whether the policy version is the default.
 --
--- * 'cpvrsResponseStatus'
+-- * 'cpvrsResponseStatus' - -- | The response status code.
 createPolicyVersionResponse
     :: Int -- ^ 'cpvrsResponseStatus'
     -> CreatePolicyVersionResponse
 createPolicyVersionResponse pResponseStatus_ =
-    CreatePolicyVersionResponse'
-    { _cpvrsPolicyDocument = Nothing
-    , _cpvrsPolicyVersionId = Nothing
-    , _cpvrsPolicyARN = Nothing
-    , _cpvrsIsDefaultVersion = Nothing
-    , _cpvrsResponseStatus = pResponseStatus_
-    }
+  CreatePolicyVersionResponse'
+  { _cpvrsPolicyDocument = Nothing
+  , _cpvrsPolicyVersionId = Nothing
+  , _cpvrsPolicyARN = Nothing
+  , _cpvrsIsDefaultVersion = Nothing
+  , _cpvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The JSON document that describes the policy.
 cpvrsPolicyDocument :: Lens' CreatePolicyVersionResponse (Maybe Text)
@@ -178,8 +188,8 @@ cpvrsPolicyARN = lens _cpvrsPolicyARN (\ s a -> s{_cpvrsPolicyARN = a});
 cpvrsIsDefaultVersion :: Lens' CreatePolicyVersionResponse (Maybe Bool)
 cpvrsIsDefaultVersion = lens _cpvrsIsDefaultVersion (\ s a -> s{_cpvrsIsDefaultVersion = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cpvrsResponseStatus :: Lens' CreatePolicyVersionResponse Int
 cpvrsResponseStatus = lens _cpvrsResponseStatus (\ s a -> s{_cpvrsResponseStatus = a});
 
-instance NFData CreatePolicyVersionResponse
+instance NFData CreatePolicyVersionResponse where

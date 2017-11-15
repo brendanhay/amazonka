@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.Snowball
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.Snowball where
 
 import Data.Proxy
+import Network.AWS.Snowball
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.Tasty
-import Network.AWS.Snowball
 import Test.AWS.Snowball.Internal
+import Test.Tasty
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -28,7 +28,13 @@ import Test.AWS.Snowball.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateAddress $
+--         [ requestCancelCluster $
+--             cancelCluster
+--
+--         , requestDescribeCluster $
+--             describeCluster
+--
+--         , requestCreateAddress $
 --             createAddress
 --
 --         , requestGetSnowballUsage $
@@ -37,11 +43,17 @@ import Test.AWS.Snowball.Internal
 --         , requestDescribeAddresses $
 --             describeAddresses
 --
+--         , requestUpdateCluster $
+--             updateCluster
+--
 --         , requestCreateJob $
 --             createJob
 --
 --         , requestGetJobManifest $
 --             getJobManifest
+--
+--         , requestCreateCluster $
+--             createCluster
 --
 --         , requestListJobs $
 --             listJobs
@@ -52,8 +64,14 @@ import Test.AWS.Snowball.Internal
 --         , requestGetJobUnlockCode $
 --             getJobUnlockCode
 --
+--         , requestListClusterJobs $
+--             listClusterJobs
+--
 --         , requestDescribeJob $
 --             describeJob
+--
+--         , requestListClusters $
+--             listClusters
 --
 --         , requestDescribeAddress $
 --             describeAddress
@@ -64,7 +82,13 @@ import Test.AWS.Snowball.Internal
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateAddress $
+--         [ responseCancelCluster $
+--             cancelClusterResponse
+--
+--         , responseDescribeCluster $
+--             describeClusterResponse
+--
+--         , responseCreateAddress $
 --             createAddressResponse
 --
 --         , responseGetSnowballUsage $
@@ -73,11 +97,17 @@ import Test.AWS.Snowball.Internal
 --         , responseDescribeAddresses $
 --             describeAddressesResponse
 --
+--         , responseUpdateCluster $
+--             updateClusterResponse
+--
 --         , responseCreateJob $
 --             createJobResponse
 --
 --         , responseGetJobManifest $
 --             getJobManifestResponse
+--
+--         , responseCreateCluster $
+--             createClusterResponse
 --
 --         , responseListJobs $
 --             listJobsResponse
@@ -88,8 +118,14 @@ import Test.AWS.Snowball.Internal
 --         , responseGetJobUnlockCode $
 --             getJobUnlockCodeResponse
 --
+--         , responseListClusterJobs $
+--             listClusterJobsResponse
+--
 --         , responseDescribeJob $
 --             describeJobResponse
+--
+--         , responseListClusters $
+--             listClustersResponse
 --
 --         , responseDescribeAddress $
 --             describeAddressResponse
@@ -101,6 +137,16 @@ import Test.AWS.Snowball.Internal
 --     ]
 
 -- Requests
+
+requestCancelCluster :: CancelCluster -> TestTree
+requestCancelCluster = req
+    "CancelCluster"
+    "fixture/CancelCluster.yaml"
+
+requestDescribeCluster :: DescribeCluster -> TestTree
+requestDescribeCluster = req
+    "DescribeCluster"
+    "fixture/DescribeCluster.yaml"
 
 requestCreateAddress :: CreateAddress -> TestTree
 requestCreateAddress = req
@@ -117,6 +163,11 @@ requestDescribeAddresses = req
     "DescribeAddresses"
     "fixture/DescribeAddresses.yaml"
 
+requestUpdateCluster :: UpdateCluster -> TestTree
+requestUpdateCluster = req
+    "UpdateCluster"
+    "fixture/UpdateCluster.yaml"
+
 requestCreateJob :: CreateJob -> TestTree
 requestCreateJob = req
     "CreateJob"
@@ -126,6 +177,11 @@ requestGetJobManifest :: GetJobManifest -> TestTree
 requestGetJobManifest = req
     "GetJobManifest"
     "fixture/GetJobManifest.yaml"
+
+requestCreateCluster :: CreateCluster -> TestTree
+requestCreateCluster = req
+    "CreateCluster"
+    "fixture/CreateCluster.yaml"
 
 requestListJobs :: ListJobs -> TestTree
 requestListJobs = req
@@ -142,10 +198,20 @@ requestGetJobUnlockCode = req
     "GetJobUnlockCode"
     "fixture/GetJobUnlockCode.yaml"
 
+requestListClusterJobs :: ListClusterJobs -> TestTree
+requestListClusterJobs = req
+    "ListClusterJobs"
+    "fixture/ListClusterJobs.yaml"
+
 requestDescribeJob :: DescribeJob -> TestTree
 requestDescribeJob = req
     "DescribeJob"
     "fixture/DescribeJob.yaml"
+
+requestListClusters :: ListClusters -> TestTree
+requestListClusters = req
+    "ListClusters"
+    "fixture/ListClusters.yaml"
 
 requestDescribeAddress :: DescribeAddress -> TestTree
 requestDescribeAddress = req
@@ -158,6 +224,20 @@ requestCancelJob = req
     "fixture/CancelJob.yaml"
 
 -- Responses
+
+responseCancelCluster :: CancelClusterResponse -> TestTree
+responseCancelCluster = res
+    "CancelClusterResponse"
+    "fixture/CancelClusterResponse.proto"
+    snowball
+    (Proxy :: Proxy CancelCluster)
+
+responseDescribeCluster :: DescribeClusterResponse -> TestTree
+responseDescribeCluster = res
+    "DescribeClusterResponse"
+    "fixture/DescribeClusterResponse.proto"
+    snowball
+    (Proxy :: Proxy DescribeCluster)
 
 responseCreateAddress :: CreateAddressResponse -> TestTree
 responseCreateAddress = res
@@ -180,6 +260,13 @@ responseDescribeAddresses = res
     snowball
     (Proxy :: Proxy DescribeAddresses)
 
+responseUpdateCluster :: UpdateClusterResponse -> TestTree
+responseUpdateCluster = res
+    "UpdateClusterResponse"
+    "fixture/UpdateClusterResponse.proto"
+    snowball
+    (Proxy :: Proxy UpdateCluster)
+
 responseCreateJob :: CreateJobResponse -> TestTree
 responseCreateJob = res
     "CreateJobResponse"
@@ -193,6 +280,13 @@ responseGetJobManifest = res
     "fixture/GetJobManifestResponse.proto"
     snowball
     (Proxy :: Proxy GetJobManifest)
+
+responseCreateCluster :: CreateClusterResponse -> TestTree
+responseCreateCluster = res
+    "CreateClusterResponse"
+    "fixture/CreateClusterResponse.proto"
+    snowball
+    (Proxy :: Proxy CreateCluster)
 
 responseListJobs :: ListJobsResponse -> TestTree
 responseListJobs = res
@@ -215,12 +309,26 @@ responseGetJobUnlockCode = res
     snowball
     (Proxy :: Proxy GetJobUnlockCode)
 
+responseListClusterJobs :: ListClusterJobsResponse -> TestTree
+responseListClusterJobs = res
+    "ListClusterJobsResponse"
+    "fixture/ListClusterJobsResponse.proto"
+    snowball
+    (Proxy :: Proxy ListClusterJobs)
+
 responseDescribeJob :: DescribeJobResponse -> TestTree
 responseDescribeJob = res
     "DescribeJobResponse"
     "fixture/DescribeJobResponse.proto"
     snowball
     (Proxy :: Proxy DescribeJob)
+
+responseListClusters :: ListClustersResponse -> TestTree
+responseListClusters = res
+    "ListClustersResponse"
+    "fixture/ListClustersResponse.proto"
+    snowball
+    (Proxy :: Proxy ListClusters)
 
 responseDescribeAddress :: DescribeAddressResponse -> TestTree
 responseDescribeAddress = res

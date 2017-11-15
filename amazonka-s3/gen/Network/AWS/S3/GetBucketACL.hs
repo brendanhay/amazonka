@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketACL
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,30 +36,29 @@ module Network.AWS.S3.GetBucketACL
     , gbarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketACL' smart constructor.
 newtype GetBucketACL = GetBucketACL'
-    { _gbaBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbaBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketACL' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbaBucket'
+-- * 'gbaBucket' - Undocumented member.
 getBucketACL
     :: BucketName -- ^ 'gbaBucket'
     -> GetBucketACL
-getBucketACL pBucket_ =
-    GetBucketACL'
-    { _gbaBucket = pBucket_
-    }
+getBucketACL pBucket_ = GetBucketACL' {_gbaBucket = pBucket_}
+
 
 -- | Undocumented member.
 gbaBucket :: Lens' GetBucketACL BucketName
@@ -77,9 +76,9 @@ instance AWSRequest GetBucketACL where
                      <*> (x .@? "Owner")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetBucketACL
+instance Hashable GetBucketACL where
 
-instance NFData GetBucketACL
+instance NFData GetBucketACL where
 
 instance ToHeaders GetBucketACL where
         toHeaders = const mempty
@@ -93,29 +92,31 @@ instance ToQuery GetBucketACL where
 
 -- | /See:/ 'getBucketACLResponse' smart constructor.
 data GetBucketACLResponse = GetBucketACLResponse'
-    { _gbarsGrants         :: !(Maybe [Grant])
-    , _gbarsOwner          :: !(Maybe Owner)
-    , _gbarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbarsGrants         :: !(Maybe [Grant])
+  , _gbarsOwner          :: !(Maybe Owner)
+  , _gbarsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketACLResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbarsGrants'
+-- * 'gbarsGrants' - A list of grants.
 --
--- * 'gbarsOwner'
+-- * 'gbarsOwner' - Undocumented member.
 --
--- * 'gbarsResponseStatus'
+-- * 'gbarsResponseStatus' - -- | The response status code.
 getBucketACLResponse
     :: Int -- ^ 'gbarsResponseStatus'
     -> GetBucketACLResponse
 getBucketACLResponse pResponseStatus_ =
-    GetBucketACLResponse'
-    { _gbarsGrants = Nothing
-    , _gbarsOwner = Nothing
-    , _gbarsResponseStatus = pResponseStatus_
-    }
+  GetBucketACLResponse'
+  { _gbarsGrants = Nothing
+  , _gbarsOwner = Nothing
+  , _gbarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of grants.
 gbarsGrants :: Lens' GetBucketACLResponse [Grant]
@@ -125,8 +126,8 @@ gbarsGrants = lens _gbarsGrants (\ s a -> s{_gbarsGrants = a}) . _Default . _Coe
 gbarsOwner :: Lens' GetBucketACLResponse (Maybe Owner)
 gbarsOwner = lens _gbarsOwner (\ s a -> s{_gbarsOwner = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gbarsResponseStatus :: Lens' GetBucketACLResponse Int
 gbarsResponseStatus = lens _gbarsResponseStatus (\ s a -> s{_gbarsResponseStatus = a});
 
-instance NFData GetBucketACLResponse
+instance NFData GetBucketACLResponse where

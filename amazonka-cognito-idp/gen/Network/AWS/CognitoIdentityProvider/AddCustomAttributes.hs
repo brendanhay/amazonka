@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AddCustomAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds additional user attributes to the user pool schema.
+--
+--
 module Network.AWS.CognitoIdentityProvider.AddCustomAttributes
     (
     -- * Creating a Request
@@ -35,37 +37,41 @@ module Network.AWS.CognitoIdentityProvider.AddCustomAttributes
     , acarsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to add custom attributes.
 --
+--
+--
 -- /See:/ 'addCustomAttributes' smart constructor.
 data AddCustomAttributes = AddCustomAttributes'
-    { _acaUserPoolId       :: !Text
-    , _acaCustomAttributes :: !(List1 SchemaAttributeType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acaUserPoolId       :: !Text
+  , _acaCustomAttributes :: !(List1 SchemaAttributeType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddCustomAttributes' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acaUserPoolId'
+-- * 'acaUserPoolId' - The user pool ID for the user pool where you want to add custom attributes.
 --
--- * 'acaCustomAttributes'
+-- * 'acaCustomAttributes' - An array of custom attributes, such as Mutable and Name.
 addCustomAttributes
     :: Text -- ^ 'acaUserPoolId'
     -> NonEmpty SchemaAttributeType -- ^ 'acaCustomAttributes'
     -> AddCustomAttributes
 addCustomAttributes pUserPoolId_ pCustomAttributes_ =
-    AddCustomAttributes'
-    { _acaUserPoolId = pUserPoolId_
-    , _acaCustomAttributes = _List1 # pCustomAttributes_
-    }
+  AddCustomAttributes'
+  { _acaUserPoolId = pUserPoolId_
+  , _acaCustomAttributes = _List1 # pCustomAttributes_
+  }
+
 
 -- | The user pool ID for the user pool where you want to add custom attributes.
 acaUserPoolId :: Lens' AddCustomAttributes Text
@@ -84,9 +90,9 @@ instance AWSRequest AddCustomAttributes where
               (\ s h x ->
                  AddCustomAttributesResponse' <$> (pure (fromEnum s)))
 
-instance Hashable AddCustomAttributes
+instance Hashable AddCustomAttributes where
 
-instance NFData AddCustomAttributes
+instance NFData AddCustomAttributes where
 
 instance ToHeaders AddCustomAttributes where
         toHeaders
@@ -113,26 +119,28 @@ instance ToQuery AddCustomAttributes where
 
 -- | Represents the response from the server for the request to add custom attributes.
 --
+--
+--
 -- /See:/ 'addCustomAttributesResponse' smart constructor.
 newtype AddCustomAttributesResponse = AddCustomAttributesResponse'
-    { _acarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddCustomAttributesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acarsResponseStatus'
+-- * 'acarsResponseStatus' - -- | The response status code.
 addCustomAttributesResponse
     :: Int -- ^ 'acarsResponseStatus'
     -> AddCustomAttributesResponse
 addCustomAttributesResponse pResponseStatus_ =
-    AddCustomAttributesResponse'
-    { _acarsResponseStatus = pResponseStatus_
-    }
+  AddCustomAttributesResponse' {_acarsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 acarsResponseStatus :: Lens' AddCustomAttributesResponse Int
 acarsResponseStatus = lens _acarsResponseStatus (\ s a -> s{_acarsResponseStatus = a});
 
-instance NFData AddCustomAttributesResponse
+instance NFData AddCustomAttributesResponse where

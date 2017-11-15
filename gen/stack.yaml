@@ -1,7 +1,0 @@
-compiler: ghc-7.10.3
-resolver: lts-6.1
-flags:    {}
-extra-deps:
-  - text-regex-replace-0.1.1.1
-packages:
-  - '.'

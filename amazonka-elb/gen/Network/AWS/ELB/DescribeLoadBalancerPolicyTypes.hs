@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the specified load balancer policy types or all load balancer policy types.
 --
+--
 -- The description of each type indicates how it can be used. For example, some policies can be used only with layer 7 listeners, some policies can be used only with layer 4 listeners, and some policies can be used only with your EC2 instances.
 --
--- You can use < CreateLoadBalancerPolicy> to create a policy configuration for any of these policy types. Then, depending on the policy type, use either < SetLoadBalancerPoliciesOfListener> or < SetLoadBalancerPoliciesForBackendServer> to set the policy.
+-- You can use 'CreateLoadBalancerPolicy' to create a policy configuration for any of these policy types. Then, depending on the policy type, use either 'SetLoadBalancerPoliciesOfListener' or 'SetLoadBalancerPoliciesForBackendServer' to set the policy.
+--
 module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     (
     -- * Creating a Request
@@ -39,31 +41,33 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     , dlbptrsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeLoadBalancerPolicyTypes.
 --
+--
+--
 -- /See:/ 'describeLoadBalancerPolicyTypes' smart constructor.
 newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'
-    { _dlbptPolicyTypeNames :: Maybe [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbptPolicyTypeNames :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLoadBalancerPolicyTypes' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbptPolicyTypeNames'
+-- * 'dlbptPolicyTypeNames' - The names of the policy types. If no names are specified, describes all policy types defined by Elastic Load Balancing.
 describeLoadBalancerPolicyTypes
     :: DescribeLoadBalancerPolicyTypes
 describeLoadBalancerPolicyTypes =
-    DescribeLoadBalancerPolicyTypes'
-    { _dlbptPolicyTypeNames = Nothing
-    }
+  DescribeLoadBalancerPolicyTypes' {_dlbptPolicyTypeNames = Nothing}
+
 
 -- | The names of the policy types. If no names are specified, describes all policy types defined by Elastic Load Balancing.
 dlbptPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
@@ -84,8 +88,9 @@ instance AWSRequest DescribeLoadBalancerPolicyTypes
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeLoadBalancerPolicyTypes
+         where
 
-instance NFData DescribeLoadBalancerPolicyTypes
+instance NFData DescribeLoadBalancerPolicyTypes where
 
 instance ToHeaders DescribeLoadBalancerPolicyTypes
          where
@@ -107,35 +112,40 @@ instance ToQuery DescribeLoadBalancerPolicyTypes
 
 -- | Contains the output of DescribeLoadBalancerPolicyTypes.
 --
+--
+--
 -- /See:/ 'describeLoadBalancerPolicyTypesResponse' smart constructor.
 data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'
-    { _dlbptrsPolicyTypeDescriptions :: !(Maybe [PolicyTypeDescription])
-    , _dlbptrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbptrsPolicyTypeDescriptions :: !(Maybe [PolicyTypeDescription])
+  , _dlbptrsResponseStatus         :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLoadBalancerPolicyTypesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbptrsPolicyTypeDescriptions'
+-- * 'dlbptrsPolicyTypeDescriptions' - Information about the policy types.
 --
--- * 'dlbptrsResponseStatus'
+-- * 'dlbptrsResponseStatus' - -- | The response status code.
 describeLoadBalancerPolicyTypesResponse
     :: Int -- ^ 'dlbptrsResponseStatus'
     -> DescribeLoadBalancerPolicyTypesResponse
 describeLoadBalancerPolicyTypesResponse pResponseStatus_ =
-    DescribeLoadBalancerPolicyTypesResponse'
-    { _dlbptrsPolicyTypeDescriptions = Nothing
-    , _dlbptrsResponseStatus = pResponseStatus_
-    }
+  DescribeLoadBalancerPolicyTypesResponse'
+  { _dlbptrsPolicyTypeDescriptions = Nothing
+  , _dlbptrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the policy types.
 dlbptrsPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
 dlbptrsPolicyTypeDescriptions = lens _dlbptrsPolicyTypeDescriptions (\ s a -> s{_dlbptrsPolicyTypeDescriptions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dlbptrsResponseStatus :: Lens' DescribeLoadBalancerPolicyTypesResponse Int
 dlbptrsResponseStatus = lens _dlbptrsResponseStatus (\ s a -> s{_dlbptrsResponseStatus = a});
 
 instance NFData
-         DescribeLoadBalancerPolicyTypesResponse
+           DescribeLoadBalancerPolicyTypesResponse
+         where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.RDS.PurchaseReservedDBInstancesOffering
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Purchases a reserved DB instance offering.
+--
+--
 module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     (
     -- * Creating a Request
@@ -38,54 +40,54 @@ module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     , prdiorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'purchaseReservedDBInstancesOffering' smart constructor.
 data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'
-    { _prdioDBInstanceCount               :: !(Maybe Int)
-    , _prdioReservedDBInstanceId          :: !(Maybe Text)
-    , _prdioTags                          :: !(Maybe [Tag])
-    , _prdioReservedDBInstancesOfferingId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prdioDBInstanceCount               :: !(Maybe Int)
+  , _prdioReservedDBInstanceId          :: !(Maybe Text)
+  , _prdioTags                          :: !(Maybe [Tag])
+  , _prdioReservedDBInstancesOfferingId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurchaseReservedDBInstancesOffering' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prdioDBInstanceCount'
+-- * 'prdioDBInstanceCount' - The number of instances to reserve. Default: @1@
 --
--- * 'prdioReservedDBInstanceId'
+-- * 'prdioReservedDBInstanceId' - Customer-specified identifier to track this reservation. Example: myreservationID
 --
--- * 'prdioTags'
+-- * 'prdioTags' - Undocumented member.
 --
--- * 'prdioReservedDBInstancesOfferingId'
+-- * 'prdioReservedDBInstancesOfferingId' - The ID of the Reserved DB instance offering to purchase. Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
 purchaseReservedDBInstancesOffering
     :: Text -- ^ 'prdioReservedDBInstancesOfferingId'
     -> PurchaseReservedDBInstancesOffering
 purchaseReservedDBInstancesOffering pReservedDBInstancesOfferingId_ =
-    PurchaseReservedDBInstancesOffering'
-    { _prdioDBInstanceCount = Nothing
-    , _prdioReservedDBInstanceId = Nothing
-    , _prdioTags = Nothing
-    , _prdioReservedDBInstancesOfferingId = pReservedDBInstancesOfferingId_
-    }
+  PurchaseReservedDBInstancesOffering'
+  { _prdioDBInstanceCount = Nothing
+  , _prdioReservedDBInstanceId = Nothing
+  , _prdioTags = Nothing
+  , _prdioReservedDBInstancesOfferingId = pReservedDBInstancesOfferingId_
+  }
 
--- | The number of instances to reserve.
---
--- Default: '1'
+
+-- | The number of instances to reserve. Default: @1@
 prdioDBInstanceCount :: Lens' PurchaseReservedDBInstancesOffering (Maybe Int)
 prdioDBInstanceCount = lens _prdioDBInstanceCount (\ s a -> s{_prdioDBInstanceCount = a});
 
--- | Customer-specified identifier to track this reservation.
---
--- Example: myreservationID
+-- | Customer-specified identifier to track this reservation. Example: myreservationID
 prdioReservedDBInstanceId :: Lens' PurchaseReservedDBInstancesOffering (Maybe Text)
 prdioReservedDBInstanceId = lens _prdioReservedDBInstanceId (\ s a -> s{_prdioReservedDBInstanceId = a});
 
@@ -93,14 +95,13 @@ prdioReservedDBInstanceId = lens _prdioReservedDBInstanceId (\ s a -> s{_prdioRe
 prdioTags :: Lens' PurchaseReservedDBInstancesOffering [Tag]
 prdioTags = lens _prdioTags (\ s a -> s{_prdioTags = a}) . _Default . _Coerce;
 
--- | The ID of the Reserved DB instance offering to purchase.
---
--- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
+-- | The ID of the Reserved DB instance offering to purchase. Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
 prdioReservedDBInstancesOfferingId :: Lens' PurchaseReservedDBInstancesOffering Text
 prdioReservedDBInstancesOfferingId = lens _prdioReservedDBInstancesOfferingId (\ s a -> s{_prdioReservedDBInstancesOfferingId = a});
 
 instance AWSRequest
-         PurchaseReservedDBInstancesOffering where
+           PurchaseReservedDBInstancesOffering
+         where
         type Rs PurchaseReservedDBInstancesOffering =
              PurchaseReservedDBInstancesOfferingResponse
         request = postQuery rds
@@ -112,11 +113,14 @@ instance AWSRequest
                    (x .@? "ReservedDBInstance") <*> (pure (fromEnum s)))
 
 instance Hashable PurchaseReservedDBInstancesOffering
+         where
 
 instance NFData PurchaseReservedDBInstancesOffering
+         where
 
 instance ToHeaders
-         PurchaseReservedDBInstancesOffering where
+           PurchaseReservedDBInstancesOffering
+         where
         toHeaders = const mempty
 
 instance ToPath PurchaseReservedDBInstancesOffering
@@ -139,33 +143,36 @@ instance ToQuery PurchaseReservedDBInstancesOffering
 
 -- | /See:/ 'purchaseReservedDBInstancesOfferingResponse' smart constructor.
 data PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse'
-    { _prdiorsReservedDBInstance :: !(Maybe ReservedDBInstance)
-    , _prdiorsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prdiorsReservedDBInstance :: !(Maybe ReservedDBInstance)
+  , _prdiorsResponseStatus     :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurchaseReservedDBInstancesOfferingResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prdiorsReservedDBInstance'
+-- * 'prdiorsReservedDBInstance' - Undocumented member.
 --
--- * 'prdiorsResponseStatus'
+-- * 'prdiorsResponseStatus' - -- | The response status code.
 purchaseReservedDBInstancesOfferingResponse
     :: Int -- ^ 'prdiorsResponseStatus'
     -> PurchaseReservedDBInstancesOfferingResponse
 purchaseReservedDBInstancesOfferingResponse pResponseStatus_ =
-    PurchaseReservedDBInstancesOfferingResponse'
-    { _prdiorsReservedDBInstance = Nothing
-    , _prdiorsResponseStatus = pResponseStatus_
-    }
+  PurchaseReservedDBInstancesOfferingResponse'
+  { _prdiorsReservedDBInstance = Nothing
+  , _prdiorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 prdiorsReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse (Maybe ReservedDBInstance)
 prdiorsReservedDBInstance = lens _prdiorsReservedDBInstance (\ s a -> s{_prdiorsReservedDBInstance = a});
 
--- | The response status code.
+-- | -- | The response status code.
 prdiorsResponseStatus :: Lens' PurchaseReservedDBInstancesOfferingResponse Int
 prdiorsResponseStatus = lens _prdiorsResponseStatus (\ s a -> s{_prdiorsResponseStatus = a});
 
 instance NFData
-         PurchaseReservedDBInstancesOfferingResponse
+           PurchaseReservedDBInstancesOfferingResponse
+         where

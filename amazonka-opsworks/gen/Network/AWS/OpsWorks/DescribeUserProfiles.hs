@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeUserProfiles
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describe specified users.
 --
--- __Required Permissions__: To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DescribeUserProfiles
     (
     -- * Creating a Request
@@ -37,31 +39,30 @@ module Network.AWS.OpsWorks.DescribeUserProfiles
     , duprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeUserProfiles' smart constructor.
 newtype DescribeUserProfiles = DescribeUserProfiles'
-    { _dupIAMUserARNs :: Maybe [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dupIAMUserARNs :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeUserProfiles' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dupIAMUserARNs'
+-- * 'dupIAMUserARNs' - An array of IAM or federated user ARNs that identify the users to be described.
 describeUserProfiles
     :: DescribeUserProfiles
-describeUserProfiles =
-    DescribeUserProfiles'
-    { _dupIAMUserARNs = Nothing
-    }
+describeUserProfiles = DescribeUserProfiles' {_dupIAMUserARNs = Nothing}
 
--- | An array of IAM user ARNs that identify the users to be described.
+
+-- | An array of IAM or federated user ARNs that identify the users to be described.
 dupIAMUserARNs :: Lens' DescribeUserProfiles [Text]
 dupIAMUserARNs = lens _dupIAMUserARNs (\ s a -> s{_dupIAMUserARNs = a}) . _Default . _Coerce;
 
@@ -76,9 +77,9 @@ instance AWSRequest DescribeUserProfiles where
                    (x .?> "UserProfiles" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeUserProfiles
+instance Hashable DescribeUserProfiles where
 
-instance NFData DescribeUserProfiles
+instance NFData DescribeUserProfiles where
 
 instance ToHeaders DescribeUserProfiles where
         toHeaders
@@ -101,36 +102,38 @@ instance ToPath DescribeUserProfiles where
 instance ToQuery DescribeUserProfiles where
         toQuery = const mempty
 
--- | Contains the response to a 'DescribeUserProfiles' request.
+-- | Contains the response to a @DescribeUserProfiles@ request.
+--
+--
 --
 -- /See:/ 'describeUserProfilesResponse' smart constructor.
 data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
-    { _duprsUserProfiles   :: !(Maybe [UserProfile])
-    , _duprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _duprsUserProfiles   :: !(Maybe [UserProfile])
+  , _duprsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeUserProfilesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duprsUserProfiles'
+-- * 'duprsUserProfiles' - A @Users@ object that describes the specified users.
 --
--- * 'duprsResponseStatus'
+-- * 'duprsResponseStatus' - -- | The response status code.
 describeUserProfilesResponse
     :: Int -- ^ 'duprsResponseStatus'
     -> DescribeUserProfilesResponse
 describeUserProfilesResponse pResponseStatus_ =
-    DescribeUserProfilesResponse'
-    { _duprsUserProfiles = Nothing
-    , _duprsResponseStatus = pResponseStatus_
-    }
+  DescribeUserProfilesResponse'
+  {_duprsUserProfiles = Nothing, _duprsResponseStatus = pResponseStatus_}
 
--- | A 'Users' object that describes the specified users.
+
+-- | A @Users@ object that describes the specified users.
 duprsUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
 duprsUserProfiles = lens _duprsUserProfiles (\ s a -> s{_duprsUserProfiles = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 duprsResponseStatus :: Lens' DescribeUserProfilesResponse Int
 duprsResponseStatus = lens _duprsResponseStatus (\ s a -> s{_duprsResponseStatus = a});
 
-instance NFData DescribeUserProfilesResponse
+instance NFData DescribeUserProfilesResponse where

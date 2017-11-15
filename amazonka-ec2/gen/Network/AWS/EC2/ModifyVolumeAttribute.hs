@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyVolumeAttribute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies a volume attribute.
 --
--- By default, all I\/O operations for the volume are suspended when the data on the volume is determined to be potentially inconsistent, to prevent undetectable, latent data corruption. The I\/O access to the volume can be resumed by first enabling I\/O access and then checking the data consistency on your volume.
 --
--- You can change the default behavior to resume I\/O operations. We recommend that you change this only for boot volumes or for volumes that are stateless or disposable.
+-- By default, all I/O operations for the volume are suspended when the data on the volume is determined to be potentially inconsistent, to prevent undetectable, latent data corruption. The I/O access to the volume can be resumed by first enabling I/O access and then checking the data consistency on your volume.
+--
+-- You can change the default behavior to resume I/O operations. We recommend that you change this only for boot volumes or for volumes that are stateless or disposable.
+--
 module Network.AWS.EC2.ModifyVolumeAttribute
     (
     -- * Creating a Request
@@ -38,46 +40,47 @@ module Network.AWS.EC2.ModifyVolumeAttribute
     , ModifyVolumeAttributeResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ModifyVolumeAttribute.
 --
+--
+--
 -- /See:/ 'modifyVolumeAttribute' smart constructor.
 data ModifyVolumeAttribute = ModifyVolumeAttribute'
-    { _mvaAutoEnableIO :: !(Maybe AttributeBooleanValue)
-    , _mvaDryRun       :: !(Maybe Bool)
-    , _mvaVolumeId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mvaAutoEnableIO :: !(Maybe AttributeBooleanValue)
+  , _mvaDryRun       :: !(Maybe Bool)
+  , _mvaVolumeId     :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyVolumeAttribute' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mvaAutoEnableIO'
+-- * 'mvaAutoEnableIO' - Indicates whether the volume should be auto-enabled for I/O operations.
 --
--- * 'mvaDryRun'
+-- * 'mvaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'mvaVolumeId'
+-- * 'mvaVolumeId' - The ID of the volume.
 modifyVolumeAttribute
     :: Text -- ^ 'mvaVolumeId'
     -> ModifyVolumeAttribute
 modifyVolumeAttribute pVolumeId_ =
-    ModifyVolumeAttribute'
-    { _mvaAutoEnableIO = Nothing
-    , _mvaDryRun = Nothing
-    , _mvaVolumeId = pVolumeId_
-    }
+  ModifyVolumeAttribute'
+  {_mvaAutoEnableIO = Nothing, _mvaDryRun = Nothing, _mvaVolumeId = pVolumeId_}
 
--- | Indicates whether the volume should be auto-enabled for I\/O operations.
+
+-- | Indicates whether the volume should be auto-enabled for I/O operations.
 mvaAutoEnableIO :: Lens' ModifyVolumeAttribute (Maybe AttributeBooleanValue)
 mvaAutoEnableIO = lens _mvaAutoEnableIO (\ s a -> s{_mvaAutoEnableIO = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mvaDryRun :: Lens' ModifyVolumeAttribute (Maybe Bool)
 mvaDryRun = lens _mvaDryRun (\ s a -> s{_mvaDryRun = a});
 
@@ -91,9 +94,9 @@ instance AWSRequest ModifyVolumeAttribute where
         request = postQuery ec2
         response = receiveNull ModifyVolumeAttributeResponse'
 
-instance Hashable ModifyVolumeAttribute
+instance Hashable ModifyVolumeAttribute where
 
-instance NFData ModifyVolumeAttribute
+instance NFData ModifyVolumeAttribute where
 
 instance ToHeaders ModifyVolumeAttribute where
         toHeaders = const mempty
@@ -105,14 +108,15 @@ instance ToQuery ModifyVolumeAttribute where
         toQuery ModifyVolumeAttribute'{..}
           = mconcat
               ["Action" =: ("ModifyVolumeAttribute" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "AutoEnableIO" =: _mvaAutoEnableIO,
                "DryRun" =: _mvaDryRun, "VolumeId" =: _mvaVolumeId]
 
 -- | /See:/ 'modifyVolumeAttributeResponse' smart constructor.
 data ModifyVolumeAttributeResponse =
-    ModifyVolumeAttributeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ModifyVolumeAttributeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyVolumeAttributeResponse' with the minimum fields required to make a request.
 --
@@ -120,4 +124,5 @@ modifyVolumeAttributeResponse
     :: ModifyVolumeAttributeResponse
 modifyVolumeAttributeResponse = ModifyVolumeAttributeResponse'
 
-instance NFData ModifyVolumeAttributeResponse
+
+instance NFData ModifyVolumeAttributeResponse where

@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport.ListJobs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns the jobs associated with the requester. AWS Import\/Export lists the jobs in reverse chronological order based on the date of creation. For example if Job Test1 was created 2009Dec30 and Test2 was created 2010Feb05, the ListJobs operation would return Test2 followed by Test1.
+-- This operation returns the jobs associated with the requester. AWS Import/Export lists the jobs in reverse chronological order based on the date of creation. For example if Job Test1 was created 2009Dec30 and Test2 was created 2010Feb05, the ListJobs operation would return Test2 followed by Test1.
 --
 -- This operation returns paginated results.
 module Network.AWS.ImportExport.ListJobs
@@ -40,40 +40,38 @@ module Network.AWS.ImportExport.ListJobs
     , ljrsResponseStatus
     ) where
 
-import           Network.AWS.ImportExport.Types
-import           Network.AWS.ImportExport.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ImportExport.Types
+import Network.AWS.ImportExport.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input structure for the ListJobs operation.
 --
 -- /See:/ 'listJobs' smart constructor.
 data ListJobs = ListJobs'
-    { _ljAPIVersion :: !(Maybe Text)
-    , _ljMarker     :: !(Maybe Text)
-    , _ljMaxJobs    :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ljAPIVersion :: !(Maybe Text)
+  , _ljMarker     :: !(Maybe Text)
+  , _ljMaxJobs    :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ljAPIVersion'
+-- * 'ljAPIVersion' - Undocumented member.
 --
--- * 'ljMarker'
+-- * 'ljMarker' - Undocumented member.
 --
--- * 'ljMaxJobs'
+-- * 'ljMaxJobs' - Undocumented member.
 listJobs
     :: ListJobs
 listJobs =
-    ListJobs'
-    { _ljAPIVersion = Nothing
-    , _ljMarker = Nothing
-    , _ljMaxJobs = Nothing
-    }
+  ListJobs' {_ljAPIVersion = Nothing, _ljMarker = Nothing, _ljMaxJobs = Nothing}
+
 
 -- | Undocumented member.
 ljAPIVersion :: Lens' ListJobs (Maybe Text)
@@ -108,9 +106,9 @@ instance AWSRequest ListJobs where
                      <*> (x .@? "IsTruncated")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListJobs
+instance Hashable ListJobs where
 
-instance NFData ListJobs
+instance NFData ListJobs where
 
 instance ToHeaders ListJobs where
         toHeaders = const mempty
@@ -131,29 +129,31 @@ instance ToQuery ListJobs where
 --
 -- /See:/ 'listJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-    { _ljrsJobs           :: !(Maybe [Job])
-    , _ljrsIsTruncated    :: !(Maybe Bool)
-    , _ljrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ljrsJobs           :: !(Maybe [Job])
+  , _ljrsIsTruncated    :: !(Maybe Bool)
+  , _ljrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ljrsJobs'
+-- * 'ljrsJobs' - Undocumented member.
 --
--- * 'ljrsIsTruncated'
+-- * 'ljrsIsTruncated' - Undocumented member.
 --
--- * 'ljrsResponseStatus'
+-- * 'ljrsResponseStatus' - -- | The response status code.
 listJobsResponse
     :: Int -- ^ 'ljrsResponseStatus'
     -> ListJobsResponse
 listJobsResponse pResponseStatus_ =
-    ListJobsResponse'
-    { _ljrsJobs = Nothing
-    , _ljrsIsTruncated = Nothing
-    , _ljrsResponseStatus = pResponseStatus_
-    }
+  ListJobsResponse'
+  { _ljrsJobs = Nothing
+  , _ljrsIsTruncated = Nothing
+  , _ljrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 ljrsJobs :: Lens' ListJobsResponse [Job]
@@ -163,8 +163,8 @@ ljrsJobs = lens _ljrsJobs (\ s a -> s{_ljrsJobs = a}) . _Default . _Coerce;
 ljrsIsTruncated :: Lens' ListJobsResponse (Maybe Bool)
 ljrsIsTruncated = lens _ljrsIsTruncated (\ s a -> s{_ljrsIsTruncated = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ljrsResponseStatus :: Lens' ListJobsResponse Int
 ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a});
 
-instance NFData ListJobsResponse
+instance NFData ListJobsResponse where

@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.ResumeProcesses
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Resumes the specified suspended Auto Scaling processes, or all suspended process, for the specified Auto Scaling group.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspending and Resuming Auto Scaling Processes> in the /Auto Scaling User Guide/.
+--
+-- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-suspend-resume-processes.html Suspending and Resuming Auto Scaling Processes> in the /Auto Scaling User Guide/ .
+--
 module Network.AWS.AutoScaling.ResumeProcesses
     (
     -- * Creating a Request
@@ -35,55 +37,38 @@ module Network.AWS.AutoScaling.ResumeProcesses
     , ResumeProcessesResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for SuspendProcesses and ResumeProcesses.
---
--- /See:/ 'resumeProcesses' smart constructor.
+-- | /See:/ 'resumeProcesses' smart constructor.
 data ResumeProcesses = ResumeProcesses'
-    { _rpScalingProcesses     :: !(Maybe [Text])
-    , _rpAutoScalingGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rpScalingProcesses     :: !(Maybe [Text])
+  , _rpAutoScalingGroupName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResumeProcesses' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rpScalingProcesses'
+-- * 'rpScalingProcesses' - One or more of the following processes. If you omit this parameter, all processes are specified.     * @Launch@      * @Terminate@      * @HealthCheck@      * @ReplaceUnhealthy@      * @AZRebalance@      * @AlarmNotification@      * @ScheduledActions@      * @AddToLoadBalancer@
 --
--- * 'rpAutoScalingGroupName'
+-- * 'rpAutoScalingGroupName' - The name or Amazon Resource Name (ARN) of the Auto Scaling group.
 resumeProcesses
     :: Text -- ^ 'rpAutoScalingGroupName'
     -> ResumeProcesses
 resumeProcesses pAutoScalingGroupName_ =
-    ResumeProcesses'
-    { _rpScalingProcesses = Nothing
-    , _rpAutoScalingGroupName = pAutoScalingGroupName_
-    }
+  ResumeProcesses'
+  { _rpScalingProcesses = Nothing
+  , _rpAutoScalingGroupName = pAutoScalingGroupName_
+  }
 
--- | One or more of the following processes. If you omit this parameter, all processes are specified.
---
--- -   'Launch'
---
--- -   'Terminate'
---
--- -   'HealthCheck'
---
--- -   'ReplaceUnhealthy'
---
--- -   'AZRebalance'
---
--- -   'AlarmNotification'
---
--- -   'ScheduledActions'
---
--- -   'AddToLoadBalancer'
---
+
+-- | One or more of the following processes. If you omit this parameter, all processes are specified.     * @Launch@      * @Terminate@      * @HealthCheck@      * @ReplaceUnhealthy@      * @AZRebalance@      * @AlarmNotification@      * @ScheduledActions@      * @AddToLoadBalancer@
 rpScalingProcesses :: Lens' ResumeProcesses [Text]
 rpScalingProcesses = lens _rpScalingProcesses (\ s a -> s{_rpScalingProcesses = a}) . _Default . _Coerce;
 
@@ -96,9 +81,9 @@ instance AWSRequest ResumeProcesses where
         request = postQuery autoScaling
         response = receiveNull ResumeProcessesResponse'
 
-instance Hashable ResumeProcesses
+instance Hashable ResumeProcesses where
 
-instance NFData ResumeProcesses
+instance NFData ResumeProcesses where
 
 instance ToHeaders ResumeProcesses where
         toHeaders = const mempty
@@ -118,8 +103,9 @@ instance ToQuery ResumeProcesses where
 
 -- | /See:/ 'resumeProcessesResponse' smart constructor.
 data ResumeProcessesResponse =
-    ResumeProcessesResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ResumeProcessesResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResumeProcessesResponse' with the minimum fields required to make a request.
 --
@@ -127,4 +113,5 @@ resumeProcessesResponse
     :: ResumeProcessesResponse
 resumeProcessesResponse = ResumeProcessesResponse'
 
-instance NFData ResumeProcessesResponse
+
+instance NFData ResumeProcessesResponse where

@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminDeleteUser
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a user as an administrator. Works on any user.
+--
+--
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminDeleteUser
     (
     -- * Creating a Request
@@ -33,37 +37,39 @@ module Network.AWS.CognitoIdentityProvider.AdminDeleteUser
     , AdminDeleteUserResponse
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to delete a user as an administrator.
 --
+--
+--
 -- /See:/ 'adminDeleteUser' smart constructor.
 data AdminDeleteUser = AdminDeleteUser'
-    { _aUserPoolId :: !Text
-    , _aUsername   :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aUserPoolId :: !Text
+  , _aUsername   :: !(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminDeleteUser' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aUserPoolId'
+-- * 'aUserPoolId' - The user pool ID for the user pool where you want to delete the user.
 --
--- * 'aUsername'
+-- * 'aUsername' - The user name of the user you wish to delete.
 adminDeleteUser
     :: Text -- ^ 'aUserPoolId'
     -> Text -- ^ 'aUsername'
     -> AdminDeleteUser
 adminDeleteUser pUserPoolId_ pUsername_ =
-    AdminDeleteUser'
-    { _aUserPoolId = pUserPoolId_
-    , _aUsername = _Sensitive # pUsername_
-    }
+  AdminDeleteUser'
+  {_aUserPoolId = pUserPoolId_, _aUsername = _Sensitive # pUsername_}
+
 
 -- | The user pool ID for the user pool where you want to delete the user.
 aUserPoolId :: Lens' AdminDeleteUser Text
@@ -78,9 +84,9 @@ instance AWSRequest AdminDeleteUser where
         request = postJSON cognitoIdentityProvider
         response = receiveNull AdminDeleteUserResponse'
 
-instance Hashable AdminDeleteUser
+instance Hashable AdminDeleteUser where
 
-instance NFData AdminDeleteUser
+instance NFData AdminDeleteUser where
 
 instance ToHeaders AdminDeleteUser where
         toHeaders
@@ -107,8 +113,9 @@ instance ToQuery AdminDeleteUser where
 
 -- | /See:/ 'adminDeleteUserResponse' smart constructor.
 data AdminDeleteUserResponse =
-    AdminDeleteUserResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AdminDeleteUserResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminDeleteUserResponse' with the minimum fields required to make a request.
 --
@@ -116,4 +123,5 @@ adminDeleteUserResponse
     :: AdminDeleteUserResponse
 adminDeleteUserResponse = AdminDeleteUserResponse'
 
-instance NFData AdminDeleteUserResponse
+
+instance NFData AdminDeleteUserResponse where

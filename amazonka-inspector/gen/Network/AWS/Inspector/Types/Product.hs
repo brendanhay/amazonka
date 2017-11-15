@@ -9,52 +9,53 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Inspector.Types.Product where
 
-import           Network.AWS.Inspector.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.Inspector.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
--- | Contains information about an Amazon Inspector agent. This data type is used as a request parameter in the < ListAssessmentRunAgents> action.
+-- | Contains information about an Amazon Inspector agent. This data type is used as a request parameter in the 'ListAssessmentRunAgents' action.
+--
+--
 --
 -- /See:/ 'agentFilter' smart constructor.
 data AgentFilter = AgentFilter'
-    { _afAgentHealths     :: ![AgentHealth]
-    , _afAgentHealthCodes :: ![AgentHealthCode]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _afAgentHealths     :: ![AgentHealth]
+  , _afAgentHealthCodes :: ![AgentHealthCode]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AgentFilter' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'afAgentHealths'
+-- * 'afAgentHealths' - The current health state of the agent. Values can be set to __HEALTHY__ or __UNHEALTHY__ .
 --
--- * 'afAgentHealthCodes'
+-- * 'afAgentHealthCodes' - The detailed health state of the agent. Values can be set to __IDLE__ , __RUNNING__ , __SHUTDOWN__ , __UNHEALTHY__ , __THROTTLED__ , and __UNKNOWN__ .
 agentFilter
     :: AgentFilter
 agentFilter =
-    AgentFilter'
-    { _afAgentHealths = mempty
-    , _afAgentHealthCodes = mempty
-    }
+  AgentFilter' {_afAgentHealths = mempty, _afAgentHealthCodes = mempty}
 
--- | The current health state of the agent. Values can be set to __HEALTHY__ or __UNHEALTHY__.
+
+-- | The current health state of the agent. Values can be set to __HEALTHY__ or __UNHEALTHY__ .
 afAgentHealths :: Lens' AgentFilter [AgentHealth]
 afAgentHealths = lens _afAgentHealths (\ s a -> s{_afAgentHealths = a}) . _Coerce;
 
--- | The detailed health state of the agent. Values can be set to __IDLE__, __RUNNING__, __SHUTDOWN__, __UNHEALTHY__, __THROTTLED__, and __UNKNOWN__.
+-- | The detailed health state of the agent. Values can be set to __IDLE__ , __RUNNING__ , __SHUTDOWN__ , __UNHEALTHY__ , __THROTTLED__ , and __UNKNOWN__ .
 afAgentHealthCodes :: Lens' AgentFilter [AgentHealthCode]
 afAgentHealthCodes = lens _afAgentHealthCodes (\ s a -> s{_afAgentHealthCodes = a}) . _Coerce;
 
-instance Hashable AgentFilter
+instance Hashable AgentFilter where
 
-instance NFData AgentFilter
+instance NFData AgentFilter where
 
 instance ToJSON AgentFilter where
         toJSON AgentFilter'{..}
@@ -63,29 +64,30 @@ instance ToJSON AgentFilter where
                  [Just ("agentHealths" .= _afAgentHealths),
                   Just ("agentHealthCodes" .= _afAgentHealthCodes)])
 
--- | Used as a response element in the < PreviewAgents> action.
+-- | Used as a response element in the 'PreviewAgents' action.
+--
+--
 --
 -- /See:/ 'agentPreview' smart constructor.
 data AgentPreview = AgentPreview'
-    { _apAutoScalingGroup :: !(Maybe Text)
-    , _apAgentId          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _apAutoScalingGroup :: !(Maybe Text)
+  , _apAgentId          :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AgentPreview' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'apAutoScalingGroup'
+-- * 'apAutoScalingGroup' - The Auto Scaling group for the EC2 instance where the agent is installed.
 --
--- * 'apAgentId'
+-- * 'apAgentId' - The ID of the EC2 instance where the agent is installed.
 agentPreview
     :: Text -- ^ 'apAgentId'
     -> AgentPreview
 agentPreview pAgentId_ =
-    AgentPreview'
-    { _apAutoScalingGroup = Nothing
-    , _apAgentId = pAgentId_
-    }
+  AgentPreview' {_apAutoScalingGroup = Nothing, _apAgentId = pAgentId_}
+
 
 -- | The Auto Scaling group for the EC2 instance where the agent is installed.
 apAutoScalingGroup :: Lens' AgentPreview (Maybe Text)
@@ -102,63 +104,69 @@ instance FromJSON AgentPreview where
                  AgentPreview' <$>
                    (x .:? "autoScalingGroup") <*> (x .: "agentId"))
 
-instance Hashable AgentPreview
+instance Hashable AgentPreview where
 
-instance NFData AgentPreview
+instance NFData AgentPreview where
 
 -- | A snapshot of an Amazon Inspector assessment run that contains the findings of the assessment run .
 --
--- Used as the response element in the < DescribeAssessmentRuns> action.
+--
+-- Used as the response element in the 'DescribeAssessmentRuns' action.
+--
 --
 -- /See:/ 'assessmentRun' smart constructor.
 data AssessmentRun = AssessmentRun'
-    { _arStartedAt                 :: !(Maybe POSIX)
-    , _arCompletedAt               :: !(Maybe POSIX)
-    , _arArn                       :: !Text
-    , _arName                      :: !Text
-    , _arAssessmentTemplateARN     :: !Text
-    , _arState                     :: !AssessmentRunState
-    , _arDurationInSeconds         :: !Nat
-    , _arRulesPackageARNs          :: !(List1 Text)
-    , _arUserAttributesForFindings :: ![Attribute]
-    , _arCreatedAt                 :: !POSIX
-    , _arStateChangedAt            :: !POSIX
-    , _arDataCollected             :: !Bool
-    , _arStateChanges              :: ![AssessmentRunStateChange]
-    , _arNotifications             :: ![AssessmentRunNotification]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _arStartedAt                 :: !(Maybe POSIX)
+  , _arCompletedAt               :: !(Maybe POSIX)
+  , _arArn                       :: !Text
+  , _arName                      :: !Text
+  , _arAssessmentTemplateARN     :: !Text
+  , _arState                     :: !AssessmentRunState
+  , _arDurationInSeconds         :: !Nat
+  , _arRulesPackageARNs          :: !(List1 Text)
+  , _arUserAttributesForFindings :: ![Attribute]
+  , _arCreatedAt                 :: !POSIX
+  , _arStateChangedAt            :: !POSIX
+  , _arDataCollected             :: !Bool
+  , _arStateChanges              :: ![AssessmentRunStateChange]
+  , _arNotifications             :: ![AssessmentRunNotification]
+  , _arFindingCounts             :: !(Map Severity Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssessmentRun' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'arStartedAt'
+-- * 'arStartedAt' - The time when 'StartAssessmentRun' was called.
 --
--- * 'arCompletedAt'
+-- * 'arCompletedAt' - The assessment run completion time that corresponds to the rules packages evaluation completion time or failure.
 --
--- * 'arArn'
+-- * 'arArn' - The ARN of the assessment run.
 --
--- * 'arName'
+-- * 'arName' - The auto-generated name for the assessment run.
 --
--- * 'arAssessmentTemplateARN'
+-- * 'arAssessmentTemplateARN' - The ARN of the assessment template that is associated with the assessment run.
 --
--- * 'arState'
+-- * 'arState' - The state of the assessment run.
 --
--- * 'arDurationInSeconds'
+-- * 'arDurationInSeconds' - The duration of the assessment run.
 --
--- * 'arRulesPackageARNs'
+-- * 'arRulesPackageARNs' - The rules packages selected for the assessment run.
 --
--- * 'arUserAttributesForFindings'
+-- * 'arUserAttributesForFindings' - The user-defined attributes that are assigned to every generated finding.
 --
--- * 'arCreatedAt'
+-- * 'arCreatedAt' - The time when 'StartAssessmentRun' was called.
 --
--- * 'arStateChangedAt'
+-- * 'arStateChangedAt' - The last time when the assessment run's state changed.
 --
--- * 'arDataCollected'
+-- * 'arDataCollected' - A Boolean value (true or false) that specifies whether the process of collecting data from the agents is completed.
 --
--- * 'arStateChanges'
+-- * 'arStateChanges' - A list of the assessment run state changes.
 --
--- * 'arNotifications'
+-- * 'arNotifications' - A list of notifications for the event subscriptions. A notification about a particular generated finding is added to this list only once.
+--
+-- * 'arFindingCounts' - Provides a total count of generated findings per severity.
 assessmentRun
     :: Text -- ^ 'arArn'
     -> Text -- ^ 'arName'
@@ -171,24 +179,26 @@ assessmentRun
     -> Bool -- ^ 'arDataCollected'
     -> AssessmentRun
 assessmentRun pArn_ pName_ pAssessmentTemplateARN_ pState_ pDurationInSeconds_ pRulesPackageARNs_ pCreatedAt_ pStateChangedAt_ pDataCollected_ =
-    AssessmentRun'
-    { _arStartedAt = Nothing
-    , _arCompletedAt = Nothing
-    , _arArn = pArn_
-    , _arName = pName_
-    , _arAssessmentTemplateARN = pAssessmentTemplateARN_
-    , _arState = pState_
-    , _arDurationInSeconds = _Nat # pDurationInSeconds_
-    , _arRulesPackageARNs = _List1 # pRulesPackageARNs_
-    , _arUserAttributesForFindings = mempty
-    , _arCreatedAt = _Time # pCreatedAt_
-    , _arStateChangedAt = _Time # pStateChangedAt_
-    , _arDataCollected = pDataCollected_
-    , _arStateChanges = mempty
-    , _arNotifications = mempty
-    }
+  AssessmentRun'
+  { _arStartedAt = Nothing
+  , _arCompletedAt = Nothing
+  , _arArn = pArn_
+  , _arName = pName_
+  , _arAssessmentTemplateARN = pAssessmentTemplateARN_
+  , _arState = pState_
+  , _arDurationInSeconds = _Nat # pDurationInSeconds_
+  , _arRulesPackageARNs = _List1 # pRulesPackageARNs_
+  , _arUserAttributesForFindings = mempty
+  , _arCreatedAt = _Time # pCreatedAt_
+  , _arStateChangedAt = _Time # pStateChangedAt_
+  , _arDataCollected = pDataCollected_
+  , _arStateChanges = mempty
+  , _arNotifications = mempty
+  , _arFindingCounts = mempty
+  }
 
--- | The time when < StartAssessmentRun> was called.
+
+-- | The time when 'StartAssessmentRun' was called.
 arStartedAt :: Lens' AssessmentRun (Maybe UTCTime)
 arStartedAt = lens _arStartedAt (\ s a -> s{_arStartedAt = a}) . mapping _Time;
 
@@ -224,11 +234,11 @@ arRulesPackageARNs = lens _arRulesPackageARNs (\ s a -> s{_arRulesPackageARNs = 
 arUserAttributesForFindings :: Lens' AssessmentRun [Attribute]
 arUserAttributesForFindings = lens _arUserAttributesForFindings (\ s a -> s{_arUserAttributesForFindings = a}) . _Coerce;
 
--- | The time when < StartAssessmentRun> was called.
+-- | The time when 'StartAssessmentRun' was called.
 arCreatedAt :: Lens' AssessmentRun UTCTime
 arCreatedAt = lens _arCreatedAt (\ s a -> s{_arCreatedAt = a}) . _Time;
 
--- | The last time when the assessment run\'s state changed.
+-- | The last time when the assessment run's state changed.
 arStateChangedAt :: Lens' AssessmentRun UTCTime
 arStateChangedAt = lens _arStateChangedAt (\ s a -> s{_arStateChangedAt = a}) . _Time;
 
@@ -243,6 +253,10 @@ arStateChanges = lens _arStateChanges (\ s a -> s{_arStateChanges = a}) . _Coerc
 -- | A list of notifications for the event subscriptions. A notification about a particular generated finding is added to this list only once.
 arNotifications :: Lens' AssessmentRun [AssessmentRunNotification]
 arNotifications = lens _arNotifications (\ s a -> s{_arNotifications = a}) . _Coerce;
+
+-- | Provides a total count of generated findings per severity.
+arFindingCounts :: Lens' AssessmentRun (HashMap Severity Int)
+arFindingCounts = lens _arFindingCounts (\ s a -> s{_arFindingCounts = a}) . _Map;
 
 instance FromJSON AssessmentRun where
         parseJSON
@@ -261,42 +275,46 @@ instance FromJSON AssessmentRun where
                      <*> (x .: "stateChangedAt")
                      <*> (x .: "dataCollected")
                      <*> (x .:? "stateChanges" .!= mempty)
-                     <*> (x .:? "notifications" .!= mempty))
+                     <*> (x .:? "notifications" .!= mempty)
+                     <*> (x .:? "findingCounts" .!= mempty))
 
-instance Hashable AssessmentRun
+instance Hashable AssessmentRun where
 
-instance NFData AssessmentRun
+instance NFData AssessmentRun where
 
--- | Contains information about an Amazon Inspector agent. This data type is used as a response element in the < ListAssessmentRunAgents> action.
+-- | Contains information about an Amazon Inspector agent. This data type is used as a response element in the 'ListAssessmentRunAgents' action.
+--
+--
 --
 -- /See:/ 'assessmentRunAgent' smart constructor.
 data AssessmentRunAgent = AssessmentRunAgent'
-    { _araAutoScalingGroup   :: !(Maybe Text)
-    , _araAgentHealthDetails :: !(Maybe Text)
-    , _araAgentId            :: !Text
-    , _araAssessmentRunARN   :: !Text
-    , _araAgentHealth        :: !AgentHealth
-    , _araAgentHealthCode    :: !AgentHealthCode
-    , _araTelemetryMetadata  :: ![TelemetryMetadata]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _araAutoScalingGroup   :: !(Maybe Text)
+  , _araAgentHealthDetails :: !(Maybe Text)
+  , _araAgentId            :: !Text
+  , _araAssessmentRunARN   :: !Text
+  , _araAgentHealth        :: !AgentHealth
+  , _araAgentHealthCode    :: !AgentHealthCode
+  , _araTelemetryMetadata  :: ![TelemetryMetadata]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssessmentRunAgent' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'araAutoScalingGroup'
+-- * 'araAutoScalingGroup' - The Auto Scaling group of the EC2 instance that is specified by the agent ID.
 --
--- * 'araAgentHealthDetails'
+-- * 'araAgentHealthDetails' - The description for the agent health code.
 --
--- * 'araAgentId'
+-- * 'araAgentId' - The AWS account of the EC2 instance where the agent is installed.
 --
--- * 'araAssessmentRunARN'
+-- * 'araAssessmentRunARN' - The ARN of the assessment run that is associated with the agent.
 --
--- * 'araAgentHealth'
+-- * 'araAgentHealth' - The current health state of the agent.
 --
--- * 'araAgentHealthCode'
+-- * 'araAgentHealthCode' - The detailed health state of the agent.
 --
--- * 'araTelemetryMetadata'
+-- * 'araTelemetryMetadata' - The Amazon Inspector application data metrics that are collected by the agent.
 assessmentRunAgent
     :: Text -- ^ 'araAgentId'
     -> Text -- ^ 'araAssessmentRunARN'
@@ -304,15 +322,16 @@ assessmentRunAgent
     -> AgentHealthCode -- ^ 'araAgentHealthCode'
     -> AssessmentRunAgent
 assessmentRunAgent pAgentId_ pAssessmentRunARN_ pAgentHealth_ pAgentHealthCode_ =
-    AssessmentRunAgent'
-    { _araAutoScalingGroup = Nothing
-    , _araAgentHealthDetails = Nothing
-    , _araAgentId = pAgentId_
-    , _araAssessmentRunARN = pAssessmentRunARN_
-    , _araAgentHealth = pAgentHealth_
-    , _araAgentHealthCode = pAgentHealthCode_
-    , _araTelemetryMetadata = mempty
-    }
+  AssessmentRunAgent'
+  { _araAutoScalingGroup = Nothing
+  , _araAgentHealthDetails = Nothing
+  , _araAgentId = pAgentId_
+  , _araAssessmentRunARN = pAssessmentRunARN_
+  , _araAgentHealth = pAgentHealth_
+  , _araAgentHealthCode = pAgentHealthCode_
+  , _araTelemetryMetadata = mempty
+  }
+
 
 -- | The Auto Scaling group of the EC2 instance that is specified by the agent ID.
 araAutoScalingGroup :: Lens' AssessmentRunAgent (Maybe Text)
@@ -355,84 +374,88 @@ instance FromJSON AssessmentRunAgent where
                      <*> (x .: "agentHealthCode")
                      <*> (x .:? "telemetryMetadata" .!= mempty))
 
-instance Hashable AssessmentRunAgent
+instance Hashable AssessmentRunAgent where
 
-instance NFData AssessmentRunAgent
+instance NFData AssessmentRunAgent where
 
--- | Used as the request parameter in the < ListAssessmentRuns> action.
+-- | Used as the request parameter in the 'ListAssessmentRuns' action.
+--
+--
 --
 -- /See:/ 'assessmentRunFilter' smart constructor.
 data AssessmentRunFilter = AssessmentRunFilter'
-    { _arfStates               :: !(Maybe [AssessmentRunState])
-    , _arfNamePattern          :: !(Maybe Text)
-    , _arfStartTimeRange       :: !(Maybe TimestampRange)
-    , _arfStateChangeTimeRange :: !(Maybe TimestampRange)
-    , _arfRulesPackageARNs     :: !(Maybe [Text])
-    , _arfCompletionTimeRange  :: !(Maybe TimestampRange)
-    , _arfDurationRange        :: !(Maybe DurationRange)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _arfStates               :: !(Maybe [AssessmentRunState])
+  , _arfNamePattern          :: !(Maybe Text)
+  , _arfStartTimeRange       :: !(Maybe TimestampRange)
+  , _arfStateChangeTimeRange :: !(Maybe TimestampRange)
+  , _arfRulesPackageARNs     :: !(Maybe [Text])
+  , _arfCompletionTimeRange  :: !(Maybe TimestampRange)
+  , _arfDurationRange        :: !(Maybe DurationRange)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssessmentRunFilter' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'arfStates'
+-- * 'arfStates' - For a record to match a filter, one of the values specified for this data type property must be the exact match of the value of the __assessmentRunState__ property of the 'AssessmentRun' data type.
 --
--- * 'arfNamePattern'
+-- * 'arfNamePattern' - For a record to match a filter, an explicit value or a string containing a wildcard that is specified for this data type property must match the value of the __assessmentRunName__ property of the 'AssessmentRun' data type.
 --
--- * 'arfStartTimeRange'
+-- * 'arfStartTimeRange' - For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __startTime__ property of the 'AssessmentRun' data type.
 --
--- * 'arfStateChangeTimeRange'
+-- * 'arfStateChangeTimeRange' - For a record to match a filter, the value that is specified for this data type property must match the __stateChangedAt__ property of the 'AssessmentRun' data type.
 --
--- * 'arfRulesPackageARNs'
+-- * 'arfRulesPackageARNs' - For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __rulesPackages__ property of the 'AssessmentRun' data type.
 --
--- * 'arfCompletionTimeRange'
+-- * 'arfCompletionTimeRange' - For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __completedAt__ property of the 'AssessmentRun' data type.
 --
--- * 'arfDurationRange'
+-- * 'arfDurationRange' - For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the 'AssessmentRun' data type.
 assessmentRunFilter
     :: AssessmentRunFilter
 assessmentRunFilter =
-    AssessmentRunFilter'
-    { _arfStates = Nothing
-    , _arfNamePattern = Nothing
-    , _arfStartTimeRange = Nothing
-    , _arfStateChangeTimeRange = Nothing
-    , _arfRulesPackageARNs = Nothing
-    , _arfCompletionTimeRange = Nothing
-    , _arfDurationRange = Nothing
-    }
+  AssessmentRunFilter'
+  { _arfStates = Nothing
+  , _arfNamePattern = Nothing
+  , _arfStartTimeRange = Nothing
+  , _arfStateChangeTimeRange = Nothing
+  , _arfRulesPackageARNs = Nothing
+  , _arfCompletionTimeRange = Nothing
+  , _arfDurationRange = Nothing
+  }
 
--- | For a record to match a filter, one of the values specified for this data type property must be the exact match of the value of the __assessmentRunState__ property of the < AssessmentRun> data type.
+
+-- | For a record to match a filter, one of the values specified for this data type property must be the exact match of the value of the __assessmentRunState__ property of the 'AssessmentRun' data type.
 arfStates :: Lens' AssessmentRunFilter [AssessmentRunState]
 arfStates = lens _arfStates (\ s a -> s{_arfStates = a}) . _Default . _Coerce;
 
--- | For a record to match a filter, an explicit value or a string containing a wildcard that is specified for this data type property must match the value of the __assessmentRunName__ property of the < AssessmentRun> data type.
+-- | For a record to match a filter, an explicit value or a string containing a wildcard that is specified for this data type property must match the value of the __assessmentRunName__ property of the 'AssessmentRun' data type.
 arfNamePattern :: Lens' AssessmentRunFilter (Maybe Text)
 arfNamePattern = lens _arfNamePattern (\ s a -> s{_arfNamePattern = a});
 
--- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __startTime__ property of the < AssessmentRun> data type.
+-- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __startTime__ property of the 'AssessmentRun' data type.
 arfStartTimeRange :: Lens' AssessmentRunFilter (Maybe TimestampRange)
 arfStartTimeRange = lens _arfStartTimeRange (\ s a -> s{_arfStartTimeRange = a});
 
--- | For a record to match a filter, the value that is specified for this data type property must match the __stateChangedAt__ property of the < AssessmentRun> data type.
+-- | For a record to match a filter, the value that is specified for this data type property must match the __stateChangedAt__ property of the 'AssessmentRun' data type.
 arfStateChangeTimeRange :: Lens' AssessmentRunFilter (Maybe TimestampRange)
 arfStateChangeTimeRange = lens _arfStateChangeTimeRange (\ s a -> s{_arfStateChangeTimeRange = a});
 
--- | For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __rulesPackages__ property of the < AssessmentRun> data type.
+-- | For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __rulesPackages__ property of the 'AssessmentRun' data type.
 arfRulesPackageARNs :: Lens' AssessmentRunFilter [Text]
 arfRulesPackageARNs = lens _arfRulesPackageARNs (\ s a -> s{_arfRulesPackageARNs = a}) . _Default . _Coerce;
 
--- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __completedAt__ property of the < AssessmentRun> data type.
+-- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __completedAt__ property of the 'AssessmentRun' data type.
 arfCompletionTimeRange :: Lens' AssessmentRunFilter (Maybe TimestampRange)
 arfCompletionTimeRange = lens _arfCompletionTimeRange (\ s a -> s{_arfCompletionTimeRange = a});
 
--- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the < AssessmentRun> data type.
+-- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the 'AssessmentRun' data type.
 arfDurationRange :: Lens' AssessmentRunFilter (Maybe DurationRange)
 arfDurationRange = lens _arfDurationRange (\ s a -> s{_arfDurationRange = a});
 
-instance Hashable AssessmentRunFilter
+instance Hashable AssessmentRunFilter where
 
-instance NFData AssessmentRunFilter
+instance NFData AssessmentRunFilter where
 
 instance ToJSON AssessmentRunFilter where
         toJSON AssessmentRunFilter'{..}
@@ -448,47 +471,51 @@ instance ToJSON AssessmentRunFilter where
                     _arfCompletionTimeRange,
                   ("durationRange" .=) <$> _arfDurationRange])
 
--- | Used as one of the elements of the < AssessmentRun> data type.
+-- | Used as one of the elements of the 'AssessmentRun' data type.
+--
+--
 --
 -- /See:/ 'assessmentRunNotification' smart constructor.
 data AssessmentRunNotification = AssessmentRunNotification'
-    { _arnSnsTopicARN          :: !(Maybe Text)
-    , _arnSnsPublishStatusCode :: !(Maybe AssessmentRunNotificationSNSStatusCode)
-    , _arnMessage              :: !(Maybe Text)
-    , _arnDate                 :: !POSIX
-    , _arnEvent                :: !InspectorEvent
-    , _arnError                :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _arnSnsTopicARN          :: !(Maybe Text)
+  , _arnSnsPublishStatusCode :: !(Maybe AssessmentRunNotificationSNSStatusCode)
+  , _arnMessage              :: !(Maybe Text)
+  , _arnDate                 :: !POSIX
+  , _arnEvent                :: !InspectorEvent
+  , _arnError                :: !Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssessmentRunNotification' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'arnSnsTopicARN'
+-- * 'arnSnsTopicARN' - The SNS topic to which the SNS notification is sent.
 --
--- * 'arnSnsPublishStatusCode'
+-- * 'arnSnsPublishStatusCode' - The status code of the SNS notification.
 --
--- * 'arnMessage'
+-- * 'arnMessage' - The message included in the notification.
 --
--- * 'arnDate'
+-- * 'arnDate' - The date of the notification.
 --
--- * 'arnEvent'
+-- * 'arnEvent' - The event for which a notification is sent.
 --
--- * 'arnError'
+-- * 'arnError' - The Boolean value that specifies whether the notification represents an error.
 assessmentRunNotification
     :: UTCTime -- ^ 'arnDate'
     -> InspectorEvent -- ^ 'arnEvent'
     -> Bool -- ^ 'arnError'
     -> AssessmentRunNotification
 assessmentRunNotification pDate_ pEvent_ pError_ =
-    AssessmentRunNotification'
-    { _arnSnsTopicARN = Nothing
-    , _arnSnsPublishStatusCode = Nothing
-    , _arnMessage = Nothing
-    , _arnDate = _Time # pDate_
-    , _arnEvent = pEvent_
-    , _arnError = pError_
-    }
+  AssessmentRunNotification'
+  { _arnSnsTopicARN = Nothing
+  , _arnSnsPublishStatusCode = Nothing
+  , _arnMessage = Nothing
+  , _arnDate = _Time # pDate_
+  , _arnEvent = pEvent_
+  , _arnError = pError_
+  }
+
 
 -- | The SNS topic to which the SNS notification is sent.
 arnSnsTopicARN :: Lens' AssessmentRunNotification (Maybe Text)
@@ -498,7 +525,7 @@ arnSnsTopicARN = lens _arnSnsTopicARN (\ s a -> s{_arnSnsTopicARN = a});
 arnSnsPublishStatusCode :: Lens' AssessmentRunNotification (Maybe AssessmentRunNotificationSNSStatusCode)
 arnSnsPublishStatusCode = lens _arnSnsPublishStatusCode (\ s a -> s{_arnSnsPublishStatusCode = a});
 
--- | Undocumented member.
+-- | The message included in the notification.
 arnMessage :: Lens' AssessmentRunNotification (Maybe Text)
 arnMessage = lens _arnMessage (\ s a -> s{_arnMessage = a});
 
@@ -526,34 +553,36 @@ instance FromJSON AssessmentRunNotification where
                      <*> (x .: "event")
                      <*> (x .: "error"))
 
-instance Hashable AssessmentRunNotification
+instance Hashable AssessmentRunNotification where
 
-instance NFData AssessmentRunNotification
+instance NFData AssessmentRunNotification where
 
--- | Used as one of the elements of the < AssessmentRun> data type.
+-- | Used as one of the elements of the 'AssessmentRun' data type.
+--
+--
 --
 -- /See:/ 'assessmentRunStateChange' smart constructor.
 data AssessmentRunStateChange = AssessmentRunStateChange'
-    { _arscStateChangedAt :: !POSIX
-    , _arscState          :: !AssessmentRunState
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _arscStateChangedAt :: !POSIX
+  , _arscState          :: !AssessmentRunState
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssessmentRunStateChange' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'arscStateChangedAt'
+-- * 'arscStateChangedAt' - The last time the assessment run state changed.
 --
--- * 'arscState'
+-- * 'arscState' - The assessment run state.
 assessmentRunStateChange
     :: UTCTime -- ^ 'arscStateChangedAt'
     -> AssessmentRunState -- ^ 'arscState'
     -> AssessmentRunStateChange
 assessmentRunStateChange pStateChangedAt_ pState_ =
-    AssessmentRunStateChange'
-    { _arscStateChangedAt = _Time # pStateChangedAt_
-    , _arscState = pState_
-    }
+  AssessmentRunStateChange'
+  {_arscStateChangedAt = _Time # pStateChangedAt_, _arscState = pState_}
+
 
 -- | The last time the assessment run state changed.
 arscStateChangedAt :: Lens' AssessmentRunStateChange UTCTime
@@ -570,34 +599,37 @@ instance FromJSON AssessmentRunStateChange where
                  AssessmentRunStateChange' <$>
                    (x .: "stateChangedAt") <*> (x .: "state"))
 
-instance Hashable AssessmentRunStateChange
+instance Hashable AssessmentRunStateChange where
 
-instance NFData AssessmentRunStateChange
+instance NFData AssessmentRunStateChange where
 
--- | Contains information about an Amazon Inspector application. This data type is used as the response element in the < DescribeAssessmentTargets> action.
+-- | Contains information about an Amazon Inspector application. This data type is used as the response element in the 'DescribeAssessmentTargets' action.
+--
+--
 --
 -- /See:/ 'assessmentTarget' smart constructor.
 data AssessmentTarget = AssessmentTarget'
-    { _aArn              :: !Text
-    , _aName             :: !Text
-    , _aResourceGroupARN :: !Text
-    , _aCreatedAt        :: !POSIX
-    , _aUpdatedAt        :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aArn              :: !Text
+  , _aName             :: !Text
+  , _aResourceGroupARN :: !Text
+  , _aCreatedAt        :: !POSIX
+  , _aUpdatedAt        :: !POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssessmentTarget' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aArn'
+-- * 'aArn' - The ARN that specifies the Amazon Inspector assessment target.
 --
--- * 'aName'
+-- * 'aName' - The name of the Amazon Inspector assessment target.
 --
--- * 'aResourceGroupARN'
+-- * 'aResourceGroupARN' - The ARN that specifies the resource group that is associated with the assessment target.
 --
--- * 'aCreatedAt'
+-- * 'aCreatedAt' - The time at which the assessment target is created.
 --
--- * 'aUpdatedAt'
+-- * 'aUpdatedAt' - The time at which 'UpdateAssessmentTarget' is called.
 assessmentTarget
     :: Text -- ^ 'aArn'
     -> Text -- ^ 'aName'
@@ -606,13 +638,14 @@ assessmentTarget
     -> UTCTime -- ^ 'aUpdatedAt'
     -> AssessmentTarget
 assessmentTarget pArn_ pName_ pResourceGroupARN_ pCreatedAt_ pUpdatedAt_ =
-    AssessmentTarget'
-    { _aArn = pArn_
-    , _aName = pName_
-    , _aResourceGroupARN = pResourceGroupARN_
-    , _aCreatedAt = _Time # pCreatedAt_
-    , _aUpdatedAt = _Time # pUpdatedAt_
-    }
+  AssessmentTarget'
+  { _aArn = pArn_
+  , _aName = pName_
+  , _aResourceGroupARN = pResourceGroupARN_
+  , _aCreatedAt = _Time # pCreatedAt_
+  , _aUpdatedAt = _Time # pUpdatedAt_
+  }
+
 
 -- | The ARN that specifies the Amazon Inspector assessment target.
 aArn :: Lens' AssessmentTarget Text
@@ -630,7 +663,7 @@ aResourceGroupARN = lens _aResourceGroupARN (\ s a -> s{_aResourceGroupARN = a})
 aCreatedAt :: Lens' AssessmentTarget UTCTime
 aCreatedAt = lens _aCreatedAt (\ s a -> s{_aCreatedAt = a}) . _Time;
 
--- | The time at which < UpdateAssessmentTarget> is called.
+-- | The time at which 'UpdateAssessmentTarget' is called.
 aUpdatedAt :: Lens' AssessmentTarget UTCTime
 aUpdatedAt = lens _aUpdatedAt (\ s a -> s{_aUpdatedAt = a}) . _Time;
 
@@ -644,36 +677,38 @@ instance FromJSON AssessmentTarget where
                      <*> (x .: "createdAt")
                      <*> (x .: "updatedAt"))
 
-instance Hashable AssessmentTarget
+instance Hashable AssessmentTarget where
 
-instance NFData AssessmentTarget
+instance NFData AssessmentTarget where
 
--- | Used as the request parameter in the < ListAssessmentTargets> action.
+-- | Used as the request parameter in the 'ListAssessmentTargets' action.
+--
+--
 --
 -- /See:/ 'assessmentTargetFilter' smart constructor.
 newtype AssessmentTargetFilter = AssessmentTargetFilter'
-    { _atfAssessmentTargetNamePattern :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atfAssessmentTargetNamePattern :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssessmentTargetFilter' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atfAssessmentTargetNamePattern'
+-- * 'atfAssessmentTargetNamePattern' - For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTargetName__ property of the 'AssessmentTarget' data type.
 assessmentTargetFilter
     :: AssessmentTargetFilter
 assessmentTargetFilter =
-    AssessmentTargetFilter'
-    { _atfAssessmentTargetNamePattern = Nothing
-    }
+  AssessmentTargetFilter' {_atfAssessmentTargetNamePattern = Nothing}
 
--- | For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTargetName__ property of the < AssessmentTarget> data type.
+
+-- | For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTargetName__ property of the 'AssessmentTarget' data type.
 atfAssessmentTargetNamePattern :: Lens' AssessmentTargetFilter (Maybe Text)
 atfAssessmentTargetNamePattern = lens _atfAssessmentTargetNamePattern (\ s a -> s{_atfAssessmentTargetNamePattern = a});
 
-instance Hashable AssessmentTargetFilter
+instance Hashable AssessmentTargetFilter where
 
-instance NFData AssessmentTargetFilter
+instance NFData AssessmentTargetFilter where
 
 instance ToJSON AssessmentTargetFilter where
         toJSON AssessmentTargetFilter'{..}
@@ -682,36 +717,39 @@ instance ToJSON AssessmentTargetFilter where
                  [("assessmentTargetNamePattern" .=) <$>
                     _atfAssessmentTargetNamePattern])
 
--- | Contains information about an Amazon Inspector assessment template. This data type is used as the response element in the < DescribeAssessmentTemplates> action.
+-- | Contains information about an Amazon Inspector assessment template. This data type is used as the response element in the 'DescribeAssessmentTemplates' action.
+--
+--
 --
 -- /See:/ 'assessmentTemplate' smart constructor.
 data AssessmentTemplate = AssessmentTemplate'
-    { _atArn                       :: !Text
-    , _atName                      :: !Text
-    , _atAssessmentTargetARN       :: !Text
-    , _atDurationInSeconds         :: !Nat
-    , _atRulesPackageARNs          :: ![Text]
-    , _atUserAttributesForFindings :: ![Attribute]
-    , _atCreatedAt                 :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atArn                       :: !Text
+  , _atName                      :: !Text
+  , _atAssessmentTargetARN       :: !Text
+  , _atDurationInSeconds         :: !Nat
+  , _atRulesPackageARNs          :: ![Text]
+  , _atUserAttributesForFindings :: ![Attribute]
+  , _atCreatedAt                 :: !POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssessmentTemplate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atArn'
+-- * 'atArn' - The ARN of the assessment template.
 --
--- * 'atName'
+-- * 'atName' - The name of the assessment template.
 --
--- * 'atAssessmentTargetARN'
+-- * 'atAssessmentTargetARN' - The ARN of the assessment target that corresponds to this assessment template.
 --
--- * 'atDurationInSeconds'
+-- * 'atDurationInSeconds' - The duration in seconds specified for this assessment tempate. The default value is 3600 seconds (one hour). The maximum value is 86400 seconds (one day).
 --
--- * 'atRulesPackageARNs'
+-- * 'atRulesPackageARNs' - The rules packages that are specified for this assessment template.
 --
--- * 'atUserAttributesForFindings'
+-- * 'atUserAttributesForFindings' - The user-defined attributes that are assigned to every generated finding from the assessment run that uses this assessment template.
 --
--- * 'atCreatedAt'
+-- * 'atCreatedAt' - The time at which the assessment template is created.
 assessmentTemplate
     :: Text -- ^ 'atArn'
     -> Text -- ^ 'atName'
@@ -720,15 +758,16 @@ assessmentTemplate
     -> UTCTime -- ^ 'atCreatedAt'
     -> AssessmentTemplate
 assessmentTemplate pArn_ pName_ pAssessmentTargetARN_ pDurationInSeconds_ pCreatedAt_ =
-    AssessmentTemplate'
-    { _atArn = pArn_
-    , _atName = pName_
-    , _atAssessmentTargetARN = pAssessmentTargetARN_
-    , _atDurationInSeconds = _Nat # pDurationInSeconds_
-    , _atRulesPackageARNs = mempty
-    , _atUserAttributesForFindings = mempty
-    , _atCreatedAt = _Time # pCreatedAt_
-    }
+  AssessmentTemplate'
+  { _atArn = pArn_
+  , _atName = pName_
+  , _atAssessmentTargetARN = pAssessmentTargetARN_
+  , _atDurationInSeconds = _Nat # pDurationInSeconds_
+  , _atRulesPackageARNs = mempty
+  , _atUserAttributesForFindings = mempty
+  , _atCreatedAt = _Time # pCreatedAt_
+  }
+
 
 -- | The ARN of the assessment template.
 atArn :: Lens' AssessmentTemplate Text
@@ -770,52 +809,56 @@ instance FromJSON AssessmentTemplate where
                      <*> (x .:? "userAttributesForFindings" .!= mempty)
                      <*> (x .: "createdAt"))
 
-instance Hashable AssessmentTemplate
+instance Hashable AssessmentTemplate where
 
-instance NFData AssessmentTemplate
+instance NFData AssessmentTemplate where
 
--- | Used as the request parameter in the < ListAssessmentTemplates> action.
+-- | Used as the request parameter in the 'ListAssessmentTemplates' action.
+--
+--
 --
 -- /See:/ 'assessmentTemplateFilter' smart constructor.
 data AssessmentTemplateFilter = AssessmentTemplateFilter'
-    { _atfNamePattern      :: !(Maybe Text)
-    , _atfRulesPackageARNs :: !(Maybe [Text])
-    , _atfDurationRange    :: !(Maybe DurationRange)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atfNamePattern      :: !(Maybe Text)
+  , _atfRulesPackageARNs :: !(Maybe [Text])
+  , _atfDurationRange    :: !(Maybe DurationRange)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssessmentTemplateFilter' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atfNamePattern'
+-- * 'atfNamePattern' - For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTemplateName__ property of the 'AssessmentTemplate' data type.
 --
--- * 'atfRulesPackageARNs'
+-- * 'atfRulesPackageARNs' - For a record to match a filter, the values that are specified for this data type property must be contained in the list of values of the __rulesPackageArns__ property of the 'AssessmentTemplate' data type.
 --
--- * 'atfDurationRange'
+-- * 'atfDurationRange' - For a record to match a filter, the value specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the 'AssessmentTemplate' data type.
 assessmentTemplateFilter
     :: AssessmentTemplateFilter
 assessmentTemplateFilter =
-    AssessmentTemplateFilter'
-    { _atfNamePattern = Nothing
-    , _atfRulesPackageARNs = Nothing
-    , _atfDurationRange = Nothing
-    }
+  AssessmentTemplateFilter'
+  { _atfNamePattern = Nothing
+  , _atfRulesPackageARNs = Nothing
+  , _atfDurationRange = Nothing
+  }
 
--- | For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTemplateName__ property of the < AssessmentTemplate> data type.
+
+-- | For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTemplateName__ property of the 'AssessmentTemplate' data type.
 atfNamePattern :: Lens' AssessmentTemplateFilter (Maybe Text)
 atfNamePattern = lens _atfNamePattern (\ s a -> s{_atfNamePattern = a});
 
--- | For a record to match a filter, the values that are specified for this data type property must be contained in the list of values of the __rulesPackageArns__ property of the < AssessmentTemplate> data type.
+-- | For a record to match a filter, the values that are specified for this data type property must be contained in the list of values of the __rulesPackageArns__ property of the 'AssessmentTemplate' data type.
 atfRulesPackageARNs :: Lens' AssessmentTemplateFilter [Text]
 atfRulesPackageARNs = lens _atfRulesPackageARNs (\ s a -> s{_atfRulesPackageARNs = a}) . _Default . _Coerce;
 
--- | For a record to match a filter, the value specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the < AssessmentTemplate> data type.
+-- | For a record to match a filter, the value specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the 'AssessmentTemplate' data type.
 atfDurationRange :: Lens' AssessmentTemplateFilter (Maybe DurationRange)
 atfDurationRange = lens _atfDurationRange (\ s a -> s{_atfDurationRange = a});
 
-instance Hashable AssessmentTemplateFilter
+instance Hashable AssessmentTemplateFilter where
 
-instance NFData AssessmentTemplateFilter
+instance NFData AssessmentTemplateFilter where
 
 instance ToJSON AssessmentTemplateFilter where
         toJSON AssessmentTemplateFilter'{..}
@@ -827,43 +870,47 @@ instance ToJSON AssessmentTemplateFilter where
 
 -- | A collection of attributes of the host from which the finding is generated.
 --
+--
+--
 -- /See:/ 'assetAttributes' smart constructor.
 data AssetAttributes = AssetAttributes'
-    { _aaHostname         :: !(Maybe Text)
-    , _aaAutoScalingGroup :: !(Maybe Text)
-    , _aaIpv4Addresses    :: !(Maybe [Text])
-    , _aaAgentId          :: !(Maybe Text)
-    , _aaAmiId            :: !(Maybe Text)
-    , _aaSchemaVersion    :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aaHostname         :: !(Maybe Text)
+  , _aaAutoScalingGroup :: !(Maybe Text)
+  , _aaIpv4Addresses    :: !(Maybe [Text])
+  , _aaAgentId          :: !(Maybe Text)
+  , _aaAmiId            :: !(Maybe Text)
+  , _aaSchemaVersion    :: !Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssetAttributes' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aaHostname'
+-- * 'aaHostname' - The hostname of the EC2 instance where the finding is generated.
 --
--- * 'aaAutoScalingGroup'
+-- * 'aaAutoScalingGroup' - The Auto Scaling group of the EC2 instance where the finding is generated.
 --
--- * 'aaIpv4Addresses'
+-- * 'aaIpv4Addresses' - The list of IP v4 addresses of the EC2 instance where the finding is generated.
 --
--- * 'aaAgentId'
+-- * 'aaAgentId' - The ID of the agent that is installed on the EC2 instance where the finding is generated.
 --
--- * 'aaAmiId'
+-- * 'aaAmiId' - The ID of the Amazon Machine Image (AMI) that is installed on the EC2 instance where the finding is generated.
 --
--- * 'aaSchemaVersion'
+-- * 'aaSchemaVersion' - The schema version of this data type.
 assetAttributes
     :: Natural -- ^ 'aaSchemaVersion'
     -> AssetAttributes
 assetAttributes pSchemaVersion_ =
-    AssetAttributes'
-    { _aaHostname = Nothing
-    , _aaAutoScalingGroup = Nothing
-    , _aaIpv4Addresses = Nothing
-    , _aaAgentId = Nothing
-    , _aaAmiId = Nothing
-    , _aaSchemaVersion = _Nat # pSchemaVersion_
-    }
+  AssetAttributes'
+  { _aaHostname = Nothing
+  , _aaAutoScalingGroup = Nothing
+  , _aaIpv4Addresses = Nothing
+  , _aaAgentId = Nothing
+  , _aaAmiId = Nothing
+  , _aaSchemaVersion = _Nat # pSchemaVersion_
+  }
+
 
 -- | The hostname of the EC2 instance where the finding is generated.
 aaHostname :: Lens' AssetAttributes (Maybe Text)
@@ -900,33 +947,33 @@ instance FromJSON AssetAttributes where
                      <*> (x .:? "amiId")
                      <*> (x .: "schemaVersion"))
 
-instance Hashable AssetAttributes
+instance Hashable AssetAttributes where
 
-instance NFData AssetAttributes
+instance NFData AssetAttributes where
 
--- | This data type is used as a request parameter in the < AddAttributesToFindings> and < CreateAssessmentTemplate> actions.
+-- | This data type is used as a request parameter in the 'AddAttributesToFindings' and 'CreateAssessmentTemplate' actions.
+--
+--
 --
 -- /See:/ 'attribute' smart constructor.
 data Attribute = Attribute'
-    { _aValue :: !(Maybe Text)
-    , _aKey   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aValue :: !(Maybe Text)
+  , _aKey   :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Attribute' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aValue'
+-- * 'aValue' - The value assigned to the attribute key.
 --
--- * 'aKey'
+-- * 'aKey' - The attribute key.
 attribute
     :: Text -- ^ 'aKey'
     -> Attribute
-attribute pKey_ =
-    Attribute'
-    { _aValue = Nothing
-    , _aKey = pKey_
-    }
+attribute pKey_ = Attribute' {_aValue = Nothing, _aKey = pKey_}
+
 
 -- | The value assigned to the attribute key.
 aValue :: Lens' Attribute (Maybe Text)
@@ -942,9 +989,9 @@ instance FromJSON Attribute where
               (\ x ->
                  Attribute' <$> (x .:? "value") <*> (x .: "key"))
 
-instance Hashable Attribute
+instance Hashable Attribute where
 
-instance NFData Attribute
+instance NFData Attribute where
 
 instance ToJSON Attribute where
         toJSON Attribute'{..}
@@ -952,28 +999,29 @@ instance ToJSON Attribute where
               (catMaybes
                  [("value" .=) <$> _aValue, Just ("key" .= _aKey)])
 
--- | This data type is used in the < AssessmentTemplateFilter> data type.
+-- | This data type is used in the 'AssessmentTemplateFilter' data type.
+--
+--
 --
 -- /See:/ 'durationRange' smart constructor.
 data DurationRange = DurationRange'
-    { _drMinSeconds :: !(Maybe Nat)
-    , _drMaxSeconds :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drMinSeconds :: !(Maybe Nat)
+  , _drMaxSeconds :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DurationRange' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drMinSeconds'
+-- * 'drMinSeconds' - The minimum value of the duration range. Must be greater than zero.
 --
--- * 'drMaxSeconds'
+-- * 'drMaxSeconds' - The maximum value of the duration range. Must be less than or equal to 604800 seconds (1 week).
 durationRange
     :: DurationRange
 durationRange =
-    DurationRange'
-    { _drMinSeconds = Nothing
-    , _drMaxSeconds = Nothing
-    }
+  DurationRange' {_drMinSeconds = Nothing, _drMaxSeconds = Nothing}
+
 
 -- | The minimum value of the duration range. Must be greater than zero.
 drMinSeconds :: Lens' DurationRange (Maybe Natural)
@@ -983,9 +1031,9 @@ drMinSeconds = lens _drMinSeconds (\ s a -> s{_drMinSeconds = a}) . mapping _Nat
 drMaxSeconds :: Lens' DurationRange (Maybe Natural)
 drMaxSeconds = lens _drMaxSeconds (\ s a -> s{_drMaxSeconds = a}) . mapping _Nat;
 
-instance Hashable DurationRange
+instance Hashable DurationRange where
 
-instance NFData DurationRange
+instance NFData DurationRange where
 
 instance ToJSON DurationRange where
         toJSON DurationRange'{..}
@@ -994,36 +1042,38 @@ instance ToJSON DurationRange where
                  [("minSeconds" .=) <$> _drMinSeconds,
                   ("maxSeconds" .=) <$> _drMaxSeconds])
 
--- | This data type is used in the < Subscription> data type.
+-- | This data type is used in the 'Subscription' data type.
+--
+--
 --
 -- /See:/ 'eventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
-    { _esEvent        :: !InspectorEvent
-    , _esSubscribedAt :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esEvent        :: !InspectorEvent
+  , _esSubscribedAt :: !POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventSubscription' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'esEvent'
+-- * 'esEvent' - The event for which Amazon Simple Notification Service (SNS) notifications are sent.
 --
--- * 'esSubscribedAt'
+-- * 'esSubscribedAt' - The time at which 'SubscribeToEvent' is called.
 eventSubscription
     :: InspectorEvent -- ^ 'esEvent'
     -> UTCTime -- ^ 'esSubscribedAt'
     -> EventSubscription
 eventSubscription pEvent_ pSubscribedAt_ =
-    EventSubscription'
-    { _esEvent = pEvent_
-    , _esSubscribedAt = _Time # pSubscribedAt_
-    }
+  EventSubscription'
+  {_esEvent = pEvent_, _esSubscribedAt = _Time # pSubscribedAt_}
+
 
 -- | The event for which Amazon Simple Notification Service (SNS) notifications are sent.
 esEvent :: Lens' EventSubscription InspectorEvent
 esEvent = lens _esEvent (\ s a -> s{_esEvent = a});
 
--- | The time at which < SubscribeToEvent> is called.
+-- | The time at which 'SubscribeToEvent' is called.
 esSubscribedAt :: Lens' EventSubscription UTCTime
 esSubscribedAt = lens _esSubscribedAt (\ s a -> s{_esSubscribedAt = a}) . _Time;
 
@@ -1034,34 +1084,36 @@ instance FromJSON EventSubscription where
                  EventSubscription' <$>
                    (x .: "event") <*> (x .: "subscribedAt"))
 
-instance Hashable EventSubscription
+instance Hashable EventSubscription where
 
-instance NFData EventSubscription
+instance NFData EventSubscription where
 
 -- | Includes details about the failed items.
 --
+--
+--
 -- /See:/ 'failedItemDetails' smart constructor.
 data FailedItemDetails = FailedItemDetails'
-    { _fidFailureCode :: !FailedItemErrorCode
-    , _fidRetryable   :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fidFailureCode :: !FailedItemErrorCode
+  , _fidRetryable   :: !Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FailedItemDetails' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fidFailureCode'
+-- * 'fidFailureCode' - The status code of a failed item.
 --
--- * 'fidRetryable'
+-- * 'fidRetryable' - Indicates whether you can immediately retry a request for this item for a specified resource.
 failedItemDetails
     :: FailedItemErrorCode -- ^ 'fidFailureCode'
     -> Bool -- ^ 'fidRetryable'
     -> FailedItemDetails
 failedItemDetails pFailureCode_ pRetryable_ =
-    FailedItemDetails'
-    { _fidFailureCode = pFailureCode_
-    , _fidRetryable = pRetryable_
-    }
+  FailedItemDetails'
+  {_fidFailureCode = pFailureCode_, _fidRetryable = pRetryable_}
+
 
 -- | The status code of a failed item.
 fidFailureCode :: Lens' FailedItemDetails FailedItemErrorCode
@@ -1078,101 +1130,105 @@ instance FromJSON FailedItemDetails where
                  FailedItemDetails' <$>
                    (x .: "failureCode") <*> (x .: "retryable"))
 
-instance Hashable FailedItemDetails
+instance Hashable FailedItemDetails where
 
-instance NFData FailedItemDetails
+instance NFData FailedItemDetails where
 
--- | Contains information about an Amazon Inspector finding. This data type is used as the response element in the < DescribeFindings> action.
+-- | Contains information about an Amazon Inspector finding. This data type is used as the response element in the 'DescribeFindings' action.
+--
+--
 --
 -- /See:/ 'finding' smart constructor.
 data Finding = Finding'
-    { _fService               :: !(Maybe Text)
-    , _fSeverity              :: !(Maybe Severity)
-    , _fSchemaVersion         :: !(Maybe Nat)
-    , _fConfidence            :: !(Maybe Nat)
-    , _fAssetAttributes       :: !(Maybe AssetAttributes)
-    , _fServiceAttributes     :: !(Maybe InspectorServiceAttributes)
-    , _fId                    :: !(Maybe Text)
-    , _fNumericSeverity       :: !(Maybe Double)
-    , _fAssetType             :: !(Maybe AssetType)
-    , _fTitle                 :: !(Maybe Text)
-    , _fIndicatorOfCompromise :: !(Maybe Bool)
-    , _fDescription           :: !(Maybe Text)
-    , _fRecommendation        :: !(Maybe Text)
-    , _fArn                   :: !Text
-    , _fAttributes            :: ![Attribute]
-    , _fUserAttributes        :: ![Attribute]
-    , _fCreatedAt             :: !POSIX
-    , _fUpdatedAt             :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fService               :: !(Maybe Text)
+  , _fSeverity              :: !(Maybe Severity)
+  , _fSchemaVersion         :: !(Maybe Nat)
+  , _fConfidence            :: !(Maybe Nat)
+  , _fAssetAttributes       :: !(Maybe AssetAttributes)
+  , _fServiceAttributes     :: !(Maybe InspectorServiceAttributes)
+  , _fId                    :: !(Maybe Text)
+  , _fNumericSeverity       :: !(Maybe Double)
+  , _fAssetType             :: !(Maybe AssetType)
+  , _fTitle                 :: !(Maybe Text)
+  , _fIndicatorOfCompromise :: !(Maybe Bool)
+  , _fDescription           :: !(Maybe Text)
+  , _fRecommendation        :: !(Maybe Text)
+  , _fArn                   :: !Text
+  , _fAttributes            :: ![Attribute]
+  , _fUserAttributes        :: ![Attribute]
+  , _fCreatedAt             :: !POSIX
+  , _fUpdatedAt             :: !POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Finding' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fService'
+-- * 'fService' - The data element is set to "Inspector".
 --
--- * 'fSeverity'
+-- * 'fSeverity' - The finding severity. Values can be set to High, Medium, Low, and Informational.
 --
--- * 'fSchemaVersion'
+-- * 'fSchemaVersion' - The schema version of this data type.
 --
--- * 'fConfidence'
+-- * 'fConfidence' - This data element is currently not used.
 --
--- * 'fAssetAttributes'
+-- * 'fAssetAttributes' - A collection of attributes of the host from which the finding is generated.
 --
--- * 'fServiceAttributes'
+-- * 'fServiceAttributes' - This data type is used in the 'Finding' data type.
 --
--- * 'fId'
+-- * 'fId' - The ID of the finding.
 --
--- * 'fNumericSeverity'
+-- * 'fNumericSeverity' - The numeric value of the finding severity.
 --
--- * 'fAssetType'
+-- * 'fAssetType' - The type of the host from which the finding is generated.
 --
--- * 'fTitle'
+-- * 'fTitle' - The name of the finding.
 --
--- * 'fIndicatorOfCompromise'
+-- * 'fIndicatorOfCompromise' - This data element is currently not used.
 --
--- * 'fDescription'
+-- * 'fDescription' - The description of the finding.
 --
--- * 'fRecommendation'
+-- * 'fRecommendation' - The recommendation for the finding.
 --
--- * 'fArn'
+-- * 'fArn' - The ARN that specifies the finding.
 --
--- * 'fAttributes'
+-- * 'fAttributes' - The system-defined attributes for the finding.
 --
--- * 'fUserAttributes'
+-- * 'fUserAttributes' - The user-defined attributes that are assigned to the finding.
 --
--- * 'fCreatedAt'
+-- * 'fCreatedAt' - The time when the finding was generated.
 --
--- * 'fUpdatedAt'
+-- * 'fUpdatedAt' - The time when 'AddAttributesToFindings' is called.
 finding
     :: Text -- ^ 'fArn'
     -> UTCTime -- ^ 'fCreatedAt'
     -> UTCTime -- ^ 'fUpdatedAt'
     -> Finding
 finding pArn_ pCreatedAt_ pUpdatedAt_ =
-    Finding'
-    { _fService = Nothing
-    , _fSeverity = Nothing
-    , _fSchemaVersion = Nothing
-    , _fConfidence = Nothing
-    , _fAssetAttributes = Nothing
-    , _fServiceAttributes = Nothing
-    , _fId = Nothing
-    , _fNumericSeverity = Nothing
-    , _fAssetType = Nothing
-    , _fTitle = Nothing
-    , _fIndicatorOfCompromise = Nothing
-    , _fDescription = Nothing
-    , _fRecommendation = Nothing
-    , _fArn = pArn_
-    , _fAttributes = mempty
-    , _fUserAttributes = mempty
-    , _fCreatedAt = _Time # pCreatedAt_
-    , _fUpdatedAt = _Time # pUpdatedAt_
-    }
+  Finding'
+  { _fService = Nothing
+  , _fSeverity = Nothing
+  , _fSchemaVersion = Nothing
+  , _fConfidence = Nothing
+  , _fAssetAttributes = Nothing
+  , _fServiceAttributes = Nothing
+  , _fId = Nothing
+  , _fNumericSeverity = Nothing
+  , _fAssetType = Nothing
+  , _fTitle = Nothing
+  , _fIndicatorOfCompromise = Nothing
+  , _fDescription = Nothing
+  , _fRecommendation = Nothing
+  , _fArn = pArn_
+  , _fAttributes = mempty
+  , _fUserAttributes = mempty
+  , _fCreatedAt = _Time # pCreatedAt_
+  , _fUpdatedAt = _Time # pUpdatedAt_
+  }
 
--- | The data element is set to \"Inspector\".
+
+-- | The data element is set to "Inspector".
 fService :: Lens' Finding (Maybe Text)
 fService = lens _fService (\ s a -> s{_fService = a});
 
@@ -1192,7 +1248,7 @@ fConfidence = lens _fConfidence (\ s a -> s{_fConfidence = a}) . mapping _Nat;
 fAssetAttributes :: Lens' Finding (Maybe AssetAttributes)
 fAssetAttributes = lens _fAssetAttributes (\ s a -> s{_fAssetAttributes = a});
 
--- | Undocumented member.
+-- | This data type is used in the 'Finding' data type.
 fServiceAttributes :: Lens' Finding (Maybe InspectorServiceAttributes)
 fServiceAttributes = lens _fServiceAttributes (\ s a -> s{_fServiceAttributes = a});
 
@@ -1240,7 +1296,7 @@ fUserAttributes = lens _fUserAttributes (\ s a -> s{_fUserAttributes = a}) . _Co
 fCreatedAt :: Lens' Finding UTCTime
 fCreatedAt = lens _fCreatedAt (\ s a -> s{_fCreatedAt = a}) . _Time;
 
--- | The time when < AddAttributesToFindings> is called.
+-- | The time when 'AddAttributesToFindings' is called.
 fUpdatedAt :: Lens' Finding UTCTime
 fUpdatedAt = lens _fUpdatedAt (\ s a -> s{_fUpdatedAt = a}) . _Time;
 
@@ -1267,78 +1323,82 @@ instance FromJSON Finding where
                      <*> (x .: "createdAt")
                      <*> (x .: "updatedAt"))
 
-instance Hashable Finding
+instance Hashable Finding where
 
-instance NFData Finding
+instance NFData Finding where
 
--- | This data type is used as a request parameter in the < ListFindings> action.
+-- | This data type is used as a request parameter in the 'ListFindings' action.
+--
+--
 --
 -- /See:/ 'findingFilter' smart constructor.
 data FindingFilter = FindingFilter'
-    { _ffAgentIds          :: !(Maybe [Text])
-    , _ffRuleNames         :: !(Maybe [Text])
-    , _ffUserAttributes    :: !(Maybe [Attribute])
-    , _ffRulesPackageARNs  :: !(Maybe [Text])
-    , _ffAttributes        :: !(Maybe [Attribute])
-    , _ffSeverities        :: !(Maybe [Severity])
-    , _ffCreationTimeRange :: !(Maybe TimestampRange)
-    , _ffAutoScalingGroups :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ffAgentIds          :: !(Maybe [Text])
+  , _ffRuleNames         :: !(Maybe [Text])
+  , _ffUserAttributes    :: !(Maybe [Attribute])
+  , _ffRulesPackageARNs  :: !(Maybe [Text])
+  , _ffAttributes        :: !(Maybe [Attribute])
+  , _ffSeverities        :: !(Maybe [Severity])
+  , _ffCreationTimeRange :: !(Maybe TimestampRange)
+  , _ffAutoScalingGroups :: !(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FindingFilter' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ffAgentIds'
+-- * 'ffAgentIds' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __agentId__ property of the 'Finding' data type.
 --
--- * 'ffRuleNames'
+-- * 'ffRuleNames' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __ruleName__ property of the 'Finding' data type.
 --
--- * 'ffUserAttributes'
+-- * 'ffUserAttributes' - For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __userAttributes__ property of the 'Finding' data type.
 --
--- * 'ffRulesPackageARNs'
+-- * 'ffRulesPackageARNs' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __rulesPackageArn__ property of the 'Finding' data type.
 --
--- * 'ffAttributes'
+-- * 'ffAttributes' - For a record to match a filter, the list of values that are specified for this data type property must be contained in the list of values of the __attributes__ property of the 'Finding' data type.
 --
--- * 'ffSeverities'
+-- * 'ffSeverities' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __severity__ property of the 'Finding' data type.
 --
--- * 'ffCreationTimeRange'
+-- * 'ffCreationTimeRange' - The time range during which the finding is generated.
 --
--- * 'ffAutoScalingGroups'
+-- * 'ffAutoScalingGroups' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __autoScalingGroup__ property of the 'Finding' data type.
 findingFilter
     :: FindingFilter
 findingFilter =
-    FindingFilter'
-    { _ffAgentIds = Nothing
-    , _ffRuleNames = Nothing
-    , _ffUserAttributes = Nothing
-    , _ffRulesPackageARNs = Nothing
-    , _ffAttributes = Nothing
-    , _ffSeverities = Nothing
-    , _ffCreationTimeRange = Nothing
-    , _ffAutoScalingGroups = Nothing
-    }
+  FindingFilter'
+  { _ffAgentIds = Nothing
+  , _ffRuleNames = Nothing
+  , _ffUserAttributes = Nothing
+  , _ffRulesPackageARNs = Nothing
+  , _ffAttributes = Nothing
+  , _ffSeverities = Nothing
+  , _ffCreationTimeRange = Nothing
+  , _ffAutoScalingGroups = Nothing
+  }
 
--- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __agentId__ property of the < Finding> data type.
+
+-- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __agentId__ property of the 'Finding' data type.
 ffAgentIds :: Lens' FindingFilter [Text]
 ffAgentIds = lens _ffAgentIds (\ s a -> s{_ffAgentIds = a}) . _Default . _Coerce;
 
--- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __ruleName__ property of the < Finding> data type.
+-- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __ruleName__ property of the 'Finding' data type.
 ffRuleNames :: Lens' FindingFilter [Text]
 ffRuleNames = lens _ffRuleNames (\ s a -> s{_ffRuleNames = a}) . _Default . _Coerce;
 
--- | For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __userAttributes__ property of the < Finding> data type.
+-- | For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __userAttributes__ property of the 'Finding' data type.
 ffUserAttributes :: Lens' FindingFilter [Attribute]
 ffUserAttributes = lens _ffUserAttributes (\ s a -> s{_ffUserAttributes = a}) . _Default . _Coerce;
 
--- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __rulesPackageArn__ property of the < Finding> data type.
+-- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __rulesPackageArn__ property of the 'Finding' data type.
 ffRulesPackageARNs :: Lens' FindingFilter [Text]
 ffRulesPackageARNs = lens _ffRulesPackageARNs (\ s a -> s{_ffRulesPackageARNs = a}) . _Default . _Coerce;
 
--- | For a record to match a filter, the list of values that are specified for this data type property must be contained in the list of values of the __attributes__ property of the < Finding> data type.
+-- | For a record to match a filter, the list of values that are specified for this data type property must be contained in the list of values of the __attributes__ property of the 'Finding' data type.
 ffAttributes :: Lens' FindingFilter [Attribute]
 ffAttributes = lens _ffAttributes (\ s a -> s{_ffAttributes = a}) . _Default . _Coerce;
 
--- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __severity__ property of the < Finding> data type.
+-- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __severity__ property of the 'Finding' data type.
 ffSeverities :: Lens' FindingFilter [Severity]
 ffSeverities = lens _ffSeverities (\ s a -> s{_ffSeverities = a}) . _Default . _Coerce;
 
@@ -1346,13 +1406,13 @@ ffSeverities = lens _ffSeverities (\ s a -> s{_ffSeverities = a}) . _Default . _
 ffCreationTimeRange :: Lens' FindingFilter (Maybe TimestampRange)
 ffCreationTimeRange = lens _ffCreationTimeRange (\ s a -> s{_ffCreationTimeRange = a});
 
--- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __autoScalingGroup__ property of the < Finding> data type.
+-- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __autoScalingGroup__ property of the 'Finding' data type.
 ffAutoScalingGroups :: Lens' FindingFilter [Text]
 ffAutoScalingGroups = lens _ffAutoScalingGroups (\ s a -> s{_ffAutoScalingGroups = a}) . _Default . _Coerce;
 
-instance Hashable FindingFilter
+instance Hashable FindingFilter where
 
-instance NFData FindingFilter
+instance NFData FindingFilter where
 
 instance ToJSON FindingFilter where
         toJSON FindingFilter'{..}
@@ -1367,33 +1427,37 @@ instance ToJSON FindingFilter where
                   ("creationTimeRange" .=) <$> _ffCreationTimeRange,
                   ("autoScalingGroups" .=) <$> _ffAutoScalingGroups])
 
--- | This data type is used in the < Finding> data type.
+-- | This data type is used in the 'Finding' data type.
+--
+--
 --
 -- /See:/ 'inspectorServiceAttributes' smart constructor.
 data InspectorServiceAttributes = InspectorServiceAttributes'
-    { _isaRulesPackageARN  :: !(Maybe Text)
-    , _isaAssessmentRunARN :: !(Maybe Text)
-    , _isaSchemaVersion    :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _isaRulesPackageARN  :: !(Maybe Text)
+  , _isaAssessmentRunARN :: !(Maybe Text)
+  , _isaSchemaVersion    :: !Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InspectorServiceAttributes' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'isaRulesPackageARN'
+-- * 'isaRulesPackageARN' - The ARN of the rules package that is used to generate the finding.
 --
--- * 'isaAssessmentRunARN'
+-- * 'isaAssessmentRunARN' - The ARN of the assessment run during which the finding is generated.
 --
--- * 'isaSchemaVersion'
+-- * 'isaSchemaVersion' - The schema version of this data type.
 inspectorServiceAttributes
     :: Natural -- ^ 'isaSchemaVersion'
     -> InspectorServiceAttributes
 inspectorServiceAttributes pSchemaVersion_ =
-    InspectorServiceAttributes'
-    { _isaRulesPackageARN = Nothing
-    , _isaAssessmentRunARN = Nothing
-    , _isaSchemaVersion = _Nat # pSchemaVersion_
-    }
+  InspectorServiceAttributes'
+  { _isaRulesPackageARN = Nothing
+  , _isaAssessmentRunARN = Nothing
+  , _isaSchemaVersion = _Nat # pSchemaVersion_
+  }
+
 
 -- | The ARN of the rules package that is used to generate the finding.
 isaRulesPackageARN :: Lens' InspectorServiceAttributes (Maybe Text)
@@ -1416,45 +1480,49 @@ instance FromJSON InspectorServiceAttributes where
                      (x .:? "assessmentRunArn")
                      <*> (x .: "schemaVersion"))
 
-instance Hashable InspectorServiceAttributes
+instance Hashable InspectorServiceAttributes where
 
-instance NFData InspectorServiceAttributes
+instance NFData InspectorServiceAttributes where
 
--- | Contains information about a resource group. The resource group defines a set of tags that, when queried, identify the AWS resources that make up the assessment target. This data type is used as the response element in the < DescribeResourceGroups> action.
+-- | Contains information about a resource group. The resource group defines a set of tags that, when queried, identify the AWS resources that make up the assessment target. This data type is used as the response element in the 'DescribeResourceGroups' action.
+--
+--
 --
 -- /See:/ 'resourceGroup' smart constructor.
 data ResourceGroup = ResourceGroup'
-    { _rgArn       :: !Text
-    , _rgTags      :: !(List1 ResourceGroupTag)
-    , _rgCreatedAt :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rgArn       :: !Text
+  , _rgTags      :: !(List1 ResourceGroupTag)
+  , _rgCreatedAt :: !POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourceGroup' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rgArn'
+-- * 'rgArn' - The ARN of the resource group.
 --
--- * 'rgTags'
+-- * 'rgTags' - The tags (key and value pairs) of the resource group. This data type property is used in the 'CreateResourceGroup' action.
 --
--- * 'rgCreatedAt'
+-- * 'rgCreatedAt' - The time at which resource group is created.
 resourceGroup
     :: Text -- ^ 'rgArn'
     -> NonEmpty ResourceGroupTag -- ^ 'rgTags'
     -> UTCTime -- ^ 'rgCreatedAt'
     -> ResourceGroup
 resourceGroup pArn_ pTags_ pCreatedAt_ =
-    ResourceGroup'
-    { _rgArn = pArn_
-    , _rgTags = _List1 # pTags_
-    , _rgCreatedAt = _Time # pCreatedAt_
-    }
+  ResourceGroup'
+  { _rgArn = pArn_
+  , _rgTags = _List1 # pTags_
+  , _rgCreatedAt = _Time # pCreatedAt_
+  }
+
 
 -- | The ARN of the resource group.
 rgArn :: Lens' ResourceGroup Text
 rgArn = lens _rgArn (\ s a -> s{_rgArn = a});
 
--- | The tags (key and value pairs) of the resource group. This data type property is used in the < CreateResourceGroup> action.
+-- | The tags (key and value pairs) of the resource group. This data type property is used in the 'CreateResourceGroup' action.
 rgTags :: Lens' ResourceGroup (NonEmpty ResourceGroupTag)
 rgTags = lens _rgTags (\ s a -> s{_rgTags = a}) . _List1;
 
@@ -1470,33 +1538,34 @@ instance FromJSON ResourceGroup where
                    (x .: "arn") <*> (x .: "tags") <*>
                      (x .: "createdAt"))
 
-instance Hashable ResourceGroup
+instance Hashable ResourceGroup where
 
-instance NFData ResourceGroup
+instance NFData ResourceGroup where
 
--- | This data type is used as one of the elements of the < ResourceGroup> data type.
+-- | This data type is used as one of the elements of the 'ResourceGroup' data type.
+--
+--
 --
 -- /See:/ 'resourceGroupTag' smart constructor.
 data ResourceGroupTag = ResourceGroupTag'
-    { _rgtValue :: !(Maybe Text)
-    , _rgtKey   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rgtValue :: !(Maybe Text)
+  , _rgtKey   :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourceGroupTag' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rgtValue'
+-- * 'rgtValue' - The value assigned to a tag key.
 --
--- * 'rgtKey'
+-- * 'rgtKey' - A tag key.
 resourceGroupTag
     :: Text -- ^ 'rgtKey'
     -> ResourceGroupTag
 resourceGroupTag pKey_ =
-    ResourceGroupTag'
-    { _rgtValue = Nothing
-    , _rgtKey = pKey_
-    }
+  ResourceGroupTag' {_rgtValue = Nothing, _rgtKey = pKey_}
+
 
 -- | The value assigned to a tag key.
 rgtValue :: Lens' ResourceGroupTag (Maybe Text)
@@ -1513,9 +1582,9 @@ instance FromJSON ResourceGroupTag where
                  ResourceGroupTag' <$>
                    (x .:? "value") <*> (x .: "key"))
 
-instance Hashable ResourceGroupTag
+instance Hashable ResourceGroupTag where
 
-instance NFData ResourceGroupTag
+instance NFData ResourceGroupTag where
 
 instance ToJSON ResourceGroupTag where
         toJSON ResourceGroupTag'{..}
@@ -1524,30 +1593,33 @@ instance ToJSON ResourceGroupTag where
                  [("value" .=) <$> _rgtValue,
                   Just ("key" .= _rgtKey)])
 
--- | Contains information about an Amazon Inspector rules package. This data type is used as the response element in the < DescribeRulesPackages> action.
+-- | Contains information about an Amazon Inspector rules package. This data type is used as the response element in the 'DescribeRulesPackages' action.
+--
+--
 --
 -- /See:/ 'rulesPackage' smart constructor.
 data RulesPackage = RulesPackage'
-    { _rpDescription :: !(Maybe Text)
-    , _rpArn         :: !Text
-    , _rpName        :: !Text
-    , _rpVersion     :: !Text
-    , _rpProvider    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rpDescription :: !(Maybe Text)
+  , _rpArn         :: !Text
+  , _rpName        :: !Text
+  , _rpVersion     :: !Text
+  , _rpProvider    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RulesPackage' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rpDescription'
+-- * 'rpDescription' - The description of the rules package.
 --
--- * 'rpArn'
+-- * 'rpArn' - The ARN of the rules package.
 --
--- * 'rpName'
+-- * 'rpName' - The name of the rules package.
 --
--- * 'rpVersion'
+-- * 'rpVersion' - The version ID of the rules package.
 --
--- * 'rpProvider'
+-- * 'rpProvider' - The provider of the rules package.
 rulesPackage
     :: Text -- ^ 'rpArn'
     -> Text -- ^ 'rpName'
@@ -1555,13 +1627,14 @@ rulesPackage
     -> Text -- ^ 'rpProvider'
     -> RulesPackage
 rulesPackage pArn_ pName_ pVersion_ pProvider_ =
-    RulesPackage'
-    { _rpDescription = Nothing
-    , _rpArn = pArn_
-    , _rpName = pName_
-    , _rpVersion = pVersion_
-    , _rpProvider = pProvider_
-    }
+  RulesPackage'
+  { _rpDescription = Nothing
+  , _rpArn = pArn_
+  , _rpName = pName_
+  , _rpVersion = pVersion_
+  , _rpProvider = pProvider_
+  }
+
 
 -- | The description of the rules package.
 rpDescription :: Lens' RulesPackage (Maybe Text)
@@ -1593,39 +1666,43 @@ instance FromJSON RulesPackage where
                      <*> (x .: "version")
                      <*> (x .: "provider"))
 
-instance Hashable RulesPackage
+instance Hashable RulesPackage where
 
-instance NFData RulesPackage
+instance NFData RulesPackage where
 
--- | This data type is used as a response element in the < ListEventSubscriptions> action.
+-- | This data type is used as a response element in the 'ListEventSubscriptions' action.
+--
+--
 --
 -- /See:/ 'subscription' smart constructor.
 data Subscription = Subscription'
-    { _sResourceARN        :: !Text
-    , _sTopicARN           :: !Text
-    , _sEventSubscriptions :: !(List1 EventSubscription)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sResourceARN        :: !Text
+  , _sTopicARN           :: !Text
+  , _sEventSubscriptions :: !(List1 EventSubscription)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Subscription' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sResourceARN'
+-- * 'sResourceARN' - The ARN of the assessment template that is used during the event for which the SNS notification is sent.
 --
--- * 'sTopicARN'
+-- * 'sTopicARN' - The ARN of the Amazon Simple Notification Service (SNS) topic to which the SNS notifications are sent.
 --
--- * 'sEventSubscriptions'
+-- * 'sEventSubscriptions' - The list of existing event subscriptions.
 subscription
     :: Text -- ^ 'sResourceARN'
     -> Text -- ^ 'sTopicARN'
     -> NonEmpty EventSubscription -- ^ 'sEventSubscriptions'
     -> Subscription
 subscription pResourceARN_ pTopicARN_ pEventSubscriptions_ =
-    Subscription'
-    { _sResourceARN = pResourceARN_
-    , _sTopicARN = pTopicARN_
-    , _sEventSubscriptions = _List1 # pEventSubscriptions_
-    }
+  Subscription'
+  { _sResourceARN = pResourceARN_
+  , _sTopicARN = pTopicARN_
+  , _sEventSubscriptions = _List1 # pEventSubscriptions_
+  }
+
 
 -- | The ARN of the assessment template that is used during the event for which the SNS notification is sent.
 sResourceARN :: Lens' Subscription Text
@@ -1647,33 +1724,33 @@ instance FromJSON Subscription where
                    (x .: "resourceArn") <*> (x .: "topicArn") <*>
                      (x .: "eventSubscriptions"))
 
-instance Hashable Subscription
+instance Hashable Subscription where
 
-instance NFData Subscription
+instance NFData Subscription where
 
--- | A key and value pair. This data type is used as a request parameter in the < SetTagsForResource> action and a response element in the < ListTagsForResource> action.
+-- | A key and value pair. This data type is used as a request parameter in the 'SetTagsForResource' action and a response element in the 'ListTagsForResource' action.
+--
+--
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue'
+-- * 'tagValue' - A value assigned to a tag key.
 --
--- * 'tagKey'
+-- * 'tagKey' - A tag key.
 tag
     :: Text -- ^ 'tagKey'
     -> Tag
-tag pKey_ =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = pKey_
-    }
+tag pKey_ = Tag' {_tagValue = Nothing, _tagKey = pKey_}
+
 
 -- | A value assigned to a tag key.
 tagValue :: Lens' Tag (Maybe Text)
@@ -1688,9 +1765,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "value") <*> (x .: "key"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -1699,34 +1776,35 @@ instance ToJSON Tag where
                  [("value" .=) <$> _tagValue,
                   Just ("key" .= _tagKey)])
 
--- | The metadata about the Amazon Inspector application data metrics collected by the agent. This data type is used as the response element in the < GetTelemetryMetadata> action.
+-- | The metadata about the Amazon Inspector application data metrics collected by the agent. This data type is used as the response element in the 'GetTelemetryMetadata' action.
+--
+--
 --
 -- /See:/ 'telemetryMetadata' smart constructor.
 data TelemetryMetadata = TelemetryMetadata'
-    { _tmDataSize    :: !(Maybe Integer)
-    , _tmMessageType :: !Text
-    , _tmCount       :: !Integer
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tmDataSize    :: !(Maybe Integer)
+  , _tmMessageType :: !Text
+  , _tmCount       :: !Integer
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TelemetryMetadata' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tmDataSize'
+-- * 'tmDataSize' - The data size of messages that the agent sends to the Amazon Inspector service.
 --
--- * 'tmMessageType'
+-- * 'tmMessageType' - A specific type of behavioral data that is collected by the agent.
 --
--- * 'tmCount'
+-- * 'tmCount' - The count of messages that the agent sends to the Amazon Inspector service.
 telemetryMetadata
     :: Text -- ^ 'tmMessageType'
     -> Integer -- ^ 'tmCount'
     -> TelemetryMetadata
 telemetryMetadata pMessageType_ pCount_ =
-    TelemetryMetadata'
-    { _tmDataSize = Nothing
-    , _tmMessageType = pMessageType_
-    , _tmCount = pCount_
-    }
+  TelemetryMetadata'
+  {_tmDataSize = Nothing, _tmMessageType = pMessageType_, _tmCount = pCount_}
+
 
 -- | The data size of messages that the agent sends to the Amazon Inspector service.
 tmDataSize :: Lens' TelemetryMetadata (Maybe Integer)
@@ -1748,32 +1826,32 @@ instance FromJSON TelemetryMetadata where
                    (x .:? "dataSize") <*> (x .: "messageType") <*>
                      (x .: "count"))
 
-instance Hashable TelemetryMetadata
+instance Hashable TelemetryMetadata where
 
-instance NFData TelemetryMetadata
+instance NFData TelemetryMetadata where
 
--- | This data type is used in the < AssessmentRunFilter> data type.
+-- | This data type is used in the 'AssessmentRunFilter' data type.
+--
+--
 --
 -- /See:/ 'timestampRange' smart constructor.
 data TimestampRange = TimestampRange'
-    { _trEndDate   :: !(Maybe POSIX)
-    , _trBeginDate :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trEndDate   :: !(Maybe POSIX)
+  , _trBeginDate :: !(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TimestampRange' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trEndDate'
+-- * 'trEndDate' - The maximum value of the timestamp range.
 --
--- * 'trBeginDate'
+-- * 'trBeginDate' - The minimum value of the timestamp range.
 timestampRange
     :: TimestampRange
-timestampRange =
-    TimestampRange'
-    { _trEndDate = Nothing
-    , _trBeginDate = Nothing
-    }
+timestampRange = TimestampRange' {_trEndDate = Nothing, _trBeginDate = Nothing}
+
 
 -- | The maximum value of the timestamp range.
 trEndDate :: Lens' TimestampRange (Maybe UTCTime)
@@ -1783,9 +1861,9 @@ trEndDate = lens _trEndDate (\ s a -> s{_trEndDate = a}) . mapping _Time;
 trBeginDate :: Lens' TimestampRange (Maybe UTCTime)
 trBeginDate = lens _trBeginDate (\ s a -> s{_trBeginDate = a}) . mapping _Time;
 
-instance Hashable TimestampRange
+instance Hashable TimestampRange where
 
-instance NFData TimestampRange
+instance NFData TimestampRange where
 
 instance ToJSON TimestampRange where
         toJSON TimestampRange'{..}

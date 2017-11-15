@@ -7,31 +7,34 @@
 {-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Gen.AST.Data.Field
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
 module Gen.AST.Data.Field where
 
-import           Control.Applicative
-import           Control.Comonad.Cofree
-import           Control.Lens
-import           Data.Function                (on)
-import qualified Data.HashMap.Strict          as Map
-import           Data.List                    (elemIndex, sortBy)
-import           Data.Maybe
-import           Data.Monoid
-import           Data.Text                    (Text)
-import qualified Data.Text                    as Text
-import           Data.Text.Manipulate
-import           Gen.Types.TypeOf
-import           Gen.Types
-import           Language.Haskell.Exts.Syntax (Name (..))
+import Control.Applicative
+import Control.Comonad.Cofree
+import Control.Lens
+
+import Data.Function        (on)
+import Data.List            (elemIndex, sortBy)
+import Data.Maybe
+import Data.Monoid
+import Data.Text            (Text)
+import Data.Text.Manipulate
+
+import Gen.Types
+
+import Language.Haskell.Exts.Syntax (Name (..))
+
+import qualified Data.HashMap.Strict as Map
+import qualified Data.Text           as Text
 
 -- | Convenience type to package up some information from the struct with the
 -- related field, namely the memberId and the (Set.member required).
@@ -86,7 +89,17 @@ mkFields (view metadata -> m) s st = sortFields rs $
     zipWith mk [1..] $ Map.toList (st ^. members)
   where
     mk :: Int -> (Id, Ref) -> Field
-    mk i (k, v) = Field m i k v req pay p ns d
+    mk i (k, v) = Field
+        { _fieldMeta      = m
+        , _fieldOrdinal   = i
+        , _fieldId        = k
+        , _fieldRef       = v
+        , _fieldRequired' = req
+        , _fieldPayload   = pay
+        , _fieldPrefix    = p
+        , _fieldNamespace = ns
+        , _fieldDirection = d
+        }
       where
         req = k `elem` rs
         pay = Just k == st ^. payload
@@ -122,8 +135,9 @@ fieldAccessor f = accessorId (_fieldPrefix f) (_fieldId f)
 fieldIsParam :: Field -> Bool
 fieldIsParam f = not (fieldMaybe f) && not (fieldMonoid f)
 
-fieldParamName :: Field -> Name
-fieldParamName = Ident
+fieldParamName :: Field -> Name ()
+fieldParamName =
+      Ident ()
     . Text.unpack
     . Text.cons 'p'
     . flip Text.snoc '_'
@@ -141,11 +155,10 @@ fieldHelp f =
     ann _              = mempty
 
     base64 =
-        "\n\n/Note:/ This 'Lens' automatically encodes and decodes Base64 data,\n\
-        \despite what the AWS documentation might say.\n\
-        \The underlying isomorphism will encode to Base64 representation during\n\
-        \serialisation, and decode from Base64 representation during deserialisation.\n\
-        \This 'Lens' accepts and returns only raw unencoded data."
+        "--\n-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.\n\
+        \-- The underlying isomorphism will encode to Base64 representation during\n\
+        \-- serialisation, and decode from Base64 representation during deserialisation.\n\
+        \-- This 'Lens' accepts and returns only raw unencoded data."
 
     def = "Undocumented member."
 

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ListInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides information about the cluster instances that Amazon EMR provisions on behalf of a user when it creates the cluster. For example, this operation indicates when the EC2 instances reach the Ready state, when instances become available to Amazon EMR to use for jobs, and the IP addresses for cluster instances, etc.
+-- Provides information for all active EC2 instances and EC2 instances terminated in the last 30 days, up to a maximum of 2,000. EC2 instances in any of the following states are considered active: AWAITING_FULFILLMENT, PROVISIONING, BOOTSTRAPPING, RUNNING.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListInstances
@@ -28,7 +30,9 @@ module Network.AWS.EMR.ListInstances
     , ListInstances
     -- * Request Lenses
     , liInstanceGroupTypes
+    , liInstanceFleetType
     , liMarker
+    , liInstanceFleetId
     , liInstanceStates
     , liInstanceGroupId
     , liClusterId
@@ -42,57 +46,77 @@ module Network.AWS.EMR.ListInstances
     , lirsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This input determines which instances to list.
 --
+--
+--
 -- /See:/ 'listInstances' smart constructor.
 data ListInstances = ListInstances'
-    { _liInstanceGroupTypes :: !(Maybe [InstanceGroupType])
-    , _liMarker             :: !(Maybe Text)
-    , _liInstanceStates     :: !(Maybe [InstanceState])
-    , _liInstanceGroupId    :: !(Maybe Text)
-    , _liClusterId          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _liInstanceGroupTypes :: !(Maybe [InstanceGroupType])
+  , _liInstanceFleetType  :: !(Maybe InstanceFleetType)
+  , _liMarker             :: !(Maybe Text)
+  , _liInstanceFleetId    :: !(Maybe Text)
+  , _liInstanceStates     :: !(Maybe [InstanceState])
+  , _liInstanceGroupId    :: !(Maybe Text)
+  , _liClusterId          :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListInstances' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'liInstanceGroupTypes'
+-- * 'liInstanceGroupTypes' - The type of instance group for which to list the instances.
 --
--- * 'liMarker'
+-- * 'liInstanceFleetType' - The node type of the instance fleet. For example MASTER, CORE, or TASK.
 --
--- * 'liInstanceStates'
+-- * 'liMarker' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'liInstanceGroupId'
+-- * 'liInstanceFleetId' - The unique identifier of the instance fleet.
 --
--- * 'liClusterId'
+-- * 'liInstanceStates' - A list of instance states that will filter the instances returned with this request.
+--
+-- * 'liInstanceGroupId' - The identifier of the instance group for which to list the instances.
+--
+-- * 'liClusterId' - The identifier of the cluster for which to list the instances.
 listInstances
     :: Text -- ^ 'liClusterId'
     -> ListInstances
 listInstances pClusterId_ =
-    ListInstances'
-    { _liInstanceGroupTypes = Nothing
-    , _liMarker = Nothing
-    , _liInstanceStates = Nothing
-    , _liInstanceGroupId = Nothing
-    , _liClusterId = pClusterId_
-    }
+  ListInstances'
+  { _liInstanceGroupTypes = Nothing
+  , _liInstanceFleetType = Nothing
+  , _liMarker = Nothing
+  , _liInstanceFleetId = Nothing
+  , _liInstanceStates = Nothing
+  , _liInstanceGroupId = Nothing
+  , _liClusterId = pClusterId_
+  }
+
 
 -- | The type of instance group for which to list the instances.
 liInstanceGroupTypes :: Lens' ListInstances [InstanceGroupType]
 liInstanceGroupTypes = lens _liInstanceGroupTypes (\ s a -> s{_liInstanceGroupTypes = a}) . _Default . _Coerce;
 
+-- | The node type of the instance fleet. For example MASTER, CORE, or TASK.
+liInstanceFleetType :: Lens' ListInstances (Maybe InstanceFleetType)
+liInstanceFleetType = lens _liInstanceFleetType (\ s a -> s{_liInstanceFleetType = a});
+
 -- | The pagination token that indicates the next set of results to retrieve.
 liMarker :: Lens' ListInstances (Maybe Text)
 liMarker = lens _liMarker (\ s a -> s{_liMarker = a});
+
+-- | The unique identifier of the instance fleet.
+liInstanceFleetId :: Lens' ListInstances (Maybe Text)
+liInstanceFleetId = lens _liInstanceFleetId (\ s a -> s{_liInstanceFleetId = a});
 
 -- | A list of instance states that will filter the instances returned with this request.
 liInstanceStates :: Lens' ListInstances [InstanceState]
@@ -123,9 +147,9 @@ instance AWSRequest ListInstances where
                    (x .?> "Marker") <*> (x .?> "Instances" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListInstances
+instance Hashable ListInstances where
 
-instance NFData ListInstances
+instance NFData ListInstances where
 
 instance ToHeaders ListInstances where
         toHeaders
@@ -141,7 +165,9 @@ instance ToJSON ListInstances where
           = object
               (catMaybes
                  [("InstanceGroupTypes" .=) <$> _liInstanceGroupTypes,
+                  ("InstanceFleetType" .=) <$> _liInstanceFleetType,
                   ("Marker" .=) <$> _liMarker,
+                  ("InstanceFleetId" .=) <$> _liInstanceFleetId,
                   ("InstanceStates" .=) <$> _liInstanceStates,
                   ("InstanceGroupId" .=) <$> _liInstanceGroupId,
                   Just ("ClusterId" .= _liClusterId)])
@@ -154,31 +180,35 @@ instance ToQuery ListInstances where
 
 -- | This output contains the list of instances.
 --
+--
+--
 -- /See:/ 'listInstancesResponse' smart constructor.
 data ListInstancesResponse = ListInstancesResponse'
-    { _lirsMarker         :: !(Maybe Text)
-    , _lirsInstances      :: !(Maybe [Instance])
-    , _lirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lirsMarker         :: !(Maybe Text)
+  , _lirsInstances      :: !(Maybe [Instance])
+  , _lirsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListInstancesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lirsMarker'
+-- * 'lirsMarker' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'lirsInstances'
+-- * 'lirsInstances' - The list of instances for the cluster and given filters.
 --
--- * 'lirsResponseStatus'
+-- * 'lirsResponseStatus' - -- | The response status code.
 listInstancesResponse
     :: Int -- ^ 'lirsResponseStatus'
     -> ListInstancesResponse
 listInstancesResponse pResponseStatus_ =
-    ListInstancesResponse'
-    { _lirsMarker = Nothing
-    , _lirsInstances = Nothing
-    , _lirsResponseStatus = pResponseStatus_
-    }
+  ListInstancesResponse'
+  { _lirsMarker = Nothing
+  , _lirsInstances = Nothing
+  , _lirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lirsMarker :: Lens' ListInstancesResponse (Maybe Text)
@@ -188,8 +218,8 @@ lirsMarker = lens _lirsMarker (\ s a -> s{_lirsMarker = a});
 lirsInstances :: Lens' ListInstancesResponse [Instance]
 lirsInstances = lens _lirsInstances (\ s a -> s{_lirsInstances = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lirsResponseStatus :: Lens' ListInstancesResponse Int
 lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
 
-instance NFData ListInstancesResponse
+instance NFData ListInstancesResponse where

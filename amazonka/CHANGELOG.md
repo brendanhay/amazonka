@@ -1,5 +1,143 @@
 # Change Log
 
+## [1.5.0](https://github.com/brendanhay/amazonka/tree/1.5.0)
+fReleased: **15 November, 2017**, Compare: [1.4.5](https://github.com/brendanhay/amazonka/compare/1.4.5...1.5.0)
+
+### Fixed
+
+- V4 Signing Metadata is now correctly calculated for chunked request bodies. [\#403](https://github.com/brendanhay/amazonka/pull/403)
+- DynamoDB Query/Scan pagination will correctly return all available items. [\#392](https://github.com/brendanhay/amazonka/pull/392)
+- S3 `ReplicationStatus` is now parsed correctly. [\#372](https://github.com/brendanhay/amazonka/pull/372)
+- OpsWorks `LayerAttributes` now correctly returns `Maybe` for `Map` values. [\#398](https://github.com/brendanhay/amazonka/pull/398)
+- `newLogger` now (correctly) does not set binary mode for any passed handle. [\#381](https://github.com/brendanhay/amazonka/pull/381)
+- Improved support for handling S3's `list-type=2` query strings. [\#391](https://github.com/brendanhay/amazonka/pull/391)
+- Cabal files now have their `license-field` changed from `OtherLicense` to the correct `MPL-2.0`.
+
+### Added
+
+- Add AWS Signer for V2 Header Authentication. [\#383](https://github.com/brendanhay/amazonka/pull/383)
+- Add support for ECS credentials discovery via the ECS container agent. [\#388](https://github.com/brendanhay/amazonka/pull/388)
+- Add new regions `Montreal` (ca-central-1) and `London` (eu-west-2). [\#367](https://github.com/brendanhay/amazonka/pull/367)
+- Add `hashedFileRange` and `chunkedFileRange` for preparing request bodies from file ranges. [\#359](https://github.com/brendanhay/amazonka/pull/359)
+
+### New Libraries
+
+- `amazonka-mobile`: Add and configure features for mobile apps, including authentication, data storage, backend logic, push notifications, content delivery, and analytics. [Overview](https://aws.amazon.com/mobile)
+- `amazonka-pricing`: Price lists, pricing details, and pricing overview. [Overview](https://aws.amazon.com/pricing)
+- `amazonka-athena`: An interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL. [Overview](https://aws.amazon.com/athena)
+- `amazonka-cloudhsmv2`: The newest (incompatible) API of AWS CloudHSM. [Overview](https://aws.amazon.com/cloudhsmv2)
+- `amazonka-codestar`: Use a variety of project templates to start developing applications on Amazon EC2, AWS Lambda, and AWS Elastic Beanstalk. [Overview](https://aws.amazon.com/codestar)
+- `amazonka-dynamodb-dax`: DynamoDB Accelerator (DAX) is a fully managed, highly available, in-memory cache for DynamoDB that delivers up to a 10x performance improvement. [Overview](https://aws.amazon.com/dynamodb/dax)
+- `amazonka-glue`: A fully managed extract, transform, and load (ETL) service that makes it easy for customers to prepare and load their data for analytics. [Overview](https://aws.amazon.com/glue)
+- `amazonka-greengrass`: Run local compute, messaging, data caching, and sync capabilities for connected devices in a secure way. [Overview](https://aws.amazon.com/greengrass)
+- `amazonka-lex-runtime`: Build applications using a speech or text interface powered by the same technology that powers Amazon Alexa. [Overview](https://aws.amazon.com/lex)
+- `amazonka-lex-models`: Build applications using a speech or text interface powered by the same technology that powers Amazon Alexa. [Overview](https://aws.amazon.com/lex)
+- `amazonka-marketplace-entitlement`: Markplace entitlements service. [Overview](https://aws.amazon.com/marketplace)
+- `amazonka-resourcegroupstagging`: Group and tag AWS resources. [Overview](https://docs.aws.amazon.com/resourcegroupstagging)
+
+### Updated Service Definitions
+
+> All service definitions and services have been updated and regenerated.
+Please see each individual library's commits for a list of changes.
+
+
+## [1.4.5](https://github.com/brendanhay/amazonka/tree/1.4.5)
+Released: **04 December, 2016**, Compare: [1.4.4](https://github.com/brendanhay/amazonka/compare/1.4.4...1.4.5)
+
+### Fixed
+
+- Generated Haddock documentation is now more readable/consistent. [\#331](https://github.com/brendanhay/amazonka/pull/331)
+- `Expect: 100-continue` HTTP headers are now only added to S3 `PutObject` requests. [\#338](https://github.com/brendanhay/amazonka/pull/338)
+
+### Changed
+
+- Add new regions `Ohio` (us-east-2) and `Seoul` (ap-northeast-2). [\#334](https://github.com/brendanhay/amazonka/pull/334)
+- The `Bombay` region has been renamed to `Mumbai`. [\#334](https://github.com/brendanhay/amazonka/pull/334)
+- Route53 HostedZone and DelegateSet identifiers are now stripped, similarly to other SDKs. [\#336](https://github.com/brendanhay/amazonka/pull/336)
+
+### New Libraries
+
+- `amazonka-xray`: Analyze and debug production, distributed applications, such as those built using a microservices architecture. [Overview](https://aws.amazon.com/xray/)
+- `amazonka-stepfunctions`: Coordinate the components of distributed applications and microservices using visual workflows. [Overview](https://aws.amazon.com/step-functions/)
+- `amazonka-ssm`: Automate collecting system inventory, applying OS patches, creation of AMIs, and configuring OSes and applications at scale. [API Reference](http://docs.aws.amazon.com/ssm/latest/APIReference/Welcome.html)
+- `amazonka-snowball` (+ `snowball-edge`): Data transport solution using secure appliances to transfer large data into and out of AWS. [Overview](https://aws.amazon.com/snowball/)
+- `amazonka-shield`: DDoS protection service for web applications using ELB, CloudFront, and Route 53. [Overview](https://aws.amazon.com/shield/)
+- `amazonka-rekognition`: Image analysis service for detecting objects, scenes, and faces in images. [Overview](https://aws.amazon.com/rekognition/)
+- `amazonka-polly`: Turn text into lifelike speech. Supports 24 languages and 47 lifelike voices. [Overview](https://aws.amazon.com/polly/)
+- `amazonka-pinpoint`: Targeted push notification campaigns to improve engagement in mobile apps. [Overview](https://aws.amazon.com/pinpoint/)
+- `amazonka-opsworks-cm`: Managed Chef Automated for OpsWorks. [Overview](https://aws.amazon.com/opsworks/)
+- `amazonka-lightsail`: Launch and manage a virtual private servers. [Overview](https://aws.amazon.com/lightsail/)
+- `amazonka-health`: Personalized service dashboard of your AWS service health. [Overview](https://aws.amazon.com/premiumsupport/phd/)
+- `amazonka-codebuild`: Continuously build and test your code, paying for what you use. [Overview](https://aws.amazon.com/codebuild/)
+- `amazonka-appstream` (Version 2): Stream desktop applications to any device running a browser. [Overview](https://aws.amazon.com/appstream2/)
+- `amazonka-budgets`: Plan your usage and costs. [User Guide](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html)
+- `amazonka-sms`: Automate, schedule, and track incremental replications of live server volumes from on premise to AWS. [Overview](https://aws.amazon.com/server-migration-service/)
+
+### Updated Service Definitions
+
+> The following services contain a large number of definition updates.
+Please review the linked commit for each library for specific changes:
+
+- [APIGateway](https://github.com/brendanhay/amazonka/commit/1b724ac) - `amazonka-apigateway`
+- [ApplicationAutoScaling](https://github.com/brendanhay/amazonka/commit/pe279d35) - `amazonka-application-autoscaling`
+- [AutoScaling](https://github.com/brendanhay/amazonka/commit/ed347ed) - `amazonka-autoscaling`
+- [CertificateManager](https://github.com/brendanhay/amazonka/commit/d930be6) - `amazonka-certificatemanager`
+- [CloudFormation](https://github.com/brendanhay/amazonka/commit/ce82485) - `amazonka-cloudformation`
+- [CloudFront](https://github.com/brendanhay/amazonka/commit/4e292a8) - `amazonka-cloudfront`
+- [CloudTrail](https://github.com/brendanhay/amazonka/commit/fc26b72) - `amazonka-cloudtrail`
+- [CloudWatchLogs](https://github.com/brendanhay/amazonka/commit/2eec1a3) - `amazonka-cloudwatch-logs`
+- [CloudWatch](https://github.com/brendanhay/amazonka/commit/b023497) - `amazonka-cloudwatch`
+- [CodeDeploy](https://github.com/brendanhay/amazonka/commit/p5f4eee6) - `amazonka-codedeploy`
+- [CodePipeline](https://github.com/brendanhay/amazonka/commit/3a3ce67) - `amazonka-codepipeline`
+- [CognitoIdentityProvider](https://github.com/brendanhay/amazonka/commit/388099f) - `amazonka-cognito-idp`
+- [Config](https://github.com/brendanhay/amazonka/commit/84dda25) - `amazonka-config`
+- [DeviceFarm](https://github.com/brendanhay/amazonka/commit/b13f2fa) - `amazonka-devicefarm`
+- [DirectConnect](https://github.com/brendanhay/amazonka/commit/bd0fd3d) - `amazonka-directconnect`
+- [DirectoryService](https://github.com/brendanhay/amazonka/commit/582c047) - `amazonka-ds`
+- [EC2](https://github.com/brendanhay/amazonka/commit/4117a08) - `amazonka-ec2`
+- [ECR](https://github.com/brendanhay/amazonka/commit/3362a22) - `amazonka-ecr`
+- [ECS](https://github.com/brendanhay/amazonka/commit/c731732) - `amazonka-ecs`
+- [EFS](https://github.com/brendanhay/amazonka/commit/62e9351) - `amazonka-efs`
+- [ELBv2](https://github.com/brendanhay/amazonka/commit/8c5ae35) - `amazonka-elbv2`
+- [EMR](https://github.com/brendanhay/amazonka/commit/0538f37) - `amazonka-emr`
+- [ElastiCache](https://github.com/brendanhay/amazonka/commit/9c2e52d) - `amazonka-elasticache`
+- [ElasticBeanstalk](https://github.com/brendanhay/amazonka/commit/16320d2) - `amazonka-elasticbeanstalk`
+- [ElasticTranscoder](https://github.com/brendanhay/amazonka/commit/c216e5c) - `amazonka-elastictranscoder`
+- [GameLift](https://github.com/brendanhay/amazonka/commit/bfd74cf) - `amazonka-gamelift`
+- [Glacier](https://github.com/brendanhay/amazonka/commit/70c7268) - `amazonka-glacier`
+- [IoT](https://github.com/brendanhay/amazonka/commit/25176bd) - `amazonka-iot`
+- [KMS](https://github.com/brendanhay/amazonka/commit/2e28104) - `amazonka-kms`
+- [KinesisAnalytics](https://github.com/brendanhay/amazonka/commit/8df7d3d) - `amazonka-kinesis-analytics`
+- [Kinesis](https://github.com/brendanhay/amazonka/commit/ab93e87) - `amazonka-kinesis`
+- [Lambda](https://github.com/brendanhay/amazonka/commit/570d674) - `amazonka-lambda`
+- [MarketplaceMetering](https://github.com/brendanhay/amazonka/commit/d93c185) - `amazonka-marketplace-metering`
+- [OpsWorks](https://github.com/brendanhay/amazonka/commit/e49f255) - `amazonka-opsworks`
+- [RDS](https://github.com/brendanhay/amazonka/commit/0df4ee5) - `amazonka-rds`
+- [Redshift](https://github.com/brendanhay/amazonka/commit/e0c9f54) - `amazonka-redshift`
+- [Route53](https://github.com/brendanhay/amazonka/commit/1a48a46) - `amazonka-route53`
+- [S3](https://github.com/brendanhay/amazonka/commit/9852585) - `amazonka-s3`
+- [SES](https://github.com/brendanhay/amazonka/commit/38150dc) - `amazonka-ses`
+- [SQS](https://github.com/brendanhay/amazonka/commit/ac22d92) - `amazonka-sqs`
+- [ServiceCatalog](https://github.com/brendanhay/amazonka/commit/e91184d) - `amazonka-servicecatalog`
+- [WAF](https://github.com/brendanhay/amazonka/commit/86bcd26) - `amazonka-waf`
+
+
+## [1.4.4](https://github.com/brendanhay/amazonka/tree/1.4.4)
+Released: **23 October, 2016**, Compare: [1.4.3](https://github.com/brendanhay/amazonka/compare/1.4.3...1.4.4)
+
+### Fixed [\#306](https://github.com/brendanhay/amazonka/pull/306)
+
+- Kinesis `SharedLevelMetrics` now correctly deserializes empty responses. [\#306](https://github.com/brendanhay/amazonka/pull/306)
+
+### Changed
+
+- `newEnv` no longer takes `Region` as a parameter and instead defaults to `us-east-1`
+  per other SDK behaviour. The new `Env` can be configured using the `envRegion` lens
+  or the `within` combinator.
+- Region is now discovered via the `InstanceIdentity` metadata document. [\#308](https://github.com/brendanhay/amazonka/pull/308)
+- Region can now be overridden via the `AWS_REGION` environment variable. [\#308](https://github.com/brendanhay/amazonka/pull/308)
+
+
 ## [1.4.3](https://github.com/brendanhay/amazonka/tree/1.4.3)
 Released: **09 June, 2016**, Compare: [1.4.2](https://github.com/brendanhay/amazonka/compare/1.4.2...1.4.3)
 
@@ -28,6 +166,11 @@ Released: **03 June, 2016**, Compare: [1.4.1](https://github.com/brendanhay/amaz
 
 - `SerializeError` now contains the unparsed response body. [\#293](https://github.com/brendanhay/amazonka/pull/293)
 
+### New Libraries
+
+- `amazonka-discovery`: Discover on-premises application inventory and dependencies. [Overview](https://aws.amazon.com/application-discovery/)
+- `amazonka-application-autoscaling`: General purpose scaling of AWS resources. [API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/Welcome.html)
+
 ### Updated Service Definitions
 
 - [WorkSpaces](https://github.com/brendanhay/amazonka/commit/b869bf0)
@@ -36,11 +179,6 @@ Released: **03 June, 2016**, Compare: [1.4.1](https://github.com/brendanhay/amaz
 - [S3](https://github.com/brendanhay/amazonka/commit/84d66a6)
 - [RDS](https://github.com/brendanhay/amazonka/commit/98edec9)
 - [EC2](https://github.com/brendanhay/amazonka/commit/93b6b72)
-
-### New Libraries
-
-- `amazonka-discovery`: Discover on-premises application inventory and dependencies. [Overview](https://aws.amazon.com/application-discovery/)
-- `amazonka-application-autoscaling`: General purpose scaling of AWS resources. [API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/Welcome.html)
 
 
 ## [1.4.1](https://github.com/brendanhay/amazonka/tree/1.4.1)
@@ -227,19 +365,22 @@ Released: **18 November, 2015**, Compare: [1.3.5](https://github.com/brendanhay/
 ## [1.3.5](https://github.com/brendanhay/amazonka/tree/1.3.5)
 Released: **27 October, 2015**, Compare: [1.3.4](https://github.com/brendanhay/amazonka/compare/1.3.4...1.3.5)
 
+### New Libraries
+
+- `amazonka-apigateway`: API Gateway Service.
+
 ### Updated Services Definitions
 
 - SSM: Multiple additions and documentation updates.
 - DynamoDB: Paginator updates.
 
 
-### New Libraries
-
-- `amazonka-apigateway`: API Gateway Service.
-
-
 ## [1.3.4](https://github.com/brendanhay/amazonka/tree/1.3.4)
 Released: **25 October, 2015**, Compare: [1.3.3](https://github.com/brendanhay/amazonka/compare/1.3.3...1.3.4)
+
+### New Libraries
+
+- `amazonka-iot-dataplane`: Internet of Things Data Plane.
 
 ### Updated Services Definitions
 
@@ -250,10 +391,6 @@ Released: **25 October, 2015**, Compare: [1.3.3](https://github.com/brendanhay/a
 - KMS: Multiple type, operation, and documentation updates.
 - S3: Minor type updates. (Server side encryption related.)
 
-### New Libraries
-
-- `amazonka-iot-dataplane`: Internet of Things Data Plane.
-
 
 ## [1.3.3](https://github.com/brendanhay/amazonka/tree/1.3.3)
 Released: **08 October, 2015**, Compare: [1.3.2.1](https://github.com/brendanhay/amazonka/compare/1.3.2.1...1.3.3)
@@ -262,7 +399,16 @@ Released: **08 October, 2015**, Compare: [1.3.2.1](https://github.com/brendanhay
 
 - Fix S3 `GetBucketLocation` response deserialisation. [\#228](https://github.com/brendanhay/amazonka/issues/228), [\#237](https://github.com/brendanhay/amazonka/issues/237).
 - `runResourceT` added to documentation example. [\#232](https://github.com/brendanhay/amazonka/issues/232).
-- Add S3 infrequent access storage class. [\#234](https://github.com/brendanhay/amazonka/issues/234), [\#238](https://github.com/brendanhay/amazonka/issues/238).
+- Add S3 infrequent access storage class. [\#234](https://github.com/brendanhay/amazonka/issues/234), [\#238](https://github.com/brendanhay/amazonka/issues/238)
+
+### New Libraries
+
+- `amazonka-elasticsearch`: ElasticSearch Service.
+- `amazonka-inspector`: Inspector Service.
+- `amazonka-iot`: Internet of Things Platform.
+- `amazonka-kinesis-firehose`: Kinesis Firehose Service.
+- `amazonka-marketplace-analytics`: Marketplace Commerce Analytics Service.
+- `amazonka-waf`: Web Application Firewall Service.
 
 ### Updated Service Definitions
 
@@ -275,15 +421,6 @@ Released: **08 October, 2015**, Compare: [1.3.2.1](https://github.com/brendanhay
 - RDS: Miscellaneous type and documentation updates.
 - SES: Miscellaneous type and documentation updates.
 - WorkSpaces: Volume encryption types added.
-
-### New Libraries
-
-- `amazonka-elasticsearch`: ElasticSearch Service.
-- `amazonka-inspector`: Inspector Service.
-- `amazonka-iot`: Internet of Things Platform.
-- `amazonka-kinesis-firehose`: Kinesis Firehose Service.
-- `amazonka-marketplace-analytics`: Marketplace Commerce Analytics Service.
-- `amazonka-waf`: Web Application Firewall Service.
 
 
 ## [1.3.2](https://github.com/brendanhay/amazonka/tree/1.3.2)

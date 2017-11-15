@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.BatchGetDeployments
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more deployments.
+--
+--
 module Network.AWS.CodeDeploy.BatchGetDeployments
     (
     -- * Creating a Request
@@ -35,31 +37,32 @@ module Network.AWS.CodeDeploy.BatchGetDeployments
     , bgdrsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a batch get deployments operation.
+-- | Represents the input of a BatchGetDeployments operation.
+--
+--
 --
 -- /See:/ 'batchGetDeployments' smart constructor.
 newtype BatchGetDeployments = BatchGetDeployments'
-    { _bgdDeploymentIds :: Maybe [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgdDeploymentIds :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetDeployments' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bgdDeploymentIds'
+-- * 'bgdDeploymentIds' - A list of deployment IDs, separated by spaces.
 batchGetDeployments
     :: BatchGetDeployments
-batchGetDeployments =
-    BatchGetDeployments'
-    { _bgdDeploymentIds = Nothing
-    }
+batchGetDeployments = BatchGetDeployments' {_bgdDeploymentIds = Nothing}
+
 
 -- | A list of deployment IDs, separated by spaces.
 bgdDeploymentIds :: Lens' BatchGetDeployments [Text]
@@ -76,9 +79,9 @@ instance AWSRequest BatchGetDeployments where
                    (x .?> "deploymentsInfo" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable BatchGetDeployments
+instance Hashable BatchGetDeployments where
 
-instance NFData BatchGetDeployments
+instance NFData BatchGetDeployments where
 
 instance ToHeaders BatchGetDeployments where
         toHeaders
@@ -102,36 +105,38 @@ instance ToPath BatchGetDeployments where
 instance ToQuery BatchGetDeployments where
         toQuery = const mempty
 
--- | Represents the output of a batch get deployments operation.
+-- | Represents the output of a BatchGetDeployments operation.
+--
+--
 --
 -- /See:/ 'batchGetDeploymentsResponse' smart constructor.
 data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'
-    { _bgdrsDeploymentsInfo :: !(Maybe [DeploymentInfo])
-    , _bgdrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgdrsDeploymentsInfo :: !(Maybe [DeploymentInfo])
+  , _bgdrsResponseStatus  :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetDeploymentsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bgdrsDeploymentsInfo'
+-- * 'bgdrsDeploymentsInfo' - Information about the deployments.
 --
--- * 'bgdrsResponseStatus'
+-- * 'bgdrsResponseStatus' - -- | The response status code.
 batchGetDeploymentsResponse
     :: Int -- ^ 'bgdrsResponseStatus'
     -> BatchGetDeploymentsResponse
 batchGetDeploymentsResponse pResponseStatus_ =
-    BatchGetDeploymentsResponse'
-    { _bgdrsDeploymentsInfo = Nothing
-    , _bgdrsResponseStatus = pResponseStatus_
-    }
+  BatchGetDeploymentsResponse'
+  {_bgdrsDeploymentsInfo = Nothing, _bgdrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the deployments.
 bgdrsDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
 bgdrsDeploymentsInfo = lens _bgdrsDeploymentsInfo (\ s a -> s{_bgdrsDeploymentsInfo = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 bgdrsResponseStatus :: Lens' BatchGetDeploymentsResponse Int
 bgdrsResponseStatus = lens _bgdrsResponseStatus (\ s a -> s{_bgdrsResponseStatus = a});
 
-instance NFData BatchGetDeploymentsResponse
+instance NFData BatchGetDeploymentsResponse where

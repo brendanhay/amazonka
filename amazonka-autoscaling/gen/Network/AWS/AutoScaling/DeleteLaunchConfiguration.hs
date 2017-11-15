@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DeleteLaunchConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified launch configuration.
 --
+--
 -- The launch configuration must not be attached to an Auto Scaling group. When this call completes, the launch configuration is no longer available for use.
+--
 module Network.AWS.AutoScaling.DeleteLaunchConfiguration
     (
     -- * Creating a Request
@@ -34,32 +36,31 @@ module Network.AWS.AutoScaling.DeleteLaunchConfiguration
     , DeleteLaunchConfigurationResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for DeleteLaunchConfiguration.
---
--- /See:/ 'deleteLaunchConfiguration' smart constructor.
+-- | /See:/ 'deleteLaunchConfiguration' smart constructor.
 newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration'
-    { _dlcLaunchConfigurationName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlcLaunchConfigurationName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLaunchConfiguration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlcLaunchConfigurationName'
+-- * 'dlcLaunchConfigurationName' - The name of the launch configuration.
 deleteLaunchConfiguration
     :: Text -- ^ 'dlcLaunchConfigurationName'
     -> DeleteLaunchConfiguration
 deleteLaunchConfiguration pLaunchConfigurationName_ =
-    DeleteLaunchConfiguration'
-    { _dlcLaunchConfigurationName = pLaunchConfigurationName_
-    }
+  DeleteLaunchConfiguration'
+  {_dlcLaunchConfigurationName = pLaunchConfigurationName_}
+
 
 -- | The name of the launch configuration.
 dlcLaunchConfigurationName :: Lens' DeleteLaunchConfiguration Text
@@ -72,9 +73,9 @@ instance AWSRequest DeleteLaunchConfiguration where
         response
           = receiveNull DeleteLaunchConfigurationResponse'
 
-instance Hashable DeleteLaunchConfiguration
+instance Hashable DeleteLaunchConfiguration where
 
-instance NFData DeleteLaunchConfiguration
+instance NFData DeleteLaunchConfiguration where
 
 instance ToHeaders DeleteLaunchConfiguration where
         toHeaders = const mempty
@@ -93,8 +94,9 @@ instance ToQuery DeleteLaunchConfiguration where
 
 -- | /See:/ 'deleteLaunchConfigurationResponse' smart constructor.
 data DeleteLaunchConfigurationResponse =
-    DeleteLaunchConfigurationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteLaunchConfigurationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLaunchConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -102,4 +104,6 @@ deleteLaunchConfigurationResponse
     :: DeleteLaunchConfigurationResponse
 deleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse'
 
+
 instance NFData DeleteLaunchConfigurationResponse
+         where

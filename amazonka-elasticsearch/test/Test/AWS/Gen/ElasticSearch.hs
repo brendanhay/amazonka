@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.ElasticSearch
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.ElasticSearch where
 
 import Data.Proxy
+import Network.AWS.ElasticSearch
+import Test.AWS.ElasticSearch.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.ElasticSearch
-import Test.AWS.ElasticSearch.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -37,11 +37,20 @@ import Test.AWS.ElasticSearch.Internal
 --         , requestDescribeElasticsearchDomains $
 --             describeElasticsearchDomains
 --
+--         , requestListElasticsearchInstanceTypes $
+--             listElasticsearchInstanceTypes
+--
+--         , requestDeleteElasticsearchServiceRole $
+--             deleteElasticsearchServiceRole
+--
 --         , requestDescribeElasticsearchDomain $
 --             describeElasticsearchDomain
 --
 --         , requestListDomainNames $
 --             listDomainNames
+--
+--         , requestDescribeElasticsearchInstanceTypeLimits $
+--             describeElasticsearchInstanceTypeLimits
 --
 --         , requestDescribeElasticsearchDomainConfig $
 --             describeElasticsearchDomainConfig
@@ -51,6 +60,9 @@ import Test.AWS.ElasticSearch.Internal
 --
 --         , requestUpdateElasticsearchDomainConfig $
 --             updateElasticsearchDomainConfig
+--
+--         , requestListElasticsearchVersions $
+--             listElasticsearchVersions
 --
 --         , requestAddTags $
 --             addTags
@@ -70,11 +82,20 @@ import Test.AWS.ElasticSearch.Internal
 --         , responseDescribeElasticsearchDomains $
 --             describeElasticsearchDomainsResponse
 --
+--         , responseListElasticsearchInstanceTypes $
+--             listElasticsearchInstanceTypesResponse
+--
+--         , responseDeleteElasticsearchServiceRole $
+--             deleteElasticsearchServiceRoleResponse
+--
 --         , responseDescribeElasticsearchDomain $
 --             describeElasticsearchDomainResponse
 --
 --         , responseListDomainNames $
 --             listDomainNamesResponse
+--
+--         , responseDescribeElasticsearchInstanceTypeLimits $
+--             describeElasticsearchInstanceTypeLimitsResponse
 --
 --         , responseDescribeElasticsearchDomainConfig $
 --             describeElasticsearchDomainConfigResponse
@@ -84,6 +105,9 @@ import Test.AWS.ElasticSearch.Internal
 --
 --         , responseUpdateElasticsearchDomainConfig $
 --             updateElasticsearchDomainConfigResponse
+--
+--         , responseListElasticsearchVersions $
+--             listElasticsearchVersionsResponse
 --
 --         , responseAddTags $
 --             addTagsResponse
@@ -111,6 +135,16 @@ requestDescribeElasticsearchDomains = req
     "DescribeElasticsearchDomains"
     "fixture/DescribeElasticsearchDomains.yaml"
 
+requestListElasticsearchInstanceTypes :: ListElasticsearchInstanceTypes -> TestTree
+requestListElasticsearchInstanceTypes = req
+    "ListElasticsearchInstanceTypes"
+    "fixture/ListElasticsearchInstanceTypes.yaml"
+
+requestDeleteElasticsearchServiceRole :: DeleteElasticsearchServiceRole -> TestTree
+requestDeleteElasticsearchServiceRole = req
+    "DeleteElasticsearchServiceRole"
+    "fixture/DeleteElasticsearchServiceRole.yaml"
+
 requestDescribeElasticsearchDomain :: DescribeElasticsearchDomain -> TestTree
 requestDescribeElasticsearchDomain = req
     "DescribeElasticsearchDomain"
@@ -120,6 +154,11 @@ requestListDomainNames :: ListDomainNames -> TestTree
 requestListDomainNames = req
     "ListDomainNames"
     "fixture/ListDomainNames.yaml"
+
+requestDescribeElasticsearchInstanceTypeLimits :: DescribeElasticsearchInstanceTypeLimits -> TestTree
+requestDescribeElasticsearchInstanceTypeLimits = req
+    "DescribeElasticsearchInstanceTypeLimits"
+    "fixture/DescribeElasticsearchInstanceTypeLimits.yaml"
 
 requestDescribeElasticsearchDomainConfig :: DescribeElasticsearchDomainConfig -> TestTree
 requestDescribeElasticsearchDomainConfig = req
@@ -135,6 +174,11 @@ requestUpdateElasticsearchDomainConfig :: UpdateElasticsearchDomainConfig -> Tes
 requestUpdateElasticsearchDomainConfig = req
     "UpdateElasticsearchDomainConfig"
     "fixture/UpdateElasticsearchDomainConfig.yaml"
+
+requestListElasticsearchVersions :: ListElasticsearchVersions -> TestTree
+requestListElasticsearchVersions = req
+    "ListElasticsearchVersions"
+    "fixture/ListElasticsearchVersions.yaml"
 
 requestAddTags :: AddTags -> TestTree
 requestAddTags = req
@@ -169,6 +213,20 @@ responseDescribeElasticsearchDomains = res
     elasticSearch
     (Proxy :: Proxy DescribeElasticsearchDomains)
 
+responseListElasticsearchInstanceTypes :: ListElasticsearchInstanceTypesResponse -> TestTree
+responseListElasticsearchInstanceTypes = res
+    "ListElasticsearchInstanceTypesResponse"
+    "fixture/ListElasticsearchInstanceTypesResponse.proto"
+    elasticSearch
+    (Proxy :: Proxy ListElasticsearchInstanceTypes)
+
+responseDeleteElasticsearchServiceRole :: DeleteElasticsearchServiceRoleResponse -> TestTree
+responseDeleteElasticsearchServiceRole = res
+    "DeleteElasticsearchServiceRoleResponse"
+    "fixture/DeleteElasticsearchServiceRoleResponse.proto"
+    elasticSearch
+    (Proxy :: Proxy DeleteElasticsearchServiceRole)
+
 responseDescribeElasticsearchDomain :: DescribeElasticsearchDomainResponse -> TestTree
 responseDescribeElasticsearchDomain = res
     "DescribeElasticsearchDomainResponse"
@@ -182,6 +240,13 @@ responseListDomainNames = res
     "fixture/ListDomainNamesResponse.proto"
     elasticSearch
     (Proxy :: Proxy ListDomainNames)
+
+responseDescribeElasticsearchInstanceTypeLimits :: DescribeElasticsearchInstanceTypeLimitsResponse -> TestTree
+responseDescribeElasticsearchInstanceTypeLimits = res
+    "DescribeElasticsearchInstanceTypeLimitsResponse"
+    "fixture/DescribeElasticsearchInstanceTypeLimitsResponse.proto"
+    elasticSearch
+    (Proxy :: Proxy DescribeElasticsearchInstanceTypeLimits)
 
 responseDescribeElasticsearchDomainConfig :: DescribeElasticsearchDomainConfigResponse -> TestTree
 responseDescribeElasticsearchDomainConfig = res
@@ -203,6 +268,13 @@ responseUpdateElasticsearchDomainConfig = res
     "fixture/UpdateElasticsearchDomainConfigResponse.proto"
     elasticSearch
     (Proxy :: Proxy UpdateElasticsearchDomainConfig)
+
+responseListElasticsearchVersions :: ListElasticsearchVersionsResponse -> TestTree
+responseListElasticsearchVersions = res
+    "ListElasticsearchVersionsResponse"
+    "fixture/ListElasticsearchVersionsResponse.proto"
+    elasticSearch
+    (Proxy :: Proxy ListElasticsearchVersions)
 
 responseAddTags :: AddTagsResponse -> TestTree
 responseAddTags = res

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateUsagePlan
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a usage plan with the throttle and quota limits, as well as the associated API stages, specified in the payload.
+--
+--
 module Network.AWS.APIGateway.CreateUsagePlan
     (
     -- * Creating a Request
@@ -41,50 +43,55 @@ module Network.AWS.APIGateway.CreateUsagePlan
     , upThrottle
     , upQuota
     , upDescription
+    , upProductCode
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The POST request to create a usage plan with the name, description, throttle limits and quota limits, as well as the associated API stages, specified in the payload.
 --
+--
+--
 -- /See:/ 'createUsagePlan' smart constructor.
 data CreateUsagePlan = CreateUsagePlan'
-    { _cupApiStages   :: !(Maybe [APIStage])
-    , _cupThrottle    :: !(Maybe ThrottleSettings)
-    , _cupQuota       :: !(Maybe QuotaSettings)
-    , _cupDescription :: !(Maybe Text)
-    , _cupName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cupApiStages   :: !(Maybe [APIStage])
+  , _cupThrottle    :: !(Maybe ThrottleSettings)
+  , _cupQuota       :: !(Maybe QuotaSettings)
+  , _cupDescription :: !(Maybe Text)
+  , _cupName        :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUsagePlan' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cupApiStages'
+-- * 'cupApiStages' - The associated API stages of the usage plan.
 --
--- * 'cupThrottle'
+-- * 'cupThrottle' - The throttling limits of the usage plan.
 --
--- * 'cupQuota'
+-- * 'cupQuota' - The quota of the usage plan.
 --
--- * 'cupDescription'
+-- * 'cupDescription' - The description of the usage plan.
 --
--- * 'cupName'
+-- * 'cupName' - The name of the usage plan.
 createUsagePlan
     :: Text -- ^ 'cupName'
     -> CreateUsagePlan
 createUsagePlan pName_ =
-    CreateUsagePlan'
-    { _cupApiStages = Nothing
-    , _cupThrottle = Nothing
-    , _cupQuota = Nothing
-    , _cupDescription = Nothing
-    , _cupName = pName_
-    }
+  CreateUsagePlan'
+  { _cupApiStages = Nothing
+  , _cupThrottle = Nothing
+  , _cupQuota = Nothing
+  , _cupDescription = Nothing
+  , _cupName = pName_
+  }
+
 
 -- | The associated API stages of the usage plan.
 cupApiStages :: Lens' CreateUsagePlan [APIStage]
@@ -111,9 +118,9 @@ instance AWSRequest CreateUsagePlan where
         request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateUsagePlan
+instance Hashable CreateUsagePlan where
 
-instance NFData CreateUsagePlan
+instance NFData CreateUsagePlan where
 
 instance ToHeaders CreateUsagePlan where
         toHeaders

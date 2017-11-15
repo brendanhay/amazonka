@@ -8,36 +8,27 @@
 
 ## Version
 
-`1.4.4`
+`1.5.0`
 
 
 ## Description
-
-Amazon DynamoDB
-
-Amazon DynamoDB Streams provides API actions for accessing streams and processing stream records. To learn more about application development with Streams, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html Capturing Table Activity with DynamoDB Streams> in the Amazon DynamoDB Developer Guide.
-
-The following are short descriptions of each low-level DynamoDB Streams action:
-
--   /DescribeStream/ - Returns detailed information about a particular stream.
-
--   /GetRecords/ - Retrieves the stream records from within a shard.
-
--   /GetShardIterator/ - Returns information on how to retrieve the streams record from a shard with a given shard ID.
-
--   /ListStreams/ - Returns a list of all the streams associated with the current AWS account and endpoint.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-dynamodb-streams)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).
 
 The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
-which provides mechanisms for specifying AuthN/AuthZ information and sending requests.
+which provides mechanisms for specifying AuthN/AuthZ information, sending requests,
+and receiving responses.
 
-Use of lenses is required for constructing and manipulating types.
-This is due to the amount of nesting of AWS types and transparency regarding
+Lenses are used for constructing and manipulating types,
+due to the depth of nesting of AWS types and transparency regarding
 de/serialisation into more palatable Haskell values.
 The provided lenses should be compatible with any of the major lens libraries
 [lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
+
+See [Network.AWS.DynamoDBStreams](http://hackage.haskell.org/package/amazonka-dynamodb-streams/docs/Network-AWS-DynamoDBStreams.html)
+or [the AWS documentation](https://aws.amazon.com/documentation/) to get started.
+
 
 ## Contribute
 

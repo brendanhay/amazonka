@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DeleteLoadBalancerPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified policy from the specified load balancer. This policy must not be enabled for any listeners.
+--
+--
 module Network.AWS.ELB.DeleteLoadBalancerPolicy
     (
     -- * Creating a Request
@@ -35,37 +37,39 @@ module Network.AWS.ELB.DeleteLoadBalancerPolicy
     , delrsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteLoadBalancerPolicy.
 --
+--
+--
 -- /See:/ 'deleteLoadBalancerPolicy' smart constructor.
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy'
-    { _dLoadBalancerName :: !Text
-    , _dPolicyName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dLoadBalancerName :: !Text
+  , _dPolicyName       :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLoadBalancerPolicy' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dLoadBalancerName'
+-- * 'dLoadBalancerName' - The name of the load balancer.
 --
--- * 'dPolicyName'
+-- * 'dPolicyName' - The name of the policy.
 deleteLoadBalancerPolicy
     :: Text -- ^ 'dLoadBalancerName'
     -> Text -- ^ 'dPolicyName'
     -> DeleteLoadBalancerPolicy
 deleteLoadBalancerPolicy pLoadBalancerName_ pPolicyName_ =
-    DeleteLoadBalancerPolicy'
-    { _dLoadBalancerName = pLoadBalancerName_
-    , _dPolicyName = pPolicyName_
-    }
+  DeleteLoadBalancerPolicy'
+  {_dLoadBalancerName = pLoadBalancerName_, _dPolicyName = pPolicyName_}
+
 
 -- | The name of the load balancer.
 dLoadBalancerName :: Lens' DeleteLoadBalancerPolicy Text
@@ -85,9 +89,9 @@ instance AWSRequest DeleteLoadBalancerPolicy where
                  DeleteLoadBalancerPolicyResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteLoadBalancerPolicy
+instance Hashable DeleteLoadBalancerPolicy where
 
-instance NFData DeleteLoadBalancerPolicy
+instance NFData DeleteLoadBalancerPolicy where
 
 instance ToHeaders DeleteLoadBalancerPolicy where
         toHeaders = const mempty
@@ -106,26 +110,29 @@ instance ToQuery DeleteLoadBalancerPolicy where
 
 -- | Contains the output of DeleteLoadBalancerPolicy.
 --
+--
+--
 -- /See:/ 'deleteLoadBalancerPolicyResponse' smart constructor.
 newtype DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse'
-    { _delrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLoadBalancerPolicyResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsResponseStatus'
+-- * 'delrsResponseStatus' - -- | The response status code.
 deleteLoadBalancerPolicyResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteLoadBalancerPolicyResponse
 deleteLoadBalancerPolicyResponse pResponseStatus_ =
-    DeleteLoadBalancerPolicyResponse'
-    { _delrsResponseStatus = pResponseStatus_
-    }
+  DeleteLoadBalancerPolicyResponse' {_delrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteLoadBalancerPolicyResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 
 instance NFData DeleteLoadBalancerPolicyResponse
+         where

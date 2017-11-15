@@ -12,21 +12,23 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DescribeUserPoolClient
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Client method for returning the configuration information and metadata of the specified user pool client.
+--
+--
 module Network.AWS.CognitoIdentityProvider.DescribeUserPoolClient
     (
     -- * Creating a Request
       describeUserPoolClient
     , DescribeUserPoolClient
     -- * Request Lenses
-    , desUserPoolId
-    , desClientId
+    , dupcuUserPoolId
+    , dupcuClientId
 
     -- * Destructuring the Response
     , describeUserPoolClientResponse
@@ -36,45 +38,47 @@ module Network.AWS.CognitoIdentityProvider.DescribeUserPoolClient
     , dupcrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to describe a user pool client.
 --
+--
+--
 -- /See:/ 'describeUserPoolClient' smart constructor.
 data DescribeUserPoolClient = DescribeUserPoolClient'
-    { _desUserPoolId :: !Text
-    , _desClientId   :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dupcuUserPoolId :: !Text
+  , _dupcuClientId   :: !(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeUserPoolClient' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desUserPoolId'
+-- * 'dupcuUserPoolId' - The user pool ID for the user pool you want to describe.
 --
--- * 'desClientId'
+-- * 'dupcuClientId' - The app client ID of the app associated with the user pool.
 describeUserPoolClient
-    :: Text -- ^ 'desUserPoolId'
-    -> Text -- ^ 'desClientId'
+    :: Text -- ^ 'dupcuUserPoolId'
+    -> Text -- ^ 'dupcuClientId'
     -> DescribeUserPoolClient
 describeUserPoolClient pUserPoolId_ pClientId_ =
-    DescribeUserPoolClient'
-    { _desUserPoolId = pUserPoolId_
-    , _desClientId = _Sensitive # pClientId_
-    }
+  DescribeUserPoolClient'
+  {_dupcuUserPoolId = pUserPoolId_, _dupcuClientId = _Sensitive # pClientId_}
+
 
 -- | The user pool ID for the user pool you want to describe.
-desUserPoolId :: Lens' DescribeUserPoolClient Text
-desUserPoolId = lens _desUserPoolId (\ s a -> s{_desUserPoolId = a});
+dupcuUserPoolId :: Lens' DescribeUserPoolClient Text
+dupcuUserPoolId = lens _dupcuUserPoolId (\ s a -> s{_dupcuUserPoolId = a});
 
--- | The ID of the client associated with the user pool.
-desClientId :: Lens' DescribeUserPoolClient Text
-desClientId = lens _desClientId (\ s a -> s{_desClientId = a}) . _Sensitive;
+-- | The app client ID of the app associated with the user pool.
+dupcuClientId :: Lens' DescribeUserPoolClient Text
+dupcuClientId = lens _dupcuClientId (\ s a -> s{_dupcuClientId = a}) . _Sensitive;
 
 instance AWSRequest DescribeUserPoolClient where
         type Rs DescribeUserPoolClient =
@@ -86,9 +90,9 @@ instance AWSRequest DescribeUserPoolClient where
                  DescribeUserPoolClientResponse' <$>
                    (x .?> "UserPoolClient") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeUserPoolClient
+instance Hashable DescribeUserPoolClient where
 
-instance NFData DescribeUserPoolClient
+instance NFData DescribeUserPoolClient where
 
 instance ToHeaders DescribeUserPoolClient where
         toHeaders
@@ -104,8 +108,8 @@ instance ToJSON DescribeUserPoolClient where
         toJSON DescribeUserPoolClient'{..}
           = object
               (catMaybes
-                 [Just ("UserPoolId" .= _desUserPoolId),
-                  Just ("ClientId" .= _desClientId)])
+                 [Just ("UserPoolId" .= _dupcuUserPoolId),
+                  Just ("ClientId" .= _dupcuClientId)])
 
 instance ToPath DescribeUserPoolClient where
         toPath = const "/"
@@ -115,34 +119,36 @@ instance ToQuery DescribeUserPoolClient where
 
 -- | Represents the response from the server from a request to describe the user pool client.
 --
+--
+--
 -- /See:/ 'describeUserPoolClientResponse' smart constructor.
 data DescribeUserPoolClientResponse = DescribeUserPoolClientResponse'
-    { _dupcrsUserPoolClient :: !(Maybe UserPoolClientType)
-    , _dupcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dupcrsUserPoolClient :: !(Maybe UserPoolClientType)
+  , _dupcrsResponseStatus :: !Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeUserPoolClientResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dupcrsUserPoolClient'
+-- * 'dupcrsUserPoolClient' - The user pool client from a server response to describe the user pool client.
 --
--- * 'dupcrsResponseStatus'
+-- * 'dupcrsResponseStatus' - -- | The response status code.
 describeUserPoolClientResponse
     :: Int -- ^ 'dupcrsResponseStatus'
     -> DescribeUserPoolClientResponse
 describeUserPoolClientResponse pResponseStatus_ =
-    DescribeUserPoolClientResponse'
-    { _dupcrsUserPoolClient = Nothing
-    , _dupcrsResponseStatus = pResponseStatus_
-    }
+  DescribeUserPoolClientResponse'
+  {_dupcrsUserPoolClient = Nothing, _dupcrsResponseStatus = pResponseStatus_}
+
 
 -- | The user pool client from a server response to describe the user pool client.
 dupcrsUserPoolClient :: Lens' DescribeUserPoolClientResponse (Maybe UserPoolClientType)
 dupcrsUserPoolClient = lens _dupcrsUserPoolClient (\ s a -> s{_dupcrsUserPoolClient = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dupcrsResponseStatus :: Lens' DescribeUserPoolClientResponse Int
 dupcrsResponseStatus = lens _dupcrsResponseStatus (\ s a -> s{_dupcrsResponseStatus = a});
 
-instance NFData DescribeUserPoolClientResponse
+instance NFData DescribeUserPoolClientResponse where

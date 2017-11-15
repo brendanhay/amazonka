@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminForgetDevice
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Forgets the device, as an administrator.
+--
+--
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminForgetDevice
     (
     -- * Creating a Request
@@ -34,42 +38,46 @@ module Network.AWS.CognitoIdentityProvider.AdminForgetDevice
     , AdminForgetDeviceResponse
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Sends the forgot device request, as an administrator.
 --
+--
+--
 -- /See:/ 'adminForgetDevice' smart constructor.
 data AdminForgetDevice = AdminForgetDevice'
-    { _afdUserPoolId :: !Text
-    , _afdUsername   :: !(Sensitive Text)
-    , _afdDeviceKey  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _afdUserPoolId :: !Text
+  , _afdUsername   :: !(Sensitive Text)
+  , _afdDeviceKey  :: !Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminForgetDevice' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'afdUserPoolId'
+-- * 'afdUserPoolId' - The user pool ID.
 --
--- * 'afdUsername'
+-- * 'afdUsername' - The user name.
 --
--- * 'afdDeviceKey'
+-- * 'afdDeviceKey' - The device key.
 adminForgetDevice
     :: Text -- ^ 'afdUserPoolId'
     -> Text -- ^ 'afdUsername'
     -> Text -- ^ 'afdDeviceKey'
     -> AdminForgetDevice
 adminForgetDevice pUserPoolId_ pUsername_ pDeviceKey_ =
-    AdminForgetDevice'
-    { _afdUserPoolId = pUserPoolId_
-    , _afdUsername = _Sensitive # pUsername_
-    , _afdDeviceKey = pDeviceKey_
-    }
+  AdminForgetDevice'
+  { _afdUserPoolId = pUserPoolId_
+  , _afdUsername = _Sensitive # pUsername_
+  , _afdDeviceKey = pDeviceKey_
+  }
+
 
 -- | The user pool ID.
 afdUserPoolId :: Lens' AdminForgetDevice Text
@@ -88,9 +96,9 @@ instance AWSRequest AdminForgetDevice where
         request = postJSON cognitoIdentityProvider
         response = receiveNull AdminForgetDeviceResponse'
 
-instance Hashable AdminForgetDevice
+instance Hashable AdminForgetDevice where
 
-instance NFData AdminForgetDevice
+instance NFData AdminForgetDevice where
 
 instance ToHeaders AdminForgetDevice where
         toHeaders
@@ -118,8 +126,9 @@ instance ToQuery AdminForgetDevice where
 
 -- | /See:/ 'adminForgetDeviceResponse' smart constructor.
 data AdminForgetDeviceResponse =
-    AdminForgetDeviceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AdminForgetDeviceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminForgetDeviceResponse' with the minimum fields required to make a request.
 --
@@ -127,4 +136,5 @@ adminForgetDeviceResponse
     :: AdminForgetDeviceResponse
 adminForgetDeviceResponse = AdminForgetDeviceResponse'
 
-instance NFData AdminForgetDeviceResponse
+
+instance NFData AdminForgetDeviceResponse where

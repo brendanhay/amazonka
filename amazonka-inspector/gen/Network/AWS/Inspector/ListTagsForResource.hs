@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.ListTagsForResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all tags associated with an assessment template.
+--
+--
 module Network.AWS.Inspector.ListTagsForResource
     (
     -- * Creating a Request
@@ -35,30 +37,30 @@ module Network.AWS.Inspector.ListTagsForResource
     , ltfrrsTags
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listTagsForResource' smart constructor.
 newtype ListTagsForResource = ListTagsForResource'
-    { _ltfrResourceARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfrResourceARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrResourceARN'
+-- * 'ltfrResourceARN' - The ARN that specifies the assessment template whose tags you want to list.
 listTagsForResource
     :: Text -- ^ 'ltfrResourceARN'
     -> ListTagsForResource
 listTagsForResource pResourceARN_ =
-    ListTagsForResource'
-    { _ltfrResourceARN = pResourceARN_
-    }
+  ListTagsForResource' {_ltfrResourceARN = pResourceARN_}
+
 
 -- | The ARN that specifies the assessment template whose tags you want to list.
 ltfrResourceARN :: Lens' ListTagsForResource Text
@@ -74,9 +76,9 @@ instance AWSRequest ListTagsForResource where
                  ListTagsForResourceResponse' <$>
                    (pure (fromEnum s)) <*> (x .?> "tags" .!@ mempty))
 
-instance Hashable ListTagsForResource
+instance Hashable ListTagsForResource where
 
-instance NFData ListTagsForResource
+instance NFData ListTagsForResource where
 
 instance ToHeaders ListTagsForResource where
         toHeaders
@@ -102,27 +104,27 @@ instance ToQuery ListTagsForResource where
 
 -- | /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-    { _ltfrrsResponseStatus :: !Int
-    , _ltfrrsTags           :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfrrsResponseStatus :: !Int
+  , _ltfrrsTags           :: ![Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrrsResponseStatus'
+-- * 'ltfrrsResponseStatus' - -- | The response status code.
 --
--- * 'ltfrrsTags'
+-- * 'ltfrrsTags' - A collection of key and value pairs.
 listTagsForResourceResponse
     :: Int -- ^ 'ltfrrsResponseStatus'
     -> ListTagsForResourceResponse
 listTagsForResourceResponse pResponseStatus_ =
-    ListTagsForResourceResponse'
-    { _ltfrrsResponseStatus = pResponseStatus_
-    , _ltfrrsTags = mempty
-    }
+  ListTagsForResourceResponse'
+  {_ltfrrsResponseStatus = pResponseStatus_, _ltfrrsTags = mempty}
 
--- | The response status code.
+
+-- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
 
@@ -130,4 +132,4 @@ ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseSta
 ltfrrsTags :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a}) . _Coerce;
 
-instance NFData ListTagsForResourceResponse
+instance NFData ListTagsForResourceResponse where

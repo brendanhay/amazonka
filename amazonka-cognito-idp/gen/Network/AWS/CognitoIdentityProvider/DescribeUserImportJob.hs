@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DescribeUserImportJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the user import job.
+--
+--
 module Network.AWS.CognitoIdentityProvider.DescribeUserImportJob
     (
     -- * Creating a Request
@@ -36,37 +38,38 @@ module Network.AWS.CognitoIdentityProvider.DescribeUserImportJob
     , duijrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to describe the user import job.
 --
+--
+--
 -- /See:/ 'describeUserImportJob' smart constructor.
 data DescribeUserImportJob = DescribeUserImportJob'
-    { _duijUserPoolId :: !Text
-    , _duijJobId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _duijUserPoolId :: !Text
+  , _duijJobId      :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeUserImportJob' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duijUserPoolId'
+-- * 'duijUserPoolId' - The user pool ID for the user pool that the users are being imported into.
 --
--- * 'duijJobId'
+-- * 'duijJobId' - The job ID for the user import job.
 describeUserImportJob
     :: Text -- ^ 'duijUserPoolId'
     -> Text -- ^ 'duijJobId'
     -> DescribeUserImportJob
 describeUserImportJob pUserPoolId_ pJobId_ =
-    DescribeUserImportJob'
-    { _duijUserPoolId = pUserPoolId_
-    , _duijJobId = pJobId_
-    }
+  DescribeUserImportJob' {_duijUserPoolId = pUserPoolId_, _duijJobId = pJobId_}
+
 
 -- | The user pool ID for the user pool that the users are being imported into.
 duijUserPoolId :: Lens' DescribeUserImportJob Text
@@ -86,9 +89,9 @@ instance AWSRequest DescribeUserImportJob where
                  DescribeUserImportJobResponse' <$>
                    (x .?> "UserImportJob") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeUserImportJob
+instance Hashable DescribeUserImportJob where
 
-instance NFData DescribeUserImportJob
+instance NFData DescribeUserImportJob where
 
 instance ToHeaders DescribeUserImportJob where
         toHeaders
@@ -115,34 +118,36 @@ instance ToQuery DescribeUserImportJob where
 
 -- | Represents the response from the server to the request to describe the user import job.
 --
+--
+--
 -- /See:/ 'describeUserImportJobResponse' smart constructor.
 data DescribeUserImportJobResponse = DescribeUserImportJobResponse'
-    { _duijrsUserImportJob  :: !(Maybe UserImportJobType)
-    , _duijrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _duijrsUserImportJob  :: !(Maybe UserImportJobType)
+  , _duijrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeUserImportJobResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duijrsUserImportJob'
+-- * 'duijrsUserImportJob' - The job object that represents the user import job.
 --
--- * 'duijrsResponseStatus'
+-- * 'duijrsResponseStatus' - -- | The response status code.
 describeUserImportJobResponse
     :: Int -- ^ 'duijrsResponseStatus'
     -> DescribeUserImportJobResponse
 describeUserImportJobResponse pResponseStatus_ =
-    DescribeUserImportJobResponse'
-    { _duijrsUserImportJob = Nothing
-    , _duijrsResponseStatus = pResponseStatus_
-    }
+  DescribeUserImportJobResponse'
+  {_duijrsUserImportJob = Nothing, _duijrsResponseStatus = pResponseStatus_}
+
 
 -- | The job object that represents the user import job.
 duijrsUserImportJob :: Lens' DescribeUserImportJobResponse (Maybe UserImportJobType)
 duijrsUserImportJob = lens _duijrsUserImportJob (\ s a -> s{_duijrsUserImportJob = a});
 
--- | The response status code.
+-- | -- | The response status code.
 duijrsResponseStatus :: Lens' DescribeUserImportJobResponse Int
 duijrsResponseStatus = lens _duijrsResponseStatus (\ s a -> s{_duijrsResponseStatus = a});
 
-instance NFData DescribeUserImportJobResponse
+instance NFData DescribeUserImportJobResponse where

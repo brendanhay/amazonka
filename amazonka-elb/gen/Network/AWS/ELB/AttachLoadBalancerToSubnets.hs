@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.ELB.AttachLoadBalancerToSubnets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds one or more subnets to the set of configured subnets for the specified load balancer.
 --
--- The load balancer evenly distributes requests across all registered subnets. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html Add or Remove Subnets for Your Load Balancer in a VPC> in the /Classic Load Balancers Guide/.
+--
+-- The load balancer evenly distributes requests across all registered subnets. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html Add or Remove Subnets for Your Load Balancer in a VPC> in the /Classic Load Balancer Guide/ .
+--
 module Network.AWS.ELB.AttachLoadBalancerToSubnets
     (
     -- * Creating a Request
@@ -38,36 +40,38 @@ module Network.AWS.ELB.AttachLoadBalancerToSubnets
     , albtsrsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AttachLoaBalancerToSubnets.
 --
+--
+--
 -- /See:/ 'attachLoadBalancerToSubnets' smart constructor.
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets'
-    { _albtsLoadBalancerName :: !Text
-    , _albtsSubnets          :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _albtsLoadBalancerName :: !Text
+  , _albtsSubnets          :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachLoadBalancerToSubnets' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'albtsLoadBalancerName'
+-- * 'albtsLoadBalancerName' - The name of the load balancer.
 --
--- * 'albtsSubnets'
+-- * 'albtsSubnets' - The IDs of the subnets to add. You can add only one subnet per Availability Zone.
 attachLoadBalancerToSubnets
     :: Text -- ^ 'albtsLoadBalancerName'
     -> AttachLoadBalancerToSubnets
 attachLoadBalancerToSubnets pLoadBalancerName_ =
-    AttachLoadBalancerToSubnets'
-    { _albtsLoadBalancerName = pLoadBalancerName_
-    , _albtsSubnets = mempty
-    }
+  AttachLoadBalancerToSubnets'
+  {_albtsLoadBalancerName = pLoadBalancerName_, _albtsSubnets = mempty}
+
 
 -- | The name of the load balancer.
 albtsLoadBalancerName :: Lens' AttachLoadBalancerToSubnets Text
@@ -90,9 +94,9 @@ instance AWSRequest AttachLoadBalancerToSubnets where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable AttachLoadBalancerToSubnets
+instance Hashable AttachLoadBalancerToSubnets where
 
-instance NFData AttachLoadBalancerToSubnets
+instance NFData AttachLoadBalancerToSubnets where
 
 instance ToHeaders AttachLoadBalancerToSubnets where
         toHeaders = const mempty
@@ -111,34 +115,37 @@ instance ToQuery AttachLoadBalancerToSubnets where
 
 -- | Contains the output of AttachLoadBalancerToSubnets.
 --
+--
+--
 -- /See:/ 'attachLoadBalancerToSubnetsResponse' smart constructor.
 data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'
-    { _albtsrsSubnets        :: !(Maybe [Text])
-    , _albtsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _albtsrsSubnets        :: !(Maybe [Text])
+  , _albtsrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachLoadBalancerToSubnetsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'albtsrsSubnets'
+-- * 'albtsrsSubnets' - The IDs of the subnets attached to the load balancer.
 --
--- * 'albtsrsResponseStatus'
+-- * 'albtsrsResponseStatus' - -- | The response status code.
 attachLoadBalancerToSubnetsResponse
     :: Int -- ^ 'albtsrsResponseStatus'
     -> AttachLoadBalancerToSubnetsResponse
 attachLoadBalancerToSubnetsResponse pResponseStatus_ =
-    AttachLoadBalancerToSubnetsResponse'
-    { _albtsrsSubnets = Nothing
-    , _albtsrsResponseStatus = pResponseStatus_
-    }
+  AttachLoadBalancerToSubnetsResponse'
+  {_albtsrsSubnets = Nothing, _albtsrsResponseStatus = pResponseStatus_}
+
 
 -- | The IDs of the subnets attached to the load balancer.
 albtsrsSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
 albtsrsSubnets = lens _albtsrsSubnets (\ s a -> s{_albtsrsSubnets = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 albtsrsResponseStatus :: Lens' AttachLoadBalancerToSubnetsResponse Int
 albtsrsResponseStatus = lens _albtsrsResponseStatus (\ s a -> s{_albtsrsResponseStatus = a});
 
 instance NFData AttachLoadBalancerToSubnetsResponse
+         where

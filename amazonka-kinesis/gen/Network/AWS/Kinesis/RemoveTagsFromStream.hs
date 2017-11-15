@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.RemoveTagsFromStream
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes tags from the specified Amazon Kinesis stream. Removed tags are deleted and cannot be recovered after this operation successfully completes.
 --
+--
 -- If you specify a tag that does not exist, it is ignored.
+--
 module Network.AWS.Kinesis.RemoveTagsFromStream
     (
     -- * Creating a Request
@@ -35,37 +37,39 @@ module Network.AWS.Kinesis.RemoveTagsFromStream
     , RemoveTagsFromStreamResponse
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input for 'RemoveTagsFromStream'.
+-- | Represents the input for @RemoveTagsFromStream@ .
+--
+--
 --
 -- /See:/ 'removeTagsFromStream' smart constructor.
 data RemoveTagsFromStream = RemoveTagsFromStream'
-    { _rtfsStreamName :: !Text
-    , _rtfsTagKeys    :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtfsStreamName :: !Text
+  , _rtfsTagKeys    :: !(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTagsFromStream' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfsStreamName'
+-- * 'rtfsStreamName' - The name of the stream.
 --
--- * 'rtfsTagKeys'
+-- * 'rtfsTagKeys' - A list of tag keys. Each corresponding tag is removed from the stream.
 removeTagsFromStream
     :: Text -- ^ 'rtfsStreamName'
     -> NonEmpty Text -- ^ 'rtfsTagKeys'
     -> RemoveTagsFromStream
 removeTagsFromStream pStreamName_ pTagKeys_ =
-    RemoveTagsFromStream'
-    { _rtfsStreamName = pStreamName_
-    , _rtfsTagKeys = _List1 # pTagKeys_
-    }
+  RemoveTagsFromStream'
+  {_rtfsStreamName = pStreamName_, _rtfsTagKeys = _List1 # pTagKeys_}
+
 
 -- | The name of the stream.
 rtfsStreamName :: Lens' RemoveTagsFromStream Text
@@ -81,9 +85,9 @@ instance AWSRequest RemoveTagsFromStream where
         request = postJSON kinesis
         response = receiveNull RemoveTagsFromStreamResponse'
 
-instance Hashable RemoveTagsFromStream
+instance Hashable RemoveTagsFromStream where
 
-instance NFData RemoveTagsFromStream
+instance NFData RemoveTagsFromStream where
 
 instance ToHeaders RemoveTagsFromStream where
         toHeaders
@@ -110,8 +114,9 @@ instance ToQuery RemoveTagsFromStream where
 
 -- | /See:/ 'removeTagsFromStreamResponse' smart constructor.
 data RemoveTagsFromStreamResponse =
-    RemoveTagsFromStreamResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RemoveTagsFromStreamResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTagsFromStreamResponse' with the minimum fields required to make a request.
 --
@@ -119,4 +124,5 @@ removeTagsFromStreamResponse
     :: RemoveTagsFromStreamResponse
 removeTagsFromStreamResponse = RemoveTagsFromStreamResponse'
 
-instance NFData RemoveTagsFromStreamResponse
+
+instance NFData RemoveTagsFromStreamResponse where

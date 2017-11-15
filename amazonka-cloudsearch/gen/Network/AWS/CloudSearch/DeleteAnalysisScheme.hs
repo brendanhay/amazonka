@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DeleteAnalysisScheme
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an analysis scheme. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html Configuring Analysis Schemes> in the /Amazon CloudSearch Developer Guide/.
+-- Deletes an analysis scheme. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html Configuring Analysis Schemes> in the /Amazon CloudSearch Developer Guide/ .
+--
+--
 module Network.AWS.CloudSearch.DeleteAnalysisScheme
     (
     -- * Creating a Request
@@ -36,37 +38,39 @@ module Network.AWS.CloudSearch.DeleteAnalysisScheme
     , dasarsAnalysisScheme
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Container for the parameters to the 'DeleteAnalysisScheme' operation. Specifies the name of the domain you want to update and the analysis scheme you want to delete.
+-- | Container for the parameters to the @'DeleteAnalysisScheme' @ operation. Specifies the name of the domain you want to update and the analysis scheme you want to delete.
+--
+--
 --
 -- /See:/ 'deleteAnalysisScheme' smart constructor.
 data DeleteAnalysisScheme = DeleteAnalysisScheme'
-    { _dasDomainName         :: !Text
-    , _dasAnalysisSchemeName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dasDomainName         :: !Text
+  , _dasAnalysisSchemeName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAnalysisScheme' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dasDomainName'
+-- * 'dasDomainName' - Undocumented member.
 --
--- * 'dasAnalysisSchemeName'
+-- * 'dasAnalysisSchemeName' - The name of the analysis scheme you want to delete.
 deleteAnalysisScheme
     :: Text -- ^ 'dasDomainName'
     -> Text -- ^ 'dasAnalysisSchemeName'
     -> DeleteAnalysisScheme
 deleteAnalysisScheme pDomainName_ pAnalysisSchemeName_ =
-    DeleteAnalysisScheme'
-    { _dasDomainName = pDomainName_
-    , _dasAnalysisSchemeName = pAnalysisSchemeName_
-    }
+  DeleteAnalysisScheme'
+  {_dasDomainName = pDomainName_, _dasAnalysisSchemeName = pAnalysisSchemeName_}
+
 
 -- | Undocumented member.
 dasDomainName :: Lens' DeleteAnalysisScheme Text
@@ -86,9 +90,9 @@ instance AWSRequest DeleteAnalysisScheme where
                  DeleteAnalysisSchemeResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "AnalysisScheme"))
 
-instance Hashable DeleteAnalysisScheme
+instance Hashable DeleteAnalysisScheme where
 
-instance NFData DeleteAnalysisScheme
+instance NFData DeleteAnalysisScheme where
 
 instance ToHeaders DeleteAnalysisScheme where
         toHeaders = const mempty
@@ -104,32 +108,36 @@ instance ToQuery DeleteAnalysisScheme where
                "DomainName" =: _dasDomainName,
                "AnalysisSchemeName" =: _dasAnalysisSchemeName]
 
--- | The result of a 'DeleteAnalysisScheme' request. Contains the status of the deleted analysis scheme.
+-- | The result of a @DeleteAnalysisScheme@ request. Contains the status of the deleted analysis scheme.
+--
+--
 --
 -- /See:/ 'deleteAnalysisSchemeResponse' smart constructor.
 data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'
-    { _dasarsResponseStatus :: !Int
-    , _dasarsAnalysisScheme :: !AnalysisSchemeStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dasarsResponseStatus :: !Int
+  , _dasarsAnalysisScheme :: !AnalysisSchemeStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAnalysisSchemeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dasarsResponseStatus'
+-- * 'dasarsResponseStatus' - -- | The response status code.
 --
--- * 'dasarsAnalysisScheme'
+-- * 'dasarsAnalysisScheme' - The status of the analysis scheme being deleted.
 deleteAnalysisSchemeResponse
     :: Int -- ^ 'dasarsResponseStatus'
     -> AnalysisSchemeStatus -- ^ 'dasarsAnalysisScheme'
     -> DeleteAnalysisSchemeResponse
 deleteAnalysisSchemeResponse pResponseStatus_ pAnalysisScheme_ =
-    DeleteAnalysisSchemeResponse'
-    { _dasarsResponseStatus = pResponseStatus_
-    , _dasarsAnalysisScheme = pAnalysisScheme_
-    }
+  DeleteAnalysisSchemeResponse'
+  { _dasarsResponseStatus = pResponseStatus_
+  , _dasarsAnalysisScheme = pAnalysisScheme_
+  }
 
--- | The response status code.
+
+-- | -- | The response status code.
 dasarsResponseStatus :: Lens' DeleteAnalysisSchemeResponse Int
 dasarsResponseStatus = lens _dasarsResponseStatus (\ s a -> s{_dasarsResponseStatus = a});
 
@@ -137,4 +145,4 @@ dasarsResponseStatus = lens _dasarsResponseStatus (\ s a -> s{_dasarsResponseSta
 dasarsAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
 dasarsAnalysisScheme = lens _dasarsAnalysisScheme (\ s a -> s{_dasarsAnalysisScheme = a});
 
-instance NFData DeleteAnalysisSchemeResponse
+instance NFData DeleteAnalysisSchemeResponse where

@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Takes a set of configuration settings and either a configuration template or environment, and determines whether those values are valid.
 --
+--
 -- This action returns a list of messages indicating any errors or warnings associated with the selection of option values.
+--
 module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     (
     -- * Creating a Request
@@ -40,54 +42,54 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     , vcsrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A list of validation messages for a specified configuration template.
 --
+--
+--
 -- /See:/ 'validateConfigurationSettings' smart constructor.
 data ValidateConfigurationSettings = ValidateConfigurationSettings'
-    { _vcsTemplateName    :: !(Maybe Text)
-    , _vcsEnvironmentName :: !(Maybe Text)
-    , _vcsApplicationName :: !Text
-    , _vcsOptionSettings  :: ![ConfigurationOptionSetting]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vcsTemplateName    :: !(Maybe Text)
+  , _vcsEnvironmentName :: !(Maybe Text)
+  , _vcsApplicationName :: !Text
+  , _vcsOptionSettings  :: ![ConfigurationOptionSetting]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ValidateConfigurationSettings' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vcsTemplateName'
+-- * 'vcsTemplateName' - The name of the configuration template to validate the settings against. Condition: You cannot specify both this and an environment name.
 --
--- * 'vcsEnvironmentName'
+-- * 'vcsEnvironmentName' - The name of the environment to validate the settings against. Condition: You cannot specify both this and a configuration template name.
 --
--- * 'vcsApplicationName'
+-- * 'vcsApplicationName' - The name of the application that the configuration template or environment belongs to.
 --
--- * 'vcsOptionSettings'
+-- * 'vcsOptionSettings' - A list of the options and desired values to evaluate.
 validateConfigurationSettings
     :: Text -- ^ 'vcsApplicationName'
     -> ValidateConfigurationSettings
 validateConfigurationSettings pApplicationName_ =
-    ValidateConfigurationSettings'
-    { _vcsTemplateName = Nothing
-    , _vcsEnvironmentName = Nothing
-    , _vcsApplicationName = pApplicationName_
-    , _vcsOptionSettings = mempty
-    }
+  ValidateConfigurationSettings'
+  { _vcsTemplateName = Nothing
+  , _vcsEnvironmentName = Nothing
+  , _vcsApplicationName = pApplicationName_
+  , _vcsOptionSettings = mempty
+  }
 
--- | The name of the configuration template to validate the settings against.
---
--- Condition: You cannot specify both this and an environment name.
+
+-- | The name of the configuration template to validate the settings against. Condition: You cannot specify both this and an environment name.
 vcsTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
 vcsTemplateName = lens _vcsTemplateName (\ s a -> s{_vcsTemplateName = a});
 
--- | The name of the environment to validate the settings against.
---
--- Condition: You cannot specify both this and a configuration template name.
+-- | The name of the environment to validate the settings against. Condition: You cannot specify both this and a configuration template name.
 vcsEnvironmentName :: Lens' ValidateConfigurationSettings (Maybe Text)
 vcsEnvironmentName = lens _vcsEnvironmentName (\ s a -> s{_vcsEnvironmentName = a});
 
@@ -113,9 +115,9 @@ instance AWSRequest ValidateConfigurationSettings
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ValidateConfigurationSettings
+instance Hashable ValidateConfigurationSettings where
 
-instance NFData ValidateConfigurationSettings
+instance NFData ValidateConfigurationSettings where
 
 instance ToHeaders ValidateConfigurationSettings
          where
@@ -138,34 +140,37 @@ instance ToQuery ValidateConfigurationSettings where
 
 -- | Provides a list of validation messages.
 --
+--
+--
 -- /See:/ 'validateConfigurationSettingsResponse' smart constructor.
 data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse'
-    { _vcsrsMessages       :: !(Maybe [ValidationMessage])
-    , _vcsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vcsrsMessages       :: !(Maybe [ValidationMessage])
+  , _vcsrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ValidateConfigurationSettingsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vcsrsMessages'
+-- * 'vcsrsMessages' - A list of 'ValidationMessage' .
 --
--- * 'vcsrsResponseStatus'
+-- * 'vcsrsResponseStatus' - -- | The response status code.
 validateConfigurationSettingsResponse
     :: Int -- ^ 'vcsrsResponseStatus'
     -> ValidateConfigurationSettingsResponse
 validateConfigurationSettingsResponse pResponseStatus_ =
-    ValidateConfigurationSettingsResponse'
-    { _vcsrsMessages = Nothing
-    , _vcsrsResponseStatus = pResponseStatus_
-    }
+  ValidateConfigurationSettingsResponse'
+  {_vcsrsMessages = Nothing, _vcsrsResponseStatus = pResponseStatus_}
 
--- | A list of < ValidationMessage>.
+
+-- | A list of 'ValidationMessage' .
 vcsrsMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
 vcsrsMessages = lens _vcsrsMessages (\ s a -> s{_vcsrsMessages = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 vcsrsResponseStatus :: Lens' ValidateConfigurationSettingsResponse Int
 vcsrsResponseStatus = lens _vcsrsResponseStatus (\ s a -> s{_vcsrsResponseStatus = a});
 
 instance NFData ValidateConfigurationSettingsResponse
+         where

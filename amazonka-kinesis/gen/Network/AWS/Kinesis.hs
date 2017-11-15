@@ -5,15 +5,16 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon Kinesis Streams Service API Reference
+-- __Amazon Kinesis Streams Service API Reference__
 --
 -- Amazon Kinesis Streams is a managed service that scales elastically for real time processing of streaming big data.
+--
 module Network.AWS.Kinesis
     (
     -- * Service Configuration
@@ -22,17 +23,35 @@ module Network.AWS.Kinesis
     -- * Errors
     -- $errors
 
+    -- ** KMSInvalidStateException
+    , _KMSInvalidStateException
+
+    -- ** KMSThrottlingException
+    , _KMSThrottlingException
+
     -- ** ExpiredIteratorException
     , _ExpiredIteratorException
 
     -- ** InvalidArgumentException
     , _InvalidArgumentException
 
+    -- ** KMSOptInRequired
+    , _KMSOptInRequired
+
     -- ** ProvisionedThroughputExceededException
     , _ProvisionedThroughputExceededException
 
+    -- ** KMSNotFoundException
+    , _KMSNotFoundException
+
+    -- ** KMSDisabledException
+    , _KMSDisabledException
+
     -- ** ResourceNotFoundException
     , _ResourceNotFoundException
+
+    -- ** KMSAccessDeniedException
+    , _KMSAccessDeniedException
 
     -- ** LimitExceededException
     , _LimitExceededException
@@ -67,11 +86,20 @@ module Network.AWS.Kinesis
     -- ** GetRecords
     , module Network.AWS.Kinesis.GetRecords
 
+    -- ** StopStreamEncryption
+    , module Network.AWS.Kinesis.StopStreamEncryption
+
     -- ** EnableEnhancedMonitoring
     , module Network.AWS.Kinesis.EnableEnhancedMonitoring
 
+    -- ** DescribeLimits
+    , module Network.AWS.Kinesis.DescribeLimits
+
     -- ** DisableEnhancedMonitoring
     , module Network.AWS.Kinesis.DisableEnhancedMonitoring
+
+    -- ** UpdateShardCount
+    , module Network.AWS.Kinesis.UpdateShardCount
 
     -- ** ListTagsForStream
     , module Network.AWS.Kinesis.ListTagsForStream
@@ -94,6 +122,9 @@ module Network.AWS.Kinesis
     -- ** CreateStream
     , module Network.AWS.Kinesis.CreateStream
 
+    -- ** StartStreamEncryption
+    , module Network.AWS.Kinesis.StartStreamEncryption
+
     -- ** SplitShard
     , module Network.AWS.Kinesis.SplitShard
 
@@ -105,8 +136,14 @@ module Network.AWS.Kinesis
 
     -- * Types
 
+    -- ** EncryptionType
+    , EncryptionType (..)
+
     -- ** MetricsName
     , MetricsName (..)
+
+    -- ** ScalingType
+    , ScalingType (..)
 
     -- ** ShardIteratorType
     , ShardIteratorType (..)
@@ -150,6 +187,7 @@ module Network.AWS.Kinesis
     -- ** Record
     , Record
     , record
+    , rEncryptionType
     , rApproximateArrivalTimestamp
     , rSequenceNumber
     , rData
@@ -173,12 +211,15 @@ module Network.AWS.Kinesis
     -- ** StreamDescription
     , StreamDescription
     , streamDescription
+    , sdEncryptionType
+    , sdKeyId
     , sdStreamName
     , sdStreamARN
     , sdStreamStatus
     , sdShards
     , sdHasMoreShards
     , sdRetentionPeriodHours
+    , sdStreamCreationTimestamp
     , sdEnhancedMonitoring
 
     -- ** Tag
@@ -188,25 +229,29 @@ module Network.AWS.Kinesis
     , tagKey
     ) where
 
-import           Network.AWS.Kinesis.AddTagsToStream
-import           Network.AWS.Kinesis.CreateStream
-import           Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
-import           Network.AWS.Kinesis.DeleteStream
-import           Network.AWS.Kinesis.DescribeStream
-import           Network.AWS.Kinesis.DisableEnhancedMonitoring
-import           Network.AWS.Kinesis.EnableEnhancedMonitoring
-import           Network.AWS.Kinesis.GetRecords
-import           Network.AWS.Kinesis.GetShardIterator
-import           Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
-import           Network.AWS.Kinesis.ListStreams
-import           Network.AWS.Kinesis.ListTagsForStream
-import           Network.AWS.Kinesis.MergeShards
-import           Network.AWS.Kinesis.PutRecord
-import           Network.AWS.Kinesis.PutRecords
-import           Network.AWS.Kinesis.RemoveTagsFromStream
-import           Network.AWS.Kinesis.SplitShard
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Waiters
+import Network.AWS.Kinesis.AddTagsToStream
+import Network.AWS.Kinesis.CreateStream
+import Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
+import Network.AWS.Kinesis.DeleteStream
+import Network.AWS.Kinesis.DescribeLimits
+import Network.AWS.Kinesis.DescribeStream
+import Network.AWS.Kinesis.DisableEnhancedMonitoring
+import Network.AWS.Kinesis.EnableEnhancedMonitoring
+import Network.AWS.Kinesis.GetRecords
+import Network.AWS.Kinesis.GetShardIterator
+import Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
+import Network.AWS.Kinesis.ListStreams
+import Network.AWS.Kinesis.ListTagsForStream
+import Network.AWS.Kinesis.MergeShards
+import Network.AWS.Kinesis.PutRecord
+import Network.AWS.Kinesis.PutRecords
+import Network.AWS.Kinesis.RemoveTagsFromStream
+import Network.AWS.Kinesis.SplitShard
+import Network.AWS.Kinesis.StartStreamEncryption
+import Network.AWS.Kinesis.StopStreamEncryption
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.UpdateShardCount
+import Network.AWS.Kinesis.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

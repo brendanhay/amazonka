@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.SSM.UpdateAssociationStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the status of the SSM document associated with the specified instance.
+-- Updates the status of the Systems Manager document associated with the specified instance.
+--
+--
 module Network.AWS.SSM.UpdateAssociationStatus
     (
     -- * Creating a Request
@@ -37,42 +39,44 @@ module Network.AWS.SSM.UpdateAssociationStatus
     , uasrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updateAssociationStatus' smart constructor.
 data UpdateAssociationStatus = UpdateAssociationStatus'
-    { _uasName              :: !Text
-    , _uasInstanceId        :: !Text
-    , _uasAssociationStatus :: !AssociationStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uasName              :: !Text
+  , _uasInstanceId        :: !Text
+  , _uasAssociationStatus :: !AssociationStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAssociationStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uasName'
+-- * 'uasName' - The name of the Systems Manager document.
 --
--- * 'uasInstanceId'
+-- * 'uasInstanceId' - The ID of the instance.
 --
--- * 'uasAssociationStatus'
+-- * 'uasAssociationStatus' - The association status.
 updateAssociationStatus
     :: Text -- ^ 'uasName'
     -> Text -- ^ 'uasInstanceId'
     -> AssociationStatus -- ^ 'uasAssociationStatus'
     -> UpdateAssociationStatus
 updateAssociationStatus pName_ pInstanceId_ pAssociationStatus_ =
-    UpdateAssociationStatus'
-    { _uasName = pName_
-    , _uasInstanceId = pInstanceId_
-    , _uasAssociationStatus = pAssociationStatus_
-    }
+  UpdateAssociationStatus'
+  { _uasName = pName_
+  , _uasInstanceId = pInstanceId_
+  , _uasAssociationStatus = pAssociationStatus_
+  }
 
--- | The name of the SSM document.
+
+-- | The name of the Systems Manager document.
 uasName :: Lens' UpdateAssociationStatus Text
 uasName = lens _uasName (\ s a -> s{_uasName = a});
 
@@ -95,9 +99,9 @@ instance AWSRequest UpdateAssociationStatus where
                    (x .?> "AssociationDescription") <*>
                      (pure (fromEnum s)))
 
-instance Hashable UpdateAssociationStatus
+instance Hashable UpdateAssociationStatus where
 
-instance NFData UpdateAssociationStatus
+instance NFData UpdateAssociationStatus where
 
 instance ToHeaders UpdateAssociationStatus where
         toHeaders
@@ -124,32 +128,34 @@ instance ToQuery UpdateAssociationStatus where
 
 -- | /See:/ 'updateAssociationStatusResponse' smart constructor.
 data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'
-    { _uasrsAssociationDescription :: !(Maybe AssociationDescription)
-    , _uasrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uasrsAssociationDescription :: !(Maybe AssociationDescription)
+  , _uasrsResponseStatus         :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAssociationStatusResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uasrsAssociationDescription'
+-- * 'uasrsAssociationDescription' - Information about the association.
 --
--- * 'uasrsResponseStatus'
+-- * 'uasrsResponseStatus' - -- | The response status code.
 updateAssociationStatusResponse
     :: Int -- ^ 'uasrsResponseStatus'
     -> UpdateAssociationStatusResponse
 updateAssociationStatusResponse pResponseStatus_ =
-    UpdateAssociationStatusResponse'
-    { _uasrsAssociationDescription = Nothing
-    , _uasrsResponseStatus = pResponseStatus_
-    }
+  UpdateAssociationStatusResponse'
+  { _uasrsAssociationDescription = Nothing
+  , _uasrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the association.
 uasrsAssociationDescription :: Lens' UpdateAssociationStatusResponse (Maybe AssociationDescription)
 uasrsAssociationDescription = lens _uasrsAssociationDescription (\ s a -> s{_uasrsAssociationDescription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 uasrsResponseStatus :: Lens' UpdateAssociationStatusResponse Int
 uasrsResponseStatus = lens _uasrsResponseStatus (\ s a -> s{_uasrsResponseStatus = a});
 
-instance NFData UpdateAssociationStatusResponse
+instance NFData UpdateAssociationStatusResponse where

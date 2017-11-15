@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.CheckDNSAvailability
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Checks if the specified CNAME is available.
+--
+--
 module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     (
     -- * Creating a Request
@@ -36,32 +38,34 @@ module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     , cdarsResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Results message indicating whether a CNAME is available.
 --
+--
+--
 -- /See:/ 'checkDNSAvailability' smart constructor.
 newtype CheckDNSAvailability = CheckDNSAvailability'
-    { _cdaCNAMEPrefix :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdaCNAMEPrefix :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CheckDNSAvailability' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdaCNAMEPrefix'
+-- * 'cdaCNAMEPrefix' - The prefix used when this CNAME is reserved.
 checkDNSAvailability
     :: Text -- ^ 'cdaCNAMEPrefix'
     -> CheckDNSAvailability
 checkDNSAvailability pCNAMEPrefix_ =
-    CheckDNSAvailability'
-    { _cdaCNAMEPrefix = pCNAMEPrefix_
-    }
+  CheckDNSAvailability' {_cdaCNAMEPrefix = pCNAMEPrefix_}
+
 
 -- | The prefix used when this CNAME is reserved.
 cdaCNAMEPrefix :: Lens' CheckDNSAvailability Text
@@ -78,9 +82,9 @@ instance AWSRequest CheckDNSAvailability where
                    (x .@? "FullyQualifiedCNAME") <*> (x .@? "Available")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CheckDNSAvailability
+instance Hashable CheckDNSAvailability where
 
-instance NFData CheckDNSAvailability
+instance NFData CheckDNSAvailability where
 
 instance ToHeaders CheckDNSAvailability where
         toHeaders = const mempty
@@ -97,45 +101,46 @@ instance ToQuery CheckDNSAvailability where
 
 -- | Indicates if the specified CNAME is available.
 --
+--
+--
 -- /See:/ 'checkDNSAvailabilityResponse' smart constructor.
 data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
-    { _cdarsFullyQualifiedCNAME :: !(Maybe Text)
-    , _cdarsAvailable           :: !(Maybe Bool)
-    , _cdarsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdarsFullyQualifiedCNAME :: !(Maybe Text)
+  , _cdarsAvailable           :: !(Maybe Bool)
+  , _cdarsResponseStatus      :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CheckDNSAvailabilityResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdarsFullyQualifiedCNAME'
+-- * 'cdarsFullyQualifiedCNAME' - The fully qualified CNAME to reserve when 'CreateEnvironment' is called with the provided prefix.
 --
--- * 'cdarsAvailable'
+-- * 'cdarsAvailable' - Indicates if the specified CNAME is available:     * @true@ : The CNAME is available.     * @false@ : The CNAME is not available.
 --
--- * 'cdarsResponseStatus'
+-- * 'cdarsResponseStatus' - -- | The response status code.
 checkDNSAvailabilityResponse
     :: Int -- ^ 'cdarsResponseStatus'
     -> CheckDNSAvailabilityResponse
 checkDNSAvailabilityResponse pResponseStatus_ =
-    CheckDNSAvailabilityResponse'
-    { _cdarsFullyQualifiedCNAME = Nothing
-    , _cdarsAvailable = Nothing
-    , _cdarsResponseStatus = pResponseStatus_
-    }
+  CheckDNSAvailabilityResponse'
+  { _cdarsFullyQualifiedCNAME = Nothing
+  , _cdarsAvailable = Nothing
+  , _cdarsResponseStatus = pResponseStatus_
+  }
 
--- | The fully qualified CNAME to reserve when < CreateEnvironment> is called with the provided prefix.
+
+-- | The fully qualified CNAME to reserve when 'CreateEnvironment' is called with the provided prefix.
 cdarsFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResponse (Maybe Text)
 cdarsFullyQualifiedCNAME = lens _cdarsFullyQualifiedCNAME (\ s a -> s{_cdarsFullyQualifiedCNAME = a});
 
--- | Indicates if the specified CNAME is available:
---
--- -   'true' : The CNAME is available.
--- -   'false' : The CNAME is not available.
+-- | Indicates if the specified CNAME is available:     * @true@ : The CNAME is available.     * @false@ : The CNAME is not available.
 cdarsAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
 cdarsAvailable = lens _cdarsAvailable (\ s a -> s{_cdarsAvailable = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdarsResponseStatus :: Lens' CheckDNSAvailabilityResponse Int
 cdarsResponseStatus = lens _cdarsResponseStatus (\ s a -> s{_cdarsResponseStatus = a});
 
-instance NFData CheckDNSAvailabilityResponse
+instance NFData CheckDNSAvailabilityResponse where

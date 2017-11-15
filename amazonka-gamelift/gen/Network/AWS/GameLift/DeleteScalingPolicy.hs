@@ -12,13 +12,67 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DeleteScalingPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a fleet scaling policy. This action means that the policy is no longer in force and removes all record of it. To delete a scaling policy, specify both the scaling policy name and the fleet ID it is associated with.
+--
+--
+-- Fleet-related operations include:
+--
+--     * 'CreateFleet'
+--
+--     * 'ListFleets'
+--
+--     * Describe fleets:
+--
+--     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetPortSettings'
+--
+--     * 'DescribeFleetUtilization'
+--
+--     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeFleetEvents'
+--
+--
+--
+--     * Update fleets:
+--
+--     * 'UpdateFleetAttributes'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'UpdateFleetPortSettings'
+--
+--     * 'UpdateRuntimeConfiguration'
+--
+--
+--
+--     * Manage fleet capacity:
+--
+--     * 'DescribeFleetCapacity'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'PutScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeScalingPolicies' (automatic scaling)
+--
+--     * 'DeleteScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeEC2InstanceLimits'
+--
+--
+--
+--     * 'DeleteFleet'
+--
+--
+--
 module Network.AWS.GameLift.DeleteScalingPolicy
     (
     -- * Creating a Request
@@ -33,43 +87,44 @@ module Network.AWS.GameLift.DeleteScalingPolicy
     , DeleteScalingPolicyResponse
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'deleteScalingPolicy' smart constructor.
 data DeleteScalingPolicy = DeleteScalingPolicy'
-    { _dspName    :: !Text
-    , _dspFleetId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dspName    :: !Text
+  , _dspFleetId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteScalingPolicy' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dspName'
+-- * 'dspName' - Descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
 --
--- * 'dspFleetId'
+-- * 'dspFleetId' - Unique identifier for a fleet to be deleted.
 deleteScalingPolicy
     :: Text -- ^ 'dspName'
     -> Text -- ^ 'dspFleetId'
     -> DeleteScalingPolicy
 deleteScalingPolicy pName_ pFleetId_ =
-    DeleteScalingPolicy'
-    { _dspName = pName_
-    , _dspFleetId = pFleetId_
-    }
+  DeleteScalingPolicy' {_dspName = pName_, _dspFleetId = pFleetId_}
 
--- | Descriptive label associated with a scaling policy. Policy names do not need to be unique.
+
+-- | Descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
 dspName :: Lens' DeleteScalingPolicy Text
 dspName = lens _dspName (\ s a -> s{_dspName = a});
 
--- | Unique identifier for a fleet.
+-- | Unique identifier for a fleet to be deleted.
 dspFleetId :: Lens' DeleteScalingPolicy Text
 dspFleetId = lens _dspFleetId (\ s a -> s{_dspFleetId = a});
 
@@ -79,9 +134,9 @@ instance AWSRequest DeleteScalingPolicy where
         request = postJSON gameLift
         response = receiveNull DeleteScalingPolicyResponse'
 
-instance Hashable DeleteScalingPolicy
+instance Hashable DeleteScalingPolicy where
 
-instance NFData DeleteScalingPolicy
+instance NFData DeleteScalingPolicy where
 
 instance ToHeaders DeleteScalingPolicy where
         toHeaders
@@ -107,8 +162,9 @@ instance ToQuery DeleteScalingPolicy where
 
 -- | /See:/ 'deleteScalingPolicyResponse' smart constructor.
 data DeleteScalingPolicyResponse =
-    DeleteScalingPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteScalingPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteScalingPolicyResponse' with the minimum fields required to make a request.
 --
@@ -116,4 +172,5 @@ deleteScalingPolicyResponse
     :: DeleteScalingPolicyResponse
 deleteScalingPolicyResponse = DeleteScalingPolicyResponse'
 
-instance NFData DeleteScalingPolicyResponse
+
+instance NFData DeleteScalingPolicyResponse where

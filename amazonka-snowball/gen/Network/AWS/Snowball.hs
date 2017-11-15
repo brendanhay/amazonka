@@ -5,13 +5,15 @@
 
 -- |
 -- Module      : Network.AWS.Snowball
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This is a test of the welcome page front matter.
+-- AWS Snowball is a petabyte-scale data transport solution that uses secure appliances to transfer large amounts of data between your on-premises data centers and Amazon Simple Storage Service (Amazon S3). The Snowball commands described here provide access to the same functionality that is available in the AWS Snowball Management Console, which enables you to create and manage jobs for Snowball. To transfer data locally with a Snowball appliance, you'll need to use the Snowball client or the Amazon S3 API adapter for Snowball. For more information, see the <http://docs.aws.amazon.com/AWSImportExport/latest/ug/api-reference.html User Guide> .
+--
+--
 module Network.AWS.Snowball
     (
     -- * Service Configuration
@@ -32,8 +34,17 @@ module Network.AWS.Snowball
     -- ** InvalidJobStateException
     , _InvalidJobStateException
 
+    -- ** InvalidInputCombinationException
+    , _InvalidInputCombinationException
+
+    -- ** InvalidNextTokenException
+    , _InvalidNextTokenException
+
     -- ** InvalidAddressException
     , _InvalidAddressException
+
+    -- ** ClusterLimitExceededException
+    , _ClusterLimitExceededException
 
     -- * Waiters
     -- $waiters
@@ -41,14 +52,23 @@ module Network.AWS.Snowball
     -- * Operations
     -- $operations
 
+    -- ** CancelCluster
+    , module Network.AWS.Snowball.CancelCluster
+
+    -- ** DescribeCluster
+    , module Network.AWS.Snowball.DescribeCluster
+
     -- ** CreateAddress
     , module Network.AWS.Snowball.CreateAddress
 
     -- ** GetSnowballUsage
     , module Network.AWS.Snowball.GetSnowballUsage
 
-    -- ** DescribeAddresses
+    -- ** DescribeAddresses (Paginated)
     , module Network.AWS.Snowball.DescribeAddresses
+
+    -- ** UpdateCluster
+    , module Network.AWS.Snowball.UpdateCluster
 
     -- ** CreateJob
     , module Network.AWS.Snowball.CreateJob
@@ -56,7 +76,10 @@ module Network.AWS.Snowball
     -- ** GetJobManifest
     , module Network.AWS.Snowball.GetJobManifest
 
-    -- ** ListJobs
+    -- ** CreateCluster
+    , module Network.AWS.Snowball.CreateCluster
+
+    -- ** ListJobs (Paginated)
     , module Network.AWS.Snowball.ListJobs
 
     -- ** UpdateJob
@@ -65,8 +88,14 @@ module Network.AWS.Snowball
     -- ** GetJobUnlockCode
     , module Network.AWS.Snowball.GetJobUnlockCode
 
+    -- ** ListClusterJobs
+    , module Network.AWS.Snowball.ListClusterJobs
+
     -- ** DescribeJob
     , module Network.AWS.Snowball.DescribeJob
+
+    -- ** ListClusters
+    , module Network.AWS.Snowball.ListClusters
 
     -- ** DescribeAddress
     , module Network.AWS.Snowball.DescribeAddress
@@ -75,6 +104,9 @@ module Network.AWS.Snowball
     , module Network.AWS.Snowball.CancelJob
 
     -- * Types
+
+    -- ** ClusterState
+    , ClusterState (..)
 
     -- ** JobState
     , JobState (..)
@@ -88,9 +120,13 @@ module Network.AWS.Snowball
     -- ** SnowballCapacity
     , SnowballCapacity (..)
 
+    -- ** SnowballType
+    , SnowballType (..)
+
     -- ** Address
     , Address
     , address
+    , aIsRestricted
     , aStreet3
     , aLandmark
     , aPostalCode
@@ -105,6 +141,31 @@ module Network.AWS.Snowball
     , aPrefectureOrDistrict
     , aStreet1
 
+    -- ** ClusterListEntry
+    , ClusterListEntry
+    , clusterListEntry
+    , cleClusterState
+    , cleClusterId
+    , cleCreationDate
+    , cleDescription
+
+    -- ** ClusterMetadata
+    , ClusterMetadata
+    , clusterMetadata
+    , cmJobType
+    , cmKMSKeyARN
+    , cmClusterState
+    , cmNotification
+    , cmForwardingAddressId
+    , cmAddressId
+    , cmSnowballType
+    , cmShippingOption
+    , cmResources
+    , cmClusterId
+    , cmCreationDate
+    , cmDescription
+    , cmRoleARN
+
     -- ** DataTransfer
     , DataTransfer
     , dataTransfer
@@ -113,11 +174,20 @@ module Network.AWS.Snowball
     , dtObjectsTransferred
     , dtBytesTransferred
 
+    -- ** EventTriggerDefinition
+    , EventTriggerDefinition
+    , eventTriggerDefinition
+    , etdEventResourceARN
+
     -- ** JobListEntry
     , JobListEntry
     , jobListEntry
+    , jleJobType
     , jleJobId
     , jleJobState
+    , jleSnowballType
+    , jleCreationDate
+    , jleDescription
     , jleIsMaster
 
     -- ** JobLogs
@@ -136,10 +206,13 @@ module Network.AWS.Snowball
     , jmJobLogInfo
     , jmNotification
     , jmJobState
+    , jmForwardingAddressId
     , jmShippingDetails
     , jmAddressId
+    , jmSnowballType
     , jmDataTransferProgress
     , jmResources
+    , jmClusterId
     , jmCreationDate
     , jmDescription
     , jmRoleARN
@@ -148,6 +221,7 @@ module Network.AWS.Snowball
     -- ** JobResource
     , JobResource
     , jobResource
+    , jrLambdaResources
     , jrS3Resources
 
     -- ** KeyRange
@@ -155,6 +229,12 @@ module Network.AWS.Snowball
     , keyRange
     , krEndMarker
     , krBeginMarker
+
+    -- ** LambdaResource
+    , LambdaResource
+    , lambdaResource
+    , lrEventTriggers
+    , lrLambdaARN
 
     -- ** Notification
     , Notification
@@ -183,19 +263,25 @@ module Network.AWS.Snowball
     , sdInboundShipment
     ) where
 
-import           Network.AWS.Snowball.CancelJob
-import           Network.AWS.Snowball.CreateAddress
-import           Network.AWS.Snowball.CreateJob
-import           Network.AWS.Snowball.DescribeAddress
-import           Network.AWS.Snowball.DescribeAddresses
-import           Network.AWS.Snowball.DescribeJob
-import           Network.AWS.Snowball.GetJobManifest
-import           Network.AWS.Snowball.GetJobUnlockCode
-import           Network.AWS.Snowball.GetSnowballUsage
-import           Network.AWS.Snowball.ListJobs
-import           Network.AWS.Snowball.Types
-import           Network.AWS.Snowball.UpdateJob
-import           Network.AWS.Snowball.Waiters
+import Network.AWS.Snowball.CancelCluster
+import Network.AWS.Snowball.CancelJob
+import Network.AWS.Snowball.CreateAddress
+import Network.AWS.Snowball.CreateCluster
+import Network.AWS.Snowball.CreateJob
+import Network.AWS.Snowball.DescribeAddress
+import Network.AWS.Snowball.DescribeAddresses
+import Network.AWS.Snowball.DescribeCluster
+import Network.AWS.Snowball.DescribeJob
+import Network.AWS.Snowball.GetJobManifest
+import Network.AWS.Snowball.GetJobUnlockCode
+import Network.AWS.Snowball.GetSnowballUsage
+import Network.AWS.Snowball.ListClusterJobs
+import Network.AWS.Snowball.ListClusters
+import Network.AWS.Snowball.ListJobs
+import Network.AWS.Snowball.Types
+import Network.AWS.Snowball.UpdateCluster
+import Network.AWS.Snowball.UpdateJob
+import Network.AWS.Snowball.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

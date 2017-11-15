@@ -9,40 +9,40 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearchDomains.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CloudSearchDomains.Types.Product where
 
-import           Network.AWS.CloudSearchDomains.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CloudSearchDomains.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | A container for facet information.
 --
+--
+--
 -- /See:/ 'bucket' smart constructor.
 data Bucket = Bucket'
-    { _bValue :: !(Maybe Text)
-    , _bCount :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bValue :: !(Maybe Text)
+  , _bCount :: !(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Bucket' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bValue'
+-- * 'bValue' - The facet value being counted.
 --
--- * 'bCount'
+-- * 'bCount' - The number of hits that contain the facet value in the specified facet field.
 bucket
     :: Bucket
-bucket =
-    Bucket'
-    { _bValue = Nothing
-    , _bCount = Nothing
-    }
+bucket = Bucket' {_bValue = Nothing, _bCount = Nothing}
+
 
 -- | The facet value being counted.
 bValue :: Lens' Bucket (Maybe Text)
@@ -58,28 +58,29 @@ instance FromJSON Bucket where
               (\ x ->
                  Bucket' <$> (x .:? "value") <*> (x .:? "count"))
 
-instance Hashable Bucket
+instance Hashable Bucket where
 
-instance NFData Bucket
+instance NFData Bucket where
 
 -- | A container for the calculated facet values and counts.
 --
+--
+--
 -- /See:/ 'bucketInfo' smart constructor.
 newtype BucketInfo = BucketInfo'
-    { _biBuckets :: Maybe [Bucket]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _biBuckets :: Maybe [Bucket]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BucketInfo' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'biBuckets'
+-- * 'biBuckets' - A list of the calculated facet values and counts.
 bucketInfo
     :: BucketInfo
-bucketInfo =
-    BucketInfo'
-    { _biBuckets = Nothing
-    }
+bucketInfo = BucketInfo' {_biBuckets = Nothing}
+
 
 -- | A list of the calculated facet values and counts.
 biBuckets :: Lens' BucketInfo [Bucket]
@@ -90,28 +91,29 @@ instance FromJSON BucketInfo where
           = withObject "BucketInfo"
               (\ x -> BucketInfo' <$> (x .:? "buckets" .!= mempty))
 
-instance Hashable BucketInfo
+instance Hashable BucketInfo where
 
-instance NFData BucketInfo
+instance NFData BucketInfo where
 
 -- | A warning returned by the document service when an issue is discovered while processing an upload request.
 --
+--
+--
 -- /See:/ 'documentServiceWarning' smart constructor.
 newtype DocumentServiceWarning = DocumentServiceWarning'
-    { _dswMessage :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dswMessage :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DocumentServiceWarning' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dswMessage'
+-- * 'dswMessage' - The description for a warning returned by the document service.
 documentServiceWarning
     :: DocumentServiceWarning
-documentServiceWarning =
-    DocumentServiceWarning'
-    { _dswMessage = Nothing
-    }
+documentServiceWarning = DocumentServiceWarning' {_dswMessage = Nothing}
+
 
 -- | The description for a warning returned by the document service.
 dswMessage :: Lens' DocumentServiceWarning (Maybe Text)
@@ -123,66 +125,66 @@ instance FromJSON DocumentServiceWarning where
               (\ x ->
                  DocumentServiceWarning' <$> (x .:? "message"))
 
-instance Hashable DocumentServiceWarning
+instance Hashable DocumentServiceWarning where
 
-instance NFData DocumentServiceWarning
+instance NFData DocumentServiceWarning where
 
 -- | The statistics for a field calculated in the request.
 --
+--
+--
 -- /See:/ 'fieldStats' smart constructor.
 data FieldStats = FieldStats'
-    { _fsMax          :: !(Maybe Text)
-    , _fsMean         :: !(Maybe Text)
-    , _fsCount        :: !(Maybe Integer)
-    , _fsMissing      :: !(Maybe Integer)
-    , _fsStddev       :: !(Maybe Double)
-    , _fsMin          :: !(Maybe Text)
-    , _fsSumOfSquares :: !(Maybe Double)
-    , _fsSum          :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fsMax          :: !(Maybe Text)
+  , _fsMean         :: !(Maybe Text)
+  , _fsCount        :: !(Maybe Integer)
+  , _fsMissing      :: !(Maybe Integer)
+  , _fsStddev       :: !(Maybe Double)
+  , _fsMin          :: !(Maybe Text)
+  , _fsSumOfSquares :: !(Maybe Double)
+  , _fsSum          :: !(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FieldStats' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fsMax'
+-- * 'fsMax' - The maximum value found in the specified field in the result set. If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @max@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @max@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
 --
--- * 'fsMean'
+-- * 'fsMean' - The average of the values found in the specified field in the result set. If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @mean@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @mean@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
 --
--- * 'fsCount'
+-- * 'fsCount' - The number of documents that contain a value in the specified field in the result set.
 --
--- * 'fsMissing'
+-- * 'fsMissing' - The number of documents that do not contain a value in the specified field in the result set.
 --
--- * 'fsStddev'
+-- * 'fsStddev' - The standard deviation of the values in the specified field in the result set.
 --
--- * 'fsMin'
+-- * 'fsMin' - The minimum value found in the specified field in the result set. If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @min@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @min@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
 --
--- * 'fsSumOfSquares'
+-- * 'fsSumOfSquares' - The sum of all field values in the result set squared.
 --
--- * 'fsSum'
+-- * 'fsSum' - The sum of the field values across the documents in the result set. @null@ for date fields.
 fieldStats
     :: FieldStats
 fieldStats =
-    FieldStats'
-    { _fsMax = Nothing
-    , _fsMean = Nothing
-    , _fsCount = Nothing
-    , _fsMissing = Nothing
-    , _fsStddev = Nothing
-    , _fsMin = Nothing
-    , _fsSumOfSquares = Nothing
-    , _fsSum = Nothing
-    }
+  FieldStats'
+  { _fsMax = Nothing
+  , _fsMean = Nothing
+  , _fsCount = Nothing
+  , _fsMissing = Nothing
+  , _fsStddev = Nothing
+  , _fsMin = Nothing
+  , _fsSumOfSquares = Nothing
+  , _fsSum = Nothing
+  }
 
--- | The maximum value found in the specified field in the result set.
---
--- If the field is numeric ('int', 'int-array', 'double', or 'double-array'), 'max' is the string representation of a double-precision 64-bit floating point value. If the field is 'date' or 'date-array', 'max' is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>: yyyy-mm-ddTHH:mm:ss.SSSZ.
+
+-- | The maximum value found in the specified field in the result set. If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @max@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @max@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
 fsMax :: Lens' FieldStats (Maybe Text)
 fsMax = lens _fsMax (\ s a -> s{_fsMax = a});
 
--- | The average of the values found in the specified field in the result set.
---
--- If the field is numeric ('int', 'int-array', 'double', or 'double-array'), 'mean' is the string representation of a double-precision 64-bit floating point value. If the field is 'date' or 'date-array', 'mean' is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>: yyyy-mm-ddTHH:mm:ss.SSSZ.
+-- | The average of the values found in the specified field in the result set. If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @mean@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @mean@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
 fsMean :: Lens' FieldStats (Maybe Text)
 fsMean = lens _fsMean (\ s a -> s{_fsMean = a});
 
@@ -198,9 +200,7 @@ fsMissing = lens _fsMissing (\ s a -> s{_fsMissing = a});
 fsStddev :: Lens' FieldStats (Maybe Double)
 fsStddev = lens _fsStddev (\ s a -> s{_fsStddev = a});
 
--- | The minimum value found in the specified field in the result set.
---
--- If the field is numeric ('int', 'int-array', 'double', or 'double-array'), 'min' is the string representation of a double-precision 64-bit floating point value. If the field is 'date' or 'date-array', 'min' is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>: yyyy-mm-ddTHH:mm:ss.SSSZ.
+-- | The minimum value found in the specified field in the result set. If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @min@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @min@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
 fsMin :: Lens' FieldStats (Maybe Text)
 fsMin = lens _fsMin (\ s a -> s{_fsMin = a});
 
@@ -208,7 +208,7 @@ fsMin = lens _fsMin (\ s a -> s{_fsMin = a});
 fsSumOfSquares :: Lens' FieldStats (Maybe Double)
 fsSumOfSquares = lens _fsSumOfSquares (\ s a -> s{_fsSumOfSquares = a});
 
--- | The sum of the field values across the documents in the result set. 'null' for date fields.
+-- | The sum of the field values across the documents in the result set. @null@ for date fields.
 fsSum :: Lens' FieldStats (Maybe Double)
 fsSum = lens _fsSum (\ s a -> s{_fsSum = a});
 
@@ -224,40 +224,44 @@ instance FromJSON FieldStats where
                      <*> (x .:? "sumOfSquares")
                      <*> (x .:? "sum"))
 
-instance Hashable FieldStats
+instance Hashable FieldStats where
 
-instance NFData FieldStats
+instance NFData FieldStats where
 
 -- | Information about a document that matches the search request.
 --
+--
+--
 -- /See:/ 'hit' smart constructor.
 data Hit = Hit'
-    { _hitExprs      :: !(Maybe (Map Text Text))
-    , _hitId         :: !(Maybe Text)
-    , _hitHighlights :: !(Maybe (Map Text Text))
-    , _hitFields     :: !(Maybe (Map Text [Text]))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hitExprs      :: !(Maybe (Map Text Text))
+  , _hitId         :: !(Maybe Text)
+  , _hitHighlights :: !(Maybe (Map Text Text))
+  , _hitFields     :: !(Maybe (Map Text [Text]))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Hit' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hitExprs'
+-- * 'hitExprs' - The expressions returned from a document that matches the search request.
 --
--- * 'hitId'
+-- * 'hitId' - The document ID of a document that matches the search request.
 --
--- * 'hitHighlights'
+-- * 'hitHighlights' - The highlights returned from a document that matches the search request.
 --
--- * 'hitFields'
+-- * 'hitFields' - The fields returned from a document that matches the search request.
 hit
     :: Hit
 hit =
-    Hit'
-    { _hitExprs = Nothing
-    , _hitId = Nothing
-    , _hitHighlights = Nothing
-    , _hitFields = Nothing
-    }
+  Hit'
+  { _hitExprs = Nothing
+  , _hitId = Nothing
+  , _hitHighlights = Nothing
+  , _hitFields = Nothing
+  }
+
 
 -- | The expressions returned from a document that matches the search request.
 hitExprs :: Lens' Hit (HashMap Text Text)
@@ -284,40 +288,40 @@ instance FromJSON Hit where
                      (x .:? "highlights" .!= mempty)
                      <*> (x .:? "fields" .!= mempty))
 
-instance Hashable Hit
+instance Hashable Hit where
 
-instance NFData Hit
+instance NFData Hit where
 
 -- | The collection of documents that match the search request.
 --
+--
+--
 -- /See:/ 'hits' smart constructor.
 data Hits = Hits'
-    { _hCursor :: !(Maybe Text)
-    , _hHit    :: !(Maybe [Hit])
-    , _hStart  :: !(Maybe Integer)
-    , _hFound  :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hCursor :: !(Maybe Text)
+  , _hHit    :: !(Maybe [Hit])
+  , _hStart  :: !(Maybe Integer)
+  , _hFound  :: !(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Hits' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hCursor'
+-- * 'hCursor' - A cursor that can be used to retrieve the next set of matching documents when you want to page through a large result set.
 --
--- * 'hHit'
+-- * 'hHit' - A document that matches the search request.
 --
--- * 'hStart'
+-- * 'hStart' - The index of the first matching document.
 --
--- * 'hFound'
+-- * 'hFound' - The total number of documents that match the search request.
 hits
     :: Hits
 hits =
-    Hits'
-    { _hCursor = Nothing
-    , _hHit = Nothing
-    , _hStart = Nothing
-    , _hFound = Nothing
-    }
+  Hits'
+  {_hCursor = Nothing, _hHit = Nothing, _hStart = Nothing, _hFound = Nothing}
+
 
 -- | A cursor that can be used to retrieve the next set of matching documents when you want to page through a large result set.
 hCursor :: Lens' Hits (Maybe Text)
@@ -344,32 +348,32 @@ instance FromJSON Hits where
                      (x .:? "start")
                      <*> (x .:? "found"))
 
-instance Hashable Hits
+instance Hashable Hits where
 
-instance NFData Hits
+instance NFData Hits where
 
--- | Contains the resource id ('rid') and the time it took to process the request ('timems').
+-- | Contains the resource id (@rid@ ) and the time it took to process the request (@timems@ ).
+--
+--
 --
 -- /See:/ 'searchStatus' smart constructor.
 data SearchStatus = SearchStatus'
-    { _sRid    :: !(Maybe Text)
-    , _sTimems :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sRid    :: !(Maybe Text)
+  , _sTimems :: !(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SearchStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sRid'
+-- * 'sRid' - The encrypted resource ID for the request.
 --
--- * 'sTimems'
+-- * 'sTimems' - How long it took to process the request, in milliseconds.
 searchStatus
     :: SearchStatus
-searchStatus =
-    SearchStatus'
-    { _sRid = Nothing
-    , _sTimems = Nothing
-    }
+searchStatus = SearchStatus' {_sRid = Nothing, _sTimems = Nothing}
+
 
 -- | The encrypted resource ID for the request.
 sRid :: Lens' SearchStatus (Maybe Text)
@@ -385,36 +389,37 @@ instance FromJSON SearchStatus where
               (\ x ->
                  SearchStatus' <$> (x .:? "rid") <*> (x .:? "timems"))
 
-instance Hashable SearchStatus
+instance Hashable SearchStatus where
 
-instance NFData SearchStatus
+instance NFData SearchStatus where
 
--- | Container for the suggestion information returned in a 'SuggestResponse'.
+-- | Container for the suggestion information returned in a @SuggestResponse@ .
+--
+--
 --
 -- /See:/ 'suggestModel' smart constructor.
 data SuggestModel = SuggestModel'
-    { _smFound       :: !(Maybe Integer)
-    , _smSuggestions :: !(Maybe [SuggestionMatch])
-    , _smQuery       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _smFound       :: !(Maybe Integer)
+  , _smSuggestions :: !(Maybe [SuggestionMatch])
+  , _smQuery       :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SuggestModel' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'smFound'
+-- * 'smFound' - The number of documents that were found to match the query string.
 --
--- * 'smSuggestions'
+-- * 'smSuggestions' - The documents that match the query string.
 --
--- * 'smQuery'
+-- * 'smQuery' - The query string specified in the suggest request.
 suggestModel
     :: SuggestModel
 suggestModel =
-    SuggestModel'
-    { _smFound = Nothing
-    , _smSuggestions = Nothing
-    , _smQuery = Nothing
-    }
+  SuggestModel'
+  {_smFound = Nothing, _smSuggestions = Nothing, _smQuery = Nothing}
+
 
 -- | The number of documents that were found to match the query string.
 smFound :: Lens' SuggestModel (Maybe Integer)
@@ -436,32 +441,32 @@ instance FromJSON SuggestModel where
                    (x .:? "found") <*> (x .:? "suggestions" .!= mempty)
                      <*> (x .:? "query"))
 
-instance Hashable SuggestModel
+instance Hashable SuggestModel where
 
-instance NFData SuggestModel
+instance NFData SuggestModel where
 
--- | Contains the resource id ('rid') and the time it took to process the request ('timems').
+-- | Contains the resource id (@rid@ ) and the time it took to process the request (@timems@ ).
+--
+--
 --
 -- /See:/ 'suggestStatus' smart constructor.
 data SuggestStatus = SuggestStatus'
-    { _ssRid    :: !(Maybe Text)
-    , _ssTimems :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssRid    :: !(Maybe Text)
+  , _ssTimems :: !(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SuggestStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssRid'
+-- * 'ssRid' - The encrypted resource ID for the request.
 --
--- * 'ssTimems'
+-- * 'ssTimems' - How long it took to process the request, in milliseconds.
 suggestStatus
     :: SuggestStatus
-suggestStatus =
-    SuggestStatus'
-    { _ssRid = Nothing
-    , _ssTimems = Nothing
-    }
+suggestStatus = SuggestStatus' {_ssRid = Nothing, _ssTimems = Nothing}
+
 
 -- | The encrypted resource ID for the request.
 ssRid :: Lens' SuggestStatus (Maybe Text)
@@ -478,38 +483,39 @@ instance FromJSON SuggestStatus where
                  SuggestStatus' <$>
                    (x .:? "rid") <*> (x .:? "timems"))
 
-instance Hashable SuggestStatus
+instance Hashable SuggestStatus where
 
-instance NFData SuggestStatus
+instance NFData SuggestStatus where
 
--- | An autocomplete suggestion that matches the query string specified in a 'SuggestRequest'.
+-- | An autocomplete suggestion that matches the query string specified in a @SuggestRequest@ .
+--
+--
 --
 -- /See:/ 'suggestionMatch' smart constructor.
 data SuggestionMatch = SuggestionMatch'
-    { _smSuggestion :: !(Maybe Text)
-    , _smScore      :: !(Maybe Integer)
-    , _smId         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _smSuggestion :: !(Maybe Text)
+  , _smScore      :: !(Maybe Integer)
+  , _smId         :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SuggestionMatch' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'smSuggestion'
+-- * 'smSuggestion' - The string that matches the query string specified in the @SuggestRequest@ .
 --
--- * 'smScore'
+-- * 'smScore' - The relevance score of a suggested match.
 --
--- * 'smId'
+-- * 'smId' - The document ID of the suggested document.
 suggestionMatch
     :: SuggestionMatch
 suggestionMatch =
-    SuggestionMatch'
-    { _smSuggestion = Nothing
-    , _smScore = Nothing
-    , _smId = Nothing
-    }
+  SuggestionMatch'
+  {_smSuggestion = Nothing, _smScore = Nothing, _smId = Nothing}
 
--- | The string that matches the query string specified in the 'SuggestRequest'.
+
+-- | The string that matches the query string specified in the @SuggestRequest@ .
 smSuggestion :: Lens' SuggestionMatch (Maybe Text)
 smSuggestion = lens _smSuggestion (\ s a -> s{_smSuggestion = a});
 
@@ -529,6 +535,6 @@ instance FromJSON SuggestionMatch where
                    (x .:? "suggestion") <*> (x .:? "score") <*>
                      (x .:? "id"))
 
-instance Hashable SuggestionMatch
+instance Hashable SuggestionMatch where
 
-instance NFData SuggestionMatch
+instance NFData SuggestionMatch where

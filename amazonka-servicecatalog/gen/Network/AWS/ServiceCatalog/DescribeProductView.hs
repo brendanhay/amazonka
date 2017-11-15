@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeProductView
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves information about a specified product.
 --
--- This operation is functionally identical to < DescribeProduct> except that it takes as input 'ProductViewId' instead of 'ProductId'.
+--
+-- This operation is functionally identical to 'DescribeProduct' except that it takes as input @ProductViewId@ instead of @ProductId@ .
+--
 module Network.AWS.ServiceCatalog.DescribeProductView
     (
     -- * Creating a Request
@@ -39,48 +41,39 @@ module Network.AWS.ServiceCatalog.DescribeProductView
     , dpvrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describeProductView' smart constructor.
 data DescribeProductView = DescribeProductView'
-    { _dpvAcceptLanguage :: !(Maybe Text)
-    , _dpvId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpvAcceptLanguage :: !(Maybe Text)
+  , _dpvId             :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeProductView' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpvAcceptLanguage'
+-- * 'dpvAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'dpvId'
+-- * 'dpvId' - The @ProductViewId@ of the product to describe.
 describeProductView
     :: Text -- ^ 'dpvId'
     -> DescribeProductView
 describeProductView pId_ =
-    DescribeProductView'
-    { _dpvAcceptLanguage = Nothing
-    , _dpvId = pId_
-    }
+  DescribeProductView' {_dpvAcceptLanguage = Nothing, _dpvId = pId_}
 
--- | Optional language code. Supported language codes are as follows:
---
--- \"en\" (English)
---
--- \"jp\" (Japanese)
---
--- \"zh\" (Chinese)
---
--- If no code is specified, \"en\" is used as the default.
+
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dpvAcceptLanguage :: Lens' DescribeProductView (Maybe Text)
 dpvAcceptLanguage = lens _dpvAcceptLanguage (\ s a -> s{_dpvAcceptLanguage = a});
 
--- | The 'ProductViewId' of the product to describe.
+-- | The @ProductViewId@ of the product to describe.
 dpvId :: Lens' DescribeProductView Text
 dpvId = lens _dpvId (\ s a -> s{_dpvId = a});
 
@@ -96,9 +89,9 @@ instance AWSRequest DescribeProductView where
                      (x .?> "ProvisioningArtifacts" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeProductView
+instance Hashable DescribeProductView where
 
-instance NFData DescribeProductView
+instance NFData DescribeProductView where
 
 instance ToHeaders DescribeProductView where
         toHeaders
@@ -125,40 +118,42 @@ instance ToQuery DescribeProductView where
 
 -- | /See:/ 'describeProductViewResponse' smart constructor.
 data DescribeProductViewResponse = DescribeProductViewResponse'
-    { _dpvrsProductViewSummary    :: !(Maybe ProductViewSummary)
-    , _dpvrsProvisioningArtifacts :: !(Maybe [ProvisioningArtifact])
-    , _dpvrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpvrsProductViewSummary    :: !(Maybe ProductViewSummary)
+  , _dpvrsProvisioningArtifacts :: !(Maybe [ProvisioningArtifact])
+  , _dpvrsResponseStatus        :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeProductViewResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpvrsProductViewSummary'
+-- * 'dpvrsProductViewSummary' - The summary metadata about the specified product.
 --
--- * 'dpvrsProvisioningArtifacts'
+-- * 'dpvrsProvisioningArtifacts' - A list of provisioning artifact objects for the specified product. The @ProvisioningArtifacts@ represent the ways in which the specified product can be provisioned.
 --
--- * 'dpvrsResponseStatus'
+-- * 'dpvrsResponseStatus' - -- | The response status code.
 describeProductViewResponse
     :: Int -- ^ 'dpvrsResponseStatus'
     -> DescribeProductViewResponse
 describeProductViewResponse pResponseStatus_ =
-    DescribeProductViewResponse'
-    { _dpvrsProductViewSummary = Nothing
-    , _dpvrsProvisioningArtifacts = Nothing
-    , _dpvrsResponseStatus = pResponseStatus_
-    }
+  DescribeProductViewResponse'
+  { _dpvrsProductViewSummary = Nothing
+  , _dpvrsProvisioningArtifacts = Nothing
+  , _dpvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The summary metadata about the specified product.
 dpvrsProductViewSummary :: Lens' DescribeProductViewResponse (Maybe ProductViewSummary)
 dpvrsProductViewSummary = lens _dpvrsProductViewSummary (\ s a -> s{_dpvrsProductViewSummary = a});
 
--- | A list of provisioning artifact objects for the specified product. The 'ProvisioningArtifacts' represent the ways in which the specified product can be provisioned.
+-- | A list of provisioning artifact objects for the specified product. The @ProvisioningArtifacts@ represent the ways in which the specified product can be provisioned.
 dpvrsProvisioningArtifacts :: Lens' DescribeProductViewResponse [ProvisioningArtifact]
 dpvrsProvisioningArtifacts = lens _dpvrsProvisioningArtifacts (\ s a -> s{_dpvrsProvisioningArtifacts = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dpvrsResponseStatus :: Lens' DescribeProductViewResponse Int
 dpvrsResponseStatus = lens _dpvrsResponseStatus (\ s a -> s{_dpvrsResponseStatus = a});
 
-instance NFData DescribeProductViewResponse
+instance NFData DescribeProductViewResponse where

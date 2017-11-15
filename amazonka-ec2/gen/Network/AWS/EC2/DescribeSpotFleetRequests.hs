@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSpotFleetRequests
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes your Spot fleet requests.
+--
+--
+-- Spot fleet requests are deleted 48 hours after they are canceled and their instances are terminated.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeSpotFleetRequests
@@ -41,44 +45,48 @@ module Network.AWS.EC2.DescribeSpotFleetRequests
     , dsfrrsSpotFleetRequestConfigs
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeSpotFleetRequests.
 --
+--
+--
 -- /See:/ 'describeSpotFleetRequests' smart constructor.
 data DescribeSpotFleetRequests = DescribeSpotFleetRequests'
-    { _dsfrSpotFleetRequestIds :: !(Maybe [Text])
-    , _dsfrNextToken           :: !(Maybe Text)
-    , _dsfrDryRun              :: !(Maybe Bool)
-    , _dsfrMaxResults          :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsfrSpotFleetRequestIds :: !(Maybe [Text])
+  , _dsfrNextToken           :: !(Maybe Text)
+  , _dsfrDryRun              :: !(Maybe Bool)
+  , _dsfrMaxResults          :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSpotFleetRequests' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsfrSpotFleetRequestIds'
+-- * 'dsfrSpotFleetRequestIds' - The IDs of the Spot fleet requests.
 --
--- * 'dsfrNextToken'
+-- * 'dsfrNextToken' - The token for the next set of results.
 --
--- * 'dsfrDryRun'
+-- * 'dsfrDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dsfrMaxResults'
+-- * 'dsfrMaxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 describeSpotFleetRequests
     :: DescribeSpotFleetRequests
 describeSpotFleetRequests =
-    DescribeSpotFleetRequests'
-    { _dsfrSpotFleetRequestIds = Nothing
-    , _dsfrNextToken = Nothing
-    , _dsfrDryRun = Nothing
-    , _dsfrMaxResults = Nothing
-    }
+  DescribeSpotFleetRequests'
+  { _dsfrSpotFleetRequestIds = Nothing
+  , _dsfrNextToken = Nothing
+  , _dsfrDryRun = Nothing
+  , _dsfrMaxResults = Nothing
+  }
+
 
 -- | The IDs of the Spot fleet requests.
 dsfrSpotFleetRequestIds :: Lens' DescribeSpotFleetRequests [Text]
@@ -88,11 +96,11 @@ dsfrSpotFleetRequestIds = lens _dsfrSpotFleetRequestIds (\ s a -> s{_dsfrSpotFle
 dsfrNextToken :: Lens' DescribeSpotFleetRequests (Maybe Text)
 dsfrNextToken = lens _dsfrNextToken (\ s a -> s{_dsfrNextToken = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dsfrDryRun :: Lens' DescribeSpotFleetRequests (Maybe Bool)
 dsfrDryRun = lens _dsfrDryRun (\ s a -> s{_dsfrDryRun = a});
 
--- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned 'NextToken' value.
+-- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 dsfrMaxResults :: Lens' DescribeSpotFleetRequests (Maybe Int)
 dsfrMaxResults = lens _dsfrMaxResults (\ s a -> s{_dsfrMaxResults = a});
 
@@ -116,9 +124,9 @@ instance AWSRequest DescribeSpotFleetRequests where
                      (x .@? "spotFleetRequestConfigSet" .!@ mempty >>=
                         parseXMLList "item"))
 
-instance Hashable DescribeSpotFleetRequests
+instance Hashable DescribeSpotFleetRequests where
 
-instance NFData DescribeSpotFleetRequests
+instance NFData DescribeSpotFleetRequests where
 
 instance ToHeaders DescribeSpotFleetRequests where
         toHeaders = const mempty
@@ -131,7 +139,7 @@ instance ToQuery DescribeSpotFleetRequests where
           = mconcat
               ["Action" =:
                  ("DescribeSpotFleetRequests" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                toQuery
                  (toQueryList "SpotFleetRequestId" <$>
                     _dsfrSpotFleetRequestIds),
@@ -141,37 +149,41 @@ instance ToQuery DescribeSpotFleetRequests where
 
 -- | Contains the output of DescribeSpotFleetRequests.
 --
+--
+--
 -- /See:/ 'describeSpotFleetRequestsResponse' smart constructor.
 data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'
-    { _dsfrrsNextToken               :: !(Maybe Text)
-    , _dsfrrsResponseStatus          :: !Int
-    , _dsfrrsSpotFleetRequestConfigs :: ![SpotFleetRequestConfig]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsfrrsNextToken               :: !(Maybe Text)
+  , _dsfrrsResponseStatus          :: !Int
+  , _dsfrrsSpotFleetRequestConfigs :: ![SpotFleetRequestConfig]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSpotFleetRequestsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsfrrsNextToken'
+-- * 'dsfrrsNextToken' - The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
 --
--- * 'dsfrrsResponseStatus'
+-- * 'dsfrrsResponseStatus' - -- | The response status code.
 --
--- * 'dsfrrsSpotFleetRequestConfigs'
+-- * 'dsfrrsSpotFleetRequestConfigs' - Information about the configuration of your Spot fleet.
 describeSpotFleetRequestsResponse
     :: Int -- ^ 'dsfrrsResponseStatus'
     -> DescribeSpotFleetRequestsResponse
 describeSpotFleetRequestsResponse pResponseStatus_ =
-    DescribeSpotFleetRequestsResponse'
-    { _dsfrrsNextToken = Nothing
-    , _dsfrrsResponseStatus = pResponseStatus_
-    , _dsfrrsSpotFleetRequestConfigs = mempty
-    }
+  DescribeSpotFleetRequestsResponse'
+  { _dsfrrsNextToken = Nothing
+  , _dsfrrsResponseStatus = pResponseStatus_
+  , _dsfrrsSpotFleetRequestConfigs = mempty
+  }
 
--- | The token required to retrieve the next set of results. This value is 'null' when there are no more results to return.
+
+-- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
 dsfrrsNextToken :: Lens' DescribeSpotFleetRequestsResponse (Maybe Text)
 dsfrrsNextToken = lens _dsfrrsNextToken (\ s a -> s{_dsfrrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dsfrrsResponseStatus :: Lens' DescribeSpotFleetRequestsResponse Int
 dsfrrsResponseStatus = lens _dsfrrsResponseStatus (\ s a -> s{_dsfrrsResponseStatus = a});
 
@@ -180,3 +192,4 @@ dsfrrsSpotFleetRequestConfigs :: Lens' DescribeSpotFleetRequestsResponse [SpotFl
 dsfrrsSpotFleetRequestConfigs = lens _dsfrrsSpotFleetRequestConfigs (\ s a -> s{_dsfrrsSpotFleetRequestConfigs = a}) . _Coerce;
 
 instance NFData DescribeSpotFleetRequestsResponse
+         where

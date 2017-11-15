@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.StopRun
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Initiates a stop request for the current test run. AWS Device Farm will immediately stop the run on devices where tests have not started executing, and you will not be billed for these devices. On devices where tests have started executing, Setup Suite and Teardown Suite tests will run to completion before stopping execution on those devices. You will be billed for Setup, Teardown, and any tests that were in progress or already completed.
+--
+--
 module Network.AWS.DeviceFarm.StopRun
     (
     -- * Creating a Request
@@ -35,32 +37,33 @@ module Network.AWS.DeviceFarm.StopRun
     , srsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to stop a specific run.
 --
+--
+--
 -- /See:/ 'stopRun' smart constructor.
 newtype StopRun = StopRun'
-    { _srArn :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srArn :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopRun' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srArn'
+-- * 'srArn' - Represents the Amazon Resource Name (ARN) of the Device Farm run you wish to stop.
 stopRun
     :: Text -- ^ 'srArn'
     -> StopRun
-stopRun pArn_ =
-    StopRun'
-    { _srArn = pArn_
-    }
+stopRun pArn_ = StopRun' {_srArn = pArn_}
+
 
 -- | Represents the Amazon Resource Name (ARN) of the Device Farm run you wish to stop.
 srArn :: Lens' StopRun Text
@@ -75,9 +78,9 @@ instance AWSRequest StopRun where
                  StopRunResponse' <$>
                    (x .?> "run") <*> (pure (fromEnum s)))
 
-instance Hashable StopRun
+instance Hashable StopRun where
 
-instance NFData StopRun
+instance NFData StopRun where
 
 instance ToHeaders StopRun where
         toHeaders
@@ -100,34 +103,35 @@ instance ToQuery StopRun where
 
 -- | Represents the results of your stop run attempt.
 --
+--
+--
 -- /See:/ 'stopRunResponse' smart constructor.
 data StopRunResponse = StopRunResponse'
-    { _srsRun            :: !(Maybe Run)
-    , _srsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsRun            :: !(Maybe Run)
+  , _srsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopRunResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsRun'
+-- * 'srsRun' - The run that was stopped.
 --
--- * 'srsResponseStatus'
+-- * 'srsResponseStatus' - -- | The response status code.
 stopRunResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StopRunResponse
 stopRunResponse pResponseStatus_ =
-    StopRunResponse'
-    { _srsRun = Nothing
-    , _srsResponseStatus = pResponseStatus_
-    }
+  StopRunResponse' {_srsRun = Nothing, _srsResponseStatus = pResponseStatus_}
 
--- | Undocumented member.
+
+-- | The run that was stopped.
 srsRun :: Lens' StopRunResponse (Maybe Run)
 srsRun = lens _srsRun (\ s a -> s{_srsRun = a});
 
--- | The response status code.
+-- | -- | The response status code.
 srsResponseStatus :: Lens' StopRunResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 
-instance NFData StopRunResponse
+instance NFData StopRunResponse where

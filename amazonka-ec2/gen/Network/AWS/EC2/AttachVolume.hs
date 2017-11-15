@@ -12,31 +12,35 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AttachVolume
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Attaches an EBS volume to a running or stopped instance and exposes it to the instance with the specified device name.
 --
--- Encrypted EBS volumes may only be attached to instances that support Amazon EBS encryption. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- For a list of supported device names, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attaching an EBS Volume to an Instance>. Any device names that aren\'t reserved for instance store volumes can be used for EBS volumes. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html Amazon EC2 Instance Store> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Encrypted EBS volumes may only be attached to instances that support Amazon EBS encryption. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+-- For a list of supported device names, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attaching an EBS Volume to an Instance> . Any device names that aren't reserved for instance store volumes can be used for EBS volumes. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html Amazon EC2 Instance Store> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 -- If a volume has an AWS Marketplace product code:
 --
--- -   The volume can be attached only to a stopped instance.
+--     * The volume can be attached only to a stopped instance.
 --
--- -   AWS Marketplace product codes are copied from the volume to the instance.
+--     * AWS Marketplace product codes are copied from the volume to the instance.
 --
--- -   You must be subscribed to the product.
+--     * You must be subscribed to the product.
 --
--- -   The instance type and operating system of the instance must support the product. For example, you can\'t detach a volume from a Windows instance and attach it to a Linux instance.
+--     * The instance type and operating system of the instance must support the product. For example, you can't detach a volume from a Windows instance and attach it to a Linux instance.
 --
--- For an overview of the AWS Marketplace, see <https://aws.amazon.com/marketplace/help/200900000 Introducing AWS Marketplace>.
 --
--- For more information about EBS volumes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attaching Amazon EBS Volumes> in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- For an overview of the AWS Marketplace, see <https://aws.amazon.com/marketplace/help/200900000 Introducing AWS Marketplace> .
+--
+-- For more information about EBS volumes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attaching Amazon EBS Volumes> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.AttachVolume
     (
     -- * Creating a Request
@@ -44,9 +48,9 @@ module Network.AWS.EC2.AttachVolume
     , AttachVolume
     -- * Request Lenses
     , avDryRun
-    , avVolumeId
-    , avInstanceId
     , avDevice
+    , avInstanceId
+    , avVolumeId
 
     -- * Destructuring the Response
     , volumeAttachment
@@ -60,71 +64,75 @@ module Network.AWS.EC2.AttachVolume
     , volAttachTime
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AttachVolume.
 --
+--
+--
 -- /See:/ 'attachVolume' smart constructor.
 data AttachVolume = AttachVolume'
-    { _avDryRun     :: !(Maybe Bool)
-    , _avVolumeId   :: !Text
-    , _avInstanceId :: !Text
-    , _avDevice     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avDryRun     :: !(Maybe Bool)
+  , _avDevice     :: !Text
+  , _avInstanceId :: !Text
+  , _avVolumeId   :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachVolume' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'avDryRun'
+-- * 'avDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'avVolumeId'
+-- * 'avDevice' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
 --
--- * 'avInstanceId'
+-- * 'avInstanceId' - The ID of the instance.
 --
--- * 'avDevice'
+-- * 'avVolumeId' - The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
 attachVolume
-    :: Text -- ^ 'avVolumeId'
+    :: Text -- ^ 'avDevice'
     -> Text -- ^ 'avInstanceId'
-    -> Text -- ^ 'avDevice'
+    -> Text -- ^ 'avVolumeId'
     -> AttachVolume
-attachVolume pVolumeId_ pInstanceId_ pDevice_ =
-    AttachVolume'
-    { _avDryRun = Nothing
-    , _avVolumeId = pVolumeId_
-    , _avInstanceId = pInstanceId_
-    , _avDevice = pDevice_
-    }
+attachVolume pDevice_ pInstanceId_ pVolumeId_ =
+  AttachVolume'
+  { _avDryRun = Nothing
+  , _avDevice = pDevice_
+  , _avInstanceId = pInstanceId_
+  , _avVolumeId = pVolumeId_
+  }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 avDryRun :: Lens' AttachVolume (Maybe Bool)
 avDryRun = lens _avDryRun (\ s a -> s{_avDryRun = a});
 
--- | The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
-avVolumeId :: Lens' AttachVolume Text
-avVolumeId = lens _avVolumeId (\ s a -> s{_avVolumeId = a});
+-- | The device name (for example, @/dev/sdh@ or @xvdh@ ).
+avDevice :: Lens' AttachVolume Text
+avDevice = lens _avDevice (\ s a -> s{_avDevice = a});
 
 -- | The ID of the instance.
 avInstanceId :: Lens' AttachVolume Text
 avInstanceId = lens _avInstanceId (\ s a -> s{_avInstanceId = a});
 
--- | The device name to expose to the instance (for example, '\/dev\/sdh' or 'xvdh').
-avDevice :: Lens' AttachVolume Text
-avDevice = lens _avDevice (\ s a -> s{_avDevice = a});
+-- | The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
+avVolumeId :: Lens' AttachVolume Text
+avVolumeId = lens _avVolumeId (\ s a -> s{_avVolumeId = a});
 
 instance AWSRequest AttachVolume where
         type Rs AttachVolume = VolumeAttachment
         request = postQuery ec2
         response = receiveXML (\ s h x -> parseXML x)
 
-instance Hashable AttachVolume
+instance Hashable AttachVolume where
 
-instance NFData AttachVolume
+instance NFData AttachVolume where
 
 instance ToHeaders AttachVolume where
         toHeaders = const mempty
@@ -136,6 +144,7 @@ instance ToQuery AttachVolume where
         toQuery AttachVolume'{..}
           = mconcat
               ["Action" =: ("AttachVolume" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
-               "DryRun" =: _avDryRun, "VolumeId" =: _avVolumeId,
-               "InstanceId" =: _avInstanceId, "Device" =: _avDevice]
+               "Version" =: ("2016-11-15" :: ByteString),
+               "DryRun" =: _avDryRun, "Device" =: _avDevice,
+               "InstanceId" =: _avInstanceId,
+               "VolumeId" =: _avVolumeId]

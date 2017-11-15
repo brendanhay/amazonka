@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DMS.ListTagsForResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all tags for an AWS DMS resource.
+--
+--
 module Network.AWS.DMS.ListTagsForResource
     (
     -- * Creating a Request
@@ -35,32 +37,34 @@ module Network.AWS.DMS.ListTagsForResource
     , ltfrrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'listTagsForResource' smart constructor.
 newtype ListTagsForResource = ListTagsForResource'
-    { _ltfrResourceARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfrResourceARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrResourceARN'
+-- * 'ltfrResourceARN' - The Amazon Resource Name (ARN) string that uniquely identifies the AWS DMS resource.
 listTagsForResource
     :: Text -- ^ 'ltfrResourceARN'
     -> ListTagsForResource
 listTagsForResource pResourceARN_ =
-    ListTagsForResource'
-    { _ltfrResourceARN = pResourceARN_
-    }
+  ListTagsForResource' {_ltfrResourceARN = pResourceARN_}
+
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the AWS DMS resource.
 ltfrResourceARN :: Lens' ListTagsForResource Text
@@ -76,9 +80,9 @@ instance AWSRequest ListTagsForResource where
                  ListTagsForResourceResponse' <$>
                    (x .?> "TagList" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable ListTagsForResource
+instance Hashable ListTagsForResource where
 
-instance NFData ListTagsForResource
+instance NFData ListTagsForResource where
 
 instance ToHeaders ListTagsForResource where
         toHeaders
@@ -104,34 +108,36 @@ instance ToQuery ListTagsForResource where
 
 -- |
 --
+--
+--
 -- /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-    { _ltfrrsTagList        :: !(Maybe [Tag])
-    , _ltfrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfrrsTagList        :: !(Maybe [Tag])
+  , _ltfrrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrrsTagList'
+-- * 'ltfrrsTagList' - A list of tags for the resource.
 --
--- * 'ltfrrsResponseStatus'
+-- * 'ltfrrsResponseStatus' - -- | The response status code.
 listTagsForResourceResponse
     :: Int -- ^ 'ltfrrsResponseStatus'
     -> ListTagsForResourceResponse
 listTagsForResourceResponse pResponseStatus_ =
-    ListTagsForResourceResponse'
-    { _ltfrrsTagList = Nothing
-    , _ltfrrsResponseStatus = pResponseStatus_
-    }
+  ListTagsForResourceResponse'
+  {_ltfrrsTagList = Nothing, _ltfrrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of tags for the resource.
 ltfrrsTagList :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrsTagList = lens _ltfrrsTagList (\ s a -> s{_ltfrrsTagList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
 
-instance NFData ListTagsForResourceResponse
+instance NFData ListTagsForResourceResponse where

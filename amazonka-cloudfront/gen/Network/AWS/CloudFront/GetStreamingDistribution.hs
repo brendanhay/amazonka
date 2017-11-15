@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.GetStreamingDistribution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get the information about a streaming distribution.
+-- Gets information about a specified RTMP distribution, including the distribution configuration.
+--
+--
 module Network.AWS.CloudFront.GetStreamingDistribution
     (
     -- * Creating a Request
@@ -36,34 +38,35 @@ module Network.AWS.CloudFront.GetStreamingDistribution
     , gsdrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | The request to get a streaming distribution\'s information.
+-- | The request to get a streaming distribution's information.
+--
+--
 --
 -- /See:/ 'getStreamingDistribution' smart constructor.
 newtype GetStreamingDistribution = GetStreamingDistribution'
-    { _gsdId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsdId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetStreamingDistribution' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsdId'
+-- * 'gsdId' - The streaming distribution's ID.
 getStreamingDistribution
     :: Text -- ^ 'gsdId'
     -> GetStreamingDistribution
-getStreamingDistribution pId_ =
-    GetStreamingDistribution'
-    { _gsdId = pId_
-    }
+getStreamingDistribution pId_ = GetStreamingDistribution' {_gsdId = pId_}
 
--- | The streaming distribution\'s id.
+
+-- | The streaming distribution's ID.
 gsdId :: Lens' GetStreamingDistribution Text
 gsdId = lens _gsdId (\ s a -> s{_gsdId = a});
 
@@ -78,9 +81,9 @@ instance AWSRequest GetStreamingDistribution where
                    (h .#? "ETag") <*> (parseXML x) <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetStreamingDistribution
+instance Hashable GetStreamingDistribution where
 
-instance NFData GetStreamingDistribution
+instance NFData GetStreamingDistribution where
 
 instance ToHeaders GetStreamingDistribution where
         toHeaders = const mempty
@@ -88,49 +91,54 @@ instance ToHeaders GetStreamingDistribution where
 instance ToPath GetStreamingDistribution where
         toPath GetStreamingDistribution'{..}
           = mconcat
-              ["/2016-09-07/streaming-distribution/", toBS _gsdId]
+              ["/2017-03-25/streaming-distribution/", toBS _gsdId]
 
 instance ToQuery GetStreamingDistribution where
         toQuery = const mempty
 
 -- | The returned result of the corresponding request.
 --
+--
+--
 -- /See:/ 'getStreamingDistributionResponse' smart constructor.
 data GetStreamingDistributionResponse = GetStreamingDistributionResponse'
-    { _gsdrsETag                  :: !(Maybe Text)
-    , _gsdrsStreamingDistribution :: !(Maybe StreamingDistribution)
-    , _gsdrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsdrsETag                  :: !(Maybe Text)
+  , _gsdrsStreamingDistribution :: !(Maybe StreamingDistribution)
+  , _gsdrsResponseStatus        :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetStreamingDistributionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsdrsETag'
+-- * 'gsdrsETag' - The current version of the streaming distribution's information. For example: @E2QWRUHAPOMQZL@ .
 --
--- * 'gsdrsStreamingDistribution'
+-- * 'gsdrsStreamingDistribution' - The streaming distribution's information.
 --
--- * 'gsdrsResponseStatus'
+-- * 'gsdrsResponseStatus' - -- | The response status code.
 getStreamingDistributionResponse
     :: Int -- ^ 'gsdrsResponseStatus'
     -> GetStreamingDistributionResponse
 getStreamingDistributionResponse pResponseStatus_ =
-    GetStreamingDistributionResponse'
-    { _gsdrsETag = Nothing
-    , _gsdrsStreamingDistribution = Nothing
-    , _gsdrsResponseStatus = pResponseStatus_
-    }
+  GetStreamingDistributionResponse'
+  { _gsdrsETag = Nothing
+  , _gsdrsStreamingDistribution = Nothing
+  , _gsdrsResponseStatus = pResponseStatus_
+  }
 
--- | The current version of the streaming distribution\'s information. For example: E2QWRUHAPOMQZL.
+
+-- | The current version of the streaming distribution's information. For example: @E2QWRUHAPOMQZL@ .
 gsdrsETag :: Lens' GetStreamingDistributionResponse (Maybe Text)
 gsdrsETag = lens _gsdrsETag (\ s a -> s{_gsdrsETag = a});
 
--- | The streaming distribution\'s information.
+-- | The streaming distribution's information.
 gsdrsStreamingDistribution :: Lens' GetStreamingDistributionResponse (Maybe StreamingDistribution)
 gsdrsStreamingDistribution = lens _gsdrsStreamingDistribution (\ s a -> s{_gsdrsStreamingDistribution = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gsdrsResponseStatus :: Lens' GetStreamingDistributionResponse Int
 gsdrsResponseStatus = lens _gsdrsResponseStatus (\ s a -> s{_gsdrsResponseStatus = a});
 
 instance NFData GetStreamingDistributionResponse
+         where

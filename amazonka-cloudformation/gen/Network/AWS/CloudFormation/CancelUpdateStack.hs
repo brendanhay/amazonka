@@ -12,21 +12,22 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.CancelUpdateStack
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels an update on the specified stack. If the call completes successfully, the stack rolls back the update and reverts to the previous stack configuration.
 --
--- You can cancel only stacks that are in the UPDATE_IN_PROGRESS state.
+--
 module Network.AWS.CloudFormation.CancelUpdateStack
     (
     -- * Creating a Request
       cancelUpdateStack
     , CancelUpdateStack
     -- * Request Lenses
+    , cusClientRequestToken
     , cusStackName
 
     -- * Destructuring the Response
@@ -34,32 +35,42 @@ module Network.AWS.CloudFormation.CancelUpdateStack
     , CancelUpdateStackResponse
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | The input for the < CancelUpdateStack> action.
+-- | The input for the 'CancelUpdateStack' action.
+--
+--
 --
 -- /See:/ 'cancelUpdateStack' smart constructor.
-newtype CancelUpdateStack = CancelUpdateStack'
-    { _cusStackName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+data CancelUpdateStack = CancelUpdateStack'
+  { _cusClientRequestToken :: !(Maybe Text)
+  , _cusStackName          :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelUpdateStack' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cusStackName'
+-- * 'cusClientRequestToken' - A unique identifier for this @CancelUpdateStack@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry @CancelUpdateStack@ requests to ensure that AWS CloudFormation successfully received them.
+--
+-- * 'cusStackName' - The name or the unique stack ID that is associated with the stack.
 cancelUpdateStack
     :: Text -- ^ 'cusStackName'
     -> CancelUpdateStack
 cancelUpdateStack pStackName_ =
-    CancelUpdateStack'
-    { _cusStackName = pStackName_
-    }
+  CancelUpdateStack'
+  {_cusClientRequestToken = Nothing, _cusStackName = pStackName_}
+
+
+-- | A unique identifier for this @CancelUpdateStack@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry @CancelUpdateStack@ requests to ensure that AWS CloudFormation successfully received them.
+cusClientRequestToken :: Lens' CancelUpdateStack (Maybe Text)
+cusClientRequestToken = lens _cusClientRequestToken (\ s a -> s{_cusClientRequestToken = a});
 
 -- | The name or the unique stack ID that is associated with the stack.
 cusStackName :: Lens' CancelUpdateStack Text
@@ -70,9 +81,9 @@ instance AWSRequest CancelUpdateStack where
         request = postQuery cloudFormation
         response = receiveNull CancelUpdateStackResponse'
 
-instance Hashable CancelUpdateStack
+instance Hashable CancelUpdateStack where
 
-instance NFData CancelUpdateStack
+instance NFData CancelUpdateStack where
 
 instance ToHeaders CancelUpdateStack where
         toHeaders = const mempty
@@ -85,12 +96,14 @@ instance ToQuery CancelUpdateStack where
           = mconcat
               ["Action" =: ("CancelUpdateStack" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
+               "ClientRequestToken" =: _cusClientRequestToken,
                "StackName" =: _cusStackName]
 
 -- | /See:/ 'cancelUpdateStackResponse' smart constructor.
 data CancelUpdateStackResponse =
-    CancelUpdateStackResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CancelUpdateStackResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelUpdateStackResponse' with the minimum fields required to make a request.
 --
@@ -98,4 +111,5 @@ cancelUpdateStackResponse
     :: CancelUpdateStackResponse
 cancelUpdateStackResponse = CancelUpdateStackResponse'
 
-instance NFData CancelUpdateStackResponse
+
+instance NFData CancelUpdateStackResponse where

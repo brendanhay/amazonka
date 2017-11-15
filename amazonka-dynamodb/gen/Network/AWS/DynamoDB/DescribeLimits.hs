@@ -12,35 +12,40 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.DescribeLimits
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the current provisioned-capacity limits for your AWS account in a region, both for the region as a whole and for any one DynamoDB table that you create there.
 --
--- When you establish an AWS account, the account has initial limits on the maximum read capacity units and write capacity units that you can provision across all of your DynamoDB tables in a given region. Also, there are per-table limits that apply when you create a table there. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits> page in the /Amazon DynamoDB Developer Guide/.
 --
--- Although you can increase these limits by filing a case at <https://console.aws.amazon.com/support/home#/ AWS Support Center>, obtaining the increase is not instantaneous. The /DescribeLimits/ API lets you write code to compare the capacity you are currently using to those limits imposed by your account so that you have enough time to apply for an increase before you hit a limit.
+-- When you establish an AWS account, the account has initial limits on the maximum read capacity units and write capacity units that you can provision across all of your DynamoDB tables in a given region. Also, there are per-table limits that apply when you create a table there. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits> page in the /Amazon DynamoDB Developer Guide/ .
+--
+-- Although you can increase these limits by filing a case at <https://console.aws.amazon.com/support/home#/ AWS Support Center> , obtaining the increase is not instantaneous. The @DescribeLimits@ action lets you write code to compare the capacity you are currently using to those limits imposed by your account so that you have enough time to apply for an increase before you hit a limit.
 --
 -- For example, you could use one of the AWS SDKs to do the following:
 --
--- 1.  Call /DescribeLimits/ for a particular region to obtain your current account limits on provisioned capacity there.
+--     * Call @DescribeLimits@ for a particular region to obtain your current account limits on provisioned capacity there.
 --
--- 2.  Create a variable to hold the aggregate read capacity units provisioned for all your tables in that region, and one to hold the aggregate write capacity units. Zero them both.
+--     * Create a variable to hold the aggregate read capacity units provisioned for all your tables in that region, and one to hold the aggregate write capacity units. Zero them both.
 --
--- 3.  Call /ListTables/ to obtain a list of all your DynamoDB tables.
+--     * Call @ListTables@ to obtain a list of all your DynamoDB tables.
 --
--- 4.  For each table name listed by /ListTables/, do the following:
+--     * For each table name listed by @ListTables@ , do the following:
 --
---     -   Call /DescribeTable/ with the table name.
+--     * Call @DescribeTable@ with the table name.
 --
---     -   Use the data returned by /DescribeTable/ to add the read capacity units and write capacity units provisioned for the table itself to your variables.
+--     * Use the data returned by @DescribeTable@ to add the read capacity units and write capacity units provisioned for the table itself to your variables.
 --
---     -   If the table has one or more global secondary indexes (GSIs), loop over these GSIs and add their provisioned capacity values to your variables as well.
+--     * If the table has one or more global secondary indexes (GSIs), loop over these GSIs and add their provisioned capacity values to your variables as well.
 --
--- 5.  Report the account limits for that region returned by /DescribeLimits/, along with the total current provisioned capacity levels you have calculated.
+--
+--
+--     * Report the account limits for that region returned by @DescribeLimits@ , along with the total current provisioned capacity levels you have calculated.
+--
+--
 --
 -- This will let you see whether you are getting close to your account-level limits.
 --
@@ -48,9 +53,8 @@
 --
 -- For existing tables and their GSIs, DynamoDB will not let you increase provisioned capacity extremely rapidly, but the only upper limit that applies is that the aggregate provisioned capacity over all your tables and GSIs cannot exceed either of the per-account limits.
 --
--- /DescribeLimits/ should only be called periodically. You can expect throttling errors if you call it more than once in a minute.
+-- The @DescribeLimits@ Request element has no content.
 --
--- The /DescribeLimits/ Request element has no content.
 module Network.AWS.DynamoDB.DescribeLimits
     (
     -- * Creating a Request
@@ -68,25 +72,29 @@ module Network.AWS.DynamoDB.DescribeLimits
     , dlrsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a /DescribeLimits/ operation. Has no content.
+-- | Represents the input of a @DescribeLimits@ operation. Has no content.
+--
+--
 --
 -- /See:/ 'describeLimits' smart constructor.
 data DescribeLimits =
-    DescribeLimits'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeLimits'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLimits' with the minimum fields required to make a request.
 --
 describeLimits
     :: DescribeLimits
 describeLimits = DescribeLimits'
+
 
 instance AWSRequest DescribeLimits where
         type Rs DescribeLimits = DescribeLimitsResponse
@@ -101,9 +109,9 @@ instance AWSRequest DescribeLimits where
                      <*> (x .?> "AccountMaxReadCapacityUnits")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeLimits
+instance Hashable DescribeLimits where
 
-instance NFData DescribeLimits
+instance NFData DescribeLimits where
 
 instance ToHeaders DescribeLimits where
         toHeaders
@@ -123,41 +131,45 @@ instance ToPath DescribeLimits where
 instance ToQuery DescribeLimits where
         toQuery = const mempty
 
--- | Represents the output of a /DescribeLimits/ operation.
+-- | Represents the output of a @DescribeLimits@ operation.
+--
+--
 --
 -- /See:/ 'describeLimitsResponse' smart constructor.
 data DescribeLimitsResponse = DescribeLimitsResponse'
-    { _dlrsTableMaxWriteCapacityUnits   :: !(Maybe Nat)
-    , _dlrsTableMaxReadCapacityUnits    :: !(Maybe Nat)
-    , _dlrsAccountMaxWriteCapacityUnits :: !(Maybe Nat)
-    , _dlrsAccountMaxReadCapacityUnits  :: !(Maybe Nat)
-    , _dlrsResponseStatus               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlrsTableMaxWriteCapacityUnits   :: !(Maybe Nat)
+  , _dlrsTableMaxReadCapacityUnits    :: !(Maybe Nat)
+  , _dlrsAccountMaxWriteCapacityUnits :: !(Maybe Nat)
+  , _dlrsAccountMaxReadCapacityUnits  :: !(Maybe Nat)
+  , _dlrsResponseStatus               :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLimitsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlrsTableMaxWriteCapacityUnits'
+-- * 'dlrsTableMaxWriteCapacityUnits' - The maximum write capacity units that your account allows you to provision for a new table that you are creating in this region, including the write capacity units provisioned for its global secondary indexes (GSIs).
 --
--- * 'dlrsTableMaxReadCapacityUnits'
+-- * 'dlrsTableMaxReadCapacityUnits' - The maximum read capacity units that your account allows you to provision for a new table that you are creating in this region, including the read capacity units provisioned for its global secondary indexes (GSIs).
 --
--- * 'dlrsAccountMaxWriteCapacityUnits'
+-- * 'dlrsAccountMaxWriteCapacityUnits' - The maximum total write capacity units that your account allows you to provision across all of your tables in this region.
 --
--- * 'dlrsAccountMaxReadCapacityUnits'
+-- * 'dlrsAccountMaxReadCapacityUnits' - The maximum total read capacity units that your account allows you to provision across all of your tables in this region.
 --
--- * 'dlrsResponseStatus'
+-- * 'dlrsResponseStatus' - -- | The response status code.
 describeLimitsResponse
     :: Int -- ^ 'dlrsResponseStatus'
     -> DescribeLimitsResponse
 describeLimitsResponse pResponseStatus_ =
-    DescribeLimitsResponse'
-    { _dlrsTableMaxWriteCapacityUnits = Nothing
-    , _dlrsTableMaxReadCapacityUnits = Nothing
-    , _dlrsAccountMaxWriteCapacityUnits = Nothing
-    , _dlrsAccountMaxReadCapacityUnits = Nothing
-    , _dlrsResponseStatus = pResponseStatus_
-    }
+  DescribeLimitsResponse'
+  { _dlrsTableMaxWriteCapacityUnits = Nothing
+  , _dlrsTableMaxReadCapacityUnits = Nothing
+  , _dlrsAccountMaxWriteCapacityUnits = Nothing
+  , _dlrsAccountMaxReadCapacityUnits = Nothing
+  , _dlrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The maximum write capacity units that your account allows you to provision for a new table that you are creating in this region, including the write capacity units provisioned for its global secondary indexes (GSIs).
 dlrsTableMaxWriteCapacityUnits :: Lens' DescribeLimitsResponse (Maybe Natural)
@@ -175,8 +187,8 @@ dlrsAccountMaxWriteCapacityUnits = lens _dlrsAccountMaxWriteCapacityUnits (\ s a
 dlrsAccountMaxReadCapacityUnits :: Lens' DescribeLimitsResponse (Maybe Natural)
 dlrsAccountMaxReadCapacityUnits = lens _dlrsAccountMaxReadCapacityUnits (\ s a -> s{_dlrsAccountMaxReadCapacityUnits = a}) . mapping _Nat;
 
--- | The response status code.
+-- | -- | The response status code.
 dlrsResponseStatus :: Lens' DescribeLimitsResponse Int
 dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
 
-instance NFData DescribeLimitsResponse
+instance NFData DescribeLimitsResponse where

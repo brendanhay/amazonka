@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DeleteCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified certificate.
 --
--- A certificate cannot be deleted if it has a policy attached to it or if its status is set to ACTIVE. To delete a certificate, first use the < DetachPrincipalPolicy> API to detach all policies. Next, use the < UpdateCertificate> API to set the certificate to the INACTIVE status.
+--
+-- A certificate cannot be deleted if it has a policy attached to it or if its status is set to ACTIVE. To delete a certificate, first use the 'DetachPrincipalPolicy' API to detach all policies. Next, use the 'UpdateCertificate' API to set the certificate to the INACTIVE status.
+--
 module Network.AWS.IoT.DeleteCertificate
     (
     -- * Creating a Request
@@ -34,32 +36,34 @@ module Network.AWS.IoT.DeleteCertificate
     , DeleteCertificateResponse
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DeleteCertificate operation.
 --
+--
+--
 -- /See:/ 'deleteCertificate' smart constructor.
 newtype DeleteCertificate = DeleteCertificate'
-    { _dcCertificateId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcCertificateId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCertificate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcCertificateId'
+-- * 'dcCertificateId' - The ID of the certificate.
 deleteCertificate
     :: Text -- ^ 'dcCertificateId'
     -> DeleteCertificate
 deleteCertificate pCertificateId_ =
-    DeleteCertificate'
-    { _dcCertificateId = pCertificateId_
-    }
+  DeleteCertificate' {_dcCertificateId = pCertificateId_}
+
 
 -- | The ID of the certificate.
 dcCertificateId :: Lens' DeleteCertificate Text
@@ -70,9 +74,9 @@ instance AWSRequest DeleteCertificate where
         request = delete ioT
         response = receiveNull DeleteCertificateResponse'
 
-instance Hashable DeleteCertificate
+instance Hashable DeleteCertificate where
 
-instance NFData DeleteCertificate
+instance NFData DeleteCertificate where
 
 instance ToHeaders DeleteCertificate where
         toHeaders = const mempty
@@ -86,8 +90,9 @@ instance ToQuery DeleteCertificate where
 
 -- | /See:/ 'deleteCertificateResponse' smart constructor.
 data DeleteCertificateResponse =
-    DeleteCertificateResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteCertificateResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCertificateResponse' with the minimum fields required to make a request.
 --
@@ -95,4 +100,5 @@ deleteCertificateResponse
     :: DeleteCertificateResponse
 deleteCertificateResponse = DeleteCertificateResponse'
 
-instance NFData DeleteCertificateResponse
+
+instance NFData DeleteCertificateResponse where

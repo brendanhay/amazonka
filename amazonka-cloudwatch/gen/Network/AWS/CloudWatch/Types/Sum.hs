@@ -9,22 +9,23 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CloudWatch.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ComparisonOperator
-    = GreaterThanOrEqualToThreshold
-    | GreaterThanThreshold
-    | LessThanOrEqualToThreshold
-    | LessThanThreshold
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = GreaterThanOrEqualToThreshold
+  | GreaterThanThreshold
+  | LessThanOrEqualToThreshold
+  | LessThanThreshold
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ComparisonOperator where
     parser = takeLowerText >>= \case
@@ -52,10 +53,11 @@ instance FromXML ComparisonOperator where
     parseXML = parseXMLText "ComparisonOperator"
 
 data HistoryItemType
-    = Action
-    | ConfigurationUpdate
-    | StateUpdate
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Action
+  | ConfigurationUpdate
+  | StateUpdate
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText HistoryItemType where
     parser = takeLowerText >>= \case
@@ -81,34 +83,35 @@ instance FromXML HistoryItemType where
     parseXML = parseXMLText "HistoryItemType"
 
 data StandardUnit
-    = Bits
-    | BitsSecond
-    | Bytes
-    | BytesSecond
-    | Count
-    | CountSecond
-    | Gigabits
-    | GigabitsSecond
-    | Gigabytes
-    | GigabytesSecond
-    | Kilobits
-    | KilobitsSecond
-    | Kilobytes
-    | KilobytesSecond
-    | Megabits
-    | MegabitsSecond
-    | Megabytes
-    | MegabytesSecond
-    | Microseconds
-    | Milliseconds
-    | None
-    | Percent
-    | Seconds
-    | Terabits
-    | TerabitsSecond
-    | Terabytes
-    | TerabytesSecond
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Bits
+  | BitsSecond
+  | Bytes
+  | BytesSecond
+  | Count
+  | CountSecond
+  | Gigabits
+  | GigabitsSecond
+  | Gigabytes
+  | GigabytesSecond
+  | Kilobits
+  | KilobitsSecond
+  | Kilobytes
+  | KilobytesSecond
+  | Megabits
+  | MegabitsSecond
+  | Megabytes
+  | MegabytesSecond
+  | Microseconds
+  | Milliseconds
+  | None
+  | Percent
+  | Seconds
+  | Terabits
+  | TerabitsSecond
+  | Terabytes
+  | TerabytesSecond
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StandardUnit where
     parser = takeLowerText >>= \case
@@ -182,10 +185,11 @@ instance FromXML StandardUnit where
     parseXML = parseXMLText "StandardUnit"
 
 data StateValue
-    = Alarm
-    | InsufficientData
-    | OK
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Alarm
+  | InsufficientData
+  | OK
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StateValue where
     parser = takeLowerText >>= \case
@@ -211,12 +215,13 @@ instance FromXML StateValue where
     parseXML = parseXMLText "StateValue"
 
 data Statistic
-    = Average
-    | Maximum
-    | Minimum
-    | SampleCount
-    | Sum
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Average
+  | Maximum
+  | Minimum
+  | SampleCount
+  | Sum
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Statistic where
     parser = takeLowerText >>= \case

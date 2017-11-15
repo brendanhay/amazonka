@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteGroupPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified inline policy that is embedded in the specified IAM group.
 --
--- A group can also have managed policies attached to it. To detach a managed policy from a group, use < DetachGroupPolicy>. For more information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+--
+-- A group can also have managed policies attached to it. To detach a managed policy from a group, use 'DetachGroupPolicy' . For more information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.DeleteGroupPolicy
     (
     -- * Creating a Request
@@ -35,45 +37,40 @@ module Network.AWS.IAM.DeleteGroupPolicy
     , DeleteGroupPolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteGroupPolicy' smart constructor.
 data DeleteGroupPolicy = DeleteGroupPolicy'
-    { _dGroupName  :: !Text
-    , _dPolicyName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dGroupName  :: !Text
+  , _dPolicyName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteGroupPolicy' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dGroupName'
+-- * 'dGroupName' - The name (friendly name, not ARN) identifying the group that the policy is embedded in. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'dPolicyName'
+-- * 'dPolicyName' - The name identifying the policy document to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+
 deleteGroupPolicy
     :: Text -- ^ 'dGroupName'
     -> Text -- ^ 'dPolicyName'
     -> DeleteGroupPolicy
 deleteGroupPolicy pGroupName_ pPolicyName_ =
-    DeleteGroupPolicy'
-    { _dGroupName = pGroupName_
-    , _dPolicyName = pPolicyName_
-    }
+  DeleteGroupPolicy' {_dGroupName = pGroupName_, _dPolicyName = pPolicyName_}
 
--- | The name (friendly name, not ARN) identifying the group that the policy is embedded in.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+
+-- | The name (friendly name, not ARN) identifying the group that the policy is embedded in. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 dGroupName :: Lens' DeleteGroupPolicy Text
 dGroupName = lens _dGroupName (\ s a -> s{_dGroupName = a});
 
--- | The name identifying the policy document to delete.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name identifying the policy document to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+
 dPolicyName :: Lens' DeleteGroupPolicy Text
 dPolicyName = lens _dPolicyName (\ s a -> s{_dPolicyName = a});
 
@@ -82,9 +79,9 @@ instance AWSRequest DeleteGroupPolicy where
         request = postQuery iam
         response = receiveNull DeleteGroupPolicyResponse'
 
-instance Hashable DeleteGroupPolicy
+instance Hashable DeleteGroupPolicy where
 
-instance NFData DeleteGroupPolicy
+instance NFData DeleteGroupPolicy where
 
 instance ToHeaders DeleteGroupPolicy where
         toHeaders = const mempty
@@ -102,8 +99,9 @@ instance ToQuery DeleteGroupPolicy where
 
 -- | /See:/ 'deleteGroupPolicyResponse' smart constructor.
 data DeleteGroupPolicyResponse =
-    DeleteGroupPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteGroupPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteGroupPolicyResponse' with the minimum fields required to make a request.
 --
@@ -111,4 +109,5 @@ deleteGroupPolicyResponse
     :: DeleteGroupPolicyResponse
 deleteGroupPolicyResponse = DeleteGroupPolicyResponse'
 
-instance NFData DeleteGroupPolicyResponse
+
+instance NFData DeleteGroupPolicyResponse where

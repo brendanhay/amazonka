@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.ListIdentityPoolUsage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a list of identity pools registered with Cognito.
 --
+--
 -- ListIdentityPoolUsage can only be called with developer credentials. You cannot make this API call with the temporary user credentials provided by Cognito Identity.
+--
 module Network.AWS.CognitoSync.ListIdentityPoolUsage
     (
     -- * Creating a Request
@@ -41,35 +43,34 @@ module Network.AWS.CognitoSync.ListIdentityPoolUsage
     , lipursResponseStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.CognitoSync.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request for usage information on an identity pool.
 --
 -- /See:/ 'listIdentityPoolUsage' smart constructor.
 data ListIdentityPoolUsage = ListIdentityPoolUsage'
-    { _lipuNextToken  :: !(Maybe Text)
-    , _lipuMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lipuNextToken  :: !(Maybe Text)
+  , _lipuMaxResults :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListIdentityPoolUsage' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lipuNextToken'
+-- * 'lipuNextToken' - A pagination token for obtaining the next page of results.
 --
--- * 'lipuMaxResults'
+-- * 'lipuMaxResults' - The maximum number of results to be returned.
 listIdentityPoolUsage
     :: ListIdentityPoolUsage
 listIdentityPoolUsage =
-    ListIdentityPoolUsage'
-    { _lipuNextToken = Nothing
-    , _lipuMaxResults = Nothing
-    }
+  ListIdentityPoolUsage' {_lipuNextToken = Nothing, _lipuMaxResults = Nothing}
+
 
 -- | A pagination token for obtaining the next page of results.
 lipuNextToken :: Lens' ListIdentityPoolUsage (Maybe Text)
@@ -93,9 +94,9 @@ instance AWSRequest ListIdentityPoolUsage where
                      <*> (x .?> "MaxResults")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListIdentityPoolUsage
+instance Hashable ListIdentityPoolUsage where
 
-instance NFData ListIdentityPoolUsage
+instance NFData ListIdentityPoolUsage where
 
 instance ToHeaders ListIdentityPoolUsage where
         toHeaders
@@ -117,37 +118,39 @@ instance ToQuery ListIdentityPoolUsage where
 --
 -- /See:/ 'listIdentityPoolUsageResponse' smart constructor.
 data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'
-    { _lipursIdentityPoolUsages :: !(Maybe [IdentityPoolUsage])
-    , _lipursCount              :: !(Maybe Int)
-    , _lipursNextToken          :: !(Maybe Text)
-    , _lipursMaxResults         :: !(Maybe Int)
-    , _lipursResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lipursIdentityPoolUsages :: !(Maybe [IdentityPoolUsage])
+  , _lipursCount              :: !(Maybe Int)
+  , _lipursNextToken          :: !(Maybe Text)
+  , _lipursMaxResults         :: !(Maybe Int)
+  , _lipursResponseStatus     :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListIdentityPoolUsageResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lipursIdentityPoolUsages'
+-- * 'lipursIdentityPoolUsages' - Usage information for the identity pools.
 --
--- * 'lipursCount'
+-- * 'lipursCount' - Total number of identities for the identity pool.
 --
--- * 'lipursNextToken'
+-- * 'lipursNextToken' - A pagination token for obtaining the next page of results.
 --
--- * 'lipursMaxResults'
+-- * 'lipursMaxResults' - The maximum number of results to be returned.
 --
--- * 'lipursResponseStatus'
+-- * 'lipursResponseStatus' - -- | The response status code.
 listIdentityPoolUsageResponse
     :: Int -- ^ 'lipursResponseStatus'
     -> ListIdentityPoolUsageResponse
 listIdentityPoolUsageResponse pResponseStatus_ =
-    ListIdentityPoolUsageResponse'
-    { _lipursIdentityPoolUsages = Nothing
-    , _lipursCount = Nothing
-    , _lipursNextToken = Nothing
-    , _lipursMaxResults = Nothing
-    , _lipursResponseStatus = pResponseStatus_
-    }
+  ListIdentityPoolUsageResponse'
+  { _lipursIdentityPoolUsages = Nothing
+  , _lipursCount = Nothing
+  , _lipursNextToken = Nothing
+  , _lipursMaxResults = Nothing
+  , _lipursResponseStatus = pResponseStatus_
+  }
+
 
 -- | Usage information for the identity pools.
 lipursIdentityPoolUsages :: Lens' ListIdentityPoolUsageResponse [IdentityPoolUsage]
@@ -165,8 +168,8 @@ lipursNextToken = lens _lipursNextToken (\ s a -> s{_lipursNextToken = a});
 lipursMaxResults :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
 lipursMaxResults = lens _lipursMaxResults (\ s a -> s{_lipursMaxResults = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lipursResponseStatus :: Lens' ListIdentityPoolUsageResponse Int
 lipursResponseStatus = lens _lipursResponseStatus (\ s a -> s{_lipursResponseStatus = a});
 
-instance NFData ListIdentityPoolUsageResponse
+instance NFData ListIdentityPoolUsageResponse where

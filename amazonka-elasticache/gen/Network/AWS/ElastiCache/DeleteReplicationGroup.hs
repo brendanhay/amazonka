@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DeleteReplicationGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DeleteReplicationGroup/ action deletes an existing replication group. By default, this action deletes the entire replication group, including the primary cluster and all of the read replicas. You can optionally delete only the read replicas, while retaining the primary cluster.
+-- Deletes an existing replication group. By default, this operation deletes the entire replication group, including the primary/primaries and all of the read replicas. If the replication group has only one primary, you can optionally delete only the read replicas, while retaining the primary by setting @RetainPrimaryCluster=true@ .
 --
--- When you receive a successful response from this action, Amazon ElastiCache immediately begins deleting the selected resources; you cannot cancel or revert this action.
+--
+-- When you receive a successful response from this operation, Amazon ElastiCache immediately begins deleting the selected resources; you cannot cancel or revert this operation.
+--
 module Network.AWS.ElastiCache.DeleteReplicationGroup
     (
     -- * Creating a Request
@@ -39,46 +41,50 @@ module Network.AWS.ElastiCache.DeleteReplicationGroup
     , delrsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a /DeleteReplicationGroup/ action.
+-- | Represents the input of a @DeleteReplicationGroup@ operation.
+--
+--
 --
 -- /See:/ 'deleteReplicationGroup' smart constructor.
 data DeleteReplicationGroup = DeleteReplicationGroup'
-    { _drgFinalSnapshotIdentifier :: !(Maybe Text)
-    , _drgRetainPrimaryCluster    :: !(Maybe Bool)
-    , _drgReplicationGroupId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drgFinalSnapshotIdentifier :: !(Maybe Text)
+  , _drgRetainPrimaryCluster    :: !(Maybe Bool)
+  , _drgReplicationGroupId      :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteReplicationGroup' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drgFinalSnapshotIdentifier'
+-- * 'drgFinalSnapshotIdentifier' - The name of a final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster, rather than one of the replicas; this is to ensure that it captures the freshest data. After the final snapshot is taken, the replication group is immediately deleted.
 --
--- * 'drgRetainPrimaryCluster'
+-- * 'drgRetainPrimaryCluster' - If set to @true@ , all of the read replicas are deleted, but the primary node is retained.
 --
--- * 'drgReplicationGroupId'
+-- * 'drgReplicationGroupId' - The identifier for the cluster to be deleted. This parameter is not case sensitive.
 deleteReplicationGroup
     :: Text -- ^ 'drgReplicationGroupId'
     -> DeleteReplicationGroup
 deleteReplicationGroup pReplicationGroupId_ =
-    DeleteReplicationGroup'
-    { _drgFinalSnapshotIdentifier = Nothing
-    , _drgRetainPrimaryCluster = Nothing
-    , _drgReplicationGroupId = pReplicationGroupId_
-    }
+  DeleteReplicationGroup'
+  { _drgFinalSnapshotIdentifier = Nothing
+  , _drgRetainPrimaryCluster = Nothing
+  , _drgReplicationGroupId = pReplicationGroupId_
+  }
 
--- | The name of a final node group snapshot. ElastiCache creates the snapshot from the primary node in the cluster, rather than one of the replicas; this is to ensure that it captures the freshest data. After the final snapshot is taken, the cluster is immediately deleted.
+
+-- | The name of a final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster, rather than one of the replicas; this is to ensure that it captures the freshest data. After the final snapshot is taken, the replication group is immediately deleted.
 drgFinalSnapshotIdentifier :: Lens' DeleteReplicationGroup (Maybe Text)
 drgFinalSnapshotIdentifier = lens _drgFinalSnapshotIdentifier (\ s a -> s{_drgFinalSnapshotIdentifier = a});
 
--- | If set to /true/, all of the read replicas will be deleted, but the primary node will be retained.
+-- | If set to @true@ , all of the read replicas are deleted, but the primary node is retained.
 drgRetainPrimaryCluster :: Lens' DeleteReplicationGroup (Maybe Bool)
 drgRetainPrimaryCluster = lens _drgRetainPrimaryCluster (\ s a -> s{_drgRetainPrimaryCluster = a});
 
@@ -96,9 +102,9 @@ instance AWSRequest DeleteReplicationGroup where
                  DeleteReplicationGroupResponse' <$>
                    (x .@? "ReplicationGroup") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteReplicationGroup
+instance Hashable DeleteReplicationGroup where
 
-instance NFData DeleteReplicationGroup
+instance NFData DeleteReplicationGroup where
 
 instance ToHeaders DeleteReplicationGroup where
         toHeaders = const mempty
@@ -119,32 +125,32 @@ instance ToQuery DeleteReplicationGroup where
 
 -- | /See:/ 'deleteReplicationGroupResponse' smart constructor.
 data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'
-    { _delrsReplicationGroup :: !(Maybe ReplicationGroup)
-    , _delrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delrsReplicationGroup :: !(Maybe ReplicationGroup)
+  , _delrsResponseStatus   :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteReplicationGroupResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsReplicationGroup'
+-- * 'delrsReplicationGroup' - Undocumented member.
 --
--- * 'delrsResponseStatus'
+-- * 'delrsResponseStatus' - -- | The response status code.
 deleteReplicationGroupResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteReplicationGroupResponse
 deleteReplicationGroupResponse pResponseStatus_ =
-    DeleteReplicationGroupResponse'
-    { _delrsReplicationGroup = Nothing
-    , _delrsResponseStatus = pResponseStatus_
-    }
+  DeleteReplicationGroupResponse'
+  {_delrsReplicationGroup = Nothing, _delrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 delrsReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGroup)
 delrsReplicationGroup = lens _delrsReplicationGroup (\ s a -> s{_delrsReplicationGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteReplicationGroupResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 
-instance NFData DeleteReplicationGroupResponse
+instance NFData DeleteReplicationGroupResponse where

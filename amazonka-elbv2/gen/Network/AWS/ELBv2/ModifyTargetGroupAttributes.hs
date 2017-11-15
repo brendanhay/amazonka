@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.ModifyTargetGroupAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the specified attributes of the specified target group.
+--
+--
 module Network.AWS.ELBv2.ModifyTargetGroupAttributes
     (
     -- * Creating a Request
@@ -36,36 +38,34 @@ module Network.AWS.ELBv2.ModifyTargetGroupAttributes
     , mtgarsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for ModifyTargetGroupAttributes.
---
--- /See:/ 'modifyTargetGroupAttributes' smart constructor.
+-- | /See:/ 'modifyTargetGroupAttributes' smart constructor.
 data ModifyTargetGroupAttributes = ModifyTargetGroupAttributes'
-    { _mtgaTargetGroupARN :: !Text
-    , _mtgaAttributes     :: ![TargetGroupAttribute]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mtgaTargetGroupARN :: !Text
+  , _mtgaAttributes     :: ![TargetGroupAttribute]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyTargetGroupAttributes' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mtgaTargetGroupARN'
+-- * 'mtgaTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 --
--- * 'mtgaAttributes'
+-- * 'mtgaAttributes' - The attributes.
 modifyTargetGroupAttributes
     :: Text -- ^ 'mtgaTargetGroupARN'
     -> ModifyTargetGroupAttributes
 modifyTargetGroupAttributes pTargetGroupARN_ =
-    ModifyTargetGroupAttributes'
-    { _mtgaTargetGroupARN = pTargetGroupARN_
-    , _mtgaAttributes = mempty
-    }
+  ModifyTargetGroupAttributes'
+  {_mtgaTargetGroupARN = pTargetGroupARN_, _mtgaAttributes = mempty}
+
 
 -- | The Amazon Resource Name (ARN) of the target group.
 mtgaTargetGroupARN :: Lens' ModifyTargetGroupAttributes Text
@@ -88,9 +88,9 @@ instance AWSRequest ModifyTargetGroupAttributes where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ModifyTargetGroupAttributes
+instance Hashable ModifyTargetGroupAttributes where
 
-instance NFData ModifyTargetGroupAttributes
+instance NFData ModifyTargetGroupAttributes where
 
 instance ToHeaders ModifyTargetGroupAttributes where
         toHeaders = const mempty
@@ -107,36 +107,35 @@ instance ToQuery ModifyTargetGroupAttributes where
                "TargetGroupArn" =: _mtgaTargetGroupARN,
                "Attributes" =: toQueryList "member" _mtgaAttributes]
 
--- | Contains the output of ModifyTargetGroupAttributes.
---
--- /See:/ 'modifyTargetGroupAttributesResponse' smart constructor.
+-- | /See:/ 'modifyTargetGroupAttributesResponse' smart constructor.
 data ModifyTargetGroupAttributesResponse = ModifyTargetGroupAttributesResponse'
-    { _mtgarsAttributes     :: !(Maybe [TargetGroupAttribute])
-    , _mtgarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mtgarsAttributes     :: !(Maybe [TargetGroupAttribute])
+  , _mtgarsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyTargetGroupAttributesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mtgarsAttributes'
+-- * 'mtgarsAttributes' - Information about the attributes.
 --
--- * 'mtgarsResponseStatus'
+-- * 'mtgarsResponseStatus' - -- | The response status code.
 modifyTargetGroupAttributesResponse
     :: Int -- ^ 'mtgarsResponseStatus'
     -> ModifyTargetGroupAttributesResponse
 modifyTargetGroupAttributesResponse pResponseStatus_ =
-    ModifyTargetGroupAttributesResponse'
-    { _mtgarsAttributes = Nothing
-    , _mtgarsResponseStatus = pResponseStatus_
-    }
+  ModifyTargetGroupAttributesResponse'
+  {_mtgarsAttributes = Nothing, _mtgarsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the attributes.
 mtgarsAttributes :: Lens' ModifyTargetGroupAttributesResponse [TargetGroupAttribute]
 mtgarsAttributes = lens _mtgarsAttributes (\ s a -> s{_mtgarsAttributes = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 mtgarsResponseStatus :: Lens' ModifyTargetGroupAttributesResponse Int
 mtgarsResponseStatus = lens _mtgarsResponseStatus (\ s a -> s{_mtgarsResponseStatus = a});
 
 instance NFData ModifyTargetGroupAttributesResponse
+         where

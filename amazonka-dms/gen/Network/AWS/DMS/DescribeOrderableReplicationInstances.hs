@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeOrderableReplicationInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about the replication instance types that can be created in the specified region.
+--
+--
 module Network.AWS.DMS.DescribeOrderableReplicationInstances
     (
     -- * Creating a Request
@@ -37,50 +39,49 @@ module Network.AWS.DMS.DescribeOrderableReplicationInstances
     , dorirsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeOrderableReplicationInstances' smart constructor.
 data DescribeOrderableReplicationInstances = DescribeOrderableReplicationInstances'
-    { _doriMarker     :: !(Maybe Text)
-    , _doriMaxRecords :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _doriMarker     :: !(Maybe Text)
+  , _doriMaxRecords :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeOrderableReplicationInstances' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'doriMarker'
+-- * 'doriMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'doriMaxRecords'
+-- * 'doriMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 describeOrderableReplicationInstances
     :: DescribeOrderableReplicationInstances
 describeOrderableReplicationInstances =
-    DescribeOrderableReplicationInstances'
-    { _doriMarker = Nothing
-    , _doriMaxRecords = Nothing
-    }
+  DescribeOrderableReplicationInstances'
+  {_doriMarker = Nothing, _doriMaxRecords = Nothing}
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 doriMarker :: Lens' DescribeOrderableReplicationInstances (Maybe Text)
 doriMarker = lens _doriMarker (\ s a -> s{_doriMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 doriMaxRecords :: Lens' DescribeOrderableReplicationInstances (Maybe Int)
 doriMaxRecords = lens _doriMaxRecords (\ s a -> s{_doriMaxRecords = a});
 
 instance AWSRequest
-         DescribeOrderableReplicationInstances where
+           DescribeOrderableReplicationInstances
+         where
         type Rs DescribeOrderableReplicationInstances =
              DescribeOrderableReplicationInstancesResponse
         request = postJSON dms
@@ -93,12 +94,15 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable
-         DescribeOrderableReplicationInstances
+           DescribeOrderableReplicationInstances
+         where
 
 instance NFData DescribeOrderableReplicationInstances
+         where
 
 instance ToHeaders
-         DescribeOrderableReplicationInstances where
+           DescribeOrderableReplicationInstances
+         where
         toHeaders
           = const
               (mconcat
@@ -121,38 +125,43 @@ instance ToPath DescribeOrderableReplicationInstances
         toPath = const "/"
 
 instance ToQuery
-         DescribeOrderableReplicationInstances where
+           DescribeOrderableReplicationInstances
+         where
         toQuery = const mempty
 
 -- |
 --
+--
+--
 -- /See:/ 'describeOrderableReplicationInstancesResponse' smart constructor.
 data DescribeOrderableReplicationInstancesResponse = DescribeOrderableReplicationInstancesResponse'
-    { _dorirsMarker                        :: !(Maybe Text)
-    , _dorirsOrderableReplicationInstances :: !(Maybe [OrderableReplicationInstance])
-    , _dorirsResponseStatus                :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dorirsMarker :: !(Maybe Text)
+  , _dorirsOrderableReplicationInstances :: !(Maybe [OrderableReplicationInstance])
+  , _dorirsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeOrderableReplicationInstancesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dorirsMarker'
+-- * 'dorirsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dorirsOrderableReplicationInstances'
+-- * 'dorirsOrderableReplicationInstances' - The order-able replication instances available.
 --
--- * 'dorirsResponseStatus'
+-- * 'dorirsResponseStatus' - -- | The response status code.
 describeOrderableReplicationInstancesResponse
     :: Int -- ^ 'dorirsResponseStatus'
     -> DescribeOrderableReplicationInstancesResponse
 describeOrderableReplicationInstancesResponse pResponseStatus_ =
-    DescribeOrderableReplicationInstancesResponse'
-    { _dorirsMarker = Nothing
-    , _dorirsOrderableReplicationInstances = Nothing
-    , _dorirsResponseStatus = pResponseStatus_
-    }
+  DescribeOrderableReplicationInstancesResponse'
+  { _dorirsMarker = Nothing
+  , _dorirsOrderableReplicationInstances = Nothing
+  , _dorirsResponseStatus = pResponseStatus_
+  }
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dorirsMarker :: Lens' DescribeOrderableReplicationInstancesResponse (Maybe Text)
 dorirsMarker = lens _dorirsMarker (\ s a -> s{_dorirsMarker = a});
 
@@ -160,9 +169,10 @@ dorirsMarker = lens _dorirsMarker (\ s a -> s{_dorirsMarker = a});
 dorirsOrderableReplicationInstances :: Lens' DescribeOrderableReplicationInstancesResponse [OrderableReplicationInstance]
 dorirsOrderableReplicationInstances = lens _dorirsOrderableReplicationInstances (\ s a -> s{_dorirsOrderableReplicationInstances = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dorirsResponseStatus :: Lens' DescribeOrderableReplicationInstancesResponse Int
 dorirsResponseStatus = lens _dorirsResponseStatus (\ s a -> s{_dorirsResponseStatus = a});
 
 instance NFData
-         DescribeOrderableReplicationInstancesResponse
+           DescribeOrderableReplicationInstancesResponse
+         where

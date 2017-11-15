@@ -12,17 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeVirtualInterfaces
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Displays all virtual interfaces for an AWS account. Virtual interfaces deleted fewer than 15 minutes before DescribeVirtualInterfaces is called are also returned. If a connection ID is included then only virtual interfaces associated with this connection will be returned. If a virtual interface ID is included then only a single virtual interface will be returned.
+-- Displays all virtual interfaces for an AWS account. Virtual interfaces deleted fewer than 15 minutes before you make the request are also returned. If you specify a connection ID, only the virtual interfaces associated with the connection are returned. If you specify a virtual interface ID, then only a single virtual interface is returned.
+--
 --
 -- A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location and the customer.
 --
--- If a connection ID is provided, only virtual interfaces provisioned on the specified connection will be returned. If a virtual interface ID is provided, only this particular virtual interface will be returned.
 module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     (
     -- * Creating a Request
@@ -40,35 +40,37 @@ module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     , dvisrsResponseStatus
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the DescribeVirtualInterfaces operation.
 --
+--
+--
 -- /See:/ 'describeVirtualInterfaces' smart constructor.
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces'
-    { _dviConnectionId       :: !(Maybe Text)
-    , _dviVirtualInterfaceId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dviConnectionId       :: !(Maybe Text)
+  , _dviVirtualInterfaceId :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVirtualInterfaces' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dviConnectionId'
+-- * 'dviConnectionId' - Undocumented member.
 --
--- * 'dviVirtualInterfaceId'
+-- * 'dviVirtualInterfaceId' - Undocumented member.
 describeVirtualInterfaces
     :: DescribeVirtualInterfaces
 describeVirtualInterfaces =
-    DescribeVirtualInterfaces'
-    { _dviConnectionId = Nothing
-    , _dviVirtualInterfaceId = Nothing
-    }
+  DescribeVirtualInterfaces'
+  {_dviConnectionId = Nothing, _dviVirtualInterfaceId = Nothing}
+
 
 -- | Undocumented member.
 dviConnectionId :: Lens' DescribeVirtualInterfaces (Maybe Text)
@@ -89,9 +91,9 @@ instance AWSRequest DescribeVirtualInterfaces where
                    (x .?> "virtualInterfaces" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeVirtualInterfaces
+instance Hashable DescribeVirtualInterfaces where
 
-instance NFData DescribeVirtualInterfaces
+instance NFData DescribeVirtualInterfaces where
 
 instance ToHeaders DescribeVirtualInterfaces where
         toHeaders
@@ -119,34 +121,37 @@ instance ToQuery DescribeVirtualInterfaces where
 
 -- | A structure containing a list of virtual interfaces.
 --
+--
+--
 -- /See:/ 'describeVirtualInterfacesResponse' smart constructor.
 data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
-    { _dvisrsVirtualInterfaces :: !(Maybe [VirtualInterface])
-    , _dvisrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvisrsVirtualInterfaces :: !(Maybe [VirtualInterface])
+  , _dvisrsResponseStatus    :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVirtualInterfacesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvisrsVirtualInterfaces'
+-- * 'dvisrsVirtualInterfaces' - A list of virtual interfaces.
 --
--- * 'dvisrsResponseStatus'
+-- * 'dvisrsResponseStatus' - -- | The response status code.
 describeVirtualInterfacesResponse
     :: Int -- ^ 'dvisrsResponseStatus'
     -> DescribeVirtualInterfacesResponse
 describeVirtualInterfacesResponse pResponseStatus_ =
-    DescribeVirtualInterfacesResponse'
-    { _dvisrsVirtualInterfaces = Nothing
-    , _dvisrsResponseStatus = pResponseStatus_
-    }
+  DescribeVirtualInterfacesResponse'
+  {_dvisrsVirtualInterfaces = Nothing, _dvisrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of virtual interfaces.
 dvisrsVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
 dvisrsVirtualInterfaces = lens _dvisrsVirtualInterfaces (\ s a -> s{_dvisrsVirtualInterfaces = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dvisrsResponseStatus :: Lens' DescribeVirtualInterfacesResponse Int
 dvisrsResponseStatus = lens _dvisrsResponseStatus (\ s a -> s{_dvisrsResponseStatus = a});
 
 instance NFData DescribeVirtualInterfacesResponse
+         where

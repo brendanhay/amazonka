@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeLoadBalancerAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the attributes for the specified load balancer.
+-- Describes the attributes for the specified Application Load Balancer or Network Load Balancer.
+--
+--
 module Network.AWS.ELBv2.DescribeLoadBalancerAttributes
     (
     -- * Creating a Request
@@ -35,32 +37,30 @@ module Network.AWS.ELBv2.DescribeLoadBalancerAttributes
     , dlbarsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for DescribeLoadBalancerAttributes.
---
--- /See:/ 'describeLoadBalancerAttributes' smart constructor.
+-- | /See:/ 'describeLoadBalancerAttributes' smart constructor.
 newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes'
-    { _dlbaLoadBalancerARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbaLoadBalancerARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLoadBalancerAttributes' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbaLoadBalancerARN'
+-- * 'dlbaLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
 describeLoadBalancerAttributes
     :: Text -- ^ 'dlbaLoadBalancerARN'
     -> DescribeLoadBalancerAttributes
 describeLoadBalancerAttributes pLoadBalancerARN_ =
-    DescribeLoadBalancerAttributes'
-    { _dlbaLoadBalancerARN = pLoadBalancerARN_
-    }
+  DescribeLoadBalancerAttributes' {_dlbaLoadBalancerARN = pLoadBalancerARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
 dlbaLoadBalancerARN :: Lens' DescribeLoadBalancerAttributes Text
@@ -81,8 +81,9 @@ instance AWSRequest DescribeLoadBalancerAttributes
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeLoadBalancerAttributes
+         where
 
-instance NFData DescribeLoadBalancerAttributes
+instance NFData DescribeLoadBalancerAttributes where
 
 instance ToHeaders DescribeLoadBalancerAttributes
          where
@@ -99,37 +100,36 @@ instance ToQuery DescribeLoadBalancerAttributes where
                "Version" =: ("2015-12-01" :: ByteString),
                "LoadBalancerArn" =: _dlbaLoadBalancerARN]
 
--- | Contains the output of DescribeLoadBalancerAttributes.
---
--- /See:/ 'describeLoadBalancerAttributesResponse' smart constructor.
+-- | /See:/ 'describeLoadBalancerAttributesResponse' smart constructor.
 data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse'
-    { _dlbarsAttributes     :: !(Maybe [LoadBalancerAttribute])
-    , _dlbarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbarsAttributes     :: !(Maybe [LoadBalancerAttribute])
+  , _dlbarsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLoadBalancerAttributesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbarsAttributes'
+-- * 'dlbarsAttributes' - Information about the load balancer attributes.
 --
--- * 'dlbarsResponseStatus'
+-- * 'dlbarsResponseStatus' - -- | The response status code.
 describeLoadBalancerAttributesResponse
     :: Int -- ^ 'dlbarsResponseStatus'
     -> DescribeLoadBalancerAttributesResponse
 describeLoadBalancerAttributesResponse pResponseStatus_ =
-    DescribeLoadBalancerAttributesResponse'
-    { _dlbarsAttributes = Nothing
-    , _dlbarsResponseStatus = pResponseStatus_
-    }
+  DescribeLoadBalancerAttributesResponse'
+  {_dlbarsAttributes = Nothing, _dlbarsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the load balancer attributes.
 dlbarsAttributes :: Lens' DescribeLoadBalancerAttributesResponse [LoadBalancerAttribute]
 dlbarsAttributes = lens _dlbarsAttributes (\ s a -> s{_dlbarsAttributes = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dlbarsResponseStatus :: Lens' DescribeLoadBalancerAttributesResponse Int
 dlbarsResponseStatus = lens _dlbarsResponseStatus (\ s a -> s{_dlbarsResponseStatus = a});
 
 instance NFData
-         DescribeLoadBalancerAttributesResponse
+           DescribeLoadBalancerAttributesResponse
+         where

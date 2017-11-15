@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.UpdateTagsForDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation adds or updates tags for a specified domain.
 --
--- All tag operations are eventually consistent; subsequent operations may not immediately represent all issued operations.
+--
+-- All tag operations are eventually consistent; subsequent operations might not immediately represent all issued operations.
+--
 module Network.AWS.Route53Domains.UpdateTagsForDomain
     (
     -- * Creating a Request
@@ -37,91 +39,44 @@ module Network.AWS.Route53Domains.UpdateTagsForDomain
     , utfdrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | The UpdateTagsForDomainRequest includes the following elements.
 --
+--
+--
 -- /See:/ 'updateTagsForDomain' smart constructor.
 data UpdateTagsForDomain = UpdateTagsForDomain'
-    { _utfdTagsToUpdate :: !(Maybe [Tag])
-    , _utfdDomainName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utfdTagsToUpdate :: !(Maybe [Tag])
+  , _utfdDomainName   :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTagsForDomain' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'utfdTagsToUpdate'
+-- * 'utfdTagsToUpdate' - A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced.
 --
--- * 'utfdDomainName'
+-- * 'utfdDomainName' - The domain for which you want to add or update tags.
 updateTagsForDomain
     :: Text -- ^ 'utfdDomainName'
     -> UpdateTagsForDomain
 updateTagsForDomain pDomainName_ =
-    UpdateTagsForDomain'
-    { _utfdTagsToUpdate = Nothing
-    , _utfdDomainName = pDomainName_
-    }
+  UpdateTagsForDomain'
+  {_utfdTagsToUpdate = Nothing, _utfdDomainName = pDomainName_}
+
 
 -- | A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced.
---
--- Type: A complex type containing a list of tags
---
--- Default: None
---
--- Required: No
---
--- \'>
---
--- Each tag includes the following elements:
---
--- -   Key
---
---     The key (name) of a tag.
---
---     Type: String
---
---     Default: None
---
---     Valid values: Unicode characters including alphanumeric, space, and \".:\/=+\\-\'\"
---
---     Constraints: Each key can be 1-128 characters long.
---
---     Required: Yes
---
--- -   Value
---
---     The value of a tag.
---
---     Type: String
---
---     Default: None
---
---     Valid values: Unicode characters including alphanumeric, space, and \".:\/=+\\-\'\"
---
---     Constraints: Each value can be 0-256 characters long.
---
---     Required: Yes
---
 utfdTagsToUpdate :: Lens' UpdateTagsForDomain [Tag]
 utfdTagsToUpdate = lens _utfdTagsToUpdate (\ s a -> s{_utfdTagsToUpdate = a}) . _Default . _Coerce;
 
 -- | The domain for which you want to add or update tags.
---
--- The name of a domain.
---
--- Type: String
---
--- Default: None
---
--- Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Hyphens are allowed only when they\'re surrounded by letters, numbers, or other hyphens. You can\'t specify a hyphen at the beginning or end of a label. To specify an Internationalized Domain Name, you must convert the name to Punycode.
---
--- Required: Yes
 utfdDomainName :: Lens' UpdateTagsForDomain Text
 utfdDomainName = lens _utfdDomainName (\ s a -> s{_utfdDomainName = a});
 
@@ -134,9 +89,9 @@ instance AWSRequest UpdateTagsForDomain where
               (\ s h x ->
                  UpdateTagsForDomainResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateTagsForDomain
+instance Hashable UpdateTagsForDomain where
 
-instance NFData UpdateTagsForDomain
+instance NFData UpdateTagsForDomain where
 
 instance ToHeaders UpdateTagsForDomain where
         toHeaders
@@ -163,24 +118,24 @@ instance ToQuery UpdateTagsForDomain where
 
 -- | /See:/ 'updateTagsForDomainResponse' smart constructor.
 newtype UpdateTagsForDomainResponse = UpdateTagsForDomainResponse'
-    { _utfdrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utfdrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTagsForDomainResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'utfdrsResponseStatus'
+-- * 'utfdrsResponseStatus' - -- | The response status code.
 updateTagsForDomainResponse
     :: Int -- ^ 'utfdrsResponseStatus'
     -> UpdateTagsForDomainResponse
 updateTagsForDomainResponse pResponseStatus_ =
-    UpdateTagsForDomainResponse'
-    { _utfdrsResponseStatus = pResponseStatus_
-    }
+  UpdateTagsForDomainResponse' {_utfdrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 utfdrsResponseStatus :: Lens' UpdateTagsForDomainResponse Int
 utfdrsResponseStatus = lens _utfdrsResponseStatus (\ s a -> s{_utfdrsResponseStatus = a});
 
-instance NFData UpdateTagsForDomainResponse
+instance NFData UpdateTagsForDomainResponse where

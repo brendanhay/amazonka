@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.EvaluateExpression
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Task runners call 'EvaluateExpression' to evaluate a string in the context of the specified object. For example, a task runner can evaluate SQL queries stored in Amazon S3.
+-- Task runners call @EvaluateExpression@ to evaluate a string in the context of the specified object. For example, a task runner can evaluate SQL queries stored in Amazon S3.
+--
+--
 module Network.AWS.DataPipeline.EvaluateExpression
     (
     -- * Creating a Request
@@ -37,42 +39,46 @@ module Network.AWS.DataPipeline.EvaluateExpression
     , eersEvaluatedExpression
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.DataPipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for EvaluateExpression.
 --
+--
+--
 -- /See:/ 'evaluateExpression' smart constructor.
 data EvaluateExpression = EvaluateExpression'
-    { _eePipelineId :: !Text
-    , _eeObjectId   :: !Text
-    , _eeExpression :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eePipelineId :: !Text
+  , _eeObjectId   :: !Text
+  , _eeExpression :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EvaluateExpression' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eePipelineId'
+-- * 'eePipelineId' - The ID of the pipeline.
 --
--- * 'eeObjectId'
+-- * 'eeObjectId' - The ID of the object.
 --
--- * 'eeExpression'
+-- * 'eeExpression' - The expression to evaluate.
 evaluateExpression
     :: Text -- ^ 'eePipelineId'
     -> Text -- ^ 'eeObjectId'
     -> Text -- ^ 'eeExpression'
     -> EvaluateExpression
 evaluateExpression pPipelineId_ pObjectId_ pExpression_ =
-    EvaluateExpression'
-    { _eePipelineId = pPipelineId_
-    , _eeObjectId = pObjectId_
-    , _eeExpression = pExpression_
-    }
+  EvaluateExpression'
+  { _eePipelineId = pPipelineId_
+  , _eeObjectId = pObjectId_
+  , _eeExpression = pExpression_
+  }
+
 
 -- | The ID of the pipeline.
 eePipelineId :: Lens' EvaluateExpression Text
@@ -97,9 +103,9 @@ instance AWSRequest EvaluateExpression where
                    (pure (fromEnum s)) <*>
                      (x .:> "evaluatedExpression"))
 
-instance Hashable EvaluateExpression
+instance Hashable EvaluateExpression where
 
-instance NFData EvaluateExpression
+instance NFData EvaluateExpression where
 
 instance ToHeaders EvaluateExpression where
         toHeaders
@@ -126,30 +132,34 @@ instance ToQuery EvaluateExpression where
 
 -- | Contains the output of EvaluateExpression.
 --
+--
+--
 -- /See:/ 'evaluateExpressionResponse' smart constructor.
 data EvaluateExpressionResponse = EvaluateExpressionResponse'
-    { _eersResponseStatus      :: !Int
-    , _eersEvaluatedExpression :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eersResponseStatus      :: !Int
+  , _eersEvaluatedExpression :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EvaluateExpressionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eersResponseStatus'
+-- * 'eersResponseStatus' - -- | The response status code.
 --
--- * 'eersEvaluatedExpression'
+-- * 'eersEvaluatedExpression' - The evaluated expression.
 evaluateExpressionResponse
     :: Int -- ^ 'eersResponseStatus'
     -> Text -- ^ 'eersEvaluatedExpression'
     -> EvaluateExpressionResponse
 evaluateExpressionResponse pResponseStatus_ pEvaluatedExpression_ =
-    EvaluateExpressionResponse'
-    { _eersResponseStatus = pResponseStatus_
-    , _eersEvaluatedExpression = pEvaluatedExpression_
-    }
+  EvaluateExpressionResponse'
+  { _eersResponseStatus = pResponseStatus_
+  , _eersEvaluatedExpression = pEvaluatedExpression_
+  }
 
--- | The response status code.
+
+-- | -- | The response status code.
 eersResponseStatus :: Lens' EvaluateExpressionResponse Int
 eersResponseStatus = lens _eersResponseStatus (\ s a -> s{_eersResponseStatus = a});
 
@@ -157,4 +167,4 @@ eersResponseStatus = lens _eersResponseStatus (\ s a -> s{_eersResponseStatus = 
 eersEvaluatedExpression :: Lens' EvaluateExpressionResponse Text
 eersEvaluatedExpression = lens _eersEvaluatedExpression (\ s a -> s{_eersEvaluatedExpression = a});
 
-instance NFData EvaluateExpressionResponse
+instance NFData EvaluateExpressionResponse where

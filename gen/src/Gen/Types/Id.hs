@@ -2,12 +2,12 @@
 {-# LANGUAGE RankNTypes        #-}
 
 -- Module      : Gen.Types.Id
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
@@ -35,15 +35,18 @@ module Gen.Types.Id
     , replaceId
     ) where
 
-import           Control.Comonad
-import           Control.Comonad.Cofree
-import           Control.Lens
-import           Data.Aeson
-import           Data.Hashable
-import           Data.Text              (Text)
-import qualified Data.Text              as Text
-import           Data.Text.Manipulate
-import           Gen.Text
+import Control.Comonad
+import Control.Comonad.Cofree
+import Control.Lens
+
+import Data.Aeson
+import Data.Hashable
+import Data.Text            (Text)
+import Data.Text.Manipulate
+
+import Gen.Text
+
+import qualified Data.Text as Text
 
 -- | A class to extract identifiers from arbitrary products.
 class HasId a where
@@ -65,6 +68,9 @@ instance Eq Id where
 
 instance Hashable Id where
     hashWithSalt n (Id x _) = hashWithSalt n x
+
+instance FromJSONKey Id where
+    fromJSONKey = mkId <$> fromJSONKey
 
 instance FromJSON Id where
     parseJSON = withText "id" (pure . mkId)

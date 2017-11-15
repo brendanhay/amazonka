@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeregisterRDSDBInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deregisters an Amazon RDS instance.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DeregisterRDSDBInstance
     (
     -- * Creating a Request
@@ -34,32 +36,32 @@ module Network.AWS.OpsWorks.DeregisterRDSDBInstance
     , DeregisterRDSDBInstanceResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deregisterRDSDBInstance' smart constructor.
 newtype DeregisterRDSDBInstance = DeregisterRDSDBInstance'
-    { _drdiRDSDBInstanceARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drdiRDSDBInstanceARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterRDSDBInstance' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drdiRDSDBInstanceARN'
+-- * 'drdiRDSDBInstanceARN' - The Amazon RDS instance's ARN.
 deregisterRDSDBInstance
     :: Text -- ^ 'drdiRDSDBInstanceARN'
     -> DeregisterRDSDBInstance
 deregisterRDSDBInstance pRDSDBInstanceARN_ =
-    DeregisterRDSDBInstance'
-    { _drdiRDSDBInstanceARN = pRDSDBInstanceARN_
-    }
+  DeregisterRDSDBInstance' {_drdiRDSDBInstanceARN = pRDSDBInstanceARN_}
 
--- | The Amazon RDS instance\'s ARN.
+
+-- | The Amazon RDS instance's ARN.
 drdiRDSDBInstanceARN :: Lens' DeregisterRDSDBInstance Text
 drdiRDSDBInstanceARN = lens _drdiRDSDBInstanceARN (\ s a -> s{_drdiRDSDBInstanceARN = a});
 
@@ -70,9 +72,9 @@ instance AWSRequest DeregisterRDSDBInstance where
         response
           = receiveNull DeregisterRDSDBInstanceResponse'
 
-instance Hashable DeregisterRDSDBInstance
+instance Hashable DeregisterRDSDBInstance where
 
-instance NFData DeregisterRDSDBInstance
+instance NFData DeregisterRDSDBInstance where
 
 instance ToHeaders DeregisterRDSDBInstance where
         toHeaders
@@ -98,8 +100,9 @@ instance ToQuery DeregisterRDSDBInstance where
 
 -- | /See:/ 'deregisterRDSDBInstanceResponse' smart constructor.
 data DeregisterRDSDBInstanceResponse =
-    DeregisterRDSDBInstanceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeregisterRDSDBInstanceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterRDSDBInstanceResponse' with the minimum fields required to make a request.
 --
@@ -107,4 +110,5 @@ deregisterRDSDBInstanceResponse
     :: DeregisterRDSDBInstanceResponse
 deregisterRDSDBInstanceResponse = DeregisterRDSDBInstanceResponse'
 
-instance NFData DeregisterRDSDBInstanceResponse
+
+instance NFData DeregisterRDSDBInstanceResponse where

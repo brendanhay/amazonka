@@ -12,19 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Config.PutConfigurationRecorder
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new configuration recorder to record the selected resource configurations.
 --
--- You can use this action to change the role 'roleARN' and\/or the 'recordingGroup' of an existing recorder. To change the role, call the action on the existing configuration recorder and specify a role.
 --
--- Currently, you can specify only one configuration recorder per account.
+-- You can use this action to change the role @roleARN@ and/or the @recordingGroup@ of an existing recorder. To change the role, call the action on the existing configuration recorder and specify a role.
 --
--- If 'ConfigurationRecorder' does not have the __recordingGroup__ parameter specified, the default is to record all supported resource types.
 module Network.AWS.Config.PutConfigurationRecorder
     (
     -- * Creating a Request
@@ -38,32 +36,35 @@ module Network.AWS.Config.PutConfigurationRecorder
     , PutConfigurationRecorderResponse
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | The input for the < PutConfigurationRecorder> action.
+-- | The input for the 'PutConfigurationRecorder' action.
+--
+--
 --
 -- /See:/ 'putConfigurationRecorder' smart constructor.
 newtype PutConfigurationRecorder = PutConfigurationRecorder'
-    { _pcrConfigurationRecorder :: ConfigurationRecorder
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pcrConfigurationRecorder :: ConfigurationRecorder
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutConfigurationRecorder' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pcrConfigurationRecorder'
+-- * 'pcrConfigurationRecorder' - The configuration recorder object that records each configuration change made to the resources.
 putConfigurationRecorder
     :: ConfigurationRecorder -- ^ 'pcrConfigurationRecorder'
     -> PutConfigurationRecorder
 putConfigurationRecorder pConfigurationRecorder_ =
-    PutConfigurationRecorder'
-    { _pcrConfigurationRecorder = pConfigurationRecorder_
-    }
+  PutConfigurationRecorder'
+  {_pcrConfigurationRecorder = pConfigurationRecorder_}
+
 
 -- | The configuration recorder object that records each configuration change made to the resources.
 pcrConfigurationRecorder :: Lens' PutConfigurationRecorder ConfigurationRecorder
@@ -76,9 +77,9 @@ instance AWSRequest PutConfigurationRecorder where
         response
           = receiveNull PutConfigurationRecorderResponse'
 
-instance Hashable PutConfigurationRecorder
+instance Hashable PutConfigurationRecorder where
 
-instance NFData PutConfigurationRecorder
+instance NFData PutConfigurationRecorder where
 
 instance ToHeaders PutConfigurationRecorder where
         toHeaders
@@ -106,8 +107,9 @@ instance ToQuery PutConfigurationRecorder where
 
 -- | /See:/ 'putConfigurationRecorderResponse' smart constructor.
 data PutConfigurationRecorderResponse =
-    PutConfigurationRecorderResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutConfigurationRecorderResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutConfigurationRecorderResponse' with the minimum fields required to make a request.
 --
@@ -115,4 +117,6 @@ putConfigurationRecorderResponse
     :: PutConfigurationRecorderResponse
 putConfigurationRecorderResponse = PutConfigurationRecorderResponse'
 
+
 instance NFData PutConfigurationRecorderResponse
+         where

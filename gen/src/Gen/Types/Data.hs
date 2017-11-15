@@ -5,42 +5,49 @@
 {-# LANGUAGE TemplateHaskell   #-}
 
 -- Module      : Gen.Types.Data
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
 module Gen.Types.Data where
 
-import           Control.Lens     hiding ((.=))
-import           Data.Aeson
-import           Data.Aeson.Types
-import           Data.Function    (on)
-import           Data.Text        (Text)
-import qualified Data.Text        as Text
-import qualified Data.Text.Lazy   as LText
-import           Gen.Types.Ann
-import           Gen.Types.Help
-import           Gen.Types.Id
-import           Gen.Types.Map
-import           Gen.Types.TypeOf
+import Control.Lens hiding ((.=))
+
+import Data.Aeson
+import Data.Aeson.Types
+import Data.Function    (on)
+import Data.Text        (Text)
+
+import Gen.Types.Ann
+import Gen.Types.Help
+import Gen.Types.Id
+import Gen.Types.Map
+import Gen.Types.TypeOf
+
+import qualified Data.Text      as Text
+import qualified Data.Text.Lazy as LText
 
 type Rendered = LText.Text
 
-data Fun = Fun' Text Help Rendered Rendered
-    deriving (Eq, Show)
+data Fun = Fun'
+    { _funName :: Text
+    , _funDoc  :: Help
+    , _funSig  ::  Rendered
+    , _funDecl :: Rendered
+    } deriving (Eq, Show)
 
 instance ToJSON Fun where
-    toJSON (Fun' n c s d) = object
+    toJSON Fun'{..} = object
         [ "type"          .= Text.pack "function"
-        , "name"          .= n
-        , "documentation" .= c
-        , "signature"     .= s
-        , "declaration"   .= d
+        , "name"          .= _funName
+        , "documentation" .= _funDoc
+        , "signature"     .= _funSig
+        , "declaration"   .= _funDecl
         ]
 
 data Prod = Prod'
@@ -58,11 +65,15 @@ prodToJSON s Prod'{..} is =
     , "constructor"   .= _prodCtor
     , "documentation" .= _prodDoc
     , "declaration"   .= _prodDecl
-    , "lenses"        .= _prodLenses
+    , "lenses"        .= map flatten _prodLenses
     , "instances"     .= is
     , "shared"        .= isShared s
     , "eq"            .= isEq s
     ]
+  where
+    flatten fun = fun { _funDoc = go (_funDoc fun) }
+      where
+        go (Help h) = Help (Text.replace "\n--" "" h)
 
 data Sum = Sum'
     { _sumName  :: Text

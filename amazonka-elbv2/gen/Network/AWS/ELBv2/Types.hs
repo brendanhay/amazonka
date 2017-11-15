@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -31,6 +31,7 @@ module Network.AWS.ELBv2.Types
     , _TooManyTagsException
     , _DuplicateTargetGroupNameException
     , _HealthUnavailableException
+    , _AllocationIdNotFoundException
     , _PriorityInUseException
     , _TooManyLoadBalancersException
     , _UnsupportedProtocolException
@@ -44,12 +45,16 @@ module Network.AWS.ELBv2.Types
     , _OperationNotPermittedException
     , _SSLPolicyNotFoundException
     , _InvalidSchemeException
+    , _AvailabilityZoneNotSupportedException
     , _LoadBalancerNotFoundException
     , _ResourceInUseException
     , _CertificateNotFoundException
 
     -- * ActionTypeEnum
     , ActionTypeEnum (..)
+
+    -- * IPAddressType
+    , IPAddressType (..)
 
     -- * LoadBalancerSchemeEnum
     , LoadBalancerSchemeEnum (..)
@@ -69,6 +74,9 @@ module Network.AWS.ELBv2.Types
     -- * TargetHealthStateEnum
     , TargetHealthStateEnum (..)
 
+    -- * TargetTypeEnum
+    , TargetTypeEnum (..)
+
     -- * Action
     , Action
     , action
@@ -80,17 +88,25 @@ module Network.AWS.ELBv2.Types
     , availabilityZone
     , azSubnetId
     , azZoneName
+    , azLoadBalancerAddresses
 
     -- * Certificate
     , Certificate
     , certificate
     , cCertificateARN
+    , cIsDefault
 
     -- * Cipher
     , Cipher
     , cipher
     , cPriority
     , cName
+
+    -- * Limit
+    , Limit
+    , limit
+    , lMax
+    , lName
 
     -- * Listener
     , Listener
@@ -114,9 +130,16 @@ module Network.AWS.ELBv2.Types
     , lbCanonicalHostedZoneId
     , lbAvailabilityZones
     , lbLoadBalancerARN
+    , lbIPAddressType
     , lbScheme
     , lbType
     , lbDNSName
+
+    -- * LoadBalancerAddress
+    , LoadBalancerAddress
+    , loadBalancerAddress
+    , lbaIPAddress
+    , lbaAllocationId
 
     -- * LoadBalancerAttribute
     , LoadBalancerAttribute
@@ -163,6 +186,12 @@ module Network.AWS.ELBv2.Types
     , spName
     , spSSLProtocols
 
+    -- * SubnetMapping
+    , SubnetMapping
+    , subnetMapping
+    , smAllocationId
+    , smSubnetId
+
     -- * Tag
     , Tag
     , tag
@@ -178,6 +207,7 @@ module Network.AWS.ELBv2.Types
     -- * TargetDescription
     , TargetDescription
     , targetDescription
+    , tdAvailabilityZone
     , tdPort
     , tdId
 
@@ -191,6 +221,7 @@ module Network.AWS.ELBv2.Types
     , tgTargetGroupARN
     , tgProtocol
     , tgHealthCheckIntervalSeconds
+    , tgTargetType
     , tgHealthyThresholdCount
     , tgHealthCheckProtocol
     , tgLoadBalancerARNs
@@ -220,38 +251,40 @@ module Network.AWS.ELBv2.Types
     , thdTarget
     ) where
 
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.ELBv2.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.ELBv2.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
--- | API version '2015-12-01' of the Amazon Elastic Load Balancing SDK configuration.
+-- | API version @2015-12-01@ of the Amazon Elastic Load Balancing SDK configuration.
 eLBv2 :: Service
 eLBv2 =
-    Service
-    { _svcAbbrev = "ELBv2"
-    , _svcSigner = v4
-    , _svcPrefix = "elasticloadbalancing"
-    , _svcVersion = "2015-12-01"
-    , _svcEndpoint = defaultEndpoint eLBv2
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseXMLError "ELBv2"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "ELBv2"
+  , _svcSigner = v4
+  , _svcPrefix = "elasticloadbalancing"
+  , _svcVersion = "2015-12-01"
+  , _svcEndpoint = defaultEndpoint eLBv2
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseXMLError "ELBv2"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -260,154 +293,264 @@ eLBv2 =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | The requested configuration is not valid.
+--
+--
 _InvalidConfigurationRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidConfigurationRequestException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidConfigurationRequest"
+  _MatchServiceError eLBv2 "InvalidConfigurationRequest" . hasStatus 400
+
 
 -- | The specified subnet does not exist.
+--
+--
 _SubnetNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _SubnetNotFoundException =
-    _ServiceError . hasStatus 400 . hasCode "SubnetNotFound"
+  _MatchServiceError eLBv2 "SubnetNotFound" . hasStatus 400
 
--- | You\'ve reached the limit on the number of targets.
+
+-- | You've reached the limit on the number of targets.
+--
+--
 _TooManyTargetsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyTargetsException =
-    _ServiceError . hasStatus 400 . hasCode "TooManyTargets"
+  _MatchServiceError eLBv2 "TooManyTargets" . hasStatus 400
+
 
 -- | The specified rule does not exist.
+--
+--
 _RuleNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_RuleNotFoundException = _ServiceError . hasStatus 400 . hasCode "RuleNotFound"
+_RuleNotFoundException = _MatchServiceError eLBv2 "RuleNotFound" . hasStatus 400
+
 
 -- | The specified subnet is out of available addresses.
+--
+--
 _InvalidSubnetException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSubnetException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidSubnet"
+  _MatchServiceError eLBv2 "InvalidSubnet" . hasStatus 400
 
--- | You\'ve reached the limit on the number of rules per load balancer.
+
+-- | You've reached the limit on the number of rules per load balancer.
+--
+--
 _TooManyRulesException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyRulesException = _ServiceError . hasStatus 400 . hasCode "TooManyRules"
+_TooManyRulesException = _MatchServiceError eLBv2 "TooManyRules" . hasStatus 400
 
--- | You\'ve reached the limit on the number of target groups for your AWS account.
+
+-- | You've reached the limit on the number of target groups for your AWS account.
+--
+--
 _TooManyTargetGroupsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyTargetGroupsException =
-    _ServiceError . hasStatus 400 . hasCode "TooManyTargetGroups"
+  _MatchServiceError eLBv2 "TooManyTargetGroups" . hasStatus 400
 
--- | A load balancer with the specified name already exists for this account.
+
+-- | A load balancer with the specified name already exists.
+--
+--
 _DuplicateLoadBalancerNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateLoadBalancerNameException =
-    _ServiceError . hasStatus 400 . hasCode "DuplicateLoadBalancerName"
+  _MatchServiceError eLBv2 "DuplicateLoadBalancerName" . hasStatus 400
+
 
 -- | The specified configuration is not valid with this protocol.
+--
+--
 _IncompatibleProtocolsException :: AsError a => Getting (First ServiceError) a ServiceError
 _IncompatibleProtocolsException =
-    _ServiceError . hasStatus 400 . hasCode "IncompatibleProtocols"
+  _MatchServiceError eLBv2 "IncompatibleProtocols" . hasStatus 400
 
--- | You\'ve reached the limit on the number of certificates per listener.
+
+-- | You've reached the limit on the number of certificates per load balancer.
+--
+--
 _TooManyCertificatesException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyCertificatesException =
-    _ServiceError . hasStatus 400 . hasCode "TooManyCertificates"
+  _MatchServiceError eLBv2 "TooManyCertificates" . hasStatus 400
+
 
 -- | A tag key was specified more than once.
+--
+--
 _DuplicateTagKeysException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateTagKeysException =
-    _ServiceError . hasStatus 400 . hasCode "DuplicateTagKeys"
+  _MatchServiceError eLBv2 "DuplicateTagKeys" . hasStatus 400
+
 
 -- | A listener with the specified port already exists.
+--
+--
 _DuplicateListenerException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateListenerException =
-    _ServiceError . hasStatus 400 . hasCode "DuplicateListener"
+  _MatchServiceError eLBv2 "DuplicateListener" . hasStatus 400
 
--- | You\'ve reached the limit on the number of tags per load balancer.
+
+-- | You've reached the limit on the number of tags per load balancer.
+--
+--
 _TooManyTagsException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyTagsException = _ServiceError . hasStatus 400 . hasCode "TooManyTags"
+_TooManyTagsException = _MatchServiceError eLBv2 "TooManyTags" . hasStatus 400
+
 
 -- | A target group with the specified name already exists.
+--
+--
 _DuplicateTargetGroupNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateTargetGroupNameException =
-    _ServiceError . hasStatus 400 . hasCode "DuplicateTargetGroupName"
+  _MatchServiceError eLBv2 "DuplicateTargetGroupName" . hasStatus 400
+
 
 -- | The health of the specified targets could not be retrieved due to an internal error.
+--
+--
 _HealthUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _HealthUnavailableException =
-    _ServiceError . hasStatus 500 . hasCode "HealthUnavailable"
+  _MatchServiceError eLBv2 "HealthUnavailable" . hasStatus 500
+
+
+-- | The specified allocation ID does not exist.
+--
+--
+_AllocationIdNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_AllocationIdNotFoundException =
+  _MatchServiceError eLBv2 "AllocationIdNotFound" . hasStatus 400
+
 
 -- | The specified priority is in use.
+--
+--
 _PriorityInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _PriorityInUseException =
-    _ServiceError . hasStatus 400 . hasCode "PriorityInUse"
+  _MatchServiceError eLBv2 "PriorityInUse" . hasStatus 400
 
--- | You\'ve reached the limit on the number of load balancers for your AWS account.
+
+-- | You've reached the limit on the number of load balancers for your AWS account.
+--
+--
 _TooManyLoadBalancersException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyLoadBalancersException =
-    _ServiceError . hasStatus 400 . hasCode "TooManyLoadBalancers"
+  _MatchServiceError eLBv2 "TooManyLoadBalancers" . hasStatus 400
+
 
 -- | The specified protocol is not supported.
+--
+--
 _UnsupportedProtocolException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedProtocolException =
-    _ServiceError . hasStatus 400 . hasCode "UnsupportedProtocol"
+  _MatchServiceError eLBv2 "UnsupportedProtocol" . hasStatus 400
 
--- | The specified target does not exist or is not in the same VPC as the target group.
+
+-- | The specified target does not exist, is not in the same VPC as the target group, or has an unsupported instance type.
+--
+--
 _InvalidTargetException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTargetException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidTarget"
+  _MatchServiceError eLBv2 "InvalidTarget" . hasStatus 400
+
 
 -- | The specified security group does not exist.
+--
+--
 _InvalidSecurityGroupException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSecurityGroupException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidSecurityGroup"
+  _MatchServiceError eLBv2 "InvalidSecurityGroup" . hasStatus 400
+
 
 -- | The specified target group does not exist.
+--
+--
 _TargetGroupNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _TargetGroupNotFoundException =
-    _ServiceError . hasStatus 400 . hasCode "TargetGroupNotFound"
+  _MatchServiceError eLBv2 "TargetGroupNotFound" . hasStatus 400
+
 
 -- | The specified listener does not exist.
+--
+--
 _ListenerNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ListenerNotFoundException =
-    _ServiceError . hasStatus 400 . hasCode "ListenerNotFound"
+  _MatchServiceError eLBv2 "ListenerNotFound" . hasStatus 400
 
--- | You\'ve reached the limit on the number of times a target can be registered with a load balancer.
+
+-- | You've reached the limit on the number of times a target can be registered with a load balancer.
+--
+--
 _TooManyRegistrationsForTargetIdException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyRegistrationsForTargetIdException =
-    _ServiceError . hasStatus 400 . hasCode "TooManyRegistrationsForTargetId"
+  _MatchServiceError eLBv2 "TooManyRegistrationsForTargetId" . hasStatus 400
 
--- | You\'ve reached the limit on the number of listeners per load balancer.
+
+-- | You've reached the limit on the number of listeners per load balancer.
+--
+--
 _TooManyListenersException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyListenersException =
-    _ServiceError . hasStatus 400 . hasCode "TooManyListeners"
+  _MatchServiceError eLBv2 "TooManyListeners" . hasStatus 400
 
--- | You\'ve reached the limit on the number of load balancers per target group.
+
+-- | You've reached the limit on the number of load balancers per target group.
+--
+--
 _TargetGroupAssociationLimitException :: AsError a => Getting (First ServiceError) a ServiceError
 _TargetGroupAssociationLimitException =
-    _ServiceError . hasStatus 400 . hasCode "TargetGroupAssociationLimit"
+  _MatchServiceError eLBv2 "TargetGroupAssociationLimit" . hasStatus 400
+
 
 -- | This operation is not allowed.
+--
+--
 _OperationNotPermittedException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationNotPermittedException =
-    _ServiceError . hasStatus 400 . hasCode "OperationNotPermitted"
+  _MatchServiceError eLBv2 "OperationNotPermitted" . hasStatus 400
+
 
 -- | The specified SSL policy does not exist.
+--
+--
 _SSLPolicyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _SSLPolicyNotFoundException =
-    _ServiceError . hasStatus 400 . hasCode "SSLPolicyNotFound"
+  _MatchServiceError eLBv2 "SSLPolicyNotFound" . hasStatus 400
+
 
 -- | The requested scheme is not valid.
+--
+--
 _InvalidSchemeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSchemeException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidScheme"
+  _MatchServiceError eLBv2 "InvalidScheme" . hasStatus 400
+
+
+-- | The specified Availability Zone is not supported.
+--
+--
+_AvailabilityZoneNotSupportedException :: AsError a => Getting (First ServiceError) a ServiceError
+_AvailabilityZoneNotSupportedException =
+  _MatchServiceError eLBv2 "AvailabilityZoneNotSupported" . hasStatus 400
+
 
 -- | The specified load balancer does not exist.
+--
+--
 _LoadBalancerNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _LoadBalancerNotFoundException =
-    _ServiceError . hasStatus 400 . hasCode "LoadBalancerNotFound"
+  _MatchServiceError eLBv2 "LoadBalancerNotFound" . hasStatus 400
+
 
 -- | A specified resource is in use.
+--
+--
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseException =
-    _ServiceError . hasStatus 400 . hasCode "ResourceInUse"
+  _MatchServiceError eLBv2 "ResourceInUse" . hasStatus 400
+
 
 -- | The specified certificate does not exist.
+--
+--
 _CertificateNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _CertificateNotFoundException =
-    _ServiceError . hasStatus 400 . hasCode "CertificateNotFound"
+  _MatchServiceError eLBv2 "CertificateNotFound" . hasStatus 400
+

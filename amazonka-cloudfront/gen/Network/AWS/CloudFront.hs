@@ -5,13 +5,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, for example, .html, .css, .php, image, and media files, to end users. CloudFront delivers your content through a worldwide network of edge locations. When an end user requests content that you\'re serving with CloudFront, the user is routed to the edge location that provides the lowest latency, so content is delivered with the best possible performance. If the content is already in that edge location, CloudFront delivers it immediately. If the content is not currently in that edge location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP server (for example, a web server) that you have identified as the source for the definitive version of your content.
+-- Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, for example, .html, .css, .php, image, and media files, to end users. CloudFront delivers your content through a worldwide network of edge locations. When an end user requests content that you're serving with CloudFront, the user is routed to the edge location that provides the lowest latency, so content is delivered with the best possible performance. If the content is already in that edge location, CloudFront delivers it immediately. If the content is not currently in that edge location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP server (for example, a web server) that you have identified as the source for the definitive version of your content.
 module Network.AWS.CloudFront
     (
     -- * Service Configuration
@@ -28,6 +28,9 @@ module Network.AWS.CloudFront
 
     -- ** InvalidErrorCode
     , _InvalidErrorCode
+
+    -- ** InvalidOriginReadTimeout
+    , _InvalidOriginReadTimeout
 
     -- ** TooManyCacheBehaviors
     , _TooManyCacheBehaviors
@@ -49,6 +52,9 @@ module Network.AWS.CloudFront
 
     -- ** InvalidArgument
     , _InvalidArgument
+
+    -- ** InvalidOriginKeepaliveTimeout
+    , _InvalidOriginKeepaliveTimeout
 
     -- ** TooManyInvalidationsInProgress
     , _TooManyInvalidationsInProgress
@@ -76,6 +82,9 @@ module Network.AWS.CloudFront
 
     -- ** TooManyCookieNamesInWhiteList
     , _TooManyCookieNamesInWhiteList
+
+    -- ** InvalidLambdaFunctionAssociation
+    , _InvalidLambdaFunctionAssociation
 
     -- ** InvalidForwardCookies
     , _InvalidForwardCookies
@@ -106,6 +115,9 @@ module Network.AWS.CloudFront
 
     -- ** TooManyStreamingDistributionCNAMEs
     , _TooManyStreamingDistributionCNAMEs
+
+    -- ** ResourceInUse
+    , _ResourceInUse
 
     -- ** InvalidRequiredProtocol
     , _InvalidRequiredProtocol
@@ -149,6 +161,9 @@ module Network.AWS.CloudFront
     -- ** InvalidProtocolSettings
     , _InvalidProtocolSettings
 
+    -- ** TooManyLambdaFunctionAssociations
+    , _TooManyLambdaFunctionAssociations
+
     -- ** CloudFrontOriginAccessIdentityAlreadyExists
     , _CloudFrontOriginAccessIdentityAlreadyExists
 
@@ -175,6 +190,9 @@ module Network.AWS.CloudFront
 
     -- ** InvalidDefaultRootObject
     , _InvalidDefaultRootObject
+
+    -- ** TooManyDistributionsWithLambdaAssociations
+    , _TooManyDistributionsWithLambdaAssociations
 
     -- ** InvalidGeoRestrictionParameter
     , _InvalidGeoRestrictionParameter
@@ -217,6 +235,9 @@ module Network.AWS.CloudFront
 
     -- ** CreateStreamingDistributionWithTags
     , module Network.AWS.CloudFront.CreateStreamingDistributionWithTags
+
+    -- ** DeleteServiceLinkedRole
+    , module Network.AWS.CloudFront.DeleteServiceLinkedRole
 
     -- ** GetDistribution
     , module Network.AWS.CloudFront.GetDistribution
@@ -283,6 +304,9 @@ module Network.AWS.CloudFront
     -- ** CertificateSource
     , CertificateSource (..)
 
+    -- ** EventType
+    , EventType (..)
+
     -- ** GeoRestrictionType
     , GeoRestrictionType (..)
 
@@ -337,6 +361,7 @@ module Network.AWS.CloudFront
     , CacheBehavior
     , cacheBehavior
     , cbAllowedMethods
+    , cbLambdaFunctionAssociations
     , cbMaxTTL
     , cbCompress
     , cbSmoothStreaming
@@ -425,6 +450,8 @@ module Network.AWS.CloudFront
     -- ** CustomOriginConfig
     , CustomOriginConfig
     , customOriginConfig
+    , cocOriginKeepaliveTimeout
+    , cocOriginReadTimeout
     , cocOriginSSLProtocols
     , cocHTTPPort
     , cocHTTPSPort
@@ -434,6 +461,7 @@ module Network.AWS.CloudFront
     , DefaultCacheBehavior
     , defaultCacheBehavior
     , dcbAllowedMethods
+    , dcbLambdaFunctionAssociations
     , dcbMaxTTL
     , dcbCompress
     , dcbSmoothStreaming
@@ -469,6 +497,7 @@ module Network.AWS.CloudFront
     , dcRestrictions
     , dcLogging
     , dcCacheBehaviors
+    , dcIsIPV6Enabled
     , dcCallerReference
     , dcOrigins
     , dcDefaultCacheBehavior
@@ -511,6 +540,7 @@ module Network.AWS.CloudFront
     , dsRestrictions
     , dsWebACLId
     , dsHTTPVersion
+    , dsIsIPV6Enabled
 
     -- ** ForwardedValues
     , ForwardedValues
@@ -569,6 +599,18 @@ module Network.AWS.CloudFront
     , keyPairIds
     , kpiItems
     , kpiQuantity
+
+    -- ** LambdaFunctionAssociation
+    , LambdaFunctionAssociation
+    , lambdaFunctionAssociation
+    , lfaLambdaFunctionARN
+    , lfaEventType
+
+    -- ** LambdaFunctionAssociations
+    , LambdaFunctionAssociations
+    , lambdaFunctionAssociations
+    , lfaItems
+    , lfaQuantity
 
     -- ** LoggingConfig
     , LoggingConfig
@@ -736,35 +778,36 @@ module Network.AWS.CloudFront
     , vcCloudFrontDefaultCertificate
     ) where
 
-import           Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
-import           Network.AWS.CloudFront.CreateDistribution
-import           Network.AWS.CloudFront.CreateDistributionWithTags
-import           Network.AWS.CloudFront.CreateInvalidation
-import           Network.AWS.CloudFront.CreateStreamingDistribution
-import           Network.AWS.CloudFront.CreateStreamingDistributionWithTags
-import           Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
-import           Network.AWS.CloudFront.DeleteDistribution
-import           Network.AWS.CloudFront.DeleteStreamingDistribution
-import           Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
-import           Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
-import           Network.AWS.CloudFront.GetDistribution
-import           Network.AWS.CloudFront.GetDistributionConfig
-import           Network.AWS.CloudFront.GetInvalidation
-import           Network.AWS.CloudFront.GetStreamingDistribution
-import           Network.AWS.CloudFront.GetStreamingDistributionConfig
-import           Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
-import           Network.AWS.CloudFront.ListDistributions
-import           Network.AWS.CloudFront.ListDistributionsByWebACLId
-import           Network.AWS.CloudFront.ListInvalidations
-import           Network.AWS.CloudFront.ListStreamingDistributions
-import           Network.AWS.CloudFront.ListTagsForResource
-import           Network.AWS.CloudFront.TagResource
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.UntagResource
-import           Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
-import           Network.AWS.CloudFront.UpdateDistribution
-import           Network.AWS.CloudFront.UpdateStreamingDistribution
-import           Network.AWS.CloudFront.Waiters
+import Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
+import Network.AWS.CloudFront.CreateDistribution
+import Network.AWS.CloudFront.CreateDistributionWithTags
+import Network.AWS.CloudFront.CreateInvalidation
+import Network.AWS.CloudFront.CreateStreamingDistribution
+import Network.AWS.CloudFront.CreateStreamingDistributionWithTags
+import Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
+import Network.AWS.CloudFront.DeleteDistribution
+import Network.AWS.CloudFront.DeleteServiceLinkedRole
+import Network.AWS.CloudFront.DeleteStreamingDistribution
+import Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
+import Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
+import Network.AWS.CloudFront.GetDistribution
+import Network.AWS.CloudFront.GetDistributionConfig
+import Network.AWS.CloudFront.GetInvalidation
+import Network.AWS.CloudFront.GetStreamingDistribution
+import Network.AWS.CloudFront.GetStreamingDistributionConfig
+import Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
+import Network.AWS.CloudFront.ListDistributions
+import Network.AWS.CloudFront.ListDistributionsByWebACLId
+import Network.AWS.CloudFront.ListInvalidations
+import Network.AWS.CloudFront.ListStreamingDistributions
+import Network.AWS.CloudFront.ListTagsForResource
+import Network.AWS.CloudFront.TagResource
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.UntagResource
+import Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
+import Network.AWS.CloudFront.UpdateDistribution
+import Network.AWS.CloudFront.UpdateStreamingDistribution
+import Network.AWS.CloudFront.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

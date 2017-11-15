@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport.CancelJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,36 +36,34 @@ module Network.AWS.ImportExport.CancelJob
     , crsResponseStatus
     ) where
 
-import           Network.AWS.ImportExport.Types
-import           Network.AWS.ImportExport.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ImportExport.Types
+import Network.AWS.ImportExport.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input structure for the CancelJob operation.
 --
 -- /See:/ 'cancelJob' smart constructor.
 data CancelJob = CancelJob'
-    { _cAPIVersion :: !(Maybe Text)
-    , _cJobId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cAPIVersion :: !(Maybe Text)
+  , _cJobId      :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelJob' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cAPIVersion'
+-- * 'cAPIVersion' - Undocumented member.
 --
--- * 'cJobId'
+-- * 'cJobId' - Undocumented member.
 cancelJob
     :: Text -- ^ 'cJobId'
     -> CancelJob
-cancelJob pJobId_ =
-    CancelJob'
-    { _cAPIVersion = Nothing
-    , _cJobId = pJobId_
-    }
+cancelJob pJobId_ = CancelJob' {_cAPIVersion = Nothing, _cJobId = pJobId_}
+
 
 -- | Undocumented member.
 cAPIVersion :: Lens' CancelJob (Maybe Text)
@@ -84,9 +82,9 @@ instance AWSRequest CancelJob where
                  CancelJobResponse' <$>
                    (x .@? "Success") <*> (pure (fromEnum s)))
 
-instance Hashable CancelJob
+instance Hashable CancelJob where
 
-instance NFData CancelJob
+instance NFData CancelJob where
 
 instance ToHeaders CancelJob where
         toHeaders = const mempty
@@ -106,32 +104,32 @@ instance ToQuery CancelJob where
 --
 -- /See:/ 'cancelJobResponse' smart constructor.
 data CancelJobResponse = CancelJobResponse'
-    { _crsSuccess        :: !(Maybe Bool)
-    , _crsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crsSuccess        :: !(Maybe Bool)
+  , _crsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelJobResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsSuccess'
+-- * 'crsSuccess' - Undocumented member.
 --
--- * 'crsResponseStatus'
+-- * 'crsResponseStatus' - -- | The response status code.
 cancelJobResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CancelJobResponse
 cancelJobResponse pResponseStatus_ =
-    CancelJobResponse'
-    { _crsSuccess = Nothing
-    , _crsResponseStatus = pResponseStatus_
-    }
+  CancelJobResponse'
+  {_crsSuccess = Nothing, _crsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 crsSuccess :: Lens' CancelJobResponse (Maybe Bool)
 crsSuccess = lens _crsSuccess (\ s a -> s{_crsSuccess = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crsResponseStatus :: Lens' CancelJobResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 
-instance NFData CancelJobResponse
+instance NFData CancelJobResponse where

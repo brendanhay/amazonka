@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DetachClassicLinkVPC
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the instance has been unlinked, the VPC security groups are no longer associated with it. An instance is automatically unlinked from a VPC when it\'s stopped.
+-- Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the instance has been unlinked, the VPC security groups are no longer associated with it. An instance is automatically unlinked from a VPC when it's stopped.
+--
+--
 module Network.AWS.EC2.DetachClassicLinkVPC
     (
     -- * Creating a Request
@@ -37,43 +39,44 @@ module Network.AWS.EC2.DetachClassicLinkVPC
     , dclvrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DetachClassicLinkVpc.
 --
+--
+--
 -- /See:/ 'detachClassicLinkVPC' smart constructor.
 data DetachClassicLinkVPC = DetachClassicLinkVPC'
-    { _dclvDryRun     :: !(Maybe Bool)
-    , _dclvInstanceId :: !Text
-    , _dclvVPCId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dclvDryRun     :: !(Maybe Bool)
+  , _dclvInstanceId :: !Text
+  , _dclvVPCId      :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachClassicLinkVPC' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dclvDryRun'
+-- * 'dclvDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dclvInstanceId'
+-- * 'dclvInstanceId' - The ID of the instance to unlink from the VPC.
 --
--- * 'dclvVPCId'
+-- * 'dclvVPCId' - The ID of the VPC to which the instance is linked.
 detachClassicLinkVPC
     :: Text -- ^ 'dclvInstanceId'
     -> Text -- ^ 'dclvVPCId'
     -> DetachClassicLinkVPC
 detachClassicLinkVPC pInstanceId_ pVPCId_ =
-    DetachClassicLinkVPC'
-    { _dclvDryRun = Nothing
-    , _dclvInstanceId = pInstanceId_
-    , _dclvVPCId = pVPCId_
-    }
+  DetachClassicLinkVPC'
+  {_dclvDryRun = Nothing, _dclvInstanceId = pInstanceId_, _dclvVPCId = pVPCId_}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dclvDryRun :: Lens' DetachClassicLinkVPC (Maybe Bool)
 dclvDryRun = lens _dclvDryRun (\ s a -> s{_dclvDryRun = a});
 
@@ -95,9 +98,9 @@ instance AWSRequest DetachClassicLinkVPC where
                  DetachClassicLinkVPCResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
-instance Hashable DetachClassicLinkVPC
+instance Hashable DetachClassicLinkVPC where
 
-instance NFData DetachClassicLinkVPC
+instance NFData DetachClassicLinkVPC where
 
 instance ToHeaders DetachClassicLinkVPC where
         toHeaders = const mempty
@@ -109,41 +112,43 @@ instance ToQuery DetachClassicLinkVPC where
         toQuery DetachClassicLinkVPC'{..}
           = mconcat
               ["Action" =: ("DetachClassicLinkVpc" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _dclvDryRun,
                "InstanceId" =: _dclvInstanceId,
                "VpcId" =: _dclvVPCId]
 
 -- | Contains the output of DetachClassicLinkVpc.
 --
+--
+--
 -- /See:/ 'detachClassicLinkVPCResponse' smart constructor.
 data DetachClassicLinkVPCResponse = DetachClassicLinkVPCResponse'
-    { _dclvrsReturn         :: !(Maybe Bool)
-    , _dclvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dclvrsReturn         :: !(Maybe Bool)
+  , _dclvrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachClassicLinkVPCResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dclvrsReturn'
+-- * 'dclvrsReturn' - Returns @true@ if the request succeeds; otherwise, it returns an error.
 --
--- * 'dclvrsResponseStatus'
+-- * 'dclvrsResponseStatus' - -- | The response status code.
 detachClassicLinkVPCResponse
     :: Int -- ^ 'dclvrsResponseStatus'
     -> DetachClassicLinkVPCResponse
 detachClassicLinkVPCResponse pResponseStatus_ =
-    DetachClassicLinkVPCResponse'
-    { _dclvrsReturn = Nothing
-    , _dclvrsResponseStatus = pResponseStatus_
-    }
+  DetachClassicLinkVPCResponse'
+  {_dclvrsReturn = Nothing, _dclvrsResponseStatus = pResponseStatus_}
 
--- | Returns 'true' if the request succeeds; otherwise, it returns an error.
+
+-- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 dclvrsReturn :: Lens' DetachClassicLinkVPCResponse (Maybe Bool)
 dclvrsReturn = lens _dclvrsReturn (\ s a -> s{_dclvrsReturn = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dclvrsResponseStatus :: Lens' DetachClassicLinkVPCResponse Int
 dclvrsResponseStatus = lens _dclvrsResponseStatus (\ s a -> s{_dclvrsResponseStatus = a});
 
-instance NFData DetachClassicLinkVPCResponse
+instance NFData DetachClassicLinkVPCResponse where

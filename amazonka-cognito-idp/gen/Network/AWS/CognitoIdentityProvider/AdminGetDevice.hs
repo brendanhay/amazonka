@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminGetDevice
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the device, as an administrator.
+--
+--
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminGetDevice
     (
     -- * Creating a Request
@@ -37,42 +41,46 @@ module Network.AWS.CognitoIdentityProvider.AdminGetDevice
     , agdrsDevice
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to get the device, as an administrator.
 --
+--
+--
 -- /See:/ 'adminGetDevice' smart constructor.
 data AdminGetDevice = AdminGetDevice'
-    { _agdDeviceKey  :: !Text
-    , _agdUserPoolId :: !Text
-    , _agdUsername   :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _agdDeviceKey  :: !Text
+  , _agdUserPoolId :: !Text
+  , _agdUsername   :: !(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminGetDevice' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'agdDeviceKey'
+-- * 'agdDeviceKey' - The device key.
 --
--- * 'agdUserPoolId'
+-- * 'agdUserPoolId' - The user pool ID.
 --
--- * 'agdUsername'
+-- * 'agdUsername' - The user name.
 adminGetDevice
     :: Text -- ^ 'agdDeviceKey'
     -> Text -- ^ 'agdUserPoolId'
     -> Text -- ^ 'agdUsername'
     -> AdminGetDevice
 adminGetDevice pDeviceKey_ pUserPoolId_ pUsername_ =
-    AdminGetDevice'
-    { _agdDeviceKey = pDeviceKey_
-    , _agdUserPoolId = pUserPoolId_
-    , _agdUsername = _Sensitive # pUsername_
-    }
+  AdminGetDevice'
+  { _agdDeviceKey = pDeviceKey_
+  , _agdUserPoolId = pUserPoolId_
+  , _agdUsername = _Sensitive # pUsername_
+  }
+
 
 -- | The device key.
 agdDeviceKey :: Lens' AdminGetDevice Text
@@ -95,9 +103,9 @@ instance AWSRequest AdminGetDevice where
                  AdminGetDeviceResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Device"))
 
-instance Hashable AdminGetDevice
+instance Hashable AdminGetDevice where
 
-instance NFData AdminGetDevice
+instance NFData AdminGetDevice where
 
 instance ToHeaders AdminGetDevice where
         toHeaders
@@ -125,30 +133,32 @@ instance ToQuery AdminGetDevice where
 
 -- | Gets the device response, as an administrator.
 --
+--
+--
 -- /See:/ 'adminGetDeviceResponse' smart constructor.
 data AdminGetDeviceResponse = AdminGetDeviceResponse'
-    { _agdrsResponseStatus :: !Int
-    , _agdrsDevice         :: !DeviceType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _agdrsResponseStatus :: !Int
+  , _agdrsDevice         :: !DeviceType
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminGetDeviceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'agdrsResponseStatus'
+-- * 'agdrsResponseStatus' - -- | The response status code.
 --
--- * 'agdrsDevice'
+-- * 'agdrsDevice' - The device.
 adminGetDeviceResponse
     :: Int -- ^ 'agdrsResponseStatus'
     -> DeviceType -- ^ 'agdrsDevice'
     -> AdminGetDeviceResponse
 adminGetDeviceResponse pResponseStatus_ pDevice_ =
-    AdminGetDeviceResponse'
-    { _agdrsResponseStatus = pResponseStatus_
-    , _agdrsDevice = pDevice_
-    }
+  AdminGetDeviceResponse'
+  {_agdrsResponseStatus = pResponseStatus_, _agdrsDevice = pDevice_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 agdrsResponseStatus :: Lens' AdminGetDeviceResponse Int
 agdrsResponseStatus = lens _agdrsResponseStatus (\ s a -> s{_agdrsResponseStatus = a});
 
@@ -156,4 +166,4 @@ agdrsResponseStatus = lens _agdrsResponseStatus (\ s a -> s{_agdrsResponseStatus
 agdrsDevice :: Lens' AdminGetDeviceResponse DeviceType
 agdrsDevice = lens _agdrsDevice (\ s a -> s{_agdrsDevice = a});
 
-instance NFData AdminGetDeviceResponse
+instance NFData AdminGetDeviceResponse where

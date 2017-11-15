@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DeleteNotificationConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified notification.
+--
+--
 module Network.AWS.AutoScaling.DeleteNotificationConfiguration
     (
     -- * Creating a Request
@@ -33,37 +35,35 @@ module Network.AWS.AutoScaling.DeleteNotificationConfiguration
     , DeleteNotificationConfigurationResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for DeleteNotificationConfiguration.
---
--- /See:/ 'deleteNotificationConfiguration' smart constructor.
+-- | /See:/ 'deleteNotificationConfiguration' smart constructor.
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration'
-    { _dncAutoScalingGroupName :: !Text
-    , _dncTopicARN             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dncAutoScalingGroupName :: !Text
+  , _dncTopicARN             :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteNotificationConfiguration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dncAutoScalingGroupName'
+-- * 'dncAutoScalingGroupName' - The name of the Auto Scaling group.
 --
--- * 'dncTopicARN'
+-- * 'dncTopicARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic.
 deleteNotificationConfiguration
     :: Text -- ^ 'dncAutoScalingGroupName'
     -> Text -- ^ 'dncTopicARN'
     -> DeleteNotificationConfiguration
 deleteNotificationConfiguration pAutoScalingGroupName_ pTopicARN_ =
-    DeleteNotificationConfiguration'
-    { _dncAutoScalingGroupName = pAutoScalingGroupName_
-    , _dncTopicARN = pTopicARN_
-    }
+  DeleteNotificationConfiguration'
+  {_dncAutoScalingGroupName = pAutoScalingGroupName_, _dncTopicARN = pTopicARN_}
+
 
 -- | The name of the Auto Scaling group.
 dncAutoScalingGroupName :: Lens' DeleteNotificationConfiguration Text
@@ -83,8 +83,9 @@ instance AWSRequest DeleteNotificationConfiguration
               DeleteNotificationConfigurationResponse'
 
 instance Hashable DeleteNotificationConfiguration
+         where
 
-instance NFData DeleteNotificationConfiguration
+instance NFData DeleteNotificationConfiguration where
 
 instance ToHeaders DeleteNotificationConfiguration
          where
@@ -105,15 +106,18 @@ instance ToQuery DeleteNotificationConfiguration
 
 -- | /See:/ 'deleteNotificationConfigurationResponse' smart constructor.
 data DeleteNotificationConfigurationResponse =
-    DeleteNotificationConfigurationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteNotificationConfigurationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteNotificationConfigurationResponse' with the minimum fields required to make a request.
 --
 deleteNotificationConfigurationResponse
     :: DeleteNotificationConfigurationResponse
 deleteNotificationConfigurationResponse =
-    DeleteNotificationConfigurationResponse'
+  DeleteNotificationConfigurationResponse'
+
 
 instance NFData
-         DeleteNotificationConfigurationResponse
+           DeleteNotificationConfigurationResponse
+         where

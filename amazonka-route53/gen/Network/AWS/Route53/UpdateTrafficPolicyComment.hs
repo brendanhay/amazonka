@@ -12,17 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Route53.UpdateTrafficPolicyComment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the comment for a specified traffic policy version.
 --
--- Send a 'POST' request to the '\/Amazon Route 53 API version\/trafficpolicy\/' resource.
 --
--- The request body must include a document with an 'UpdateTrafficPolicyCommentRequest' element.
 module Network.AWS.Route53.UpdateTrafficPolicyComment
     (
     -- * Creating a Request
@@ -41,48 +39,49 @@ module Network.AWS.Route53.UpdateTrafficPolicyComment
     , utpcrsTrafficPolicy
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the traffic policy for which you want to update the comment.
+-- | A complex type that contains information about the traffic policy that you want to update the comment for.
+--
+--
 --
 -- /See:/ 'updateTrafficPolicyComment' smart constructor.
 data UpdateTrafficPolicyComment = UpdateTrafficPolicyComment'
-    { _utpcId      :: !Text
-    , _utpcVersion :: !Nat
-    , _utpcComment :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utpcId      :: !Text
+  , _utpcVersion :: !Nat
+  , _utpcComment :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTrafficPolicyComment' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'utpcId'
+-- * 'utpcId' - The value of @Id@ for the traffic policy that you want to update the comment for.
 --
--- * 'utpcVersion'
+-- * 'utpcVersion' - The value of @Version@ for the traffic policy that you want to update the comment for.
 --
--- * 'utpcComment'
+-- * 'utpcComment' - The new comment for the specified traffic policy and version.
 updateTrafficPolicyComment
     :: Text -- ^ 'utpcId'
     -> Natural -- ^ 'utpcVersion'
     -> Text -- ^ 'utpcComment'
     -> UpdateTrafficPolicyComment
 updateTrafficPolicyComment pId_ pVersion_ pComment_ =
-    UpdateTrafficPolicyComment'
-    { _utpcId = pId_
-    , _utpcVersion = _Nat # pVersion_
-    , _utpcComment = pComment_
-    }
+  UpdateTrafficPolicyComment'
+  {_utpcId = pId_, _utpcVersion = _Nat # pVersion_, _utpcComment = pComment_}
 
--- | The value of 'Id' for the traffic policy for which you want to update the comment.
+
+-- | The value of @Id@ for the traffic policy that you want to update the comment for.
 utpcId :: Lens' UpdateTrafficPolicyComment Text
 utpcId = lens _utpcId (\ s a -> s{_utpcId = a});
 
--- | The value of 'Version' for the traffic policy for which you want to update the comment.
+-- | The value of @Version@ for the traffic policy that you want to update the comment for.
 utpcVersion :: Lens' UpdateTrafficPolicyComment Natural
 utpcVersion = lens _utpcVersion (\ s a -> s{_utpcVersion = a}) . _Nat;
 
@@ -100,9 +99,9 @@ instance AWSRequest UpdateTrafficPolicyComment where
                  UpdateTrafficPolicyCommentResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "TrafficPolicy"))
 
-instance Hashable UpdateTrafficPolicyComment
+instance Hashable UpdateTrafficPolicyComment where
 
-instance NFData UpdateTrafficPolicyComment
+instance NFData UpdateTrafficPolicyComment where
 
 instance ToElement UpdateTrafficPolicyComment where
         toElement
@@ -127,30 +126,34 @@ instance ToXML UpdateTrafficPolicyComment where
 
 -- | A complex type that contains the response information for the traffic policy.
 --
+--
+--
 -- /See:/ 'updateTrafficPolicyCommentResponse' smart constructor.
 data UpdateTrafficPolicyCommentResponse = UpdateTrafficPolicyCommentResponse'
-    { _utpcrsResponseStatus :: !Int
-    , _utpcrsTrafficPolicy  :: !TrafficPolicy
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utpcrsResponseStatus :: !Int
+  , _utpcrsTrafficPolicy  :: !TrafficPolicy
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTrafficPolicyCommentResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'utpcrsResponseStatus'
+-- * 'utpcrsResponseStatus' - -- | The response status code.
 --
--- * 'utpcrsTrafficPolicy'
+-- * 'utpcrsTrafficPolicy' - A complex type that contains settings for the specified traffic policy.
 updateTrafficPolicyCommentResponse
     :: Int -- ^ 'utpcrsResponseStatus'
     -> TrafficPolicy -- ^ 'utpcrsTrafficPolicy'
     -> UpdateTrafficPolicyCommentResponse
 updateTrafficPolicyCommentResponse pResponseStatus_ pTrafficPolicy_ =
-    UpdateTrafficPolicyCommentResponse'
-    { _utpcrsResponseStatus = pResponseStatus_
-    , _utpcrsTrafficPolicy = pTrafficPolicy_
-    }
+  UpdateTrafficPolicyCommentResponse'
+  { _utpcrsResponseStatus = pResponseStatus_
+  , _utpcrsTrafficPolicy = pTrafficPolicy_
+  }
 
--- | The response status code.
+
+-- | -- | The response status code.
 utpcrsResponseStatus :: Lens' UpdateTrafficPolicyCommentResponse Int
 utpcrsResponseStatus = lens _utpcrsResponseStatus (\ s a -> s{_utpcrsResponseStatus = a});
 
@@ -159,3 +162,4 @@ utpcrsTrafficPolicy :: Lens' UpdateTrafficPolicyCommentResponse TrafficPolicy
 utpcrsTrafficPolicy = lens _utpcrsTrafficPolicy (\ s a -> s{_utpcrsTrafficPolicy = a});
 
 instance NFData UpdateTrafficPolicyCommentResponse
+         where

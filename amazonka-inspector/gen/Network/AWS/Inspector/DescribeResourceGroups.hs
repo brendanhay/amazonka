@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeResourceGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the resource groups that are specified by the ARNs of the resource groups.
+--
+--
 module Network.AWS.Inspector.DescribeResourceGroups
     (
     -- * Creating a Request
@@ -36,30 +38,30 @@ module Network.AWS.Inspector.DescribeResourceGroups
     , drgrsFailedItems
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeResourceGroups' smart constructor.
 newtype DescribeResourceGroups = DescribeResourceGroups'
-    { _drgResourceGroupARNs :: List1 Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drgResourceGroupARNs :: List1 Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeResourceGroups' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drgResourceGroupARNs'
+-- * 'drgResourceGroupARNs' - The ARN that specifies the resource group that you want to describe.
 describeResourceGroups
     :: NonEmpty Text -- ^ 'drgResourceGroupARNs'
     -> DescribeResourceGroups
 describeResourceGroups pResourceGroupARNs_ =
-    DescribeResourceGroups'
-    { _drgResourceGroupARNs = _List1 # pResourceGroupARNs_
-    }
+  DescribeResourceGroups' {_drgResourceGroupARNs = _List1 # pResourceGroupARNs_}
+
 
 -- | The ARN that specifies the resource group that you want to describe.
 drgResourceGroupARNs :: Lens' DescribeResourceGroups (NonEmpty Text)
@@ -77,9 +79,9 @@ instance AWSRequest DescribeResourceGroups where
                      (x .?> "resourceGroups" .!@ mempty)
                      <*> (x .?> "failedItems" .!@ mempty))
 
-instance Hashable DescribeResourceGroups
+instance Hashable DescribeResourceGroups where
 
-instance NFData DescribeResourceGroups
+instance NFData DescribeResourceGroups where
 
 instance ToHeaders DescribeResourceGroups where
         toHeaders
@@ -106,31 +108,33 @@ instance ToQuery DescribeResourceGroups where
 
 -- | /See:/ 'describeResourceGroupsResponse' smart constructor.
 data DescribeResourceGroupsResponse = DescribeResourceGroupsResponse'
-    { _drgrsResponseStatus :: !Int
-    , _drgrsResourceGroups :: ![ResourceGroup]
-    , _drgrsFailedItems    :: !(Map Text FailedItemDetails)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drgrsResponseStatus :: !Int
+  , _drgrsResourceGroups :: ![ResourceGroup]
+  , _drgrsFailedItems    :: !(Map Text FailedItemDetails)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeResourceGroupsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drgrsResponseStatus'
+-- * 'drgrsResponseStatus' - -- | The response status code.
 --
--- * 'drgrsResourceGroups'
+-- * 'drgrsResourceGroups' - Information about a resource group.
 --
--- * 'drgrsFailedItems'
+-- * 'drgrsFailedItems' - Resource group details that cannot be described. An error code is provided for each failed item.
 describeResourceGroupsResponse
     :: Int -- ^ 'drgrsResponseStatus'
     -> DescribeResourceGroupsResponse
 describeResourceGroupsResponse pResponseStatus_ =
-    DescribeResourceGroupsResponse'
-    { _drgrsResponseStatus = pResponseStatus_
-    , _drgrsResourceGroups = mempty
-    , _drgrsFailedItems = mempty
-    }
+  DescribeResourceGroupsResponse'
+  { _drgrsResponseStatus = pResponseStatus_
+  , _drgrsResourceGroups = mempty
+  , _drgrsFailedItems = mempty
+  }
 
--- | The response status code.
+
+-- | -- | The response status code.
 drgrsResponseStatus :: Lens' DescribeResourceGroupsResponse Int
 drgrsResponseStatus = lens _drgrsResponseStatus (\ s a -> s{_drgrsResponseStatus = a});
 
@@ -142,4 +146,4 @@ drgrsResourceGroups = lens _drgrsResourceGroups (\ s a -> s{_drgrsResourceGroups
 drgrsFailedItems :: Lens' DescribeResourceGroupsResponse (HashMap Text FailedItemDetails)
 drgrsFailedItems = lens _drgrsFailedItems (\ s a -> s{_drgrsFailedItems = a}) . _Map;
 
-instance NFData DescribeResourceGroupsResponse
+instance NFData DescribeResourceGroupsResponse where

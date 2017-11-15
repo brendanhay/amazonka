@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DeregisterEventTopic
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the specified directory as a publisher to the specified SNS topic.
+--
+--
 module Network.AWS.DirectoryService.DeregisterEventTopic
     (
     -- * Creating a Request
@@ -35,37 +37,39 @@ module Network.AWS.DirectoryService.DeregisterEventTopic
     , derrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Removes the specified directory as a publisher to the specified SNS topic.
 --
+--
+--
 -- /See:/ 'deregisterEventTopic' smart constructor.
 data DeregisterEventTopic = DeregisterEventTopic'
-    { _detDirectoryId :: !Text
-    , _detTopicName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _detDirectoryId :: !Text
+  , _detTopicName   :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterEventTopic' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'detDirectoryId'
+-- * 'detDirectoryId' - The Directory ID to remove as a publisher. This directory will no longer send messages to the specified SNS topic.
 --
--- * 'detTopicName'
+-- * 'detTopicName' - The name of the SNS topic from which to remove the directory as a publisher.
 deregisterEventTopic
     :: Text -- ^ 'detDirectoryId'
     -> Text -- ^ 'detTopicName'
     -> DeregisterEventTopic
 deregisterEventTopic pDirectoryId_ pTopicName_ =
-    DeregisterEventTopic'
-    { _detDirectoryId = pDirectoryId_
-    , _detTopicName = pTopicName_
-    }
+  DeregisterEventTopic'
+  {_detDirectoryId = pDirectoryId_, _detTopicName = pTopicName_}
+
 
 -- | The Directory ID to remove as a publisher. This directory will no longer send messages to the specified SNS topic.
 detDirectoryId :: Lens' DeregisterEventTopic Text
@@ -85,9 +89,9 @@ instance AWSRequest DeregisterEventTopic where
                  DeregisterEventTopicResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeregisterEventTopic
+instance Hashable DeregisterEventTopic where
 
-instance NFData DeregisterEventTopic
+instance NFData DeregisterEventTopic where
 
 instance ToHeaders DeregisterEventTopic where
         toHeaders
@@ -114,26 +118,28 @@ instance ToQuery DeregisterEventTopic where
 
 -- | The result of a DeregisterEventTopic request.
 --
+--
+--
 -- /See:/ 'deregisterEventTopicResponse' smart constructor.
 newtype DeregisterEventTopicResponse = DeregisterEventTopicResponse'
-    { _derrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _derrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterEventTopicResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'derrsResponseStatus'
+-- * 'derrsResponseStatus' - -- | The response status code.
 deregisterEventTopicResponse
     :: Int -- ^ 'derrsResponseStatus'
     -> DeregisterEventTopicResponse
 deregisterEventTopicResponse pResponseStatus_ =
-    DeregisterEventTopicResponse'
-    { _derrsResponseStatus = pResponseStatus_
-    }
+  DeregisterEventTopicResponse' {_derrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 derrsResponseStatus :: Lens' DeregisterEventTopicResponse Int
 derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a});
 
-instance NFData DeregisterEventTopicResponse
+instance NFData DeregisterEventTopicResponse where

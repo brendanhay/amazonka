@@ -5,15 +5,16 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS Elastic Transcoder Service
+-- __AWS Elastic Transcoder Service__
 --
 -- The AWS Elastic Transcoder Service.
+--
 module Network.AWS.ElasticTranscoder
     (
     -- * Service Configuration
@@ -60,9 +61,6 @@ module Network.AWS.ElasticTranscoder
 
     -- ** ListJobsByPipeline (Paginated)
     , module Network.AWS.ElasticTranscoder.ListJobsByPipeline
-
-    -- ** TestRole
-    , module Network.AWS.ElasticTranscoder.TestRole
 
     -- ** UpdatePipeline
     , module Network.AWS.ElasticTranscoder.UpdatePipeline
@@ -213,12 +211,19 @@ module Network.AWS.ElasticTranscoder
     , hcpInitializationVector
     , hcpLicenseAcquisitionURL
 
+    -- ** InputCaptions
+    , InputCaptions
+    , inputCaptions
+    , icMergePolicy
+    , icCaptionSources
+
     -- ** Job'
     , Job'
     , job'
     , jStatus
     , jPipelineId
     , jARN
+    , jInputs
     , jInput
     , jUserMetadata
     , jOutputs
@@ -240,11 +245,13 @@ module Network.AWS.ElasticTranscoder
     , jiFrameRate
     , jiResolution
     , jiAspectRatio
+    , jiTimeSpan
     , jiEncryption
     , jiKey
     , jiDetectedProperties
     , jiContainer
     , jiInterlaced
+    , jiInputCaptions
 
     -- ** JobOutput
     , JobOutput
@@ -414,25 +421,24 @@ module Network.AWS.ElasticTranscoder
     , wMessage
     ) where
 
-import           Network.AWS.ElasticTranscoder.CancelJob
-import           Network.AWS.ElasticTranscoder.CreateJob
-import           Network.AWS.ElasticTranscoder.CreatePipeline
-import           Network.AWS.ElasticTranscoder.CreatePreset
-import           Network.AWS.ElasticTranscoder.DeletePipeline
-import           Network.AWS.ElasticTranscoder.DeletePreset
-import           Network.AWS.ElasticTranscoder.ListJobsByPipeline
-import           Network.AWS.ElasticTranscoder.ListJobsByStatus
-import           Network.AWS.ElasticTranscoder.ListPipelines
-import           Network.AWS.ElasticTranscoder.ListPresets
-import           Network.AWS.ElasticTranscoder.ReadJob
-import           Network.AWS.ElasticTranscoder.ReadPipeline
-import           Network.AWS.ElasticTranscoder.ReadPreset
-import           Network.AWS.ElasticTranscoder.TestRole
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.ElasticTranscoder.UpdatePipeline
-import           Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
-import           Network.AWS.ElasticTranscoder.UpdatePipelineStatus
-import           Network.AWS.ElasticTranscoder.Waiters
+import Network.AWS.ElasticTranscoder.CancelJob
+import Network.AWS.ElasticTranscoder.CreateJob
+import Network.AWS.ElasticTranscoder.CreatePipeline
+import Network.AWS.ElasticTranscoder.CreatePreset
+import Network.AWS.ElasticTranscoder.DeletePipeline
+import Network.AWS.ElasticTranscoder.DeletePreset
+import Network.AWS.ElasticTranscoder.ListJobsByPipeline
+import Network.AWS.ElasticTranscoder.ListJobsByStatus
+import Network.AWS.ElasticTranscoder.ListPipelines
+import Network.AWS.ElasticTranscoder.ListPresets
+import Network.AWS.ElasticTranscoder.ReadJob
+import Network.AWS.ElasticTranscoder.ReadPipeline
+import Network.AWS.ElasticTranscoder.ReadPreset
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.ElasticTranscoder.UpdatePipeline
+import Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
+import Network.AWS.ElasticTranscoder.UpdatePipelineStatus
+import Network.AWS.ElasticTranscoder.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetModel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes an existing model defined for a < RestApi> resource.
+-- Describes an existing model defined for a 'RestApi' resource.
+--
+--
 module Network.AWS.APIGateway.GetModel
     (
     -- * Creating a Request
@@ -40,47 +42,48 @@ module Network.AWS.APIGateway.GetModel
     , mContentType
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Request to list information about a model in an existing < RestApi> resource.
+-- | Request to list information about a model in an existing 'RestApi' resource.
+--
+--
 --
 -- /See:/ 'getModel' smart constructor.
 data GetModel = GetModel'
-    { _ggFlatten   :: !(Maybe Bool)
-    , _ggRestAPIId :: !Text
-    , _ggModelName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ggFlatten   :: !(Maybe Bool)
+  , _ggRestAPIId :: !Text
+  , _ggModelName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetModel' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggFlatten'
+-- * 'ggFlatten' - A query parameter of a Boolean value to resolve (@true@ ) all external model references and returns a flattened model schema or not (@false@ ) The default is @false@ .
 --
--- * 'ggRestAPIId'
+-- * 'ggRestAPIId' - The 'RestApi' identifier under which the 'Model' exists.
 --
--- * 'ggModelName'
+-- * 'ggModelName' - The name of the model as an identifier.
 getModel
     :: Text -- ^ 'ggRestAPIId'
     -> Text -- ^ 'ggModelName'
     -> GetModel
 getModel pRestAPIId_ pModelName_ =
-    GetModel'
-    { _ggFlatten = Nothing
-    , _ggRestAPIId = pRestAPIId_
-    , _ggModelName = pModelName_
-    }
+  GetModel'
+  {_ggFlatten = Nothing, _ggRestAPIId = pRestAPIId_, _ggModelName = pModelName_}
 
--- | A query parameter of a Boolean value to resolve ('true') all external model references and returns a flattened model schema or not ('false') The default is 'false'.
+
+-- | A query parameter of a Boolean value to resolve (@true@ ) all external model references and returns a flattened model schema or not (@false@ ) The default is @false@ .
 ggFlatten :: Lens' GetModel (Maybe Bool)
 ggFlatten = lens _ggFlatten (\ s a -> s{_ggFlatten = a});
 
--- | The < RestApi> identifier under which the < Model> exists.
+-- | The 'RestApi' identifier under which the 'Model' exists.
 ggRestAPIId :: Lens' GetModel Text
 ggRestAPIId = lens _ggRestAPIId (\ s a -> s{_ggRestAPIId = a});
 
@@ -93,9 +96,9 @@ instance AWSRequest GetModel where
         request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetModel
+instance Hashable GetModel where
 
-instance NFData GetModel
+instance NFData GetModel where
 
 instance ToHeaders GetModel where
         toHeaders

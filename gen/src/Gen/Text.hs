@@ -2,33 +2,36 @@
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Gen.Text
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
 module Gen.Text where
 
-import           Control.Error
-import           Control.Monad
-import           Data.Bifunctor
-import           Data.Char
+import Control.Error
+import Control.Monad
+
+import Data.Bifunctor
+import Data.Char
+import Data.Monoid
+import Data.String
+import Data.Text             (Text)
+import Data.Text.ICU         (Regex)
+import Data.Text.ICU.Replace (Replace)
+import Data.Text.Manipulate
+
+import Text.Parsec.Language (haskellDef)
+import Text.Parsec.Token    (reservedNames)
+
 import qualified Data.Foldable         as Fold
 import qualified Data.HashSet          as Set
-import           Data.Monoid
-import           Data.String
-import           Data.Text             (Text)
 import qualified Data.Text             as Text
-import           Data.Text.ICU         (Regex)
-import           Data.Text.ICU.Replace (Replace)
 import qualified Data.Text.ICU.Replace as RE
-import           Data.Text.Manipulate
-import           Text.Parsec.Language  (haskellDef)
-import           Text.Parsec.Token     (reservedNames)
 
 asText :: (Text -> Text) -> String -> String
 asText f = Text.unpack . f . Text.pack
@@ -135,6 +138,7 @@ renameReserved x
         , "LT"
         , "EQ"
         , "Error"
+        , "lex"
         ] ++ map Text.pack (reservedNames haskellDef)
 
 -- Pass in Relation, check if Uni directional + not shared and then add
@@ -172,7 +176,6 @@ upperAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
          , ("Bcc([A-Z])",    "BCC$1")
          , ("Bgp",           "BGP")
          , ("Cc([A-Z])",     "CC$1")
-         , ("Cidr",          "CIDR")
          , ("Cors",          "CORS")
          , ("Csv",           "CSV")
          , ("Cpu",           "CPU")
@@ -243,6 +246,9 @@ upperAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
          , ("Qos",           "QOS")
          , ("Sdk",           "SDK")
          , ("Xss",           "XSS")
+         , ("Gcm",           "GCM")
+         , ("Apns",          "APNS")
+         , ("Csr$",          "CSR")
          ]
 
 acronyms :: [(String, String)]
@@ -256,7 +262,6 @@ acronyms =
     , ("ASN",      "Asn")
     , ("AWS",      "Aws")
     , ("BGP",      "Bgp")
-    , ("CIDR",     "Cidr")
     , ("CORS",     "Cors")
     , ("CSV",      "Csv")
     , ("CPU",      "Cpu")
@@ -316,4 +321,6 @@ acronyms =
     , ("QOS",      "Qos")
     , ("SDK",      "Sdk")
     , ("XSS",      "Xss")
+    , ("GCM",      "Gcm")
+    , ("APNS",     "Apns")
     ]

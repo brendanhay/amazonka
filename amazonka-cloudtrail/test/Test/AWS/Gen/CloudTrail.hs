@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.CloudTrail
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.CloudTrail where
 
 import Data.Proxy
+import Network.AWS.CloudTrail
+import Test.AWS.CloudTrail.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.CloudTrail
-import Test.AWS.CloudTrail.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -52,6 +52,9 @@ import Test.AWS.CloudTrail.Internal
 --         , requestCreateTrail $
 --             createTrail
 --
+--         , requestGetEventSelectors $
+--             getEventSelectors
+--
 --         , requestGetTrailStatus $
 --             getTrailStatus
 --
@@ -60,6 +63,9 @@ import Test.AWS.CloudTrail.Internal
 --
 --         , requestListTags $
 --             listTags
+--
+--         , requestPutEventSelectors $
+--             putEventSelectors
 --
 --         , requestStartLogging $
 --             startLogging
@@ -91,6 +97,9 @@ import Test.AWS.CloudTrail.Internal
 --         , responseCreateTrail $
 --             createTrailResponse
 --
+--         , responseGetEventSelectors $
+--             getEventSelectorsResponse
+--
 --         , responseGetTrailStatus $
 --             getTrailStatusResponse
 --
@@ -99,6 +108,9 @@ import Test.AWS.CloudTrail.Internal
 --
 --         , responseListTags $
 --             listTagsResponse
+--
+--         , responsePutEventSelectors $
+--             putEventSelectorsResponse
 --
 --         , responseStartLogging $
 --             startLoggingResponse
@@ -148,6 +160,11 @@ requestCreateTrail = req
     "CreateTrail"
     "fixture/CreateTrail.yaml"
 
+requestGetEventSelectors :: GetEventSelectors -> TestTree
+requestGetEventSelectors = req
+    "GetEventSelectors"
+    "fixture/GetEventSelectors.yaml"
+
 requestGetTrailStatus :: GetTrailStatus -> TestTree
 requestGetTrailStatus = req
     "GetTrailStatus"
@@ -162,6 +179,11 @@ requestListTags :: ListTags -> TestTree
 requestListTags = req
     "ListTags"
     "fixture/ListTags.yaml"
+
+requestPutEventSelectors :: PutEventSelectors -> TestTree
+requestPutEventSelectors = req
+    "PutEventSelectors"
+    "fixture/PutEventSelectors.yaml"
 
 requestStartLogging :: StartLogging -> TestTree
 requestStartLogging = req
@@ -226,6 +248,13 @@ responseCreateTrail = res
     cloudTrail
     (Proxy :: Proxy CreateTrail)
 
+responseGetEventSelectors :: GetEventSelectorsResponse -> TestTree
+responseGetEventSelectors = res
+    "GetEventSelectorsResponse"
+    "fixture/GetEventSelectorsResponse.proto"
+    cloudTrail
+    (Proxy :: Proxy GetEventSelectors)
+
 responseGetTrailStatus :: GetTrailStatusResponse -> TestTree
 responseGetTrailStatus = res
     "GetTrailStatusResponse"
@@ -246,6 +275,13 @@ responseListTags = res
     "fixture/ListTagsResponse.proto"
     cloudTrail
     (Proxy :: Proxy ListTags)
+
+responsePutEventSelectors :: PutEventSelectorsResponse -> TestTree
+responsePutEventSelectors = res
+    "PutEventSelectorsResponse"
+    "fixture/PutEventSelectorsResponse.proto"
+    cloudTrail
+    (Proxy :: Proxy PutEventSelectors)
 
 responseStartLogging :: StartLoggingResponse -> TestTree
 responseStartLogging = res

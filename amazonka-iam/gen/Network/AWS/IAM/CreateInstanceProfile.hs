@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreateInstanceProfile
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new instance profile. For information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
+-- Creates a new instance profile. For information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles> .
 --
--- For information about the number of instance profiles you can create, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/.
+--
+-- For information about the number of instance profiles you can create, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.CreateInstanceProfile
     (
     -- * Creating a Request
@@ -38,46 +40,40 @@ module Network.AWS.IAM.CreateInstanceProfile
     , ciprsInstanceProfile
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createInstanceProfile' smart constructor.
 data CreateInstanceProfile = CreateInstanceProfile'
-    { _cipPath                :: !(Maybe Text)
-    , _cipInstanceProfileName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cipPath                :: !(Maybe Text)
+  , _cipInstanceProfileName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateInstanceProfile' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cipPath'
+-- * 'cipPath' - The path to the instance profile. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 --
--- * 'cipInstanceProfileName'
+-- * 'cipInstanceProfileName' - The name of the instance profile to create. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 createInstanceProfile
     :: Text -- ^ 'cipInstanceProfileName'
     -> CreateInstanceProfile
 createInstanceProfile pInstanceProfileName_ =
-    CreateInstanceProfile'
-    { _cipPath = Nothing
-    , _cipInstanceProfileName = pInstanceProfileName_
-    }
+  CreateInstanceProfile'
+  {_cipPath = Nothing, _cipInstanceProfileName = pInstanceProfileName_}
 
--- | The path to the instance profile. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/.
---
--- This parameter is optional. If it is not included, it defaults to a slash (\/).
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+
+-- | The path to the instance profile. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 cipPath :: Lens' CreateInstanceProfile (Maybe Text)
 cipPath = lens _cipPath (\ s a -> s{_cipPath = a});
 
--- | The name of the instance profile to create.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the instance profile to create. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 cipInstanceProfileName :: Lens' CreateInstanceProfile Text
 cipInstanceProfileName = lens _cipInstanceProfileName (\ s a -> s{_cipInstanceProfileName = a});
 
@@ -91,9 +87,9 @@ instance AWSRequest CreateInstanceProfile where
                  CreateInstanceProfileResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "InstanceProfile"))
 
-instance Hashable CreateInstanceProfile
+instance Hashable CreateInstanceProfile where
 
-instance NFData CreateInstanceProfile
+instance NFData CreateInstanceProfile where
 
 instance ToHeaders CreateInstanceProfile where
         toHeaders = const mempty
@@ -109,32 +105,36 @@ instance ToQuery CreateInstanceProfile where
                "Path" =: _cipPath,
                "InstanceProfileName" =: _cipInstanceProfileName]
 
--- | Contains the response to a successful < CreateInstanceProfile> request.
+-- | Contains the response to a successful 'CreateInstanceProfile' request.
+--
+--
 --
 -- /See:/ 'createInstanceProfileResponse' smart constructor.
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
-    { _ciprsResponseStatus  :: !Int
-    , _ciprsInstanceProfile :: !InstanceProfile
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ciprsResponseStatus  :: !Int
+  , _ciprsInstanceProfile :: !InstanceProfile
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateInstanceProfileResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ciprsResponseStatus'
+-- * 'ciprsResponseStatus' - -- | The response status code.
 --
--- * 'ciprsInstanceProfile'
+-- * 'ciprsInstanceProfile' - A structure containing details about the new instance profile.
 createInstanceProfileResponse
     :: Int -- ^ 'ciprsResponseStatus'
     -> InstanceProfile -- ^ 'ciprsInstanceProfile'
     -> CreateInstanceProfileResponse
 createInstanceProfileResponse pResponseStatus_ pInstanceProfile_ =
-    CreateInstanceProfileResponse'
-    { _ciprsResponseStatus = pResponseStatus_
-    , _ciprsInstanceProfile = pInstanceProfile_
-    }
+  CreateInstanceProfileResponse'
+  { _ciprsResponseStatus = pResponseStatus_
+  , _ciprsInstanceProfile = pInstanceProfile_
+  }
 
--- | The response status code.
+
+-- | -- | The response status code.
 ciprsResponseStatus :: Lens' CreateInstanceProfileResponse Int
 ciprsResponseStatus = lens _ciprsResponseStatus (\ s a -> s{_ciprsResponseStatus = a});
 
@@ -142,4 +142,4 @@ ciprsResponseStatus = lens _ciprsResponseStatus (\ s a -> s{_ciprsResponseStatus
 ciprsInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
 ciprsInstanceProfile = lens _ciprsInstanceProfile (\ s a -> s{_ciprsInstanceProfile = a});
 
-instance NFData CreateInstanceProfileResponse
+instance NFData CreateInstanceProfileResponse where

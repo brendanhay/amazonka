@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DescribeEndpoint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a unique endpoint specific to the AWS account making the call.
+--
+--
 module Network.AWS.IoT.DescribeEndpoint
     (
     -- * Creating a Request
@@ -33,25 +35,29 @@ module Network.AWS.IoT.DescribeEndpoint
     , dersResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DescribeEndpoint operation.
 --
+--
+--
 -- /See:/ 'describeEndpoint' smart constructor.
 data DescribeEndpoint =
-    DescribeEndpoint'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeEndpoint'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEndpoint' with the minimum fields required to make a request.
 --
 describeEndpoint
     :: DescribeEndpoint
 describeEndpoint = DescribeEndpoint'
+
 
 instance AWSRequest DescribeEndpoint where
         type Rs DescribeEndpoint = DescribeEndpointResponse
@@ -62,9 +68,9 @@ instance AWSRequest DescribeEndpoint where
                  DescribeEndpointResponse' <$>
                    (x .?> "endpointAddress") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEndpoint
+instance Hashable DescribeEndpoint where
 
-instance NFData DescribeEndpoint
+instance NFData DescribeEndpoint where
 
 instance ToHeaders DescribeEndpoint where
         toHeaders = const mempty
@@ -77,34 +83,36 @@ instance ToQuery DescribeEndpoint where
 
 -- | The output from the DescribeEndpoint operation.
 --
+--
+--
 -- /See:/ 'describeEndpointResponse' smart constructor.
 data DescribeEndpointResponse = DescribeEndpointResponse'
-    { _dersEndpointAddress :: !(Maybe Text)
-    , _dersResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dersEndpointAddress :: !(Maybe Text)
+  , _dersResponseStatus  :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEndpointResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dersEndpointAddress'
+-- * 'dersEndpointAddress' - The endpoint. The format of the endpoint is as follows: /identifier/ .iot./region/ .amazonaws.com.
 --
--- * 'dersResponseStatus'
+-- * 'dersResponseStatus' - -- | The response status code.
 describeEndpointResponse
     :: Int -- ^ 'dersResponseStatus'
     -> DescribeEndpointResponse
 describeEndpointResponse pResponseStatus_ =
-    DescribeEndpointResponse'
-    { _dersEndpointAddress = Nothing
-    , _dersResponseStatus = pResponseStatus_
-    }
+  DescribeEndpointResponse'
+  {_dersEndpointAddress = Nothing, _dersResponseStatus = pResponseStatus_}
 
--- | The endpoint. The format of the endpoint is as follows: /identifier/.iot./region/.amazonaws.com.
+
+-- | The endpoint. The format of the endpoint is as follows: /identifier/ .iot./region/ .amazonaws.com.
 dersEndpointAddress :: Lens' DescribeEndpointResponse (Maybe Text)
 dersEndpointAddress = lens _dersEndpointAddress (\ s a -> s{_dersEndpointAddress = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dersResponseStatus :: Lens' DescribeEndpointResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
 
-instance NFData DescribeEndpointResponse
+instance NFData DescribeEndpointResponse where

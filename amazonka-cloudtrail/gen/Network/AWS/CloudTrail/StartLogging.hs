@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.StartLogging
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts the recording of AWS API calls and log file delivery for a trail. For a trail that is enabled in all regions, this operation must be called from the region in which the trail was created. This operation cannot be called on the shadow trails (replicated trails in other regions) of a trail that is enabled in all regions.
+--
+--
 module Network.AWS.CloudTrail.StartLogging
     (
     -- * Creating a Request
@@ -34,36 +36,35 @@ module Network.AWS.CloudTrail.StartLogging
     , srsResponseStatus
     ) where
 
-import           Network.AWS.CloudTrail.Types
-import           Network.AWS.CloudTrail.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudTrail.Types
+import Network.AWS.CloudTrail.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to CloudTrail to start logging AWS API calls for an account.
 --
+--
+--
 -- /See:/ 'startLogging' smart constructor.
 newtype StartLogging = StartLogging'
-    { _sName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartLogging' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sName'
+-- * 'sName' - Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS API calls. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 startLogging
     :: Text -- ^ 'sName'
     -> StartLogging
-startLogging pName_ =
-    StartLogging'
-    { _sName = pName_
-    }
+startLogging pName_ = StartLogging' {_sName = pName_}
 
--- | Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS API calls. The format of a trail ARN is:
---
--- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'
+
+-- | Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS API calls. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 sName :: Lens' StartLogging Text
 sName = lens _sName (\ s a -> s{_sName = a});
 
@@ -75,9 +76,9 @@ instance AWSRequest StartLogging where
               (\ s h x ->
                  StartLoggingResponse' <$> (pure (fromEnum s)))
 
-instance Hashable StartLogging
+instance Hashable StartLogging where
 
-instance NFData StartLogging
+instance NFData StartLogging where
 
 instance ToHeaders StartLogging where
         toHeaders
@@ -101,26 +102,28 @@ instance ToQuery StartLogging where
 
 -- | Returns the objects or data listed below if successful. Otherwise, returns an error.
 --
+--
+--
 -- /See:/ 'startLoggingResponse' smart constructor.
 newtype StartLoggingResponse = StartLoggingResponse'
-    { _srsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartLoggingResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsResponseStatus'
+-- * 'srsResponseStatus' - -- | The response status code.
 startLoggingResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StartLoggingResponse
 startLoggingResponse pResponseStatus_ =
-    StartLoggingResponse'
-    { _srsResponseStatus = pResponseStatus_
-    }
+  StartLoggingResponse' {_srsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 srsResponseStatus :: Lens' StartLoggingResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 
-instance NFData StartLoggingResponse
+instance NFData StartLoggingResponse where

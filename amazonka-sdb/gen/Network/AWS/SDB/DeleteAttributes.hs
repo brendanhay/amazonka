@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.SDB.DeleteAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes one or more attributes associated with an item. If all attributes of the item are deleted, the item is deleted.
 --
--- 'DeleteAttributes' is an idempotent operation; running it multiple times on the same item or attribute does not result in an error response.
 --
--- Because Amazon SimpleDB makes multiple copies of item data and uses an eventual consistency update model, performing a < GetAttributes> or < Select> operation (read) immediately after a 'DeleteAttributes' or < PutAttributes> operation (write) might not return updated item data.
+-- @DeleteAttributes@ is an idempotent operation; running it multiple times on the same item or attribute does not result in an error response.
+--
+-- Because Amazon SimpleDB makes multiple copies of item data and uses an eventual consistency update model, performing a 'GetAttributes' or 'Select' operation (read) immediately after a @DeleteAttributes@ or 'PutAttributes' operation (write) might not return updated item data.
+--
 module Network.AWS.SDB.DeleteAttributes
     (
     -- * Creating a Request
@@ -39,43 +41,45 @@ module Network.AWS.SDB.DeleteAttributes
     , DeleteAttributesResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SDB.Types
-import           Network.AWS.SDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SDB.Types
+import Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'deleteAttributes' smart constructor.
 data DeleteAttributes = DeleteAttributes'
-    { _daAttributes :: !(Maybe [Attribute])
-    , _daExpected   :: !(Maybe UpdateCondition)
-    , _daDomainName :: !Text
-    , _daItemName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daAttributes :: !(Maybe [Attribute])
+  , _daExpected   :: !(Maybe UpdateCondition)
+  , _daDomainName :: !Text
+  , _daItemName   :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAttributes' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daAttributes'
+-- * 'daAttributes' - A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.
 --
--- * 'daExpected'
+-- * 'daExpected' - The update condition which, if specified, determines whether the specified attributes will be deleted or not. The update condition must be satisfied in order for this request to be processed and the attributes to be deleted.
 --
--- * 'daDomainName'
+-- * 'daDomainName' - The name of the domain in which to perform the operation.
 --
--- * 'daItemName'
+-- * 'daItemName' - The name of the item. Similar to rows on a spreadsheet, items represent individual objects that contain one or more value-attribute pairs.
 deleteAttributes
     :: Text -- ^ 'daDomainName'
     -> Text -- ^ 'daItemName'
     -> DeleteAttributes
 deleteAttributes pDomainName_ pItemName_ =
-    DeleteAttributes'
-    { _daAttributes = Nothing
-    , _daExpected = Nothing
-    , _daDomainName = pDomainName_
-    , _daItemName = pItemName_
-    }
+  DeleteAttributes'
+  { _daAttributes = Nothing
+  , _daExpected = Nothing
+  , _daDomainName = pDomainName_
+  , _daItemName = pItemName_
+  }
+
 
 -- | A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.
 daAttributes :: Lens' DeleteAttributes [Attribute]
@@ -98,9 +102,9 @@ instance AWSRequest DeleteAttributes where
         request = postQuery sdb
         response = receiveNull DeleteAttributesResponse'
 
-instance Hashable DeleteAttributes
+instance Hashable DeleteAttributes where
 
-instance NFData DeleteAttributes
+instance NFData DeleteAttributes where
 
 instance ToHeaders DeleteAttributes where
         toHeaders = const mempty
@@ -120,8 +124,9 @@ instance ToQuery DeleteAttributes where
 
 -- | /See:/ 'deleteAttributesResponse' smart constructor.
 data DeleteAttributesResponse =
-    DeleteAttributesResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteAttributesResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAttributesResponse' with the minimum fields required to make a request.
 --
@@ -129,4 +134,5 @@ deleteAttributesResponse
     :: DeleteAttributesResponse
 deleteAttributesResponse = DeleteAttributesResponse'
 
-instance NFData DeleteAttributesResponse
+
+instance NFData DeleteAttributesResponse where

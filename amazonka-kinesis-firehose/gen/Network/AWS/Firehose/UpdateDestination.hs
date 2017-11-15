@@ -12,21 +12,25 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.UpdateDestination
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the specified destination of the specified delivery stream. Note: Switching between Elasticsearch and other services is not supported. For Elasticsearch destination, you can only update an existing Elasticsearch destination with this operation.
+-- Updates the specified destination of the specified delivery stream.
 --
--- This operation can be used to change the destination type (for example, to replace the Amazon S3 destination with Amazon Redshift) or change the parameters associated with a given destination (for example, to change the bucket name of the Amazon S3 destination). The update may not occur immediately. The target delivery stream remains active while the configurations are updated, so data writes to the delivery stream can continue during this process. The updated configurations are normally effective within a few minutes.
 --
--- If the destination type is the same, Firehose merges the configuration parameters specified in the < UpdateDestination> request with the destination configuration that already exists on the delivery stream. If any of the parameters are not specified in the update request, then the existing configuration parameters are retained. For example, in the Amazon S3 destination, if < EncryptionConfiguration> is not specified then the existing < EncryptionConfiguration> is maintained on the destination.
+-- You can use this operation to change the destination type (for example, to replace the Amazon S3 destination with Amazon Redshift) or change the parameters associated with a destination (for example, to change the bucket name of the Amazon S3 destination). The update might not occur immediately. The target delivery stream remains active while the configurations are updated, so data writes to the delivery stream can continue during this process. The updated configurations are usually effective within a few minutes.
 --
--- If the destination type is not the same, for example, changing the destination from Amazon S3 to Amazon Redshift, Firehose does not merge any parameters. In this case, all parameters must be specified.
+-- Note that switching between Amazon ES and other services is not supported. For an Amazon ES destination, you can only update to another Amazon ES destination.
 --
--- Firehose uses the __CurrentDeliveryStreamVersionId__ to avoid race conditions and conflicting merges. This is a required field in every request and the service only updates the configuration if the existing configuration matches the __VersionId__. After the update is applied successfully, the __VersionId__ is updated, which can be retrieved with the < DescribeDeliveryStream> operation. The new __VersionId__ should be uses to set __CurrentDeliveryStreamVersionId__ in the next < UpdateDestination> operation.
+-- If the destination type is the same, Kinesis Firehose merges the configuration parameters specified with the destination configuration that already exists on the delivery stream. If any of the parameters are not specified in the call, the existing values are retained. For example, in the Amazon S3 destination, if 'EncryptionConfiguration' is not specified, then the existing 'EncryptionConfiguration' is maintained on the destination.
+--
+-- If the destination type is not the same, for example, changing the destination from Amazon S3 to Amazon Redshift, Kinesis Firehose does not merge any parameters. In this case, all parameters must be specified.
+--
+-- Kinesis Firehose uses __CurrentDeliveryStreamVersionId__ to avoid race conditions and conflicting merges. This is a required field, and the service updates the configuration only if the existing configuration has a version ID that matches. After the update is applied successfully, the version ID is updated, and can be retrieved using 'DescribeDeliveryStream' . Use the new version ID to set __CurrentDeliveryStreamVersionId__ in the next call.
+--
 module Network.AWS.Firehose.UpdateDestination
     (
     -- * Creating a Request
@@ -36,6 +40,7 @@ module Network.AWS.Firehose.UpdateDestination
     , udS3DestinationUpdate
     , udRedshiftDestinationUpdate
     , udElasticsearchDestinationUpdate
+    , udExtendedS3DestinationUpdate
     , udDeliveryStreamName
     , udCurrentDeliveryStreamVersionId
     , udDestinationId
@@ -47,56 +52,60 @@ module Network.AWS.Firehose.UpdateDestination
     , udrsResponseStatus
     ) where
 
-import           Network.AWS.Firehose.Types
-import           Network.AWS.Firehose.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Firehose.Types
+import Network.AWS.Firehose.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for < UpdateDestination>.
---
--- /See:/ 'updateDestination' smart constructor.
+-- | /See:/ 'updateDestination' smart constructor.
 data UpdateDestination = UpdateDestination'
-    { _udS3DestinationUpdate            :: !(Maybe S3DestinationUpdate)
-    , _udRedshiftDestinationUpdate      :: !(Maybe RedshiftDestinationUpdate)
-    , _udElasticsearchDestinationUpdate :: !(Maybe ElasticsearchDestinationUpdate)
-    , _udDeliveryStreamName             :: !Text
-    , _udCurrentDeliveryStreamVersionId :: !Text
-    , _udDestinationId                  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udS3DestinationUpdate            :: !(Maybe S3DestinationUpdate)
+  , _udRedshiftDestinationUpdate      :: !(Maybe RedshiftDestinationUpdate)
+  , _udElasticsearchDestinationUpdate :: !(Maybe ElasticsearchDestinationUpdate)
+  , _udExtendedS3DestinationUpdate    :: !(Maybe ExtendedS3DestinationUpdate)
+  , _udDeliveryStreamName             :: !Text
+  , _udCurrentDeliveryStreamVersionId :: !Text
+  , _udDestinationId                  :: !Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDestination' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udS3DestinationUpdate'
+-- * 'udS3DestinationUpdate' - [Deprecated] Describes an update for a destination in Amazon S3.
 --
--- * 'udRedshiftDestinationUpdate'
+-- * 'udRedshiftDestinationUpdate' - Describes an update for a destination in Amazon Redshift.
 --
--- * 'udElasticsearchDestinationUpdate'
+-- * 'udElasticsearchDestinationUpdate' - Describes an update for a destination in Amazon ES.
 --
--- * 'udDeliveryStreamName'
+-- * 'udExtendedS3DestinationUpdate' - Describes an update for a destination in Amazon S3.
 --
--- * 'udCurrentDeliveryStreamVersionId'
+-- * 'udDeliveryStreamName' - The name of the delivery stream.
 --
--- * 'udDestinationId'
+-- * 'udCurrentDeliveryStreamVersionId' - Obtain this value from the __VersionId__ result of 'DeliveryStreamDescription' . This value is required, and helps the service to perform conditional operations. For example, if there is an interleaving update and this value is null, then the update destination fails. After the update is successful, the __VersionId__ value is updated. The service then performs a merge of the old configuration with the new configuration.
+--
+-- * 'udDestinationId' - The ID of the destination.
 updateDestination
     :: Text -- ^ 'udDeliveryStreamName'
     -> Text -- ^ 'udCurrentDeliveryStreamVersionId'
     -> Text -- ^ 'udDestinationId'
     -> UpdateDestination
 updateDestination pDeliveryStreamName_ pCurrentDeliveryStreamVersionId_ pDestinationId_ =
-    UpdateDestination'
-    { _udS3DestinationUpdate = Nothing
-    , _udRedshiftDestinationUpdate = Nothing
-    , _udElasticsearchDestinationUpdate = Nothing
-    , _udDeliveryStreamName = pDeliveryStreamName_
-    , _udCurrentDeliveryStreamVersionId = pCurrentDeliveryStreamVersionId_
-    , _udDestinationId = pDestinationId_
-    }
+  UpdateDestination'
+  { _udS3DestinationUpdate = Nothing
+  , _udRedshiftDestinationUpdate = Nothing
+  , _udElasticsearchDestinationUpdate = Nothing
+  , _udExtendedS3DestinationUpdate = Nothing
+  , _udDeliveryStreamName = pDeliveryStreamName_
+  , _udCurrentDeliveryStreamVersionId = pCurrentDeliveryStreamVersionId_
+  , _udDestinationId = pDestinationId_
+  }
 
--- | Describes an update for a destination in Amazon S3.
+
+-- | [Deprecated] Describes an update for a destination in Amazon S3.
 udS3DestinationUpdate :: Lens' UpdateDestination (Maybe S3DestinationUpdate)
 udS3DestinationUpdate = lens _udS3DestinationUpdate (\ s a -> s{_udS3DestinationUpdate = a});
 
@@ -108,11 +117,15 @@ udRedshiftDestinationUpdate = lens _udRedshiftDestinationUpdate (\ s a -> s{_udR
 udElasticsearchDestinationUpdate :: Lens' UpdateDestination (Maybe ElasticsearchDestinationUpdate)
 udElasticsearchDestinationUpdate = lens _udElasticsearchDestinationUpdate (\ s a -> s{_udElasticsearchDestinationUpdate = a});
 
+-- | Describes an update for a destination in Amazon S3.
+udExtendedS3DestinationUpdate :: Lens' UpdateDestination (Maybe ExtendedS3DestinationUpdate)
+udExtendedS3DestinationUpdate = lens _udExtendedS3DestinationUpdate (\ s a -> s{_udExtendedS3DestinationUpdate = a});
+
 -- | The name of the delivery stream.
 udDeliveryStreamName :: Lens' UpdateDestination Text
 udDeliveryStreamName = lens _udDeliveryStreamName (\ s a -> s{_udDeliveryStreamName = a});
 
--- | Obtain this value from the __VersionId__ result of the < DeliveryStreamDescription> operation. This value is required, and helps the service to perform conditional operations. For example, if there is a interleaving update and this value is null, then the update destination fails. After the update is successful, the __VersionId__ value is updated. The service then performs a merge of the old configuration with the new configuration.
+-- | Obtain this value from the __VersionId__ result of 'DeliveryStreamDescription' . This value is required, and helps the service to perform conditional operations. For example, if there is an interleaving update and this value is null, then the update destination fails. After the update is successful, the __VersionId__ value is updated. The service then performs a merge of the old configuration with the new configuration.
 udCurrentDeliveryStreamVersionId :: Lens' UpdateDestination Text
 udCurrentDeliveryStreamVersionId = lens _udCurrentDeliveryStreamVersionId (\ s a -> s{_udCurrentDeliveryStreamVersionId = a});
 
@@ -128,9 +141,9 @@ instance AWSRequest UpdateDestination where
               (\ s h x ->
                  UpdateDestinationResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateDestination
+instance Hashable UpdateDestination where
 
-instance NFData UpdateDestination
+instance NFData UpdateDestination where
 
 instance ToHeaders UpdateDestination where
         toHeaders
@@ -152,6 +165,8 @@ instance ToJSON UpdateDestination where
                     _udRedshiftDestinationUpdate,
                   ("ElasticsearchDestinationUpdate" .=) <$>
                     _udElasticsearchDestinationUpdate,
+                  ("ExtendedS3DestinationUpdate" .=) <$>
+                    _udExtendedS3DestinationUpdate,
                   Just ("DeliveryStreamName" .= _udDeliveryStreamName),
                   Just
                     ("CurrentDeliveryStreamVersionId" .=
@@ -164,28 +179,26 @@ instance ToPath UpdateDestination where
 instance ToQuery UpdateDestination where
         toQuery = const mempty
 
--- | Contains the output of < UpdateDestination>.
---
--- /See:/ 'updateDestinationResponse' smart constructor.
+-- | /See:/ 'updateDestinationResponse' smart constructor.
 newtype UpdateDestinationResponse = UpdateDestinationResponse'
-    { _udrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDestinationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udrsResponseStatus'
+-- * 'udrsResponseStatus' - -- | The response status code.
 updateDestinationResponse
     :: Int -- ^ 'udrsResponseStatus'
     -> UpdateDestinationResponse
 updateDestinationResponse pResponseStatus_ =
-    UpdateDestinationResponse'
-    { _udrsResponseStatus = pResponseStatus_
-    }
+  UpdateDestinationResponse' {_udrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 udrsResponseStatus :: Lens' UpdateDestinationResponse Int
 udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a});
 
-instance NFData UpdateDestinationResponse
+instance NFData UpdateDestinationResponse where

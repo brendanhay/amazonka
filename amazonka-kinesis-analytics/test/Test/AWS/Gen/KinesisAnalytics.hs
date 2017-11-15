@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.KinesisAnalytics
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.KinesisAnalytics where
 
 import Data.Proxy
+import Network.AWS.KinesisAnalytics
 import Test.AWS.Fixture
+import Test.AWS.KinesisAnalytics.Internal
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.KinesisAnalytics
-import Test.AWS.KinesisAnalytics.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -49,6 +49,12 @@ import Test.AWS.KinesisAnalytics.Internal
 --         , requestUpdateApplication $
 --             updateApplication
 --
+--         , requestDeleteApplicationCloudWatchLoggingOption $
+--             deleteApplicationCloudWatchLoggingOption
+--
+--         , requestAddApplicationInputProcessingConfiguration $
+--             addApplicationInputProcessingConfiguration
+--
 --         , requestCreateApplication $
 --             createApplication
 --
@@ -64,8 +70,14 @@ import Test.AWS.KinesisAnalytics.Internal
 --         , requestAddApplicationInput $
 --             addApplicationInput
 --
+--         , requestAddApplicationCloudWatchLoggingOption $
+--             addApplicationCloudWatchLoggingOption
+--
 --         , requestListApplications $
 --             listApplications
+--
+--         , requestDeleteApplicationInputProcessingConfiguration $
+--             deleteApplicationInputProcessingConfiguration
 --
 --           ]
 
@@ -91,6 +103,12 @@ import Test.AWS.KinesisAnalytics.Internal
 --         , responseUpdateApplication $
 --             updateApplicationResponse
 --
+--         , responseDeleteApplicationCloudWatchLoggingOption $
+--             deleteApplicationCloudWatchLoggingOptionResponse
+--
+--         , responseAddApplicationInputProcessingConfiguration $
+--             addApplicationInputProcessingConfigurationResponse
+--
 --         , responseCreateApplication $
 --             createApplicationResponse
 --
@@ -106,8 +124,14 @@ import Test.AWS.KinesisAnalytics.Internal
 --         , responseAddApplicationInput $
 --             addApplicationInputResponse
 --
+--         , responseAddApplicationCloudWatchLoggingOption $
+--             addApplicationCloudWatchLoggingOptionResponse
+--
 --         , responseListApplications $
 --             listApplicationsResponse
+--
+--         , responseDeleteApplicationInputProcessingConfiguration $
+--             deleteApplicationInputProcessingConfigurationResponse
 --
 --           ]
 --     ]
@@ -149,6 +173,16 @@ requestUpdateApplication = req
     "UpdateApplication"
     "fixture/UpdateApplication.yaml"
 
+requestDeleteApplicationCloudWatchLoggingOption :: DeleteApplicationCloudWatchLoggingOption -> TestTree
+requestDeleteApplicationCloudWatchLoggingOption = req
+    "DeleteApplicationCloudWatchLoggingOption"
+    "fixture/DeleteApplicationCloudWatchLoggingOption.yaml"
+
+requestAddApplicationInputProcessingConfiguration :: AddApplicationInputProcessingConfiguration -> TestTree
+requestAddApplicationInputProcessingConfiguration = req
+    "AddApplicationInputProcessingConfiguration"
+    "fixture/AddApplicationInputProcessingConfiguration.yaml"
+
 requestCreateApplication :: CreateApplication -> TestTree
 requestCreateApplication = req
     "CreateApplication"
@@ -174,10 +208,20 @@ requestAddApplicationInput = req
     "AddApplicationInput"
     "fixture/AddApplicationInput.yaml"
 
+requestAddApplicationCloudWatchLoggingOption :: AddApplicationCloudWatchLoggingOption -> TestTree
+requestAddApplicationCloudWatchLoggingOption = req
+    "AddApplicationCloudWatchLoggingOption"
+    "fixture/AddApplicationCloudWatchLoggingOption.yaml"
+
 requestListApplications :: ListApplications -> TestTree
 requestListApplications = req
     "ListApplications"
     "fixture/ListApplications.yaml"
+
+requestDeleteApplicationInputProcessingConfiguration :: DeleteApplicationInputProcessingConfiguration -> TestTree
+requestDeleteApplicationInputProcessingConfiguration = req
+    "DeleteApplicationInputProcessingConfiguration"
+    "fixture/DeleteApplicationInputProcessingConfiguration.yaml"
 
 -- Responses
 
@@ -230,6 +274,20 @@ responseUpdateApplication = res
     kinesisAnalytics
     (Proxy :: Proxy UpdateApplication)
 
+responseDeleteApplicationCloudWatchLoggingOption :: DeleteApplicationCloudWatchLoggingOptionResponse -> TestTree
+responseDeleteApplicationCloudWatchLoggingOption = res
+    "DeleteApplicationCloudWatchLoggingOptionResponse"
+    "fixture/DeleteApplicationCloudWatchLoggingOptionResponse.proto"
+    kinesisAnalytics
+    (Proxy :: Proxy DeleteApplicationCloudWatchLoggingOption)
+
+responseAddApplicationInputProcessingConfiguration :: AddApplicationInputProcessingConfigurationResponse -> TestTree
+responseAddApplicationInputProcessingConfiguration = res
+    "AddApplicationInputProcessingConfigurationResponse"
+    "fixture/AddApplicationInputProcessingConfigurationResponse.proto"
+    kinesisAnalytics
+    (Proxy :: Proxy AddApplicationInputProcessingConfiguration)
+
 responseCreateApplication :: CreateApplicationResponse -> TestTree
 responseCreateApplication = res
     "CreateApplicationResponse"
@@ -265,9 +323,23 @@ responseAddApplicationInput = res
     kinesisAnalytics
     (Proxy :: Proxy AddApplicationInput)
 
+responseAddApplicationCloudWatchLoggingOption :: AddApplicationCloudWatchLoggingOptionResponse -> TestTree
+responseAddApplicationCloudWatchLoggingOption = res
+    "AddApplicationCloudWatchLoggingOptionResponse"
+    "fixture/AddApplicationCloudWatchLoggingOptionResponse.proto"
+    kinesisAnalytics
+    (Proxy :: Proxy AddApplicationCloudWatchLoggingOption)
+
 responseListApplications :: ListApplicationsResponse -> TestTree
 responseListApplications = res
     "ListApplicationsResponse"
     "fixture/ListApplicationsResponse.proto"
     kinesisAnalytics
     (Proxy :: Proxy ListApplications)
+
+responseDeleteApplicationInputProcessingConfiguration :: DeleteApplicationInputProcessingConfigurationResponse -> TestTree
+responseDeleteApplicationInputProcessingConfiguration = res
+    "DeleteApplicationInputProcessingConfigurationResponse"
+    "fixture/DeleteApplicationInputProcessingConfigurationResponse.proto"
+    kinesisAnalytics
+    (Proxy :: Proxy DeleteApplicationInputProcessingConfiguration)

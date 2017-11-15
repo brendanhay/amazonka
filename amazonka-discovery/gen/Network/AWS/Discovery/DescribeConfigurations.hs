@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.DescribeConfigurations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of attributes for a specific configuration ID. For example, the output for a /server/ configuration item includes a list of attributes about the server, including host name, operating system, number of network cards, etc.
+-- Retrieves attributes for a list of configuration item IDs. All of the supplied IDs must be for the same asset type (server, application, process, or connection). Output fields are specific to the asset type selected. For example, the output for a /server/ configuration item includes a list of attributes about the server, such as host name, operating system, and number of network cards.
+--
+--
+-- For a complete list of outputs for each asset type, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html#DescribeConfigurations Using the DescribeConfigurations Action> .
+--
 module Network.AWS.Discovery.DescribeConfigurations
     (
     -- * Creating a Request
@@ -35,29 +39,28 @@ module Network.AWS.Discovery.DescribeConfigurations
     , dcrsResponseStatus
     ) where
 
-import           Network.AWS.Discovery.Types
-import           Network.AWS.Discovery.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Discovery.Types
+import Network.AWS.Discovery.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeConfigurations' smart constructor.
 newtype DescribeConfigurations = DescribeConfigurations'
-    { _dcConfigurationIds :: [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcConfigurationIds :: [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConfigurations' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcConfigurationIds'
+-- * 'dcConfigurationIds' - One or more configuration IDs.
 describeConfigurations
     :: DescribeConfigurations
-describeConfigurations =
-    DescribeConfigurations'
-    { _dcConfigurationIds = mempty
-    }
+describeConfigurations = DescribeConfigurations' {_dcConfigurationIds = mempty}
+
 
 -- | One or more configuration IDs.
 dcConfigurationIds :: Lens' DescribeConfigurations [Text]
@@ -74,9 +77,9 @@ instance AWSRequest DescribeConfigurations where
                    (x .?> "configurations" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeConfigurations
+instance Hashable DescribeConfigurations where
 
-instance NFData DescribeConfigurations
+instance NFData DescribeConfigurations where
 
 instance ToHeaders DescribeConfigurations where
         toHeaders
@@ -102,32 +105,32 @@ instance ToQuery DescribeConfigurations where
 
 -- | /See:/ 'describeConfigurationsResponse' smart constructor.
 data DescribeConfigurationsResponse = DescribeConfigurationsResponse'
-    { _dcrsConfigurations :: !(Maybe [Map Text Text])
-    , _dcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrsConfigurations :: !(Maybe [Map Text Text])
+  , _dcrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConfigurationsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrsConfigurations'
+-- * 'dcrsConfigurations' - A key in the response map. The value is an array of data.
 --
--- * 'dcrsResponseStatus'
+-- * 'dcrsResponseStatus' - -- | The response status code.
 describeConfigurationsResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeConfigurationsResponse
 describeConfigurationsResponse pResponseStatus_ =
-    DescribeConfigurationsResponse'
-    { _dcrsConfigurations = Nothing
-    , _dcrsResponseStatus = pResponseStatus_
-    }
+  DescribeConfigurationsResponse'
+  {_dcrsConfigurations = Nothing, _dcrsResponseStatus = pResponseStatus_}
+
 
 -- | A key in the response map. The value is an array of data.
 dcrsConfigurations :: Lens' DescribeConfigurationsResponse [HashMap Text Text]
 dcrsConfigurations = lens _dcrsConfigurations (\ s a -> s{_dcrsConfigurations = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeConfigurationsResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 
-instance NFData DescribeConfigurationsResponse
+instance NFData DescribeConfigurationsResponse where

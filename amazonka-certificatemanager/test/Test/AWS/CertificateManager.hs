@@ -14,7 +14,7 @@ module Test.AWS.CertificateManager
     , fixtures
     ) where
 
-import           Test.AWS.Prelude
+import Test.AWS.Prelude
 
 tests :: [TestTree]
 tests = []

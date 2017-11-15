@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.ListParts
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,53 +55,55 @@ module Network.AWS.S3.ListParts
     , lprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'listParts' smart constructor.
 data ListParts = ListParts'
-    { _lpMaxParts         :: !(Maybe Int)
-    , _lpRequestPayer     :: !(Maybe RequestPayer)
-    , _lpPartNumberMarker :: !(Maybe Int)
-    , _lpBucket           :: !BucketName
-    , _lpKey              :: !ObjectKey
-    , _lpUploadId         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpMaxParts         :: !(Maybe Int)
+  , _lpRequestPayer     :: !(Maybe RequestPayer)
+  , _lpPartNumberMarker :: !(Maybe Int)
+  , _lpBucket           :: !BucketName
+  , _lpKey              :: !ObjectKey
+  , _lpUploadId         :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListParts' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpMaxParts'
+-- * 'lpMaxParts' - Sets the maximum number of parts to return.
 --
--- * 'lpRequestPayer'
+-- * 'lpRequestPayer' - Undocumented member.
 --
--- * 'lpPartNumberMarker'
+-- * 'lpPartNumberMarker' - Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.
 --
--- * 'lpBucket'
+-- * 'lpBucket' - Undocumented member.
 --
--- * 'lpKey'
+-- * 'lpKey' - Undocumented member.
 --
--- * 'lpUploadId'
+-- * 'lpUploadId' - Upload ID identifying the multipart upload whose parts are being listed.
 listParts
     :: BucketName -- ^ 'lpBucket'
     -> ObjectKey -- ^ 'lpKey'
     -> Text -- ^ 'lpUploadId'
     -> ListParts
 listParts pBucket_ pKey_ pUploadId_ =
-    ListParts'
-    { _lpMaxParts = Nothing
-    , _lpRequestPayer = Nothing
-    , _lpPartNumberMarker = Nothing
-    , _lpBucket = pBucket_
-    , _lpKey = pKey_
-    , _lpUploadId = pUploadId_
-    }
+  ListParts'
+  { _lpMaxParts = Nothing
+  , _lpRequestPayer = Nothing
+  , _lpPartNumberMarker = Nothing
+  , _lpBucket = pBucket_
+  , _lpKey = pKey_
+  , _lpUploadId = pUploadId_
+  }
+
 
 -- | Sets the maximum number of parts to return.
 lpMaxParts :: Lens' ListParts (Maybe Int)
@@ -159,9 +161,9 @@ instance AWSRequest ListParts where
                      <*> (x .@? "UploadId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListParts
+instance Hashable ListParts where
 
-instance NFData ListParts
+instance NFData ListParts where
 
 instance ToHeaders ListParts where
         toHeaders ListParts'{..}
@@ -180,77 +182,79 @@ instance ToQuery ListParts where
 
 -- | /See:/ 'listPartsResponse' smart constructor.
 data ListPartsResponse = ListPartsResponse'
-    { _lprsParts                :: !(Maybe [Part])
-    , _lprsRequestCharged       :: !(Maybe RequestCharged)
-    , _lprsMaxParts             :: !(Maybe Int)
-    , _lprsInitiator            :: !(Maybe Initiator)
-    , _lprsBucket               :: !(Maybe BucketName)
-    , _lprsAbortDate            :: !(Maybe RFC822)
-    , _lprsNextPartNumberMarker :: !(Maybe Int)
-    , _lprsAbortRuleId          :: !(Maybe Text)
-    , _lprsOwner                :: !(Maybe Owner)
-    , _lprsKey                  :: !(Maybe ObjectKey)
-    , _lprsStorageClass         :: !(Maybe StorageClass)
-    , _lprsIsTruncated          :: !(Maybe Bool)
-    , _lprsPartNumberMarker     :: !(Maybe Int)
-    , _lprsUploadId             :: !(Maybe Text)
-    , _lprsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lprsParts                :: !(Maybe [Part])
+  , _lprsRequestCharged       :: !(Maybe RequestCharged)
+  , _lprsMaxParts             :: !(Maybe Int)
+  , _lprsInitiator            :: !(Maybe Initiator)
+  , _lprsBucket               :: !(Maybe BucketName)
+  , _lprsAbortDate            :: !(Maybe RFC822)
+  , _lprsNextPartNumberMarker :: !(Maybe Int)
+  , _lprsAbortRuleId          :: !(Maybe Text)
+  , _lprsOwner                :: !(Maybe Owner)
+  , _lprsKey                  :: !(Maybe ObjectKey)
+  , _lprsStorageClass         :: !(Maybe StorageClass)
+  , _lprsIsTruncated          :: !(Maybe Bool)
+  , _lprsPartNumberMarker     :: !(Maybe Int)
+  , _lprsUploadId             :: !(Maybe Text)
+  , _lprsResponseStatus       :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPartsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lprsParts'
+-- * 'lprsParts' - Undocumented member.
 --
--- * 'lprsRequestCharged'
+-- * 'lprsRequestCharged' - Undocumented member.
 --
--- * 'lprsMaxParts'
+-- * 'lprsMaxParts' - Maximum number of parts that were allowed in the response.
 --
--- * 'lprsInitiator'
+-- * 'lprsInitiator' - Identifies who initiated the multipart upload.
 --
--- * 'lprsBucket'
+-- * 'lprsBucket' - Name of the bucket to which the multipart upload was initiated.
 --
--- * 'lprsAbortDate'
+-- * 'lprsAbortDate' - Date when multipart upload will become eligible for abort operation by lifecycle.
 --
--- * 'lprsNextPartNumberMarker'
+-- * 'lprsNextPartNumberMarker' - When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.
 --
--- * 'lprsAbortRuleId'
+-- * 'lprsAbortRuleId' - Id of the lifecycle rule that makes a multipart upload eligible for abort operation.
 --
--- * 'lprsOwner'
+-- * 'lprsOwner' - Undocumented member.
 --
--- * 'lprsKey'
+-- * 'lprsKey' - Object key for which the multipart upload was initiated.
 --
--- * 'lprsStorageClass'
+-- * 'lprsStorageClass' - The class of storage used to store the object.
 --
--- * 'lprsIsTruncated'
+-- * 'lprsIsTruncated' - Indicates whether the returned list of parts is truncated.
 --
--- * 'lprsPartNumberMarker'
+-- * 'lprsPartNumberMarker' - Part number after which listing begins.
 --
--- * 'lprsUploadId'
+-- * 'lprsUploadId' - Upload ID identifying the multipart upload whose parts are being listed.
 --
--- * 'lprsResponseStatus'
+-- * 'lprsResponseStatus' - -- | The response status code.
 listPartsResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> ListPartsResponse
 listPartsResponse pResponseStatus_ =
-    ListPartsResponse'
-    { _lprsParts = Nothing
-    , _lprsRequestCharged = Nothing
-    , _lprsMaxParts = Nothing
-    , _lprsInitiator = Nothing
-    , _lprsBucket = Nothing
-    , _lprsAbortDate = Nothing
-    , _lprsNextPartNumberMarker = Nothing
-    , _lprsAbortRuleId = Nothing
-    , _lprsOwner = Nothing
-    , _lprsKey = Nothing
-    , _lprsStorageClass = Nothing
-    , _lprsIsTruncated = Nothing
-    , _lprsPartNumberMarker = Nothing
-    , _lprsUploadId = Nothing
-    , _lprsResponseStatus = pResponseStatus_
-    }
+  ListPartsResponse'
+  { _lprsParts = Nothing
+  , _lprsRequestCharged = Nothing
+  , _lprsMaxParts = Nothing
+  , _lprsInitiator = Nothing
+  , _lprsBucket = Nothing
+  , _lprsAbortDate = Nothing
+  , _lprsNextPartNumberMarker = Nothing
+  , _lprsAbortRuleId = Nothing
+  , _lprsOwner = Nothing
+  , _lprsKey = Nothing
+  , _lprsStorageClass = Nothing
+  , _lprsIsTruncated = Nothing
+  , _lprsPartNumberMarker = Nothing
+  , _lprsUploadId = Nothing
+  , _lprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 lprsParts :: Lens' ListPartsResponse [Part]
@@ -308,8 +312,8 @@ lprsPartNumberMarker = lens _lprsPartNumberMarker (\ s a -> s{_lprsPartNumberMar
 lprsUploadId :: Lens' ListPartsResponse (Maybe Text)
 lprsUploadId = lens _lprsUploadId (\ s a -> s{_lprsUploadId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lprsResponseStatus :: Lens' ListPartsResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 
-instance NFData ListPartsResponse
+instance NFData ListPartsResponse where

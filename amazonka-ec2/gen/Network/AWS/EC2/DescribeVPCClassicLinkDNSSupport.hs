@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVPCClassicLinkDNSSupport
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the ClassicLink DNS support status of one or more VPCs. If enabled, the DNS hostname of a linked EC2-Classic instance resolves to its private IP address when addressed from an instance in the VPC to which it\'s linked. Similarly, the DNS hostname of an instance in a VPC resolves to its private IP address when addressed from a linked EC2-Classic instance. For more information about ClassicLink, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the Amazon Elastic Compute Cloud User Guide.
+-- Describes the ClassicLink DNS support status of one or more VPCs. If enabled, the DNS hostname of a linked EC2-Classic instance resolves to its private IP address when addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname of an instance in a VPC resolves to its private IP address when addressed from a linked EC2-Classic instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+--
 module Network.AWS.EC2.DescribeVPCClassicLinkDNSSupport
     (
     -- * Creating a Request
@@ -38,39 +40,43 @@ module Network.AWS.EC2.DescribeVPCClassicLinkDNSSupport
     , dvpccldnssrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeVpcClassicLinkDnsSupport.
 --
+--
+--
 -- /See:/ 'describeVPCClassicLinkDNSSupport' smart constructor.
 data DescribeVPCClassicLinkDNSSupport = DescribeVPCClassicLinkDNSSupport'
-    { _dvcldsNextToken  :: !(Maybe Text)
-    , _dvcldsVPCIds     :: !(Maybe [Text])
-    , _dvcldsMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvcldsNextToken  :: !(Maybe Text)
+  , _dvcldsVPCIds     :: !(Maybe [Text])
+  , _dvcldsMaxResults :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVPCClassicLinkDNSSupport' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvcldsNextToken'
+-- * 'dvcldsNextToken' - The token for the next set of items to return. (You received this token from a prior call.)
 --
--- * 'dvcldsVPCIds'
+-- * 'dvcldsVPCIds' - One or more VPC IDs.
 --
--- * 'dvcldsMaxResults'
+-- * 'dvcldsMaxResults' - The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
 describeVPCClassicLinkDNSSupport
     :: DescribeVPCClassicLinkDNSSupport
 describeVPCClassicLinkDNSSupport =
-    DescribeVPCClassicLinkDNSSupport'
-    { _dvcldsNextToken = Nothing
-    , _dvcldsVPCIds = Nothing
-    , _dvcldsMaxResults = Nothing
-    }
+  DescribeVPCClassicLinkDNSSupport'
+  { _dvcldsNextToken = Nothing
+  , _dvcldsVPCIds = Nothing
+  , _dvcldsMaxResults = Nothing
+  }
+
 
 -- | The token for the next set of items to return. (You received this token from a prior call.)
 dvcldsNextToken :: Lens' DescribeVPCClassicLinkDNSSupport (Maybe Text)
@@ -99,8 +105,10 @@ instance AWSRequest DescribeVPCClassicLinkDNSSupport
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeVPCClassicLinkDNSSupport
+         where
 
 instance NFData DescribeVPCClassicLinkDNSSupport
+         where
 
 instance ToHeaders DescribeVPCClassicLinkDNSSupport
          where
@@ -116,38 +124,42 @@ instance ToQuery DescribeVPCClassicLinkDNSSupport
           = mconcat
               ["Action" =:
                  ("DescribeVpcClassicLinkDnsSupport" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "NextToken" =: _dvcldsNextToken,
                toQuery (toQueryList "VpcIds" <$> _dvcldsVPCIds),
                "MaxResults" =: _dvcldsMaxResults]
 
 -- | Contains the output of DescribeVpcClassicLinkDnsSupport.
 --
+--
+--
 -- /See:/ 'describeVPCClassicLinkDNSSupportResponse' smart constructor.
 data DescribeVPCClassicLinkDNSSupportResponse = DescribeVPCClassicLinkDNSSupportResponse'
-    { _dvpccldnssrsVPCs           :: !(Maybe [ClassicLinkDNSSupport])
-    , _dvpccldnssrsNextToken      :: !(Maybe Text)
-    , _dvpccldnssrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvpccldnssrsVPCs           :: !(Maybe [ClassicLinkDNSSupport])
+  , _dvpccldnssrsNextToken      :: !(Maybe Text)
+  , _dvpccldnssrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVPCClassicLinkDNSSupportResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvpccldnssrsVPCs'
+-- * 'dvpccldnssrsVPCs' - Information about the ClassicLink DNS support status of the VPCs.
 --
--- * 'dvpccldnssrsNextToken'
+-- * 'dvpccldnssrsNextToken' - The token to use when requesting the next set of items.
 --
--- * 'dvpccldnssrsResponseStatus'
+-- * 'dvpccldnssrsResponseStatus' - -- | The response status code.
 describeVPCClassicLinkDNSSupportResponse
     :: Int -- ^ 'dvpccldnssrsResponseStatus'
     -> DescribeVPCClassicLinkDNSSupportResponse
 describeVPCClassicLinkDNSSupportResponse pResponseStatus_ =
-    DescribeVPCClassicLinkDNSSupportResponse'
-    { _dvpccldnssrsVPCs = Nothing
-    , _dvpccldnssrsNextToken = Nothing
-    , _dvpccldnssrsResponseStatus = pResponseStatus_
-    }
+  DescribeVPCClassicLinkDNSSupportResponse'
+  { _dvpccldnssrsVPCs = Nothing
+  , _dvpccldnssrsNextToken = Nothing
+  , _dvpccldnssrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the ClassicLink DNS support status of the VPCs.
 dvpccldnssrsVPCs :: Lens' DescribeVPCClassicLinkDNSSupportResponse [ClassicLinkDNSSupport]
@@ -157,9 +169,10 @@ dvpccldnssrsVPCs = lens _dvpccldnssrsVPCs (\ s a -> s{_dvpccldnssrsVPCs = a}) . 
 dvpccldnssrsNextToken :: Lens' DescribeVPCClassicLinkDNSSupportResponse (Maybe Text)
 dvpccldnssrsNextToken = lens _dvpccldnssrsNextToken (\ s a -> s{_dvpccldnssrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dvpccldnssrsResponseStatus :: Lens' DescribeVPCClassicLinkDNSSupportResponse Int
 dvpccldnssrsResponseStatus = lens _dvpccldnssrsResponseStatus (\ s a -> s{_dvpccldnssrsResponseStatus = a});
 
 instance NFData
-         DescribeVPCClassicLinkDNSSupportResponse
+           DescribeVPCClassicLinkDNSSupportResponse
+         where

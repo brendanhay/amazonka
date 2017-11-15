@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.KMS.EnableKeyRotation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables rotation of the specified customer master key.
+-- Enables automatic rotation of the key material for the specified customer master key (CMK). You cannot perform this operation on a CMK in a different AWS account.
+--
+--
 module Network.AWS.KMS.EnableKeyRotation
     (
     -- * Creating a Request
@@ -32,37 +34,31 @@ module Network.AWS.KMS.EnableKeyRotation
     , EnableKeyRotationResponse
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'enableKeyRotation' smart constructor.
 newtype EnableKeyRotation = EnableKeyRotation'
-    { _ekrKeyId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ekrKeyId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableKeyRotation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ekrKeyId'
+-- * 'ekrKeyId' - A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 enableKeyRotation
     :: Text -- ^ 'ekrKeyId'
     -> EnableKeyRotation
-enableKeyRotation pKeyId_ =
-    EnableKeyRotation'
-    { _ekrKeyId = pKeyId_
-    }
+enableKeyRotation pKeyId_ = EnableKeyRotation' {_ekrKeyId = pKeyId_}
 
--- | A unique identifier for the customer master key. This value can be a globally unique identifier or the fully specified ARN to a key.
---
--- -   Key ARN Example - arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
---
--- -   Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
---
+
+-- | A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 ekrKeyId :: Lens' EnableKeyRotation Text
 ekrKeyId = lens _ekrKeyId (\ s a -> s{_ekrKeyId = a});
 
@@ -71,9 +67,9 @@ instance AWSRequest EnableKeyRotation where
         request = postJSON kms
         response = receiveNull EnableKeyRotationResponse'
 
-instance Hashable EnableKeyRotation
+instance Hashable EnableKeyRotation where
 
-instance NFData EnableKeyRotation
+instance NFData EnableKeyRotation where
 
 instance ToHeaders EnableKeyRotation where
         toHeaders
@@ -96,8 +92,9 @@ instance ToQuery EnableKeyRotation where
 
 -- | /See:/ 'enableKeyRotationResponse' smart constructor.
 data EnableKeyRotationResponse =
-    EnableKeyRotationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  EnableKeyRotationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableKeyRotationResponse' with the minimum fields required to make a request.
 --
@@ -105,4 +102,5 @@ enableKeyRotationResponse
     :: EnableKeyRotationResponse
 enableKeyRotationResponse = EnableKeyRotationResponse'
 
-instance NFData EnableKeyRotationResponse
+
+instance NFData EnableKeyRotationResponse where

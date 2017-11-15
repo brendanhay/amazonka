@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.SNS.GetTopicAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns all of the properties of a topic. Topic properties returned might differ based on the authorization of the user.
+--
+--
 module Network.AWS.SNS.GetTopicAttributes
     (
     -- * Creating a Request
@@ -35,32 +37,33 @@ module Network.AWS.SNS.GetTopicAttributes
     , gtarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | Input for GetTopicAttributes action.
 --
+--
+--
 -- /See:/ 'getTopicAttributes' smart constructor.
 newtype GetTopicAttributes = GetTopicAttributes'
-    { _gtaTopicARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtaTopicARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTopicAttributes' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtaTopicARN'
+-- * 'gtaTopicARN' - The ARN of the topic whose properties you want to get.
 getTopicAttributes
     :: Text -- ^ 'gtaTopicARN'
     -> GetTopicAttributes
-getTopicAttributes pTopicARN_ =
-    GetTopicAttributes'
-    { _gtaTopicARN = pTopicARN_
-    }
+getTopicAttributes pTopicARN_ = GetTopicAttributes' {_gtaTopicARN = pTopicARN_}
+
 
 -- | The ARN of the topic whose properties you want to get.
 gtaTopicARN :: Lens' GetTopicAttributes Text
@@ -78,9 +81,9 @@ instance AWSRequest GetTopicAttributes where
                       may (parseXMLMap "entry" "key" "value"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetTopicAttributes
+instance Hashable GetTopicAttributes where
 
-instance NFData GetTopicAttributes
+instance NFData GetTopicAttributes where
 
 instance ToHeaders GetTopicAttributes where
         toHeaders = const mempty
@@ -97,53 +100,36 @@ instance ToQuery GetTopicAttributes where
 
 -- | Response for GetTopicAttributes action.
 --
+--
+--
 -- /See:/ 'getTopicAttributesResponse' smart constructor.
 data GetTopicAttributesResponse = GetTopicAttributesResponse'
-    { _gtarsAttributes     :: !(Maybe (Map Text Text))
-    , _gtarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtarsAttributes     :: !(Maybe (Map Text Text))
+  , _gtarsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTopicAttributesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtarsAttributes'
+-- * 'gtarsAttributes' - A map of the topic's attributes. Attributes in this map include the following:     * @TopicArn@ -- the topic's ARN     * @Owner@ -- the AWS account ID of the topic's owner     * @Policy@ -- the JSON serialization of the topic's access control policy     * @DisplayName@ -- the human-readable name used in the "From" field for notifications to email and email-json endpoints     * @SubscriptionsPending@ -- the number of subscriptions pending confirmation on this topic     * @SubscriptionsConfirmed@ -- the number of confirmed subscriptions on this topic     * @SubscriptionsDeleted@ -- the number of deleted subscriptions on this topic     * @DeliveryPolicy@ -- the JSON serialization of the topic's delivery policy     * @EffectiveDeliveryPolicy@ -- the JSON serialization of the effective delivery policy that takes into account system defaults
 --
--- * 'gtarsResponseStatus'
+-- * 'gtarsResponseStatus' - -- | The response status code.
 getTopicAttributesResponse
     :: Int -- ^ 'gtarsResponseStatus'
     -> GetTopicAttributesResponse
 getTopicAttributesResponse pResponseStatus_ =
-    GetTopicAttributesResponse'
-    { _gtarsAttributes = Nothing
-    , _gtarsResponseStatus = pResponseStatus_
-    }
+  GetTopicAttributesResponse'
+  {_gtarsAttributes = Nothing, _gtarsResponseStatus = pResponseStatus_}
 
--- | A map of the topic\'s attributes. Attributes in this map include the following:
---
--- -   'TopicArn' -- the topic\'s ARN
---
--- -   'Owner' -- the AWS account ID of the topic\'s owner
---
--- -   'Policy' -- the JSON serialization of the topic\'s access control policy
---
--- -   'DisplayName' -- the human-readable name used in the \"From\" field for notifications to email and email-json endpoints
---
--- -   'SubscriptionsPending' -- the number of subscriptions pending confirmation on this topic
---
--- -   'SubscriptionsConfirmed' -- the number of confirmed subscriptions on this topic
---
--- -   'SubscriptionsDeleted' -- the number of deleted subscriptions on this topic
---
--- -   'DeliveryPolicy' -- the JSON serialization of the topic\'s delivery policy
---
--- -   'EffectiveDeliveryPolicy' -- the JSON serialization of the effective delivery policy that takes into account system defaults
---
+
+-- | A map of the topic's attributes. Attributes in this map include the following:     * @TopicArn@ -- the topic's ARN     * @Owner@ -- the AWS account ID of the topic's owner     * @Policy@ -- the JSON serialization of the topic's access control policy     * @DisplayName@ -- the human-readable name used in the "From" field for notifications to email and email-json endpoints     * @SubscriptionsPending@ -- the number of subscriptions pending confirmation on this topic     * @SubscriptionsConfirmed@ -- the number of confirmed subscriptions on this topic     * @SubscriptionsDeleted@ -- the number of deleted subscriptions on this topic     * @DeliveryPolicy@ -- the JSON serialization of the topic's delivery policy     * @EffectiveDeliveryPolicy@ -- the JSON serialization of the effective delivery policy that takes into account system defaults
 gtarsAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
 gtarsAttributes = lens _gtarsAttributes (\ s a -> s{_gtarsAttributes = a}) . _Default . _Map;
 
--- | The response status code.
+-- | -- | The response status code.
 gtarsResponseStatus :: Lens' GetTopicAttributesResponse Int
 gtarsResponseStatus = lens _gtarsResponseStatus (\ s a -> s{_gtarsResponseStatus = a});
 
-instance NFData GetTopicAttributesResponse
+instance NFData GetTopicAttributesResponse where

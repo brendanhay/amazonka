@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DeleteAssessmentTarget
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the assessment target that is specified by the ARN of the assessment target.
+--
+--
 module Network.AWS.Inspector.DeleteAssessmentTarget
     (
     -- * Creating a Request
@@ -32,30 +34,30 @@ module Network.AWS.Inspector.DeleteAssessmentTarget
     , DeleteAssessmentTargetResponse
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteAssessmentTarget' smart constructor.
 newtype DeleteAssessmentTarget = DeleteAssessmentTarget'
-    { _datAssessmentTargetARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _datAssessmentTargetARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAssessmentTarget' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'datAssessmentTargetARN'
+-- * 'datAssessmentTargetARN' - The ARN that specifies the assessment target that you want to delete.
 deleteAssessmentTarget
     :: Text -- ^ 'datAssessmentTargetARN'
     -> DeleteAssessmentTarget
 deleteAssessmentTarget pAssessmentTargetARN_ =
-    DeleteAssessmentTarget'
-    { _datAssessmentTargetARN = pAssessmentTargetARN_
-    }
+  DeleteAssessmentTarget' {_datAssessmentTargetARN = pAssessmentTargetARN_}
+
 
 -- | The ARN that specifies the assessment target that you want to delete.
 datAssessmentTargetARN :: Lens' DeleteAssessmentTarget Text
@@ -68,9 +70,9 @@ instance AWSRequest DeleteAssessmentTarget where
         response
           = receiveNull DeleteAssessmentTargetResponse'
 
-instance Hashable DeleteAssessmentTarget
+instance Hashable DeleteAssessmentTarget where
 
-instance NFData DeleteAssessmentTarget
+instance NFData DeleteAssessmentTarget where
 
 instance ToHeaders DeleteAssessmentTarget where
         toHeaders
@@ -97,8 +99,9 @@ instance ToQuery DeleteAssessmentTarget where
 
 -- | /See:/ 'deleteAssessmentTargetResponse' smart constructor.
 data DeleteAssessmentTargetResponse =
-    DeleteAssessmentTargetResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteAssessmentTargetResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAssessmentTargetResponse' with the minimum fields required to make a request.
 --
@@ -106,4 +109,5 @@ deleteAssessmentTargetResponse
     :: DeleteAssessmentTargetResponse
 deleteAssessmentTargetResponse = DeleteAssessmentTargetResponse'
 
-instance NFData DeleteAssessmentTargetResponse
+
+instance NFData DeleteAssessmentTargetResponse where

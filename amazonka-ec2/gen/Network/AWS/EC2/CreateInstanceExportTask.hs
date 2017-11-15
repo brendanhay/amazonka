@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateInstanceExportTask
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Exports a running or stopped instance to an S3 bucket.
 --
--- For information about the supported operating systems, image formats, and known limitations for the types of instances you can export, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html Exporting an Instance as a VM Using VM Import\/Export> in the /VM Import\/Export User Guide/.
+--
+-- For information about the supported operating systems, image formats, and known limitations for the types of instances you can export, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html Exporting an Instance as a VM Using VM Import/Export> in the /VM Import\/Export User Guide/ .
+--
 module Network.AWS.EC2.CreateInstanceExportTask
     (
     -- * Creating a Request
@@ -40,44 +42,48 @@ module Network.AWS.EC2.CreateInstanceExportTask
     , cietrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateInstanceExportTask.
 --
+--
+--
 -- /See:/ 'createInstanceExportTask' smart constructor.
 data CreateInstanceExportTask = CreateInstanceExportTask'
-    { _cietTargetEnvironment :: !(Maybe ExportEnvironment)
-    , _cietExportToS3Task    :: !(Maybe ExportToS3TaskSpecification)
-    , _cietDescription       :: !(Maybe Text)
-    , _cietInstanceId        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cietTargetEnvironment :: !(Maybe ExportEnvironment)
+  , _cietExportToS3Task    :: !(Maybe ExportToS3TaskSpecification)
+  , _cietDescription       :: !(Maybe Text)
+  , _cietInstanceId        :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateInstanceExportTask' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cietTargetEnvironment'
+-- * 'cietTargetEnvironment' - The target virtualization environment.
 --
--- * 'cietExportToS3Task'
+-- * 'cietExportToS3Task' - The format and location for an instance export task.
 --
--- * 'cietDescription'
+-- * 'cietDescription' - A description for the conversion task or the resource being exported. The maximum length is 255 bytes.
 --
--- * 'cietInstanceId'
+-- * 'cietInstanceId' - The ID of the instance.
 createInstanceExportTask
     :: Text -- ^ 'cietInstanceId'
     -> CreateInstanceExportTask
 createInstanceExportTask pInstanceId_ =
-    CreateInstanceExportTask'
-    { _cietTargetEnvironment = Nothing
-    , _cietExportToS3Task = Nothing
-    , _cietDescription = Nothing
-    , _cietInstanceId = pInstanceId_
-    }
+  CreateInstanceExportTask'
+  { _cietTargetEnvironment = Nothing
+  , _cietExportToS3Task = Nothing
+  , _cietDescription = Nothing
+  , _cietInstanceId = pInstanceId_
+  }
+
 
 -- | The target virtualization environment.
 cietTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe ExportEnvironment)
@@ -105,9 +111,9 @@ instance AWSRequest CreateInstanceExportTask where
                  CreateInstanceExportTaskResponse' <$>
                    (x .@? "exportTask") <*> (pure (fromEnum s)))
 
-instance Hashable CreateInstanceExportTask
+instance Hashable CreateInstanceExportTask where
 
-instance NFData CreateInstanceExportTask
+instance NFData CreateInstanceExportTask where
 
 instance ToHeaders CreateInstanceExportTask where
         toHeaders = const mempty
@@ -120,7 +126,7 @@ instance ToQuery CreateInstanceExportTask where
           = mconcat
               ["Action" =:
                  ("CreateInstanceExportTask" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "TargetEnvironment" =: _cietTargetEnvironment,
                "ExportToS3" =: _cietExportToS3Task,
                "Description" =: _cietDescription,
@@ -128,34 +134,37 @@ instance ToQuery CreateInstanceExportTask where
 
 -- | Contains the output for CreateInstanceExportTask.
 --
+--
+--
 -- /See:/ 'createInstanceExportTaskResponse' smart constructor.
 data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'
-    { _cietrsExportTask     :: !(Maybe ExportTask)
-    , _cietrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cietrsExportTask     :: !(Maybe ExportTask)
+  , _cietrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateInstanceExportTaskResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cietrsExportTask'
+-- * 'cietrsExportTask' - Information about the instance export task.
 --
--- * 'cietrsResponseStatus'
+-- * 'cietrsResponseStatus' - -- | The response status code.
 createInstanceExportTaskResponse
     :: Int -- ^ 'cietrsResponseStatus'
     -> CreateInstanceExportTaskResponse
 createInstanceExportTaskResponse pResponseStatus_ =
-    CreateInstanceExportTaskResponse'
-    { _cietrsExportTask = Nothing
-    , _cietrsResponseStatus = pResponseStatus_
-    }
+  CreateInstanceExportTaskResponse'
+  {_cietrsExportTask = Nothing, _cietrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the instance export task.
 cietrsExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
 cietrsExportTask = lens _cietrsExportTask (\ s a -> s{_cietrsExportTask = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cietrsResponseStatus :: Lens' CreateInstanceExportTaskResponse Int
 cietrsResponseStatus = lens _cietrsResponseStatus (\ s a -> s{_cietrsResponseStatus = a});
 
 instance NFData CreateInstanceExportTaskResponse
+         where

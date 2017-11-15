@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Associates one or more security groups with your load balancer in a virtual private cloud (VPC). The specified security groups override the previously associated security groups.
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups Security Groups for Load Balancers in a VPC> in the /Classic Load Balancers Guide/.
+--
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups Security Groups for Load Balancers in a VPC> in the /Classic Load Balancer Guide/ .
+--
 module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     (
     -- * Creating a Request
@@ -38,36 +40,38 @@ module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     , asgtlbrsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ApplySecurityGroupsToLoadBalancer.
 --
+--
+--
 -- /See:/ 'applySecurityGroupsToLoadBalancer' smart constructor.
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer'
-    { _asgtlbLoadBalancerName :: !Text
-    , _asgtlbSecurityGroups   :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asgtlbLoadBalancerName :: !Text
+  , _asgtlbSecurityGroups   :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApplySecurityGroupsToLoadBalancer' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asgtlbLoadBalancerName'
+-- * 'asgtlbLoadBalancerName' - The name of the load balancer.
 --
--- * 'asgtlbSecurityGroups'
+-- * 'asgtlbSecurityGroups' - The IDs of the security groups to associate with the load balancer. Note that you cannot specify the name of the security group.
 applySecurityGroupsToLoadBalancer
     :: Text -- ^ 'asgtlbLoadBalancerName'
     -> ApplySecurityGroupsToLoadBalancer
 applySecurityGroupsToLoadBalancer pLoadBalancerName_ =
-    ApplySecurityGroupsToLoadBalancer'
-    { _asgtlbLoadBalancerName = pLoadBalancerName_
-    , _asgtlbSecurityGroups = mempty
-    }
+  ApplySecurityGroupsToLoadBalancer'
+  {_asgtlbLoadBalancerName = pLoadBalancerName_, _asgtlbSecurityGroups = mempty}
+
 
 -- | The name of the load balancer.
 asgtlbLoadBalancerName :: Lens' ApplySecurityGroupsToLoadBalancer Text
@@ -92,8 +96,10 @@ instance AWSRequest ApplySecurityGroupsToLoadBalancer
                      <*> (pure (fromEnum s)))
 
 instance Hashable ApplySecurityGroupsToLoadBalancer
+         where
 
 instance NFData ApplySecurityGroupsToLoadBalancer
+         where
 
 instance ToHeaders ApplySecurityGroupsToLoadBalancer
          where
@@ -116,35 +122,40 @@ instance ToQuery ApplySecurityGroupsToLoadBalancer
 
 -- | Contains the output of ApplySecurityGroupsToLoadBalancer.
 --
+--
+--
 -- /See:/ 'applySecurityGroupsToLoadBalancerResponse' smart constructor.
 data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'
-    { _asgtlbrsSecurityGroups :: !(Maybe [Text])
-    , _asgtlbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asgtlbrsSecurityGroups :: !(Maybe [Text])
+  , _asgtlbrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApplySecurityGroupsToLoadBalancerResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asgtlbrsSecurityGroups'
+-- * 'asgtlbrsSecurityGroups' - The IDs of the security groups associated with the load balancer.
 --
--- * 'asgtlbrsResponseStatus'
+-- * 'asgtlbrsResponseStatus' - -- | The response status code.
 applySecurityGroupsToLoadBalancerResponse
     :: Int -- ^ 'asgtlbrsResponseStatus'
     -> ApplySecurityGroupsToLoadBalancerResponse
 applySecurityGroupsToLoadBalancerResponse pResponseStatus_ =
-    ApplySecurityGroupsToLoadBalancerResponse'
-    { _asgtlbrsSecurityGroups = Nothing
-    , _asgtlbrsResponseStatus = pResponseStatus_
-    }
+  ApplySecurityGroupsToLoadBalancerResponse'
+  { _asgtlbrsSecurityGroups = Nothing
+  , _asgtlbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The IDs of the security groups associated with the load balancer.
 asgtlbrsSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
 asgtlbrsSecurityGroups = lens _asgtlbrsSecurityGroups (\ s a -> s{_asgtlbrsSecurityGroups = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 asgtlbrsResponseStatus :: Lens' ApplySecurityGroupsToLoadBalancerResponse Int
 asgtlbrsResponseStatus = lens _asgtlbrsResponseStatus (\ s a -> s{_asgtlbrsResponseStatus = a});
 
 instance NFData
-         ApplySecurityGroupsToLoadBalancerResponse
+           ApplySecurityGroupsToLoadBalancerResponse
+         where

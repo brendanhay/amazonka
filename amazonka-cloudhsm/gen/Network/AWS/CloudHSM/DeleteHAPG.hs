@@ -12,13 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.DeleteHAPG
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This is documentation for __AWS CloudHSM Classic__ . For more information, see <http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs> , the <http://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference> .
+--
+--
+-- __For information about the current version of AWS CloudHSM__ , see <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> , the <http://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference> .
+--
 -- Deletes a high-availability partition group.
+--
 module Network.AWS.CloudHSM.DeleteHAPG
     (
     -- * Creating a Request
@@ -35,32 +41,33 @@ module Network.AWS.CloudHSM.DeleteHAPG
     , dhrsStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the inputs for the < DeleteHapg> action.
+-- | Contains the inputs for the 'DeleteHapg' action.
+--
+--
 --
 -- /See:/ 'deleteHAPG' smart constructor.
 newtype DeleteHAPG = DeleteHAPG'
-    { _dhHAPGARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhHAPGARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteHAPG' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhHAPGARN'
+-- * 'dhHAPGARN' - The ARN of the high-availability partition group to delete.
 deleteHAPG
     :: Text -- ^ 'dhHAPGARN'
     -> DeleteHAPG
-deleteHAPG pHAPGARN_ =
-    DeleteHAPG'
-    { _dhHAPGARN = pHAPGARN_
-    }
+deleteHAPG pHAPGARN_ = DeleteHAPG' {_dhHAPGARN = pHAPGARN_}
+
 
 -- | The ARN of the high-availability partition group to delete.
 dhHAPGARN :: Lens' DeleteHAPG Text
@@ -75,9 +82,9 @@ instance AWSRequest DeleteHAPG where
                  DeleteHAPGResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Status"))
 
-instance Hashable DeleteHAPG
+instance Hashable DeleteHAPG where
 
-instance NFData DeleteHAPG
+instance NFData DeleteHAPG where
 
 instance ToHeaders DeleteHAPG where
         toHeaders
@@ -98,32 +105,34 @@ instance ToPath DeleteHAPG where
 instance ToQuery DeleteHAPG where
         toQuery = const mempty
 
--- | Contains the output of the < DeleteHapg> action.
+-- | Contains the output of the 'DeleteHapg' action.
+--
+--
 --
 -- /See:/ 'deleteHAPGResponse' smart constructor.
 data DeleteHAPGResponse = DeleteHAPGResponse'
-    { _dhrsResponseStatus :: !Int
-    , _dhrsStatus         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhrsResponseStatus :: !Int
+  , _dhrsStatus         :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteHAPGResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhrsResponseStatus'
+-- * 'dhrsResponseStatus' - -- | The response status code.
 --
--- * 'dhrsStatus'
+-- * 'dhrsStatus' - The status of the action.
 deleteHAPGResponse
     :: Int -- ^ 'dhrsResponseStatus'
     -> Text -- ^ 'dhrsStatus'
     -> DeleteHAPGResponse
 deleteHAPGResponse pResponseStatus_ pStatus_ =
-    DeleteHAPGResponse'
-    { _dhrsResponseStatus = pResponseStatus_
-    , _dhrsStatus = pStatus_
-    }
+  DeleteHAPGResponse'
+  {_dhrsResponseStatus = pResponseStatus_, _dhrsStatus = pStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 dhrsResponseStatus :: Lens' DeleteHAPGResponse Int
 dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = a});
 
@@ -131,4 +140,4 @@ dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = 
 dhrsStatus :: Lens' DeleteHAPGResponse Text
 dhrsStatus = lens _dhrsStatus (\ s a -> s{_dhrsStatus = a});
 
-instance NFData DeleteHAPGResponse
+instance NFData DeleteHAPGResponse where

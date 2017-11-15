@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.UpdateScalingParameters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures scaling parameters for a domain. A domain\'s scaling parameters specify the desired search instance type and replication count. Amazon CloudSearch will still automatically scale your domain based on the volume of data and traffic, but not below the desired instance type and replication count. If the Multi-AZ option is enabled, these values control the resources used per Availability Zone. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html Configuring Scaling Options> in the /Amazon CloudSearch Developer Guide/.
+-- Configures scaling parameters for a domain. A domain's scaling parameters specify the desired search instance type and replication count. Amazon CloudSearch will still automatically scale your domain based on the volume of data and traffic, but not below the desired instance type and replication count. If the Multi-AZ option is enabled, these values control the resources used per Availability Zone. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html Configuring Scaling Options> in the /Amazon CloudSearch Developer Guide/ .
+--
+--
 module Network.AWS.CloudSearch.UpdateScalingParameters
     (
     -- * Creating a Request
@@ -36,37 +38,39 @@ module Network.AWS.CloudSearch.UpdateScalingParameters
     , usprsScalingParameters
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Container for the parameters to the 'UpdateScalingParameters' operation. Specifies the name of the domain you want to update and the scaling parameters you want to configure.
+-- | Container for the parameters to the @'UpdateScalingParameters' @ operation. Specifies the name of the domain you want to update and the scaling parameters you want to configure.
+--
+--
 --
 -- /See:/ 'updateScalingParameters' smart constructor.
 data UpdateScalingParameters = UpdateScalingParameters'
-    { _uspDomainName        :: !Text
-    , _uspScalingParameters :: !ScalingParameters
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uspDomainName        :: !Text
+  , _uspScalingParameters :: !ScalingParameters
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateScalingParameters' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uspDomainName'
+-- * 'uspDomainName' - Undocumented member.
 --
--- * 'uspScalingParameters'
+-- * 'uspScalingParameters' - Undocumented member.
 updateScalingParameters
     :: Text -- ^ 'uspDomainName'
     -> ScalingParameters -- ^ 'uspScalingParameters'
     -> UpdateScalingParameters
 updateScalingParameters pDomainName_ pScalingParameters_ =
-    UpdateScalingParameters'
-    { _uspDomainName = pDomainName_
-    , _uspScalingParameters = pScalingParameters_
-    }
+  UpdateScalingParameters'
+  {_uspDomainName = pDomainName_, _uspScalingParameters = pScalingParameters_}
+
 
 -- | Undocumented member.
 uspDomainName :: Lens' UpdateScalingParameters Text
@@ -86,9 +90,9 @@ instance AWSRequest UpdateScalingParameters where
                  UpdateScalingParametersResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ScalingParameters"))
 
-instance Hashable UpdateScalingParameters
+instance Hashable UpdateScalingParameters where
 
-instance NFData UpdateScalingParameters
+instance NFData UpdateScalingParameters where
 
 instance ToHeaders UpdateScalingParameters where
         toHeaders = const mempty
@@ -105,32 +109,36 @@ instance ToQuery UpdateScalingParameters where
                "DomainName" =: _uspDomainName,
                "ScalingParameters" =: _uspScalingParameters]
 
--- | The result of a 'UpdateScalingParameters' request. Contains the status of the newly-configured scaling parameters.
+-- | The result of a @UpdateScalingParameters@ request. Contains the status of the newly-configured scaling parameters.
+--
+--
 --
 -- /See:/ 'updateScalingParametersResponse' smart constructor.
 data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
-    { _usprsResponseStatus    :: !Int
-    , _usprsScalingParameters :: !ScalingParametersStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usprsResponseStatus    :: !Int
+  , _usprsScalingParameters :: !ScalingParametersStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateScalingParametersResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usprsResponseStatus'
+-- * 'usprsResponseStatus' - -- | The response status code.
 --
--- * 'usprsScalingParameters'
+-- * 'usprsScalingParameters' - Undocumented member.
 updateScalingParametersResponse
     :: Int -- ^ 'usprsResponseStatus'
     -> ScalingParametersStatus -- ^ 'usprsScalingParameters'
     -> UpdateScalingParametersResponse
 updateScalingParametersResponse pResponseStatus_ pScalingParameters_ =
-    UpdateScalingParametersResponse'
-    { _usprsResponseStatus = pResponseStatus_
-    , _usprsScalingParameters = pScalingParameters_
-    }
+  UpdateScalingParametersResponse'
+  { _usprsResponseStatus = pResponseStatus_
+  , _usprsScalingParameters = pScalingParameters_
+  }
 
--- | The response status code.
+
+-- | -- | The response status code.
 usprsResponseStatus :: Lens' UpdateScalingParametersResponse Int
 usprsResponseStatus = lens _usprsResponseStatus (\ s a -> s{_usprsResponseStatus = a});
 
@@ -138,4 +146,4 @@ usprsResponseStatus = lens _usprsResponseStatus (\ s a -> s{_usprsResponseStatus
 usprsScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus
 usprsScalingParameters = lens _usprsScalingParameters (\ s a -> s{_usprsScalingParameters = a});
 
-instance NFData UpdateScalingParametersResponse
+instance NFData UpdateScalingParametersResponse where

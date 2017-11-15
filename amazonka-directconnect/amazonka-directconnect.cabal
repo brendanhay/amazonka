@@ -1,68 +1,91 @@
 name:                  amazonka-directconnect
-version:               1.4.4
+version:               1.5.0
 synopsis:              Amazon Direct Connect SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               OtherLicense
+license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2016 Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2017 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-    AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. With this connection in place, you can create virtual interfaces directly to the AWS cloud (for example, to Amazon Elastic Compute Cloud (Amazon EC2) and Amazon Simple Storage Service (Amazon S3)) and to Amazon Virtual Private Cloud (Amazon VPC), bypassing Internet service providers in your network path. An AWS Direct Connect location provides access to AWS in the region it is associated with, as well as access to other US regions. For example, you can provision a single connection to any AWS Direct Connect location in the US and use it to access public AWS services in all US Regions and AWS GovCloud (US).
-    .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information and sending requests.
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
     .
-    Use of lenses is required for constructing and manipulating types.
-    This is due to the amount of nesting of AWS types and transparency regarding
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
     de/serialisation into more palatable Haskell values.
     The provided lenses should be compatible with any of the major lens libraries
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
     .
-    See "Network.AWS.DirectConnect" or <https://aws.amazon.com/documentation/ the AWS Documentation>
+    See "Network.AWS.DirectConnect" or <https://aws.amazon.com/documentation/ the AWS documentation>
     to get started.
 
 source-repository head
-    type:     git
-    location: git://github.com/brendanhay/amazonka.git
+    type:              git
+    location:          git://github.com/brendanhay/amazonka.git
+    subdir:            amazonka-directconnect
 
 library
     default-language:  Haskell2010
     hs-source-dirs:    src gen
 
-    ghc-options:       -Wall
+    ghc-options:
+        -Wall
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updates
+        -funbox-strict-fields
 
     exposed-modules:
           Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
+        , Network.AWS.DirectConnect.AllocateHostedConnection
         , Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
         , Network.AWS.DirectConnect.AllocatePublicVirtualInterface
+        , Network.AWS.DirectConnect.AssociateConnectionWithLag
+        , Network.AWS.DirectConnect.AssociateHostedConnection
+        , Network.AWS.DirectConnect.AssociateVirtualInterface
         , Network.AWS.DirectConnect.ConfirmConnection
         , Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
         , Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
+        , Network.AWS.DirectConnect.CreateBGPPeer
         , Network.AWS.DirectConnect.CreateConnection
+        , Network.AWS.DirectConnect.CreateDirectConnectGateway
+        , Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation
         , Network.AWS.DirectConnect.CreateInterconnect
+        , Network.AWS.DirectConnect.CreateLag
         , Network.AWS.DirectConnect.CreatePrivateVirtualInterface
         , Network.AWS.DirectConnect.CreatePublicVirtualInterface
+        , Network.AWS.DirectConnect.DeleteBGPPeer
         , Network.AWS.DirectConnect.DeleteConnection
+        , Network.AWS.DirectConnect.DeleteDirectConnectGateway
+        , Network.AWS.DirectConnect.DeleteDirectConnectGatewayAssociation
         , Network.AWS.DirectConnect.DeleteInterconnect
+        , Network.AWS.DirectConnect.DeleteLag
         , Network.AWS.DirectConnect.DeleteVirtualInterface
-        , Network.AWS.DirectConnect.DescribeConnectionLoa
         , Network.AWS.DirectConnect.DescribeConnections
-        , Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
-        , Network.AWS.DirectConnect.DescribeInterconnectLoa
+        , Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociations
+        , Network.AWS.DirectConnect.DescribeDirectConnectGatewayAttachments
+        , Network.AWS.DirectConnect.DescribeDirectConnectGateways
+        , Network.AWS.DirectConnect.DescribeHostedConnections
         , Network.AWS.DirectConnect.DescribeInterconnects
+        , Network.AWS.DirectConnect.DescribeLags
+        , Network.AWS.DirectConnect.DescribeLoa
         , Network.AWS.DirectConnect.DescribeLocations
+        , Network.AWS.DirectConnect.DescribeTags
         , Network.AWS.DirectConnect.DescribeVirtualGateways
         , Network.AWS.DirectConnect.DescribeVirtualInterfaces
+        , Network.AWS.DirectConnect.DisassociateConnectionFromLag
+        , Network.AWS.DirectConnect.TagResource
         , Network.AWS.DirectConnect.Types
+        , Network.AWS.DirectConnect.UntagResource
+        , Network.AWS.DirectConnect.UpdateLag
         , Network.AWS.DirectConnect.Waiters
 
     other-modules:
@@ -70,7 +93,7 @@ library
         , Network.AWS.DirectConnect.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.4.*
+          amazonka-core == 1.5.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-directconnect-test
@@ -90,9 +113,9 @@ test-suite amazonka-directconnect-test
         , Test.AWS.DirectConnect.Internal
 
     build-depends:
-          amazonka-core == 1.4.4.*
-        , amazonka-test == 1.4.4.*
-        , amazonka-directconnect == 1.4.4.*
+          amazonka-core == 1.5.0.*
+        , amazonka-test == 1.5.0.*
+        , amazonka-directconnect == 1.5.0.*
         , base
         , bytestring
         , tasty

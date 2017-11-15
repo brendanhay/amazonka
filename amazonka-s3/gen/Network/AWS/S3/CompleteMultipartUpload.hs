@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.CompleteMultipartUpload
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,48 +47,50 @@ module Network.AWS.S3.CompleteMultipartUpload
     , crsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'completeMultipartUpload' smart constructor.
 data CompleteMultipartUpload = CompleteMultipartUpload'
-    { _cRequestPayer    :: !(Maybe RequestPayer)
-    , _cMultipartUpload :: !(Maybe CompletedMultipartUpload)
-    , _cBucket          :: !BucketName
-    , _cKey             :: !ObjectKey
-    , _cUploadId        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cRequestPayer    :: !(Maybe RequestPayer)
+  , _cMultipartUpload :: !(Maybe CompletedMultipartUpload)
+  , _cBucket          :: !BucketName
+  , _cKey             :: !ObjectKey
+  , _cUploadId        :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CompleteMultipartUpload' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cRequestPayer'
+-- * 'cRequestPayer' - Undocumented member.
 --
--- * 'cMultipartUpload'
+-- * 'cMultipartUpload' - Undocumented member.
 --
--- * 'cBucket'
+-- * 'cBucket' - Undocumented member.
 --
--- * 'cKey'
+-- * 'cKey' - Undocumented member.
 --
--- * 'cUploadId'
+-- * 'cUploadId' - Undocumented member.
 completeMultipartUpload
     :: BucketName -- ^ 'cBucket'
     -> ObjectKey -- ^ 'cKey'
     -> Text -- ^ 'cUploadId'
     -> CompleteMultipartUpload
 completeMultipartUpload pBucket_ pKey_ pUploadId_ =
-    CompleteMultipartUpload'
-    { _cRequestPayer = Nothing
-    , _cMultipartUpload = Nothing
-    , _cBucket = pBucket_
-    , _cKey = pKey_
-    , _cUploadId = pUploadId_
-    }
+  CompleteMultipartUpload'
+  { _cRequestPayer = Nothing
+  , _cMultipartUpload = Nothing
+  , _cBucket = pBucket_
+  , _cKey = pKey_
+  , _cUploadId = pUploadId_
+  }
+
 
 -- | Undocumented member.
 cRequestPayer :: Lens' CompleteMultipartUpload (Maybe RequestPayer)
@@ -129,9 +131,9 @@ instance AWSRequest CompleteMultipartUpload where
                      <*> (h .#? "x-amz-server-side-encryption")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CompleteMultipartUpload
+instance Hashable CompleteMultipartUpload where
 
-instance NFData CompleteMultipartUpload
+instance NFData CompleteMultipartUpload where
 
 instance ToElement CompleteMultipartUpload where
         toElement
@@ -154,57 +156,59 @@ instance ToQuery CompleteMultipartUpload where
 
 -- | /See:/ 'completeMultipartUploadResponse' smart constructor.
 data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
-    { _crsRequestCharged       :: !(Maybe RequestCharged)
-    , _crsETag                 :: !(Maybe ETag)
-    , _crsVersionId            :: !(Maybe ObjectVersionId)
-    , _crsLocation             :: !(Maybe Text)
-    , _crsExpiration           :: !(Maybe Text)
-    , _crsBucket               :: !(Maybe BucketName)
-    , _crsKey                  :: !(Maybe ObjectKey)
-    , _crsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
-    , _crsServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _crsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crsRequestCharged       :: !(Maybe RequestCharged)
+  , _crsETag                 :: !(Maybe ETag)
+  , _crsVersionId            :: !(Maybe ObjectVersionId)
+  , _crsLocation             :: !(Maybe Text)
+  , _crsExpiration           :: !(Maybe Text)
+  , _crsBucket               :: !(Maybe BucketName)
+  , _crsKey                  :: !(Maybe ObjectKey)
+  , _crsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+  , _crsServerSideEncryption :: !(Maybe ServerSideEncryption)
+  , _crsResponseStatus       :: !Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CompleteMultipartUploadResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsRequestCharged'
+-- * 'crsRequestCharged' - Undocumented member.
 --
--- * 'crsETag'
+-- * 'crsETag' - Entity tag of the object.
 --
--- * 'crsVersionId'
+-- * 'crsVersionId' - Version of the object.
 --
--- * 'crsLocation'
+-- * 'crsLocation' - Undocumented member.
 --
--- * 'crsExpiration'
+-- * 'crsExpiration' - If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
 --
--- * 'crsBucket'
+-- * 'crsBucket' - Undocumented member.
 --
--- * 'crsKey'
+-- * 'crsKey' - Undocumented member.
 --
--- * 'crsSSEKMSKeyId'
+-- * 'crsSSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
 --
--- * 'crsServerSideEncryption'
+-- * 'crsServerSideEncryption' - The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 --
--- * 'crsResponseStatus'
+-- * 'crsResponseStatus' - -- | The response status code.
 completeMultipartUploadResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CompleteMultipartUploadResponse
 completeMultipartUploadResponse pResponseStatus_ =
-    CompleteMultipartUploadResponse'
-    { _crsRequestCharged = Nothing
-    , _crsETag = Nothing
-    , _crsVersionId = Nothing
-    , _crsLocation = Nothing
-    , _crsExpiration = Nothing
-    , _crsBucket = Nothing
-    , _crsKey = Nothing
-    , _crsSSEKMSKeyId = Nothing
-    , _crsServerSideEncryption = Nothing
-    , _crsResponseStatus = pResponseStatus_
-    }
+  CompleteMultipartUploadResponse'
+  { _crsRequestCharged = Nothing
+  , _crsETag = Nothing
+  , _crsVersionId = Nothing
+  , _crsLocation = Nothing
+  , _crsExpiration = Nothing
+  , _crsBucket = Nothing
+  , _crsKey = Nothing
+  , _crsSSEKMSKeyId = Nothing
+  , _crsServerSideEncryption = Nothing
+  , _crsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 crsRequestCharged :: Lens' CompleteMultipartUploadResponse (Maybe RequestCharged)
@@ -242,8 +246,8 @@ crsSSEKMSKeyId = lens _crsSSEKMSKeyId (\ s a -> s{_crsSSEKMSKeyId = a}) . mappin
 crsServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe ServerSideEncryption)
 crsServerSideEncryption = lens _crsServerSideEncryption (\ s a -> s{_crsServerSideEncryption = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crsResponseStatus :: Lens' CompleteMultipartUploadResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 
-instance NFData CompleteMultipartUploadResponse
+instance NFData CompleteMultipartUploadResponse where

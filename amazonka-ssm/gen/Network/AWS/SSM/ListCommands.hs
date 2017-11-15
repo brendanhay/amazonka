@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListCommands
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the commands requested by users of the AWS account.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.SSM.ListCommands
@@ -42,46 +44,48 @@ module Network.AWS.SSM.ListCommands
     , lcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listCommands' smart constructor.
 data ListCommands = ListCommands'
-    { _lcInstanceId :: !(Maybe Text)
-    , _lcFilters    :: !(Maybe (List1 CommandFilter))
-    , _lcNextToken  :: !(Maybe Text)
-    , _lcCommandId  :: !(Maybe Text)
-    , _lcMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcInstanceId :: !(Maybe Text)
+  , _lcFilters    :: !(Maybe (List1 CommandFilter))
+  , _lcNextToken  :: !(Maybe Text)
+  , _lcCommandId  :: !(Maybe Text)
+  , _lcMaxResults :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCommands' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcInstanceId'
+-- * 'lcInstanceId' - (Optional) Lists commands issued against this instance ID.
 --
--- * 'lcFilters'
+-- * 'lcFilters' - (Optional) One or more filters. Use a filter to return a more specific list of results.
 --
--- * 'lcNextToken'
+-- * 'lcNextToken' - (Optional) The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'lcCommandId'
+-- * 'lcCommandId' - (Optional) If provided, lists only the specified command.
 --
--- * 'lcMaxResults'
+-- * 'lcMaxResults' - (Optional) The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 listCommands
     :: ListCommands
 listCommands =
-    ListCommands'
-    { _lcInstanceId = Nothing
-    , _lcFilters = Nothing
-    , _lcNextToken = Nothing
-    , _lcCommandId = Nothing
-    , _lcMaxResults = Nothing
-    }
+  ListCommands'
+  { _lcInstanceId = Nothing
+  , _lcFilters = Nothing
+  , _lcNextToken = Nothing
+  , _lcCommandId = Nothing
+  , _lcMaxResults = Nothing
+  }
+
 
 -- | (Optional) Lists commands issued against this instance ID.
 lcInstanceId :: Lens' ListCommands (Maybe Text)
@@ -120,9 +124,9 @@ instance AWSRequest ListCommands where
                    (x .?> "Commands" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListCommands
+instance Hashable ListCommands where
 
-instance NFData ListCommands
+instance NFData ListCommands where
 
 instance ToHeaders ListCommands where
         toHeaders
@@ -151,29 +155,31 @@ instance ToQuery ListCommands where
 
 -- | /See:/ 'listCommandsResponse' smart constructor.
 data ListCommandsResponse = ListCommandsResponse'
-    { _lcrsCommands       :: !(Maybe [Command])
-    , _lcrsNextToken      :: !(Maybe Text)
-    , _lcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcrsCommands       :: !(Maybe [Command])
+  , _lcrsNextToken      :: !(Maybe Text)
+  , _lcrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCommandsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcrsCommands'
+-- * 'lcrsCommands' - (Optional) The list of commands requested by the user.
 --
--- * 'lcrsNextToken'
+-- * 'lcrsNextToken' - (Optional) The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'lcrsResponseStatus'
+-- * 'lcrsResponseStatus' - -- | The response status code.
 listCommandsResponse
     :: Int -- ^ 'lcrsResponseStatus'
     -> ListCommandsResponse
 listCommandsResponse pResponseStatus_ =
-    ListCommandsResponse'
-    { _lcrsCommands = Nothing
-    , _lcrsNextToken = Nothing
-    , _lcrsResponseStatus = pResponseStatus_
-    }
+  ListCommandsResponse'
+  { _lcrsCommands = Nothing
+  , _lcrsNextToken = Nothing
+  , _lcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | (Optional) The list of commands requested by the user.
 lcrsCommands :: Lens' ListCommandsResponse [Command]
@@ -183,8 +189,8 @@ lcrsCommands = lens _lcrsCommands (\ s a -> s{_lcrsCommands = a}) . _Default . _
 lcrsNextToken :: Lens' ListCommandsResponse (Maybe Text)
 lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lcrsResponseStatus :: Lens' ListCommandsResponse Int
 lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
 
-instance NFData ListCommandsResponse
+instance NFData ListCommandsResponse where

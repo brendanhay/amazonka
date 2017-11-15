@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteAPIKey
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the < ApiKey> resource.
+-- Deletes the 'ApiKey' resource.
+--
+--
 module Network.AWS.APIGateway.DeleteAPIKey
     (
     -- * Creating a Request
@@ -32,34 +34,35 @@ module Network.AWS.APIGateway.DeleteAPIKey
     , DeleteAPIKeyResponse
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | A request to delete the < ApiKey> resource.
+-- | A request to delete the 'ApiKey' resource.
+--
+--
 --
 -- /See:/ 'deleteAPIKey' smart constructor.
 newtype DeleteAPIKey = DeleteAPIKey'
-    { _dakApiKey :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dakApiKey :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAPIKey' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dakApiKey'
+-- * 'dakApiKey' - The identifier of the 'ApiKey' resource to be deleted.
 deleteAPIKey
     :: Text -- ^ 'dakApiKey'
     -> DeleteAPIKey
-deleteAPIKey pApiKey_ =
-    DeleteAPIKey'
-    { _dakApiKey = pApiKey_
-    }
+deleteAPIKey pApiKey_ = DeleteAPIKey' {_dakApiKey = pApiKey_}
 
--- | The identifier of the < ApiKey> resource to be deleted.
+
+-- | The identifier of the 'ApiKey' resource to be deleted.
 dakApiKey :: Lens' DeleteAPIKey Text
 dakApiKey = lens _dakApiKey (\ s a -> s{_dakApiKey = a});
 
@@ -68,9 +71,9 @@ instance AWSRequest DeleteAPIKey where
         request = delete apiGateway
         response = receiveNull DeleteAPIKeyResponse'
 
-instance Hashable DeleteAPIKey
+instance Hashable DeleteAPIKey where
 
-instance NFData DeleteAPIKey
+instance NFData DeleteAPIKey where
 
 instance ToHeaders DeleteAPIKey where
         toHeaders
@@ -87,8 +90,9 @@ instance ToQuery DeleteAPIKey where
 
 -- | /See:/ 'deleteAPIKeyResponse' smart constructor.
 data DeleteAPIKeyResponse =
-    DeleteAPIKeyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteAPIKeyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAPIKeyResponse' with the minimum fields required to make a request.
 --
@@ -96,4 +100,5 @@ deleteAPIKeyResponse
     :: DeleteAPIKeyResponse
 deleteAPIKeyResponse = DeleteAPIKeyResponse'
 
-instance NFData DeleteAPIKeyResponse
+
+instance NFData DeleteAPIKeyResponse where

@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.IAM.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.IAM.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AssignmentStatusType
-    = Any
-    | Assigned
-    | Unassigned
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Any
+  | Assigned
+  | Unassigned
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AssignmentStatusType where
     parser = takeLowerText >>= \case
@@ -46,19 +47,20 @@ instance ToQuery      AssignmentStatusType
 instance ToHeader     AssignmentStatusType
 
 data ContextKeyTypeEnum
-    = Binary
-    | BinaryList
-    | Boolean
-    | BooleanList
-    | Date
-    | DateList
-    | IP
-    | IPList
-    | Numeric
-    | NumericList
-    | String
-    | StringList
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Binary
+  | BinaryList
+  | Boolean
+  | BooleanList
+  | Date
+  | DateList
+  | IP
+  | IPList
+  | Numeric
+  | NumericList
+  | String
+  | StringList
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ContextKeyTypeEnum where
     parser = takeLowerText >>= \case
@@ -98,10 +100,44 @@ instance ToByteString ContextKeyTypeEnum
 instance ToQuery      ContextKeyTypeEnum
 instance ToHeader     ContextKeyTypeEnum
 
+data DeletionTaskStatusType
+  = Failed
+  | InProgress
+  | NotStarted
+  | Succeeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DeletionTaskStatusType where
+    parser = takeLowerText >>= \case
+        "failed" -> pure Failed
+        "in_progress" -> pure InProgress
+        "not_started" -> pure NotStarted
+        "succeeded" -> pure Succeeded
+        e -> fromTextError $ "Failure parsing DeletionTaskStatusType from value: '" <> e
+           <> "'. Accepted values: failed, in_progress, not_started, succeeded"
+
+instance ToText DeletionTaskStatusType where
+    toText = \case
+        Failed -> "FAILED"
+        InProgress -> "IN_PROGRESS"
+        NotStarted -> "NOT_STARTED"
+        Succeeded -> "SUCCEEDED"
+
+instance Hashable     DeletionTaskStatusType
+instance NFData       DeletionTaskStatusType
+instance ToByteString DeletionTaskStatusType
+instance ToQuery      DeletionTaskStatusType
+instance ToHeader     DeletionTaskStatusType
+
+instance FromXML DeletionTaskStatusType where
+    parseXML = parseXMLText "DeletionTaskStatusType"
+
 data EncodingType
-    = Pem
-    | SSH
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Pem
+  | SSH
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EncodingType where
     parser = takeLowerText >>= \case
@@ -122,12 +158,13 @@ instance ToQuery      EncodingType
 instance ToHeader     EncodingType
 
 data EntityType
-    = ETAWSManagedPolicy
-    | ETGroup
-    | ETLocalManagedPolicy
-    | ETRole
-    | ETUser
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ETAWSManagedPolicy
+  | ETGroup
+  | ETLocalManagedPolicy
+  | ETRole
+  | ETUser
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EntityType where
     parser = takeLowerText >>= \case
@@ -154,10 +191,11 @@ instance ToQuery      EntityType
 instance ToHeader     EntityType
 
 data PolicyEvaluationDecisionType
-    = Allowed
-    | ExplicitDeny
-    | ImplicitDeny
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Allowed
+  | ExplicitDeny
+  | ImplicitDeny
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PolicyEvaluationDecisionType where
     parser = takeLowerText >>= \case
@@ -183,10 +221,11 @@ instance FromXML PolicyEvaluationDecisionType where
     parseXML = parseXMLText "PolicyEvaluationDecisionType"
 
 data PolicyScopeType
-    = AWS
-    | All
-    | Local
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AWS
+  | All
+  | Local
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PolicyScopeType where
     parser = takeLowerText >>= \case
@@ -209,14 +248,15 @@ instance ToQuery      PolicyScopeType
 instance ToHeader     PolicyScopeType
 
 data PolicySourceType
-    = AWSManaged
-    | Group
-    | None
-    | Resource
-    | Role
-    | User
-    | UserManaged
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AWSManaged
+  | Group
+  | None
+  | Resource
+  | Role
+  | User
+  | UserManaged
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PolicySourceType where
     parser = takeLowerText >>= \case
@@ -250,8 +290,9 @@ instance FromXML PolicySourceType where
     parseXML = parseXMLText "PolicySourceType"
 
 data ReportFormatType =
-    TextCSV
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  TextCSV
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReportFormatType where
     parser = takeLowerText >>= \case
@@ -273,24 +314,25 @@ instance FromXML ReportFormatType where
     parseXML = parseXMLText "ReportFormatType"
 
 data ReportStateType
-    = Complete
-    | Inprogress
-    | Started
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = RSTComplete
+  | RSTInprogress
+  | RSTStarted
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReportStateType where
     parser = takeLowerText >>= \case
-        "complete" -> pure Complete
-        "inprogress" -> pure Inprogress
-        "started" -> pure Started
+        "complete" -> pure RSTComplete
+        "inprogress" -> pure RSTInprogress
+        "started" -> pure RSTStarted
         e -> fromTextError $ "Failure parsing ReportStateType from value: '" <> e
            <> "'. Accepted values: complete, inprogress, started"
 
 instance ToText ReportStateType where
     toText = \case
-        Complete -> "COMPLETE"
-        Inprogress -> "INPROGRESS"
-        Started -> "STARTED"
+        RSTComplete -> "COMPLETE"
+        RSTInprogress -> "INPROGRESS"
+        RSTStarted -> "STARTED"
 
 instance Hashable     ReportStateType
 instance NFData       ReportStateType
@@ -302,9 +344,10 @@ instance FromXML ReportStateType where
     parseXML = parseXMLText "ReportStateType"
 
 data StatusType
-    = Active
-    | Inactive
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | Inactive
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StatusType where
     parser = takeLowerText >>= \case
@@ -328,32 +371,33 @@ instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"
 
 data SummaryKeyType
-    = AccessKeysPerUserQuota
-    | AccountAccessKeysPresent
-    | AccountMFAEnabled
-    | AccountSigningCertificatesPresent
-    | AttachedPoliciesPerGroupQuota
-    | AttachedPoliciesPerRoleQuota
-    | AttachedPoliciesPerUserQuota
-    | GroupPolicySizeQuota
-    | Groups
-    | GroupsPerUserQuota
-    | GroupsQuota
-    | MFADevices
-    | MFADevicesInUse
-    | Policies
-    | PoliciesQuota
-    | PolicySizeQuota
-    | PolicyVersionsInUse
-    | PolicyVersionsInUseQuota
-    | ServerCertificates
-    | ServerCertificatesQuota
-    | SigningCertificatesPerUserQuota
-    | UserPolicySizeQuota
-    | Users
-    | UsersQuota
-    | VersionsPerPolicyQuota
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AccessKeysPerUserQuota
+  | AccountAccessKeysPresent
+  | AccountMFAEnabled
+  | AccountSigningCertificatesPresent
+  | AttachedPoliciesPerGroupQuota
+  | AttachedPoliciesPerRoleQuota
+  | AttachedPoliciesPerUserQuota
+  | GroupPolicySizeQuota
+  | Groups
+  | GroupsPerUserQuota
+  | GroupsQuota
+  | MFADevices
+  | MFADevicesInUse
+  | Policies
+  | PoliciesQuota
+  | PolicySizeQuota
+  | PolicyVersionsInUse
+  | PolicyVersionsInUseQuota
+  | ServerCertificates
+  | ServerCertificatesQuota
+  | SigningCertificatesPerUserQuota
+  | UserPolicySizeQuota
+  | Users
+  | UsersQuota
+  | VersionsPerPolicyQuota
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SummaryKeyType where
     parser = takeLowerText >>= \case

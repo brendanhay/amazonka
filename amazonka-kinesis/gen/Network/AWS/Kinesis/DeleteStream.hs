@@ -12,23 +12,25 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.DeleteStream
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an Amazon Kinesis stream and all its shards and data. You must shut down any applications that are operating on the stream before you delete the stream. If an application attempts to operate on a deleted stream, it will receive the exception 'ResourceNotFoundException'.
+-- Deletes an Amazon Kinesis stream and all its shards and data. You must shut down any applications that are operating on the stream before you delete the stream. If an application attempts to operate on a deleted stream, it will receive the exception @ResourceNotFoundException@ .
 --
--- If the stream is in the 'ACTIVE' state, you can delete it. After a 'DeleteStream' request, the specified stream is in the 'DELETING' state until Amazon Kinesis completes the deletion.
 --
--- __Note:__ Amazon Kinesis might continue to accept data read and write operations, such as < PutRecord>, < PutRecords>, and < GetRecords>, on a stream in the 'DELETING' state until the stream deletion is complete.
+-- If the stream is in the @ACTIVE@ state, you can delete it. After a @DeleteStream@ request, the specified stream is in the @DELETING@ state until Amazon Kinesis completes the deletion.
+--
+-- __Note:__ Amazon Kinesis might continue to accept data read and write operations, such as 'PutRecord' , 'PutRecords' , and 'GetRecords' , on a stream in the @DELETING@ state until the stream deletion is complete.
 --
 -- When you delete a stream, any shards in that stream are also deleted, and any tags are dissociated from the stream.
 --
--- You can use the < DescribeStream> operation to check the state of the stream, which is returned in 'StreamStatus'.
+-- You can use the 'DescribeStream' operation to check the state of the stream, which is returned in @StreamStatus@ .
 --
--- < DeleteStream> has a limit of 5 transactions per second per account.
+-- 'DeleteStream' has a limit of 5 transactions per second per account.
+--
 module Network.AWS.Kinesis.DeleteStream
     (
     -- * Creating a Request
@@ -42,32 +44,33 @@ module Network.AWS.Kinesis.DeleteStream
     , DeleteStreamResponse
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input for < DeleteStream>.
+-- | Represents the input for 'DeleteStream' .
+--
+--
 --
 -- /See:/ 'deleteStream' smart constructor.
 newtype DeleteStream = DeleteStream'
-    { _dsStreamName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsStreamName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteStream' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsStreamName'
+-- * 'dsStreamName' - The name of the stream to delete.
 deleteStream
     :: Text -- ^ 'dsStreamName'
     -> DeleteStream
-deleteStream pStreamName_ =
-    DeleteStream'
-    { _dsStreamName = pStreamName_
-    }
+deleteStream pStreamName_ = DeleteStream' {_dsStreamName = pStreamName_}
+
 
 -- | The name of the stream to delete.
 dsStreamName :: Lens' DeleteStream Text
@@ -78,9 +81,9 @@ instance AWSRequest DeleteStream where
         request = postJSON kinesis
         response = receiveNull DeleteStreamResponse'
 
-instance Hashable DeleteStream
+instance Hashable DeleteStream where
 
-instance NFData DeleteStream
+instance NFData DeleteStream where
 
 instance ToHeaders DeleteStream where
         toHeaders
@@ -104,8 +107,9 @@ instance ToQuery DeleteStream where
 
 -- | /See:/ 'deleteStreamResponse' smart constructor.
 data DeleteStreamResponse =
-    DeleteStreamResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteStreamResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteStreamResponse' with the minimum fields required to make a request.
 --
@@ -113,4 +117,5 @@ deleteStreamResponse
     :: DeleteStreamResponse
 deleteStreamResponse = DeleteStreamResponse'
 
-instance NFData DeleteStreamResponse
+
+instance NFData DeleteStreamResponse where

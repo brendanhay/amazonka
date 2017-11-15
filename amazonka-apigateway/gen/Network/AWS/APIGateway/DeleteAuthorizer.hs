@@ -12,13 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteAuthorizer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an existing < Authorizer> resource.
+-- Deletes an existing 'Authorizer' resource.
+--
 --
 -- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/delete-authorizer.html AWS CLI>
 module Network.AWS.APIGateway.DeleteAuthorizer
@@ -35,43 +36,45 @@ module Network.AWS.APIGateway.DeleteAuthorizer
     , DeleteAuthorizerResponse
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Request to delete an existing < Authorizer> resource.
+-- | Request to delete an existing 'Authorizer' resource.
+--
+--
 --
 -- /See:/ 'deleteAuthorizer' smart constructor.
 data DeleteAuthorizer = DeleteAuthorizer'
-    { _daRestAPIId    :: !Text
-    , _daAuthorizerId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daRestAPIId    :: !Text
+  , _daAuthorizerId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAuthorizer' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daRestAPIId'
+-- * 'daRestAPIId' - The string identifier of the associated 'RestApi' .
 --
--- * 'daAuthorizerId'
+-- * 'daAuthorizerId' - The identifier of the 'Authorizer' resource.
 deleteAuthorizer
     :: Text -- ^ 'daRestAPIId'
     -> Text -- ^ 'daAuthorizerId'
     -> DeleteAuthorizer
 deleteAuthorizer pRestAPIId_ pAuthorizerId_ =
-    DeleteAuthorizer'
-    { _daRestAPIId = pRestAPIId_
-    , _daAuthorizerId = pAuthorizerId_
-    }
+  DeleteAuthorizer'
+  {_daRestAPIId = pRestAPIId_, _daAuthorizerId = pAuthorizerId_}
 
--- | The < RestApi> identifier for the < Authorizer> resource.
+
+-- | The string identifier of the associated 'RestApi' .
 daRestAPIId :: Lens' DeleteAuthorizer Text
 daRestAPIId = lens _daRestAPIId (\ s a -> s{_daRestAPIId = a});
 
--- | The identifier of the < Authorizer> resource.
+-- | The identifier of the 'Authorizer' resource.
 daAuthorizerId :: Lens' DeleteAuthorizer Text
 daAuthorizerId = lens _daAuthorizerId (\ s a -> s{_daAuthorizerId = a});
 
@@ -80,9 +83,9 @@ instance AWSRequest DeleteAuthorizer where
         request = delete apiGateway
         response = receiveNull DeleteAuthorizerResponse'
 
-instance Hashable DeleteAuthorizer
+instance Hashable DeleteAuthorizer where
 
-instance NFData DeleteAuthorizer
+instance NFData DeleteAuthorizer where
 
 instance ToHeaders DeleteAuthorizer where
         toHeaders
@@ -101,8 +104,9 @@ instance ToQuery DeleteAuthorizer where
 
 -- | /See:/ 'deleteAuthorizerResponse' smart constructor.
 data DeleteAuthorizerResponse =
-    DeleteAuthorizerResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteAuthorizerResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAuthorizerResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +114,5 @@ deleteAuthorizerResponse
     :: DeleteAuthorizerResponse
 deleteAuthorizerResponse = DeleteAuthorizerResponse'
 
-instance NFData DeleteAuthorizerResponse
+
+instance NFData DeleteAuthorizerResponse where

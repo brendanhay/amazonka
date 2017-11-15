@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreateAccountAlias
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an alias for your AWS account. For information about using an AWS account alias, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID> in the /IAM User Guide/.
+-- Creates an alias for your AWS account. For information about using an AWS account alias, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID> in the /IAM User Guide/ .
+--
+--
 module Network.AWS.IAM.CreateAccountAlias
     (
     -- * Creating a Request
@@ -32,34 +34,32 @@ module Network.AWS.IAM.CreateAccountAlias
     , CreateAccountAliasResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createAccountAlias' smart constructor.
 newtype CreateAccountAlias = CreateAccountAlias'
-    { _caaAccountAlias :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _caaAccountAlias :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAccountAlias' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caaAccountAlias'
+-- * 'caaAccountAlias' - The account alias to create. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
 createAccountAlias
     :: Text -- ^ 'caaAccountAlias'
     -> CreateAccountAlias
 createAccountAlias pAccountAlias_ =
-    CreateAccountAlias'
-    { _caaAccountAlias = pAccountAlias_
-    }
+  CreateAccountAlias' {_caaAccountAlias = pAccountAlias_}
 
--- | The account alias to create.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
+
+-- | The account alias to create. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
 caaAccountAlias :: Lens' CreateAccountAlias Text
 caaAccountAlias = lens _caaAccountAlias (\ s a -> s{_caaAccountAlias = a});
 
@@ -69,9 +69,9 @@ instance AWSRequest CreateAccountAlias where
         request = postQuery iam
         response = receiveNull CreateAccountAliasResponse'
 
-instance Hashable CreateAccountAlias
+instance Hashable CreateAccountAlias where
 
-instance NFData CreateAccountAlias
+instance NFData CreateAccountAlias where
 
 instance ToHeaders CreateAccountAlias where
         toHeaders = const mempty
@@ -88,8 +88,9 @@ instance ToQuery CreateAccountAlias where
 
 -- | /See:/ 'createAccountAliasResponse' smart constructor.
 data CreateAccountAliasResponse =
-    CreateAccountAliasResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CreateAccountAliasResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAccountAliasResponse' with the minimum fields required to make a request.
 --
@@ -97,4 +98,5 @@ createAccountAliasResponse
     :: CreateAccountAliasResponse
 createAccountAliasResponse = CreateAccountAliasResponse'
 
-instance NFData CreateAccountAliasResponse
+
+instance NFData CreateAccountAliasResponse where

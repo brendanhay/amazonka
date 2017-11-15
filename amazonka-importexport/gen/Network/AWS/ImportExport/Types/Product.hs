@@ -9,40 +9,38 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.ImportExport.Types.Product where
 
-import           Network.AWS.ImportExport.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.ImportExport.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | A discrete item that contains the description and URL of an artifact (such as a PDF).
 --
 -- /See:/ 'artifact' smart constructor.
 data Artifact = Artifact'
-    { _aURL         :: !(Maybe Text)
-    , _aDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aURL         :: !(Maybe Text)
+  , _aDescription :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Artifact' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aURL'
+-- * 'aURL' - Undocumented member.
 --
--- * 'aDescription'
+-- * 'aDescription' - Undocumented member.
 artifact
     :: Artifact
-artifact =
-    Artifact'
-    { _aURL = Nothing
-    , _aDescription = Nothing
-    }
+artifact = Artifact' {_aURL = Nothing, _aDescription = Nothing}
+
 
 -- | Undocumented member.
 aURL :: Lens' Artifact (Maybe Text)
@@ -57,31 +55,32 @@ instance FromXML Artifact where
           = Artifact' <$>
               (x .@? "URL") <*> (x .@? "Description")
 
-instance Hashable Artifact
+instance Hashable Artifact where
 
-instance NFData Artifact
+instance NFData Artifact where
 
 -- | Representation of a job returned by the ListJobs operation.
 --
 -- /See:/ 'job' smart constructor.
 data Job = Job'
-    { _jobJobType      :: !JobType
-    , _jobJobId        :: !Text
-    , _jobIsCanceled   :: !Bool
-    , _jobCreationDate :: !ISO8601
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jobJobType      :: !JobType
+  , _jobJobId        :: !Text
+  , _jobIsCanceled   :: !Bool
+  , _jobCreationDate :: !ISO8601
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Job' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'jobJobType'
+-- * 'jobJobType' - Undocumented member.
 --
--- * 'jobJobId'
+-- * 'jobJobId' - Undocumented member.
 --
--- * 'jobIsCanceled'
+-- * 'jobIsCanceled' - Undocumented member.
 --
--- * 'jobCreationDate'
+-- * 'jobCreationDate' - Undocumented member.
 job
     :: JobType -- ^ 'jobJobType'
     -> Text -- ^ 'jobJobId'
@@ -89,12 +88,13 @@ job
     -> UTCTime -- ^ 'jobCreationDate'
     -> Job
 job pJobType_ pJobId_ pIsCanceled_ pCreationDate_ =
-    Job'
-    { _jobJobType = pJobType_
-    , _jobJobId = pJobId_
-    , _jobIsCanceled = pIsCanceled_
-    , _jobCreationDate = _Time # pCreationDate_
-    }
+  Job'
+  { _jobJobType = pJobType_
+  , _jobJobId = pJobId_
+  , _jobIsCanceled = pIsCanceled_
+  , _jobCreationDate = _Time # pCreationDate_
+  }
+
 
 -- | Undocumented member.
 jobJobType :: Lens' Job JobType
@@ -119,6 +119,6 @@ instance FromXML Job where
                 (x .@ "IsCanceled")
                 <*> (x .@ "CreationDate")
 
-instance Hashable Job
+instance Hashable Job where
 
-instance NFData Job
+instance NFData Job where

@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.CloudWatch
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.CloudWatch where
 
 import Data.Proxy
+import Network.AWS.CloudWatch
+import Test.AWS.CloudWatch.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.CloudWatch
-import Test.AWS.CloudWatch.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -31,14 +31,23 @@ import Test.AWS.CloudWatch.Internal
 --         [ requestEnableAlarmActions $
 --             enableAlarmActions
 --
+--         , requestGetDashboard $
+--             getDashboard
+--
 --         , requestPutMetricData $
 --             putMetricData
+--
+--         , requestListDashboards $
+--             listDashboards
 --
 --         , requestDescribeAlarms $
 --             describeAlarms
 --
 --         , requestListMetrics $
 --             listMetrics
+--
+--         , requestDeleteDashboards $
+--             deleteDashboards
 --
 --         , requestDeleteAlarms $
 --             deleteAlarms
@@ -55,6 +64,9 @@ import Test.AWS.CloudWatch.Internal
 --         , requestDisableAlarmActions $
 --             disableAlarmActions
 --
+--         , requestPutDashboard $
+--             putDashboard
+--
 --         , requestPutMetricAlarm $
 --             putMetricAlarm
 --
@@ -67,14 +79,23 @@ import Test.AWS.CloudWatch.Internal
 --         [ responseEnableAlarmActions $
 --             enableAlarmActionsResponse
 --
+--         , responseGetDashboard $
+--             getDashboardResponse
+--
 --         , responsePutMetricData $
 --             putMetricDataResponse
+--
+--         , responseListDashboards $
+--             listDashboardsResponse
 --
 --         , responseDescribeAlarms $
 --             describeAlarmsResponse
 --
 --         , responseListMetrics $
 --             listMetricsResponse
+--
+--         , responseDeleteDashboards $
+--             deleteDashboardsResponse
 --
 --         , responseDeleteAlarms $
 --             deleteAlarmsResponse
@@ -90,6 +111,9 @@ import Test.AWS.CloudWatch.Internal
 --
 --         , responseDisableAlarmActions $
 --             disableAlarmActionsResponse
+--
+--         , responsePutDashboard $
+--             putDashboardResponse
 --
 --         , responsePutMetricAlarm $
 --             putMetricAlarmResponse
@@ -107,10 +131,20 @@ requestEnableAlarmActions = req
     "EnableAlarmActions"
     "fixture/EnableAlarmActions.yaml"
 
+requestGetDashboard :: GetDashboard -> TestTree
+requestGetDashboard = req
+    "GetDashboard"
+    "fixture/GetDashboard.yaml"
+
 requestPutMetricData :: PutMetricData -> TestTree
 requestPutMetricData = req
     "PutMetricData"
     "fixture/PutMetricData.yaml"
+
+requestListDashboards :: ListDashboards -> TestTree
+requestListDashboards = req
+    "ListDashboards"
+    "fixture/ListDashboards.yaml"
 
 requestDescribeAlarms :: DescribeAlarms -> TestTree
 requestDescribeAlarms = req
@@ -121,6 +155,11 @@ requestListMetrics :: ListMetrics -> TestTree
 requestListMetrics = req
     "ListMetrics"
     "fixture/ListMetrics.yaml"
+
+requestDeleteDashboards :: DeleteDashboards -> TestTree
+requestDeleteDashboards = req
+    "DeleteDashboards"
+    "fixture/DeleteDashboards.yaml"
 
 requestDeleteAlarms :: DeleteAlarms -> TestTree
 requestDeleteAlarms = req
@@ -147,6 +186,11 @@ requestDisableAlarmActions = req
     "DisableAlarmActions"
     "fixture/DisableAlarmActions.yaml"
 
+requestPutDashboard :: PutDashboard -> TestTree
+requestPutDashboard = req
+    "PutDashboard"
+    "fixture/PutDashboard.yaml"
+
 requestPutMetricAlarm :: PutMetricAlarm -> TestTree
 requestPutMetricAlarm = req
     "PutMetricAlarm"
@@ -166,12 +210,26 @@ responseEnableAlarmActions = res
     cloudWatch
     (Proxy :: Proxy EnableAlarmActions)
 
+responseGetDashboard :: GetDashboardResponse -> TestTree
+responseGetDashboard = res
+    "GetDashboardResponse"
+    "fixture/GetDashboardResponse.proto"
+    cloudWatch
+    (Proxy :: Proxy GetDashboard)
+
 responsePutMetricData :: PutMetricDataResponse -> TestTree
 responsePutMetricData = res
     "PutMetricDataResponse"
     "fixture/PutMetricDataResponse.proto"
     cloudWatch
     (Proxy :: Proxy PutMetricData)
+
+responseListDashboards :: ListDashboardsResponse -> TestTree
+responseListDashboards = res
+    "ListDashboardsResponse"
+    "fixture/ListDashboardsResponse.proto"
+    cloudWatch
+    (Proxy :: Proxy ListDashboards)
 
 responseDescribeAlarms :: DescribeAlarmsResponse -> TestTree
 responseDescribeAlarms = res
@@ -186,6 +244,13 @@ responseListMetrics = res
     "fixture/ListMetricsResponse.proto"
     cloudWatch
     (Proxy :: Proxy ListMetrics)
+
+responseDeleteDashboards :: DeleteDashboardsResponse -> TestTree
+responseDeleteDashboards = res
+    "DeleteDashboardsResponse"
+    "fixture/DeleteDashboardsResponse.proto"
+    cloudWatch
+    (Proxy :: Proxy DeleteDashboards)
 
 responseDeleteAlarms :: DeleteAlarmsResponse -> TestTree
 responseDeleteAlarms = res
@@ -221,6 +286,13 @@ responseDisableAlarmActions = res
     "fixture/DisableAlarmActionsResponse.proto"
     cloudWatch
     (Proxy :: Proxy DisableAlarmActions)
+
+responsePutDashboard :: PutDashboardResponse -> TestTree
+responsePutDashboard = res
+    "PutDashboardResponse"
+    "fixture/PutDashboardResponse.proto"
+    cloudWatch
+    (Proxy :: Proxy PutDashboard)
 
 responsePutMetricAlarm :: PutMetricAlarmResponse -> TestTree
 responsePutMetricAlarm = res

@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetUsage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the usage data of a usage plan in a specified time interval.
+--
+--
+--
+-- This operation returns paginated results.
 module Network.AWS.APIGateway.GetUsage
     (
     -- * Creating a Request
@@ -43,64 +47,69 @@ module Network.AWS.APIGateway.GetUsage
     , uPosition
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The GET request to get the usage data of a usage plan in a specified time interval.
 --
+--
+--
 -- /See:/ 'getUsage' smart constructor.
 data GetUsage = GetUsage'
-    { _guKeyId       :: !(Maybe Text)
-    , _guLimit       :: !(Maybe Int)
-    , _guPosition    :: !(Maybe Text)
-    , _guUsagePlanId :: !Text
-    , _guStartDate   :: !Text
-    , _guEndDate     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _guKeyId       :: !(Maybe Text)
+  , _guLimit       :: !(Maybe Int)
+  , _guPosition    :: !(Maybe Text)
+  , _guUsagePlanId :: !Text
+  , _guStartDate   :: !Text
+  , _guEndDate     :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetUsage' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'guKeyId'
+-- * 'guKeyId' - The Id of the API key associated with the resultant usage data.
 --
--- * 'guLimit'
+-- * 'guLimit' - The maximum number of returned results per page.
 --
--- * 'guPosition'
+-- * 'guPosition' - The current pagination position in the paged result set.
 --
--- * 'guUsagePlanId'
+-- * 'guUsagePlanId' - The Id of the usage plan associated with the usage data.
 --
--- * 'guStartDate'
+-- * 'guStartDate' - The starting date (e.g., 2016-01-01) of the usage data.
 --
--- * 'guEndDate'
+-- * 'guEndDate' - The ending date (e.g., 2016-12-31) of the usage data.
 getUsage
     :: Text -- ^ 'guUsagePlanId'
     -> Text -- ^ 'guStartDate'
     -> Text -- ^ 'guEndDate'
     -> GetUsage
 getUsage pUsagePlanId_ pStartDate_ pEndDate_ =
-    GetUsage'
-    { _guKeyId = Nothing
-    , _guLimit = Nothing
-    , _guPosition = Nothing
-    , _guUsagePlanId = pUsagePlanId_
-    , _guStartDate = pStartDate_
-    , _guEndDate = pEndDate_
-    }
+  GetUsage'
+  { _guKeyId = Nothing
+  , _guLimit = Nothing
+  , _guPosition = Nothing
+  , _guUsagePlanId = pUsagePlanId_
+  , _guStartDate = pStartDate_
+  , _guEndDate = pEndDate_
+  }
+
 
 -- | The Id of the API key associated with the resultant usage data.
 guKeyId :: Lens' GetUsage (Maybe Text)
 guKeyId = lens _guKeyId (\ s a -> s{_guKeyId = a});
 
--- | The maximum number of results to be returned.
+-- | The maximum number of returned results per page.
 guLimit :: Lens' GetUsage (Maybe Int)
 guLimit = lens _guLimit (\ s a -> s{_guLimit = a});
 
--- | Position
+-- | The current pagination position in the paged result set.
 guPosition :: Lens' GetUsage (Maybe Text)
 guPosition = lens _guPosition (\ s a -> s{_guPosition = a});
 
@@ -116,14 +125,21 @@ guStartDate = lens _guStartDate (\ s a -> s{_guStartDate = a});
 guEndDate :: Lens' GetUsage Text
 guEndDate = lens _guEndDate (\ s a -> s{_guEndDate = a});
 
+instance AWSPager GetUsage where
+        page rq rs
+          | stop (rs ^. uPosition) = Nothing
+          | stop (rs ^. uItems) = Nothing
+          | otherwise =
+            Just $ rq & guPosition .~ rs ^. uPosition
+
 instance AWSRequest GetUsage where
         type Rs GetUsage = Usage
         request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetUsage
+instance Hashable GetUsage where
 
-instance NFData GetUsage
+instance NFData GetUsage where
 
 instance ToHeaders GetUsage where
         toHeaders

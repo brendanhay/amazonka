@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.GetAlias
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the specified alias information such as the alias ARN, description, and function version it is pointing to. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
+-- Returns the specified alias information such as the alias ARN, description, and function version it is pointing to. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases> .
 --
--- This requires permission for the 'lambda:GetAlias' action.
+--
+-- This requires permission for the @lambda:GetAlias@ action.
+--
 module Network.AWS.Lambda.GetAlias
     (
     -- * Creating a Request
@@ -40,37 +42,36 @@ module Network.AWS.Lambda.GetAlias
     , acDescription
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getAlias' smart constructor.
 data GetAlias = GetAlias'
-    { _gaFunctionName :: !Text
-    , _gaName         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gaFunctionName :: !Text
+  , _gaName         :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAlias' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaFunctionName'
+-- * 'gaFunctionName' - Function name for which the alias is created. An alias is a subresource that exists only in the context of an existing Lambda function so you must specify the function name. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
--- * 'gaName'
+-- * 'gaName' - Name of the alias for which you want to retrieve information.
 getAlias
     :: Text -- ^ 'gaFunctionName'
     -> Text -- ^ 'gaName'
     -> GetAlias
 getAlias pFunctionName_ pName_ =
-    GetAlias'
-    { _gaFunctionName = pFunctionName_
-    , _gaName = pName_
-    }
+  GetAlias' {_gaFunctionName = pFunctionName_, _gaName = pName_}
 
--- | Function name for which the alias is created. An alias is a subresource that exists only in the context of an existing Lambda function so you must specify the function name.
+
+-- | Function name for which the alias is created. An alias is a subresource that exists only in the context of an existing Lambda function so you must specify the function name. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 gaFunctionName :: Lens' GetAlias Text
 gaFunctionName = lens _gaFunctionName (\ s a -> s{_gaFunctionName = a});
 
@@ -83,9 +84,9 @@ instance AWSRequest GetAlias where
         request = get lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetAlias
+instance Hashable GetAlias where
 
-instance NFData GetAlias
+instance NFData GetAlias where
 
 instance ToHeaders GetAlias where
         toHeaders = const mempty

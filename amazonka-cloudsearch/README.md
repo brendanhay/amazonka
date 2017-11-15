@@ -8,28 +8,27 @@
 
 ## Version
 
-`1.4.4`
+`1.5.0`
 
 
 ## Description
-
-Amazon CloudSearch Configuration Service
-
-You use the Amazon CloudSearch configuration service to create, configure, and manage search domains. Configuration service requests are submitted using the AWS Query protocol. AWS Query requests are HTTP or HTTPS requests submitted via HTTP GET or POST with a query parameter named Action.
-
-The endpoint for configuration service requests is region-specific: cloudsearch./region/.amazonaws.com. For example, cloudsearch.us-east-1.amazonaws.com. For a current list of supported regions and endpoints, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region Regions and Endpoints>.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cloudsearch)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).
 
 The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
-which provides mechanisms for specifying AuthN/AuthZ information and sending requests.
+which provides mechanisms for specifying AuthN/AuthZ information, sending requests,
+and receiving responses.
 
-Use of lenses is required for constructing and manipulating types.
-This is due to the amount of nesting of AWS types and transparency regarding
+Lenses are used for constructing and manipulating types,
+due to the depth of nesting of AWS types and transparency regarding
 de/serialisation into more palatable Haskell values.
 The provided lenses should be compatible with any of the major lens libraries
 [lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
+
+See [Network.AWS.CloudSearch](http://hackage.haskell.org/package/amazonka-cloudsearch/docs/Network-AWS-CloudSearch.html)
+or [the AWS documentation](https://aws.amazon.com/documentation/) to get started.
+
 
 ## Contribute
 

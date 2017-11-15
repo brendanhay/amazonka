@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.SetStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Requests that the status of the specified physical or logical pipeline objects be updated in the specified pipeline. This update might not occur immediately, but is eventually consistent. The status that can be set depends on the type of object (for example, DataNode or Activity). You cannot perform this operation on 'FINISHED' pipelines and attempting to do so returns 'InvalidRequestException'.
+-- Requests that the status of the specified physical or logical pipeline objects be updated in the specified pipeline. This update might not occur immediately, but is eventually consistent. The status that can be set depends on the type of object (for example, DataNode or Activity). You cannot perform this operation on @FINISHED@ pipelines and attempting to do so returns @InvalidRequestException@ .
+--
+--
 module Network.AWS.DataPipeline.SetStatus
     (
     -- * Creating a Request
@@ -34,41 +36,42 @@ module Network.AWS.DataPipeline.SetStatus
     , SetStatusResponse
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.DataPipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for SetStatus.
 --
+--
+--
 -- /See:/ 'setStatus' smart constructor.
 data SetStatus = SetStatus'
-    { _ssPipelineId :: !Text
-    , _ssObjectIds  :: ![Text]
-    , _ssStatus     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssPipelineId :: !Text
+  , _ssObjectIds  :: ![Text]
+  , _ssStatus     :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssPipelineId'
+-- * 'ssPipelineId' - The ID of the pipeline that contains the objects.
 --
--- * 'ssObjectIds'
+-- * 'ssObjectIds' - The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.
 --
--- * 'ssStatus'
+-- * 'ssStatus' - The status to be set on all the objects specified in @objectIds@ . For components, use @PAUSE@ or @RESUME@ . For instances, use @TRY_CANCEL@ , @RERUN@ , or @MARK_FINISHED@ .
 setStatus
     :: Text -- ^ 'ssPipelineId'
     -> Text -- ^ 'ssStatus'
     -> SetStatus
 setStatus pPipelineId_ pStatus_ =
-    SetStatus'
-    { _ssPipelineId = pPipelineId_
-    , _ssObjectIds = mempty
-    , _ssStatus = pStatus_
-    }
+  SetStatus'
+  {_ssPipelineId = pPipelineId_, _ssObjectIds = mempty, _ssStatus = pStatus_}
+
 
 -- | The ID of the pipeline that contains the objects.
 ssPipelineId :: Lens' SetStatus Text
@@ -78,7 +81,7 @@ ssPipelineId = lens _ssPipelineId (\ s a -> s{_ssPipelineId = a});
 ssObjectIds :: Lens' SetStatus [Text]
 ssObjectIds = lens _ssObjectIds (\ s a -> s{_ssObjectIds = a}) . _Coerce;
 
--- | The status to be set on all the objects specified in 'objectIds'. For components, use 'PAUSE' or 'RESUME'. For instances, use 'TRY_CANCEL', 'RERUN', or 'MARK_FINISHED'.
+-- | The status to be set on all the objects specified in @objectIds@ . For components, use @PAUSE@ or @RESUME@ . For instances, use @TRY_CANCEL@ , @RERUN@ , or @MARK_FINISHED@ .
 ssStatus :: Lens' SetStatus Text
 ssStatus = lens _ssStatus (\ s a -> s{_ssStatus = a});
 
@@ -87,9 +90,9 @@ instance AWSRequest SetStatus where
         request = postJSON dataPipeline
         response = receiveNull SetStatusResponse'
 
-instance Hashable SetStatus
+instance Hashable SetStatus where
 
-instance NFData SetStatus
+instance NFData SetStatus where
 
 instance ToHeaders SetStatus where
         toHeaders
@@ -116,8 +119,9 @@ instance ToQuery SetStatus where
 
 -- | /See:/ 'setStatusResponse' smart constructor.
 data SetStatusResponse =
-    SetStatusResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetStatusResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetStatusResponse' with the minimum fields required to make a request.
 --
@@ -125,4 +129,5 @@ setStatusResponse
     :: SetStatusResponse
 setStatusResponse = SetStatusResponse'
 
-instance NFData SetStatusResponse
+
+instance NFData SetStatusResponse where

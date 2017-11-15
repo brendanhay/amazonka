@@ -12,15 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListCACertificates
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the CA certificates registered for your AWS account.
 --
+--
 -- The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.
+--
+--
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListCACertificates
     (
     -- * Creating a Request
@@ -40,39 +44,44 @@ module Network.AWS.IoT.ListCACertificates
     , lcacrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input for the ListCACertificates operation.
 --
+--
+--
 -- /See:/ 'listCACertificates' smart constructor.
 data ListCACertificates = ListCACertificates'
-    { _lcacMarker         :: !(Maybe Text)
-    , _lcacAscendingOrder :: !(Maybe Bool)
-    , _lcacPageSize       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcacMarker         :: !(Maybe Text)
+  , _lcacAscendingOrder :: !(Maybe Bool)
+  , _lcacPageSize       :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCACertificates' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcacMarker'
+-- * 'lcacMarker' - The marker for the next set of results.
 --
--- * 'lcacAscendingOrder'
+-- * 'lcacAscendingOrder' - Determines the order of the results.
 --
--- * 'lcacPageSize'
+-- * 'lcacPageSize' - The result page size.
 listCACertificates
     :: ListCACertificates
 listCACertificates =
-    ListCACertificates'
-    { _lcacMarker = Nothing
-    , _lcacAscendingOrder = Nothing
-    , _lcacPageSize = Nothing
-    }
+  ListCACertificates'
+  { _lcacMarker = Nothing
+  , _lcacAscendingOrder = Nothing
+  , _lcacPageSize = Nothing
+  }
+
 
 -- | The marker for the next set of results.
 lcacMarker :: Lens' ListCACertificates (Maybe Text)
@@ -86,6 +95,13 @@ lcacAscendingOrder = lens _lcacAscendingOrder (\ s a -> s{_lcacAscendingOrder = 
 lcacPageSize :: Lens' ListCACertificates (Maybe Natural)
 lcacPageSize = lens _lcacPageSize (\ s a -> s{_lcacPageSize = a}) . mapping _Nat;
 
+instance AWSPager ListCACertificates where
+        page rq rs
+          | stop (rs ^. lcacrsNextMarker) = Nothing
+          | stop (rs ^. lcacrsCertificates) = Nothing
+          | otherwise =
+            Just $ rq & lcacMarker .~ rs ^. lcacrsNextMarker
+
 instance AWSRequest ListCACertificates where
         type Rs ListCACertificates =
              ListCACertificatesResponse
@@ -98,9 +114,9 @@ instance AWSRequest ListCACertificates where
                      (x .?> "nextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListCACertificates
+instance Hashable ListCACertificates where
 
-instance NFData ListCACertificates
+instance NFData ListCACertificates where
 
 instance ToHeaders ListCACertificates where
         toHeaders = const mempty
@@ -117,31 +133,35 @@ instance ToQuery ListCACertificates where
 
 -- | The output from the ListCACertificates operation.
 --
+--
+--
 -- /See:/ 'listCACertificatesResponse' smart constructor.
 data ListCACertificatesResponse = ListCACertificatesResponse'
-    { _lcacrsCertificates   :: !(Maybe [CACertificate])
-    , _lcacrsNextMarker     :: !(Maybe Text)
-    , _lcacrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcacrsCertificates   :: !(Maybe [CACertificate])
+  , _lcacrsNextMarker     :: !(Maybe Text)
+  , _lcacrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCACertificatesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcacrsCertificates'
+-- * 'lcacrsCertificates' - The CA certificates registered in your AWS account.
 --
--- * 'lcacrsNextMarker'
+-- * 'lcacrsNextMarker' - The current position within the list of CA certificates.
 --
--- * 'lcacrsResponseStatus'
+-- * 'lcacrsResponseStatus' - -- | The response status code.
 listCACertificatesResponse
     :: Int -- ^ 'lcacrsResponseStatus'
     -> ListCACertificatesResponse
 listCACertificatesResponse pResponseStatus_ =
-    ListCACertificatesResponse'
-    { _lcacrsCertificates = Nothing
-    , _lcacrsNextMarker = Nothing
-    , _lcacrsResponseStatus = pResponseStatus_
-    }
+  ListCACertificatesResponse'
+  { _lcacrsCertificates = Nothing
+  , _lcacrsNextMarker = Nothing
+  , _lcacrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The CA certificates registered in your AWS account.
 lcacrsCertificates :: Lens' ListCACertificatesResponse [CACertificate]
@@ -151,8 +171,8 @@ lcacrsCertificates = lens _lcacrsCertificates (\ s a -> s{_lcacrsCertificates = 
 lcacrsNextMarker :: Lens' ListCACertificatesResponse (Maybe Text)
 lcacrsNextMarker = lens _lcacrsNextMarker (\ s a -> s{_lcacrsNextMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lcacrsResponseStatus :: Lens' ListCACertificatesResponse Int
 lcacrsResponseStatus = lens _lcacrsResponseStatus (\ s a -> s{_lcacrsResponseStatus = a});
 
-instance NFData ListCACertificatesResponse
+instance NFData ListCACertificatesResponse where

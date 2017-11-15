@@ -12,21 +12,25 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.AssignInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Assign a registered instance to a layer.
 --
--- -   You can assign registered on-premises instances to any layer type.
 --
--- -   You can assign registered Amazon EC2 instances only to custom layers.
+--     * You can assign registered on-premises instances to any layer type.
 --
--- -   You cannot use this action with instances that were created with AWS OpsWorks.
+--     * You can assign registered Amazon EC2 instances only to custom layers.
 --
--- __Required Permissions__: To use this action, an AWS Identity and Access Management (IAM) user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--     * You cannot use this action with instances that were created with AWS OpsWorks Stacks.
+--
+--
+--
+-- __Required Permissions__ : To use this action, an AWS Identity and Access Management (IAM) user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.AssignInstance
     (
     -- * Creating a Request
@@ -41,34 +45,33 @@ module Network.AWS.OpsWorks.AssignInstance
     , AssignInstanceResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'assignInstance' smart constructor.
 data AssignInstance = AssignInstance'
-    { _aiInstanceId :: !Text
-    , _aiLayerIds   :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aiInstanceId :: !Text
+  , _aiLayerIds   :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssignInstance' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aiInstanceId'
+-- * 'aiInstanceId' - The instance ID.
 --
--- * 'aiLayerIds'
+-- * 'aiLayerIds' - The layer ID, which must correspond to a custom layer. You cannot assign a registered instance to a built-in layer.
 assignInstance
     :: Text -- ^ 'aiInstanceId'
     -> AssignInstance
 assignInstance pInstanceId_ =
-    AssignInstance'
-    { _aiInstanceId = pInstanceId_
-    , _aiLayerIds = mempty
-    }
+  AssignInstance' {_aiInstanceId = pInstanceId_, _aiLayerIds = mempty}
+
 
 -- | The instance ID.
 aiInstanceId :: Lens' AssignInstance Text
@@ -83,9 +86,9 @@ instance AWSRequest AssignInstance where
         request = postJSON opsWorks
         response = receiveNull AssignInstanceResponse'
 
-instance Hashable AssignInstance
+instance Hashable AssignInstance where
 
-instance NFData AssignInstance
+instance NFData AssignInstance where
 
 instance ToHeaders AssignInstance where
         toHeaders
@@ -111,8 +114,9 @@ instance ToQuery AssignInstance where
 
 -- | /See:/ 'assignInstanceResponse' smart constructor.
 data AssignInstanceResponse =
-    AssignInstanceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AssignInstanceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssignInstanceResponse' with the minimum fields required to make a request.
 --
@@ -120,4 +124,5 @@ assignInstanceResponse
     :: AssignInstanceResponse
 assignInstanceResponse = AssignInstanceResponse'
 
-instance NFData AssignInstanceResponse
+
+instance NFData AssignInstanceResponse where

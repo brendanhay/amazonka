@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DeleteLoadBalancer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified load balancer.
 --
+--
 -- If you are attempting to recreate a load balancer, you must reconfigure all settings. The DNS name associated with a deleted load balancer are no longer usable. The name and associated DNS record of the deleted load balancer no longer exist and traffic sent to any of its IP addresses is no longer delivered to your instances.
 --
--- If the load balancer does not exist or has already been deleted, the call to 'DeleteLoadBalancer' still succeeds.
+-- If the load balancer does not exist or has already been deleted, the call to @DeleteLoadBalancer@ still succeeds.
+--
 module Network.AWS.ELB.DeleteLoadBalancer
     (
     -- * Creating a Request
@@ -38,32 +40,34 @@ module Network.AWS.ELB.DeleteLoadBalancer
     , drsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteLoadBalancer.
 --
+--
+--
 -- /See:/ 'deleteLoadBalancer' smart constructor.
 newtype DeleteLoadBalancer = DeleteLoadBalancer'
-    { _dlbLoadBalancerName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbLoadBalancerName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLoadBalancer' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbLoadBalancerName'
+-- * 'dlbLoadBalancerName' - The name of the load balancer.
 deleteLoadBalancer
     :: Text -- ^ 'dlbLoadBalancerName'
     -> DeleteLoadBalancer
 deleteLoadBalancer pLoadBalancerName_ =
-    DeleteLoadBalancer'
-    { _dlbLoadBalancerName = pLoadBalancerName_
-    }
+  DeleteLoadBalancer' {_dlbLoadBalancerName = pLoadBalancerName_}
+
 
 -- | The name of the load balancer.
 dlbLoadBalancerName :: Lens' DeleteLoadBalancer Text
@@ -78,9 +82,9 @@ instance AWSRequest DeleteLoadBalancer where
               (\ s h x ->
                  DeleteLoadBalancerResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteLoadBalancer
+instance Hashable DeleteLoadBalancer where
 
-instance NFData DeleteLoadBalancer
+instance NFData DeleteLoadBalancer where
 
 instance ToHeaders DeleteLoadBalancer where
         toHeaders = const mempty
@@ -97,26 +101,28 @@ instance ToQuery DeleteLoadBalancer where
 
 -- | Contains the output of DeleteLoadBalancer.
 --
+--
+--
 -- /See:/ 'deleteLoadBalancerResponse' smart constructor.
 newtype DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
-    { _drsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLoadBalancerResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteLoadBalancerResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteLoadBalancerResponse
 deleteLoadBalancerResponse pResponseStatus_ =
-    DeleteLoadBalancerResponse'
-    { _drsResponseStatus = pResponseStatus_
-    }
+  DeleteLoadBalancerResponse' {_drsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteLoadBalancerResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteLoadBalancerResponse
+instance NFData DeleteLoadBalancerResponse where

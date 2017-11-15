@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListPolicyVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the versions of the specified policy and identifies the default version.
+--
+--
 module Network.AWS.IoT.ListPolicyVersions
     (
     -- * Creating a Request
@@ -35,32 +37,34 @@ module Network.AWS.IoT.ListPolicyVersions
     , lpvrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the ListPolicyVersions operation.
 --
+--
+--
 -- /See:/ 'listPolicyVersions' smart constructor.
 newtype ListPolicyVersions = ListPolicyVersions'
-    { _lpvPolicyName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpvPolicyName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPolicyVersions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpvPolicyName'
+-- * 'lpvPolicyName' - The policy name.
 listPolicyVersions
     :: Text -- ^ 'lpvPolicyName'
     -> ListPolicyVersions
 listPolicyVersions pPolicyName_ =
-    ListPolicyVersions'
-    { _lpvPolicyName = pPolicyName_
-    }
+  ListPolicyVersions' {_lpvPolicyName = pPolicyName_}
+
 
 -- | The policy name.
 lpvPolicyName :: Lens' ListPolicyVersions Text
@@ -77,9 +81,9 @@ instance AWSRequest ListPolicyVersions where
                    (x .?> "policyVersions" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListPolicyVersions
+instance Hashable ListPolicyVersions where
 
-instance NFData ListPolicyVersions
+instance NFData ListPolicyVersions where
 
 instance ToHeaders ListPolicyVersions where
         toHeaders = const mempty
@@ -94,34 +98,36 @@ instance ToQuery ListPolicyVersions where
 
 -- | The output from the ListPolicyVersions operation.
 --
+--
+--
 -- /See:/ 'listPolicyVersionsResponse' smart constructor.
 data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
-    { _lpvrsPolicyVersions :: !(Maybe [PolicyVersion])
-    , _lpvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpvrsPolicyVersions :: !(Maybe [PolicyVersion])
+  , _lpvrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPolicyVersionsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpvrsPolicyVersions'
+-- * 'lpvrsPolicyVersions' - The policy versions.
 --
--- * 'lpvrsResponseStatus'
+-- * 'lpvrsResponseStatus' - -- | The response status code.
 listPolicyVersionsResponse
     :: Int -- ^ 'lpvrsResponseStatus'
     -> ListPolicyVersionsResponse
 listPolicyVersionsResponse pResponseStatus_ =
-    ListPolicyVersionsResponse'
-    { _lpvrsPolicyVersions = Nothing
-    , _lpvrsResponseStatus = pResponseStatus_
-    }
+  ListPolicyVersionsResponse'
+  {_lpvrsPolicyVersions = Nothing, _lpvrsResponseStatus = pResponseStatus_}
+
 
 -- | The policy versions.
 lpvrsPolicyVersions :: Lens' ListPolicyVersionsResponse [PolicyVersion]
 lpvrsPolicyVersions = lens _lpvrsPolicyVersions (\ s a -> s{_lpvrsPolicyVersions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lpvrsResponseStatus :: Lens' ListPolicyVersionsResponse Int
 lpvrsResponseStatus = lens _lpvrsResponseStatus (\ s a -> s{_lpvrsResponseStatus = a});
 
-instance NFData ListPolicyVersionsResponse
+instance NFData ListPolicyVersionsResponse where

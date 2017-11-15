@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.KMS.DescribeKey
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides detailed information about the specified customer master key.
+-- Provides detailed information about the specified customer master key (CMK).
+--
+--
+-- To perform this operation on a CMK in a different AWS account, specify the key ARN or alias ARN in the value of the KeyId parameter.
+--
 module Network.AWS.KMS.DescribeKey
     (
     -- * Creating a Request
@@ -36,51 +40,38 @@ module Network.AWS.KMS.DescribeKey
     , dkrsResponseStatus
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeKey' smart constructor.
 data DescribeKey = DescribeKey'
-    { _dGrantTokens :: !(Maybe [Text])
-    , _dKeyId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dGrantTokens :: !(Maybe [Text])
+  , _dKeyId       :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeKey' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dGrantTokens'
+-- * 'dGrantTokens' - A list of grant tokens. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 --
--- * 'dKeyId'
+-- * 'dKeyId' - A unique identifier for the customer master key (CMK). To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with "alias/". To specify a CMK in a different AWS account, you must use the key ARN or alias ARN. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@      * Alias name: @alias/ExampleAlias@      * Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
 describeKey
     :: Text -- ^ 'dKeyId'
     -> DescribeKey
-describeKey pKeyId_ =
-    DescribeKey'
-    { _dGrantTokens = Nothing
-    , _dKeyId = pKeyId_
-    }
+describeKey pKeyId_ = DescribeKey' {_dGrantTokens = Nothing, _dKeyId = pKeyId_}
 
--- | A list of grant tokens.
---
--- For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/.
+
+-- | A list of grant tokens. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 dGrantTokens :: Lens' DescribeKey [Text]
 dGrantTokens = lens _dGrantTokens (\ s a -> s{_dGrantTokens = a}) . _Default . _Coerce;
 
--- | A unique identifier for the customer master key. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by \"alias\/\".
---
--- -   Key ARN Example - arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
---
--- -   Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias\/MyAliasName
---
--- -   Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
---
--- -   Alias Name Example - alias\/MyAliasName
---
+-- | A unique identifier for the customer master key (CMK). To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with "alias/". To specify a CMK in a different AWS account, you must use the key ARN or alias ARN. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@      * Alias name: @alias/ExampleAlias@      * Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
 dKeyId :: Lens' DescribeKey Text
 dKeyId = lens _dKeyId (\ s a -> s{_dKeyId = a});
 
@@ -93,9 +84,9 @@ instance AWSRequest DescribeKey where
                  DescribeKeyResponse' <$>
                    (x .?> "KeyMetadata") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeKey
+instance Hashable DescribeKey where
 
-instance NFData DescribeKey
+instance NFData DescribeKey where
 
 instance ToHeaders DescribeKey where
         toHeaders
@@ -121,32 +112,32 @@ instance ToQuery DescribeKey where
 
 -- | /See:/ 'describeKeyResponse' smart constructor.
 data DescribeKeyResponse = DescribeKeyResponse'
-    { _dkrsKeyMetadata    :: !(Maybe KeyMetadata)
-    , _dkrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dkrsKeyMetadata    :: !(Maybe KeyMetadata)
+  , _dkrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeKeyResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dkrsKeyMetadata'
+-- * 'dkrsKeyMetadata' - Metadata associated with the key.
 --
--- * 'dkrsResponseStatus'
+-- * 'dkrsResponseStatus' - -- | The response status code.
 describeKeyResponse
     :: Int -- ^ 'dkrsResponseStatus'
     -> DescribeKeyResponse
 describeKeyResponse pResponseStatus_ =
-    DescribeKeyResponse'
-    { _dkrsKeyMetadata = Nothing
-    , _dkrsResponseStatus = pResponseStatus_
-    }
+  DescribeKeyResponse'
+  {_dkrsKeyMetadata = Nothing, _dkrsResponseStatus = pResponseStatus_}
+
 
 -- | Metadata associated with the key.
 dkrsKeyMetadata :: Lens' DescribeKeyResponse (Maybe KeyMetadata)
 dkrsKeyMetadata = lens _dkrsKeyMetadata (\ s a -> s{_dkrsKeyMetadata = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dkrsResponseStatus :: Lens' DescribeKeyResponse Int
 dkrsResponseStatus = lens _dkrsResponseStatus (\ s a -> s{_dkrsResponseStatus = a});
 
-instance NFData DescribeKeyResponse
+instance NFData DescribeKeyResponse where

@@ -5,17 +5,18 @@
 
 -- |
 -- Module      : Network.AWS.Lambda
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS Lambda
+-- __AWS Lambda__
 --
 -- __Overview__
 --
--- This is the /AWS Lambda API Reference/. The AWS Lambda Developer Guide provides additional information. For the service overview, go to <http://docs.aws.amazon.com/lambda/latest/dg/welcome.html What is AWS Lambda>, and for information about how the service works, go to <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> in the /AWS Lambda Developer Guide/.
+-- This is the /AWS Lambda API Reference/ . The AWS Lambda Developer Guide provides additional information. For the service overview, see <http://docs.aws.amazon.com/lambda/latest/dg/welcome.html What is AWS Lambda> , and for information about how the service works, see <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> in the /AWS Lambda Developer Guide/ .
+--
 module Network.AWS.Lambda
     (
     -- * Service Configuration
@@ -24,8 +25,14 @@ module Network.AWS.Lambda
     -- * Errors
     -- $errors
 
+    -- ** KMSInvalidStateException
+    , _KMSInvalidStateException
+
     -- ** EC2ThrottledException
     , _EC2ThrottledException
+
+    -- ** InvalidRuntimeException
+    , _InvalidRuntimeException
 
     -- ** PolicyLengthExceededException
     , _PolicyLengthExceededException
@@ -42,6 +49,9 @@ module Network.AWS.Lambda
     -- ** InvalidRequestContentException
     , _InvalidRequestContentException
 
+    -- ** KMSNotFoundException
+    , _KMSNotFoundException
+
     -- ** ENILimitReachedException
     , _ENILimitReachedException
 
@@ -56,6 +66,9 @@ module Network.AWS.Lambda
 
     -- ** InvalidSecurityGroupIdException
     , _InvalidSecurityGroupIdException
+
+    -- ** KMSDisabledException
+    , _KMSDisabledException
 
     -- ** SubnetIPAddressLimitReachedException
     , _SubnetIPAddressLimitReachedException
@@ -77,6 +90,9 @@ module Network.AWS.Lambda
 
     -- ** ResourceNotFoundException
     , _ResourceNotFoundException
+
+    -- ** KMSAccessDeniedException
+    , _KMSAccessDeniedException
 
     -- * Waiters
     -- $waiters
@@ -132,14 +148,26 @@ module Network.AWS.Lambda
     -- ** UpdateAlias
     , module Network.AWS.Lambda.UpdateAlias
 
+    -- ** GetAccountSettings
+    , module Network.AWS.Lambda.GetAccountSettings
+
     -- ** AddPermission
     , module Network.AWS.Lambda.AddPermission
+
+    -- ** TagResource
+    , module Network.AWS.Lambda.TagResource
 
     -- ** PublishVersion
     , module Network.AWS.Lambda.PublishVersion
 
+    -- ** ListTags
+    , module Network.AWS.Lambda.ListTags
+
     -- ** DeleteFunction
     , module Network.AWS.Lambda.DeleteFunction
+
+    -- ** UntagResource
+    , module Network.AWS.Lambda.UntagResource
 
     -- ** UpdateFunctionConfiguration
     , module Network.AWS.Lambda.UpdateFunctionConfiguration
@@ -158,6 +186,9 @@ module Network.AWS.Lambda
     -- ** EventSourcePosition
     , EventSourcePosition (..)
 
+    -- ** FunctionVersion
+    , FunctionVersion (..)
+
     -- ** InvocationType
     , InvocationType (..)
 
@@ -167,6 +198,23 @@ module Network.AWS.Lambda
     -- ** Runtime
     , Runtime (..)
 
+    -- ** TracingMode
+    , TracingMode (..)
+
+    -- ** AccountLimit
+    , AccountLimit
+    , accountLimit
+    , alConcurrentExecutions
+    , alTotalCodeSize
+    , alCodeSizeUnzipped
+    , alCodeSizeZipped
+
+    -- ** AccountUsage
+    , AccountUsage
+    , accountUsage
+    , auTotalCodeSize
+    , auFunctionCount
+
     -- ** AliasConfiguration
     , AliasConfiguration
     , aliasConfiguration
@@ -174,6 +222,28 @@ module Network.AWS.Lambda
     , acFunctionVersion
     , acAliasARN
     , acDescription
+
+    -- ** DeadLetterConfig
+    , DeadLetterConfig
+    , deadLetterConfig
+    , dlcTargetARN
+
+    -- ** Environment
+    , Environment
+    , environment
+    , eVariables
+
+    -- ** EnvironmentError
+    , EnvironmentError
+    , environmentError
+    , eeErrorCode
+    , eeMessage
+
+    -- ** EnvironmentResponse
+    , EnvironmentResponse
+    , environmentResponse
+    , envVariables
+    , envError
 
     -- ** EventSourceMappingConfiguration
     , EventSourceMappingConfiguration
@@ -207,6 +277,9 @@ module Network.AWS.Lambda
     , fcMemorySize
     , fcRuntime
     , fcFunctionARN
+    , fcKMSKeyARN
+    , fcEnvironment
+    , fcDeadLetterConfig
     , fcRole
     , fcVPCConfig
     , fcVersion
@@ -216,7 +289,19 @@ module Network.AWS.Lambda
     , fcTimeout
     , fcLastModified
     , fcCodeSha256
+    , fcTracingConfig
     , fcDescription
+    , fcMasterARN
+
+    -- ** TracingConfig
+    , TracingConfig
+    , tracingConfig
+    , tMode
+
+    -- ** TracingConfigResponse
+    , TracingConfigResponse
+    , tracingConfigResponse
+    , tcMode
 
     -- ** VPCConfig
     , VPCConfig
@@ -232,31 +317,35 @@ module Network.AWS.Lambda
     , vcVPCId
     ) where
 
-import           Network.AWS.Lambda.AddPermission
-import           Network.AWS.Lambda.CreateAlias
-import           Network.AWS.Lambda.CreateEventSourceMapping
-import           Network.AWS.Lambda.CreateFunction
-import           Network.AWS.Lambda.DeleteAlias
-import           Network.AWS.Lambda.DeleteEventSourceMapping
-import           Network.AWS.Lambda.DeleteFunction
-import           Network.AWS.Lambda.GetAlias
-import           Network.AWS.Lambda.GetEventSourceMapping
-import           Network.AWS.Lambda.GetFunction
-import           Network.AWS.Lambda.GetFunctionConfiguration
-import           Network.AWS.Lambda.GetPolicy
-import           Network.AWS.Lambda.Invoke
-import           Network.AWS.Lambda.ListAliases
-import           Network.AWS.Lambda.ListEventSourceMappings
-import           Network.AWS.Lambda.ListFunctions
-import           Network.AWS.Lambda.ListVersionsByFunction
-import           Network.AWS.Lambda.PublishVersion
-import           Network.AWS.Lambda.RemovePermission
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.UpdateAlias
-import           Network.AWS.Lambda.UpdateEventSourceMapping
-import           Network.AWS.Lambda.UpdateFunctionCode
-import           Network.AWS.Lambda.UpdateFunctionConfiguration
-import           Network.AWS.Lambda.Waiters
+import Network.AWS.Lambda.AddPermission
+import Network.AWS.Lambda.CreateAlias
+import Network.AWS.Lambda.CreateEventSourceMapping
+import Network.AWS.Lambda.CreateFunction
+import Network.AWS.Lambda.DeleteAlias
+import Network.AWS.Lambda.DeleteEventSourceMapping
+import Network.AWS.Lambda.DeleteFunction
+import Network.AWS.Lambda.GetAccountSettings
+import Network.AWS.Lambda.GetAlias
+import Network.AWS.Lambda.GetEventSourceMapping
+import Network.AWS.Lambda.GetFunction
+import Network.AWS.Lambda.GetFunctionConfiguration
+import Network.AWS.Lambda.GetPolicy
+import Network.AWS.Lambda.Invoke
+import Network.AWS.Lambda.ListAliases
+import Network.AWS.Lambda.ListEventSourceMappings
+import Network.AWS.Lambda.ListFunctions
+import Network.AWS.Lambda.ListTags
+import Network.AWS.Lambda.ListVersionsByFunction
+import Network.AWS.Lambda.PublishVersion
+import Network.AWS.Lambda.RemovePermission
+import Network.AWS.Lambda.TagResource
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.UntagResource
+import Network.AWS.Lambda.UpdateAlias
+import Network.AWS.Lambda.UpdateEventSourceMapping
+import Network.AWS.Lambda.UpdateFunctionCode
+import Network.AWS.Lambda.UpdateFunctionConfiguration
+import Network.AWS.Lambda.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

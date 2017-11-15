@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.UpdateApplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes the name of an application.
+--
+--
 module Network.AWS.CodeDeploy.UpdateApplication
     (
     -- * Creating a Request
@@ -33,35 +35,37 @@ module Network.AWS.CodeDeploy.UpdateApplication
     , UpdateApplicationResponse
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of an update application operation.
+-- | Represents the input of an UpdateApplication operation.
+--
+--
 --
 -- /See:/ 'updateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-    { _uaNewApplicationName :: !(Maybe Text)
-    , _uaApplicationName    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uaNewApplicationName :: !(Maybe Text)
+  , _uaApplicationName    :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateApplication' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaNewApplicationName'
+-- * 'uaNewApplicationName' - The new name to give the application.
 --
--- * 'uaApplicationName'
+-- * 'uaApplicationName' - The current name of the application you want to change.
 updateApplication
     :: UpdateApplication
 updateApplication =
-    UpdateApplication'
-    { _uaNewApplicationName = Nothing
-    , _uaApplicationName = Nothing
-    }
+  UpdateApplication'
+  {_uaNewApplicationName = Nothing, _uaApplicationName = Nothing}
+
 
 -- | The new name to give the application.
 uaNewApplicationName :: Lens' UpdateApplication (Maybe Text)
@@ -76,9 +80,9 @@ instance AWSRequest UpdateApplication where
         request = postJSON codeDeploy
         response = receiveNull UpdateApplicationResponse'
 
-instance Hashable UpdateApplication
+instance Hashable UpdateApplication where
 
-instance NFData UpdateApplication
+instance NFData UpdateApplication where
 
 instance ToHeaders UpdateApplication where
         toHeaders
@@ -105,8 +109,9 @@ instance ToQuery UpdateApplication where
 
 -- | /See:/ 'updateApplicationResponse' smart constructor.
 data UpdateApplicationResponse =
-    UpdateApplicationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateApplicationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateApplicationResponse' with the minimum fields required to make a request.
 --
@@ -114,4 +119,5 @@ updateApplicationResponse
     :: UpdateApplicationResponse
 updateApplicationResponse = UpdateApplicationResponse'
 
-instance NFData UpdateApplicationResponse
+
+instance NFData UpdateApplicationResponse where

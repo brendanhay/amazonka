@@ -5,23 +5,24 @@
 
 -- |
 -- Module      : Network.AWS.ELB
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Elastic Load Balancing
+-- __Elastic Load Balancing__
 --
 -- A load balancer distributes incoming traffic across your EC2 instances. This enables you to increase the availability of your application. The load balancer also monitors the health of its registered instances and ensures that it routes traffic only to healthy instances. You configure your load balancer to accept incoming traffic by specifying one or more listeners, which are configured with a protocol and port number for connections from clients to the load balancer and a protocol and port number for connections from the load balancer to the instances.
 --
--- Elastic Load Balancing supports two types of load balancers: Classic load balancers and Application load balancers (new). A Classic load balancer makes routing and load balancing decisions either at the transport layer (TCP\/SSL) or the application layer (HTTP\/HTTPS), and supports either EC2-Classic or a VPC. An Application load balancer makes routing and load balancing decisions at the application layer (HTTP\/HTTPS), supports path-based routing, and can route requests to one or more ports on each EC2 instance or container instance in your virtual private cloud (VPC). For more information, see the .
+-- Elastic Load Balancing supports two types of load balancers: Classic Load Balancers and Application Load Balancers (new). A Classic Load Balancer makes routing and load balancing decisions either at the transport layer (TCP/SSL) or the application layer (HTTP/HTTPS), and supports either EC2-Classic or a VPC. An Application Load Balancer makes routing and load balancing decisions at the application layer (HTTP/HTTPS), supports path-based routing, and can route requests to one or more ports on each EC2 instance or container instance in your virtual private cloud (VPC). For more information, see the <http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html Elastic Load Balancing User Guide> .
 --
--- This reference covers the 2012-06-01 API, which supports Classic load balancers. The 2015-12-01 API supports Application load balancers.
+-- This reference covers the 2012-06-01 API, which supports Classic Load Balancers. The 2015-12-01 API supports Application Load Balancers.
 --
--- To get started, create a load balancer with one or more listeners using < CreateLoadBalancer>. Register your instances with the load balancer using < RegisterInstancesWithLoadBalancer>.
+-- To get started, create a load balancer with one or more listeners using 'CreateLoadBalancer' . Register your instances with the load balancer using 'RegisterInstancesWithLoadBalancer' .
 --
--- All Elastic Load Balancing operations are /idempotent/, which means that they complete at most one time. If you repeat an operation, it succeeds with a 200 OK response code.
+-- All Elastic Load Balancing operations are /idempotent/ , which means that they complete at most one time. If you repeat an operation, it succeeds with a 200 OK response code.
+--
 module Network.AWS.ELB
     (
     -- * Service Configuration
@@ -96,6 +97,12 @@ module Network.AWS.ELB
     -- * Waiters
     -- $waiters
 
+    -- ** AnyInstanceInService
+    , anyInstanceInService
+
+    -- ** InstanceInService
+    , instanceInService
+
     -- * Operations
     -- $operations
 
@@ -141,6 +148,9 @@ module Network.AWS.ELB
     -- ** SetLoadBalancerListenerSSLCertificate
     , module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
 
+    -- ** DescribeAccountLimits
+    , module Network.AWS.ELB.DescribeAccountLimits
+
     -- ** AttachLoadBalancerToSubnets
     , module Network.AWS.ELB.AttachLoadBalancerToSubnets
 
@@ -184,6 +194,9 @@ module Network.AWS.ELB
     , module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
 
     -- * Types
+
+    -- ** Common
+    , module Network.AWS.ELB.Internal
 
     -- ** AccessLog
     , AccessLog
@@ -254,6 +267,12 @@ module Network.AWS.ELB
     , lBCookieStickinessPolicy
     , lbcspPolicyName
     , lbcspCookieExpirationPeriod
+
+    -- ** Limit
+    , Limit
+    , limit
+    , lMax
+    , lName
 
     -- ** Listener
     , Listener
@@ -365,36 +384,38 @@ module Network.AWS.ELB
     , tkoKey
     ) where
 
-import           Network.AWS.ELB.AddTags
-import           Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
-import           Network.AWS.ELB.AttachLoadBalancerToSubnets
-import           Network.AWS.ELB.ConfigureHealthCheck
-import           Network.AWS.ELB.CreateAppCookieStickinessPolicy
-import           Network.AWS.ELB.CreateLBCookieStickinessPolicy
-import           Network.AWS.ELB.CreateLoadBalancer
-import           Network.AWS.ELB.CreateLoadBalancerListeners
-import           Network.AWS.ELB.CreateLoadBalancerPolicy
-import           Network.AWS.ELB.DeleteLoadBalancer
-import           Network.AWS.ELB.DeleteLoadBalancerListeners
-import           Network.AWS.ELB.DeleteLoadBalancerPolicy
-import           Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
-import           Network.AWS.ELB.DescribeInstanceHealth
-import           Network.AWS.ELB.DescribeLoadBalancerAttributes
-import           Network.AWS.ELB.DescribeLoadBalancerPolicies
-import           Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
-import           Network.AWS.ELB.DescribeLoadBalancers
-import           Network.AWS.ELB.DescribeTags
-import           Network.AWS.ELB.DetachLoadBalancerFromSubnets
-import           Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
-import           Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
-import           Network.AWS.ELB.ModifyLoadBalancerAttributes
-import           Network.AWS.ELB.RegisterInstancesWithLoadBalancer
-import           Network.AWS.ELB.RemoveTags
-import           Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
-import           Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
-import           Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Waiters
+import Network.AWS.ELB.AddTags
+import Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
+import Network.AWS.ELB.AttachLoadBalancerToSubnets
+import Network.AWS.ELB.ConfigureHealthCheck
+import Network.AWS.ELB.CreateAppCookieStickinessPolicy
+import Network.AWS.ELB.CreateLBCookieStickinessPolicy
+import Network.AWS.ELB.CreateLoadBalancer
+import Network.AWS.ELB.CreateLoadBalancerListeners
+import Network.AWS.ELB.CreateLoadBalancerPolicy
+import Network.AWS.ELB.DeleteLoadBalancer
+import Network.AWS.ELB.DeleteLoadBalancerListeners
+import Network.AWS.ELB.DeleteLoadBalancerPolicy
+import Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
+import Network.AWS.ELB.DescribeAccountLimits
+import Network.AWS.ELB.DescribeInstanceHealth
+import Network.AWS.ELB.DescribeLoadBalancerAttributes
+import Network.AWS.ELB.DescribeLoadBalancerPolicies
+import Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
+import Network.AWS.ELB.DescribeLoadBalancers
+import Network.AWS.ELB.DescribeTags
+import Network.AWS.ELB.DetachLoadBalancerFromSubnets
+import Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
+import Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
+import Network.AWS.ELB.Internal
+import Network.AWS.ELB.ModifyLoadBalancerAttributes
+import Network.AWS.ELB.RegisterInstancesWithLoadBalancer
+import Network.AWS.ELB.RemoveTags
+import Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
+import Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
+import Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

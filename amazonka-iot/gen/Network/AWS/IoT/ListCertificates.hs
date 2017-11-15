@@ -12,15 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListCertificates
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the certificates registered in your AWS account.
 --
+--
 -- The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.
+--
+--
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListCertificates
     (
     -- * Creating a Request
@@ -40,39 +44,41 @@ module Network.AWS.IoT.ListCertificates
     , lcrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the ListCertificates operation.
 --
+--
+--
 -- /See:/ 'listCertificates' smart constructor.
 data ListCertificates = ListCertificates'
-    { _lcMarker         :: !(Maybe Text)
-    , _lcAscendingOrder :: !(Maybe Bool)
-    , _lcPageSize       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcMarker         :: !(Maybe Text)
+  , _lcAscendingOrder :: !(Maybe Bool)
+  , _lcPageSize       :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCertificates' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcMarker'
+-- * 'lcMarker' - The marker for the next set of results.
 --
--- * 'lcAscendingOrder'
+-- * 'lcAscendingOrder' - Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
 --
--- * 'lcPageSize'
+-- * 'lcPageSize' - The result page size.
 listCertificates
     :: ListCertificates
 listCertificates =
-    ListCertificates'
-    { _lcMarker = Nothing
-    , _lcAscendingOrder = Nothing
-    , _lcPageSize = Nothing
-    }
+  ListCertificates'
+  {_lcMarker = Nothing, _lcAscendingOrder = Nothing, _lcPageSize = Nothing}
+
 
 -- | The marker for the next set of results.
 lcMarker :: Lens' ListCertificates (Maybe Text)
@@ -86,6 +92,13 @@ lcAscendingOrder = lens _lcAscendingOrder (\ s a -> s{_lcAscendingOrder = a});
 lcPageSize :: Lens' ListCertificates (Maybe Natural)
 lcPageSize = lens _lcPageSize (\ s a -> s{_lcPageSize = a}) . mapping _Nat;
 
+instance AWSPager ListCertificates where
+        page rq rs
+          | stop (rs ^. lcrsNextMarker) = Nothing
+          | stop (rs ^. lcrsCertificates) = Nothing
+          | otherwise =
+            Just $ rq & lcMarker .~ rs ^. lcrsNextMarker
+
 instance AWSRequest ListCertificates where
         type Rs ListCertificates = ListCertificatesResponse
         request = get ioT
@@ -97,9 +110,9 @@ instance AWSRequest ListCertificates where
                      (x .?> "nextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListCertificates
+instance Hashable ListCertificates where
 
-instance NFData ListCertificates
+instance NFData ListCertificates where
 
 instance ToHeaders ListCertificates where
         toHeaders = const mempty
@@ -116,31 +129,35 @@ instance ToQuery ListCertificates where
 
 -- | The output of the ListCertificates operation.
 --
+--
+--
 -- /See:/ 'listCertificatesResponse' smart constructor.
 data ListCertificatesResponse = ListCertificatesResponse'
-    { _lcrsCertificates   :: !(Maybe [Certificate])
-    , _lcrsNextMarker     :: !(Maybe Text)
-    , _lcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcrsCertificates   :: !(Maybe [Certificate])
+  , _lcrsNextMarker     :: !(Maybe Text)
+  , _lcrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCertificatesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcrsCertificates'
+-- * 'lcrsCertificates' - The descriptions of the certificates.
 --
--- * 'lcrsNextMarker'
+-- * 'lcrsNextMarker' - The marker for the next set of results, or null if there are no additional results.
 --
--- * 'lcrsResponseStatus'
+-- * 'lcrsResponseStatus' - -- | The response status code.
 listCertificatesResponse
     :: Int -- ^ 'lcrsResponseStatus'
     -> ListCertificatesResponse
 listCertificatesResponse pResponseStatus_ =
-    ListCertificatesResponse'
-    { _lcrsCertificates = Nothing
-    , _lcrsNextMarker = Nothing
-    , _lcrsResponseStatus = pResponseStatus_
-    }
+  ListCertificatesResponse'
+  { _lcrsCertificates = Nothing
+  , _lcrsNextMarker = Nothing
+  , _lcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The descriptions of the certificates.
 lcrsCertificates :: Lens' ListCertificatesResponse [Certificate]
@@ -150,8 +167,8 @@ lcrsCertificates = lens _lcrsCertificates (\ s a -> s{_lcrsCertificates = a}) . 
 lcrsNextMarker :: Lens' ListCertificatesResponse (Maybe Text)
 lcrsNextMarker = lens _lcrsNextMarker (\ s a -> s{_lcrsNextMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lcrsResponseStatus :: Lens' ListCertificatesResponse Int
 lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
 
-instance NFData ListCertificatesResponse
+instance NFData ListCertificatesResponse where

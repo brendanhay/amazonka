@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.EFS.DeleteTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified tags from a file system. If the 'DeleteTags' request includes a tag key that does not exist, Amazon EFS ignores it and doesn\'t cause an error. For more information about tags and related restrictions, see <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Tag Restrictions> in the /AWS Billing and Cost Management User Guide/.
+-- Deletes the specified tags from a file system. If the @DeleteTags@ request includes a tag key that does not exist, Amazon EFS ignores it and doesn't cause an error. For more information about tags and related restrictions, see <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Tag Restrictions> in the /AWS Billing and Cost Management User Guide/ .
 --
--- This operation requires permissions for the 'elasticfilesystem:DeleteTags' action.
+--
+-- This operation requires permissions for the @elasticfilesystem:DeleteTags@ action.
+--
 module Network.AWS.EFS.DeleteTags
     (
     -- * Creating a Request
@@ -35,36 +37,37 @@ module Network.AWS.EFS.DeleteTags
     , DeleteTagsResponse
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.EFS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-    { _dFileSystemId :: !Text
-    , _dTagKeys      :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dFileSystemId :: !Text
+  , _dTagKeys      :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dFileSystemId'
+-- * 'dFileSystemId' - ID of the file system whose tags you want to delete (String).
 --
--- * 'dTagKeys'
+-- * 'dTagKeys' - List of tag keys to delete.
 deleteTags
     :: Text -- ^ 'dFileSystemId'
     -> DeleteTags
 deleteTags pFileSystemId_ =
-    DeleteTags'
-    { _dFileSystemId = pFileSystemId_
-    , _dTagKeys = mempty
-    }
+  DeleteTags' {_dFileSystemId = pFileSystemId_, _dTagKeys = mempty}
+
 
 -- | ID of the file system whose tags you want to delete (String).
 dFileSystemId :: Lens' DeleteTags Text
@@ -79,9 +82,9 @@ instance AWSRequest DeleteTags where
         request = postJSON efs
         response = receiveNull DeleteTagsResponse'
 
-instance Hashable DeleteTags
+instance Hashable DeleteTags where
 
-instance NFData DeleteTags
+instance NFData DeleteTags where
 
 instance ToHeaders DeleteTags where
         toHeaders = const mempty
@@ -100,8 +103,9 @@ instance ToQuery DeleteTags where
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
 data DeleteTagsResponse =
-    DeleteTagsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteTagsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.
 --
@@ -109,4 +113,5 @@ deleteTagsResponse
     :: DeleteTagsResponse
 deleteTagsResponse = DeleteTagsResponse'
 
-instance NFData DeleteTagsResponse
+
+instance NFData DeleteTagsResponse where

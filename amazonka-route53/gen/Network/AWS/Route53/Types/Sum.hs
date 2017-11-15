@@ -9,22 +9,23 @@
 
 -- |
 -- Module      : Network.AWS.Route53.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Route53.Types.Sum where
 
-import           Network.AWS.Prelude
-import           Network.AWS.Route53.Internal
+import Network.AWS.Prelude
+import Network.AWS.Route53.Internal
 
 data ChangeAction
-    = Create
-    | Delete
-    | Upsert
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Create
+  | Delete
+  | Upsert
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChangeAction where
     parser = takeLowerText >>= \case
@@ -50,9 +51,10 @@ instance ToXML ChangeAction where
     toXML = toXMLText
 
 data ChangeStatus
-    = Insync
-    | Pending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Insync
+  | Pending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChangeStatus where
     parser = takeLowerText >>= \case
@@ -76,18 +78,22 @@ instance FromXML ChangeStatus where
     parseXML = parseXMLText "ChangeStatus"
 
 data CloudWatchRegion
-    = CWRApNortheast1
-    | CWRApNortheast2
-    | CWRApSouth1
-    | CWRApSoutheast1
-    | CWRApSoutheast2
-    | CWREuCentral1
-    | CWREuWest1
-    | CWRSaEast1
-    | CWRUsEast1
-    | CWRUsWest1
-    | CWRUsWest2
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CWRApNortheast1
+  | CWRApNortheast2
+  | CWRApSouth1
+  | CWRApSoutheast1
+  | CWRApSoutheast2
+  | CWRCaCentral1
+  | CWREuCentral1
+  | CWREuWest1
+  | CWREuWest2
+  | CWRSaEast1
+  | CWRUsEast1
+  | CWRUsEast2
+  | CWRUsWest1
+  | CWRUsWest2
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CloudWatchRegion where
     parser = takeLowerText >>= \case
@@ -96,14 +102,17 @@ instance FromText CloudWatchRegion where
         "ap-south-1" -> pure CWRApSouth1
         "ap-southeast-1" -> pure CWRApSoutheast1
         "ap-southeast-2" -> pure CWRApSoutheast2
+        "ca-central-1" -> pure CWRCaCentral1
         "eu-central-1" -> pure CWREuCentral1
         "eu-west-1" -> pure CWREuWest1
+        "eu-west-2" -> pure CWREuWest2
         "sa-east-1" -> pure CWRSaEast1
         "us-east-1" -> pure CWRUsEast1
+        "us-east-2" -> pure CWRUsEast2
         "us-west-1" -> pure CWRUsWest1
         "us-west-2" -> pure CWRUsWest2
         e -> fromTextError $ "Failure parsing CloudWatchRegion from value: '" <> e
-           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2"
+           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ca-central-1, eu-central-1, eu-west-1, eu-west-2, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2"
 
 instance ToText CloudWatchRegion where
     toText = \case
@@ -112,10 +121,13 @@ instance ToText CloudWatchRegion where
         CWRApSouth1 -> "ap-south-1"
         CWRApSoutheast1 -> "ap-southeast-1"
         CWRApSoutheast2 -> "ap-southeast-2"
+        CWRCaCentral1 -> "ca-central-1"
         CWREuCentral1 -> "eu-central-1"
         CWREuWest1 -> "eu-west-1"
+        CWREuWest2 -> "eu-west-2"
         CWRSaEast1 -> "sa-east-1"
         CWRUsEast1 -> "us-east-1"
+        CWRUsEast2 -> "us-east-2"
         CWRUsWest1 -> "us-west-1"
         CWRUsWest2 -> "us-west-2"
 
@@ -132,11 +144,12 @@ instance ToXML CloudWatchRegion where
     toXML = toXMLText
 
 data ComparisonOperator
-    = GreaterThanOrEqualToThreshold
-    | GreaterThanThreshold
-    | LessThanOrEqualToThreshold
-    | LessThanThreshold
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = GreaterThanOrEqualToThreshold
+  | GreaterThanThreshold
+  | LessThanOrEqualToThreshold
+  | LessThanThreshold
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ComparisonOperator where
     parser = takeLowerText >>= \case
@@ -164,9 +177,10 @@ instance FromXML ComparisonOperator where
     parseXML = parseXMLText "ComparisonOperator"
 
 data Failover
-    = Primary
-    | Secondary
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Primary
+  | Secondary
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Failover where
     parser = takeLowerText >>= \case
@@ -192,17 +206,17 @@ instance FromXML Failover where
 instance ToXML Failover where
     toXML = toXMLText
 
--- | An Amazon EC2 region that you want Amazon Route 53 to use to perform health checks.
 data HealthCheckRegion
-    = HCRApNortheast1
-    | HCRApSoutheast1
-    | HCRApSoutheast2
-    | HCREuWest1
-    | HCRSaEast1
-    | HCRUsEast1
-    | HCRUsWest1
-    | HCRUsWest2
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = HCRApNortheast1
+  | HCRApSoutheast1
+  | HCRApSoutheast2
+  | HCREuWest1
+  | HCRSaEast1
+  | HCRUsEast1
+  | HCRUsWest1
+  | HCRUsWest2
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText HealthCheckRegion where
     parser = takeLowerText >>= \case
@@ -241,14 +255,15 @@ instance ToXML HealthCheckRegion where
     toXML = toXMLText
 
 data HealthCheckType
-    = Calculated
-    | CloudwatchMetric
-    | HTTP
-    | HTTPS
-    | HTTPSStrMatch
-    | HTTPStrMatch
-    | TCP
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Calculated
+  | CloudwatchMetric
+  | HTTP
+  | HTTPS
+  | HTTPSStrMatch
+  | HTTPStrMatch
+  | TCP
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText HealthCheckType where
     parser = takeLowerText >>= \case
@@ -285,10 +300,11 @@ instance ToXML HealthCheckType where
     toXML = toXMLText
 
 data InsufficientDataHealthStatus
-    = Healthy
-    | LastKnownStatus
-    | Unhealthy
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Healthy
+  | LastKnownStatus
+  | Unhealthy
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InsufficientDataHealthStatus where
     parser = takeLowerText >>= \case
@@ -317,23 +333,26 @@ instance ToXML InsufficientDataHealthStatus where
     toXML = toXMLText
 
 data RecordType
-    = A
-    | Aaaa
-    | Cname
-    | MX
-    | NS
-    | Naptr
-    | Ptr
-    | Soa
-    | Spf
-    | Srv
-    | Txt
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = A
+  | Aaaa
+  | Caa
+  | Cname
+  | MX
+  | NS
+  | Naptr
+  | Ptr
+  | Soa
+  | Spf
+  | Srv
+  | Txt
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RecordType where
     parser = takeLowerText >>= \case
         "a" -> pure A
         "aaaa" -> pure Aaaa
+        "caa" -> pure Caa
         "cname" -> pure Cname
         "mx" -> pure MX
         "ns" -> pure NS
@@ -344,12 +363,13 @@ instance FromText RecordType where
         "srv" -> pure Srv
         "txt" -> pure Txt
         e -> fromTextError $ "Failure parsing RecordType from value: '" <> e
-           <> "'. Accepted values: a, aaaa, cname, mx, ns, naptr, ptr, soa, spf, srv, txt"
+           <> "'. Accepted values: a, aaaa, caa, cname, mx, ns, naptr, ptr, soa, spf, srv, txt"
 
 instance ToText RecordType where
     toText = \case
         A -> "A"
         Aaaa -> "AAAA"
+        Caa -> "CAA"
         Cname -> "CNAME"
         MX -> "MX"
         NS -> "NS"
@@ -372,13 +392,47 @@ instance FromXML RecordType where
 instance ToXML RecordType where
     toXML = toXMLText
 
+data ResettableElementName
+  = ChildHealthChecks
+  | FullyQualifiedDomainName
+  | Regions
+  | ResourcePath
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ResettableElementName where
+    parser = takeLowerText >>= \case
+        "childhealthchecks" -> pure ChildHealthChecks
+        "fullyqualifieddomainname" -> pure FullyQualifiedDomainName
+        "regions" -> pure Regions
+        "resourcepath" -> pure ResourcePath
+        e -> fromTextError $ "Failure parsing ResettableElementName from value: '" <> e
+           <> "'. Accepted values: childhealthchecks, fullyqualifieddomainname, regions, resourcepath"
+
+instance ToText ResettableElementName where
+    toText = \case
+        ChildHealthChecks -> "ChildHealthChecks"
+        FullyQualifiedDomainName -> "FullyQualifiedDomainName"
+        Regions -> "Regions"
+        ResourcePath -> "ResourcePath"
+
+instance Hashable     ResettableElementName
+instance NFData       ResettableElementName
+instance ToByteString ResettableElementName
+instance ToQuery      ResettableElementName
+instance ToHeader     ResettableElementName
+
+instance ToXML ResettableElementName where
+    toXML = toXMLText
+
 data Statistic
-    = Average
-    | Maximum
-    | Minimum
-    | SampleCount
-    | Sum
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Average
+  | Maximum
+  | Minimum
+  | SampleCount
+  | Sum
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Statistic where
     parser = takeLowerText >>= \case
@@ -408,9 +462,10 @@ instance FromXML Statistic where
     parseXML = parseXMLText "Statistic"
 
 data TagResourceType
-    = Healthcheck
-    | Hostedzone
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Healthcheck
+  | Hostedzone
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TagResourceType where
     parser = takeLowerText >>= \case
@@ -437,19 +492,23 @@ instance ToXML TagResourceType where
     toXML = toXMLText
 
 data VPCRegion
-    = ApNortheast1
-    | ApNortheast2
-    | ApSouth1
-    | ApSoutheast1
-    | ApSoutheast2
-    | CnNorth1
-    | EuCentral1
-    | EuWest1
-    | SaEast1
-    | UsEast1
-    | UsWest1
-    | UsWest2
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ApNortheast1
+  | ApNortheast2
+  | ApSouth1
+  | ApSoutheast1
+  | ApSoutheast2
+  | CaCentral1
+  | CnNorth1
+  | EuCentral1
+  | EuWest1
+  | EuWest2
+  | SaEast1
+  | UsEast1
+  | UsEast2
+  | UsWest1
+  | UsWest2
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VPCRegion where
     parser = takeLowerText >>= \case
@@ -458,15 +517,18 @@ instance FromText VPCRegion where
         "ap-south-1" -> pure ApSouth1
         "ap-southeast-1" -> pure ApSoutheast1
         "ap-southeast-2" -> pure ApSoutheast2
+        "ca-central-1" -> pure CaCentral1
         "cn-north-1" -> pure CnNorth1
         "eu-central-1" -> pure EuCentral1
         "eu-west-1" -> pure EuWest1
+        "eu-west-2" -> pure EuWest2
         "sa-east-1" -> pure SaEast1
         "us-east-1" -> pure UsEast1
+        "us-east-2" -> pure UsEast2
         "us-west-1" -> pure UsWest1
         "us-west-2" -> pure UsWest2
         e -> fromTextError $ "Failure parsing VPCRegion from value: '" <> e
-           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, cn-north-1, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2"
+           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ca-central-1, cn-north-1, eu-central-1, eu-west-1, eu-west-2, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2"
 
 instance ToText VPCRegion where
     toText = \case
@@ -475,11 +537,14 @@ instance ToText VPCRegion where
         ApSouth1 -> "ap-south-1"
         ApSoutheast1 -> "ap-southeast-1"
         ApSoutheast2 -> "ap-southeast-2"
+        CaCentral1 -> "ca-central-1"
         CnNorth1 -> "cn-north-1"
         EuCentral1 -> "eu-central-1"
         EuWest1 -> "eu-west-1"
+        EuWest2 -> "eu-west-2"
         SaEast1 -> "sa-east-1"
         UsEast1 -> "us-east-1"
+        UsEast2 -> "us-east-2"
         UsWest1 -> "us-west-1"
         UsWest2 -> "us-west-2"
 

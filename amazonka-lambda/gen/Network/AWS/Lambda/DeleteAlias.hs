@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.DeleteAlias
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified Lambda function alias. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
+-- Deletes the specified Lambda function alias. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases> .
+--
 --
 -- This requires permission for the lambda:DeleteAlias action.
+--
 module Network.AWS.Lambda.DeleteAlias
     (
     -- * Creating a Request
@@ -35,37 +37,36 @@ module Network.AWS.Lambda.DeleteAlias
     , DeleteAliasResponse
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteAlias' smart constructor.
 data DeleteAlias = DeleteAlias'
-    { _daFunctionName :: !Text
-    , _daName         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daFunctionName :: !Text
+  , _daName         :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAlias' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daFunctionName'
+-- * 'daFunctionName' - The Lambda function name for which the alias is created. Deleting an alias does not delete the function version to which it is pointing. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
--- * 'daName'
+-- * 'daName' - Name of the alias to delete.
 deleteAlias
     :: Text -- ^ 'daFunctionName'
     -> Text -- ^ 'daName'
     -> DeleteAlias
 deleteAlias pFunctionName_ pName_ =
-    DeleteAlias'
-    { _daFunctionName = pFunctionName_
-    , _daName = pName_
-    }
+  DeleteAlias' {_daFunctionName = pFunctionName_, _daName = pName_}
 
--- | The Lambda function name for which the alias is created. Deleting an alias does not delete the function version to which it is pointing.
+
+-- | The Lambda function name for which the alias is created. Deleting an alias does not delete the function version to which it is pointing. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 daFunctionName :: Lens' DeleteAlias Text
 daFunctionName = lens _daFunctionName (\ s a -> s{_daFunctionName = a});
 
@@ -78,9 +79,9 @@ instance AWSRequest DeleteAlias where
         request = delete lambda
         response = receiveNull DeleteAliasResponse'
 
-instance Hashable DeleteAlias
+instance Hashable DeleteAlias where
 
-instance NFData DeleteAlias
+instance NFData DeleteAlias where
 
 instance ToHeaders DeleteAlias where
         toHeaders = const mempty
@@ -96,8 +97,9 @@ instance ToQuery DeleteAlias where
 
 -- | /See:/ 'deleteAliasResponse' smart constructor.
 data DeleteAliasResponse =
-    DeleteAliasResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteAliasResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAliasResponse' with the minimum fields required to make a request.
 --
@@ -105,4 +107,5 @@ deleteAliasResponse
     :: DeleteAliasResponse
 deleteAliasResponse = DeleteAliasResponse'
 
-instance NFData DeleteAliasResponse
+
+instance NFData DeleteAliasResponse where

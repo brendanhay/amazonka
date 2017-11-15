@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListDevicePools
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about device pools.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListDevicePools
@@ -40,54 +42,48 @@ module Network.AWS.DeviceFarm.ListDevicePools
     , ldprsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the result of a list device pools request.
 --
+--
+--
 -- /See:/ 'listDevicePools' smart constructor.
 data ListDevicePools = ListDevicePools'
-    { _ldpNextToken :: !(Maybe Text)
-    , _ldpType      :: !(Maybe DevicePoolType)
-    , _ldpArn       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldpNextToken :: !(Maybe Text)
+  , _ldpType      :: !(Maybe DevicePoolType)
+  , _ldpArn       :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDevicePools' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldpNextToken'
+-- * 'ldpNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'ldpType'
+-- * 'ldpType' - The device pools' type. Allowed values include:     * CURATED: A device pool that is created and managed by AWS Device Farm.     * PRIVATE: A device pool that is created and managed by the device pool developer.
 --
--- * 'ldpArn'
+-- * 'ldpArn' - The project ARN.
 listDevicePools
     :: Text -- ^ 'ldpArn'
     -> ListDevicePools
 listDevicePools pArn_ =
-    ListDevicePools'
-    { _ldpNextToken = Nothing
-    , _ldpType = Nothing
-    , _ldpArn = pArn_
-    }
+  ListDevicePools'
+  {_ldpNextToken = Nothing, _ldpType = Nothing, _ldpArn = pArn_}
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 ldpNextToken :: Lens' ListDevicePools (Maybe Text)
 ldpNextToken = lens _ldpNextToken (\ s a -> s{_ldpNextToken = a});
 
--- | The device pools\' type.
---
--- Allowed values include:
---
--- -   CURATED: A device pool that is created and managed by AWS Device Farm.
---
--- -   PRIVATE: A device pool that is created and managed by the device pool developer.
---
+-- | The device pools' type. Allowed values include:     * CURATED: A device pool that is created and managed by AWS Device Farm.     * PRIVATE: A device pool that is created and managed by the device pool developer.
 ldpType :: Lens' ListDevicePools (Maybe DevicePoolType)
 ldpType = lens _ldpType (\ s a -> s{_ldpType = a});
 
@@ -113,9 +109,9 @@ instance AWSRequest ListDevicePools where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListDevicePools
+instance Hashable ListDevicePools where
 
-instance NFData ListDevicePools
+instance NFData ListDevicePools where
 
 instance ToHeaders ListDevicePools where
         toHeaders
@@ -142,31 +138,35 @@ instance ToQuery ListDevicePools where
 
 -- | Represents the result of a list device pools request.
 --
+--
+--
 -- /See:/ 'listDevicePoolsResponse' smart constructor.
 data ListDevicePoolsResponse = ListDevicePoolsResponse'
-    { _ldprsDevicePools    :: !(Maybe [DevicePool])
-    , _ldprsNextToken      :: !(Maybe Text)
-    , _ldprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldprsDevicePools    :: !(Maybe [DevicePool])
+  , _ldprsNextToken      :: !(Maybe Text)
+  , _ldprsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDevicePoolsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldprsDevicePools'
+-- * 'ldprsDevicePools' - Information about the device pools.
 --
--- * 'ldprsNextToken'
+-- * 'ldprsNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 --
--- * 'ldprsResponseStatus'
+-- * 'ldprsResponseStatus' - -- | The response status code.
 listDevicePoolsResponse
     :: Int -- ^ 'ldprsResponseStatus'
     -> ListDevicePoolsResponse
 listDevicePoolsResponse pResponseStatus_ =
-    ListDevicePoolsResponse'
-    { _ldprsDevicePools = Nothing
-    , _ldprsNextToken = Nothing
-    , _ldprsResponseStatus = pResponseStatus_
-    }
+  ListDevicePoolsResponse'
+  { _ldprsDevicePools = Nothing
+  , _ldprsNextToken = Nothing
+  , _ldprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the device pools.
 ldprsDevicePools :: Lens' ListDevicePoolsResponse [DevicePool]
@@ -176,8 +176,8 @@ ldprsDevicePools = lens _ldprsDevicePools (\ s a -> s{_ldprsDevicePools = a}) . 
 ldprsNextToken :: Lens' ListDevicePoolsResponse (Maybe Text)
 ldprsNextToken = lens _ldprsNextToken (\ s a -> s{_ldprsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ldprsResponseStatus :: Lens' ListDevicePoolsResponse Int
 ldprsResponseStatus = lens _ldprsResponseStatus (\ s a -> s{_ldprsResponseStatus = a});
 
-instance NFData ListDevicePoolsResponse
+instance NFData ListDevicePoolsResponse where

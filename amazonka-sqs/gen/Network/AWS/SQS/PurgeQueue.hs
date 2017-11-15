@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.SQS.PurgeQueue
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the messages in a queue specified by the __queue URL__.
+-- Deletes the messages in a queue specified by the @QueueURL@ parameter.
 --
--- When you use the 'PurgeQueue' API, the deleted messages in the queue cannot be retrieved.
 --
--- When you purge a queue, the message deletion process takes up to 60 seconds. All messages sent to the queue before calling 'PurgeQueue' will be deleted; messages sent to the queue while it is being purged may be deleted. While the queue is being purged, messages sent to the queue before 'PurgeQueue' was called may be received, but will be deleted within the next minute.
+-- /Important:/ When you use the @PurgeQueue@ action, you can't retrieve a message deleted from a queue.
+--
+-- When you purge a queue, the message deletion process takes up to 60 seconds. All messages sent to the queue before calling the @PurgeQueue@ action are deleted. Messages sent to the queue while it is being purged might be deleted. While the queue is being purged, messages sent to the queue before @PurgeQueue@ is called might be received, but are deleted within the next minute.
+--
 module Network.AWS.SQS.PurgeQueue
     (
     -- * Creating a Request
@@ -36,36 +38,35 @@ module Network.AWS.SQS.PurgeQueue
     , PurgeQueueResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.Types.Product
 
 -- |
 --
+--
+--
 -- /See:/ 'purgeQueue' smart constructor.
 newtype PurgeQueue = PurgeQueue'
-    { _pqQueueURL :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pqQueueURL :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurgeQueue' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pqQueueURL'
+-- * 'pqQueueURL' - The URL of the queue from which the @PurgeQueue@ action deletes messages. Queue URLs are case-sensitive.
 purgeQueue
     :: Text -- ^ 'pqQueueURL'
     -> PurgeQueue
-purgeQueue pQueueURL_ =
-    PurgeQueue'
-    { _pqQueueURL = pQueueURL_
-    }
+purgeQueue pQueueURL_ = PurgeQueue' {_pqQueueURL = pQueueURL_}
 
--- | The queue URL of the queue to delete the messages from when using the 'PurgeQueue' API.
---
--- Queue URLs are case-sensitive.
+
+-- | The URL of the queue from which the @PurgeQueue@ action deletes messages. Queue URLs are case-sensitive.
 pqQueueURL :: Lens' PurgeQueue Text
 pqQueueURL = lens _pqQueueURL (\ s a -> s{_pqQueueURL = a});
 
@@ -74,9 +75,9 @@ instance AWSRequest PurgeQueue where
         request = postQuery sqs
         response = receiveNull PurgeQueueResponse'
 
-instance Hashable PurgeQueue
+instance Hashable PurgeQueue where
 
-instance NFData PurgeQueue
+instance NFData PurgeQueue where
 
 instance ToHeaders PurgeQueue where
         toHeaders = const mempty
@@ -93,8 +94,9 @@ instance ToQuery PurgeQueue where
 
 -- | /See:/ 'purgeQueueResponse' smart constructor.
 data PurgeQueueResponse =
-    PurgeQueueResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PurgeQueueResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurgeQueueResponse' with the minimum fields required to make a request.
 --
@@ -102,4 +104,5 @@ purgeQueueResponse
     :: PurgeQueueResponse
 purgeQueueResponse = PurgeQueueResponse'
 
-instance NFData PurgeQueueResponse
+
+instance NFData PurgeQueueResponse where

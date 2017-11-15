@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListGateways
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists gateways owned by an AWS account in a region specified in the request. The returned list is ordered by gateway Amazon Resource Name (ARN).
 --
+--
 -- By default, the operation returns a maximum of 100 gateways. This operation supports pagination that allows you to optionally reduce the number of gateways returned in a response.
 --
 -- If you have more gateways than are returned in a response (that is, the response returns only a truncated list of your gateways), the response contains a marker that you can specify in your next request to fetch the next page of gateways.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.ListGateways
@@ -43,41 +45,42 @@ module Network.AWS.StorageGateway.ListGateways
     , lgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing zero or more of the following fields:
 --
--- -   < ListGatewaysInput>Limit>
 --
--- -   < ListGatewaysInput>Marker>
+--     * 'ListGatewaysInput$Limit'
+--
+--     * 'ListGatewaysInput$Marker'
+--
+--
 --
 --
 -- /See:/ 'listGateways' smart constructor.
 data ListGateways = ListGateways'
-    { _lgMarker :: !(Maybe Text)
-    , _lgLimit  :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lgMarker :: !(Maybe Text)
+  , _lgLimit  :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListGateways' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgMarker'
+-- * 'lgMarker' - An opaque string that indicates the position at which to begin the returned list of gateways.
 --
--- * 'lgLimit'
+-- * 'lgLimit' - Specifies that the list of gateways returned be limited to the specified number of items.
 listGateways
     :: ListGateways
-listGateways =
-    ListGateways'
-    { _lgMarker = Nothing
-    , _lgLimit = Nothing
-    }
+listGateways = ListGateways' {_lgMarker = Nothing, _lgLimit = Nothing}
+
 
 -- | An opaque string that indicates the position at which to begin the returned list of gateways.
 lgMarker :: Lens' ListGateways (Maybe Text)
@@ -104,9 +107,9 @@ instance AWSRequest ListGateways where
                    (x .?> "Marker") <*> (x .?> "Gateways" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListGateways
+instance Hashable ListGateways where
 
-instance NFData ListGateways
+instance NFData ListGateways where
 
 instance ToHeaders ListGateways where
         toHeaders
@@ -133,29 +136,31 @@ instance ToQuery ListGateways where
 
 -- | /See:/ 'listGatewaysResponse' smart constructor.
 data ListGatewaysResponse = ListGatewaysResponse'
-    { _lgrsMarker         :: !(Maybe Text)
-    , _lgrsGateways       :: !(Maybe [GatewayInfo])
-    , _lgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lgrsMarker         :: !(Maybe Text)
+  , _lgrsGateways       :: !(Maybe [GatewayInfo])
+  , _lgrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListGatewaysResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgrsMarker'
+-- * 'lgrsMarker' - Undocumented member.
 --
--- * 'lgrsGateways'
+-- * 'lgrsGateways' - Undocumented member.
 --
--- * 'lgrsResponseStatus'
+-- * 'lgrsResponseStatus' - -- | The response status code.
 listGatewaysResponse
     :: Int -- ^ 'lgrsResponseStatus'
     -> ListGatewaysResponse
 listGatewaysResponse pResponseStatus_ =
-    ListGatewaysResponse'
-    { _lgrsMarker = Nothing
-    , _lgrsGateways = Nothing
-    , _lgrsResponseStatus = pResponseStatus_
-    }
+  ListGatewaysResponse'
+  { _lgrsMarker = Nothing
+  , _lgrsGateways = Nothing
+  , _lgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 lgrsMarker :: Lens' ListGatewaysResponse (Maybe Text)
@@ -165,8 +170,8 @@ lgrsMarker = lens _lgrsMarker (\ s a -> s{_lgrsMarker = a});
 lgrsGateways :: Lens' ListGatewaysResponse [GatewayInfo]
 lgrsGateways = lens _lgrsGateways (\ s a -> s{_lgrsGateways = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lgrsResponseStatus :: Lens' ListGatewaysResponse Int
 lgrsResponseStatus = lens _lgrsResponseStatus (\ s a -> s{_lgrsResponseStatus = a});
 
-instance NFData ListGatewaysResponse
+instance NFData ListGatewaysResponse where

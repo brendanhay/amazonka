@@ -9,44 +9,43 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Firehose.Types.Product where
 
-import           Network.AWS.Firehose.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.Firehose.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
--- | Describes hints for the buffering to perform before delivering data to the destination. Please note that these options are treated as hints, and therefore Firehose may choose to use different values when it is optimal.
+-- | Describes hints for the buffering to perform before delivering data to the destination. Please note that these options are treated as hints, and therefore Kinesis Firehose may choose to use different values when it is optimal.
+--
+--
 --
 -- /See:/ 'bufferingHints' smart constructor.
 data BufferingHints = BufferingHints'
-    { _bhSizeInMBs         :: !(Maybe Nat)
-    , _bhIntervalInSeconds :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bhSizeInMBs         :: !(Maybe Nat)
+  , _bhIntervalInSeconds :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BufferingHints' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bhSizeInMBs'
+-- * 'bhSizeInMBs' - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
 --
--- * 'bhIntervalInSeconds'
+-- * 'bhIntervalInSeconds' - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 bufferingHints
     :: BufferingHints
 bufferingHints =
-    BufferingHints'
-    { _bhSizeInMBs = Nothing
-    , _bhIntervalInSeconds = Nothing
-    }
+  BufferingHints' {_bhSizeInMBs = Nothing, _bhIntervalInSeconds = Nothing}
 
--- | Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
---
--- We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB\/sec set SizeInMBs to be 10 MB or higher.
+
+-- | Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
 bhSizeInMBs :: Lens' BufferingHints (Maybe Natural)
 bhSizeInMBs = lens _bhSizeInMBs (\ s a -> s{_bhSizeInMBs = a}) . mapping _Nat;
 
@@ -61,9 +60,9 @@ instance FromJSON BufferingHints where
                  BufferingHints' <$>
                    (x .:? "SizeInMBs") <*> (x .:? "IntervalInSeconds"))
 
-instance Hashable BufferingHints
+instance Hashable BufferingHints where
 
-instance NFData BufferingHints
+instance NFData BufferingHints where
 
 instance ToJSON BufferingHints where
         toJSON BufferingHints'{..}
@@ -72,42 +71,46 @@ instance ToJSON BufferingHints where
                  [("SizeInMBs" .=) <$> _bhSizeInMBs,
                   ("IntervalInSeconds" .=) <$> _bhIntervalInSeconds])
 
--- | Describes CloudWatch logging options for your delivery stream.
+-- | Describes the Amazon CloudWatch logging options for your delivery stream.
+--
+--
 --
 -- /See:/ 'cloudWatchLoggingOptions' smart constructor.
 data CloudWatchLoggingOptions = CloudWatchLoggingOptions'
-    { _cwloEnabled       :: !(Maybe Bool)
-    , _cwloLogGroupName  :: !(Maybe Text)
-    , _cwloLogStreamName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cwloEnabled       :: !(Maybe Bool)
+  , _cwloLogGroupName  :: !(Maybe Text)
+  , _cwloLogStreamName :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloudWatchLoggingOptions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cwloEnabled'
+-- * 'cwloEnabled' - Enables or disables CloudWatch logging.
 --
--- * 'cwloLogGroupName'
+-- * 'cwloLogGroupName' - The CloudWatch group name for logging. This value is required if CloudWatch logging is enabled.
 --
--- * 'cwloLogStreamName'
+-- * 'cwloLogStreamName' - The CloudWatch log stream name for logging. This value is required if CloudWatch logging is enabled.
 cloudWatchLoggingOptions
     :: CloudWatchLoggingOptions
 cloudWatchLoggingOptions =
-    CloudWatchLoggingOptions'
-    { _cwloEnabled = Nothing
-    , _cwloLogGroupName = Nothing
-    , _cwloLogStreamName = Nothing
-    }
+  CloudWatchLoggingOptions'
+  { _cwloEnabled = Nothing
+  , _cwloLogGroupName = Nothing
+  , _cwloLogStreamName = Nothing
+  }
+
 
 -- | Enables or disables CloudWatch logging.
 cwloEnabled :: Lens' CloudWatchLoggingOptions (Maybe Bool)
 cwloEnabled = lens _cwloEnabled (\ s a -> s{_cwloEnabled = a});
 
--- | The CloudWatch group name for logging. This value is required if Enabled is true.
+-- | The CloudWatch group name for logging. This value is required if CloudWatch logging is enabled.
 cwloLogGroupName :: Lens' CloudWatchLoggingOptions (Maybe Text)
 cwloLogGroupName = lens _cwloLogGroupName (\ s a -> s{_cwloLogGroupName = a});
 
--- | The CloudWatch log stream name for logging. This value is required if Enabled is true.
+-- | The CloudWatch log stream name for logging. This value is required if CloudWatch logging is enabled.
 cwloLogStreamName :: Lens' CloudWatchLoggingOptions (Maybe Text)
 cwloLogStreamName = lens _cwloLogStreamName (\ s a -> s{_cwloLogStreamName = a});
 
@@ -119,9 +122,9 @@ instance FromJSON CloudWatchLoggingOptions where
                    (x .:? "Enabled") <*> (x .:? "LogGroupName") <*>
                      (x .:? "LogStreamName"))
 
-instance Hashable CloudWatchLoggingOptions
+instance Hashable CloudWatchLoggingOptions where
 
-instance NFData CloudWatchLoggingOptions
+instance NFData CloudWatchLoggingOptions where
 
 instance ToJSON CloudWatchLoggingOptions where
         toJSON CloudWatchLoggingOptions'{..}
@@ -131,47 +134,39 @@ instance ToJSON CloudWatchLoggingOptions where
                   ("LogGroupName" .=) <$> _cwloLogGroupName,
                   ("LogStreamName" .=) <$> _cwloLogStreamName])
 
--- | Describes a 'COPY' command for Amazon Redshift.
+-- | Describes a @COPY@ command for Amazon Redshift.
+--
+--
 --
 -- /See:/ 'copyCommand' smart constructor.
 data CopyCommand = CopyCommand'
-    { _ccCopyOptions      :: !(Maybe Text)
-    , _ccDataTableColumns :: !(Maybe Text)
-    , _ccDataTableName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccCopyOptions      :: !(Maybe Text)
+  , _ccDataTableColumns :: !(Maybe Text)
+  , _ccDataTableName    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopyCommand' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccCopyOptions'
+-- * 'ccCopyOptions' - Optional parameters to use with the Amazon Redshift @COPY@ command. For more information, see the "Optional Parameters" section of <http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html Amazon Redshift COPY command> . Some possible examples that would apply to Kinesis Firehose are as follows: @delimiter '\t' lzop;@ - fields are delimited with "\t" (TAB character) and compressed using lzop. @delimiter '|'@ - fields are delimited with "|" (this is the default delimiter). @delimiter '|' escape@ - the delimiter should be escaped. @fixedwidth 'venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6'@ - fields are fixed width in the source, with each width specified after every column in the table. @JSON 's3://mybucket/jsonpaths.txt'@ - data is in JSON format, and the path specified is the format of the data. For more examples, see <http://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html Amazon Redshift COPY command examples> .
 --
--- * 'ccDataTableColumns'
+-- * 'ccDataTableColumns' - A comma-separated list of column names.
 --
--- * 'ccDataTableName'
+-- * 'ccDataTableName' - The name of the target table. The table must already exist in the database.
 copyCommand
     :: Text -- ^ 'ccDataTableName'
     -> CopyCommand
 copyCommand pDataTableName_ =
-    CopyCommand'
-    { _ccCopyOptions = Nothing
-    , _ccDataTableColumns = Nothing
-    , _ccDataTableName = pDataTableName_
-    }
+  CopyCommand'
+  { _ccCopyOptions = Nothing
+  , _ccDataTableColumns = Nothing
+  , _ccDataTableName = pDataTableName_
+  }
 
--- | Optional parameters to use with the Amazon Redshift 'COPY' command. For more information, see the \"Optional Parameters\" section of <http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html Amazon Redshift COPY command>. Some possible examples that would apply to Firehose are as follows.
---
--- 'delimiter \'\\t\' lzop;' - fields are delimited with \"\\t\" (TAB character) and compressed using lzop.
---
--- 'delimiter \'|' - fields are delimited with \"|\" (this is the default delimiter).
---
--- 'delimiter \'|\' escape' - the delimiter should be escaped.
---
--- 'fixedwidth \'venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6\'' - fields are fixed width in the source, with each width specified after every column in the table.
---
--- 'JSON \'s3:\/\/mybucket\/jsonpaths.txt\'' - data is in JSON format, and the path specified is the format of the data.
---
--- For more examples, see <http://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html Amazon Redshift COPY command examples>.
+
+-- | Optional parameters to use with the Amazon Redshift @COPY@ command. For more information, see the "Optional Parameters" section of <http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html Amazon Redshift COPY command> . Some possible examples that would apply to Kinesis Firehose are as follows: @delimiter '\t' lzop;@ - fields are delimited with "\t" (TAB character) and compressed using lzop. @delimiter '|'@ - fields are delimited with "|" (this is the default delimiter). @delimiter '|' escape@ - the delimiter should be escaped. @fixedwidth 'venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6'@ - fields are fixed width in the source, with each width specified after every column in the table. @JSON 's3://mybucket/jsonpaths.txt'@ - data is in JSON format, and the path specified is the format of the data. For more examples, see <http://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html Amazon Redshift COPY command examples> .
 ccCopyOptions :: Lens' CopyCommand (Maybe Text)
 ccCopyOptions = lens _ccCopyOptions (\ s a -> s{_ccCopyOptions = a});
 
@@ -191,9 +186,9 @@ instance FromJSON CopyCommand where
                    (x .:? "CopyOptions") <*> (x .:? "DataTableColumns")
                      <*> (x .: "DataTableName"))
 
-instance Hashable CopyCommand
+instance Hashable CopyCommand where
 
-instance NFData CopyCommand
+instance NFData CopyCommand where
 
 instance ToJSON CopyCommand where
         toJSON CopyCommand'{..}
@@ -205,59 +200,76 @@ instance ToJSON CopyCommand where
 
 -- | Contains information about a delivery stream.
 --
+--
+--
 -- /See:/ 'deliveryStreamDescription' smart constructor.
 data DeliveryStreamDescription = DeliveryStreamDescription'
-    { _dsdCreateTimestamp      :: !(Maybe POSIX)
-    , _dsdLastUpdateTimestamp  :: !(Maybe POSIX)
-    , _dsdDeliveryStreamName   :: !Text
-    , _dsdDeliveryStreamARN    :: !Text
-    , _dsdDeliveryStreamStatus :: !DeliveryStreamStatus
-    , _dsdVersionId            :: !Text
-    , _dsdDestinations         :: ![DestinationDescription]
-    , _dsdHasMoreDestinations  :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsdCreateTimestamp      :: !(Maybe POSIX)
+  , _dsdSource               :: !(Maybe SourceDescription)
+  , _dsdLastUpdateTimestamp  :: !(Maybe POSIX)
+  , _dsdDeliveryStreamName   :: !Text
+  , _dsdDeliveryStreamARN    :: !Text
+  , _dsdDeliveryStreamStatus :: !DeliveryStreamStatus
+  , _dsdDeliveryStreamType   :: !DeliveryStreamType
+  , _dsdVersionId            :: !Text
+  , _dsdDestinations         :: ![DestinationDescription]
+  , _dsdHasMoreDestinations  :: !Bool
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeliveryStreamDescription' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsdCreateTimestamp'
+-- * 'dsdCreateTimestamp' - The date and time that the delivery stream was created.
 --
--- * 'dsdLastUpdateTimestamp'
+-- * 'dsdSource' - If the @DeliveryStreamType@ parameter is @KinesisStreamAsSource@ , a 'SourceDescription' object describing the source Kinesis stream.
 --
--- * 'dsdDeliveryStreamName'
+-- * 'dsdLastUpdateTimestamp' - The date and time that the delivery stream was last updated.
 --
--- * 'dsdDeliveryStreamARN'
+-- * 'dsdDeliveryStreamName' - The name of the delivery stream.
 --
--- * 'dsdDeliveryStreamStatus'
+-- * 'dsdDeliveryStreamARN' - The Amazon Resource Name (ARN) of the delivery stream.
 --
--- * 'dsdVersionId'
+-- * 'dsdDeliveryStreamStatus' - The status of the delivery stream.
 --
--- * 'dsdDestinations'
+-- * 'dsdDeliveryStreamType' - The delivery stream type. This can be one of the following values:     * @DirectPut@ : Provider applications access the delivery stream directly.     * @KinesisStreamAsSource@ : The delivery stream uses a Kinesis stream as a source.
 --
--- * 'dsdHasMoreDestinations'
+-- * 'dsdVersionId' - Each time the destination is updated for a delivery stream, the version ID is changed, and the current version ID is required when updating the destination. This is so that the service knows it is applying the changes to the correct version of the delivery stream.
+--
+-- * 'dsdDestinations' - The destinations.
+--
+-- * 'dsdHasMoreDestinations' - Indicates whether there are more destinations available to list.
 deliveryStreamDescription
     :: Text -- ^ 'dsdDeliveryStreamName'
     -> Text -- ^ 'dsdDeliveryStreamARN'
     -> DeliveryStreamStatus -- ^ 'dsdDeliveryStreamStatus'
+    -> DeliveryStreamType -- ^ 'dsdDeliveryStreamType'
     -> Text -- ^ 'dsdVersionId'
     -> Bool -- ^ 'dsdHasMoreDestinations'
     -> DeliveryStreamDescription
-deliveryStreamDescription pDeliveryStreamName_ pDeliveryStreamARN_ pDeliveryStreamStatus_ pVersionId_ pHasMoreDestinations_ =
-    DeliveryStreamDescription'
-    { _dsdCreateTimestamp = Nothing
-    , _dsdLastUpdateTimestamp = Nothing
-    , _dsdDeliveryStreamName = pDeliveryStreamName_
-    , _dsdDeliveryStreamARN = pDeliveryStreamARN_
-    , _dsdDeliveryStreamStatus = pDeliveryStreamStatus_
-    , _dsdVersionId = pVersionId_
-    , _dsdDestinations = mempty
-    , _dsdHasMoreDestinations = pHasMoreDestinations_
-    }
+deliveryStreamDescription pDeliveryStreamName_ pDeliveryStreamARN_ pDeliveryStreamStatus_ pDeliveryStreamType_ pVersionId_ pHasMoreDestinations_ =
+  DeliveryStreamDescription'
+  { _dsdCreateTimestamp = Nothing
+  , _dsdSource = Nothing
+  , _dsdLastUpdateTimestamp = Nothing
+  , _dsdDeliveryStreamName = pDeliveryStreamName_
+  , _dsdDeliveryStreamARN = pDeliveryStreamARN_
+  , _dsdDeliveryStreamStatus = pDeliveryStreamStatus_
+  , _dsdDeliveryStreamType = pDeliveryStreamType_
+  , _dsdVersionId = pVersionId_
+  , _dsdDestinations = mempty
+  , _dsdHasMoreDestinations = pHasMoreDestinations_
+  }
+
 
 -- | The date and time that the delivery stream was created.
 dsdCreateTimestamp :: Lens' DeliveryStreamDescription (Maybe UTCTime)
 dsdCreateTimestamp = lens _dsdCreateTimestamp (\ s a -> s{_dsdCreateTimestamp = a}) . mapping _Time;
+
+-- | If the @DeliveryStreamType@ parameter is @KinesisStreamAsSource@ , a 'SourceDescription' object describing the source Kinesis stream.
+dsdSource :: Lens' DeliveryStreamDescription (Maybe SourceDescription)
+dsdSource = lens _dsdSource (\ s a -> s{_dsdSource = a});
 
 -- | The date and time that the delivery stream was last updated.
 dsdLastUpdateTimestamp :: Lens' DeliveryStreamDescription (Maybe UTCTime)
@@ -275,7 +287,11 @@ dsdDeliveryStreamARN = lens _dsdDeliveryStreamARN (\ s a -> s{_dsdDeliveryStream
 dsdDeliveryStreamStatus :: Lens' DeliveryStreamDescription DeliveryStreamStatus
 dsdDeliveryStreamStatus = lens _dsdDeliveryStreamStatus (\ s a -> s{_dsdDeliveryStreamStatus = a});
 
--- | Used when calling the < UpdateDestination> operation. Each time the destination is updated for the delivery stream, the VersionId is changed, and the current VersionId is required when updating the destination. This is so that the service knows it is applying the changes to the correct version of the delivery stream.
+-- | The delivery stream type. This can be one of the following values:     * @DirectPut@ : Provider applications access the delivery stream directly.     * @KinesisStreamAsSource@ : The delivery stream uses a Kinesis stream as a source.
+dsdDeliveryStreamType :: Lens' DeliveryStreamDescription DeliveryStreamType
+dsdDeliveryStreamType = lens _dsdDeliveryStreamType (\ s a -> s{_dsdDeliveryStreamType = a});
+
+-- | Each time the destination is updated for a delivery stream, the version ID is changed, and the current version ID is required when updating the destination. This is so that the service knows it is applying the changes to the correct version of the delivery stream.
 dsdVersionId :: Lens' DeliveryStreamDescription Text
 dsdVersionId = lens _dsdVersionId (\ s a -> s{_dsdVersionId = a});
 
@@ -292,54 +308,67 @@ instance FromJSON DeliveryStreamDescription where
           = withObject "DeliveryStreamDescription"
               (\ x ->
                  DeliveryStreamDescription' <$>
-                   (x .:? "CreateTimestamp") <*>
+                   (x .:? "CreateTimestamp") <*> (x .:? "Source") <*>
                      (x .:? "LastUpdateTimestamp")
                      <*> (x .: "DeliveryStreamName")
                      <*> (x .: "DeliveryStreamARN")
                      <*> (x .: "DeliveryStreamStatus")
+                     <*> (x .: "DeliveryStreamType")
                      <*> (x .: "VersionId")
                      <*> (x .:? "Destinations" .!= mempty)
                      <*> (x .: "HasMoreDestinations"))
 
-instance Hashable DeliveryStreamDescription
+instance Hashable DeliveryStreamDescription where
 
-instance NFData DeliveryStreamDescription
+instance NFData DeliveryStreamDescription where
 
 -- | Describes the destination for a delivery stream.
 --
+--
+--
 -- /See:/ 'destinationDescription' smart constructor.
 data DestinationDescription = DestinationDescription'
-    { _ddS3DestinationDescription            :: !(Maybe S3DestinationDescription)
-    , _ddElasticsearchDestinationDescription :: !(Maybe ElasticsearchDestinationDescription)
-    , _ddRedshiftDestinationDescription      :: !(Maybe RedshiftDestinationDescription)
-    , _ddDestinationId                       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddS3DestinationDescription :: !(Maybe S3DestinationDescription)
+  , _ddExtendedS3DestinationDescription :: !(Maybe ExtendedS3DestinationDescription)
+  , _ddElasticsearchDestinationDescription :: !(Maybe ElasticsearchDestinationDescription)
+  , _ddRedshiftDestinationDescription :: !(Maybe RedshiftDestinationDescription)
+  , _ddDestinationId :: !Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DestinationDescription' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddS3DestinationDescription'
+-- * 'ddS3DestinationDescription' - [Deprecated] The destination in Amazon S3.
 --
--- * 'ddElasticsearchDestinationDescription'
+-- * 'ddExtendedS3DestinationDescription' - The destination in Amazon S3.
 --
--- * 'ddRedshiftDestinationDescription'
+-- * 'ddElasticsearchDestinationDescription' - The destination in Amazon ES.
 --
--- * 'ddDestinationId'
+-- * 'ddRedshiftDestinationDescription' - The destination in Amazon Redshift.
+--
+-- * 'ddDestinationId' - The ID of the destination.
 destinationDescription
     :: Text -- ^ 'ddDestinationId'
     -> DestinationDescription
 destinationDescription pDestinationId_ =
-    DestinationDescription'
-    { _ddS3DestinationDescription = Nothing
-    , _ddElasticsearchDestinationDescription = Nothing
-    , _ddRedshiftDestinationDescription = Nothing
-    , _ddDestinationId = pDestinationId_
-    }
+  DestinationDescription'
+  { _ddS3DestinationDescription = Nothing
+  , _ddExtendedS3DestinationDescription = Nothing
+  , _ddElasticsearchDestinationDescription = Nothing
+  , _ddRedshiftDestinationDescription = Nothing
+  , _ddDestinationId = pDestinationId_
+  }
 
--- | The Amazon S3 destination.
+
+-- | [Deprecated] The destination in Amazon S3.
 ddS3DestinationDescription :: Lens' DestinationDescription (Maybe S3DestinationDescription)
 ddS3DestinationDescription = lens _ddS3DestinationDescription (\ s a -> s{_ddS3DestinationDescription = a});
+
+-- | The destination in Amazon S3.
+ddExtendedS3DestinationDescription :: Lens' DestinationDescription (Maybe ExtendedS3DestinationDescription)
+ddExtendedS3DestinationDescription = lens _ddExtendedS3DestinationDescription (\ s a -> s{_ddExtendedS3DestinationDescription = a});
 
 -- | The destination in Amazon ES.
 ddElasticsearchDestinationDescription :: Lens' DestinationDescription (Maybe ElasticsearchDestinationDescription)
@@ -359,40 +388,41 @@ instance FromJSON DestinationDescription where
               (\ x ->
                  DestinationDescription' <$>
                    (x .:? "S3DestinationDescription") <*>
-                     (x .:? "ElasticsearchDestinationDescription")
+                     (x .:? "ExtendedS3DestinationDescription")
+                     <*> (x .:? "ElasticsearchDestinationDescription")
                      <*> (x .:? "RedshiftDestinationDescription")
                      <*> (x .: "DestinationId"))
 
-instance Hashable DestinationDescription
+instance Hashable DestinationDescription where
 
-instance NFData DestinationDescription
+instance NFData DestinationDescription where
 
 -- | Describes the buffering to perform before delivering data to the Amazon ES destination.
 --
+--
+--
 -- /See:/ 'elasticsearchBufferingHints' smart constructor.
 data ElasticsearchBufferingHints = ElasticsearchBufferingHints'
-    { _ebhSizeInMBs         :: !(Maybe Nat)
-    , _ebhIntervalInSeconds :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ebhSizeInMBs         :: !(Maybe Nat)
+  , _ebhIntervalInSeconds :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticsearchBufferingHints' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ebhSizeInMBs'
+-- * 'ebhSizeInMBs' - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
 --
--- * 'ebhIntervalInSeconds'
+-- * 'ebhIntervalInSeconds' - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
 elasticsearchBufferingHints
     :: ElasticsearchBufferingHints
 elasticsearchBufferingHints =
-    ElasticsearchBufferingHints'
-    { _ebhSizeInMBs = Nothing
-    , _ebhIntervalInSeconds = Nothing
-    }
+  ElasticsearchBufferingHints'
+  {_ebhSizeInMBs = Nothing, _ebhIntervalInSeconds = Nothing}
 
--- | Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
---
--- We recommend setting __SizeInMBs__ to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB\/sec, set __SizeInMBs__ to be 10 MB or higher.
+
+-- | Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
 ebhSizeInMBs :: Lens' ElasticsearchBufferingHints (Maybe Natural)
 ebhSizeInMBs = lens _ebhSizeInMBs (\ s a -> s{_ebhSizeInMBs = a}) . mapping _Nat;
 
@@ -407,9 +437,9 @@ instance FromJSON ElasticsearchBufferingHints where
                  ElasticsearchBufferingHints' <$>
                    (x .:? "SizeInMBs") <*> (x .:? "IntervalInSeconds"))
 
-instance Hashable ElasticsearchBufferingHints
+instance Hashable ElasticsearchBufferingHints where
 
-instance NFData ElasticsearchBufferingHints
+instance NFData ElasticsearchBufferingHints where
 
 instance ToJSON ElasticsearchBufferingHints where
         toJSON ElasticsearchBufferingHints'{..}
@@ -420,43 +450,49 @@ instance ToJSON ElasticsearchBufferingHints where
 
 -- | Describes the configuration of a destination in Amazon ES.
 --
+--
+--
 -- /See:/ 'elasticsearchDestinationConfiguration' smart constructor.
 data ElasticsearchDestinationConfiguration = ElasticsearchDestinationConfiguration'
-    { _edcIndexRotationPeriod      :: !(Maybe ElasticsearchIndexRotationPeriod)
-    , _edcS3BackupMode             :: !(Maybe ElasticsearchS3BackupMode)
-    , _edcCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _edcBufferingHints           :: !(Maybe ElasticsearchBufferingHints)
-    , _edcRetryOptions             :: !(Maybe ElasticsearchRetryOptions)
-    , _edcRoleARN                  :: !Text
-    , _edcDomainARN                :: !Text
-    , _edcIndexName                :: !Text
-    , _edcTypeName                 :: !Text
-    , _edcS3Configuration          :: !S3DestinationConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edcIndexRotationPeriod      :: !(Maybe ElasticsearchIndexRotationPeriod)
+  , _edcS3BackupMode             :: !(Maybe ElasticsearchS3BackupMode)
+  , _edcCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _edcBufferingHints           :: !(Maybe ElasticsearchBufferingHints)
+  , _edcRetryOptions             :: !(Maybe ElasticsearchRetryOptions)
+  , _edcProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
+  , _edcRoleARN                  :: !Text
+  , _edcDomainARN                :: !Text
+  , _edcIndexName                :: !Text
+  , _edcTypeName                 :: !Text
+  , _edcS3Configuration          :: !S3DestinationConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticsearchDestinationConfiguration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'edcIndexRotationPeriod'
+-- * 'edcIndexRotationPeriod' - The Elasticsearch index rotation period. Index rotation appends a time stamp to the IndexName to facilitate the expiration of old data. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for Amazon Elasticsearch Service Destination> . The default value is @OneDay@ .
 --
--- * 'edcS3BackupMode'
+-- * 'edcS3BackupMode' - Defines how documents should be delivered to Amazon S3. When set to FailedDocumentsOnly, Kinesis Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with elasticsearch-failed/ appended to the key prefix. When set to AllDocuments, Kinesis Firehose delivers all incoming records to Amazon S3, and also writes failed documents with elasticsearch-failed/ appended to the prefix. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup Amazon S3 Backup for Amazon Elasticsearch Service Destination> . Default value is FailedDocumentsOnly.
 --
--- * 'edcCloudWatchLoggingOptions'
+-- * 'edcCloudWatchLoggingOptions' - The CloudWatch logging options for your delivery stream.
 --
--- * 'edcBufferingHints'
+-- * 'edcBufferingHints' - The buffering options. If no value is specified, the default values for __ElasticsearchBufferingHints__ are used.
 --
--- * 'edcRetryOptions'
+-- * 'edcRetryOptions' - The retry behavior in case Kinesis Firehose is unable to deliver documents to Amazon ES. The default value is 300 (5 minutes).
 --
--- * 'edcRoleARN'
+-- * 'edcProcessingConfiguration' - The data processing configuration.
 --
--- * 'edcDomainARN'
+-- * 'edcRoleARN' - The ARN of the IAM role to be assumed by Kinesis Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Amazon S3 Bucket Access> .
 --
--- * 'edcIndexName'
+-- * 'edcDomainARN' - The ARN of the Amazon ES domain. The IAM role must have permissions for @DescribeElasticsearchDomain@ , @DescribeElasticsearchDomains@ , and @DescribeElasticsearchDomainConfig@ after assuming the role specified in __RoleARN__ .
 --
--- * 'edcTypeName'
+-- * 'edcIndexName' - The Elasticsearch index name.
 --
--- * 'edcS3Configuration'
+-- * 'edcTypeName' - The Elasticsearch type name.
+--
+-- * 'edcS3Configuration' - The configuration for the backup Amazon S3 location.
 elasticsearchDestinationConfiguration
     :: Text -- ^ 'edcRoleARN'
     -> Text -- ^ 'edcDomainARN'
@@ -465,44 +501,50 @@ elasticsearchDestinationConfiguration
     -> S3DestinationConfiguration -- ^ 'edcS3Configuration'
     -> ElasticsearchDestinationConfiguration
 elasticsearchDestinationConfiguration pRoleARN_ pDomainARN_ pIndexName_ pTypeName_ pS3Configuration_ =
-    ElasticsearchDestinationConfiguration'
-    { _edcIndexRotationPeriod = Nothing
-    , _edcS3BackupMode = Nothing
-    , _edcCloudWatchLoggingOptions = Nothing
-    , _edcBufferingHints = Nothing
-    , _edcRetryOptions = Nothing
-    , _edcRoleARN = pRoleARN_
-    , _edcDomainARN = pDomainARN_
-    , _edcIndexName = pIndexName_
-    , _edcTypeName = pTypeName_
-    , _edcS3Configuration = pS3Configuration_
-    }
+  ElasticsearchDestinationConfiguration'
+  { _edcIndexRotationPeriod = Nothing
+  , _edcS3BackupMode = Nothing
+  , _edcCloudWatchLoggingOptions = Nothing
+  , _edcBufferingHints = Nothing
+  , _edcRetryOptions = Nothing
+  , _edcProcessingConfiguration = Nothing
+  , _edcRoleARN = pRoleARN_
+  , _edcDomainARN = pDomainARN_
+  , _edcIndexName = pIndexName_
+  , _edcTypeName = pTypeName_
+  , _edcS3Configuration = pS3Configuration_
+  }
 
--- | The Elasticsearch index rotation period. Index rotation appends a timestamp to the IndexName to facilitate expiration of old data. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for Amazon Elasticsearch Service Destination>. Default value is 'OneDay'.
+
+-- | The Elasticsearch index rotation period. Index rotation appends a time stamp to the IndexName to facilitate the expiration of old data. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for Amazon Elasticsearch Service Destination> . The default value is @OneDay@ .
 edcIndexRotationPeriod :: Lens' ElasticsearchDestinationConfiguration (Maybe ElasticsearchIndexRotationPeriod)
 edcIndexRotationPeriod = lens _edcIndexRotationPeriod (\ s a -> s{_edcIndexRotationPeriod = a});
 
--- | Defines how documents should be delivered to Amazon S3. When set to FailedDocumentsOnly, Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with elasticsearch-failed\/ appended to the key prefix. When set to AllDocuments, Firehose delivers all incoming records to Amazon S3, and also writes failed documents with elasticsearch-failed\/ appended to the prefix. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup Amazon S3 Backup for Amazon Elasticsearch Service Destination>. Default value is FailedDocumentsOnly.
+-- | Defines how documents should be delivered to Amazon S3. When set to FailedDocumentsOnly, Kinesis Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with elasticsearch-failed/ appended to the key prefix. When set to AllDocuments, Kinesis Firehose delivers all incoming records to Amazon S3, and also writes failed documents with elasticsearch-failed/ appended to the prefix. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup Amazon S3 Backup for Amazon Elasticsearch Service Destination> . Default value is FailedDocumentsOnly.
 edcS3BackupMode :: Lens' ElasticsearchDestinationConfiguration (Maybe ElasticsearchS3BackupMode)
 edcS3BackupMode = lens _edcS3BackupMode (\ s a -> s{_edcS3BackupMode = a});
 
--- | Describes CloudWatch logging options for your delivery stream.
+-- | The CloudWatch logging options for your delivery stream.
 edcCloudWatchLoggingOptions :: Lens' ElasticsearchDestinationConfiguration (Maybe CloudWatchLoggingOptions)
 edcCloudWatchLoggingOptions = lens _edcCloudWatchLoggingOptions (\ s a -> s{_edcCloudWatchLoggingOptions = a});
 
--- | Buffering options. If no value is specified, __ElasticsearchBufferingHints__ object default values are used.
+-- | The buffering options. If no value is specified, the default values for __ElasticsearchBufferingHints__ are used.
 edcBufferingHints :: Lens' ElasticsearchDestinationConfiguration (Maybe ElasticsearchBufferingHints)
 edcBufferingHints = lens _edcBufferingHints (\ s a -> s{_edcBufferingHints = a});
 
--- | Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon ES. Default value is 300 (5 minutes).
+-- | The retry behavior in case Kinesis Firehose is unable to deliver documents to Amazon ES. The default value is 300 (5 minutes).
 edcRetryOptions :: Lens' ElasticsearchDestinationConfiguration (Maybe ElasticsearchRetryOptions)
 edcRetryOptions = lens _edcRetryOptions (\ s a -> s{_edcRetryOptions = a});
 
--- | The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Amazon S3 Bucket Access>.
+-- | The data processing configuration.
+edcProcessingConfiguration :: Lens' ElasticsearchDestinationConfiguration (Maybe ProcessingConfiguration)
+edcProcessingConfiguration = lens _edcProcessingConfiguration (\ s a -> s{_edcProcessingConfiguration = a});
+
+-- | The ARN of the IAM role to be assumed by Kinesis Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Amazon S3 Bucket Access> .
 edcRoleARN :: Lens' ElasticsearchDestinationConfiguration Text
 edcRoleARN = lens _edcRoleARN (\ s a -> s{_edcRoleARN = a});
 
--- | The ARN of the Amazon ES domain. The IAM role must have permission for 'DescribeElasticsearchDomain', 'DescribeElasticsearchDomains' , and 'DescribeElasticsearchDomainConfig' after assuming __RoleARN__.
+-- | The ARN of the Amazon ES domain. The IAM role must have permissions for @DescribeElasticsearchDomain@ , @DescribeElasticsearchDomains@ , and @DescribeElasticsearchDomainConfig@ after assuming the role specified in __RoleARN__ .
 edcDomainARN :: Lens' ElasticsearchDestinationConfiguration Text
 edcDomainARN = lens _edcDomainARN (\ s a -> s{_edcDomainARN = a});
 
@@ -514,14 +556,16 @@ edcIndexName = lens _edcIndexName (\ s a -> s{_edcIndexName = a});
 edcTypeName :: Lens' ElasticsearchDestinationConfiguration Text
 edcTypeName = lens _edcTypeName (\ s a -> s{_edcTypeName = a});
 
--- | Undocumented member.
+-- | The configuration for the backup Amazon S3 location.
 edcS3Configuration :: Lens' ElasticsearchDestinationConfiguration S3DestinationConfiguration
 edcS3Configuration = lens _edcS3Configuration (\ s a -> s{_edcS3Configuration = a});
 
 instance Hashable
-         ElasticsearchDestinationConfiguration
+           ElasticsearchDestinationConfiguration
+         where
 
 instance NFData ElasticsearchDestinationConfiguration
+         where
 
 instance ToJSON ElasticsearchDestinationConfiguration
          where
@@ -535,6 +579,8 @@ instance ToJSON ElasticsearchDestinationConfiguration
                     _edcCloudWatchLoggingOptions,
                   ("BufferingHints" .=) <$> _edcBufferingHints,
                   ("RetryOptions" .=) <$> _edcRetryOptions,
+                  ("ProcessingConfiguration" .=) <$>
+                    _edcProcessingConfiguration,
                   Just ("RoleARN" .= _edcRoleARN),
                   Just ("DomainARN" .= _edcDomainARN),
                   Just ("IndexName" .= _edcIndexName),
@@ -543,58 +589,66 @@ instance ToJSON ElasticsearchDestinationConfiguration
 
 -- | The destination description in Amazon ES.
 --
+--
+--
 -- /See:/ 'elasticsearchDestinationDescription' smart constructor.
 data ElasticsearchDestinationDescription = ElasticsearchDestinationDescription'
-    { _eddIndexRotationPeriod      :: !(Maybe ElasticsearchIndexRotationPeriod)
-    , _eddTypeName                 :: !(Maybe Text)
-    , _eddS3BackupMode             :: !(Maybe ElasticsearchS3BackupMode)
-    , _eddDomainARN                :: !(Maybe Text)
-    , _eddCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _eddS3DestinationDescription :: !(Maybe S3DestinationDescription)
-    , _eddBufferingHints           :: !(Maybe ElasticsearchBufferingHints)
-    , _eddRetryOptions             :: !(Maybe ElasticsearchRetryOptions)
-    , _eddRoleARN                  :: !(Maybe Text)
-    , _eddIndexName                :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eddIndexRotationPeriod      :: !(Maybe ElasticsearchIndexRotationPeriod)
+  , _eddTypeName                 :: !(Maybe Text)
+  , _eddS3BackupMode             :: !(Maybe ElasticsearchS3BackupMode)
+  , _eddDomainARN                :: !(Maybe Text)
+  , _eddCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _eddS3DestinationDescription :: !(Maybe S3DestinationDescription)
+  , _eddBufferingHints           :: !(Maybe ElasticsearchBufferingHints)
+  , _eddRetryOptions             :: !(Maybe ElasticsearchRetryOptions)
+  , _eddProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
+  , _eddRoleARN                  :: !(Maybe Text)
+  , _eddIndexName                :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticsearchDestinationDescription' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eddIndexRotationPeriod'
+-- * 'eddIndexRotationPeriod' - The Elasticsearch index rotation period
 --
--- * 'eddTypeName'
+-- * 'eddTypeName' - The Elasticsearch type name.
 --
--- * 'eddS3BackupMode'
+-- * 'eddS3BackupMode' - The Amazon S3 backup mode.
 --
--- * 'eddDomainARN'
+-- * 'eddDomainARN' - The ARN of the Amazon ES domain.
 --
--- * 'eddCloudWatchLoggingOptions'
+-- * 'eddCloudWatchLoggingOptions' - The CloudWatch logging options.
 --
--- * 'eddS3DestinationDescription'
+-- * 'eddS3DestinationDescription' - The Amazon S3 destination.
 --
--- * 'eddBufferingHints'
+-- * 'eddBufferingHints' - The buffering options.
 --
--- * 'eddRetryOptions'
+-- * 'eddRetryOptions' - The Amazon ES retry options.
 --
--- * 'eddRoleARN'
+-- * 'eddProcessingConfiguration' - The data processing configuration.
 --
--- * 'eddIndexName'
+-- * 'eddRoleARN' - The ARN of the AWS credentials.
+--
+-- * 'eddIndexName' - The Elasticsearch index name.
 elasticsearchDestinationDescription
     :: ElasticsearchDestinationDescription
 elasticsearchDestinationDescription =
-    ElasticsearchDestinationDescription'
-    { _eddIndexRotationPeriod = Nothing
-    , _eddTypeName = Nothing
-    , _eddS3BackupMode = Nothing
-    , _eddDomainARN = Nothing
-    , _eddCloudWatchLoggingOptions = Nothing
-    , _eddS3DestinationDescription = Nothing
-    , _eddBufferingHints = Nothing
-    , _eddRetryOptions = Nothing
-    , _eddRoleARN = Nothing
-    , _eddIndexName = Nothing
-    }
+  ElasticsearchDestinationDescription'
+  { _eddIndexRotationPeriod = Nothing
+  , _eddTypeName = Nothing
+  , _eddS3BackupMode = Nothing
+  , _eddDomainARN = Nothing
+  , _eddCloudWatchLoggingOptions = Nothing
+  , _eddS3DestinationDescription = Nothing
+  , _eddBufferingHints = Nothing
+  , _eddRetryOptions = Nothing
+  , _eddProcessingConfiguration = Nothing
+  , _eddRoleARN = Nothing
+  , _eddIndexName = Nothing
+  }
+
 
 -- | The Elasticsearch index rotation period
 eddIndexRotationPeriod :: Lens' ElasticsearchDestinationDescription (Maybe ElasticsearchIndexRotationPeriod)
@@ -604,7 +658,7 @@ eddIndexRotationPeriod = lens _eddIndexRotationPeriod (\ s a -> s{_eddIndexRotat
 eddTypeName :: Lens' ElasticsearchDestinationDescription (Maybe Text)
 eddTypeName = lens _eddTypeName (\ s a -> s{_eddTypeName = a});
 
--- | Amazon S3 backup mode.
+-- | The Amazon S3 backup mode.
 eddS3BackupMode :: Lens' ElasticsearchDestinationDescription (Maybe ElasticsearchS3BackupMode)
 eddS3BackupMode = lens _eddS3BackupMode (\ s a -> s{_eddS3BackupMode = a});
 
@@ -612,21 +666,25 @@ eddS3BackupMode = lens _eddS3BackupMode (\ s a -> s{_eddS3BackupMode = a});
 eddDomainARN :: Lens' ElasticsearchDestinationDescription (Maybe Text)
 eddDomainARN = lens _eddDomainARN (\ s a -> s{_eddDomainARN = a});
 
--- | CloudWatch logging options.
+-- | The CloudWatch logging options.
 eddCloudWatchLoggingOptions :: Lens' ElasticsearchDestinationDescription (Maybe CloudWatchLoggingOptions)
 eddCloudWatchLoggingOptions = lens _eddCloudWatchLoggingOptions (\ s a -> s{_eddCloudWatchLoggingOptions = a});
 
--- | Undocumented member.
+-- | The Amazon S3 destination.
 eddS3DestinationDescription :: Lens' ElasticsearchDestinationDescription (Maybe S3DestinationDescription)
 eddS3DestinationDescription = lens _eddS3DestinationDescription (\ s a -> s{_eddS3DestinationDescription = a});
 
--- | Buffering options.
+-- | The buffering options.
 eddBufferingHints :: Lens' ElasticsearchDestinationDescription (Maybe ElasticsearchBufferingHints)
 eddBufferingHints = lens _eddBufferingHints (\ s a -> s{_eddBufferingHints = a});
 
--- | Elasticsearch retry options.
+-- | The Amazon ES retry options.
 eddRetryOptions :: Lens' ElasticsearchDestinationDescription (Maybe ElasticsearchRetryOptions)
 eddRetryOptions = lens _eddRetryOptions (\ s a -> s{_eddRetryOptions = a});
+
+-- | The data processing configuration.
+eddProcessingConfiguration :: Lens' ElasticsearchDestinationDescription (Maybe ProcessingConfiguration)
+eddProcessingConfiguration = lens _eddProcessingConfiguration (\ s a -> s{_eddProcessingConfiguration = a});
 
 -- | The ARN of the AWS credentials.
 eddRoleARN :: Lens' ElasticsearchDestinationDescription (Maybe Text)
@@ -649,65 +707,76 @@ instance FromJSON ElasticsearchDestinationDescription
                      <*> (x .:? "S3DestinationDescription")
                      <*> (x .:? "BufferingHints")
                      <*> (x .:? "RetryOptions")
+                     <*> (x .:? "ProcessingConfiguration")
                      <*> (x .:? "RoleARN")
                      <*> (x .:? "IndexName"))
 
 instance Hashable ElasticsearchDestinationDescription
+         where
 
 instance NFData ElasticsearchDestinationDescription
+         where
 
 -- | Describes an update for a destination in Amazon ES.
 --
+--
+--
 -- /See:/ 'elasticsearchDestinationUpdate' smart constructor.
 data ElasticsearchDestinationUpdate = ElasticsearchDestinationUpdate'
-    { _eduIndexRotationPeriod      :: !(Maybe ElasticsearchIndexRotationPeriod)
-    , _eduTypeName                 :: !(Maybe Text)
-    , _eduDomainARN                :: !(Maybe Text)
-    , _eduCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _eduS3Update                 :: !(Maybe S3DestinationUpdate)
-    , _eduBufferingHints           :: !(Maybe ElasticsearchBufferingHints)
-    , _eduRetryOptions             :: !(Maybe ElasticsearchRetryOptions)
-    , _eduRoleARN                  :: !(Maybe Text)
-    , _eduIndexName                :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eduIndexRotationPeriod      :: !(Maybe ElasticsearchIndexRotationPeriod)
+  , _eduTypeName                 :: !(Maybe Text)
+  , _eduDomainARN                :: !(Maybe Text)
+  , _eduCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _eduS3Update                 :: !(Maybe S3DestinationUpdate)
+  , _eduBufferingHints           :: !(Maybe ElasticsearchBufferingHints)
+  , _eduRetryOptions             :: !(Maybe ElasticsearchRetryOptions)
+  , _eduProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
+  , _eduRoleARN                  :: !(Maybe Text)
+  , _eduIndexName                :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticsearchDestinationUpdate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eduIndexRotationPeriod'
+-- * 'eduIndexRotationPeriod' - The Elasticsearch index rotation period. Index rotation appends a time stamp to IndexName to facilitate the expiration of old data. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for Amazon Elasticsearch Service Destination> . Default value is @OneDay@ .
 --
--- * 'eduTypeName'
+-- * 'eduTypeName' - The Elasticsearch type name.
 --
--- * 'eduDomainARN'
+-- * 'eduDomainARN' - The ARN of the Amazon ES domain. The IAM role must have permissions for @DescribeElasticsearchDomain@ , @DescribeElasticsearchDomains@ , and @DescribeElasticsearchDomainConfig@ after assuming the IAM role specified in __RoleARN__ .
 --
--- * 'eduCloudWatchLoggingOptions'
+-- * 'eduCloudWatchLoggingOptions' - The CloudWatch logging options for your delivery stream.
 --
--- * 'eduS3Update'
+-- * 'eduS3Update' - The Amazon S3 destination.
 --
--- * 'eduBufferingHints'
+-- * 'eduBufferingHints' - The buffering options. If no value is specified, __ElasticsearchBufferingHints__ object default values are used.
 --
--- * 'eduRetryOptions'
+-- * 'eduRetryOptions' - The retry behavior in case Kinesis Firehose is unable to deliver documents to Amazon ES. The default value is 300 (5 minutes).
 --
--- * 'eduRoleARN'
+-- * 'eduProcessingConfiguration' - The data processing configuration.
 --
--- * 'eduIndexName'
+-- * 'eduRoleARN' - The ARN of the IAM role to be assumed by Kinesis Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Amazon S3 Bucket Access> .
+--
+-- * 'eduIndexName' - The Elasticsearch index name.
 elasticsearchDestinationUpdate
     :: ElasticsearchDestinationUpdate
 elasticsearchDestinationUpdate =
-    ElasticsearchDestinationUpdate'
-    { _eduIndexRotationPeriod = Nothing
-    , _eduTypeName = Nothing
-    , _eduDomainARN = Nothing
-    , _eduCloudWatchLoggingOptions = Nothing
-    , _eduS3Update = Nothing
-    , _eduBufferingHints = Nothing
-    , _eduRetryOptions = Nothing
-    , _eduRoleARN = Nothing
-    , _eduIndexName = Nothing
-    }
+  ElasticsearchDestinationUpdate'
+  { _eduIndexRotationPeriod = Nothing
+  , _eduTypeName = Nothing
+  , _eduDomainARN = Nothing
+  , _eduCloudWatchLoggingOptions = Nothing
+  , _eduS3Update = Nothing
+  , _eduBufferingHints = Nothing
+  , _eduRetryOptions = Nothing
+  , _eduProcessingConfiguration = Nothing
+  , _eduRoleARN = Nothing
+  , _eduIndexName = Nothing
+  }
 
--- | The Elasticsearch index rotation period. Index rotation appends a timestamp to the IndexName to facilitate the expiration of old data. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for Amazon Elasticsearch Service Destination>. Default value is 'OneDay'.
+
+-- | The Elasticsearch index rotation period. Index rotation appends a time stamp to IndexName to facilitate the expiration of old data. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for Amazon Elasticsearch Service Destination> . Default value is @OneDay@ .
 eduIndexRotationPeriod :: Lens' ElasticsearchDestinationUpdate (Maybe ElasticsearchIndexRotationPeriod)
 eduIndexRotationPeriod = lens _eduIndexRotationPeriod (\ s a -> s{_eduIndexRotationPeriod = a});
 
@@ -715,27 +784,31 @@ eduIndexRotationPeriod = lens _eduIndexRotationPeriod (\ s a -> s{_eduIndexRotat
 eduTypeName :: Lens' ElasticsearchDestinationUpdate (Maybe Text)
 eduTypeName = lens _eduTypeName (\ s a -> s{_eduTypeName = a});
 
--- | The ARN of the Amazon ES domain. The IAM role must have permission for DescribeElasticsearchDomain, DescribeElasticsearchDomains , and DescribeElasticsearchDomainConfig after assuming __RoleARN__.
+-- | The ARN of the Amazon ES domain. The IAM role must have permissions for @DescribeElasticsearchDomain@ , @DescribeElasticsearchDomains@ , and @DescribeElasticsearchDomainConfig@ after assuming the IAM role specified in __RoleARN__ .
 eduDomainARN :: Lens' ElasticsearchDestinationUpdate (Maybe Text)
 eduDomainARN = lens _eduDomainARN (\ s a -> s{_eduDomainARN = a});
 
--- | Describes CloudWatch logging options for your delivery stream.
+-- | The CloudWatch logging options for your delivery stream.
 eduCloudWatchLoggingOptions :: Lens' ElasticsearchDestinationUpdate (Maybe CloudWatchLoggingOptions)
 eduCloudWatchLoggingOptions = lens _eduCloudWatchLoggingOptions (\ s a -> s{_eduCloudWatchLoggingOptions = a});
 
--- | Undocumented member.
+-- | The Amazon S3 destination.
 eduS3Update :: Lens' ElasticsearchDestinationUpdate (Maybe S3DestinationUpdate)
 eduS3Update = lens _eduS3Update (\ s a -> s{_eduS3Update = a});
 
--- | Buffering options. If no value is specified, __ElasticsearchBufferingHints__ object default values are used.
+-- | The buffering options. If no value is specified, __ElasticsearchBufferingHints__ object default values are used.
 eduBufferingHints :: Lens' ElasticsearchDestinationUpdate (Maybe ElasticsearchBufferingHints)
 eduBufferingHints = lens _eduBufferingHints (\ s a -> s{_eduBufferingHints = a});
 
--- | Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon ES. Default value is 300 (5 minutes).
+-- | The retry behavior in case Kinesis Firehose is unable to deliver documents to Amazon ES. The default value is 300 (5 minutes).
 eduRetryOptions :: Lens' ElasticsearchDestinationUpdate (Maybe ElasticsearchRetryOptions)
 eduRetryOptions = lens _eduRetryOptions (\ s a -> s{_eduRetryOptions = a});
 
--- | The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Amazon S3 Bucket Access>.
+-- | The data processing configuration.
+eduProcessingConfiguration :: Lens' ElasticsearchDestinationUpdate (Maybe ProcessingConfiguration)
+eduProcessingConfiguration = lens _eduProcessingConfiguration (\ s a -> s{_eduProcessingConfiguration = a});
+
+-- | The ARN of the IAM role to be assumed by Kinesis Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Amazon S3 Bucket Access> .
 eduRoleARN :: Lens' ElasticsearchDestinationUpdate (Maybe Text)
 eduRoleARN = lens _eduRoleARN (\ s a -> s{_eduRoleARN = a});
 
@@ -744,8 +817,9 @@ eduIndexName :: Lens' ElasticsearchDestinationUpdate (Maybe Text)
 eduIndexName = lens _eduIndexName (\ s a -> s{_eduIndexName = a});
 
 instance Hashable ElasticsearchDestinationUpdate
+         where
 
-instance NFData ElasticsearchDestinationUpdate
+instance NFData ElasticsearchDestinationUpdate where
 
 instance ToJSON ElasticsearchDestinationUpdate where
         toJSON ElasticsearchDestinationUpdate'{..}
@@ -760,29 +834,33 @@ instance ToJSON ElasticsearchDestinationUpdate where
                   ("S3Update" .=) <$> _eduS3Update,
                   ("BufferingHints" .=) <$> _eduBufferingHints,
                   ("RetryOptions" .=) <$> _eduRetryOptions,
+                  ("ProcessingConfiguration" .=) <$>
+                    _eduProcessingConfiguration,
                   ("RoleARN" .=) <$> _eduRoleARN,
                   ("IndexName" .=) <$> _eduIndexName])
 
--- | Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon ES.
+-- | Configures retry behavior in case Kinesis Firehose is unable to deliver documents to Amazon ES.
+--
+--
 --
 -- /See:/ 'elasticsearchRetryOptions' smart constructor.
 newtype ElasticsearchRetryOptions = ElasticsearchRetryOptions'
-    { _eroDurationInSeconds :: Maybe Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eroDurationInSeconds :: Maybe Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticsearchRetryOptions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eroDurationInSeconds'
+-- * 'eroDurationInSeconds' - After an initial failure to deliver to Amazon ES, the total amount of time during which Kinesis Firehose re-attempts delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.
 elasticsearchRetryOptions
     :: ElasticsearchRetryOptions
 elasticsearchRetryOptions =
-    ElasticsearchRetryOptions'
-    { _eroDurationInSeconds = Nothing
-    }
+  ElasticsearchRetryOptions' {_eroDurationInSeconds = Nothing}
 
--- | After an initial failure to deliver to Amazon ES, the total amount of time during which Firehose re-attempts delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.
+
+-- | After an initial failure to deliver to Amazon ES, the total amount of time during which Kinesis Firehose re-attempts delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.
 eroDurationInSeconds :: Lens' ElasticsearchRetryOptions (Maybe Natural)
 eroDurationInSeconds = lens _eroDurationInSeconds (\ s a -> s{_eroDurationInSeconds = a}) . mapping _Nat;
 
@@ -793,9 +871,9 @@ instance FromJSON ElasticsearchRetryOptions where
                  ElasticsearchRetryOptions' <$>
                    (x .:? "DurationInSeconds"))
 
-instance Hashable ElasticsearchRetryOptions
+instance Hashable ElasticsearchRetryOptions where
 
-instance NFData ElasticsearchRetryOptions
+instance NFData ElasticsearchRetryOptions where
 
 instance ToJSON ElasticsearchRetryOptions where
         toJSON ElasticsearchRetryOptions'{..}
@@ -805,28 +883,30 @@ instance ToJSON ElasticsearchRetryOptions where
 
 -- | Describes the encryption for a destination in Amazon S3.
 --
+--
+--
 -- /See:/ 'encryptionConfiguration' smart constructor.
 data EncryptionConfiguration = EncryptionConfiguration'
-    { _ecNoEncryptionConfig  :: !(Maybe NoEncryptionConfig)
-    , _ecKMSEncryptionConfig :: !(Maybe KMSEncryptionConfig)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ecNoEncryptionConfig  :: !(Maybe NoEncryptionConfig)
+  , _ecKMSEncryptionConfig :: !(Maybe KMSEncryptionConfig)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EncryptionConfiguration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ecNoEncryptionConfig'
+-- * 'ecNoEncryptionConfig' - Specifically override existing encryption information to ensure that no encryption is used.
 --
--- * 'ecKMSEncryptionConfig'
+-- * 'ecKMSEncryptionConfig' - The encryption key.
 encryptionConfiguration
     :: EncryptionConfiguration
 encryptionConfiguration =
-    EncryptionConfiguration'
-    { _ecNoEncryptionConfig = Nothing
-    , _ecKMSEncryptionConfig = Nothing
-    }
+  EncryptionConfiguration'
+  {_ecNoEncryptionConfig = Nothing, _ecKMSEncryptionConfig = Nothing}
 
--- | Specifically override existing encryption information to ensure no encryption is used.
+
+-- | Specifically override existing encryption information to ensure that no encryption is used.
 ecNoEncryptionConfig :: Lens' EncryptionConfiguration (Maybe NoEncryptionConfig)
 ecNoEncryptionConfig = lens _ecNoEncryptionConfig (\ s a -> s{_ecNoEncryptionConfig = a});
 
@@ -842,9 +922,9 @@ instance FromJSON EncryptionConfiguration where
                    (x .:? "NoEncryptionConfig") <*>
                      (x .:? "KMSEncryptionConfig"))
 
-instance Hashable EncryptionConfiguration
+instance Hashable EncryptionConfiguration where
 
-instance NFData EncryptionConfiguration
+instance NFData EncryptionConfiguration where
 
 instance ToJSON EncryptionConfiguration where
         toJSON EncryptionConfiguration'{..}
@@ -854,25 +934,402 @@ instance ToJSON EncryptionConfiguration where
                   ("KMSEncryptionConfig" .=) <$>
                     _ecKMSEncryptionConfig])
 
+-- | Describes the configuration of a destination in Amazon S3.
+--
+--
+--
+-- /See:/ 'extendedS3DestinationConfiguration' smart constructor.
+data ExtendedS3DestinationConfiguration = ExtendedS3DestinationConfiguration'
+  { _esdcS3BackupMode             :: !(Maybe S3BackupMode)
+  , _esdcPrefix                   :: !(Maybe Text)
+  , _esdcCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _esdcS3BackupConfiguration    :: !(Maybe S3DestinationConfiguration)
+  , _esdcEncryptionConfiguration  :: !(Maybe EncryptionConfiguration)
+  , _esdcCompressionFormat        :: !(Maybe CompressionFormat)
+  , _esdcBufferingHints           :: !(Maybe BufferingHints)
+  , _esdcProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
+  , _esdcRoleARN                  :: !Text
+  , _esdcBucketARN                :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ExtendedS3DestinationConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'esdcS3BackupMode' - The Amazon S3 backup mode.
+--
+-- * 'esdcPrefix' - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the /Amazon Kinesis Firehose Developer Guide/ .
+--
+-- * 'esdcCloudWatchLoggingOptions' - The CloudWatch logging options for your delivery stream.
+--
+-- * 'esdcS3BackupConfiguration' - The configuration for backup in Amazon S3.
+--
+-- * 'esdcEncryptionConfiguration' - The encryption configuration. If no value is specified, the default is no encryption.
+--
+-- * 'esdcCompressionFormat' - The compression format. If no value is specified, the default is UNCOMPRESSED.
+--
+-- * 'esdcBufferingHints' - The buffering option.
+--
+-- * 'esdcProcessingConfiguration' - The data processing configuration.
+--
+-- * 'esdcRoleARN' - The ARN of the AWS credentials.
+--
+-- * 'esdcBucketARN' - The ARN of the S3 bucket.
+extendedS3DestinationConfiguration
+    :: Text -- ^ 'esdcRoleARN'
+    -> Text -- ^ 'esdcBucketARN'
+    -> ExtendedS3DestinationConfiguration
+extendedS3DestinationConfiguration pRoleARN_ pBucketARN_ =
+  ExtendedS3DestinationConfiguration'
+  { _esdcS3BackupMode = Nothing
+  , _esdcPrefix = Nothing
+  , _esdcCloudWatchLoggingOptions = Nothing
+  , _esdcS3BackupConfiguration = Nothing
+  , _esdcEncryptionConfiguration = Nothing
+  , _esdcCompressionFormat = Nothing
+  , _esdcBufferingHints = Nothing
+  , _esdcProcessingConfiguration = Nothing
+  , _esdcRoleARN = pRoleARN_
+  , _esdcBucketARN = pBucketARN_
+  }
+
+
+-- | The Amazon S3 backup mode.
+esdcS3BackupMode :: Lens' ExtendedS3DestinationConfiguration (Maybe S3BackupMode)
+esdcS3BackupMode = lens _esdcS3BackupMode (\ s a -> s{_esdcS3BackupMode = a});
+
+-- | The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the /Amazon Kinesis Firehose Developer Guide/ .
+esdcPrefix :: Lens' ExtendedS3DestinationConfiguration (Maybe Text)
+esdcPrefix = lens _esdcPrefix (\ s a -> s{_esdcPrefix = a});
+
+-- | The CloudWatch logging options for your delivery stream.
+esdcCloudWatchLoggingOptions :: Lens' ExtendedS3DestinationConfiguration (Maybe CloudWatchLoggingOptions)
+esdcCloudWatchLoggingOptions = lens _esdcCloudWatchLoggingOptions (\ s a -> s{_esdcCloudWatchLoggingOptions = a});
+
+-- | The configuration for backup in Amazon S3.
+esdcS3BackupConfiguration :: Lens' ExtendedS3DestinationConfiguration (Maybe S3DestinationConfiguration)
+esdcS3BackupConfiguration = lens _esdcS3BackupConfiguration (\ s a -> s{_esdcS3BackupConfiguration = a});
+
+-- | The encryption configuration. If no value is specified, the default is no encryption.
+esdcEncryptionConfiguration :: Lens' ExtendedS3DestinationConfiguration (Maybe EncryptionConfiguration)
+esdcEncryptionConfiguration = lens _esdcEncryptionConfiguration (\ s a -> s{_esdcEncryptionConfiguration = a});
+
+-- | The compression format. If no value is specified, the default is UNCOMPRESSED.
+esdcCompressionFormat :: Lens' ExtendedS3DestinationConfiguration (Maybe CompressionFormat)
+esdcCompressionFormat = lens _esdcCompressionFormat (\ s a -> s{_esdcCompressionFormat = a});
+
+-- | The buffering option.
+esdcBufferingHints :: Lens' ExtendedS3DestinationConfiguration (Maybe BufferingHints)
+esdcBufferingHints = lens _esdcBufferingHints (\ s a -> s{_esdcBufferingHints = a});
+
+-- | The data processing configuration.
+esdcProcessingConfiguration :: Lens' ExtendedS3DestinationConfiguration (Maybe ProcessingConfiguration)
+esdcProcessingConfiguration = lens _esdcProcessingConfiguration (\ s a -> s{_esdcProcessingConfiguration = a});
+
+-- | The ARN of the AWS credentials.
+esdcRoleARN :: Lens' ExtendedS3DestinationConfiguration Text
+esdcRoleARN = lens _esdcRoleARN (\ s a -> s{_esdcRoleARN = a});
+
+-- | The ARN of the S3 bucket.
+esdcBucketARN :: Lens' ExtendedS3DestinationConfiguration Text
+esdcBucketARN = lens _esdcBucketARN (\ s a -> s{_esdcBucketARN = a});
+
+instance Hashable ExtendedS3DestinationConfiguration
+         where
+
+instance NFData ExtendedS3DestinationConfiguration
+         where
+
+instance ToJSON ExtendedS3DestinationConfiguration
+         where
+        toJSON ExtendedS3DestinationConfiguration'{..}
+          = object
+              (catMaybes
+                 [("S3BackupMode" .=) <$> _esdcS3BackupMode,
+                  ("Prefix" .=) <$> _esdcPrefix,
+                  ("CloudWatchLoggingOptions" .=) <$>
+                    _esdcCloudWatchLoggingOptions,
+                  ("S3BackupConfiguration" .=) <$>
+                    _esdcS3BackupConfiguration,
+                  ("EncryptionConfiguration" .=) <$>
+                    _esdcEncryptionConfiguration,
+                  ("CompressionFormat" .=) <$> _esdcCompressionFormat,
+                  ("BufferingHints" .=) <$> _esdcBufferingHints,
+                  ("ProcessingConfiguration" .=) <$>
+                    _esdcProcessingConfiguration,
+                  Just ("RoleARN" .= _esdcRoleARN),
+                  Just ("BucketARN" .= _esdcBucketARN)])
+
+-- | Describes a destination in Amazon S3.
+--
+--
+--
+-- /See:/ 'extendedS3DestinationDescription' smart constructor.
+data ExtendedS3DestinationDescription = ExtendedS3DestinationDescription'
+  { _esddS3BackupMode             :: !(Maybe S3BackupMode)
+  , _esddS3BackupDescription      :: !(Maybe S3DestinationDescription)
+  , _esddPrefix                   :: !(Maybe Text)
+  , _esddCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _esddProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
+  , _esddRoleARN                  :: !Text
+  , _esddBucketARN                :: !Text
+  , _esddBufferingHints           :: !BufferingHints
+  , _esddCompressionFormat        :: !CompressionFormat
+  , _esddEncryptionConfiguration  :: !EncryptionConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ExtendedS3DestinationDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'esddS3BackupMode' - The Amazon S3 backup mode.
+--
+-- * 'esddS3BackupDescription' - The configuration for backup in Amazon S3.
+--
+-- * 'esddPrefix' - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the /Amazon Kinesis Firehose Developer Guide/ .
+--
+-- * 'esddCloudWatchLoggingOptions' - The CloudWatch logging options for your delivery stream.
+--
+-- * 'esddProcessingConfiguration' - The data processing configuration.
+--
+-- * 'esddRoleARN' - The ARN of the AWS credentials.
+--
+-- * 'esddBucketARN' - The ARN of the S3 bucket.
+--
+-- * 'esddBufferingHints' - The buffering option.
+--
+-- * 'esddCompressionFormat' - The compression format. If no value is specified, the default is @UNCOMPRESSED@ .
+--
+-- * 'esddEncryptionConfiguration' - The encryption configuration. If no value is specified, the default is no encryption.
+extendedS3DestinationDescription
+    :: Text -- ^ 'esddRoleARN'
+    -> Text -- ^ 'esddBucketARN'
+    -> BufferingHints -- ^ 'esddBufferingHints'
+    -> CompressionFormat -- ^ 'esddCompressionFormat'
+    -> EncryptionConfiguration -- ^ 'esddEncryptionConfiguration'
+    -> ExtendedS3DestinationDescription
+extendedS3DestinationDescription pRoleARN_ pBucketARN_ pBufferingHints_ pCompressionFormat_ pEncryptionConfiguration_ =
+  ExtendedS3DestinationDescription'
+  { _esddS3BackupMode = Nothing
+  , _esddS3BackupDescription = Nothing
+  , _esddPrefix = Nothing
+  , _esddCloudWatchLoggingOptions = Nothing
+  , _esddProcessingConfiguration = Nothing
+  , _esddRoleARN = pRoleARN_
+  , _esddBucketARN = pBucketARN_
+  , _esddBufferingHints = pBufferingHints_
+  , _esddCompressionFormat = pCompressionFormat_
+  , _esddEncryptionConfiguration = pEncryptionConfiguration_
+  }
+
+
+-- | The Amazon S3 backup mode.
+esddS3BackupMode :: Lens' ExtendedS3DestinationDescription (Maybe S3BackupMode)
+esddS3BackupMode = lens _esddS3BackupMode (\ s a -> s{_esddS3BackupMode = a});
+
+-- | The configuration for backup in Amazon S3.
+esddS3BackupDescription :: Lens' ExtendedS3DestinationDescription (Maybe S3DestinationDescription)
+esddS3BackupDescription = lens _esddS3BackupDescription (\ s a -> s{_esddS3BackupDescription = a});
+
+-- | The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the /Amazon Kinesis Firehose Developer Guide/ .
+esddPrefix :: Lens' ExtendedS3DestinationDescription (Maybe Text)
+esddPrefix = lens _esddPrefix (\ s a -> s{_esddPrefix = a});
+
+-- | The CloudWatch logging options for your delivery stream.
+esddCloudWatchLoggingOptions :: Lens' ExtendedS3DestinationDescription (Maybe CloudWatchLoggingOptions)
+esddCloudWatchLoggingOptions = lens _esddCloudWatchLoggingOptions (\ s a -> s{_esddCloudWatchLoggingOptions = a});
+
+-- | The data processing configuration.
+esddProcessingConfiguration :: Lens' ExtendedS3DestinationDescription (Maybe ProcessingConfiguration)
+esddProcessingConfiguration = lens _esddProcessingConfiguration (\ s a -> s{_esddProcessingConfiguration = a});
+
+-- | The ARN of the AWS credentials.
+esddRoleARN :: Lens' ExtendedS3DestinationDescription Text
+esddRoleARN = lens _esddRoleARN (\ s a -> s{_esddRoleARN = a});
+
+-- | The ARN of the S3 bucket.
+esddBucketARN :: Lens' ExtendedS3DestinationDescription Text
+esddBucketARN = lens _esddBucketARN (\ s a -> s{_esddBucketARN = a});
+
+-- | The buffering option.
+esddBufferingHints :: Lens' ExtendedS3DestinationDescription BufferingHints
+esddBufferingHints = lens _esddBufferingHints (\ s a -> s{_esddBufferingHints = a});
+
+-- | The compression format. If no value is specified, the default is @UNCOMPRESSED@ .
+esddCompressionFormat :: Lens' ExtendedS3DestinationDescription CompressionFormat
+esddCompressionFormat = lens _esddCompressionFormat (\ s a -> s{_esddCompressionFormat = a});
+
+-- | The encryption configuration. If no value is specified, the default is no encryption.
+esddEncryptionConfiguration :: Lens' ExtendedS3DestinationDescription EncryptionConfiguration
+esddEncryptionConfiguration = lens _esddEncryptionConfiguration (\ s a -> s{_esddEncryptionConfiguration = a});
+
+instance FromJSON ExtendedS3DestinationDescription
+         where
+        parseJSON
+          = withObject "ExtendedS3DestinationDescription"
+              (\ x ->
+                 ExtendedS3DestinationDescription' <$>
+                   (x .:? "S3BackupMode") <*>
+                     (x .:? "S3BackupDescription")
+                     <*> (x .:? "Prefix")
+                     <*> (x .:? "CloudWatchLoggingOptions")
+                     <*> (x .:? "ProcessingConfiguration")
+                     <*> (x .: "RoleARN")
+                     <*> (x .: "BucketARN")
+                     <*> (x .: "BufferingHints")
+                     <*> (x .: "CompressionFormat")
+                     <*> (x .: "EncryptionConfiguration"))
+
+instance Hashable ExtendedS3DestinationDescription
+         where
+
+instance NFData ExtendedS3DestinationDescription
+         where
+
+-- | Describes an update for a destination in Amazon S3.
+--
+--
+--
+-- /See:/ 'extendedS3DestinationUpdate' smart constructor.
+data ExtendedS3DestinationUpdate = ExtendedS3DestinationUpdate'
+  { _esduS3BackupMode             :: !(Maybe S3BackupMode)
+  , _esduPrefix                   :: !(Maybe Text)
+  , _esduCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _esduS3BackupUpdate           :: !(Maybe S3DestinationUpdate)
+  , _esduEncryptionConfiguration  :: !(Maybe EncryptionConfiguration)
+  , _esduCompressionFormat        :: !(Maybe CompressionFormat)
+  , _esduBufferingHints           :: !(Maybe BufferingHints)
+  , _esduBucketARN                :: !(Maybe Text)
+  , _esduProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
+  , _esduRoleARN                  :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ExtendedS3DestinationUpdate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'esduS3BackupMode' - Enables or disables Amazon S3 backup mode.
+--
+-- * 'esduPrefix' - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the /Amazon Kinesis Firehose Developer Guide/ .
+--
+-- * 'esduCloudWatchLoggingOptions' - The CloudWatch logging options for your delivery stream.
+--
+-- * 'esduS3BackupUpdate' - The Amazon S3 destination for backup.
+--
+-- * 'esduEncryptionConfiguration' - The encryption configuration. If no value is specified, the default is no encryption.
+--
+-- * 'esduCompressionFormat' - The compression format. If no value is specified, the default is @UNCOMPRESSED@ .
+--
+-- * 'esduBufferingHints' - The buffering option.
+--
+-- * 'esduBucketARN' - The ARN of the S3 bucket.
+--
+-- * 'esduProcessingConfiguration' - The data processing configuration.
+--
+-- * 'esduRoleARN' - The ARN of the AWS credentials.
+extendedS3DestinationUpdate
+    :: ExtendedS3DestinationUpdate
+extendedS3DestinationUpdate =
+  ExtendedS3DestinationUpdate'
+  { _esduS3BackupMode = Nothing
+  , _esduPrefix = Nothing
+  , _esduCloudWatchLoggingOptions = Nothing
+  , _esduS3BackupUpdate = Nothing
+  , _esduEncryptionConfiguration = Nothing
+  , _esduCompressionFormat = Nothing
+  , _esduBufferingHints = Nothing
+  , _esduBucketARN = Nothing
+  , _esduProcessingConfiguration = Nothing
+  , _esduRoleARN = Nothing
+  }
+
+
+-- | Enables or disables Amazon S3 backup mode.
+esduS3BackupMode :: Lens' ExtendedS3DestinationUpdate (Maybe S3BackupMode)
+esduS3BackupMode = lens _esduS3BackupMode (\ s a -> s{_esduS3BackupMode = a});
+
+-- | The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the /Amazon Kinesis Firehose Developer Guide/ .
+esduPrefix :: Lens' ExtendedS3DestinationUpdate (Maybe Text)
+esduPrefix = lens _esduPrefix (\ s a -> s{_esduPrefix = a});
+
+-- | The CloudWatch logging options for your delivery stream.
+esduCloudWatchLoggingOptions :: Lens' ExtendedS3DestinationUpdate (Maybe CloudWatchLoggingOptions)
+esduCloudWatchLoggingOptions = lens _esduCloudWatchLoggingOptions (\ s a -> s{_esduCloudWatchLoggingOptions = a});
+
+-- | The Amazon S3 destination for backup.
+esduS3BackupUpdate :: Lens' ExtendedS3DestinationUpdate (Maybe S3DestinationUpdate)
+esduS3BackupUpdate = lens _esduS3BackupUpdate (\ s a -> s{_esduS3BackupUpdate = a});
+
+-- | The encryption configuration. If no value is specified, the default is no encryption.
+esduEncryptionConfiguration :: Lens' ExtendedS3DestinationUpdate (Maybe EncryptionConfiguration)
+esduEncryptionConfiguration = lens _esduEncryptionConfiguration (\ s a -> s{_esduEncryptionConfiguration = a});
+
+-- | The compression format. If no value is specified, the default is @UNCOMPRESSED@ .
+esduCompressionFormat :: Lens' ExtendedS3DestinationUpdate (Maybe CompressionFormat)
+esduCompressionFormat = lens _esduCompressionFormat (\ s a -> s{_esduCompressionFormat = a});
+
+-- | The buffering option.
+esduBufferingHints :: Lens' ExtendedS3DestinationUpdate (Maybe BufferingHints)
+esduBufferingHints = lens _esduBufferingHints (\ s a -> s{_esduBufferingHints = a});
+
+-- | The ARN of the S3 bucket.
+esduBucketARN :: Lens' ExtendedS3DestinationUpdate (Maybe Text)
+esduBucketARN = lens _esduBucketARN (\ s a -> s{_esduBucketARN = a});
+
+-- | The data processing configuration.
+esduProcessingConfiguration :: Lens' ExtendedS3DestinationUpdate (Maybe ProcessingConfiguration)
+esduProcessingConfiguration = lens _esduProcessingConfiguration (\ s a -> s{_esduProcessingConfiguration = a});
+
+-- | The ARN of the AWS credentials.
+esduRoleARN :: Lens' ExtendedS3DestinationUpdate (Maybe Text)
+esduRoleARN = lens _esduRoleARN (\ s a -> s{_esduRoleARN = a});
+
+instance Hashable ExtendedS3DestinationUpdate where
+
+instance NFData ExtendedS3DestinationUpdate where
+
+instance ToJSON ExtendedS3DestinationUpdate where
+        toJSON ExtendedS3DestinationUpdate'{..}
+          = object
+              (catMaybes
+                 [("S3BackupMode" .=) <$> _esduS3BackupMode,
+                  ("Prefix" .=) <$> _esduPrefix,
+                  ("CloudWatchLoggingOptions" .=) <$>
+                    _esduCloudWatchLoggingOptions,
+                  ("S3BackupUpdate" .=) <$> _esduS3BackupUpdate,
+                  ("EncryptionConfiguration" .=) <$>
+                    _esduEncryptionConfiguration,
+                  ("CompressionFormat" .=) <$> _esduCompressionFormat,
+                  ("BufferingHints" .=) <$> _esduBufferingHints,
+                  ("BucketARN" .=) <$> _esduBucketARN,
+                  ("ProcessingConfiguration" .=) <$>
+                    _esduProcessingConfiguration,
+                  ("RoleARN" .=) <$> _esduRoleARN])
+
 -- | Describes an encryption key for a destination in Amazon S3.
+--
+--
 --
 -- /See:/ 'kmsEncryptionConfig' smart constructor.
 newtype KMSEncryptionConfig = KMSEncryptionConfig'
-    { _kecAWSKMSKeyARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _kecAWSKMSKeyARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'KMSEncryptionConfig' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'kecAWSKMSKeyARN'
+-- * 'kecAWSKMSKeyARN' - The ARN of the encryption key. Must belong to the same region as the destination Amazon S3 bucket.
 kmsEncryptionConfig
     :: Text -- ^ 'kecAWSKMSKeyARN'
     -> KMSEncryptionConfig
 kmsEncryptionConfig pAWSKMSKeyARN_ =
-    KMSEncryptionConfig'
-    { _kecAWSKMSKeyARN = pAWSKMSKeyARN_
-    }
+  KMSEncryptionConfig' {_kecAWSKMSKeyARN = pAWSKMSKeyARN_}
+
 
 -- | The ARN of the encryption key. Must belong to the same region as the destination Amazon S3 bucket.
 kecAWSKMSKeyARN :: Lens' KMSEncryptionConfig Text
@@ -884,9 +1341,9 @@ instance FromJSON KMSEncryptionConfig where
               (\ x ->
                  KMSEncryptionConfig' <$> (x .: "AWSKMSKeyARN"))
 
-instance Hashable KMSEncryptionConfig
+instance Hashable KMSEncryptionConfig where
 
-instance NFData KMSEncryptionConfig
+instance NFData KMSEncryptionConfig where
 
 instance ToJSON KMSEncryptionConfig where
         toJSON KMSEncryptionConfig'{..}
@@ -894,32 +1351,297 @@ instance ToJSON KMSEncryptionConfig where
               (catMaybes
                  [Just ("AWSKMSKeyARN" .= _kecAWSKMSKeyARN)])
 
--- | Contains the result for an individual record from a < PutRecordBatch> request. If the record is successfully added to your delivery stream, it receives a record ID. If the record fails to be added to your delivery stream, the result includes an error code and an error message.
+-- | The stream and role ARNs for a Kinesis stream used as the source for a delivery stream.
+--
+--
+--
+-- /See:/ 'kinesisStreamSourceConfiguration' smart constructor.
+data KinesisStreamSourceConfiguration = KinesisStreamSourceConfiguration'
+  { _ksscKinesisStreamARN :: !Text
+  , _ksscRoleARN          :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'KinesisStreamSourceConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ksscKinesisStreamARN' - The ARN of the source Kinesis stream.
+--
+-- * 'ksscRoleARN' - The ARN of the role that provides access to the source Kinesis stream.
+kinesisStreamSourceConfiguration
+    :: Text -- ^ 'ksscKinesisStreamARN'
+    -> Text -- ^ 'ksscRoleARN'
+    -> KinesisStreamSourceConfiguration
+kinesisStreamSourceConfiguration pKinesisStreamARN_ pRoleARN_ =
+  KinesisStreamSourceConfiguration'
+  {_ksscKinesisStreamARN = pKinesisStreamARN_, _ksscRoleARN = pRoleARN_}
+
+
+-- | The ARN of the source Kinesis stream.
+ksscKinesisStreamARN :: Lens' KinesisStreamSourceConfiguration Text
+ksscKinesisStreamARN = lens _ksscKinesisStreamARN (\ s a -> s{_ksscKinesisStreamARN = a});
+
+-- | The ARN of the role that provides access to the source Kinesis stream.
+ksscRoleARN :: Lens' KinesisStreamSourceConfiguration Text
+ksscRoleARN = lens _ksscRoleARN (\ s a -> s{_ksscRoleARN = a});
+
+instance Hashable KinesisStreamSourceConfiguration
+         where
+
+instance NFData KinesisStreamSourceConfiguration
+         where
+
+instance ToJSON KinesisStreamSourceConfiguration
+         where
+        toJSON KinesisStreamSourceConfiguration'{..}
+          = object
+              (catMaybes
+                 [Just ("KinesisStreamARN" .= _ksscKinesisStreamARN),
+                  Just ("RoleARN" .= _ksscRoleARN)])
+
+-- | Details about a Kinesis stream used as the source for a Kinesis Firehose delivery stream.
+--
+--
+--
+-- /See:/ 'kinesisStreamSourceDescription' smart constructor.
+data KinesisStreamSourceDescription = KinesisStreamSourceDescription'
+  { _kssdDeliveryStartTimestamp :: !(Maybe POSIX)
+  , _kssdKinesisStreamARN       :: !(Maybe Text)
+  , _kssdRoleARN                :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'KinesisStreamSourceDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'kssdDeliveryStartTimestamp' - Kinesis Firehose starts retrieving records from the Kinesis stream starting with this time stamp.
+--
+-- * 'kssdKinesisStreamARN' - The ARN of the source Kinesis stream.
+--
+-- * 'kssdRoleARN' - The ARN of the role used by the source Kinesis stream.
+kinesisStreamSourceDescription
+    :: KinesisStreamSourceDescription
+kinesisStreamSourceDescription =
+  KinesisStreamSourceDescription'
+  { _kssdDeliveryStartTimestamp = Nothing
+  , _kssdKinesisStreamARN = Nothing
+  , _kssdRoleARN = Nothing
+  }
+
+
+-- | Kinesis Firehose starts retrieving records from the Kinesis stream starting with this time stamp.
+kssdDeliveryStartTimestamp :: Lens' KinesisStreamSourceDescription (Maybe UTCTime)
+kssdDeliveryStartTimestamp = lens _kssdDeliveryStartTimestamp (\ s a -> s{_kssdDeliveryStartTimestamp = a}) . mapping _Time;
+
+-- | The ARN of the source Kinesis stream.
+kssdKinesisStreamARN :: Lens' KinesisStreamSourceDescription (Maybe Text)
+kssdKinesisStreamARN = lens _kssdKinesisStreamARN (\ s a -> s{_kssdKinesisStreamARN = a});
+
+-- | The ARN of the role used by the source Kinesis stream.
+kssdRoleARN :: Lens' KinesisStreamSourceDescription (Maybe Text)
+kssdRoleARN = lens _kssdRoleARN (\ s a -> s{_kssdRoleARN = a});
+
+instance FromJSON KinesisStreamSourceDescription
+         where
+        parseJSON
+          = withObject "KinesisStreamSourceDescription"
+              (\ x ->
+                 KinesisStreamSourceDescription' <$>
+                   (x .:? "DeliveryStartTimestamp") <*>
+                     (x .:? "KinesisStreamARN")
+                     <*> (x .:? "RoleARN"))
+
+instance Hashable KinesisStreamSourceDescription
+         where
+
+instance NFData KinesisStreamSourceDescription where
+
+-- | Describes a data processing configuration.
+--
+--
+--
+-- /See:/ 'processingConfiguration' smart constructor.
+data ProcessingConfiguration = ProcessingConfiguration'
+  { _pcEnabled    :: !(Maybe Bool)
+  , _pcProcessors :: !(Maybe [Processor])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ProcessingConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pcEnabled' - Enables or disables data processing.
+--
+-- * 'pcProcessors' - The data processors.
+processingConfiguration
+    :: ProcessingConfiguration
+processingConfiguration =
+  ProcessingConfiguration' {_pcEnabled = Nothing, _pcProcessors = Nothing}
+
+
+-- | Enables or disables data processing.
+pcEnabled :: Lens' ProcessingConfiguration (Maybe Bool)
+pcEnabled = lens _pcEnabled (\ s a -> s{_pcEnabled = a});
+
+-- | The data processors.
+pcProcessors :: Lens' ProcessingConfiguration [Processor]
+pcProcessors = lens _pcProcessors (\ s a -> s{_pcProcessors = a}) . _Default . _Coerce;
+
+instance FromJSON ProcessingConfiguration where
+        parseJSON
+          = withObject "ProcessingConfiguration"
+              (\ x ->
+                 ProcessingConfiguration' <$>
+                   (x .:? "Enabled") <*>
+                     (x .:? "Processors" .!= mempty))
+
+instance Hashable ProcessingConfiguration where
+
+instance NFData ProcessingConfiguration where
+
+instance ToJSON ProcessingConfiguration where
+        toJSON ProcessingConfiguration'{..}
+          = object
+              (catMaybes
+                 [("Enabled" .=) <$> _pcEnabled,
+                  ("Processors" .=) <$> _pcProcessors])
+
+-- | Describes a data processor.
+--
+--
+--
+-- /See:/ 'processor' smart constructor.
+data Processor = Processor'
+  { _pParameters :: !(Maybe [ProcessorParameter])
+  , _pType       :: !ProcessorType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Processor' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pParameters' - The processor parameters.
+--
+-- * 'pType' - The type of processor.
+processor
+    :: ProcessorType -- ^ 'pType'
+    -> Processor
+processor pType_ = Processor' {_pParameters = Nothing, _pType = pType_}
+
+
+-- | The processor parameters.
+pParameters :: Lens' Processor [ProcessorParameter]
+pParameters = lens _pParameters (\ s a -> s{_pParameters = a}) . _Default . _Coerce;
+
+-- | The type of processor.
+pType :: Lens' Processor ProcessorType
+pType = lens _pType (\ s a -> s{_pType = a});
+
+instance FromJSON Processor where
+        parseJSON
+          = withObject "Processor"
+              (\ x ->
+                 Processor' <$>
+                   (x .:? "Parameters" .!= mempty) <*> (x .: "Type"))
+
+instance Hashable Processor where
+
+instance NFData Processor where
+
+instance ToJSON Processor where
+        toJSON Processor'{..}
+          = object
+              (catMaybes
+                 [("Parameters" .=) <$> _pParameters,
+                  Just ("Type" .= _pType)])
+
+-- | Describes the processor parameter.
+--
+--
+--
+-- /See:/ 'processorParameter' smart constructor.
+data ProcessorParameter = ProcessorParameter'
+  { _ppParameterName  :: !ProcessorParameterName
+  , _ppParameterValue :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ProcessorParameter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ppParameterName' - The name of the parameter.
+--
+-- * 'ppParameterValue' - The parameter value.
+processorParameter
+    :: ProcessorParameterName -- ^ 'ppParameterName'
+    -> Text -- ^ 'ppParameterValue'
+    -> ProcessorParameter
+processorParameter pParameterName_ pParameterValue_ =
+  ProcessorParameter'
+  {_ppParameterName = pParameterName_, _ppParameterValue = pParameterValue_}
+
+
+-- | The name of the parameter.
+ppParameterName :: Lens' ProcessorParameter ProcessorParameterName
+ppParameterName = lens _ppParameterName (\ s a -> s{_ppParameterName = a});
+
+-- | The parameter value.
+ppParameterValue :: Lens' ProcessorParameter Text
+ppParameterValue = lens _ppParameterValue (\ s a -> s{_ppParameterValue = a});
+
+instance FromJSON ProcessorParameter where
+        parseJSON
+          = withObject "ProcessorParameter"
+              (\ x ->
+                 ProcessorParameter' <$>
+                   (x .: "ParameterName") <*> (x .: "ParameterValue"))
+
+instance Hashable ProcessorParameter where
+
+instance NFData ProcessorParameter where
+
+instance ToJSON ProcessorParameter where
+        toJSON ProcessorParameter'{..}
+          = object
+              (catMaybes
+                 [Just ("ParameterName" .= _ppParameterName),
+                  Just ("ParameterValue" .= _ppParameterValue)])
+
+-- | Contains the result for an individual record from a 'PutRecordBatch' request. If the record is successfully added to your delivery stream, it receives a record ID. If the record fails to be added to your delivery stream, the result includes an error code and an error message.
+--
+--
 --
 -- /See:/ 'putRecordBatchResponseEntry' smart constructor.
 data PutRecordBatchResponseEntry = PutRecordBatchResponseEntry'
-    { _prbreRecordId     :: !(Maybe Text)
-    , _prbreErrorCode    :: !(Maybe Text)
-    , _prbreErrorMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prbreRecordId     :: !(Maybe Text)
+  , _prbreErrorCode    :: !(Maybe Text)
+  , _prbreErrorMessage :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRecordBatchResponseEntry' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prbreRecordId'
+-- * 'prbreRecordId' - The ID of the record.
 --
--- * 'prbreErrorCode'
+-- * 'prbreErrorCode' - The error code for an individual record result.
 --
--- * 'prbreErrorMessage'
+-- * 'prbreErrorMessage' - The error message for an individual record result.
 putRecordBatchResponseEntry
     :: PutRecordBatchResponseEntry
 putRecordBatchResponseEntry =
-    PutRecordBatchResponseEntry'
-    { _prbreRecordId = Nothing
-    , _prbreErrorCode = Nothing
-    , _prbreErrorMessage = Nothing
-    }
+  PutRecordBatchResponseEntry'
+  { _prbreRecordId = Nothing
+  , _prbreErrorCode = Nothing
+  , _prbreErrorMessage = Nothing
+  }
+
 
 -- | The ID of the record.
 prbreRecordId :: Lens' PutRecordBatchResponseEntry (Maybe Text)
@@ -941,43 +1663,38 @@ instance FromJSON PutRecordBatchResponseEntry where
                    (x .:? "RecordId") <*> (x .:? "ErrorCode") <*>
                      (x .:? "ErrorMessage"))
 
-instance Hashable PutRecordBatchResponseEntry
+instance Hashable PutRecordBatchResponseEntry where
 
-instance NFData PutRecordBatchResponseEntry
+instance NFData PutRecordBatchResponseEntry where
 
 -- | The unit of data in a delivery stream.
 --
+--
+--
 -- /See:/ 'record' smart constructor.
 newtype Record = Record'
-    { _rData :: Base64
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rData :: Base64
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Record' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rData'
+-- * 'rData' - The data blob, which is base64-encoded when the blob is serialized. The maximum size of the data blob, before base64-encoding, is 1,000 KB.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 record
     :: ByteString -- ^ 'rData'
     -> Record
-record pData_ =
-    Record'
-    { _rData = _Base64 # pData_
-    }
+record pData_ = Record' {_rData = _Base64 # pData_}
 
--- | The data blob, which is base64-encoded when the blob is serialized. The maximum size of the data blob, before base64-encoding, is 1,000 KB.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+
+-- | The data blob, which is base64-encoded when the blob is serialized. The maximum size of the data blob, before base64-encoding, is 1,000 KB.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 rData :: Lens' Record ByteString
 rData = lens _rData (\ s a -> s{_rData = a}) . _Base64;
 
-instance Hashable Record
+instance Hashable Record where
 
-instance NFData Record
+instance NFData Record where
 
 instance ToJSON Record where
         toJSON Record'{..}
@@ -985,37 +1702,49 @@ instance ToJSON Record where
 
 -- | Describes the configuration of a destination in Amazon Redshift.
 --
+--
+--
 -- /See:/ 'redshiftDestinationConfiguration' smart constructor.
 data RedshiftDestinationConfiguration = RedshiftDestinationConfiguration'
-    { _rdcCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _rdcRetryOptions             :: !(Maybe RedshiftRetryOptions)
-    , _rdcRoleARN                  :: !Text
-    , _rdcClusterJDBCURL           :: !Text
-    , _rdcCopyCommand              :: !CopyCommand
-    , _rdcUsername                 :: !(Sensitive Text)
-    , _rdcPassword                 :: !(Sensitive Text)
-    , _rdcS3Configuration          :: !S3DestinationConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdcS3BackupMode             :: !(Maybe RedshiftS3BackupMode)
+  , _rdcCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _rdcS3BackupConfiguration    :: !(Maybe S3DestinationConfiguration)
+  , _rdcRetryOptions             :: !(Maybe RedshiftRetryOptions)
+  , _rdcProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
+  , _rdcRoleARN                  :: !Text
+  , _rdcClusterJDBCURL           :: !Text
+  , _rdcCopyCommand              :: !CopyCommand
+  , _rdcUsername                 :: !(Sensitive Text)
+  , _rdcPassword                 :: !(Sensitive Text)
+  , _rdcS3Configuration          :: !S3DestinationConfiguration
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RedshiftDestinationConfiguration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdcCloudWatchLoggingOptions'
+-- * 'rdcS3BackupMode' - The Amazon S3 backup mode.
 --
--- * 'rdcRetryOptions'
+-- * 'rdcCloudWatchLoggingOptions' - The CloudWatch logging options for your delivery stream.
 --
--- * 'rdcRoleARN'
+-- * 'rdcS3BackupConfiguration' - The configuration for backup in Amazon S3.
 --
--- * 'rdcClusterJDBCURL'
+-- * 'rdcRetryOptions' - The retry behavior in case Kinesis Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
 --
--- * 'rdcCopyCommand'
+-- * 'rdcProcessingConfiguration' - The data processing configuration.
 --
--- * 'rdcUsername'
+-- * 'rdcRoleARN' - The ARN of the AWS credentials.
 --
--- * 'rdcPassword'
+-- * 'rdcClusterJDBCURL' - The database connection string.
 --
--- * 'rdcS3Configuration'
+-- * 'rdcCopyCommand' - The @COPY@ command.
+--
+-- * 'rdcUsername' - The name of the user.
+--
+-- * 'rdcPassword' - The user password.
+--
+-- * 'rdcS3Configuration' - The configuration for the intermediate Amazon S3 location from which Amazon Redshift obtains data. Restrictions are described in the topic for 'CreateDeliveryStream' . The compression formats @SNAPPY@ or @ZIP@ cannot be specified in __RedshiftDestinationConfiguration.S3Configuration__ because the Amazon Redshift @COPY@ operation that reads from the S3 bucket doesn't support these compression formats.
 redshiftDestinationConfiguration
     :: Text -- ^ 'rdcRoleARN'
     -> Text -- ^ 'rdcClusterJDBCURL'
@@ -1025,24 +1754,40 @@ redshiftDestinationConfiguration
     -> S3DestinationConfiguration -- ^ 'rdcS3Configuration'
     -> RedshiftDestinationConfiguration
 redshiftDestinationConfiguration pRoleARN_ pClusterJDBCURL_ pCopyCommand_ pUsername_ pPassword_ pS3Configuration_ =
-    RedshiftDestinationConfiguration'
-    { _rdcCloudWatchLoggingOptions = Nothing
-    , _rdcRetryOptions = Nothing
-    , _rdcRoleARN = pRoleARN_
-    , _rdcClusterJDBCURL = pClusterJDBCURL_
-    , _rdcCopyCommand = pCopyCommand_
-    , _rdcUsername = _Sensitive # pUsername_
-    , _rdcPassword = _Sensitive # pPassword_
-    , _rdcS3Configuration = pS3Configuration_
-    }
+  RedshiftDestinationConfiguration'
+  { _rdcS3BackupMode = Nothing
+  , _rdcCloudWatchLoggingOptions = Nothing
+  , _rdcS3BackupConfiguration = Nothing
+  , _rdcRetryOptions = Nothing
+  , _rdcProcessingConfiguration = Nothing
+  , _rdcRoleARN = pRoleARN_
+  , _rdcClusterJDBCURL = pClusterJDBCURL_
+  , _rdcCopyCommand = pCopyCommand_
+  , _rdcUsername = _Sensitive # pUsername_
+  , _rdcPassword = _Sensitive # pPassword_
+  , _rdcS3Configuration = pS3Configuration_
+  }
 
--- | Describes CloudWatch logging options for your delivery stream.
+
+-- | The Amazon S3 backup mode.
+rdcS3BackupMode :: Lens' RedshiftDestinationConfiguration (Maybe RedshiftS3BackupMode)
+rdcS3BackupMode = lens _rdcS3BackupMode (\ s a -> s{_rdcS3BackupMode = a});
+
+-- | The CloudWatch logging options for your delivery stream.
 rdcCloudWatchLoggingOptions :: Lens' RedshiftDestinationConfiguration (Maybe CloudWatchLoggingOptions)
 rdcCloudWatchLoggingOptions = lens _rdcCloudWatchLoggingOptions (\ s a -> s{_rdcCloudWatchLoggingOptions = a});
 
--- | Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
+-- | The configuration for backup in Amazon S3.
+rdcS3BackupConfiguration :: Lens' RedshiftDestinationConfiguration (Maybe S3DestinationConfiguration)
+rdcS3BackupConfiguration = lens _rdcS3BackupConfiguration (\ s a -> s{_rdcS3BackupConfiguration = a});
+
+-- | The retry behavior in case Kinesis Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
 rdcRetryOptions :: Lens' RedshiftDestinationConfiguration (Maybe RedshiftRetryOptions)
 rdcRetryOptions = lens _rdcRetryOptions (\ s a -> s{_rdcRetryOptions = a});
+
+-- | The data processing configuration.
+rdcProcessingConfiguration :: Lens' RedshiftDestinationConfiguration (Maybe ProcessingConfiguration)
+rdcProcessingConfiguration = lens _rdcProcessingConfiguration (\ s a -> s{_rdcProcessingConfiguration = a});
 
 -- | The ARN of the AWS credentials.
 rdcRoleARN :: Lens' RedshiftDestinationConfiguration Text
@@ -1052,7 +1797,7 @@ rdcRoleARN = lens _rdcRoleARN (\ s a -> s{_rdcRoleARN = a});
 rdcClusterJDBCURL :: Lens' RedshiftDestinationConfiguration Text
 rdcClusterJDBCURL = lens _rdcClusterJDBCURL (\ s a -> s{_rdcClusterJDBCURL = a});
 
--- | The 'COPY' command.
+-- | The @COPY@ command.
 rdcCopyCommand :: Lens' RedshiftDestinationConfiguration CopyCommand
 rdcCopyCommand = lens _rdcCopyCommand (\ s a -> s{_rdcCopyCommand = a});
 
@@ -1064,24 +1809,29 @@ rdcUsername = lens _rdcUsername (\ s a -> s{_rdcUsername = a}) . _Sensitive;
 rdcPassword :: Lens' RedshiftDestinationConfiguration Text
 rdcPassword = lens _rdcPassword (\ s a -> s{_rdcPassword = a}) . _Sensitive;
 
--- | The S3 configuration for the intermediate location from which Amazon Redshift obtains data. Restrictions are described in the topic for < CreateDeliveryStream>.
---
--- The compression formats 'SNAPPY' or 'ZIP' cannot be specified in __RedshiftDestinationConfiguration.S3Configuration__ because the Amazon Redshift 'COPY' operation that reads from the S3 bucket doesn\'t support these compression formats.
+-- | The configuration for the intermediate Amazon S3 location from which Amazon Redshift obtains data. Restrictions are described in the topic for 'CreateDeliveryStream' . The compression formats @SNAPPY@ or @ZIP@ cannot be specified in __RedshiftDestinationConfiguration.S3Configuration__ because the Amazon Redshift @COPY@ operation that reads from the S3 bucket doesn't support these compression formats.
 rdcS3Configuration :: Lens' RedshiftDestinationConfiguration S3DestinationConfiguration
 rdcS3Configuration = lens _rdcS3Configuration (\ s a -> s{_rdcS3Configuration = a});
 
 instance Hashable RedshiftDestinationConfiguration
+         where
 
 instance NFData RedshiftDestinationConfiguration
+         where
 
 instance ToJSON RedshiftDestinationConfiguration
          where
         toJSON RedshiftDestinationConfiguration'{..}
           = object
               (catMaybes
-                 [("CloudWatchLoggingOptions" .=) <$>
+                 [("S3BackupMode" .=) <$> _rdcS3BackupMode,
+                  ("CloudWatchLoggingOptions" .=) <$>
                     _rdcCloudWatchLoggingOptions,
+                  ("S3BackupConfiguration" .=) <$>
+                    _rdcS3BackupConfiguration,
                   ("RetryOptions" .=) <$> _rdcRetryOptions,
+                  ("ProcessingConfiguration" .=) <$>
+                    _rdcProcessingConfiguration,
                   Just ("RoleARN" .= _rdcRoleARN),
                   Just ("ClusterJDBCURL" .= _rdcClusterJDBCURL),
                   Just ("CopyCommand" .= _rdcCopyCommand),
@@ -1091,34 +1841,46 @@ instance ToJSON RedshiftDestinationConfiguration
 
 -- | Describes a destination in Amazon Redshift.
 --
+--
+--
 -- /See:/ 'redshiftDestinationDescription' smart constructor.
 data RedshiftDestinationDescription = RedshiftDestinationDescription'
-    { _rddCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _rddRetryOptions             :: !(Maybe RedshiftRetryOptions)
-    , _rddRoleARN                  :: !Text
-    , _rddClusterJDBCURL           :: !Text
-    , _rddCopyCommand              :: !CopyCommand
-    , _rddUsername                 :: !(Sensitive Text)
-    , _rddS3DestinationDescription :: !S3DestinationDescription
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rddS3BackupMode             :: !(Maybe RedshiftS3BackupMode)
+  , _rddS3BackupDescription      :: !(Maybe S3DestinationDescription)
+  , _rddCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _rddRetryOptions             :: !(Maybe RedshiftRetryOptions)
+  , _rddProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
+  , _rddRoleARN                  :: !Text
+  , _rddClusterJDBCURL           :: !Text
+  , _rddCopyCommand              :: !CopyCommand
+  , _rddUsername                 :: !(Sensitive Text)
+  , _rddS3DestinationDescription :: !S3DestinationDescription
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RedshiftDestinationDescription' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rddCloudWatchLoggingOptions'
+-- * 'rddS3BackupMode' - The Amazon S3 backup mode.
 --
--- * 'rddRetryOptions'
+-- * 'rddS3BackupDescription' - The configuration for backup in Amazon S3.
 --
--- * 'rddRoleARN'
+-- * 'rddCloudWatchLoggingOptions' - The CloudWatch logging options for your delivery stream.
 --
--- * 'rddClusterJDBCURL'
+-- * 'rddRetryOptions' - The retry behavior in case Kinesis Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
 --
--- * 'rddCopyCommand'
+-- * 'rddProcessingConfiguration' - The data processing configuration.
 --
--- * 'rddUsername'
+-- * 'rddRoleARN' - The ARN of the AWS credentials.
 --
--- * 'rddS3DestinationDescription'
+-- * 'rddClusterJDBCURL' - The database connection string.
+--
+-- * 'rddCopyCommand' - The @COPY@ command.
+--
+-- * 'rddUsername' - The name of the user.
+--
+-- * 'rddS3DestinationDescription' - The Amazon S3 destination.
 redshiftDestinationDescription
     :: Text -- ^ 'rddRoleARN'
     -> Text -- ^ 'rddClusterJDBCURL'
@@ -1127,23 +1889,39 @@ redshiftDestinationDescription
     -> S3DestinationDescription -- ^ 'rddS3DestinationDescription'
     -> RedshiftDestinationDescription
 redshiftDestinationDescription pRoleARN_ pClusterJDBCURL_ pCopyCommand_ pUsername_ pS3DestinationDescription_ =
-    RedshiftDestinationDescription'
-    { _rddCloudWatchLoggingOptions = Nothing
-    , _rddRetryOptions = Nothing
-    , _rddRoleARN = pRoleARN_
-    , _rddClusterJDBCURL = pClusterJDBCURL_
-    , _rddCopyCommand = pCopyCommand_
-    , _rddUsername = _Sensitive # pUsername_
-    , _rddS3DestinationDescription = pS3DestinationDescription_
-    }
+  RedshiftDestinationDescription'
+  { _rddS3BackupMode = Nothing
+  , _rddS3BackupDescription = Nothing
+  , _rddCloudWatchLoggingOptions = Nothing
+  , _rddRetryOptions = Nothing
+  , _rddProcessingConfiguration = Nothing
+  , _rddRoleARN = pRoleARN_
+  , _rddClusterJDBCURL = pClusterJDBCURL_
+  , _rddCopyCommand = pCopyCommand_
+  , _rddUsername = _Sensitive # pUsername_
+  , _rddS3DestinationDescription = pS3DestinationDescription_
+  }
 
--- | Describes CloudWatch logging options for your delivery stream.
+
+-- | The Amazon S3 backup mode.
+rddS3BackupMode :: Lens' RedshiftDestinationDescription (Maybe RedshiftS3BackupMode)
+rddS3BackupMode = lens _rddS3BackupMode (\ s a -> s{_rddS3BackupMode = a});
+
+-- | The configuration for backup in Amazon S3.
+rddS3BackupDescription :: Lens' RedshiftDestinationDescription (Maybe S3DestinationDescription)
+rddS3BackupDescription = lens _rddS3BackupDescription (\ s a -> s{_rddS3BackupDescription = a});
+
+-- | The CloudWatch logging options for your delivery stream.
 rddCloudWatchLoggingOptions :: Lens' RedshiftDestinationDescription (Maybe CloudWatchLoggingOptions)
 rddCloudWatchLoggingOptions = lens _rddCloudWatchLoggingOptions (\ s a -> s{_rddCloudWatchLoggingOptions = a});
 
--- | Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
+-- | The retry behavior in case Kinesis Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
 rddRetryOptions :: Lens' RedshiftDestinationDescription (Maybe RedshiftRetryOptions)
 rddRetryOptions = lens _rddRetryOptions (\ s a -> s{_rddRetryOptions = a});
+
+-- | The data processing configuration.
+rddProcessingConfiguration :: Lens' RedshiftDestinationDescription (Maybe ProcessingConfiguration)
+rddProcessingConfiguration = lens _rddProcessingConfiguration (\ s a -> s{_rddProcessingConfiguration = a});
 
 -- | The ARN of the AWS credentials.
 rddRoleARN :: Lens' RedshiftDestinationDescription Text
@@ -1153,7 +1931,7 @@ rddRoleARN = lens _rddRoleARN (\ s a -> s{_rddRoleARN = a});
 rddClusterJDBCURL :: Lens' RedshiftDestinationDescription Text
 rddClusterJDBCURL = lens _rddClusterJDBCURL (\ s a -> s{_rddClusterJDBCURL = a});
 
--- | The 'COPY' command.
+-- | The @COPY@ command.
 rddCopyCommand :: Lens' RedshiftDestinationDescription CopyCommand
 rddCopyCommand = lens _rddCopyCommand (\ s a -> s{_rddCopyCommand = a});
 
@@ -1171,8 +1949,11 @@ instance FromJSON RedshiftDestinationDescription
           = withObject "RedshiftDestinationDescription"
               (\ x ->
                  RedshiftDestinationDescription' <$>
-                   (x .:? "CloudWatchLoggingOptions") <*>
-                     (x .:? "RetryOptions")
+                   (x .:? "S3BackupMode") <*>
+                     (x .:? "S3BackupDescription")
+                     <*> (x .:? "CloudWatchLoggingOptions")
+                     <*> (x .:? "RetryOptions")
+                     <*> (x .:? "ProcessingConfiguration")
                      <*> (x .: "RoleARN")
                      <*> (x .: "ClusterJDBCURL")
                      <*> (x .: "CopyCommand")
@@ -1180,57 +1961,78 @@ instance FromJSON RedshiftDestinationDescription
                      <*> (x .: "S3DestinationDescription"))
 
 instance Hashable RedshiftDestinationDescription
+         where
 
-instance NFData RedshiftDestinationDescription
+instance NFData RedshiftDestinationDescription where
 
 -- | Describes an update for a destination in Amazon Redshift.
 --
+--
+--
 -- /See:/ 'redshiftDestinationUpdate' smart constructor.
 data RedshiftDestinationUpdate = RedshiftDestinationUpdate'
-    { _rduCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _rduUsername                 :: !(Maybe (Sensitive Text))
-    , _rduS3Update                 :: !(Maybe S3DestinationUpdate)
-    , _rduPassword                 :: !(Maybe (Sensitive Text))
-    , _rduCopyCommand              :: !(Maybe CopyCommand)
-    , _rduRetryOptions             :: !(Maybe RedshiftRetryOptions)
-    , _rduClusterJDBCURL           :: !(Maybe Text)
-    , _rduRoleARN                  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rduS3BackupMode             :: !(Maybe RedshiftS3BackupMode)
+  , _rduCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _rduUsername                 :: !(Maybe (Sensitive Text))
+  , _rduS3Update                 :: !(Maybe S3DestinationUpdate)
+  , _rduPassword                 :: !(Maybe (Sensitive Text))
+  , _rduS3BackupUpdate           :: !(Maybe S3DestinationUpdate)
+  , _rduCopyCommand              :: !(Maybe CopyCommand)
+  , _rduRetryOptions             :: !(Maybe RedshiftRetryOptions)
+  , _rduProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
+  , _rduClusterJDBCURL           :: !(Maybe Text)
+  , _rduRoleARN                  :: !(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RedshiftDestinationUpdate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rduCloudWatchLoggingOptions'
+-- * 'rduS3BackupMode' - The Amazon S3 backup mode.
 --
--- * 'rduUsername'
+-- * 'rduCloudWatchLoggingOptions' - The CloudWatch logging options for your delivery stream.
 --
--- * 'rduS3Update'
+-- * 'rduUsername' - The name of the user.
 --
--- * 'rduPassword'
+-- * 'rduS3Update' - The Amazon S3 destination. The compression formats @SNAPPY@ or @ZIP@ cannot be specified in __RedshiftDestinationUpdate.S3Update__ because the Amazon Redshift @COPY@ operation that reads from the S3 bucket doesn't support these compression formats.
 --
--- * 'rduCopyCommand'
+-- * 'rduPassword' - The user password.
 --
--- * 'rduRetryOptions'
+-- * 'rduS3BackupUpdate' - The Amazon S3 destination for backup.
 --
--- * 'rduClusterJDBCURL'
+-- * 'rduCopyCommand' - The @COPY@ command.
 --
--- * 'rduRoleARN'
+-- * 'rduRetryOptions' - The retry behavior in case Kinesis Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
+--
+-- * 'rduProcessingConfiguration' - The data processing configuration.
+--
+-- * 'rduClusterJDBCURL' - The database connection string.
+--
+-- * 'rduRoleARN' - The ARN of the AWS credentials.
 redshiftDestinationUpdate
     :: RedshiftDestinationUpdate
 redshiftDestinationUpdate =
-    RedshiftDestinationUpdate'
-    { _rduCloudWatchLoggingOptions = Nothing
-    , _rduUsername = Nothing
-    , _rduS3Update = Nothing
-    , _rduPassword = Nothing
-    , _rduCopyCommand = Nothing
-    , _rduRetryOptions = Nothing
-    , _rduClusterJDBCURL = Nothing
-    , _rduRoleARN = Nothing
-    }
+  RedshiftDestinationUpdate'
+  { _rduS3BackupMode = Nothing
+  , _rduCloudWatchLoggingOptions = Nothing
+  , _rduUsername = Nothing
+  , _rduS3Update = Nothing
+  , _rduPassword = Nothing
+  , _rduS3BackupUpdate = Nothing
+  , _rduCopyCommand = Nothing
+  , _rduRetryOptions = Nothing
+  , _rduProcessingConfiguration = Nothing
+  , _rduClusterJDBCURL = Nothing
+  , _rduRoleARN = Nothing
+  }
 
--- | Describes CloudWatch logging options for your delivery stream.
+
+-- | The Amazon S3 backup mode.
+rduS3BackupMode :: Lens' RedshiftDestinationUpdate (Maybe RedshiftS3BackupMode)
+rduS3BackupMode = lens _rduS3BackupMode (\ s a -> s{_rduS3BackupMode = a});
+
+-- | The CloudWatch logging options for your delivery stream.
 rduCloudWatchLoggingOptions :: Lens' RedshiftDestinationUpdate (Maybe CloudWatchLoggingOptions)
 rduCloudWatchLoggingOptions = lens _rduCloudWatchLoggingOptions (\ s a -> s{_rduCloudWatchLoggingOptions = a});
 
@@ -1238,9 +2040,7 @@ rduCloudWatchLoggingOptions = lens _rduCloudWatchLoggingOptions (\ s a -> s{_rdu
 rduUsername :: Lens' RedshiftDestinationUpdate (Maybe Text)
 rduUsername = lens _rduUsername (\ s a -> s{_rduUsername = a}) . mapping _Sensitive;
 
--- | The Amazon S3 destination.
---
--- The compression formats 'SNAPPY' or 'ZIP' cannot be specified in __RedshiftDestinationUpdate.S3Update__ because the Amazon Redshift 'COPY' operation that reads from the S3 bucket doesn\'t support these compression formats.
+-- | The Amazon S3 destination. The compression formats @SNAPPY@ or @ZIP@ cannot be specified in __RedshiftDestinationUpdate.S3Update__ because the Amazon Redshift @COPY@ operation that reads from the S3 bucket doesn't support these compression formats.
 rduS3Update :: Lens' RedshiftDestinationUpdate (Maybe S3DestinationUpdate)
 rduS3Update = lens _rduS3Update (\ s a -> s{_rduS3Update = a});
 
@@ -1248,13 +2048,21 @@ rduS3Update = lens _rduS3Update (\ s a -> s{_rduS3Update = a});
 rduPassword :: Lens' RedshiftDestinationUpdate (Maybe Text)
 rduPassword = lens _rduPassword (\ s a -> s{_rduPassword = a}) . mapping _Sensitive;
 
--- | The 'COPY' command.
+-- | The Amazon S3 destination for backup.
+rduS3BackupUpdate :: Lens' RedshiftDestinationUpdate (Maybe S3DestinationUpdate)
+rduS3BackupUpdate = lens _rduS3BackupUpdate (\ s a -> s{_rduS3BackupUpdate = a});
+
+-- | The @COPY@ command.
 rduCopyCommand :: Lens' RedshiftDestinationUpdate (Maybe CopyCommand)
 rduCopyCommand = lens _rduCopyCommand (\ s a -> s{_rduCopyCommand = a});
 
--- | Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
+-- | The retry behavior in case Kinesis Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
 rduRetryOptions :: Lens' RedshiftDestinationUpdate (Maybe RedshiftRetryOptions)
 rduRetryOptions = lens _rduRetryOptions (\ s a -> s{_rduRetryOptions = a});
+
+-- | The data processing configuration.
+rduProcessingConfiguration :: Lens' RedshiftDestinationUpdate (Maybe ProcessingConfiguration)
+rduProcessingConfiguration = lens _rduProcessingConfiguration (\ s a -> s{_rduProcessingConfiguration = a});
 
 -- | The database connection string.
 rduClusterJDBCURL :: Lens' RedshiftDestinationUpdate (Maybe Text)
@@ -1264,44 +2072,49 @@ rduClusterJDBCURL = lens _rduClusterJDBCURL (\ s a -> s{_rduClusterJDBCURL = a})
 rduRoleARN :: Lens' RedshiftDestinationUpdate (Maybe Text)
 rduRoleARN = lens _rduRoleARN (\ s a -> s{_rduRoleARN = a});
 
-instance Hashable RedshiftDestinationUpdate
+instance Hashable RedshiftDestinationUpdate where
 
-instance NFData RedshiftDestinationUpdate
+instance NFData RedshiftDestinationUpdate where
 
 instance ToJSON RedshiftDestinationUpdate where
         toJSON RedshiftDestinationUpdate'{..}
           = object
               (catMaybes
-                 [("CloudWatchLoggingOptions" .=) <$>
+                 [("S3BackupMode" .=) <$> _rduS3BackupMode,
+                  ("CloudWatchLoggingOptions" .=) <$>
                     _rduCloudWatchLoggingOptions,
                   ("Username" .=) <$> _rduUsername,
                   ("S3Update" .=) <$> _rduS3Update,
                   ("Password" .=) <$> _rduPassword,
+                  ("S3BackupUpdate" .=) <$> _rduS3BackupUpdate,
                   ("CopyCommand" .=) <$> _rduCopyCommand,
                   ("RetryOptions" .=) <$> _rduRetryOptions,
+                  ("ProcessingConfiguration" .=) <$>
+                    _rduProcessingConfiguration,
                   ("ClusterJDBCURL" .=) <$> _rduClusterJDBCURL,
                   ("RoleARN" .=) <$> _rduRoleARN])
 
--- | Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon Redshift.
+-- | Configures retry behavior in case Kinesis Firehose is unable to deliver documents to Amazon Redshift.
+--
+--
 --
 -- /See:/ 'redshiftRetryOptions' smart constructor.
 newtype RedshiftRetryOptions = RedshiftRetryOptions'
-    { _rroDurationInSeconds :: Maybe Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rroDurationInSeconds :: Maybe Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RedshiftRetryOptions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rroDurationInSeconds'
+-- * 'rroDurationInSeconds' - The length of time during which Kinesis Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Kinesis Firehose does not retry if the value of @DurationInSeconds@ is 0 (zero) or if the first delivery attempt takes longer than the current value.
 redshiftRetryOptions
     :: RedshiftRetryOptions
-redshiftRetryOptions =
-    RedshiftRetryOptions'
-    { _rroDurationInSeconds = Nothing
-    }
+redshiftRetryOptions = RedshiftRetryOptions' {_rroDurationInSeconds = Nothing}
 
--- | The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of 'DurationInSeconds' is 0 (zero) or if the first delivery attempt takes longer than the current value.
+
+-- | The length of time during which Kinesis Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Kinesis Firehose does not retry if the value of @DurationInSeconds@ is 0 (zero) or if the first delivery attempt takes longer than the current value.
 rroDurationInSeconds :: Lens' RedshiftRetryOptions (Maybe Natural)
 rroDurationInSeconds = lens _rroDurationInSeconds (\ s a -> s{_rroDurationInSeconds = a}) . mapping _Nat;
 
@@ -1312,9 +2125,9 @@ instance FromJSON RedshiftRetryOptions where
                  RedshiftRetryOptions' <$>
                    (x .:? "DurationInSeconds"))
 
-instance Hashable RedshiftRetryOptions
+instance Hashable RedshiftRetryOptions where
 
-instance NFData RedshiftRetryOptions
+instance NFData RedshiftRetryOptions where
 
 instance ToJSON RedshiftRetryOptions where
         toJSON RedshiftRetryOptions'{..}
@@ -1324,54 +2137,58 @@ instance ToJSON RedshiftRetryOptions where
 
 -- | Describes the configuration of a destination in Amazon S3.
 --
+--
+--
 -- /See:/ 's3DestinationConfiguration' smart constructor.
 data S3DestinationConfiguration = S3DestinationConfiguration'
-    { _sdcPrefix                   :: !(Maybe Text)
-    , _sdcCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _sdcEncryptionConfiguration  :: !(Maybe EncryptionConfiguration)
-    , _sdcCompressionFormat        :: !(Maybe CompressionFormat)
-    , _sdcBufferingHints           :: !(Maybe BufferingHints)
-    , _sdcRoleARN                  :: !Text
-    , _sdcBucketARN                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdcPrefix                   :: !(Maybe Text)
+  , _sdcCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _sdcEncryptionConfiguration  :: !(Maybe EncryptionConfiguration)
+  , _sdcCompressionFormat        :: !(Maybe CompressionFormat)
+  , _sdcBufferingHints           :: !(Maybe BufferingHints)
+  , _sdcRoleARN                  :: !Text
+  , _sdcBucketARN                :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3DestinationConfiguration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdcPrefix'
+-- * 'sdcPrefix' - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the /Amazon Kinesis Firehose Developer Guide/ .
 --
--- * 'sdcCloudWatchLoggingOptions'
+-- * 'sdcCloudWatchLoggingOptions' - The CloudWatch logging options for your delivery stream.
 --
--- * 'sdcEncryptionConfiguration'
+-- * 'sdcEncryptionConfiguration' - The encryption configuration. If no value is specified, the default is no encryption.
 --
--- * 'sdcCompressionFormat'
+-- * 'sdcCompressionFormat' - The compression format. If no value is specified, the default is @UNCOMPRESSED@ . The compression formats @SNAPPY@ or @ZIP@ cannot be specified for Amazon Redshift destinations because they are not supported by the Amazon Redshift @COPY@ operation that reads from the S3 bucket.
 --
--- * 'sdcBufferingHints'
+-- * 'sdcBufferingHints' - The buffering option. If no value is specified, __BufferingHints__ object default values are used.
 --
--- * 'sdcRoleARN'
+-- * 'sdcRoleARN' - The ARN of the AWS credentials.
 --
--- * 'sdcBucketARN'
+-- * 'sdcBucketARN' - The ARN of the S3 bucket.
 s3DestinationConfiguration
     :: Text -- ^ 'sdcRoleARN'
     -> Text -- ^ 'sdcBucketARN'
     -> S3DestinationConfiguration
 s3DestinationConfiguration pRoleARN_ pBucketARN_ =
-    S3DestinationConfiguration'
-    { _sdcPrefix = Nothing
-    , _sdcCloudWatchLoggingOptions = Nothing
-    , _sdcEncryptionConfiguration = Nothing
-    , _sdcCompressionFormat = Nothing
-    , _sdcBufferingHints = Nothing
-    , _sdcRoleARN = pRoleARN_
-    , _sdcBucketARN = pBucketARN_
-    }
+  S3DestinationConfiguration'
+  { _sdcPrefix = Nothing
+  , _sdcCloudWatchLoggingOptions = Nothing
+  , _sdcEncryptionConfiguration = Nothing
+  , _sdcCompressionFormat = Nothing
+  , _sdcBufferingHints = Nothing
+  , _sdcRoleARN = pRoleARN_
+  , _sdcBucketARN = pBucketARN_
+  }
 
--- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the <http://docs.aws.amazon.com/firehose/latest/dev/ Amazon Kinesis Firehose Developer Guide>.
+
+-- | The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the /Amazon Kinesis Firehose Developer Guide/ .
 sdcPrefix :: Lens' S3DestinationConfiguration (Maybe Text)
 sdcPrefix = lens _sdcPrefix (\ s a -> s{_sdcPrefix = a});
 
--- | Describes CloudWatch logging options for your delivery stream.
+-- | The CloudWatch logging options for your delivery stream.
 sdcCloudWatchLoggingOptions :: Lens' S3DestinationConfiguration (Maybe CloudWatchLoggingOptions)
 sdcCloudWatchLoggingOptions = lens _sdcCloudWatchLoggingOptions (\ s a -> s{_sdcCloudWatchLoggingOptions = a});
 
@@ -1379,9 +2196,7 @@ sdcCloudWatchLoggingOptions = lens _sdcCloudWatchLoggingOptions (\ s a -> s{_sdc
 sdcEncryptionConfiguration :: Lens' S3DestinationConfiguration (Maybe EncryptionConfiguration)
 sdcEncryptionConfiguration = lens _sdcEncryptionConfiguration (\ s a -> s{_sdcEncryptionConfiguration = a});
 
--- | The compression format. If no value is specified, the default is 'UNCOMPRESSED'.
---
--- The compression formats 'SNAPPY' or 'ZIP' cannot be specified for Amazon Redshift destinations because they are not supported by the Amazon Redshift 'COPY' operation that reads from the S3 bucket.
+-- | The compression format. If no value is specified, the default is @UNCOMPRESSED@ . The compression formats @SNAPPY@ or @ZIP@ cannot be specified for Amazon Redshift destinations because they are not supported by the Amazon Redshift @COPY@ operation that reads from the S3 bucket.
 sdcCompressionFormat :: Lens' S3DestinationConfiguration (Maybe CompressionFormat)
 sdcCompressionFormat = lens _sdcCompressionFormat (\ s a -> s{_sdcCompressionFormat = a});
 
@@ -1397,9 +2212,9 @@ sdcRoleARN = lens _sdcRoleARN (\ s a -> s{_sdcRoleARN = a});
 sdcBucketARN :: Lens' S3DestinationConfiguration Text
 sdcBucketARN = lens _sdcBucketARN (\ s a -> s{_sdcBucketARN = a});
 
-instance Hashable S3DestinationConfiguration
+instance Hashable S3DestinationConfiguration where
 
-instance NFData S3DestinationConfiguration
+instance NFData S3DestinationConfiguration where
 
 instance ToJSON S3DestinationConfiguration where
         toJSON S3DestinationConfiguration'{..}
@@ -1417,34 +2232,37 @@ instance ToJSON S3DestinationConfiguration where
 
 -- | Describes a destination in Amazon S3.
 --
+--
+--
 -- /See:/ 's3DestinationDescription' smart constructor.
 data S3DestinationDescription = S3DestinationDescription'
-    { _sddPrefix                   :: !(Maybe Text)
-    , _sddCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _sddRoleARN                  :: !Text
-    , _sddBucketARN                :: !Text
-    , _sddBufferingHints           :: !BufferingHints
-    , _sddCompressionFormat        :: !CompressionFormat
-    , _sddEncryptionConfiguration  :: !EncryptionConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sddPrefix                   :: !(Maybe Text)
+  , _sddCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _sddRoleARN                  :: !Text
+  , _sddBucketARN                :: !Text
+  , _sddBufferingHints           :: !BufferingHints
+  , _sddCompressionFormat        :: !CompressionFormat
+  , _sddEncryptionConfiguration  :: !EncryptionConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3DestinationDescription' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sddPrefix'
+-- * 'sddPrefix' - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the /Amazon Kinesis Firehose Developer Guide/ .
 --
--- * 'sddCloudWatchLoggingOptions'
+-- * 'sddCloudWatchLoggingOptions' - The CloudWatch logging options for your delivery stream.
 --
--- * 'sddRoleARN'
+-- * 'sddRoleARN' - The ARN of the AWS credentials.
 --
--- * 'sddBucketARN'
+-- * 'sddBucketARN' - The ARN of the S3 bucket.
 --
--- * 'sddBufferingHints'
+-- * 'sddBufferingHints' - The buffering option. If no value is specified, __BufferingHints__ object default values are used.
 --
--- * 'sddCompressionFormat'
+-- * 'sddCompressionFormat' - The compression format. If no value is specified, the default is @UNCOMPRESSED@ .
 --
--- * 'sddEncryptionConfiguration'
+-- * 'sddEncryptionConfiguration' - The encryption configuration. If no value is specified, the default is no encryption.
 s3DestinationDescription
     :: Text -- ^ 'sddRoleARN'
     -> Text -- ^ 'sddBucketARN'
@@ -1453,21 +2271,22 @@ s3DestinationDescription
     -> EncryptionConfiguration -- ^ 'sddEncryptionConfiguration'
     -> S3DestinationDescription
 s3DestinationDescription pRoleARN_ pBucketARN_ pBufferingHints_ pCompressionFormat_ pEncryptionConfiguration_ =
-    S3DestinationDescription'
-    { _sddPrefix = Nothing
-    , _sddCloudWatchLoggingOptions = Nothing
-    , _sddRoleARN = pRoleARN_
-    , _sddBucketARN = pBucketARN_
-    , _sddBufferingHints = pBufferingHints_
-    , _sddCompressionFormat = pCompressionFormat_
-    , _sddEncryptionConfiguration = pEncryptionConfiguration_
-    }
+  S3DestinationDescription'
+  { _sddPrefix = Nothing
+  , _sddCloudWatchLoggingOptions = Nothing
+  , _sddRoleARN = pRoleARN_
+  , _sddBucketARN = pBucketARN_
+  , _sddBufferingHints = pBufferingHints_
+  , _sddCompressionFormat = pCompressionFormat_
+  , _sddEncryptionConfiguration = pEncryptionConfiguration_
+  }
 
--- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the <http://docs.aws.amazon.com/firehose/latest/dev/ Amazon Kinesis Firehose Developer Guide>.
+
+-- | The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the /Amazon Kinesis Firehose Developer Guide/ .
 sddPrefix :: Lens' S3DestinationDescription (Maybe Text)
 sddPrefix = lens _sddPrefix (\ s a -> s{_sddPrefix = a});
 
--- | Describes CloudWatch logging options for your delivery stream.
+-- | The CloudWatch logging options for your delivery stream.
 sddCloudWatchLoggingOptions :: Lens' S3DestinationDescription (Maybe CloudWatchLoggingOptions)
 sddCloudWatchLoggingOptions = lens _sddCloudWatchLoggingOptions (\ s a -> s{_sddCloudWatchLoggingOptions = a});
 
@@ -1483,7 +2302,7 @@ sddBucketARN = lens _sddBucketARN (\ s a -> s{_sddBucketARN = a});
 sddBufferingHints :: Lens' S3DestinationDescription BufferingHints
 sddBufferingHints = lens _sddBufferingHints (\ s a -> s{_sddBufferingHints = a});
 
--- | The compression format. If no value is specified, the default is 'NOCOMPRESSION'.
+-- | The compression format. If no value is specified, the default is @UNCOMPRESSED@ .
 sddCompressionFormat :: Lens' S3DestinationDescription CompressionFormat
 sddCompressionFormat = lens _sddCompressionFormat (\ s a -> s{_sddCompressionFormat = a});
 
@@ -1504,58 +2323,62 @@ instance FromJSON S3DestinationDescription where
                      <*> (x .: "CompressionFormat")
                      <*> (x .: "EncryptionConfiguration"))
 
-instance Hashable S3DestinationDescription
+instance Hashable S3DestinationDescription where
 
-instance NFData S3DestinationDescription
+instance NFData S3DestinationDescription where
 
 -- | Describes an update for a destination in Amazon S3.
 --
+--
+--
 -- /See:/ 's3DestinationUpdate' smart constructor.
 data S3DestinationUpdate = S3DestinationUpdate'
-    { _sduPrefix                   :: !(Maybe Text)
-    , _sduCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _sduEncryptionConfiguration  :: !(Maybe EncryptionConfiguration)
-    , _sduCompressionFormat        :: !(Maybe CompressionFormat)
-    , _sduBufferingHints           :: !(Maybe BufferingHints)
-    , _sduBucketARN                :: !(Maybe Text)
-    , _sduRoleARN                  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sduPrefix                   :: !(Maybe Text)
+  , _sduCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _sduEncryptionConfiguration  :: !(Maybe EncryptionConfiguration)
+  , _sduCompressionFormat        :: !(Maybe CompressionFormat)
+  , _sduBufferingHints           :: !(Maybe BufferingHints)
+  , _sduBucketARN                :: !(Maybe Text)
+  , _sduRoleARN                  :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3DestinationUpdate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sduPrefix'
+-- * 'sduPrefix' - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the /Amazon Kinesis Firehose Developer Guide/ .
 --
--- * 'sduCloudWatchLoggingOptions'
+-- * 'sduCloudWatchLoggingOptions' - The CloudWatch logging options for your delivery stream.
 --
--- * 'sduEncryptionConfiguration'
+-- * 'sduEncryptionConfiguration' - The encryption configuration. If no value is specified, the default is no encryption.
 --
--- * 'sduCompressionFormat'
+-- * 'sduCompressionFormat' - The compression format. If no value is specified, the default is @UNCOMPRESSED@ . The compression formats @SNAPPY@ or @ZIP@ cannot be specified for Amazon Redshift destinations because they are not supported by the Amazon Redshift @COPY@ operation that reads from the S3 bucket.
 --
--- * 'sduBufferingHints'
+-- * 'sduBufferingHints' - The buffering option. If no value is specified, __BufferingHints__ object default values are used.
 --
--- * 'sduBucketARN'
+-- * 'sduBucketARN' - The ARN of the S3 bucket.
 --
--- * 'sduRoleARN'
+-- * 'sduRoleARN' - The ARN of the AWS credentials.
 s3DestinationUpdate
     :: S3DestinationUpdate
 s3DestinationUpdate =
-    S3DestinationUpdate'
-    { _sduPrefix = Nothing
-    , _sduCloudWatchLoggingOptions = Nothing
-    , _sduEncryptionConfiguration = Nothing
-    , _sduCompressionFormat = Nothing
-    , _sduBufferingHints = Nothing
-    , _sduBucketARN = Nothing
-    , _sduRoleARN = Nothing
-    }
+  S3DestinationUpdate'
+  { _sduPrefix = Nothing
+  , _sduCloudWatchLoggingOptions = Nothing
+  , _sduEncryptionConfiguration = Nothing
+  , _sduCompressionFormat = Nothing
+  , _sduBufferingHints = Nothing
+  , _sduBucketARN = Nothing
+  , _sduRoleARN = Nothing
+  }
 
--- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the <http://docs.aws.amazon.com/firehose/latest/dev/ Amazon Kinesis Firehose Developer Guide>.
+
+-- | The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the /Amazon Kinesis Firehose Developer Guide/ .
 sduPrefix :: Lens' S3DestinationUpdate (Maybe Text)
 sduPrefix = lens _sduPrefix (\ s a -> s{_sduPrefix = a});
 
--- | Describes CloudWatch logging options for your delivery stream.
+-- | The CloudWatch logging options for your delivery stream.
 sduCloudWatchLoggingOptions :: Lens' S3DestinationUpdate (Maybe CloudWatchLoggingOptions)
 sduCloudWatchLoggingOptions = lens _sduCloudWatchLoggingOptions (\ s a -> s{_sduCloudWatchLoggingOptions = a});
 
@@ -1563,9 +2386,7 @@ sduCloudWatchLoggingOptions = lens _sduCloudWatchLoggingOptions (\ s a -> s{_sdu
 sduEncryptionConfiguration :: Lens' S3DestinationUpdate (Maybe EncryptionConfiguration)
 sduEncryptionConfiguration = lens _sduEncryptionConfiguration (\ s a -> s{_sduEncryptionConfiguration = a});
 
--- | The compression format. If no value is specified, the default is 'NOCOMPRESSION'.
---
--- The compression formats 'SNAPPY' or 'ZIP' cannot be specified for Amazon Redshift destinations because they are not supported by the Amazon Redshift 'COPY' operation that reads from the S3 bucket.
+-- | The compression format. If no value is specified, the default is @UNCOMPRESSED@ . The compression formats @SNAPPY@ or @ZIP@ cannot be specified for Amazon Redshift destinations because they are not supported by the Amazon Redshift @COPY@ operation that reads from the S3 bucket.
 sduCompressionFormat :: Lens' S3DestinationUpdate (Maybe CompressionFormat)
 sduCompressionFormat = lens _sduCompressionFormat (\ s a -> s{_sduCompressionFormat = a});
 
@@ -1581,9 +2402,9 @@ sduBucketARN = lens _sduBucketARN (\ s a -> s{_sduBucketARN = a});
 sduRoleARN :: Lens' S3DestinationUpdate (Maybe Text)
 sduRoleARN = lens _sduRoleARN (\ s a -> s{_sduRoleARN = a});
 
-instance Hashable S3DestinationUpdate
+instance Hashable S3DestinationUpdate where
 
-instance NFData S3DestinationUpdate
+instance NFData S3DestinationUpdate where
 
 instance ToJSON S3DestinationUpdate where
         toJSON S3DestinationUpdate'{..}
@@ -1598,3 +2419,103 @@ instance ToJSON S3DestinationUpdate where
                   ("BufferingHints" .=) <$> _sduBufferingHints,
                   ("BucketARN" .=) <$> _sduBucketARN,
                   ("RoleARN" .=) <$> _sduRoleARN])
+
+-- | /See:/ 'sessionCredentials' smart constructor.
+data SessionCredentials = SessionCredentials'
+  { _scAccessKeyId     :: !Text
+  , _scSecretAccessKey :: !Text
+  , _scSessionToken    :: !Text
+  , _scExpiration      :: !POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SessionCredentials' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scAccessKeyId' - Undocumented member.
+--
+-- * 'scSecretAccessKey' - Undocumented member.
+--
+-- * 'scSessionToken' - Undocumented member.
+--
+-- * 'scExpiration' - Undocumented member.
+sessionCredentials
+    :: Text -- ^ 'scAccessKeyId'
+    -> Text -- ^ 'scSecretAccessKey'
+    -> Text -- ^ 'scSessionToken'
+    -> UTCTime -- ^ 'scExpiration'
+    -> SessionCredentials
+sessionCredentials pAccessKeyId_ pSecretAccessKey_ pSessionToken_ pExpiration_ =
+  SessionCredentials'
+  { _scAccessKeyId = pAccessKeyId_
+  , _scSecretAccessKey = pSecretAccessKey_
+  , _scSessionToken = pSessionToken_
+  , _scExpiration = _Time # pExpiration_
+  }
+
+
+-- | Undocumented member.
+scAccessKeyId :: Lens' SessionCredentials Text
+scAccessKeyId = lens _scAccessKeyId (\ s a -> s{_scAccessKeyId = a});
+
+-- | Undocumented member.
+scSecretAccessKey :: Lens' SessionCredentials Text
+scSecretAccessKey = lens _scSecretAccessKey (\ s a -> s{_scSecretAccessKey = a});
+
+-- | Undocumented member.
+scSessionToken :: Lens' SessionCredentials Text
+scSessionToken = lens _scSessionToken (\ s a -> s{_scSessionToken = a});
+
+-- | Undocumented member.
+scExpiration :: Lens' SessionCredentials UTCTime
+scExpiration = lens _scExpiration (\ s a -> s{_scExpiration = a}) . _Time;
+
+instance FromJSON SessionCredentials where
+        parseJSON
+          = withObject "SessionCredentials"
+              (\ x ->
+                 SessionCredentials' <$>
+                   (x .: "AccessKeyId") <*> (x .: "SecretAccessKey") <*>
+                     (x .: "SessionToken")
+                     <*> (x .: "Expiration"))
+
+instance Hashable SessionCredentials where
+
+instance NFData SessionCredentials where
+
+-- | Details about a Kinesis stream used as the source for a Kinesis Firehose delivery stream.
+--
+--
+--
+-- /See:/ 'sourceDescription' smart constructor.
+newtype SourceDescription = SourceDescription'
+  { _sdKinesisStreamSourceDescription :: Maybe KinesisStreamSourceDescription
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SourceDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sdKinesisStreamSourceDescription' - The 'KinesisStreamSourceDescription' value for the source Kinesis stream.
+sourceDescription
+    :: SourceDescription
+sourceDescription =
+  SourceDescription' {_sdKinesisStreamSourceDescription = Nothing}
+
+
+-- | The 'KinesisStreamSourceDescription' value for the source Kinesis stream.
+sdKinesisStreamSourceDescription :: Lens' SourceDescription (Maybe KinesisStreamSourceDescription)
+sdKinesisStreamSourceDescription = lens _sdKinesisStreamSourceDescription (\ s a -> s{_sdKinesisStreamSourceDescription = a});
+
+instance FromJSON SourceDescription where
+        parseJSON
+          = withObject "SourceDescription"
+              (\ x ->
+                 SourceDescription' <$>
+                   (x .:? "KinesisStreamSourceDescription"))
+
+instance Hashable SourceDescription where
+
+instance NFData SourceDescription where

@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.StartStack
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts a stack\'s instances.
+-- Starts a stack's instances.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.StartStack
     (
     -- * Creating a Request
@@ -34,30 +36,29 @@ module Network.AWS.OpsWorks.StartStack
     , StartStackResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'startStack' smart constructor.
 newtype StartStack = StartStack'
-    { _staStackId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _staStackId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartStack' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'staStackId'
+-- * 'staStackId' - The stack ID.
 startStack
     :: Text -- ^ 'staStackId'
     -> StartStack
-startStack pStackId_ =
-    StartStack'
-    { _staStackId = pStackId_
-    }
+startStack pStackId_ = StartStack' {_staStackId = pStackId_}
+
 
 -- | The stack ID.
 staStackId :: Lens' StartStack Text
@@ -68,9 +69,9 @@ instance AWSRequest StartStack where
         request = postJSON opsWorks
         response = receiveNull StartStackResponse'
 
-instance Hashable StartStack
+instance Hashable StartStack where
 
-instance NFData StartStack
+instance NFData StartStack where
 
 instance ToHeaders StartStack where
         toHeaders
@@ -94,8 +95,9 @@ instance ToQuery StartStack where
 
 -- | /See:/ 'startStackResponse' smart constructor.
 data StartStackResponse =
-    StartStackResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  StartStackResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartStackResponse' with the minimum fields required to make a request.
 --
@@ -103,4 +105,5 @@ startStackResponse
     :: StartStackResponse
 startStackResponse = StartStackResponse'
 
-instance NFData StartStackResponse
+
+instance NFData StartStackResponse where

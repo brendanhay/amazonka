@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.GetTelemetryMetadata
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Information about the data that is collected for the specified assessment run.
+--
+--
 module Network.AWS.Inspector.GetTelemetryMetadata
     (
     -- * Creating a Request
@@ -35,30 +37,30 @@ module Network.AWS.Inspector.GetTelemetryMetadata
     , gtmrsTelemetryMetadata
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getTelemetryMetadata' smart constructor.
 newtype GetTelemetryMetadata = GetTelemetryMetadata'
-    { _gtmAssessmentRunARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtmAssessmentRunARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTelemetryMetadata' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtmAssessmentRunARN'
+-- * 'gtmAssessmentRunARN' - The ARN that specifies the assessment run that has the telemetry data that you want to obtain.
 getTelemetryMetadata
     :: Text -- ^ 'gtmAssessmentRunARN'
     -> GetTelemetryMetadata
 getTelemetryMetadata pAssessmentRunARN_ =
-    GetTelemetryMetadata'
-    { _gtmAssessmentRunARN = pAssessmentRunARN_
-    }
+  GetTelemetryMetadata' {_gtmAssessmentRunARN = pAssessmentRunARN_}
+
 
 -- | The ARN that specifies the assessment run that has the telemetry data that you want to obtain.
 gtmAssessmentRunARN :: Lens' GetTelemetryMetadata Text
@@ -75,9 +77,9 @@ instance AWSRequest GetTelemetryMetadata where
                    (pure (fromEnum s)) <*>
                      (x .?> "telemetryMetadata" .!@ mempty))
 
-instance Hashable GetTelemetryMetadata
+instance Hashable GetTelemetryMetadata where
 
-instance NFData GetTelemetryMetadata
+instance NFData GetTelemetryMetadata where
 
 instance ToHeaders GetTelemetryMetadata where
         toHeaders
@@ -103,27 +105,27 @@ instance ToQuery GetTelemetryMetadata where
 
 -- | /See:/ 'getTelemetryMetadataResponse' smart constructor.
 data GetTelemetryMetadataResponse = GetTelemetryMetadataResponse'
-    { _gtmrsResponseStatus    :: !Int
-    , _gtmrsTelemetryMetadata :: ![TelemetryMetadata]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtmrsResponseStatus    :: !Int
+  , _gtmrsTelemetryMetadata :: ![TelemetryMetadata]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTelemetryMetadataResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtmrsResponseStatus'
+-- * 'gtmrsResponseStatus' - -- | The response status code.
 --
--- * 'gtmrsTelemetryMetadata'
+-- * 'gtmrsTelemetryMetadata' - Telemetry details.
 getTelemetryMetadataResponse
     :: Int -- ^ 'gtmrsResponseStatus'
     -> GetTelemetryMetadataResponse
 getTelemetryMetadataResponse pResponseStatus_ =
-    GetTelemetryMetadataResponse'
-    { _gtmrsResponseStatus = pResponseStatus_
-    , _gtmrsTelemetryMetadata = mempty
-    }
+  GetTelemetryMetadataResponse'
+  {_gtmrsResponseStatus = pResponseStatus_, _gtmrsTelemetryMetadata = mempty}
 
--- | The response status code.
+
+-- | -- | The response status code.
 gtmrsResponseStatus :: Lens' GetTelemetryMetadataResponse Int
 gtmrsResponseStatus = lens _gtmrsResponseStatus (\ s a -> s{_gtmrsResponseStatus = a});
 
@@ -131,4 +133,4 @@ gtmrsResponseStatus = lens _gtmrsResponseStatus (\ s a -> s{_gtmrsResponseStatus
 gtmrsTelemetryMetadata :: Lens' GetTelemetryMetadataResponse [TelemetryMetadata]
 gtmrsTelemetryMetadata = lens _gtmrsTelemetryMetadata (\ s a -> s{_gtmrsTelemetryMetadata = a}) . _Coerce;
 
-instance NFData GetTelemetryMetadataResponse
+instance NFData GetTelemetryMetadataResponse where

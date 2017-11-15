@@ -12,19 +12,22 @@
 
 -- |
 -- Module      : Network.AWS.IoT.RegisterCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers a device certificate with AWS IoT. If you have more than one CA certificate that has the same subject field, you must specify the CA certificate that was used to sign the device certificate being registered.
+--
+--
 module Network.AWS.IoT.RegisterCertificate
     (
     -- * Creating a Request
       registerCertificate
     , RegisterCertificate
     -- * Request Lenses
+    , rcStatus
     , rcCaCertificatePem
     , rcSetAsActive
     , rcCertificatePem
@@ -38,40 +41,52 @@ module Network.AWS.IoT.RegisterCertificate
     , rcrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input to the RegisterCertificate operation.
 --
+--
+--
 -- /See:/ 'registerCertificate' smart constructor.
 data RegisterCertificate = RegisterCertificate'
-    { _rcCaCertificatePem :: !(Maybe Text)
-    , _rcSetAsActive      :: !(Maybe Bool)
-    , _rcCertificatePem   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcStatus           :: !(Maybe CertificateStatus)
+  , _rcCaCertificatePem :: !(Maybe Text)
+  , _rcSetAsActive      :: !(Maybe Bool)
+  , _rcCertificatePem   :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterCertificate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcCaCertificatePem'
+-- * 'rcStatus' - The status of the register certificate request.
 --
--- * 'rcSetAsActive'
+-- * 'rcCaCertificatePem' - The CA certificate used to sign the device certificate being registered.
 --
--- * 'rcCertificatePem'
+-- * 'rcSetAsActive' - A boolean value that specifies if the CA certificate is set to active.
+--
+-- * 'rcCertificatePem' - The certificate data, in PEM format.
 registerCertificate
     :: Text -- ^ 'rcCertificatePem'
     -> RegisterCertificate
 registerCertificate pCertificatePem_ =
-    RegisterCertificate'
-    { _rcCaCertificatePem = Nothing
-    , _rcSetAsActive = Nothing
-    , _rcCertificatePem = pCertificatePem_
-    }
+  RegisterCertificate'
+  { _rcStatus = Nothing
+  , _rcCaCertificatePem = Nothing
+  , _rcSetAsActive = Nothing
+  , _rcCertificatePem = pCertificatePem_
+  }
+
+
+-- | The status of the register certificate request.
+rcStatus :: Lens' RegisterCertificate (Maybe CertificateStatus)
+rcStatus = lens _rcStatus (\ s a -> s{_rcStatus = a});
 
 -- | The CA certificate used to sign the device certificate being registered.
 rcCaCertificatePem :: Lens' RegisterCertificate (Maybe Text)
@@ -96,9 +111,9 @@ instance AWSRequest RegisterCertificate where
                    (x .?> "certificateArn") <*> (x .?> "certificateId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable RegisterCertificate
+instance Hashable RegisterCertificate where
 
-instance NFData RegisterCertificate
+instance NFData RegisterCertificate where
 
 instance ToHeaders RegisterCertificate where
         toHeaders = const mempty
@@ -107,7 +122,8 @@ instance ToJSON RegisterCertificate where
         toJSON RegisterCertificate'{..}
           = object
               (catMaybes
-                 [("caCertificatePem" .=) <$> _rcCaCertificatePem,
+                 [("status" .=) <$> _rcStatus,
+                  ("caCertificatePem" .=) <$> _rcCaCertificatePem,
                   Just ("certificatePem" .= _rcCertificatePem)])
 
 instance ToPath RegisterCertificate where
@@ -119,31 +135,35 @@ instance ToQuery RegisterCertificate where
 
 -- | The output from the RegisterCertificate operation.
 --
+--
+--
 -- /See:/ 'registerCertificateResponse' smart constructor.
 data RegisterCertificateResponse = RegisterCertificateResponse'
-    { _rcrsCertificateARN :: !(Maybe Text)
-    , _rcrsCertificateId  :: !(Maybe Text)
-    , _rcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcrsCertificateARN :: !(Maybe Text)
+  , _rcrsCertificateId  :: !(Maybe Text)
+  , _rcrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterCertificateResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcrsCertificateARN'
+-- * 'rcrsCertificateARN' - The certificate ARN.
 --
--- * 'rcrsCertificateId'
+-- * 'rcrsCertificateId' - The certificate identifier.
 --
--- * 'rcrsResponseStatus'
+-- * 'rcrsResponseStatus' - -- | The response status code.
 registerCertificateResponse
     :: Int -- ^ 'rcrsResponseStatus'
     -> RegisterCertificateResponse
 registerCertificateResponse pResponseStatus_ =
-    RegisterCertificateResponse'
-    { _rcrsCertificateARN = Nothing
-    , _rcrsCertificateId = Nothing
-    , _rcrsResponseStatus = pResponseStatus_
-    }
+  RegisterCertificateResponse'
+  { _rcrsCertificateARN = Nothing
+  , _rcrsCertificateId = Nothing
+  , _rcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The certificate ARN.
 rcrsCertificateARN :: Lens' RegisterCertificateResponse (Maybe Text)
@@ -153,8 +173,8 @@ rcrsCertificateARN = lens _rcrsCertificateARN (\ s a -> s{_rcrsCertificateARN = 
 rcrsCertificateId :: Lens' RegisterCertificateResponse (Maybe Text)
 rcrsCertificateId = lens _rcrsCertificateId (\ s a -> s{_rcrsCertificateId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rcrsResponseStatus :: Lens' RegisterCertificateResponse Int
 rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
 
-instance NFData RegisterCertificateResponse
+instance NFData RegisterCertificateResponse where

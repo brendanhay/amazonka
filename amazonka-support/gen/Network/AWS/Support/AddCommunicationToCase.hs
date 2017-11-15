@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.Support.AddCommunicationToCase
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds additional customer communication to an AWS Support case. You use the 'caseId' value to identify the case to add communication to. You can list a set of email addresses to copy on the communication using the 'ccEmailAddresses' value. The 'communicationBody' value contains the text of the communication.
+-- Adds additional customer communication to an AWS Support case. You use the @caseId@ value to identify the case to add communication to. You can list a set of email addresses to copy on the communication using the @ccEmailAddresses@ value. The @communicationBody@ value contains the text of the communication.
+--
 --
 -- The response indicates the success or failure of the request.
 --
 -- This operation implements a subset of the features of the AWS Support Center.
+--
 module Network.AWS.Support.AddCommunicationToCase
     (
     -- * Creating a Request
@@ -42,44 +44,48 @@ module Network.AWS.Support.AddCommunicationToCase
     , actcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Support.Types
-import           Network.AWS.Support.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Support.Types
+import Network.AWS.Support.Types.Product
 
 -- | To be written.
 --
+--
+--
 -- /See:/ 'addCommunicationToCase' smart constructor.
 data AddCommunicationToCase = AddCommunicationToCase'
-    { _actcCaseId            :: !(Maybe Text)
-    , _actcCcEmailAddresses  :: !(Maybe [Text])
-    , _actcAttachmentSetId   :: !(Maybe Text)
-    , _actcCommunicationBody :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _actcCaseId            :: !(Maybe Text)
+  , _actcCcEmailAddresses  :: !(Maybe [Text])
+  , _actcAttachmentSetId   :: !(Maybe Text)
+  , _actcCommunicationBody :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddCommunicationToCase' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'actcCaseId'
+-- * 'actcCaseId' - The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 --
--- * 'actcCcEmailAddresses'
+-- * 'actcCcEmailAddresses' - The email addresses in the CC line of an email to be added to the support case.
 --
--- * 'actcAttachmentSetId'
+-- * 'actcAttachmentSetId' - The ID of a set of one or more attachments for the communication to add to the case. Create the set by calling 'AddAttachmentsToSet'
 --
--- * 'actcCommunicationBody'
+-- * 'actcCommunicationBody' - The body of an email communication to add to the support case.
 addCommunicationToCase
     :: Text -- ^ 'actcCommunicationBody'
     -> AddCommunicationToCase
 addCommunicationToCase pCommunicationBody_ =
-    AddCommunicationToCase'
-    { _actcCaseId = Nothing
-    , _actcCcEmailAddresses = Nothing
-    , _actcAttachmentSetId = Nothing
-    , _actcCommunicationBody = pCommunicationBody_
-    }
+  AddCommunicationToCase'
+  { _actcCaseId = Nothing
+  , _actcCcEmailAddresses = Nothing
+  , _actcAttachmentSetId = Nothing
+  , _actcCommunicationBody = pCommunicationBody_
+  }
+
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 actcCaseId :: Lens' AddCommunicationToCase (Maybe Text)
@@ -89,7 +95,7 @@ actcCaseId = lens _actcCaseId (\ s a -> s{_actcCaseId = a});
 actcCcEmailAddresses :: Lens' AddCommunicationToCase [Text]
 actcCcEmailAddresses = lens _actcCcEmailAddresses (\ s a -> s{_actcCcEmailAddresses = a}) . _Default . _Coerce;
 
--- | The ID of a set of one or more attachments for the communication to add to the case. Create the set by calling < AddAttachmentsToSet>
+-- | The ID of a set of one or more attachments for the communication to add to the case. Create the set by calling 'AddAttachmentsToSet'
 actcAttachmentSetId :: Lens' AddCommunicationToCase (Maybe Text)
 actcAttachmentSetId = lens _actcAttachmentSetId (\ s a -> s{_actcAttachmentSetId = a});
 
@@ -107,9 +113,9 @@ instance AWSRequest AddCommunicationToCase where
                  AddCommunicationToCaseResponse' <$>
                    (x .?> "result") <*> (pure (fromEnum s)))
 
-instance Hashable AddCommunicationToCase
+instance Hashable AddCommunicationToCase where
 
-instance NFData AddCommunicationToCase
+instance NFData AddCommunicationToCase where
 
 instance ToHeaders AddCommunicationToCase where
         toHeaders
@@ -137,36 +143,38 @@ instance ToPath AddCommunicationToCase where
 instance ToQuery AddCommunicationToCase where
         toQuery = const mempty
 
--- | The result of the < AddCommunicationToCase> operation.
+-- | The result of the 'AddCommunicationToCase' operation.
+--
+--
 --
 -- /See:/ 'addCommunicationToCaseResponse' smart constructor.
 data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse'
-    { _actcrsResult         :: !(Maybe Bool)
-    , _actcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _actcrsResult         :: !(Maybe Bool)
+  , _actcrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddCommunicationToCaseResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'actcrsResult'
+-- * 'actcrsResult' - True if 'AddCommunicationToCase' succeeds. Otherwise, returns an error.
 --
--- * 'actcrsResponseStatus'
+-- * 'actcrsResponseStatus' - -- | The response status code.
 addCommunicationToCaseResponse
     :: Int -- ^ 'actcrsResponseStatus'
     -> AddCommunicationToCaseResponse
 addCommunicationToCaseResponse pResponseStatus_ =
-    AddCommunicationToCaseResponse'
-    { _actcrsResult = Nothing
-    , _actcrsResponseStatus = pResponseStatus_
-    }
+  AddCommunicationToCaseResponse'
+  {_actcrsResult = Nothing, _actcrsResponseStatus = pResponseStatus_}
 
--- | True if < AddCommunicationToCase> succeeds. Otherwise, returns an error.
+
+-- | True if 'AddCommunicationToCase' succeeds. Otherwise, returns an error.
 actcrsResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
 actcrsResult = lens _actcrsResult (\ s a -> s{_actcrsResult = a});
 
--- | The response status code.
+-- | -- | The response status code.
 actcrsResponseStatus :: Lens' AddCommunicationToCaseResponse Int
 actcrsResponseStatus = lens _actcrsResponseStatus (\ s a -> s{_actcrsResponseStatus = a});
 
-instance NFData AddCommunicationToCaseResponse
+instance NFData AddCommunicationToCaseResponse where

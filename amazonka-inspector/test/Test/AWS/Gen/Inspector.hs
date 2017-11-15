@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.Inspector
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.Inspector where
 
 import Data.Proxy
+import Network.AWS.Inspector
 import Test.AWS.Fixture
+import Test.AWS.Inspector.Internal
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.Inspector
-import Test.AWS.Inspector.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -108,6 +108,9 @@ import Test.AWS.Inspector.Internal
 --
 --         , requestListAssessmentRuns $
 --             listAssessmentRuns
+--
+--         , requestGetAssessmentReport $
+--             getAssessmentReport
 --
 --         , requestListRulesPackages $
 --             listRulesPackages
@@ -207,6 +210,9 @@ import Test.AWS.Inspector.Internal
 --
 --         , responseListAssessmentRuns $
 --             listAssessmentRunsResponse
+--
+--         , responseGetAssessmentReport $
+--             getAssessmentReportResponse
 --
 --         , responseListRulesPackages $
 --             listRulesPackagesResponse
@@ -362,6 +368,11 @@ requestListAssessmentRuns :: ListAssessmentRuns -> TestTree
 requestListAssessmentRuns = req
     "ListAssessmentRuns"
     "fixture/ListAssessmentRuns.yaml"
+
+requestGetAssessmentReport :: GetAssessmentReport -> TestTree
+requestGetAssessmentReport = req
+    "GetAssessmentReport"
+    "fixture/GetAssessmentReport.yaml"
 
 requestListRulesPackages :: ListRulesPackages -> TestTree
 requestListRulesPackages = req
@@ -578,6 +589,13 @@ responseListAssessmentRuns = res
     "fixture/ListAssessmentRunsResponse.proto"
     inspector
     (Proxy :: Proxy ListAssessmentRuns)
+
+responseGetAssessmentReport :: GetAssessmentReportResponse -> TestTree
+responseGetAssessmentReport = res
+    "GetAssessmentReportResponse"
+    "fixture/GetAssessmentReportResponse.proto"
+    inspector
+    (Proxy :: Proxy GetAssessmentReport)
 
 responseListRulesPackages :: ListRulesPackagesResponse -> TestTree
 responseListRulesPackages = res

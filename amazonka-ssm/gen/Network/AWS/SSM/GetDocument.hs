@@ -12,56 +12,68 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetDocument
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the contents of the specified SSM document.
+-- Gets the contents of the specified Systems Manager document.
+--
+--
 module Network.AWS.SSM.GetDocument
     (
     -- * Creating a Request
       getDocument
     , GetDocument
     -- * Request Lenses
+    , gdDocumentVersion
     , gdName
 
     -- * Destructuring the Response
     , getDocumentResponse
     , GetDocumentResponse
     -- * Response Lenses
+    , gdrsDocumentType
     , gdrsContent
     , gdrsName
+    , gdrsDocumentVersion
     , gdrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getDocument' smart constructor.
-newtype GetDocument = GetDocument'
-    { _gdName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+data GetDocument = GetDocument'
+  { _gdDocumentVersion :: !(Maybe Text)
+  , _gdName            :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDocument' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdName'
+-- * 'gdDocumentVersion' - The document version for which you want information.
+--
+-- * 'gdName' - The name of the Systems Manager document.
 getDocument
     :: Text -- ^ 'gdName'
     -> GetDocument
 getDocument pName_ =
-    GetDocument'
-    { _gdName = pName_
-    }
+  GetDocument' {_gdDocumentVersion = Nothing, _gdName = pName_}
 
--- | The name of the SSM document.
+
+-- | The document version for which you want information.
+gdDocumentVersion :: Lens' GetDocument (Maybe Text)
+gdDocumentVersion = lens _gdDocumentVersion (\ s a -> s{_gdDocumentVersion = a});
+
+-- | The name of the Systems Manager document.
 gdName :: Lens' GetDocument Text
 gdName = lens _gdName (\ s a -> s{_gdName = a});
 
@@ -72,12 +84,14 @@ instance AWSRequest GetDocument where
           = receiveJSON
               (\ s h x ->
                  GetDocumentResponse' <$>
-                   (x .?> "Content") <*> (x .?> "Name") <*>
-                     (pure (fromEnum s)))
+                   (x .?> "DocumentType") <*> (x .?> "Content") <*>
+                     (x .?> "Name")
+                     <*> (x .?> "DocumentVersion")
+                     <*> (pure (fromEnum s)))
 
-instance Hashable GetDocument
+instance Hashable GetDocument where
 
-instance NFData GetDocument
+instance NFData GetDocument where
 
 instance ToHeaders GetDocument where
         toHeaders
@@ -90,7 +104,10 @@ instance ToHeaders GetDocument where
 
 instance ToJSON GetDocument where
         toJSON GetDocument'{..}
-          = object (catMaybes [Just ("Name" .= _gdName)])
+          = object
+              (catMaybes
+                 [("DocumentVersion" .=) <$> _gdDocumentVersion,
+                  Just ("Name" .= _gdName)])
 
 instance ToPath GetDocument where
         toPath = const "/"
@@ -100,40 +117,58 @@ instance ToQuery GetDocument where
 
 -- | /See:/ 'getDocumentResponse' smart constructor.
 data GetDocumentResponse = GetDocumentResponse'
-    { _gdrsContent        :: !(Maybe Text)
-    , _gdrsName           :: !(Maybe Text)
-    , _gdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdrsDocumentType    :: !(Maybe DocumentType)
+  , _gdrsContent         :: !(Maybe Text)
+  , _gdrsName            :: !(Maybe Text)
+  , _gdrsDocumentVersion :: !(Maybe Text)
+  , _gdrsResponseStatus  :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDocumentResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdrsContent'
+-- * 'gdrsDocumentType' - The document type.
 --
--- * 'gdrsName'
+-- * 'gdrsContent' - The contents of the Systems Manager document.
 --
--- * 'gdrsResponseStatus'
+-- * 'gdrsName' - The name of the Systems Manager document.
+--
+-- * 'gdrsDocumentVersion' - The document version.
+--
+-- * 'gdrsResponseStatus' - -- | The response status code.
 getDocumentResponse
     :: Int -- ^ 'gdrsResponseStatus'
     -> GetDocumentResponse
 getDocumentResponse pResponseStatus_ =
-    GetDocumentResponse'
-    { _gdrsContent = Nothing
-    , _gdrsName = Nothing
-    , _gdrsResponseStatus = pResponseStatus_
-    }
+  GetDocumentResponse'
+  { _gdrsDocumentType = Nothing
+  , _gdrsContent = Nothing
+  , _gdrsName = Nothing
+  , _gdrsDocumentVersion = Nothing
+  , _gdrsResponseStatus = pResponseStatus_
+  }
 
--- | The contents of the SSM document.
+
+-- | The document type.
+gdrsDocumentType :: Lens' GetDocumentResponse (Maybe DocumentType)
+gdrsDocumentType = lens _gdrsDocumentType (\ s a -> s{_gdrsDocumentType = a});
+
+-- | The contents of the Systems Manager document.
 gdrsContent :: Lens' GetDocumentResponse (Maybe Text)
 gdrsContent = lens _gdrsContent (\ s a -> s{_gdrsContent = a});
 
--- | The name of the SSM document.
+-- | The name of the Systems Manager document.
 gdrsName :: Lens' GetDocumentResponse (Maybe Text)
 gdrsName = lens _gdrsName (\ s a -> s{_gdrsName = a});
 
--- | The response status code.
+-- | The document version.
+gdrsDocumentVersion :: Lens' GetDocumentResponse (Maybe Text)
+gdrsDocumentVersion = lens _gdrsDocumentVersion (\ s a -> s{_gdrsDocumentVersion = a});
+
+-- | -- | The response status code.
 gdrsResponseStatus :: Lens' GetDocumentResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
 
-instance NFData GetDocumentResponse
+instance NFData GetDocumentResponse where

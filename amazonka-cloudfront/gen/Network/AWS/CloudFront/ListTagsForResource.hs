@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.ListTagsForResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- List tags for a CloudFront resource.
+--
+--
 module Network.AWS.CloudFront.ListTagsForResource
     (
     -- * Creating a Request
@@ -35,32 +37,34 @@ module Network.AWS.CloudFront.ListTagsForResource
     , ltfrrsTags
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to list tags for a CloudFront resource.
 --
+--
+--
 -- /See:/ 'listTagsForResource' smart constructor.
 newtype ListTagsForResource = ListTagsForResource'
-    { _ltfrResource :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfrResource :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrResource'
+-- * 'ltfrResource' - An ARN of a CloudFront resource.
 listTagsForResource
     :: Text -- ^ 'ltfrResource'
     -> ListTagsForResource
 listTagsForResource pResource_ =
-    ListTagsForResource'
-    { _ltfrResource = pResource_
-    }
+  ListTagsForResource' {_ltfrResource = pResource_}
+
 
 -- | An ARN of a CloudFront resource.
 ltfrResource :: Lens' ListTagsForResource Text
@@ -76,15 +80,15 @@ instance AWSRequest ListTagsForResource where
                  ListTagsForResourceResponse' <$>
                    (pure (fromEnum s)) <*> (parseXML x))
 
-instance Hashable ListTagsForResource
+instance Hashable ListTagsForResource where
 
-instance NFData ListTagsForResource
+instance NFData ListTagsForResource where
 
 instance ToHeaders ListTagsForResource where
         toHeaders = const mempty
 
 instance ToPath ListTagsForResource where
-        toPath = const "/2016-09-07/tagging"
+        toPath = const "/2017-03-25/tagging"
 
 instance ToQuery ListTagsForResource where
         toQuery ListTagsForResource'{..}
@@ -92,35 +96,37 @@ instance ToQuery ListTagsForResource where
 
 -- | The returned result of the corresponding request.
 --
+--
+--
 -- /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-    { _ltfrrsResponseStatus :: !Int
-    , _ltfrrsTags           :: !Tags
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfrrsResponseStatus :: !Int
+  , _ltfrrsTags           :: !Tags
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrrsResponseStatus'
+-- * 'ltfrrsResponseStatus' - -- | The response status code.
 --
--- * 'ltfrrsTags'
+-- * 'ltfrrsTags' - A complex type that contains zero or more @Tag@ elements.
 listTagsForResourceResponse
     :: Int -- ^ 'ltfrrsResponseStatus'
     -> Tags -- ^ 'ltfrrsTags'
     -> ListTagsForResourceResponse
 listTagsForResourceResponse pResponseStatus_ pTags_ =
-    ListTagsForResourceResponse'
-    { _ltfrrsResponseStatus = pResponseStatus_
-    , _ltfrrsTags = pTags_
-    }
+  ListTagsForResourceResponse'
+  {_ltfrrsResponseStatus = pResponseStatus_, _ltfrrsTags = pTags_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
 
--- | A complex type that contains zero or more Tag elements.
+-- | A complex type that contains zero or more @Tag@ elements.
 ltfrrsTags :: Lens' ListTagsForResourceResponse Tags
 ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a});
 
-instance NFData ListTagsForResourceResponse
+instance NFData ListTagsForResourceResponse where

@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.AddUploadBuffer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures one or more gateway local disks as upload buffer for a specified gateway. This operation is supported for both the gateway-stored and gateway-cached volume architectures.
+-- Configures one or more gateway local disks as upload buffer for a specified gateway. This operation is supported for the stored volume, cached volume and tape gateway architectures.
+--
 --
 -- In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to add upload buffer, and one or more disk IDs that you want to configure as upload buffer.
+--
 module Network.AWS.StorageGateway.AddUploadBuffer
     (
     -- * Creating a Request
@@ -38,34 +40,33 @@ module Network.AWS.StorageGateway.AddUploadBuffer
     , aubrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'addUploadBuffer' smart constructor.
 data AddUploadBuffer = AddUploadBuffer'
-    { _aubGatewayARN :: !Text
-    , _aubDiskIds    :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aubGatewayARN :: !Text
+  , _aubDiskIds    :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddUploadBuffer' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aubGatewayARN'
+-- * 'aubGatewayARN' - Undocumented member.
 --
--- * 'aubDiskIds'
+-- * 'aubDiskIds' - Undocumented member.
 addUploadBuffer
     :: Text -- ^ 'aubGatewayARN'
     -> AddUploadBuffer
 addUploadBuffer pGatewayARN_ =
-    AddUploadBuffer'
-    { _aubGatewayARN = pGatewayARN_
-    , _aubDiskIds = mempty
-    }
+  AddUploadBuffer' {_aubGatewayARN = pGatewayARN_, _aubDiskIds = mempty}
+
 
 -- | Undocumented member.
 aubGatewayARN :: Lens' AddUploadBuffer Text
@@ -84,9 +85,9 @@ instance AWSRequest AddUploadBuffer where
                  AddUploadBufferResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-instance Hashable AddUploadBuffer
+instance Hashable AddUploadBuffer where
 
-instance NFData AddUploadBuffer
+instance NFData AddUploadBuffer where
 
 instance ToHeaders AddUploadBuffer where
         toHeaders
@@ -113,32 +114,32 @@ instance ToQuery AddUploadBuffer where
 
 -- | /See:/ 'addUploadBufferResponse' smart constructor.
 data AddUploadBufferResponse = AddUploadBufferResponse'
-    { _aubrsGatewayARN     :: !(Maybe Text)
-    , _aubrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aubrsGatewayARN     :: !(Maybe Text)
+  , _aubrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddUploadBufferResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aubrsGatewayARN'
+-- * 'aubrsGatewayARN' - Undocumented member.
 --
--- * 'aubrsResponseStatus'
+-- * 'aubrsResponseStatus' - -- | The response status code.
 addUploadBufferResponse
     :: Int -- ^ 'aubrsResponseStatus'
     -> AddUploadBufferResponse
 addUploadBufferResponse pResponseStatus_ =
-    AddUploadBufferResponse'
-    { _aubrsGatewayARN = Nothing
-    , _aubrsResponseStatus = pResponseStatus_
-    }
+  AddUploadBufferResponse'
+  {_aubrsGatewayARN = Nothing, _aubrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 aubrsGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
 aubrsGatewayARN = lens _aubrsGatewayARN (\ s a -> s{_aubrsGatewayARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 aubrsResponseStatus :: Lens' AddUploadBufferResponse Int
 aubrsResponseStatus = lens _aubrsResponseStatus (\ s a -> s{_aubrsResponseStatus = a});
 
-instance NFData AddUploadBufferResponse
+instance NFData AddUploadBufferResponse where

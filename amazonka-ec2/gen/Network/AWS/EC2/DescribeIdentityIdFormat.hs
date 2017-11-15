@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeIdentityIdFormat
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the ID format settings for resources for the specified IAM user, IAM role, or root user. For example, you can view the resource types that are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html Resource IDs> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Describes the ID format settings for resources for the specified IAM user, IAM role, or root user. For example, you can view the resource types that are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html Resource IDs> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- The following resource types support longer IDs: 'instance' | 'reservation' | 'snapshot' | 'volume'.
+--
+-- The following resource types support longer IDs: @instance@ | @reservation@ | @snapshot@ | @volume@ .
 --
 -- These settings apply to the principal specified in the request. They do not apply to the principal that makes the request.
+--
 module Network.AWS.EC2.DescribeIdentityIdFormat
     (
     -- * Creating a Request
@@ -40,38 +42,40 @@ module Network.AWS.EC2.DescribeIdentityIdFormat
     , diifrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeIdentityIdFormat.
 --
+--
+--
 -- /See:/ 'describeIdentityIdFormat' smart constructor.
 data DescribeIdentityIdFormat = DescribeIdentityIdFormat'
-    { _diifResource     :: !(Maybe Text)
-    , _diifPrincipalARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diifResource     :: !(Maybe Text)
+  , _diifPrincipalARN :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeIdentityIdFormat' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diifResource'
+-- * 'diifResource' - The type of resource: @instance@ | @reservation@ | @snapshot@ | @volume@
 --
--- * 'diifPrincipalARN'
+-- * 'diifPrincipalARN' - The ARN of the principal, which can be an IAM role, IAM user, or the root user.
 describeIdentityIdFormat
     :: Text -- ^ 'diifPrincipalARN'
     -> DescribeIdentityIdFormat
 describeIdentityIdFormat pPrincipalARN_ =
-    DescribeIdentityIdFormat'
-    { _diifResource = Nothing
-    , _diifPrincipalARN = pPrincipalARN_
-    }
+  DescribeIdentityIdFormat'
+  {_diifResource = Nothing, _diifPrincipalARN = pPrincipalARN_}
 
--- | The type of resource: 'instance' | 'reservation' | 'snapshot' | 'volume'
+
+-- | The type of resource: @instance@ | @reservation@ | @snapshot@ | @volume@
 diifResource :: Lens' DescribeIdentityIdFormat (Maybe Text)
 diifResource = lens _diifResource (\ s a -> s{_diifResource = a});
 
@@ -91,9 +95,9 @@ instance AWSRequest DescribeIdentityIdFormat where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeIdentityIdFormat
+instance Hashable DescribeIdentityIdFormat where
 
-instance NFData DescribeIdentityIdFormat
+instance NFData DescribeIdentityIdFormat where
 
 instance ToHeaders DescribeIdentityIdFormat where
         toHeaders = const mempty
@@ -106,40 +110,43 @@ instance ToQuery DescribeIdentityIdFormat where
           = mconcat
               ["Action" =:
                  ("DescribeIdentityIdFormat" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "Resource" =: _diifResource,
                "PrincipalArn" =: _diifPrincipalARN]
 
 -- | Contains the output of DescribeIdentityIdFormat.
 --
+--
+--
 -- /See:/ 'describeIdentityIdFormatResponse' smart constructor.
 data DescribeIdentityIdFormatResponse = DescribeIdentityIdFormatResponse'
-    { _diifrsStatuses       :: !(Maybe [IdFormat])
-    , _diifrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diifrsStatuses       :: !(Maybe [IdFormat])
+  , _diifrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeIdentityIdFormatResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diifrsStatuses'
+-- * 'diifrsStatuses' - Information about the ID format for the resources.
 --
--- * 'diifrsResponseStatus'
+-- * 'diifrsResponseStatus' - -- | The response status code.
 describeIdentityIdFormatResponse
     :: Int -- ^ 'diifrsResponseStatus'
     -> DescribeIdentityIdFormatResponse
 describeIdentityIdFormatResponse pResponseStatus_ =
-    DescribeIdentityIdFormatResponse'
-    { _diifrsStatuses = Nothing
-    , _diifrsResponseStatus = pResponseStatus_
-    }
+  DescribeIdentityIdFormatResponse'
+  {_diifrsStatuses = Nothing, _diifrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the ID format for the resources.
 diifrsStatuses :: Lens' DescribeIdentityIdFormatResponse [IdFormat]
 diifrsStatuses = lens _diifrsStatuses (\ s a -> s{_diifrsStatuses = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 diifrsResponseStatus :: Lens' DescribeIdentityIdFormatResponse Int
 diifrsResponseStatus = lens _diifrsResponseStatus (\ s a -> s{_diifrsResponseStatus = a});
 
 instance NFData DescribeIdentityIdFormatResponse
+         where

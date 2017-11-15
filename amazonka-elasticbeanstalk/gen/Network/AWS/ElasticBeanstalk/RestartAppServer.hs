@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.RestartAppServer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Causes the environment to restart the application container server running on each Amazon EC2 instance.
+--
+--
 module Network.AWS.ElasticBeanstalk.RestartAppServer
     (
     -- * Creating a Request
@@ -33,45 +35,42 @@ module Network.AWS.ElasticBeanstalk.RestartAppServer
     , RestartAppServerResponse
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'restartAppServer' smart constructor.
 data RestartAppServer = RestartAppServer'
-    { _rasEnvironmentName :: !(Maybe Text)
-    , _rasEnvironmentId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rasEnvironmentName :: !(Maybe Text)
+  , _rasEnvironmentId   :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestartAppServer' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rasEnvironmentName'
+-- * 'rasEnvironmentName' - The name of the environment to restart the server for. Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 --
--- * 'rasEnvironmentId'
+-- * 'rasEnvironmentId' - The ID of the environment to restart the server for. Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 restartAppServer
     :: RestartAppServer
 restartAppServer =
-    RestartAppServer'
-    { _rasEnvironmentName = Nothing
-    , _rasEnvironmentId = Nothing
-    }
+  RestartAppServer' {_rasEnvironmentName = Nothing, _rasEnvironmentId = Nothing}
 
--- | The name of the environment to restart the server for.
---
--- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+
+-- | The name of the environment to restart the server for. Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 rasEnvironmentName :: Lens' RestartAppServer (Maybe Text)
 rasEnvironmentName = lens _rasEnvironmentName (\ s a -> s{_rasEnvironmentName = a});
 
--- | The ID of the environment to restart the server for.
---
--- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+-- | The ID of the environment to restart the server for. Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 rasEnvironmentId :: Lens' RestartAppServer (Maybe Text)
 rasEnvironmentId = lens _rasEnvironmentId (\ s a -> s{_rasEnvironmentId = a});
 
@@ -80,9 +79,9 @@ instance AWSRequest RestartAppServer where
         request = postQuery elasticBeanstalk
         response = receiveNull RestartAppServerResponse'
 
-instance Hashable RestartAppServer
+instance Hashable RestartAppServer where
 
-instance NFData RestartAppServer
+instance NFData RestartAppServer where
 
 instance ToHeaders RestartAppServer where
         toHeaders = const mempty
@@ -100,8 +99,9 @@ instance ToQuery RestartAppServer where
 
 -- | /See:/ 'restartAppServerResponse' smart constructor.
 data RestartAppServerResponse =
-    RestartAppServerResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RestartAppServerResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestartAppServerResponse' with the minimum fields required to make a request.
 --
@@ -109,4 +109,5 @@ restartAppServerResponse
     :: RestartAppServerResponse
 restartAppServerResponse = RestartAppServerResponse'
 
-instance NFData RestartAppServerResponse
+
+instance NFData RestartAppServerResponse where

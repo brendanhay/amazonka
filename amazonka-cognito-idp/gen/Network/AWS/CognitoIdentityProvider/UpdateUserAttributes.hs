@@ -12,21 +12,23 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.UpdateUserAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Allows a user to update a specific attribute (one at a time).
+--
+--
 module Network.AWS.CognitoIdentityProvider.UpdateUserAttributes
     (
     -- * Creating a Request
       updateUserAttributes
     , UpdateUserAttributes
     -- * Request Lenses
-    , uuaAccessToken
     , uuaUserAttributes
+    , uuaAccessToken
 
     -- * Destructuring the Response
     , updateUserAttributesResponse
@@ -36,43 +38,46 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserAttributes
     , uuarsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to update user attributes.
 --
+--
+--
 -- /See:/ 'updateUserAttributes' smart constructor.
 data UpdateUserAttributes = UpdateUserAttributes'
-    { _uuaAccessToken    :: !(Maybe (Sensitive Text))
-    , _uuaUserAttributes :: ![AttributeType]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uuaUserAttributes :: ![AttributeType]
+  , _uuaAccessToken    :: !(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUserAttributes' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uuaAccessToken'
+-- * 'uuaUserAttributes' - An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 --
--- * 'uuaUserAttributes'
+-- * 'uuaAccessToken' - The access token for the request to update user attributes.
 updateUserAttributes
-    :: UpdateUserAttributes
-updateUserAttributes =
-    UpdateUserAttributes'
-    { _uuaAccessToken = Nothing
-    , _uuaUserAttributes = mempty
-    }
+    :: Text -- ^ 'uuaAccessToken'
+    -> UpdateUserAttributes
+updateUserAttributes pAccessToken_ =
+  UpdateUserAttributes'
+  {_uuaUserAttributes = mempty, _uuaAccessToken = _Sensitive # pAccessToken_}
 
--- | The access token for the request to update user attributes.
-uuaAccessToken :: Lens' UpdateUserAttributes (Maybe Text)
-uuaAccessToken = lens _uuaAccessToken (\ s a -> s{_uuaAccessToken = a}) . mapping _Sensitive;
 
--- | An array of name-value pairs representing user attributes.
+-- | An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 uuaUserAttributes :: Lens' UpdateUserAttributes [AttributeType]
 uuaUserAttributes = lens _uuaUserAttributes (\ s a -> s{_uuaUserAttributes = a}) . _Coerce;
+
+-- | The access token for the request to update user attributes.
+uuaAccessToken :: Lens' UpdateUserAttributes Text
+uuaAccessToken = lens _uuaAccessToken (\ s a -> s{_uuaAccessToken = a}) . _Sensitive;
 
 instance AWSRequest UpdateUserAttributes where
         type Rs UpdateUserAttributes =
@@ -85,9 +90,9 @@ instance AWSRequest UpdateUserAttributes where
                    (x .?> "CodeDeliveryDetailsList" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable UpdateUserAttributes
+instance Hashable UpdateUserAttributes where
 
-instance NFData UpdateUserAttributes
+instance NFData UpdateUserAttributes where
 
 instance ToHeaders UpdateUserAttributes where
         toHeaders
@@ -103,8 +108,8 @@ instance ToJSON UpdateUserAttributes where
         toJSON UpdateUserAttributes'{..}
           = object
               (catMaybes
-                 [("AccessToken" .=) <$> _uuaAccessToken,
-                  Just ("UserAttributes" .= _uuaUserAttributes)])
+                 [Just ("UserAttributes" .= _uuaUserAttributes),
+                  Just ("AccessToken" .= _uuaAccessToken)])
 
 instance ToPath UpdateUserAttributes where
         toPath = const "/"
@@ -114,34 +119,38 @@ instance ToQuery UpdateUserAttributes where
 
 -- | Represents the response from the server for the request to update user attributes.
 --
+--
+--
 -- /See:/ 'updateUserAttributesResponse' smart constructor.
 data UpdateUserAttributesResponse = UpdateUserAttributesResponse'
-    { _uuarsCodeDeliveryDetailsList :: !(Maybe [CodeDeliveryDetailsType])
-    , _uuarsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uuarsCodeDeliveryDetailsList :: !(Maybe [CodeDeliveryDetailsType])
+  , _uuarsResponseStatus          :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUserAttributesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uuarsCodeDeliveryDetailsList'
+-- * 'uuarsCodeDeliveryDetailsList' - The code delivery details list from the server for the request to update user attributes.
 --
--- * 'uuarsResponseStatus'
+-- * 'uuarsResponseStatus' - -- | The response status code.
 updateUserAttributesResponse
     :: Int -- ^ 'uuarsResponseStatus'
     -> UpdateUserAttributesResponse
 updateUserAttributesResponse pResponseStatus_ =
-    UpdateUserAttributesResponse'
-    { _uuarsCodeDeliveryDetailsList = Nothing
-    , _uuarsResponseStatus = pResponseStatus_
-    }
+  UpdateUserAttributesResponse'
+  { _uuarsCodeDeliveryDetailsList = Nothing
+  , _uuarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The code delivery details list from the server for the request to update user attributes.
 uuarsCodeDeliveryDetailsList :: Lens' UpdateUserAttributesResponse [CodeDeliveryDetailsType]
 uuarsCodeDeliveryDetailsList = lens _uuarsCodeDeliveryDetailsList (\ s a -> s{_uuarsCodeDeliveryDetailsList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 uuarsResponseStatus :: Lens' UpdateUserAttributesResponse Int
 uuarsResponseStatus = lens _uuarsResponseStatus (\ s a -> s{_uuarsResponseStatus = a});
 
-instance NFData UpdateUserAttributesResponse
+instance NFData UpdateUserAttributesResponse where

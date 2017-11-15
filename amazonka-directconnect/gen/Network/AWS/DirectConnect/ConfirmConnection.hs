@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.ConfirmConnection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Confirm the creation of a hosted connection on an interconnect.
 --
--- Upon creation, the hosted connection is initially in the \'Ordering\' state, and will remain in this state until the owner calls ConfirmConnection to confirm creation of the hosted connection.
+--
+-- Upon creation, the hosted connection is initially in the 'Ordering' state, and will remain in this state until the owner calls ConfirmConnection to confirm creation of the hosted connection.
+--
 module Network.AWS.DirectConnect.ConfirmConnection
     (
     -- * Creating a Request
@@ -37,32 +39,34 @@ module Network.AWS.DirectConnect.ConfirmConnection
     , ccrsResponseStatus
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the ConfirmConnection operation.
 --
+--
+--
 -- /See:/ 'confirmConnection' smart constructor.
 newtype ConfirmConnection = ConfirmConnection'
-    { _ccConnectionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccConnectionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfirmConnection' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccConnectionId'
+-- * 'ccConnectionId' - Undocumented member.
 confirmConnection
     :: Text -- ^ 'ccConnectionId'
     -> ConfirmConnection
 confirmConnection pConnectionId_ =
-    ConfirmConnection'
-    { _ccConnectionId = pConnectionId_
-    }
+  ConfirmConnection' {_ccConnectionId = pConnectionId_}
+
 
 -- | Undocumented member.
 ccConnectionId :: Lens' ConfirmConnection Text
@@ -77,9 +81,9 @@ instance AWSRequest ConfirmConnection where
                  ConfirmConnectionResponse' <$>
                    (x .?> "connectionState") <*> (pure (fromEnum s)))
 
-instance Hashable ConfirmConnection
+instance Hashable ConfirmConnection where
 
-instance NFData ConfirmConnection
+instance NFData ConfirmConnection where
 
 instance ToHeaders ConfirmConnection where
         toHeaders
@@ -104,34 +108,36 @@ instance ToQuery ConfirmConnection where
 
 -- | The response received when ConfirmConnection is called.
 --
+--
+--
 -- /See:/ 'confirmConnectionResponse' smart constructor.
 data ConfirmConnectionResponse = ConfirmConnectionResponse'
-    { _ccrsConnectionState :: !(Maybe ConnectionState)
-    , _ccrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccrsConnectionState :: !(Maybe ConnectionState)
+  , _ccrsResponseStatus  :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfirmConnectionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccrsConnectionState'
+-- * 'ccrsConnectionState' - Undocumented member.
 --
--- * 'ccrsResponseStatus'
+-- * 'ccrsResponseStatus' - -- | The response status code.
 confirmConnectionResponse
     :: Int -- ^ 'ccrsResponseStatus'
     -> ConfirmConnectionResponse
 confirmConnectionResponse pResponseStatus_ =
-    ConfirmConnectionResponse'
-    { _ccrsConnectionState = Nothing
-    , _ccrsResponseStatus = pResponseStatus_
-    }
+  ConfirmConnectionResponse'
+  {_ccrsConnectionState = Nothing, _ccrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 ccrsConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
 ccrsConnectionState = lens _ccrsConnectionState (\ s a -> s{_ccrsConnectionState = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ccrsResponseStatus :: Lens' ConfirmConnectionResponse Int
 ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
 
-instance NFData ConfirmConnectionResponse
+instance NFData ConfirmConnectionResponse where

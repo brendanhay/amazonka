@@ -9,36 +9,47 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Redshift.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Internal
+import Network.AWS.Redshift.Types.Sum
 
 -- | Describes an AWS customer account authorized to restore a snapshot.
 --
+--
+--
 -- /See:/ 'accountWithRestoreAccess' smart constructor.
-newtype AccountWithRestoreAccess = AccountWithRestoreAccess'
-    { _awraAccountId :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+data AccountWithRestoreAccess = AccountWithRestoreAccess'
+  { _awraAccountAlias :: !(Maybe Text)
+  , _awraAccountId    :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AccountWithRestoreAccess' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'awraAccountId'
+-- * 'awraAccountAlias' - The identifier of an AWS support account authorized to restore a snapshot. For AWS support, the identifier is @amazon-redshift-support@ .
+--
+-- * 'awraAccountId' - The identifier of an AWS customer account authorized to restore a snapshot.
 accountWithRestoreAccess
     :: AccountWithRestoreAccess
 accountWithRestoreAccess =
-    AccountWithRestoreAccess'
-    { _awraAccountId = Nothing
-    }
+  AccountWithRestoreAccess'
+  {_awraAccountAlias = Nothing, _awraAccountId = Nothing}
+
+
+-- | The identifier of an AWS support account authorized to restore a snapshot. For AWS support, the identifier is @amazon-redshift-support@ .
+awraAccountAlias :: Lens' AccountWithRestoreAccess (Maybe Text)
+awraAccountAlias = lens _awraAccountAlias (\ s a -> s{_awraAccountAlias = a});
 
 -- | The identifier of an AWS customer account authorized to restore a snapshot.
 awraAccountId :: Lens' AccountWithRestoreAccess (Maybe Text)
@@ -46,30 +57,32 @@ awraAccountId = lens _awraAccountId (\ s a -> s{_awraAccountId = a});
 
 instance FromXML AccountWithRestoreAccess where
         parseXML x
-          = AccountWithRestoreAccess' <$> (x .@? "AccountId")
+          = AccountWithRestoreAccess' <$>
+              (x .@? "AccountAlias") <*> (x .@? "AccountId")
 
-instance Hashable AccountWithRestoreAccess
+instance Hashable AccountWithRestoreAccess where
 
-instance NFData AccountWithRestoreAccess
+instance NFData AccountWithRestoreAccess where
 
 -- | Describes an availability zone.
 --
+--
+--
 -- /See:/ 'availabilityZone' smart constructor.
 newtype AvailabilityZone = AvailabilityZone'
-    { _azName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _azName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'azName'
+-- * 'azName' - The name of the availability zone.
 availabilityZone
     :: AvailabilityZone
-availabilityZone =
-    AvailabilityZone'
-    { _azName = Nothing
-    }
+availabilityZone = AvailabilityZone' {_azName = Nothing}
+
 
 -- | The name of the availability zone.
 azName :: Lens' AvailabilityZone (Maybe Text)
@@ -78,158 +91,170 @@ azName = lens _azName (\ s a -> s{_azName = a});
 instance FromXML AvailabilityZone where
         parseXML x = AvailabilityZone' <$> (x .@? "Name")
 
-instance Hashable AvailabilityZone
+instance Hashable AvailabilityZone where
 
-instance NFData AvailabilityZone
+instance NFData AvailabilityZone where
 
 -- | Describes a cluster.
 --
+--
+--
 -- /See:/ 'cluster' smart constructor.
 data Cluster = Cluster'
-    { _cRestoreStatus                    :: !(Maybe RestoreStatus)
-    , _cClusterSnapshotCopyStatus        :: !(Maybe ClusterSnapshotCopyStatus)
-    , _cClusterRevisionNumber            :: !(Maybe Text)
-    , _cPubliclyAccessible               :: !(Maybe Bool)
-    , _cMasterUsername                   :: !(Maybe Text)
-    , _cVPCId                            :: !(Maybe Text)
-    , _cClusterSecurityGroups            :: !(Maybe [ClusterSecurityGroupMembership])
-    , _cAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
-    , _cEncrypted                        :: !(Maybe Bool)
-    , _cClusterSubnetGroupName           :: !(Maybe Text)
-    , _cClusterIdentifier                :: !(Maybe Text)
-    , _cNumberOfNodes                    :: !(Maybe Int)
-    , _cClusterPublicKey                 :: !(Maybe Text)
-    , _cPreferredMaintenanceWindow       :: !(Maybe Text)
-    , _cModifyStatus                     :: !(Maybe Text)
-    , _cKMSKeyId                         :: !(Maybe Text)
-    , _cClusterParameterGroups           :: !(Maybe [ClusterParameterGroupStatus])
-    , _cAvailabilityZone                 :: !(Maybe Text)
-    , _cVPCSecurityGroups                :: !(Maybe [VPCSecurityGroupMembership])
-    , _cHSMStatus                        :: !(Maybe HSMStatus)
-    , _cIAMRoles                         :: !(Maybe [ClusterIAMRole])
-    , _cElasticIPStatus                  :: !(Maybe ElasticIPStatus)
-    , _cClusterVersion                   :: !(Maybe Text)
-    , _cNodeType                         :: !(Maybe Text)
-    , _cClusterCreateTime                :: !(Maybe ISO8601)
-    , _cEndpoint                         :: !(Maybe Endpoint)
-    , _cAllowVersionUpgrade              :: !(Maybe Bool)
-    , _cClusterStatus                    :: !(Maybe Text)
-    , _cPendingModifiedValues            :: !(Maybe PendingModifiedValues)
-    , _cTags                             :: !(Maybe [Tag])
-    , _cClusterNodes                     :: !(Maybe [ClusterNode])
-    , _cDBName                           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cRestoreStatus :: !(Maybe RestoreStatus)
+  , _cEnhancedVPCRouting :: !(Maybe Bool)
+  , _cClusterSnapshotCopyStatus :: !(Maybe ClusterSnapshotCopyStatus)
+  , _cClusterRevisionNumber :: !(Maybe Text)
+  , _cPubliclyAccessible :: !(Maybe Bool)
+  , _cMasterUsername :: !(Maybe Text)
+  , _cVPCId :: !(Maybe Text)
+  , _cClusterSecurityGroups :: !(Maybe [ClusterSecurityGroupMembership])
+  , _cAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+  , _cEncrypted :: !(Maybe Bool)
+  , _cClusterSubnetGroupName :: !(Maybe Text)
+  , _cClusterIdentifier :: !(Maybe Text)
+  , _cNumberOfNodes :: !(Maybe Int)
+  , _cClusterPublicKey :: !(Maybe Text)
+  , _cPreferredMaintenanceWindow :: !(Maybe Text)
+  , _cModifyStatus :: !(Maybe Text)
+  , _cKMSKeyId :: !(Maybe Text)
+  , _cClusterParameterGroups :: !(Maybe [ClusterParameterGroupStatus])
+  , _cAvailabilityZone :: !(Maybe Text)
+  , _cVPCSecurityGroups :: !(Maybe [VPCSecurityGroupMembership])
+  , _cHSMStatus :: !(Maybe HSMStatus)
+  , _cIAMRoles :: !(Maybe [ClusterIAMRole])
+  , _cElasticIPStatus :: !(Maybe ElasticIPStatus)
+  , _cClusterVersion :: !(Maybe Text)
+  , _cNodeType :: !(Maybe Text)
+  , _cClusterCreateTime :: !(Maybe ISO8601)
+  , _cEndpoint :: !(Maybe Endpoint)
+  , _cAllowVersionUpgrade :: !(Maybe Bool)
+  , _cClusterStatus :: !(Maybe Text)
+  , _cPendingModifiedValues :: !(Maybe PendingModifiedValues)
+  , _cTags :: !(Maybe [Tag])
+  , _cClusterNodes :: !(Maybe [ClusterNode])
+  , _cDBName :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Cluster' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cRestoreStatus'
+-- * 'cRestoreStatus' - A value that describes the status of a cluster restore action. This parameter returns null if the cluster was not created by restoring a snapshot.
 --
--- * 'cClusterSnapshotCopyStatus'
+-- * 'cEnhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 --
--- * 'cClusterRevisionNumber'
+-- * 'cClusterSnapshotCopyStatus' - A value that returns the destination region and retention period that are configured for cross-region snapshot copy.
 --
--- * 'cPubliclyAccessible'
+-- * 'cClusterRevisionNumber' - The specific revision number of the database in the cluster.
 --
--- * 'cMasterUsername'
+-- * 'cPubliclyAccessible' - A Boolean value that, if @true@ , indicates that the cluster can be accessed from a public network.
 --
--- * 'cVPCId'
+-- * 'cMasterUsername' - The master user name for the cluster. This name is used to connect to the database that is specified in the __DBName__ parameter.
 --
--- * 'cClusterSecurityGroups'
+-- * 'cVPCId' - The identifier of the VPC the cluster is in, if the cluster is in a VPC.
 --
--- * 'cAutomatedSnapshotRetentionPeriod'
+-- * 'cClusterSecurityGroups' - A list of cluster security group that are associated with the cluster. Each security group is represented by an element that contains @ClusterSecurityGroup.Name@ and @ClusterSecurityGroup.Status@ subelements.  Cluster security groups are used when the cluster is not created in an Amazon Virtual Private Cloud (VPC). Clusters that are created in a VPC use VPC security groups, which are listed by the __VpcSecurityGroups__ parameter.
 --
--- * 'cEncrypted'
+-- * 'cAutomatedSnapshotRetentionPeriod' - The number of days that automatic cluster snapshots are retained.
 --
--- * 'cClusterSubnetGroupName'
+-- * 'cEncrypted' - A Boolean value that, if @true@ , indicates that data in the cluster is encrypted at rest.
 --
--- * 'cClusterIdentifier'
+-- * 'cClusterSubnetGroupName' - The name of the subnet group that is associated with the cluster. This parameter is valid only when the cluster is in a VPC.
 --
--- * 'cNumberOfNodes'
+-- * 'cClusterIdentifier' - The unique identifier of the cluster.
 --
--- * 'cClusterPublicKey'
+-- * 'cNumberOfNodes' - The number of compute nodes in the cluster.
 --
--- * 'cPreferredMaintenanceWindow'
+-- * 'cClusterPublicKey' - The public key for the cluster.
 --
--- * 'cModifyStatus'
+-- * 'cPreferredMaintenanceWindow' - The weekly time range, in Universal Coordinated Time (UTC), during which system maintenance can occur.
 --
--- * 'cKMSKeyId'
+-- * 'cModifyStatus' - The status of a modify operation, if any, initiated for the cluster.
 --
--- * 'cClusterParameterGroups'
+-- * 'cKMSKeyId' - The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
 --
--- * 'cAvailabilityZone'
+-- * 'cClusterParameterGroups' - The list of cluster parameter groups that are associated with this cluster. Each parameter group in the list is returned with its status.
 --
--- * 'cVPCSecurityGroups'
+-- * 'cAvailabilityZone' - The name of the Availability Zone in which the cluster is located.
 --
--- * 'cHSMStatus'
+-- * 'cVPCSecurityGroups' - A list of Amazon Virtual Private Cloud (Amazon VPC) security groups that are associated with the cluster. This parameter is returned only if the cluster is in a VPC.
 --
--- * 'cIAMRoles'
+-- * 'cHSMStatus' - A value that reports whether the Amazon Redshift cluster has finished applying any hardware security module (HSM) settings changes specified in a modify cluster command. Values: active, applying
 --
--- * 'cElasticIPStatus'
+-- * 'cIAMRoles' - A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services.
 --
--- * 'cClusterVersion'
+-- * 'cElasticIPStatus' - The status of the elastic IP (EIP) address.
 --
--- * 'cNodeType'
+-- * 'cClusterVersion' - The version ID of the Amazon Redshift engine that is running on the cluster.
 --
--- * 'cClusterCreateTime'
+-- * 'cNodeType' - The node type for the nodes in the cluster.
 --
--- * 'cEndpoint'
+-- * 'cClusterCreateTime' - The date and time that the cluster was created.
 --
--- * 'cAllowVersionUpgrade'
+-- * 'cEndpoint' - The connection endpoint.
 --
--- * 'cClusterStatus'
+-- * 'cAllowVersionUpgrade' - A Boolean value that, if @true@ , indicates that major version upgrades will be applied automatically to the cluster during the maintenance window.
 --
--- * 'cPendingModifiedValues'
+-- * 'cClusterStatus' - The current state of the cluster. Possible values are the following:     * @available@      * @creating@      * @deleting@      * @final-snapshot@      * @hardware-failure@      * @incompatible-hsm@      * @incompatible-network@      * @incompatible-parameters@      * @incompatible-restore@      * @modifying@      * @rebooting@      * @renaming@      * @resizing@      * @rotating-keys@      * @storage-full@      * @updating-hsm@
 --
--- * 'cTags'
+-- * 'cPendingModifiedValues' - A value that, if present, indicates that changes to the cluster are pending. Specific pending changes are identified by subelements.
 --
--- * 'cClusterNodes'
+-- * 'cTags' - The list of tags for the cluster.
 --
--- * 'cDBName'
+-- * 'cClusterNodes' - The nodes in the cluster.
+--
+-- * 'cDBName' - The name of the initial database that was created when the cluster was created. This same name is returned for the life of the cluster. If an initial database was not specified, a database named @dev@ dev was created by default.
 cluster
     :: Cluster
 cluster =
-    Cluster'
-    { _cRestoreStatus = Nothing
-    , _cClusterSnapshotCopyStatus = Nothing
-    , _cClusterRevisionNumber = Nothing
-    , _cPubliclyAccessible = Nothing
-    , _cMasterUsername = Nothing
-    , _cVPCId = Nothing
-    , _cClusterSecurityGroups = Nothing
-    , _cAutomatedSnapshotRetentionPeriod = Nothing
-    , _cEncrypted = Nothing
-    , _cClusterSubnetGroupName = Nothing
-    , _cClusterIdentifier = Nothing
-    , _cNumberOfNodes = Nothing
-    , _cClusterPublicKey = Nothing
-    , _cPreferredMaintenanceWindow = Nothing
-    , _cModifyStatus = Nothing
-    , _cKMSKeyId = Nothing
-    , _cClusterParameterGroups = Nothing
-    , _cAvailabilityZone = Nothing
-    , _cVPCSecurityGroups = Nothing
-    , _cHSMStatus = Nothing
-    , _cIAMRoles = Nothing
-    , _cElasticIPStatus = Nothing
-    , _cClusterVersion = Nothing
-    , _cNodeType = Nothing
-    , _cClusterCreateTime = Nothing
-    , _cEndpoint = Nothing
-    , _cAllowVersionUpgrade = Nothing
-    , _cClusterStatus = Nothing
-    , _cPendingModifiedValues = Nothing
-    , _cTags = Nothing
-    , _cClusterNodes = Nothing
-    , _cDBName = Nothing
-    }
+  Cluster'
+  { _cRestoreStatus = Nothing
+  , _cEnhancedVPCRouting = Nothing
+  , _cClusterSnapshotCopyStatus = Nothing
+  , _cClusterRevisionNumber = Nothing
+  , _cPubliclyAccessible = Nothing
+  , _cMasterUsername = Nothing
+  , _cVPCId = Nothing
+  , _cClusterSecurityGroups = Nothing
+  , _cAutomatedSnapshotRetentionPeriod = Nothing
+  , _cEncrypted = Nothing
+  , _cClusterSubnetGroupName = Nothing
+  , _cClusterIdentifier = Nothing
+  , _cNumberOfNodes = Nothing
+  , _cClusterPublicKey = Nothing
+  , _cPreferredMaintenanceWindow = Nothing
+  , _cModifyStatus = Nothing
+  , _cKMSKeyId = Nothing
+  , _cClusterParameterGroups = Nothing
+  , _cAvailabilityZone = Nothing
+  , _cVPCSecurityGroups = Nothing
+  , _cHSMStatus = Nothing
+  , _cIAMRoles = Nothing
+  , _cElasticIPStatus = Nothing
+  , _cClusterVersion = Nothing
+  , _cNodeType = Nothing
+  , _cClusterCreateTime = Nothing
+  , _cEndpoint = Nothing
+  , _cAllowVersionUpgrade = Nothing
+  , _cClusterStatus = Nothing
+  , _cPendingModifiedValues = Nothing
+  , _cTags = Nothing
+  , _cClusterNodes = Nothing
+  , _cDBName = Nothing
+  }
 
--- | Describes the status of a cluster restore action. Returns null if the cluster was not created by restoring a snapshot.
+
+-- | A value that describes the status of a cluster restore action. This parameter returns null if the cluster was not created by restoring a snapshot.
 cRestoreStatus :: Lens' Cluster (Maybe RestoreStatus)
 cRestoreStatus = lens _cRestoreStatus (\ s a -> s{_cRestoreStatus = a});
 
--- | Returns the destination region and retention period that are configured for cross-region snapshot copy.
+-- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
+cEnhancedVPCRouting :: Lens' Cluster (Maybe Bool)
+cEnhancedVPCRouting = lens _cEnhancedVPCRouting (\ s a -> s{_cEnhancedVPCRouting = a});
+
+-- | A value that returns the destination region and retention period that are configured for cross-region snapshot copy.
 cClusterSnapshotCopyStatus :: Lens' Cluster (Maybe ClusterSnapshotCopyStatus)
 cClusterSnapshotCopyStatus = lens _cClusterSnapshotCopyStatus (\ s a -> s{_cClusterSnapshotCopyStatus = a});
 
@@ -237,11 +262,11 @@ cClusterSnapshotCopyStatus = lens _cClusterSnapshotCopyStatus (\ s a -> s{_cClus
 cClusterRevisionNumber :: Lens' Cluster (Maybe Text)
 cClusterRevisionNumber = lens _cClusterRevisionNumber (\ s a -> s{_cClusterRevisionNumber = a});
 
--- | If 'true', the cluster can be accessed from a public network.
+-- | A Boolean value that, if @true@ , indicates that the cluster can be accessed from a public network.
 cPubliclyAccessible :: Lens' Cluster (Maybe Bool)
 cPubliclyAccessible = lens _cPubliclyAccessible (\ s a -> s{_cPubliclyAccessible = a});
 
--- | The master user name for the cluster. This name is used to connect to the database that is specified in __DBName__.
+-- | The master user name for the cluster. This name is used to connect to the database that is specified in the __DBName__ parameter.
 cMasterUsername :: Lens' Cluster (Maybe Text)
 cMasterUsername = lens _cMasterUsername (\ s a -> s{_cMasterUsername = a});
 
@@ -249,9 +274,7 @@ cMasterUsername = lens _cMasterUsername (\ s a -> s{_cMasterUsername = a});
 cVPCId :: Lens' Cluster (Maybe Text)
 cVPCId = lens _cVPCId (\ s a -> s{_cVPCId = a});
 
--- | A list of cluster security group that are associated with the cluster. Each security group is represented by an element that contains 'ClusterSecurityGroup.Name' and 'ClusterSecurityGroup.Status' subelements.
---
--- Cluster security groups are used when the cluster is not created in a VPC. Clusters that are created in a VPC use VPC security groups, which are listed by the __VpcSecurityGroups__ parameter.
+-- | A list of cluster security group that are associated with the cluster. Each security group is represented by an element that contains @ClusterSecurityGroup.Name@ and @ClusterSecurityGroup.Status@ subelements.  Cluster security groups are used when the cluster is not created in an Amazon Virtual Private Cloud (VPC). Clusters that are created in a VPC use VPC security groups, which are listed by the __VpcSecurityGroups__ parameter.
 cClusterSecurityGroups :: Lens' Cluster [ClusterSecurityGroupMembership]
 cClusterSecurityGroups = lens _cClusterSecurityGroups (\ s a -> s{_cClusterSecurityGroups = a}) . _Default . _Coerce;
 
@@ -259,7 +282,7 @@ cClusterSecurityGroups = lens _cClusterSecurityGroups (\ s a -> s{_cClusterSecur
 cAutomatedSnapshotRetentionPeriod :: Lens' Cluster (Maybe Int)
 cAutomatedSnapshotRetentionPeriod = lens _cAutomatedSnapshotRetentionPeriod (\ s a -> s{_cAutomatedSnapshotRetentionPeriod = a});
 
--- | If 'true', data in the cluster is encrypted at rest.
+-- | A Boolean value that, if @true@ , indicates that data in the cluster is encrypted at rest.
 cEncrypted :: Lens' Cluster (Maybe Bool)
 cEncrypted = lens _cEncrypted (\ s a -> s{_cEncrypted = a});
 
@@ -279,7 +302,7 @@ cNumberOfNodes = lens _cNumberOfNodes (\ s a -> s{_cNumberOfNodes = a});
 cClusterPublicKey :: Lens' Cluster (Maybe Text)
 cClusterPublicKey = lens _cClusterPublicKey (\ s a -> s{_cClusterPublicKey = a});
 
--- | The weekly time range (in UTC) during which system maintenance can occur.
+-- | The weekly time range, in Universal Coordinated Time (UTC), during which system maintenance can occur.
 cPreferredMaintenanceWindow :: Lens' Cluster (Maybe Text)
 cPreferredMaintenanceWindow = lens _cPreferredMaintenanceWindow (\ s a -> s{_cPreferredMaintenanceWindow = a});
 
@@ -287,7 +310,7 @@ cPreferredMaintenanceWindow = lens _cPreferredMaintenanceWindow (\ s a -> s{_cPr
 cModifyStatus :: Lens' Cluster (Maybe Text)
 cModifyStatus = lens _cModifyStatus (\ s a -> s{_cModifyStatus = a});
 
--- | The AWS Key Management Service (KMS) key ID of the encryption key used to encrypt data in the cluster.
+-- | The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
 cKMSKeyId :: Lens' Cluster (Maybe Text)
 cKMSKeyId = lens _cKMSKeyId (\ s a -> s{_cKMSKeyId = a});
 
@@ -299,13 +322,11 @@ cClusterParameterGroups = lens _cClusterParameterGroups (\ s a -> s{_cClusterPar
 cAvailabilityZone :: Lens' Cluster (Maybe Text)
 cAvailabilityZone = lens _cAvailabilityZone (\ s a -> s{_cAvailabilityZone = a});
 
--- | A list of Virtual Private Cloud (VPC) security groups that are associated with the cluster. This parameter is returned only if the cluster is in a VPC.
+-- | A list of Amazon Virtual Private Cloud (Amazon VPC) security groups that are associated with the cluster. This parameter is returned only if the cluster is in a VPC.
 cVPCSecurityGroups :: Lens' Cluster [VPCSecurityGroupMembership]
 cVPCSecurityGroups = lens _cVPCSecurityGroups (\ s a -> s{_cVPCSecurityGroups = a}) . _Default . _Coerce;
 
--- | Reports whether the Amazon Redshift cluster has finished applying any HSM settings changes specified in a modify cluster command.
---
--- Values: active, applying
+-- | A value that reports whether the Amazon Redshift cluster has finished applying any hardware security module (HSM) settings changes specified in a modify cluster command. Values: active, applying
 cHSMStatus :: Lens' Cluster (Maybe HSMStatus)
 cHSMStatus = lens _cHSMStatus (\ s a -> s{_cHSMStatus = a});
 
@@ -333,32 +354,15 @@ cClusterCreateTime = lens _cClusterCreateTime (\ s a -> s{_cClusterCreateTime = 
 cEndpoint :: Lens' Cluster (Maybe Endpoint)
 cEndpoint = lens _cEndpoint (\ s a -> s{_cEndpoint = a});
 
--- | If 'true', major version upgrades will be applied automatically to the cluster during the maintenance window.
+-- | A Boolean value that, if @true@ , indicates that major version upgrades will be applied automatically to the cluster during the maintenance window.
 cAllowVersionUpgrade :: Lens' Cluster (Maybe Bool)
 cAllowVersionUpgrade = lens _cAllowVersionUpgrade (\ s a -> s{_cAllowVersionUpgrade = a});
 
--- | The current state of the cluster. Possible values are:
---
--- -   'available'
--- -   'creating'
--- -   'deleting'
--- -   'final-snapshot'
--- -   'hardware-failure'
--- -   'incompatible-hsm'
--- -   'incompatible-network'
--- -   'incompatible-parameters'
--- -   'incompatible-restore'
--- -   'modifying'
--- -   'rebooting'
--- -   'renaming'
--- -   'resizing'
--- -   'rotating-keys'
--- -   'storage-full'
--- -   'updating-hsm'
+-- | The current state of the cluster. Possible values are the following:     * @available@      * @creating@      * @deleting@      * @final-snapshot@      * @hardware-failure@      * @incompatible-hsm@      * @incompatible-network@      * @incompatible-parameters@      * @incompatible-restore@      * @modifying@      * @rebooting@      * @renaming@      * @resizing@      * @rotating-keys@      * @storage-full@      * @updating-hsm@
 cClusterStatus :: Lens' Cluster (Maybe Text)
 cClusterStatus = lens _cClusterStatus (\ s a -> s{_cClusterStatus = a});
 
--- | If present, changes to the cluster are pending. Specific pending changes are identified by subelements.
+-- | A value that, if present, indicates that changes to the cluster are pending. Specific pending changes are identified by subelements.
 cPendingModifiedValues :: Lens' Cluster (Maybe PendingModifiedValues)
 cPendingModifiedValues = lens _cPendingModifiedValues (\ s a -> s{_cPendingModifiedValues = a});
 
@@ -366,11 +370,11 @@ cPendingModifiedValues = lens _cPendingModifiedValues (\ s a -> s{_cPendingModif
 cTags :: Lens' Cluster [Tag]
 cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Coerce;
 
--- | The nodes in a cluster.
+-- | The nodes in the cluster.
 cClusterNodes :: Lens' Cluster [ClusterNode]
 cClusterNodes = lens _cClusterNodes (\ s a -> s{_cClusterNodes = a}) . _Default . _Coerce;
 
--- | The name of the initial database that was created when the cluster was created. This same name is returned for the life of the cluster. If an initial database was not specified, a database named \"dev\" was created by default.
+-- | The name of the initial database that was created when the cluster was created. This same name is returned for the life of the cluster. If an initial database was not specified, a database named @dev@ dev was created by default.
 cDBName :: Lens' Cluster (Maybe Text)
 cDBName = lens _cDBName (\ s a -> s{_cDBName = a});
 
@@ -378,7 +382,8 @@ instance FromXML Cluster where
         parseXML x
           = Cluster' <$>
               (x .@? "RestoreStatus") <*>
-                (x .@? "ClusterSnapshotCopyStatus")
+                (x .@? "EnhancedVpcRouting")
+                <*> (x .@? "ClusterSnapshotCopyStatus")
                 <*> (x .@? "ClusterRevisionNumber")
                 <*> (x .@? "PubliclyAccessible")
                 <*> (x .@? "MasterUsername")
@@ -422,44 +427,39 @@ instance FromXML Cluster where
                    may (parseXMLList "member"))
                 <*> (x .@? "DBName")
 
-instance Hashable Cluster
+instance Hashable Cluster where
 
-instance NFData Cluster
+instance NFData Cluster where
 
 -- | An AWS Identity and Access Management (IAM) role that can be used by the associated Amazon Redshift cluster to access other AWS services.
 --
+--
+--
 -- /See:/ 'clusterIAMRole' smart constructor.
 data ClusterIAMRole = ClusterIAMRole'
-    { _cirIAMRoleARN  :: !(Maybe Text)
-    , _cirApplyStatus :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cirIAMRoleARN  :: !(Maybe Text)
+  , _cirApplyStatus :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterIAMRole' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cirIAMRoleARN'
+-- * 'cirIAMRoleARN' - The Amazon Resource Name (ARN) of the IAM role, for example, @arn:aws:iam::123456789012:role/RedshiftCopyUnload@ .
 --
--- * 'cirApplyStatus'
+-- * 'cirApplyStatus' - A value that describes the status of the IAM role's association with an Amazon Redshift cluster. The following are possible statuses and descriptions.     * @in-sync@ : The role is available for use by the cluster.     * @adding@ : The role is in the process of being associated with the cluster.     * @removing@ : The role is in the process of being disassociated with the cluster.
 clusterIAMRole
     :: ClusterIAMRole
 clusterIAMRole =
-    ClusterIAMRole'
-    { _cirIAMRoleARN = Nothing
-    , _cirApplyStatus = Nothing
-    }
+  ClusterIAMRole' {_cirIAMRoleARN = Nothing, _cirApplyStatus = Nothing}
 
--- | The Amazon Resource Name (ARN) of the IAM role. For example, 'arn:aws:iam::123456789012:role\/RedshiftCopyUnload'.
+
+-- | The Amazon Resource Name (ARN) of the IAM role, for example, @arn:aws:iam::123456789012:role/RedshiftCopyUnload@ .
 cirIAMRoleARN :: Lens' ClusterIAMRole (Maybe Text)
 cirIAMRoleARN = lens _cirIAMRoleARN (\ s a -> s{_cirIAMRoleARN = a});
 
--- | Describes the status of the IAM role\'s association with an Amazon Redshift cluster.
---
--- The following are possible statuses and descriptions.
---
--- -   'in-sync': The role is available for use by the cluster.
--- -   'adding': The role is in the process of being associated with the cluster.
--- -   'removing': The role is in the process of being disassociated with the cluster.
+-- | A value that describes the status of the IAM role's association with an Amazon Redshift cluster. The following are possible statuses and descriptions.     * @in-sync@ : The role is available for use by the cluster.     * @adding@ : The role is in the process of being associated with the cluster.     * @removing@ : The role is in the process of being disassociated with the cluster.
 cirApplyStatus :: Lens' ClusterIAMRole (Maybe Text)
 cirApplyStatus = lens _cirApplyStatus (\ s a -> s{_cirApplyStatus = a});
 
@@ -468,36 +468,40 @@ instance FromXML ClusterIAMRole where
           = ClusterIAMRole' <$>
               (x .@? "IamRoleArn") <*> (x .@? "ApplyStatus")
 
-instance Hashable ClusterIAMRole
+instance Hashable ClusterIAMRole where
 
-instance NFData ClusterIAMRole
+instance NFData ClusterIAMRole where
 
 -- | The identifier of a node in a cluster.
 --
+--
+--
 -- /See:/ 'clusterNode' smart constructor.
 data ClusterNode = ClusterNode'
-    { _cnNodeRole         :: !(Maybe Text)
-    , _cnPrivateIPAddress :: !(Maybe Text)
-    , _cnPublicIPAddress  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cnNodeRole         :: !(Maybe Text)
+  , _cnPrivateIPAddress :: !(Maybe Text)
+  , _cnPublicIPAddress  :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterNode' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cnNodeRole'
+-- * 'cnNodeRole' - Whether the node is a leader node or a compute node.
 --
--- * 'cnPrivateIPAddress'
+-- * 'cnPrivateIPAddress' - The private IP address of a node within a cluster.
 --
--- * 'cnPublicIPAddress'
+-- * 'cnPublicIPAddress' - The public IP address of a node within a cluster.
 clusterNode
     :: ClusterNode
 clusterNode =
-    ClusterNode'
-    { _cnNodeRole = Nothing
-    , _cnPrivateIPAddress = Nothing
-    , _cnPublicIPAddress = Nothing
-    }
+  ClusterNode'
+  { _cnNodeRole = Nothing
+  , _cnPrivateIPAddress = Nothing
+  , _cnPublicIPAddress = Nothing
+  }
+
 
 -- | Whether the node is a leader node or a compute node.
 cnNodeRole :: Lens' ClusterNode (Maybe Text)
@@ -517,40 +521,44 @@ instance FromXML ClusterNode where
               (x .@? "NodeRole") <*> (x .@? "PrivateIPAddress") <*>
                 (x .@? "PublicIPAddress")
 
-instance Hashable ClusterNode
+instance Hashable ClusterNode where
 
-instance NFData ClusterNode
+instance NFData ClusterNode where
 
 -- | Describes a parameter group.
 --
+--
+--
 -- /See:/ 'clusterParameterGroup' smart constructor.
 data ClusterParameterGroup = ClusterParameterGroup'
-    { _cpgParameterGroupFamily :: !(Maybe Text)
-    , _cpgDescription          :: !(Maybe Text)
-    , _cpgTags                 :: !(Maybe [Tag])
-    , _cpgParameterGroupName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpgParameterGroupFamily :: !(Maybe Text)
+  , _cpgDescription          :: !(Maybe Text)
+  , _cpgTags                 :: !(Maybe [Tag])
+  , _cpgParameterGroupName   :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterParameterGroup' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpgParameterGroupFamily'
+-- * 'cpgParameterGroupFamily' - The name of the cluster parameter group family that this cluster parameter group is compatible with.
 --
--- * 'cpgDescription'
+-- * 'cpgDescription' - The description of the parameter group.
 --
--- * 'cpgTags'
+-- * 'cpgTags' - The list of tags for the cluster parameter group.
 --
--- * 'cpgParameterGroupName'
+-- * 'cpgParameterGroupName' - The name of the cluster parameter group.
 clusterParameterGroup
     :: ClusterParameterGroup
 clusterParameterGroup =
-    ClusterParameterGroup'
-    { _cpgParameterGroupFamily = Nothing
-    , _cpgDescription = Nothing
-    , _cpgTags = Nothing
-    , _cpgParameterGroupName = Nothing
-    }
+  ClusterParameterGroup'
+  { _cpgParameterGroupFamily = Nothing
+  , _cpgDescription = Nothing
+  , _cpgTags = Nothing
+  , _cpgParameterGroupName = Nothing
+  }
+
 
 -- | The name of the cluster parameter group family that this cluster parameter group is compatible with.
 cpgParameterGroupFamily :: Lens' ClusterParameterGroup (Maybe Text)
@@ -578,32 +586,34 @@ instance FromXML ClusterParameterGroup where
                    may (parseXMLList "Tag"))
                 <*> (x .@? "ParameterGroupName")
 
-instance Hashable ClusterParameterGroup
+instance Hashable ClusterParameterGroup where
 
-instance NFData ClusterParameterGroup
+instance NFData ClusterParameterGroup where
 
 -- |
 --
+--
+--
 -- /See:/ 'clusterParameterGroupNameMessage' smart constructor.
 data ClusterParameterGroupNameMessage = ClusterParameterGroupNameMessage'
-    { _cpgnmParameterGroupStatus :: !(Maybe Text)
-    , _cpgnmParameterGroupName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpgnmParameterGroupStatus :: !(Maybe Text)
+  , _cpgnmParameterGroupName   :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterParameterGroupNameMessage' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpgnmParameterGroupStatus'
+-- * 'cpgnmParameterGroupStatus' - The status of the parameter group. For example, if you made a change to a parameter group name-value pair, then the change could be pending a reboot of an associated cluster.
 --
--- * 'cpgnmParameterGroupName'
+-- * 'cpgnmParameterGroupName' - The name of the cluster parameter group.
 clusterParameterGroupNameMessage
     :: ClusterParameterGroupNameMessage
 clusterParameterGroupNameMessage =
-    ClusterParameterGroupNameMessage'
-    { _cpgnmParameterGroupStatus = Nothing
-    , _cpgnmParameterGroupName = Nothing
-    }
+  ClusterParameterGroupNameMessage'
+  {_cpgnmParameterGroupStatus = Nothing, _cpgnmParameterGroupName = Nothing}
+
 
 -- | The status of the parameter group. For example, if you made a change to a parameter group name-value pair, then the change could be pending a reboot of an associated cluster.
 cpgnmParameterGroupStatus :: Lens' ClusterParameterGroupNameMessage (Maybe Text)
@@ -621,39 +631,43 @@ instance FromXML ClusterParameterGroupNameMessage
                 (x .@? "ParameterGroupName")
 
 instance Hashable ClusterParameterGroupNameMessage
+         where
 
 instance NFData ClusterParameterGroupNameMessage
+         where
 
 -- | Describes the status of a parameter group.
 --
+--
+--
 -- /See:/ 'clusterParameterGroupStatus' smart constructor.
 data ClusterParameterGroupStatus = ClusterParameterGroupStatus'
-    { _cpgsClusterParameterStatusList :: !(Maybe [ClusterParameterStatus])
-    , _cpgsParameterApplyStatus       :: !(Maybe Text)
-    , _cpgsParameterGroupName         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpgsClusterParameterStatusList :: !(Maybe [ClusterParameterStatus])
+  , _cpgsParameterApplyStatus       :: !(Maybe Text)
+  , _cpgsParameterGroupName         :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterParameterGroupStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpgsClusterParameterStatusList'
+-- * 'cpgsClusterParameterStatusList' - The list of parameter statuses. For more information about parameters and parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
 --
--- * 'cpgsParameterApplyStatus'
+-- * 'cpgsParameterApplyStatus' - The status of parameter updates.
 --
--- * 'cpgsParameterGroupName'
+-- * 'cpgsParameterGroupName' - The name of the cluster parameter group.
 clusterParameterGroupStatus
     :: ClusterParameterGroupStatus
 clusterParameterGroupStatus =
-    ClusterParameterGroupStatus'
-    { _cpgsClusterParameterStatusList = Nothing
-    , _cpgsParameterApplyStatus = Nothing
-    , _cpgsParameterGroupName = Nothing
-    }
+  ClusterParameterGroupStatus'
+  { _cpgsClusterParameterStatusList = Nothing
+  , _cpgsParameterApplyStatus = Nothing
+  , _cpgsParameterGroupName = Nothing
+  }
 
--- | The list of parameter statuses.
---
--- For more information about parameters and parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/.
+
+-- | The list of parameter statuses. For more information about parameters and parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
 cpgsClusterParameterStatusList :: Lens' ClusterParameterGroupStatus [ClusterParameterStatus]
 cpgsClusterParameterStatusList = lens _cpgsClusterParameterStatusList (\ s a -> s{_cpgsClusterParameterStatusList = a}) . _Default . _Coerce;
 
@@ -673,36 +687,40 @@ instance FromXML ClusterParameterGroupStatus where
                 <*> (x .@? "ParameterApplyStatus")
                 <*> (x .@? "ParameterGroupName")
 
-instance Hashable ClusterParameterGroupStatus
+instance Hashable ClusterParameterGroupStatus where
 
-instance NFData ClusterParameterGroupStatus
+instance NFData ClusterParameterGroupStatus where
 
 -- | Describes the status of a parameter group.
 --
+--
+--
 -- /See:/ 'clusterParameterStatus' smart constructor.
 data ClusterParameterStatus = ClusterParameterStatus'
-    { _cpsParameterApplyErrorDescription :: !(Maybe Text)
-    , _cpsParameterName                  :: !(Maybe Text)
-    , _cpsParameterApplyStatus           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpsParameterApplyErrorDescription :: !(Maybe Text)
+  , _cpsParameterName                  :: !(Maybe Text)
+  , _cpsParameterApplyStatus           :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterParameterStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpsParameterApplyErrorDescription'
+-- * 'cpsParameterApplyErrorDescription' - The error that prevented the parameter from being applied to the database.
 --
--- * 'cpsParameterName'
+-- * 'cpsParameterName' - The name of the parameter.
 --
--- * 'cpsParameterApplyStatus'
+-- * 'cpsParameterApplyStatus' - The status of the parameter that indicates whether the parameter is in sync with the database, waiting for a cluster reboot, or encountered an error when being applied. The following are possible statuses and descriptions.     * @in-sync@ : The parameter value is in sync with the database.     * @pending-reboot@ : The parameter value will be applied after the cluster reboots.     * @applying@ : The parameter value is being applied to the database.     * @invalid-parameter@ : Cannot apply the parameter value because it has an invalid value or syntax.     * @apply-deferred@ : The parameter contains static property changes. The changes are deferred until the cluster reboots.     * @apply-error@ : Cannot connect to the cluster. The parameter change will be applied after the cluster reboots.     * @unknown-error@ : Cannot apply the parameter change right now. The change will be applied after the cluster reboots.
 clusterParameterStatus
     :: ClusterParameterStatus
 clusterParameterStatus =
-    ClusterParameterStatus'
-    { _cpsParameterApplyErrorDescription = Nothing
-    , _cpsParameterName = Nothing
-    , _cpsParameterApplyStatus = Nothing
-    }
+  ClusterParameterStatus'
+  { _cpsParameterApplyErrorDescription = Nothing
+  , _cpsParameterName = Nothing
+  , _cpsParameterApplyStatus = Nothing
+  }
+
 
 -- | The error that prevented the parameter from being applied to the database.
 cpsParameterApplyErrorDescription :: Lens' ClusterParameterStatus (Maybe Text)
@@ -712,17 +730,7 @@ cpsParameterApplyErrorDescription = lens _cpsParameterApplyErrorDescription (\ s
 cpsParameterName :: Lens' ClusterParameterStatus (Maybe Text)
 cpsParameterName = lens _cpsParameterName (\ s a -> s{_cpsParameterName = a});
 
--- | The status of the parameter that indicates whether the parameter is in sync with the database, waiting for a cluster reboot, or encountered an error when being applied.
---
--- The following are possible statuses and descriptions.
---
--- -   'in-sync': The parameter value is in sync with the database.
--- -   'pending-reboot': The parameter value will be applied after the cluster reboots.
--- -   'applying': The parameter value is being applied to the database.
--- -   'invalid-parameter': Cannot apply the parameter value because it has an invalid value or syntax.
--- -   'apply-deferred': The parameter contains static property changes. The changes are deferred until the cluster reboots.
--- -   'apply-error': Cannot connect to the cluster. The parameter change will be applied after the cluster reboots.
--- -   'unknown-error': Cannot apply the parameter change right now. The change will be applied after the cluster reboots.
+-- | The status of the parameter that indicates whether the parameter is in sync with the database, waiting for a cluster reboot, or encountered an error when being applied. The following are possible statuses and descriptions.     * @in-sync@ : The parameter value is in sync with the database.     * @pending-reboot@ : The parameter value will be applied after the cluster reboots.     * @applying@ : The parameter value is being applied to the database.     * @invalid-parameter@ : Cannot apply the parameter value because it has an invalid value or syntax.     * @apply-deferred@ : The parameter contains static property changes. The changes are deferred until the cluster reboots.     * @apply-error@ : Cannot connect to the cluster. The parameter change will be applied after the cluster reboots.     * @unknown-error@ : Cannot apply the parameter change right now. The change will be applied after the cluster reboots.
 cpsParameterApplyStatus :: Lens' ClusterParameterStatus (Maybe Text)
 cpsParameterApplyStatus = lens _cpsParameterApplyStatus (\ s a -> s{_cpsParameterApplyStatus = a});
 
@@ -733,44 +741,48 @@ instance FromXML ClusterParameterStatus where
                 (x .@? "ParameterName")
                 <*> (x .@? "ParameterApplyStatus")
 
-instance Hashable ClusterParameterStatus
+instance Hashable ClusterParameterStatus where
 
-instance NFData ClusterParameterStatus
+instance NFData ClusterParameterStatus where
 
 -- | Describes a security group.
 --
+--
+--
 -- /See:/ 'clusterSecurityGroup' smart constructor.
 data ClusterSecurityGroup = ClusterSecurityGroup'
-    { _cluClusterSecurityGroupName :: !(Maybe Text)
-    , _cluIPRanges                 :: !(Maybe [IPRange])
-    , _cluEC2SecurityGroups        :: !(Maybe [EC2SecurityGroup])
-    , _cluDescription              :: !(Maybe Text)
-    , _cluTags                     :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cluClusterSecurityGroupName :: !(Maybe Text)
+  , _cluIPRanges                 :: !(Maybe [IPRange])
+  , _cluEC2SecurityGroups        :: !(Maybe [EC2SecurityGroup])
+  , _cluDescription              :: !(Maybe Text)
+  , _cluTags                     :: !(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterSecurityGroup' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cluClusterSecurityGroupName'
+-- * 'cluClusterSecurityGroupName' - The name of the cluster security group to which the operation was applied.
 --
--- * 'cluIPRanges'
+-- * 'cluIPRanges' - A list of IP ranges (CIDR blocks) that are permitted to access clusters associated with this cluster security group.
 --
--- * 'cluEC2SecurityGroups'
+-- * 'cluEC2SecurityGroups' - A list of EC2 security groups that are permitted to access clusters associated with this cluster security group.
 --
--- * 'cluDescription'
+-- * 'cluDescription' - A description of the security group.
 --
--- * 'cluTags'
+-- * 'cluTags' - The list of tags for the cluster security group.
 clusterSecurityGroup
     :: ClusterSecurityGroup
 clusterSecurityGroup =
-    ClusterSecurityGroup'
-    { _cluClusterSecurityGroupName = Nothing
-    , _cluIPRanges = Nothing
-    , _cluEC2SecurityGroups = Nothing
-    , _cluDescription = Nothing
-    , _cluTags = Nothing
-    }
+  ClusterSecurityGroup'
+  { _cluClusterSecurityGroupName = Nothing
+  , _cluIPRanges = Nothing
+  , _cluEC2SecurityGroups = Nothing
+  , _cluDescription = Nothing
+  , _cluTags = Nothing
+  }
+
 
 -- | The name of the cluster security group to which the operation was applied.
 cluClusterSecurityGroupName :: Lens' ClusterSecurityGroup (Maybe Text)
@@ -806,32 +818,34 @@ instance FromXML ClusterSecurityGroup where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
-instance Hashable ClusterSecurityGroup
+instance Hashable ClusterSecurityGroup where
 
-instance NFData ClusterSecurityGroup
+instance NFData ClusterSecurityGroup where
 
 -- | Describes a cluster security group.
 --
+--
+--
 -- /See:/ 'clusterSecurityGroupMembership' smart constructor.
 data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership'
-    { _csgmStatus                   :: !(Maybe Text)
-    , _csgmClusterSecurityGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csgmStatus                   :: !(Maybe Text)
+  , _csgmClusterSecurityGroupName :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterSecurityGroupMembership' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csgmStatus'
+-- * 'csgmStatus' - The status of the cluster security group.
 --
--- * 'csgmClusterSecurityGroupName'
+-- * 'csgmClusterSecurityGroupName' - The name of the cluster security group.
 clusterSecurityGroupMembership
     :: ClusterSecurityGroupMembership
 clusterSecurityGroupMembership =
-    ClusterSecurityGroupMembership'
-    { _csgmStatus = Nothing
-    , _csgmClusterSecurityGroupName = Nothing
-    }
+  ClusterSecurityGroupMembership'
+  {_csgmStatus = Nothing, _csgmClusterSecurityGroupName = Nothing}
+
 
 -- | The status of the cluster security group.
 csgmStatus :: Lens' ClusterSecurityGroupMembership (Maybe Text)
@@ -848,35 +862,40 @@ instance FromXML ClusterSecurityGroupMembership where
                 (x .@? "ClusterSecurityGroupName")
 
 instance Hashable ClusterSecurityGroupMembership
+         where
 
-instance NFData ClusterSecurityGroupMembership
+instance NFData ClusterSecurityGroupMembership where
 
 -- | Returns the destination region and retention period that are configured for cross-region snapshot copy.
 --
+--
+--
 -- /See:/ 'clusterSnapshotCopyStatus' smart constructor.
 data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus'
-    { _cscsRetentionPeriod       :: !(Maybe Integer)
-    , _cscsDestinationRegion     :: !(Maybe Text)
-    , _cscsSnapshotCopyGrantName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cscsRetentionPeriod       :: !(Maybe Integer)
+  , _cscsDestinationRegion     :: !(Maybe Text)
+  , _cscsSnapshotCopyGrantName :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterSnapshotCopyStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cscsRetentionPeriod'
+-- * 'cscsRetentionPeriod' - The number of days that automated snapshots are retained in the destination region after they are copied from a source region.
 --
--- * 'cscsDestinationRegion'
+-- * 'cscsDestinationRegion' - The destination region that snapshots are automatically copied to when cross-region snapshot copy is enabled.
 --
--- * 'cscsSnapshotCopyGrantName'
+-- * 'cscsSnapshotCopyGrantName' - The name of the snapshot copy grant.
 clusterSnapshotCopyStatus
     :: ClusterSnapshotCopyStatus
 clusterSnapshotCopyStatus =
-    ClusterSnapshotCopyStatus'
-    { _cscsRetentionPeriod = Nothing
-    , _cscsDestinationRegion = Nothing
-    , _cscsSnapshotCopyGrantName = Nothing
-    }
+  ClusterSnapshotCopyStatus'
+  { _cscsRetentionPeriod = Nothing
+  , _cscsDestinationRegion = Nothing
+  , _cscsSnapshotCopyGrantName = Nothing
+  }
+
 
 -- | The number of days that automated snapshots are retained in the destination region after they are copied from a source region.
 cscsRetentionPeriod :: Lens' ClusterSnapshotCopyStatus (Maybe Integer)
@@ -897,54 +916,58 @@ instance FromXML ClusterSnapshotCopyStatus where
                 (x .@? "DestinationRegion")
                 <*> (x .@? "SnapshotCopyGrantName")
 
-instance Hashable ClusterSnapshotCopyStatus
+instance Hashable ClusterSnapshotCopyStatus where
 
-instance NFData ClusterSnapshotCopyStatus
+instance NFData ClusterSnapshotCopyStatus where
 
 -- | Describes a subnet group.
 --
+--
+--
 -- /See:/ 'clusterSubnetGroup' smart constructor.
 data ClusterSubnetGroup = ClusterSubnetGroup'
-    { _csgVPCId                  :: !(Maybe Text)
-    , _csgSubnets                :: !(Maybe [Subnet])
-    , _csgClusterSubnetGroupName :: !(Maybe Text)
-    , _csgSubnetGroupStatus      :: !(Maybe Text)
-    , _csgDescription            :: !(Maybe Text)
-    , _csgTags                   :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csgVPCId                  :: !(Maybe Text)
+  , _csgSubnets                :: !(Maybe [Subnet])
+  , _csgClusterSubnetGroupName :: !(Maybe Text)
+  , _csgSubnetGroupStatus      :: !(Maybe Text)
+  , _csgDescription            :: !(Maybe Text)
+  , _csgTags                   :: !(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterSubnetGroup' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csgVPCId'
+-- * 'csgVPCId' - The VPC ID of the cluster subnet group.
 --
--- * 'csgSubnets'
+-- * 'csgSubnets' - A list of the VPC 'Subnet' elements.
 --
--- * 'csgClusterSubnetGroupName'
+-- * 'csgClusterSubnetGroupName' - The name of the cluster subnet group.
 --
--- * 'csgSubnetGroupStatus'
+-- * 'csgSubnetGroupStatus' - The status of the cluster subnet group. Possible values are @Complete@ , @Incomplete@ and @Invalid@ .
 --
--- * 'csgDescription'
+-- * 'csgDescription' - The description of the cluster subnet group.
 --
--- * 'csgTags'
+-- * 'csgTags' - The list of tags for the cluster subnet group.
 clusterSubnetGroup
     :: ClusterSubnetGroup
 clusterSubnetGroup =
-    ClusterSubnetGroup'
-    { _csgVPCId = Nothing
-    , _csgSubnets = Nothing
-    , _csgClusterSubnetGroupName = Nothing
-    , _csgSubnetGroupStatus = Nothing
-    , _csgDescription = Nothing
-    , _csgTags = Nothing
-    }
+  ClusterSubnetGroup'
+  { _csgVPCId = Nothing
+  , _csgSubnets = Nothing
+  , _csgClusterSubnetGroupName = Nothing
+  , _csgSubnetGroupStatus = Nothing
+  , _csgDescription = Nothing
+  , _csgTags = Nothing
+  }
+
 
 -- | The VPC ID of the cluster subnet group.
 csgVPCId :: Lens' ClusterSubnetGroup (Maybe Text)
 csgVPCId = lens _csgVPCId (\ s a -> s{_csgVPCId = a});
 
--- | A list of the VPC < Subnet> elements.
+-- | A list of the VPC 'Subnet' elements.
 csgSubnets :: Lens' ClusterSubnetGroup [Subnet]
 csgSubnets = lens _csgSubnets (\ s a -> s{_csgSubnets = a}) . _Default . _Coerce;
 
@@ -952,7 +975,7 @@ csgSubnets = lens _csgSubnets (\ s a -> s{_csgSubnets = a}) . _Default . _Coerce
 csgClusterSubnetGroupName :: Lens' ClusterSubnetGroup (Maybe Text)
 csgClusterSubnetGroupName = lens _csgClusterSubnetGroupName (\ s a -> s{_csgClusterSubnetGroupName = a});
 
--- | The status of the cluster subnet group. Possible values are 'Complete', 'Incomplete' and 'Invalid'.
+-- | The status of the cluster subnet group. Possible values are @Complete@ , @Incomplete@ and @Invalid@ .
 csgSubnetGroupStatus :: Lens' ClusterSubnetGroup (Maybe Text)
 csgSubnetGroupStatus = lens _csgSubnetGroupStatus (\ s a -> s{_csgSubnetGroupStatus = a});
 
@@ -977,36 +1000,40 @@ instance FromXML ClusterSubnetGroup where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
-instance Hashable ClusterSubnetGroup
+instance Hashable ClusterSubnetGroup where
 
-instance NFData ClusterSubnetGroup
+instance NFData ClusterSubnetGroup where
 
 -- | Describes a cluster version, including the parameter group family and description of the version.
 --
+--
+--
 -- /See:/ 'clusterVersion' smart constructor.
 data ClusterVersion = ClusterVersion'
-    { _cvClusterParameterGroupFamily :: !(Maybe Text)
-    , _cvClusterVersion              :: !(Maybe Text)
-    , _cvDescription                 :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cvClusterParameterGroupFamily :: !(Maybe Text)
+  , _cvClusterVersion              :: !(Maybe Text)
+  , _cvDescription                 :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterVersion' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvClusterParameterGroupFamily'
+-- * 'cvClusterParameterGroupFamily' - The name of the cluster parameter group family for the cluster.
 --
--- * 'cvClusterVersion'
+-- * 'cvClusterVersion' - The version number used by the cluster.
 --
--- * 'cvDescription'
+-- * 'cvDescription' - The description of the cluster version.
 clusterVersion
     :: ClusterVersion
 clusterVersion =
-    ClusterVersion'
-    { _cvClusterParameterGroupFamily = Nothing
-    , _cvClusterVersion = Nothing
-    , _cvDescription = Nothing
-    }
+  ClusterVersion'
+  { _cvClusterParameterGroupFamily = Nothing
+  , _cvClusterVersion = Nothing
+  , _cvDescription = Nothing
+  }
+
 
 -- | The name of the cluster parameter group family for the cluster.
 cvClusterParameterGroupFamily :: Lens' ClusterVersion (Maybe Text)
@@ -1027,38 +1054,42 @@ instance FromXML ClusterVersion where
                 (x .@? "ClusterVersion")
                 <*> (x .@? "Description")
 
-instance Hashable ClusterVersion
+instance Hashable ClusterVersion where
 
-instance NFData ClusterVersion
+instance NFData ClusterVersion where
 
 -- | Describes the default cluster parameters for a parameter group family.
 --
+--
+--
 -- /See:/ 'defaultClusterParameters' smart constructor.
 data DefaultClusterParameters = DefaultClusterParameters'
-    { _dcpMarker               :: !(Maybe Text)
-    , _dcpParameters           :: !(Maybe [Parameter])
-    , _dcpParameterGroupFamily :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcpMarker               :: !(Maybe Text)
+  , _dcpParameters           :: !(Maybe [Parameter])
+  , _dcpParameterGroupFamily :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DefaultClusterParameters' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcpMarker'
+-- * 'dcpMarker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 --
--- * 'dcpParameters'
+-- * 'dcpParameters' - The list of cluster default parameters.
 --
--- * 'dcpParameterGroupFamily'
+-- * 'dcpParameterGroupFamily' - The name of the cluster parameter group family to which the engine default parameters apply.
 defaultClusterParameters
     :: DefaultClusterParameters
 defaultClusterParameters =
-    DefaultClusterParameters'
-    { _dcpMarker = Nothing
-    , _dcpParameters = Nothing
-    , _dcpParameterGroupFamily = Nothing
-    }
+  DefaultClusterParameters'
+  { _dcpMarker = Nothing
+  , _dcpParameters = Nothing
+  , _dcpParameterGroupFamily = Nothing
+  }
 
--- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the 'Marker' parameter and retrying the command. If the 'Marker' field is empty, all response records have been retrieved for the request.
+
+-- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 dcpMarker :: Lens' DefaultClusterParameters (Maybe Text)
 dcpMarker = lens _dcpMarker (\ s a -> s{_dcpMarker = a});
 
@@ -1078,46 +1109,50 @@ instance FromXML DefaultClusterParameters where
                    may (parseXMLList "Parameter"))
                 <*> (x .@? "ParameterGroupFamily")
 
-instance Hashable DefaultClusterParameters
+instance Hashable DefaultClusterParameters where
 
-instance NFData DefaultClusterParameters
+instance NFData DefaultClusterParameters where
 
 -- | Describes an Amazon EC2 security group.
 --
+--
+--
 -- /See:/ 'ec2SecurityGroup' smart constructor.
 data EC2SecurityGroup = EC2SecurityGroup'
-    { _esgStatus                  :: !(Maybe Text)
-    , _esgEC2SecurityGroupOwnerId :: !(Maybe Text)
-    , _esgEC2SecurityGroupName    :: !(Maybe Text)
-    , _esgTags                    :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esgStatus                  :: !(Maybe Text)
+  , _esgEC2SecurityGroupOwnerId :: !(Maybe Text)
+  , _esgEC2SecurityGroupName    :: !(Maybe Text)
+  , _esgTags                    :: !(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EC2SecurityGroup' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'esgStatus'
+-- * 'esgStatus' - The status of the EC2 security group.
 --
--- * 'esgEC2SecurityGroupOwnerId'
+-- * 'esgEC2SecurityGroupOwnerId' - The AWS ID of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ field.
 --
--- * 'esgEC2SecurityGroupName'
+-- * 'esgEC2SecurityGroupName' - The name of the EC2 Security Group.
 --
--- * 'esgTags'
+-- * 'esgTags' - The list of tags for the EC2 security group.
 ec2SecurityGroup
     :: EC2SecurityGroup
 ec2SecurityGroup =
-    EC2SecurityGroup'
-    { _esgStatus = Nothing
-    , _esgEC2SecurityGroupOwnerId = Nothing
-    , _esgEC2SecurityGroupName = Nothing
-    , _esgTags = Nothing
-    }
+  EC2SecurityGroup'
+  { _esgStatus = Nothing
+  , _esgEC2SecurityGroupOwnerId = Nothing
+  , _esgEC2SecurityGroupName = Nothing
+  , _esgTags = Nothing
+  }
+
 
 -- | The status of the EC2 security group.
 esgStatus :: Lens' EC2SecurityGroup (Maybe Text)
 esgStatus = lens _esgStatus (\ s a -> s{_esgStatus = a});
 
--- | The AWS ID of the owner of the EC2 security group specified in the 'EC2SecurityGroupName' field.
+-- | The AWS ID of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ field.
 esgEC2SecurityGroupOwnerId :: Lens' EC2SecurityGroup (Maybe Text)
 esgEC2SecurityGroupOwnerId = lens _esgEC2SecurityGroupOwnerId (\ s a -> s{_esgEC2SecurityGroupOwnerId = a});
 
@@ -1139,32 +1174,33 @@ instance FromXML EC2SecurityGroup where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
-instance Hashable EC2SecurityGroup
+instance Hashable EC2SecurityGroup where
 
-instance NFData EC2SecurityGroup
+instance NFData EC2SecurityGroup where
 
 -- | Describes the status of the elastic IP (EIP) address.
 --
+--
+--
 -- /See:/ 'elasticIPStatus' smart constructor.
 data ElasticIPStatus = ElasticIPStatus'
-    { _eisStatus    :: !(Maybe Text)
-    , _eisElasticIP :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eisStatus    :: !(Maybe Text)
+  , _eisElasticIP :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticIPStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eisStatus'
+-- * 'eisStatus' - The status of the elastic IP (EIP) address.
 --
--- * 'eisElasticIP'
+-- * 'eisElasticIP' - The elastic IP (EIP) address for the cluster.
 elasticIPStatus
     :: ElasticIPStatus
 elasticIPStatus =
-    ElasticIPStatus'
-    { _eisStatus = Nothing
-    , _eisElasticIP = Nothing
-    }
+  ElasticIPStatus' {_eisStatus = Nothing, _eisElasticIP = Nothing}
+
 
 -- | The status of the elastic IP (EIP) address.
 eisStatus :: Lens' ElasticIPStatus (Maybe Text)
@@ -1179,32 +1215,32 @@ instance FromXML ElasticIPStatus where
           = ElasticIPStatus' <$>
               (x .@? "Status") <*> (x .@? "ElasticIp")
 
-instance Hashable ElasticIPStatus
+instance Hashable ElasticIPStatus where
 
-instance NFData ElasticIPStatus
+instance NFData ElasticIPStatus where
 
 -- | Describes a connection endpoint.
 --
+--
+--
 -- /See:/ 'endpoint' smart constructor.
 data Endpoint = Endpoint'
-    { _eAddress :: !(Maybe Text)
-    , _ePort    :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eAddress :: !(Maybe Text)
+  , _ePort    :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eAddress'
+-- * 'eAddress' - The DNS address of the Cluster.
 --
--- * 'ePort'
+-- * 'ePort' - The port that the database engine is listening on.
 endpoint
     :: Endpoint
-endpoint =
-    Endpoint'
-    { _eAddress = Nothing
-    , _ePort = Nothing
-    }
+endpoint = Endpoint' {_eAddress = Nothing, _ePort = Nothing}
+
 
 -- | The DNS address of the Cluster.
 eAddress :: Lens' Endpoint (Maybe Text)
@@ -1218,60 +1254,62 @@ instance FromXML Endpoint where
         parseXML x
           = Endpoint' <$> (x .@? "Address") <*> (x .@? "Port")
 
-instance Hashable Endpoint
+instance Hashable Endpoint where
 
-instance NFData Endpoint
+instance NFData Endpoint where
 
 -- | Describes an event.
 --
+--
+--
 -- /See:/ 'event' smart constructor.
 data Event = Event'
-    { _eSourceType       :: !(Maybe SourceType)
-    , _eSeverity         :: !(Maybe Text)
-    , _eSourceIdentifier :: !(Maybe Text)
-    , _eDate             :: !(Maybe ISO8601)
-    , _eEventCategories  :: !(Maybe [Text])
-    , _eMessage          :: !(Maybe Text)
-    , _eEventId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eSourceType       :: !(Maybe SourceType)
+  , _eSeverity         :: !(Maybe Text)
+  , _eSourceIdentifier :: !(Maybe Text)
+  , _eDate             :: !(Maybe ISO8601)
+  , _eEventCategories  :: !(Maybe [Text])
+  , _eMessage          :: !(Maybe Text)
+  , _eEventId          :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eSourceType'
+-- * 'eSourceType' - The source type for this event.
 --
--- * 'eSeverity'
+-- * 'eSeverity' - The severity of the event. Values: ERROR, INFO
 --
--- * 'eSourceIdentifier'
+-- * 'eSourceIdentifier' - The identifier for the source of the event.
 --
--- * 'eDate'
+-- * 'eDate' - The date and time of the event.
 --
--- * 'eEventCategories'
+-- * 'eEventCategories' - A list of the event categories. Values: Configuration, Management, Monitoring, Security
 --
--- * 'eMessage'
+-- * 'eMessage' - The text of this event.
 --
--- * 'eEventId'
+-- * 'eEventId' - The identifier of the event.
 event
     :: Event
 event =
-    Event'
-    { _eSourceType = Nothing
-    , _eSeverity = Nothing
-    , _eSourceIdentifier = Nothing
-    , _eDate = Nothing
-    , _eEventCategories = Nothing
-    , _eMessage = Nothing
-    , _eEventId = Nothing
-    }
+  Event'
+  { _eSourceType = Nothing
+  , _eSeverity = Nothing
+  , _eSourceIdentifier = Nothing
+  , _eDate = Nothing
+  , _eEventCategories = Nothing
+  , _eMessage = Nothing
+  , _eEventId = Nothing
+  }
+
 
 -- | The source type for this event.
 eSourceType :: Lens' Event (Maybe SourceType)
 eSourceType = lens _eSourceType (\ s a -> s{_eSourceType = a});
 
--- | The severity of the event.
---
--- Values: ERROR, INFO
+-- | The severity of the event. Values: ERROR, INFO
 eSeverity :: Lens' Event (Maybe Text)
 eSeverity = lens _eSeverity (\ s a -> s{_eSeverity = a});
 
@@ -1283,9 +1321,7 @@ eSourceIdentifier = lens _eSourceIdentifier (\ s a -> s{_eSourceIdentifier = a})
 eDate :: Lens' Event (Maybe UTCTime)
 eDate = lens _eDate (\ s a -> s{_eDate = a}) . mapping _Time;
 
--- | A list of the event categories.
---
--- Values: Configuration, Management, Monitoring, Security
+-- | A list of the event categories. Values: Configuration, Management, Monitoring, Security
 eEventCategories :: Lens' Event [Text]
 eEventCategories = lens _eEventCategories (\ s a -> s{_eEventCategories = a}) . _Default . _Coerce;
 
@@ -1309,32 +1345,33 @@ instance FromXML Event where
                 <*> (x .@? "Message")
                 <*> (x .@? "EventId")
 
-instance Hashable Event
+instance Hashable Event where
 
-instance NFData Event
+instance NFData Event where
 
 -- | Describes event categories.
 --
+--
+--
 -- /See:/ 'eventCategoriesMap' smart constructor.
 data EventCategoriesMap = EventCategoriesMap'
-    { _ecmSourceType :: !(Maybe Text)
-    , _ecmEvents     :: !(Maybe [EventInfoMap])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ecmSourceType :: !(Maybe Text)
+  , _ecmEvents     :: !(Maybe [EventInfoMap])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventCategoriesMap' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ecmSourceType'
+-- * 'ecmSourceType' - The source type, such as cluster or cluster-snapshot, that the returned categories belong to.
 --
--- * 'ecmEvents'
+-- * 'ecmEvents' - The events in the event category.
 eventCategoriesMap
     :: EventCategoriesMap
 eventCategoriesMap =
-    EventCategoriesMap'
-    { _ecmSourceType = Nothing
-    , _ecmEvents = Nothing
-    }
+  EventCategoriesMap' {_ecmSourceType = Nothing, _ecmEvents = Nothing}
+
 
 -- | The source type, such as cluster or cluster-snapshot, that the returned categories belong to.
 ecmSourceType :: Lens' EventCategoriesMap (Maybe Text)
@@ -1351,48 +1388,50 @@ instance FromXML EventCategoriesMap where
                 (x .@? "Events" .!@ mempty >>=
                    may (parseXMLList "EventInfoMap"))
 
-instance Hashable EventCategoriesMap
+instance Hashable EventCategoriesMap where
 
-instance NFData EventCategoriesMap
+instance NFData EventCategoriesMap where
 
 -- | Describes event information.
 --
+--
+--
 -- /See:/ 'eventInfoMap' smart constructor.
 data EventInfoMap = EventInfoMap'
-    { _eimEventDescription :: !(Maybe Text)
-    , _eimSeverity         :: !(Maybe Text)
-    , _eimEventCategories  :: !(Maybe [Text])
-    , _eimEventId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eimEventDescription :: !(Maybe Text)
+  , _eimSeverity         :: !(Maybe Text)
+  , _eimEventCategories  :: !(Maybe [Text])
+  , _eimEventId          :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventInfoMap' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eimEventDescription'
+-- * 'eimEventDescription' - The description of an Amazon Redshift event.
 --
--- * 'eimSeverity'
+-- * 'eimSeverity' - The severity of the event. Values: ERROR, INFO
 --
--- * 'eimEventCategories'
+-- * 'eimEventCategories' - The category of an Amazon Redshift event.
 --
--- * 'eimEventId'
+-- * 'eimEventId' - The identifier of an Amazon Redshift event.
 eventInfoMap
     :: EventInfoMap
 eventInfoMap =
-    EventInfoMap'
-    { _eimEventDescription = Nothing
-    , _eimSeverity = Nothing
-    , _eimEventCategories = Nothing
-    , _eimEventId = Nothing
-    }
+  EventInfoMap'
+  { _eimEventDescription = Nothing
+  , _eimSeverity = Nothing
+  , _eimEventCategories = Nothing
+  , _eimEventId = Nothing
+  }
+
 
 -- | The description of an Amazon Redshift event.
 eimEventDescription :: Lens' EventInfoMap (Maybe Text)
 eimEventDescription = lens _eimEventDescription (\ s a -> s{_eimEventDescription = a});
 
--- | The severity of the event.
---
--- Values: ERROR, INFO
+-- | The severity of the event. Values: ERROR, INFO
 eimSeverity :: Lens' EventInfoMap (Maybe Text)
 eimSeverity = lens _eimSeverity (\ s a -> s{_eimSeverity = a});
 
@@ -1412,75 +1451,74 @@ instance FromXML EventInfoMap where
                    may (parseXMLList "EventCategory"))
                 <*> (x .@? "EventId")
 
-instance Hashable EventInfoMap
+instance Hashable EventInfoMap where
 
-instance NFData EventInfoMap
+instance NFData EventInfoMap where
 
 -- | Describes event subscriptions.
 --
+--
+--
 -- /See:/ 'eventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
-    { _esStatus                   :: !(Maybe Text)
-    , _esCustomerAWSId            :: !(Maybe Text)
-    , _esCustSubscriptionId       :: !(Maybe Text)
-    , _esSNSTopicARN              :: !(Maybe Text)
-    , _esEnabled                  :: !(Maybe Bool)
-    , _esSourceType               :: !(Maybe Text)
-    , _esSeverity                 :: !(Maybe Text)
-    , _esSubscriptionCreationTime :: !(Maybe ISO8601)
-    , _esEventCategoriesList      :: !(Maybe [Text])
-    , _esTags                     :: !(Maybe [Tag])
-    , _esSourceIdsList            :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esStatus                   :: !(Maybe Text)
+  , _esCustomerAWSId            :: !(Maybe Text)
+  , _esCustSubscriptionId       :: !(Maybe Text)
+  , _esSNSTopicARN              :: !(Maybe Text)
+  , _esEnabled                  :: !(Maybe Bool)
+  , _esSourceType               :: !(Maybe Text)
+  , _esSeverity                 :: !(Maybe Text)
+  , _esSubscriptionCreationTime :: !(Maybe ISO8601)
+  , _esEventCategoriesList      :: !(Maybe [Text])
+  , _esTags                     :: !(Maybe [Tag])
+  , _esSourceIdsList            :: !(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventSubscription' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'esStatus'
+-- * 'esStatus' - The status of the Amazon Redshift event notification subscription. Constraints:     * Can be one of the following: active | no-permission | topic-not-exist     * The status "no-permission" indicates that Amazon Redshift no longer has permission to post to the Amazon SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
 --
--- * 'esCustomerAWSId'
+-- * 'esCustomerAWSId' - The AWS customer account associated with the Amazon Redshift event notification subscription.
 --
--- * 'esCustSubscriptionId'
+-- * 'esCustSubscriptionId' - The name of the Amazon Redshift event notification subscription.
 --
--- * 'esSNSTopicARN'
+-- * 'esSNSTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic used by the event notification subscription.
 --
--- * 'esEnabled'
+-- * 'esEnabled' - A Boolean value indicating whether the subscription is enabled. @true@ indicates the subscription is enabled.
 --
--- * 'esSourceType'
+-- * 'esSourceType' - The source type of the events returned the Amazon Redshift event notification, such as cluster, or cluster-snapshot.
 --
--- * 'esSeverity'
+-- * 'esSeverity' - The event severity specified in the Amazon Redshift event notification subscription. Values: ERROR, INFO
 --
--- * 'esSubscriptionCreationTime'
+-- * 'esSubscriptionCreationTime' - The date and time the Amazon Redshift event notification subscription was created.
 --
--- * 'esEventCategoriesList'
+-- * 'esEventCategoriesList' - The list of Amazon Redshift event categories specified in the event notification subscription. Values: Configuration, Management, Monitoring, Security
 --
--- * 'esTags'
+-- * 'esTags' - The list of tags for the event subscription.
 --
--- * 'esSourceIdsList'
+-- * 'esSourceIdsList' - A list of the sources that publish events to the Amazon Redshift event notification subscription.
 eventSubscription
     :: EventSubscription
 eventSubscription =
-    EventSubscription'
-    { _esStatus = Nothing
-    , _esCustomerAWSId = Nothing
-    , _esCustSubscriptionId = Nothing
-    , _esSNSTopicARN = Nothing
-    , _esEnabled = Nothing
-    , _esSourceType = Nothing
-    , _esSeverity = Nothing
-    , _esSubscriptionCreationTime = Nothing
-    , _esEventCategoriesList = Nothing
-    , _esTags = Nothing
-    , _esSourceIdsList = Nothing
-    }
+  EventSubscription'
+  { _esStatus = Nothing
+  , _esCustomerAWSId = Nothing
+  , _esCustSubscriptionId = Nothing
+  , _esSNSTopicARN = Nothing
+  , _esEnabled = Nothing
+  , _esSourceType = Nothing
+  , _esSeverity = Nothing
+  , _esSubscriptionCreationTime = Nothing
+  , _esEventCategoriesList = Nothing
+  , _esTags = Nothing
+  , _esSourceIdsList = Nothing
+  }
 
--- | The status of the Amazon Redshift event notification subscription.
---
--- Constraints:
---
--- -   Can be one of the following: active | no-permission | topic-not-exist
--- -   The status \"no-permission\" indicates that Amazon Redshift no longer has permission to post to the Amazon SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created.
+
+-- | The status of the Amazon Redshift event notification subscription. Constraints:     * Can be one of the following: active | no-permission | topic-not-exist     * The status "no-permission" indicates that Amazon Redshift no longer has permission to post to the Amazon SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
 esStatus :: Lens' EventSubscription (Maybe Text)
 esStatus = lens _esStatus (\ s a -> s{_esStatus = a});
 
@@ -1496,7 +1534,7 @@ esCustSubscriptionId = lens _esCustSubscriptionId (\ s a -> s{_esCustSubscriptio
 esSNSTopicARN :: Lens' EventSubscription (Maybe Text)
 esSNSTopicARN = lens _esSNSTopicARN (\ s a -> s{_esSNSTopicARN = a});
 
--- | A Boolean value indicating whether the subscription is enabled. 'true' indicates the subscription is enabled.
+-- | A Boolean value indicating whether the subscription is enabled. @true@ indicates the subscription is enabled.
 esEnabled :: Lens' EventSubscription (Maybe Bool)
 esEnabled = lens _esEnabled (\ s a -> s{_esEnabled = a});
 
@@ -1504,9 +1542,7 @@ esEnabled = lens _esEnabled (\ s a -> s{_esEnabled = a});
 esSourceType :: Lens' EventSubscription (Maybe Text)
 esSourceType = lens _esSourceType (\ s a -> s{_esSourceType = a});
 
--- | The event severity specified in the Amazon Redshift event notification subscription.
---
--- Values: ERROR, INFO
+-- | The event severity specified in the Amazon Redshift event notification subscription. Values: ERROR, INFO
 esSeverity :: Lens' EventSubscription (Maybe Text)
 esSeverity = lens _esSeverity (\ s a -> s{_esSeverity = a});
 
@@ -1514,9 +1550,7 @@ esSeverity = lens _esSeverity (\ s a -> s{_esSeverity = a});
 esSubscriptionCreationTime :: Lens' EventSubscription (Maybe UTCTime)
 esSubscriptionCreationTime = lens _esSubscriptionCreationTime (\ s a -> s{_esSubscriptionCreationTime = a}) . mapping _Time;
 
--- | The list of Amazon Redshift event categories specified in the event notification subscription.
---
--- Values: Configuration, Management, Monitoring, Security
+-- | The list of Amazon Redshift event categories specified in the event notification subscription. Values: Configuration, Management, Monitoring, Security
 esEventCategoriesList :: Lens' EventSubscription [Text]
 esEventCategoriesList = lens _esEventCategoriesList (\ s a -> s{_esEventCategoriesList = a}) . _Default . _Coerce;
 
@@ -1548,36 +1582,40 @@ instance FromXML EventSubscription where
                 (x .@? "SourceIdsList" .!@ mempty >>=
                    may (parseXMLList "SourceId"))
 
-instance Hashable EventSubscription
+instance Hashable EventSubscription where
 
-instance NFData EventSubscription
+instance NFData EventSubscription where
 
 -- | Returns information about an HSM client certificate. The certificate is stored in a secure Hardware Storage Module (HSM), and used by the Amazon Redshift cluster to encrypt data files.
 --
+--
+--
 -- /See:/ 'hsmClientCertificate' smart constructor.
 data HSMClientCertificate = HSMClientCertificate'
-    { _hccHSMClientCertificateIdentifier :: !(Maybe Text)
-    , _hccHSMClientCertificatePublicKey  :: !(Maybe Text)
-    , _hccTags                           :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hccHSMClientCertificateIdentifier :: !(Maybe Text)
+  , _hccHSMClientCertificatePublicKey  :: !(Maybe Text)
+  , _hccTags                           :: !(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HSMClientCertificate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hccHSMClientCertificateIdentifier'
+-- * 'hccHSMClientCertificateIdentifier' - The identifier of the HSM client certificate.
 --
--- * 'hccHSMClientCertificatePublicKey'
+-- * 'hccHSMClientCertificatePublicKey' - The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
 --
--- * 'hccTags'
+-- * 'hccTags' - The list of tags for the HSM client certificate.
 hsmClientCertificate
     :: HSMClientCertificate
 hsmClientCertificate =
-    HSMClientCertificate'
-    { _hccHSMClientCertificateIdentifier = Nothing
-    , _hccHSMClientCertificatePublicKey = Nothing
-    , _hccTags = Nothing
-    }
+  HSMClientCertificate'
+  { _hccHSMClientCertificateIdentifier = Nothing
+  , _hccHSMClientCertificatePublicKey = Nothing
+  , _hccTags = Nothing
+  }
+
 
 -- | The identifier of the HSM client certificate.
 hccHSMClientCertificateIdentifier :: Lens' HSMClientCertificate (Maybe Text)
@@ -1600,44 +1638,48 @@ instance FromXML HSMClientCertificate where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
-instance Hashable HSMClientCertificate
+instance Hashable HSMClientCertificate where
 
-instance NFData HSMClientCertificate
+instance NFData HSMClientCertificate where
 
 -- | Returns information about an HSM configuration, which is an object that describes to Amazon Redshift clusters the information they require to connect to an HSM where they can store database encryption keys.
 --
+--
+--
 -- /See:/ 'hsmConfiguration' smart constructor.
 data HSMConfiguration = HSMConfiguration'
-    { _hcHSMConfigurationIdentifier :: !(Maybe Text)
-    , _hcHSMPartitionName           :: !(Maybe Text)
-    , _hcDescription                :: !(Maybe Text)
-    , _hcTags                       :: !(Maybe [Tag])
-    , _hcHSMIPAddress               :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hcHSMConfigurationIdentifier :: !(Maybe Text)
+  , _hcHSMPartitionName           :: !(Maybe Text)
+  , _hcDescription                :: !(Maybe Text)
+  , _hcTags                       :: !(Maybe [Tag])
+  , _hcHSMIPAddress               :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HSMConfiguration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hcHSMConfigurationIdentifier'
+-- * 'hcHSMConfigurationIdentifier' - The name of the Amazon Redshift HSM configuration.
 --
--- * 'hcHSMPartitionName'
+-- * 'hcHSMPartitionName' - The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
 --
--- * 'hcDescription'
+-- * 'hcDescription' - A text description of the HSM configuration.
 --
--- * 'hcTags'
+-- * 'hcTags' - The list of tags for the HSM configuration.
 --
--- * 'hcHSMIPAddress'
+-- * 'hcHSMIPAddress' - The IP address that the Amazon Redshift cluster must use to access the HSM.
 hsmConfiguration
     :: HSMConfiguration
 hsmConfiguration =
-    HSMConfiguration'
-    { _hcHSMConfigurationIdentifier = Nothing
-    , _hcHSMPartitionName = Nothing
-    , _hcDescription = Nothing
-    , _hcTags = Nothing
-    , _hcHSMIPAddress = Nothing
-    }
+  HSMConfiguration'
+  { _hcHSMConfigurationIdentifier = Nothing
+  , _hcHSMPartitionName = Nothing
+  , _hcDescription = Nothing
+  , _hcTags = Nothing
+  , _hcHSMIPAddress = Nothing
+  }
+
 
 -- | The name of the Amazon Redshift HSM configuration.
 hcHSMConfigurationIdentifier :: Lens' HSMConfiguration (Maybe Text)
@@ -1670,40 +1712,42 @@ instance FromXML HSMConfiguration where
                    may (parseXMLList "Tag"))
                 <*> (x .@? "HsmIpAddress")
 
-instance Hashable HSMConfiguration
+instance Hashable HSMConfiguration where
 
-instance NFData HSMConfiguration
+instance NFData HSMConfiguration where
 
 -- | Describes the status of changes to HSM settings.
 --
+--
+--
 -- /See:/ 'hsmStatus' smart constructor.
 data HSMStatus = HSMStatus'
-    { _hsStatus                         :: !(Maybe Text)
-    , _hsHSMConfigurationIdentifier     :: !(Maybe Text)
-    , _hsHSMClientCertificateIdentifier :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hsStatus                         :: !(Maybe Text)
+  , _hsHSMConfigurationIdentifier     :: !(Maybe Text)
+  , _hsHSMClientCertificateIdentifier :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HSMStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hsStatus'
+-- * 'hsStatus' - Reports whether the Amazon Redshift cluster has finished applying any HSM settings changes specified in a modify cluster command. Values: active, applying
 --
--- * 'hsHSMConfigurationIdentifier'
+-- * 'hsHSMConfigurationIdentifier' - Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
 --
--- * 'hsHSMClientCertificateIdentifier'
+-- * 'hsHSMClientCertificateIdentifier' - Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
 hsmStatus
     :: HSMStatus
 hsmStatus =
-    HSMStatus'
-    { _hsStatus = Nothing
-    , _hsHSMConfigurationIdentifier = Nothing
-    , _hsHSMClientCertificateIdentifier = Nothing
-    }
+  HSMStatus'
+  { _hsStatus = Nothing
+  , _hsHSMConfigurationIdentifier = Nothing
+  , _hsHSMClientCertificateIdentifier = Nothing
+  }
 
--- | Reports whether the Amazon Redshift cluster has finished applying any HSM settings changes specified in a modify cluster command.
---
--- Values: active, applying
+
+-- | Reports whether the Amazon Redshift cluster has finished applying any HSM settings changes specified in a modify cluster command. Values: active, applying
 hsStatus :: Lens' HSMStatus (Maybe Text)
 hsStatus = lens _hsStatus (\ s a -> s{_hsStatus = a});
 
@@ -1722,38 +1766,37 @@ instance FromXML HSMStatus where
                 (x .@? "HsmConfigurationIdentifier")
                 <*> (x .@? "HsmClientCertificateIdentifier")
 
-instance Hashable HSMStatus
+instance Hashable HSMStatus where
 
-instance NFData HSMStatus
+instance NFData HSMStatus where
 
 -- | Describes an IP range used in a security group.
 --
+--
+--
 -- /See:/ 'ipRange' smart constructor.
 data IPRange = IPRange'
-    { _irStatus :: !(Maybe Text)
-    , _irCIdRIP :: !(Maybe Text)
-    , _irTags   :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _irStatus :: !(Maybe Text)
+  , _irCIdRIP :: !(Maybe Text)
+  , _irTags   :: !(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IPRange' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'irStatus'
+-- * 'irStatus' - The status of the IP range, for example, "authorized".
 --
--- * 'irCIdRIP'
+-- * 'irCIdRIP' - The IP range in Classless Inter-Domain Routing (CIDR) notation.
 --
--- * 'irTags'
+-- * 'irTags' - The list of tags for the IP range.
 ipRange
     :: IPRange
-ipRange =
-    IPRange'
-    { _irStatus = Nothing
-    , _irCIdRIP = Nothing
-    , _irTags = Nothing
-    }
+ipRange = IPRange' {_irStatus = Nothing, _irCIdRIP = Nothing, _irTags = Nothing}
 
--- | The status of the IP range, for example, \"authorized\".
+
+-- | The status of the IP range, for example, "authorized".
 irStatus :: Lens' IPRange (Maybe Text)
 irStatus = lens _irStatus (\ s a -> s{_irStatus = a});
 
@@ -1772,48 +1815,52 @@ instance FromXML IPRange where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
-instance Hashable IPRange
+instance Hashable IPRange where
 
-instance NFData IPRange
+instance NFData IPRange where
 
 -- | Describes the status of logging for a cluster.
 --
+--
+--
 -- /See:/ 'loggingStatus' smart constructor.
 data LoggingStatus = LoggingStatus'
-    { _lsLastFailureTime            :: !(Maybe ISO8601)
-    , _lsLastSuccessfulDeliveryTime :: !(Maybe ISO8601)
-    , _lsS3KeyPrefix                :: !(Maybe Text)
-    , _lsBucketName                 :: !(Maybe Text)
-    , _lsLoggingEnabled             :: !(Maybe Bool)
-    , _lsLastFailureMessage         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsLastFailureTime            :: !(Maybe ISO8601)
+  , _lsLastSuccessfulDeliveryTime :: !(Maybe ISO8601)
+  , _lsS3KeyPrefix                :: !(Maybe Text)
+  , _lsBucketName                 :: !(Maybe Text)
+  , _lsLoggingEnabled             :: !(Maybe Bool)
+  , _lsLastFailureMessage         :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LoggingStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsLastFailureTime'
+-- * 'lsLastFailureTime' - The last time when logs failed to be delivered.
 --
--- * 'lsLastSuccessfulDeliveryTime'
+-- * 'lsLastSuccessfulDeliveryTime' - The last time that logs were delivered.
 --
--- * 'lsS3KeyPrefix'
+-- * 'lsS3KeyPrefix' - The prefix applied to the log file names.
 --
--- * 'lsBucketName'
+-- * 'lsBucketName' - The name of the S3 bucket where the log files are stored.
 --
--- * 'lsLoggingEnabled'
+-- * 'lsLoggingEnabled' - @true@ if logging is on, @false@ if logging is off.
 --
--- * 'lsLastFailureMessage'
+-- * 'lsLastFailureMessage' - The message indicating that logs failed to be delivered.
 loggingStatus
     :: LoggingStatus
 loggingStatus =
-    LoggingStatus'
-    { _lsLastFailureTime = Nothing
-    , _lsLastSuccessfulDeliveryTime = Nothing
-    , _lsS3KeyPrefix = Nothing
-    , _lsBucketName = Nothing
-    , _lsLoggingEnabled = Nothing
-    , _lsLastFailureMessage = Nothing
-    }
+  LoggingStatus'
+  { _lsLastFailureTime = Nothing
+  , _lsLastSuccessfulDeliveryTime = Nothing
+  , _lsS3KeyPrefix = Nothing
+  , _lsBucketName = Nothing
+  , _lsLoggingEnabled = Nothing
+  , _lsLastFailureMessage = Nothing
+  }
+
 
 -- | The last time when logs failed to be delivered.
 lsLastFailureTime :: Lens' LoggingStatus (Maybe UTCTime)
@@ -1831,7 +1878,7 @@ lsS3KeyPrefix = lens _lsS3KeyPrefix (\ s a -> s{_lsS3KeyPrefix = a});
 lsBucketName :: Lens' LoggingStatus (Maybe Text)
 lsBucketName = lens _lsBucketName (\ s a -> s{_lsBucketName = a});
 
--- | 'true' if logging is on, 'false' if logging is off.
+-- | @true@ if logging is on, @false@ if logging is off.
 lsLoggingEnabled :: Lens' LoggingStatus (Maybe Bool)
 lsLoggingEnabled = lens _lsLoggingEnabled (\ s a -> s{_lsLoggingEnabled = a});
 
@@ -1849,46 +1896,50 @@ instance FromXML LoggingStatus where
                 <*> (x .@? "LoggingEnabled")
                 <*> (x .@? "LastFailureMessage")
 
-instance Hashable LoggingStatus
+instance Hashable LoggingStatus where
 
-instance NFData LoggingStatus
+instance NFData LoggingStatus where
 
 -- | Describes an orderable cluster option.
 --
+--
+--
 -- /See:/ 'orderableClusterOption' smart constructor.
 data OrderableClusterOption = OrderableClusterOption'
-    { _ocoAvailabilityZones :: !(Maybe [AvailabilityZone])
-    , _ocoClusterType       :: !(Maybe Text)
-    , _ocoClusterVersion    :: !(Maybe Text)
-    , _ocoNodeType          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ocoAvailabilityZones :: !(Maybe [AvailabilityZone])
+  , _ocoClusterType       :: !(Maybe Text)
+  , _ocoClusterVersion    :: !(Maybe Text)
+  , _ocoNodeType          :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OrderableClusterOption' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ocoAvailabilityZones'
+-- * 'ocoAvailabilityZones' - A list of availability zones for the orderable cluster.
 --
--- * 'ocoClusterType'
+-- * 'ocoClusterType' - The cluster type, for example @multi-node@ .
 --
--- * 'ocoClusterVersion'
+-- * 'ocoClusterVersion' - The version of the orderable cluster.
 --
--- * 'ocoNodeType'
+-- * 'ocoNodeType' - The node type for the orderable cluster.
 orderableClusterOption
     :: OrderableClusterOption
 orderableClusterOption =
-    OrderableClusterOption'
-    { _ocoAvailabilityZones = Nothing
-    , _ocoClusterType = Nothing
-    , _ocoClusterVersion = Nothing
-    , _ocoNodeType = Nothing
-    }
+  OrderableClusterOption'
+  { _ocoAvailabilityZones = Nothing
+  , _ocoClusterType = Nothing
+  , _ocoClusterVersion = Nothing
+  , _ocoNodeType = Nothing
+  }
+
 
 -- | A list of availability zones for the orderable cluster.
 ocoAvailabilityZones :: Lens' OrderableClusterOption [AvailabilityZone]
 ocoAvailabilityZones = lens _ocoAvailabilityZones (\ s a -> s{_ocoAvailabilityZones = a}) . _Default . _Coerce;
 
--- | The cluster type, for example 'multi-node'.
+-- | The cluster type, for example @multi-node@ .
 ocoClusterType :: Lens' OrderableClusterOption (Maybe Text)
 ocoClusterType = lens _ocoClusterType (\ s a -> s{_ocoClusterType = a});
 
@@ -1909,62 +1960,66 @@ instance FromXML OrderableClusterOption where
                 <*> (x .@? "ClusterVersion")
                 <*> (x .@? "NodeType")
 
-instance Hashable OrderableClusterOption
+instance Hashable OrderableClusterOption where
 
-instance NFData OrderableClusterOption
+instance NFData OrderableClusterOption where
 
 -- | Describes a parameter in a cluster parameter group.
 --
+--
+--
 -- /See:/ 'parameter' smart constructor.
 data Parameter = Parameter'
-    { _pApplyType            :: !(Maybe ParameterApplyType)
-    , _pParameterValue       :: !(Maybe Text)
-    , _pMinimumEngineVersion :: !(Maybe Text)
-    , _pSource               :: !(Maybe Text)
-    , _pIsModifiable         :: !(Maybe Bool)
-    , _pDataType             :: !(Maybe Text)
-    , _pAllowedValues        :: !(Maybe Text)
-    , _pParameterName        :: !(Maybe Text)
-    , _pDescription          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pApplyType            :: !(Maybe ParameterApplyType)
+  , _pParameterValue       :: !(Maybe Text)
+  , _pMinimumEngineVersion :: !(Maybe Text)
+  , _pSource               :: !(Maybe Text)
+  , _pIsModifiable         :: !(Maybe Bool)
+  , _pDataType             :: !(Maybe Text)
+  , _pAllowedValues        :: !(Maybe Text)
+  , _pParameterName        :: !(Maybe Text)
+  , _pDescription          :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Parameter' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pApplyType'
+-- * 'pApplyType' - Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
 --
--- * 'pParameterValue'
+-- * 'pParameterValue' - The value of the parameter.
 --
--- * 'pMinimumEngineVersion'
+-- * 'pMinimumEngineVersion' - The earliest engine version to which the parameter can apply.
 --
--- * 'pSource'
+-- * 'pSource' - The source of the parameter value, such as "engine-default" or "user".
 --
--- * 'pIsModifiable'
+-- * 'pIsModifiable' - If @true@ , the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
 --
--- * 'pDataType'
+-- * 'pDataType' - The data type of the parameter.
 --
--- * 'pAllowedValues'
+-- * 'pAllowedValues' - The valid range of values for the parameter.
 --
--- * 'pParameterName'
+-- * 'pParameterName' - The name of the parameter.
 --
--- * 'pDescription'
+-- * 'pDescription' - A description of the parameter.
 parameter
     :: Parameter
 parameter =
-    Parameter'
-    { _pApplyType = Nothing
-    , _pParameterValue = Nothing
-    , _pMinimumEngineVersion = Nothing
-    , _pSource = Nothing
-    , _pIsModifiable = Nothing
-    , _pDataType = Nothing
-    , _pAllowedValues = Nothing
-    , _pParameterName = Nothing
-    , _pDescription = Nothing
-    }
+  Parameter'
+  { _pApplyType = Nothing
+  , _pParameterValue = Nothing
+  , _pMinimumEngineVersion = Nothing
+  , _pSource = Nothing
+  , _pIsModifiable = Nothing
+  , _pDataType = Nothing
+  , _pAllowedValues = Nothing
+  , _pParameterName = Nothing
+  , _pDescription = Nothing
+  }
 
--- | Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/.
+
+-- | Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
 pApplyType :: Lens' Parameter (Maybe ParameterApplyType)
 pApplyType = lens _pApplyType (\ s a -> s{_pApplyType = a});
 
@@ -1976,11 +2031,11 @@ pParameterValue = lens _pParameterValue (\ s a -> s{_pParameterValue = a});
 pMinimumEngineVersion :: Lens' Parameter (Maybe Text)
 pMinimumEngineVersion = lens _pMinimumEngineVersion (\ s a -> s{_pMinimumEngineVersion = a});
 
--- | The source of the parameter value, such as \"engine-default\" or \"user\".
+-- | The source of the parameter value, such as "engine-default" or "user".
 pSource :: Lens' Parameter (Maybe Text)
 pSource = lens _pSource (\ s a -> s{_pSource = a});
 
--- | If 'true', the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
+-- | If @true@ , the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
 pIsModifiable :: Lens' Parameter (Maybe Bool)
 pIsModifiable = lens _pIsModifiable (\ s a -> s{_pIsModifiable = a});
 
@@ -2012,9 +2067,9 @@ instance FromXML Parameter where
                 <*> (x .@? "ParameterName")
                 <*> (x .@? "Description")
 
-instance Hashable Parameter
+instance Hashable Parameter where
 
-instance NFData Parameter
+instance NFData Parameter where
 
 instance ToQuery Parameter where
         toQuery Parameter'{..}
@@ -2031,50 +2086,62 @@ instance ToQuery Parameter where
 
 -- | Describes cluster attributes that are in a pending state. A change to one or more the attributes was requested and is in progress or will be applied.
 --
+--
+--
 -- /See:/ 'pendingModifiedValues' smart constructor.
 data PendingModifiedValues = PendingModifiedValues'
-    { _pmvMasterUserPassword               :: !(Maybe Text)
-    , _pmvPubliclyAccessible               :: !(Maybe Bool)
-    , _pmvAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
-    , _pmvClusterIdentifier                :: !(Maybe Text)
-    , _pmvNumberOfNodes                    :: !(Maybe Int)
-    , _pmvClusterType                      :: !(Maybe Text)
-    , _pmvClusterVersion                   :: !(Maybe Text)
-    , _pmvNodeType                         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pmvEnhancedVPCRouting               :: !(Maybe Bool)
+  , _pmvMasterUserPassword               :: !(Maybe Text)
+  , _pmvPubliclyAccessible               :: !(Maybe Bool)
+  , _pmvAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+  , _pmvClusterIdentifier                :: !(Maybe Text)
+  , _pmvNumberOfNodes                    :: !(Maybe Int)
+  , _pmvClusterType                      :: !(Maybe Text)
+  , _pmvClusterVersion                   :: !(Maybe Text)
+  , _pmvNodeType                         :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PendingModifiedValues' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pmvMasterUserPassword'
+-- * 'pmvEnhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 --
--- * 'pmvPubliclyAccessible'
+-- * 'pmvMasterUserPassword' - The pending or in-progress change of the master user password for the cluster.
 --
--- * 'pmvAutomatedSnapshotRetentionPeriod'
+-- * 'pmvPubliclyAccessible' - The pending or in-progress change of the ability to connect to the cluster from the public network.
 --
--- * 'pmvClusterIdentifier'
+-- * 'pmvAutomatedSnapshotRetentionPeriod' - The pending or in-progress change of the automated snapshot retention period.
 --
--- * 'pmvNumberOfNodes'
+-- * 'pmvClusterIdentifier' - The pending or in-progress change of the new identifier for the cluster.
 --
--- * 'pmvClusterType'
+-- * 'pmvNumberOfNodes' - The pending or in-progress change of the number of nodes in the cluster.
 --
--- * 'pmvClusterVersion'
+-- * 'pmvClusterType' - The pending or in-progress change of the cluster type.
 --
--- * 'pmvNodeType'
+-- * 'pmvClusterVersion' - The pending or in-progress change of the service version.
+--
+-- * 'pmvNodeType' - The pending or in-progress change of the cluster's node type.
 pendingModifiedValues
     :: PendingModifiedValues
 pendingModifiedValues =
-    PendingModifiedValues'
-    { _pmvMasterUserPassword = Nothing
-    , _pmvPubliclyAccessible = Nothing
-    , _pmvAutomatedSnapshotRetentionPeriod = Nothing
-    , _pmvClusterIdentifier = Nothing
-    , _pmvNumberOfNodes = Nothing
-    , _pmvClusterType = Nothing
-    , _pmvClusterVersion = Nothing
-    , _pmvNodeType = Nothing
-    }
+  PendingModifiedValues'
+  { _pmvEnhancedVPCRouting = Nothing
+  , _pmvMasterUserPassword = Nothing
+  , _pmvPubliclyAccessible = Nothing
+  , _pmvAutomatedSnapshotRetentionPeriod = Nothing
+  , _pmvClusterIdentifier = Nothing
+  , _pmvNumberOfNodes = Nothing
+  , _pmvClusterType = Nothing
+  , _pmvClusterVersion = Nothing
+  , _pmvNodeType = Nothing
+  }
+
+
+-- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
+pmvEnhancedVPCRouting :: Lens' PendingModifiedValues (Maybe Bool)
+pmvEnhancedVPCRouting = lens _pmvEnhancedVPCRouting (\ s a -> s{_pmvEnhancedVPCRouting = a});
 
 -- | The pending or in-progress change of the master user password for the cluster.
 pmvMasterUserPassword :: Lens' PendingModifiedValues (Maybe Text)
@@ -2104,15 +2171,16 @@ pmvClusterType = lens _pmvClusterType (\ s a -> s{_pmvClusterType = a});
 pmvClusterVersion :: Lens' PendingModifiedValues (Maybe Text)
 pmvClusterVersion = lens _pmvClusterVersion (\ s a -> s{_pmvClusterVersion = a});
 
--- | The pending or in-progress change of the cluster\'s node type.
+-- | The pending or in-progress change of the cluster's node type.
 pmvNodeType :: Lens' PendingModifiedValues (Maybe Text)
 pmvNodeType = lens _pmvNodeType (\ s a -> s{_pmvNodeType = a});
 
 instance FromXML PendingModifiedValues where
         parseXML x
           = PendingModifiedValues' <$>
-              (x .@? "MasterUserPassword") <*>
-                (x .@? "PubliclyAccessible")
+              (x .@? "EnhancedVpcRouting") <*>
+                (x .@? "MasterUserPassword")
+                <*> (x .@? "PubliclyAccessible")
                 <*> (x .@? "AutomatedSnapshotRetentionPeriod")
                 <*> (x .@? "ClusterIdentifier")
                 <*> (x .@? "NumberOfNodes")
@@ -2120,32 +2188,34 @@ instance FromXML PendingModifiedValues where
                 <*> (x .@? "ClusterVersion")
                 <*> (x .@? "NodeType")
 
-instance Hashable PendingModifiedValues
+instance Hashable PendingModifiedValues where
 
-instance NFData PendingModifiedValues
+instance NFData PendingModifiedValues where
 
 -- | Describes a recurring charge.
 --
+--
+--
 -- /See:/ 'recurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
-    { _rcRecurringChargeFrequency :: !(Maybe Text)
-    , _rcRecurringChargeAmount    :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcRecurringChargeFrequency :: !(Maybe Text)
+  , _rcRecurringChargeAmount    :: !(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecurringCharge' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcRecurringChargeFrequency'
+-- * 'rcRecurringChargeFrequency' - The frequency at which the recurring charge amount is applied.
 --
--- * 'rcRecurringChargeAmount'
+-- * 'rcRecurringChargeAmount' - The amount charged per the period of time specified by the recurring charge frequency.
 recurringCharge
     :: RecurringCharge
 recurringCharge =
-    RecurringCharge'
-    { _rcRecurringChargeFrequency = Nothing
-    , _rcRecurringChargeAmount = Nothing
-    }
+  RecurringCharge'
+  {_rcRecurringChargeFrequency = Nothing, _rcRecurringChargeAmount = Nothing}
+
 
 -- | The frequency at which the recurring charge amount is applied.
 rcRecurringChargeFrequency :: Lens' RecurringCharge (Maybe Text)
@@ -2161,80 +2231,78 @@ instance FromXML RecurringCharge where
               (x .@? "RecurringChargeFrequency") <*>
                 (x .@? "RecurringChargeAmount")
 
-instance Hashable RecurringCharge
+instance Hashable RecurringCharge where
 
-instance NFData RecurringCharge
+instance NFData RecurringCharge where
 
--- | Describes a reserved node. You can call the < DescribeReservedNodeOfferings> API to obtain the available reserved node offerings.
+-- | Describes a reserved node. You can call the 'DescribeReservedNodeOfferings' API to obtain the available reserved node offerings.
+--
+--
 --
 -- /See:/ 'reservedNode' smart constructor.
 data ReservedNode = ReservedNode'
-    { _rnState                  :: !(Maybe Text)
-    , _rnCurrencyCode           :: !(Maybe Text)
-    , _rnStartTime              :: !(Maybe ISO8601)
-    , _rnNodeCount              :: !(Maybe Int)
-    , _rnReservedNodeId         :: !(Maybe Text)
-    , _rnReservedNodeOfferingId :: !(Maybe Text)
-    , _rnRecurringCharges       :: !(Maybe [RecurringCharge])
-    , _rnOfferingType           :: !(Maybe Text)
-    , _rnUsagePrice             :: !(Maybe Double)
-    , _rnNodeType               :: !(Maybe Text)
-    , _rnFixedPrice             :: !(Maybe Double)
-    , _rnDuration               :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rnState                  :: !(Maybe Text)
+  , _rnCurrencyCode           :: !(Maybe Text)
+  , _rnStartTime              :: !(Maybe ISO8601)
+  , _rnNodeCount              :: !(Maybe Int)
+  , _rnReservedNodeId         :: !(Maybe Text)
+  , _rnReservedNodeOfferingId :: !(Maybe Text)
+  , _rnRecurringCharges       :: !(Maybe [RecurringCharge])
+  , _rnOfferingType           :: !(Maybe Text)
+  , _rnUsagePrice             :: !(Maybe Double)
+  , _rnNodeType               :: !(Maybe Text)
+  , _rnFixedPrice             :: !(Maybe Double)
+  , _rnDuration               :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReservedNode' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rnState'
+-- * 'rnState' - The state of the reserved compute node. Possible Values:     * pending-payment-This reserved node has recently been purchased, and the sale has been approved, but payment has not yet been confirmed.     * active-This reserved node is owned by the caller and is available for use.     * payment-failed-Payment failed for the purchase attempt.
 --
--- * 'rnCurrencyCode'
+-- * 'rnCurrencyCode' - The currency code for the reserved cluster.
 --
--- * 'rnStartTime'
+-- * 'rnStartTime' - The time the reservation started. You purchase a reserved node offering for a duration. This is the start time of that duration.
 --
--- * 'rnNodeCount'
+-- * 'rnNodeCount' - The number of reserved compute nodes.
 --
--- * 'rnReservedNodeId'
+-- * 'rnReservedNodeId' - The unique identifier for the reservation.
 --
--- * 'rnReservedNodeOfferingId'
+-- * 'rnReservedNodeOfferingId' - The identifier for the reserved node offering.
 --
--- * 'rnRecurringCharges'
+-- * 'rnRecurringCharges' - The recurring charges for the reserved node.
 --
--- * 'rnOfferingType'
+-- * 'rnOfferingType' - The anticipated utilization of the reserved node, as defined in the reserved node offering.
 --
--- * 'rnUsagePrice'
+-- * 'rnUsagePrice' - The hourly rate Amazon Redshift charges you for this reserved node.
 --
--- * 'rnNodeType'
+-- * 'rnNodeType' - The node type of the reserved node.
 --
--- * 'rnFixedPrice'
+-- * 'rnFixedPrice' - The fixed cost Amazon Redshift charges you for this reserved node.
 --
--- * 'rnDuration'
+-- * 'rnDuration' - The duration of the node reservation in seconds.
 reservedNode
     :: ReservedNode
 reservedNode =
-    ReservedNode'
-    { _rnState = Nothing
-    , _rnCurrencyCode = Nothing
-    , _rnStartTime = Nothing
-    , _rnNodeCount = Nothing
-    , _rnReservedNodeId = Nothing
-    , _rnReservedNodeOfferingId = Nothing
-    , _rnRecurringCharges = Nothing
-    , _rnOfferingType = Nothing
-    , _rnUsagePrice = Nothing
-    , _rnNodeType = Nothing
-    , _rnFixedPrice = Nothing
-    , _rnDuration = Nothing
-    }
+  ReservedNode'
+  { _rnState = Nothing
+  , _rnCurrencyCode = Nothing
+  , _rnStartTime = Nothing
+  , _rnNodeCount = Nothing
+  , _rnReservedNodeId = Nothing
+  , _rnReservedNodeOfferingId = Nothing
+  , _rnRecurringCharges = Nothing
+  , _rnOfferingType = Nothing
+  , _rnUsagePrice = Nothing
+  , _rnNodeType = Nothing
+  , _rnFixedPrice = Nothing
+  , _rnDuration = Nothing
+  }
 
--- | The state of the reserved compute node.
---
--- Possible Values:
---
--- -   pending-payment-This reserved node has recently been purchased, and the sale has been approved, but payment has not yet been confirmed.
--- -   active-This reserved node is owned by the caller and is available for use.
--- -   payment-failed-Payment failed for the purchase attempt.
+
+-- | The state of the reserved compute node. Possible Values:     * pending-payment-This reserved node has recently been purchased, and the sale has been approved, but payment has not yet been confirmed.     * active-This reserved node is owned by the caller and is available for use.     * payment-failed-Payment failed for the purchase attempt.
 rnState :: Lens' ReservedNode (Maybe Text)
 rnState = lens _rnState (\ s a -> s{_rnState = a});
 
@@ -2299,56 +2367,60 @@ instance FromXML ReservedNode where
                 <*> (x .@? "FixedPrice")
                 <*> (x .@? "Duration")
 
-instance Hashable ReservedNode
+instance Hashable ReservedNode where
 
-instance NFData ReservedNode
+instance NFData ReservedNode where
 
 -- | Describes a reserved node offering.
 --
+--
+--
 -- /See:/ 'reservedNodeOffering' smart constructor.
 data ReservedNodeOffering = ReservedNodeOffering'
-    { _rnoCurrencyCode           :: !(Maybe Text)
-    , _rnoReservedNodeOfferingId :: !(Maybe Text)
-    , _rnoRecurringCharges       :: !(Maybe [RecurringCharge])
-    , _rnoOfferingType           :: !(Maybe Text)
-    , _rnoUsagePrice             :: !(Maybe Double)
-    , _rnoNodeType               :: !(Maybe Text)
-    , _rnoFixedPrice             :: !(Maybe Double)
-    , _rnoDuration               :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rnoCurrencyCode           :: !(Maybe Text)
+  , _rnoReservedNodeOfferingId :: !(Maybe Text)
+  , _rnoRecurringCharges       :: !(Maybe [RecurringCharge])
+  , _rnoOfferingType           :: !(Maybe Text)
+  , _rnoUsagePrice             :: !(Maybe Double)
+  , _rnoNodeType               :: !(Maybe Text)
+  , _rnoFixedPrice             :: !(Maybe Double)
+  , _rnoDuration               :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReservedNodeOffering' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rnoCurrencyCode'
+-- * 'rnoCurrencyCode' - The currency code for the compute nodes offering.
 --
--- * 'rnoReservedNodeOfferingId'
+-- * 'rnoReservedNodeOfferingId' - The offering identifier.
 --
--- * 'rnoRecurringCharges'
+-- * 'rnoRecurringCharges' - The charge to your account regardless of whether you are creating any clusters using the node offering. Recurring charges are only in effect for heavy-utilization reserved nodes.
 --
--- * 'rnoOfferingType'
+-- * 'rnoOfferingType' - The anticipated utilization of the reserved node, as defined in the reserved node offering.
 --
--- * 'rnoUsagePrice'
+-- * 'rnoUsagePrice' - The rate you are charged for each hour the cluster that is using the offering is running.
 --
--- * 'rnoNodeType'
+-- * 'rnoNodeType' - The node type offered by the reserved node offering.
 --
--- * 'rnoFixedPrice'
+-- * 'rnoFixedPrice' - The upfront fixed charge you will pay to purchase the specific reserved node offering.
 --
--- * 'rnoDuration'
+-- * 'rnoDuration' - The duration, in seconds, for which the offering will reserve the node.
 reservedNodeOffering
     :: ReservedNodeOffering
 reservedNodeOffering =
-    ReservedNodeOffering'
-    { _rnoCurrencyCode = Nothing
-    , _rnoReservedNodeOfferingId = Nothing
-    , _rnoRecurringCharges = Nothing
-    , _rnoOfferingType = Nothing
-    , _rnoUsagePrice = Nothing
-    , _rnoNodeType = Nothing
-    , _rnoFixedPrice = Nothing
-    , _rnoDuration = Nothing
-    }
+  ReservedNodeOffering'
+  { _rnoCurrencyCode = Nothing
+  , _rnoReservedNodeOfferingId = Nothing
+  , _rnoRecurringCharges = Nothing
+  , _rnoOfferingType = Nothing
+  , _rnoUsagePrice = Nothing
+  , _rnoNodeType = Nothing
+  , _rnoFixedPrice = Nothing
+  , _rnoDuration = Nothing
+  }
+
 
 -- | The currency code for the compute nodes offering.
 rnoCurrencyCode :: Lens' ReservedNodeOffering (Maybe Text)
@@ -2396,48 +2468,52 @@ instance FromXML ReservedNodeOffering where
                 <*> (x .@? "FixedPrice")
                 <*> (x .@? "Duration")
 
-instance Hashable ReservedNodeOffering
+instance Hashable ReservedNodeOffering where
 
-instance NFData ReservedNodeOffering
+instance NFData ReservedNodeOffering where
 
 -- | Describes the status of a cluster restore action. Returns null if the cluster was not created by restoring a snapshot.
 --
+--
+--
 -- /See:/ 'restoreStatus' smart constructor.
 data RestoreStatus = RestoreStatus'
-    { _rsStatus                                 :: !(Maybe Text)
-    , _rsEstimatedTimeToCompletionInSeconds     :: !(Maybe Integer)
-    , _rsCurrentRestoreRateInMegaBytesPerSecond :: !(Maybe Double)
-    , _rsProgressInMegaBytes                    :: !(Maybe Integer)
-    , _rsElapsedTimeInSeconds                   :: !(Maybe Integer)
-    , _rsSnapshotSizeInMegaBytes                :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsStatus                                 :: !(Maybe Text)
+  , _rsEstimatedTimeToCompletionInSeconds     :: !(Maybe Integer)
+  , _rsCurrentRestoreRateInMegaBytesPerSecond :: !(Maybe Double)
+  , _rsProgressInMegaBytes                    :: !(Maybe Integer)
+  , _rsElapsedTimeInSeconds                   :: !(Maybe Integer)
+  , _rsSnapshotSizeInMegaBytes                :: !(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsStatus'
+-- * 'rsStatus' - The status of the restore action. Returns starting, restoring, completed, or failed.
 --
--- * 'rsEstimatedTimeToCompletionInSeconds'
+-- * 'rsEstimatedTimeToCompletionInSeconds' - The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore.
 --
--- * 'rsCurrentRestoreRateInMegaBytesPerSecond'
+-- * 'rsCurrentRestoreRateInMegaBytesPerSecond' - The number of megabytes per second being transferred from the backup storage. Returns the average rate for a completed backup.
 --
--- * 'rsProgressInMegaBytes'
+-- * 'rsProgressInMegaBytes' - The number of megabytes that have been transferred from snapshot storage.
 --
--- * 'rsElapsedTimeInSeconds'
+-- * 'rsElapsedTimeInSeconds' - The amount of time an in-progress restore has been running, or the amount of time it took a completed restore to finish.
 --
--- * 'rsSnapshotSizeInMegaBytes'
+-- * 'rsSnapshotSizeInMegaBytes' - The size of the set of snapshot data used to restore the cluster.
 restoreStatus
     :: RestoreStatus
 restoreStatus =
-    RestoreStatus'
-    { _rsStatus = Nothing
-    , _rsEstimatedTimeToCompletionInSeconds = Nothing
-    , _rsCurrentRestoreRateInMegaBytesPerSecond = Nothing
-    , _rsProgressInMegaBytes = Nothing
-    , _rsElapsedTimeInSeconds = Nothing
-    , _rsSnapshotSizeInMegaBytes = Nothing
-    }
+  RestoreStatus'
+  { _rsStatus = Nothing
+  , _rsEstimatedTimeToCompletionInSeconds = Nothing
+  , _rsCurrentRestoreRateInMegaBytesPerSecond = Nothing
+  , _rsProgressInMegaBytes = Nothing
+  , _rsElapsedTimeInSeconds = Nothing
+  , _rsSnapshotSizeInMegaBytes = Nothing
+  }
+
 
 -- | The status of the restore action. Returns starting, restoring, completed, or failed.
 rsStatus :: Lens' RestoreStatus (Maybe Text)
@@ -2473,142 +2549,146 @@ instance FromXML RestoreStatus where
                 <*> (x .@? "ElapsedTimeInSeconds")
                 <*> (x .@? "SnapshotSizeInMegaBytes")
 
-instance Hashable RestoreStatus
+instance Hashable RestoreStatus where
 
-instance NFData RestoreStatus
+instance NFData RestoreStatus where
 
 -- | Describes a snapshot.
 --
+--
+--
 -- /See:/ 'snapshot' smart constructor.
 data Snapshot = Snapshot'
-    { _sStatus                                 :: !(Maybe Text)
-    , _sRestorableNodeTypes                    :: !(Maybe [Text])
-    , _sAccountsWithRestoreAccess              :: !(Maybe [AccountWithRestoreAccess])
-    , _sSnapshotIdentifier                     :: !(Maybe Text)
-    , _sEncryptedWithHSM                       :: !(Maybe Bool)
-    , _sMasterUsername                         :: !(Maybe Text)
-    , _sSourceRegion                           :: !(Maybe Text)
-    , _sVPCId                                  :: !(Maybe Text)
-    , _sBackupProgressInMegaBytes              :: !(Maybe Double)
-    , _sEncrypted                              :: !(Maybe Bool)
-    , _sClusterIdentifier                      :: !(Maybe Text)
-    , _sNumberOfNodes                          :: !(Maybe Int)
-    , _sSnapshotType                           :: !(Maybe Text)
-    , _sKMSKeyId                               :: !(Maybe Text)
-    , _sAvailabilityZone                       :: !(Maybe Text)
-    , _sCurrentBackupRateInMegaBytesPerSecond  :: !(Maybe Double)
-    , _sSnapshotCreateTime                     :: !(Maybe ISO8601)
-    , _sClusterVersion                         :: !(Maybe Text)
-    , _sOwnerAccount                           :: !(Maybe Text)
-    , _sNodeType                               :: !(Maybe Text)
-    , _sElapsedTimeInSeconds                   :: !(Maybe Integer)
-    , _sClusterCreateTime                      :: !(Maybe ISO8601)
-    , _sEstimatedSecondsToCompletion           :: !(Maybe Integer)
-    , _sActualIncrementalBackupSizeInMegaBytes :: !(Maybe Double)
-    , _sTags                                   :: !(Maybe [Tag])
-    , _sPort                                   :: !(Maybe Int)
-    , _sTotalBackupSizeInMegaBytes             :: !(Maybe Double)
-    , _sDBName                                 :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sStatus :: !(Maybe Text)
+  , _sRestorableNodeTypes :: !(Maybe [Text])
+  , _sAccountsWithRestoreAccess :: !(Maybe [AccountWithRestoreAccess])
+  , _sEnhancedVPCRouting :: !(Maybe Bool)
+  , _sSnapshotIdentifier :: !(Maybe Text)
+  , _sEncryptedWithHSM :: !(Maybe Bool)
+  , _sMasterUsername :: !(Maybe Text)
+  , _sSourceRegion :: !(Maybe Text)
+  , _sVPCId :: !(Maybe Text)
+  , _sBackupProgressInMegaBytes :: !(Maybe Double)
+  , _sEncrypted :: !(Maybe Bool)
+  , _sClusterIdentifier :: !(Maybe Text)
+  , _sNumberOfNodes :: !(Maybe Int)
+  , _sSnapshotType :: !(Maybe Text)
+  , _sKMSKeyId :: !(Maybe Text)
+  , _sAvailabilityZone :: !(Maybe Text)
+  , _sCurrentBackupRateInMegaBytesPerSecond :: !(Maybe Double)
+  , _sSnapshotCreateTime :: !(Maybe ISO8601)
+  , _sClusterVersion :: !(Maybe Text)
+  , _sOwnerAccount :: !(Maybe Text)
+  , _sNodeType :: !(Maybe Text)
+  , _sElapsedTimeInSeconds :: !(Maybe Integer)
+  , _sClusterCreateTime :: !(Maybe ISO8601)
+  , _sEstimatedSecondsToCompletion :: !(Maybe Integer)
+  , _sActualIncrementalBackupSizeInMegaBytes :: !(Maybe Double)
+  , _sTags :: !(Maybe [Tag])
+  , _sPort :: !(Maybe Int)
+  , _sTotalBackupSizeInMegaBytes :: !(Maybe Double)
+  , _sDBName :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Snapshot' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sStatus'
+-- * 'sStatus' - The snapshot status. The value of the status depends on the API operation used.      * 'CreateClusterSnapshot' and 'CopyClusterSnapshot' returns status as "creating".      * 'DescribeClusterSnapshots' returns status as "creating", "available", "final snapshot", or "failed".     * 'DeleteClusterSnapshot' returns status as "deleted".
 --
--- * 'sRestorableNodeTypes'
+-- * 'sRestorableNodeTypes' - The list of node types that this cluster snapshot is able to restore into.
 --
--- * 'sAccountsWithRestoreAccess'
+-- * 'sAccountsWithRestoreAccess' - A list of the AWS customer accounts authorized to restore the snapshot. Returns @null@ if no accounts are authorized. Visible only to the snapshot owner.
 --
--- * 'sSnapshotIdentifier'
+-- * 'sEnhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 --
--- * 'sEncryptedWithHSM'
+-- * 'sSnapshotIdentifier' - The snapshot identifier that is provided in the request.
 --
--- * 'sMasterUsername'
+-- * 'sEncryptedWithHSM' - A boolean that indicates whether the snapshot data is encrypted using the HSM keys of the source cluster. @true@ indicates that the data is encrypted using HSM keys.
 --
--- * 'sSourceRegion'
+-- * 'sMasterUsername' - The master user name for the cluster.
 --
--- * 'sVPCId'
+-- * 'sSourceRegion' - The source region from which the snapshot was copied.
 --
--- * 'sBackupProgressInMegaBytes'
+-- * 'sVPCId' - The VPC identifier of the cluster if the snapshot is from a cluster in a VPC. Otherwise, this field is not in the output.
 --
--- * 'sEncrypted'
+-- * 'sBackupProgressInMegaBytes' - The number of megabytes that have been transferred to the snapshot backup.
 --
--- * 'sClusterIdentifier'
+-- * 'sEncrypted' - If @true@ , the data in the snapshot is encrypted at rest.
 --
--- * 'sNumberOfNodes'
+-- * 'sClusterIdentifier' - The identifier of the cluster for which the snapshot was taken.
 --
--- * 'sSnapshotType'
+-- * 'sNumberOfNodes' - The number of nodes in the cluster.
 --
--- * 'sKMSKeyId'
+-- * 'sSnapshotType' - The snapshot type. Snapshots created using 'CreateClusterSnapshot' and 'CopyClusterSnapshot' will be of type "manual".
 --
--- * 'sAvailabilityZone'
+-- * 'sKMSKeyId' - The AWS Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
 --
--- * 'sCurrentBackupRateInMegaBytesPerSecond'
+-- * 'sAvailabilityZone' - The Availability Zone in which the cluster was created.
 --
--- * 'sSnapshotCreateTime'
+-- * 'sCurrentBackupRateInMegaBytesPerSecond' - The number of megabytes per second being transferred to the snapshot backup. Returns @0@ for a completed backup.
 --
--- * 'sClusterVersion'
+-- * 'sSnapshotCreateTime' - The time (UTC) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as of this exact time.
 --
--- * 'sOwnerAccount'
+-- * 'sClusterVersion' - The version ID of the Amazon Redshift engine that is running on the cluster.
 --
--- * 'sNodeType'
+-- * 'sOwnerAccount' - For manual snapshots, the AWS customer account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
 --
--- * 'sElapsedTimeInSeconds'
+-- * 'sNodeType' - The node type of the nodes in the cluster.
 --
--- * 'sClusterCreateTime'
+-- * 'sElapsedTimeInSeconds' - The amount of time an in-progress snapshot backup has been running, or the amount of time it took a completed backup to finish.
 --
--- * 'sEstimatedSecondsToCompletion'
+-- * 'sClusterCreateTime' - The time (UTC) when the cluster was originally created.
 --
--- * 'sActualIncrementalBackupSizeInMegaBytes'
+-- * 'sEstimatedSecondsToCompletion' - The estimate of the time remaining before the snapshot backup will complete. Returns @0@ for a completed backup.
 --
--- * 'sTags'
+-- * 'sActualIncrementalBackupSizeInMegaBytes' - The size of the incremental backup.
 --
--- * 'sPort'
+-- * 'sTags' - The list of tags for the cluster snapshot.
 --
--- * 'sTotalBackupSizeInMegaBytes'
+-- * 'sPort' - The port that the cluster is listening on.
 --
--- * 'sDBName'
+-- * 'sTotalBackupSizeInMegaBytes' - The size of the complete set of backup data that would be used to restore the cluster.
+--
+-- * 'sDBName' - The name of the database that was created when the cluster was created.
 snapshot
     :: Snapshot
 snapshot =
-    Snapshot'
-    { _sStatus = Nothing
-    , _sRestorableNodeTypes = Nothing
-    , _sAccountsWithRestoreAccess = Nothing
-    , _sSnapshotIdentifier = Nothing
-    , _sEncryptedWithHSM = Nothing
-    , _sMasterUsername = Nothing
-    , _sSourceRegion = Nothing
-    , _sVPCId = Nothing
-    , _sBackupProgressInMegaBytes = Nothing
-    , _sEncrypted = Nothing
-    , _sClusterIdentifier = Nothing
-    , _sNumberOfNodes = Nothing
-    , _sSnapshotType = Nothing
-    , _sKMSKeyId = Nothing
-    , _sAvailabilityZone = Nothing
-    , _sCurrentBackupRateInMegaBytesPerSecond = Nothing
-    , _sSnapshotCreateTime = Nothing
-    , _sClusterVersion = Nothing
-    , _sOwnerAccount = Nothing
-    , _sNodeType = Nothing
-    , _sElapsedTimeInSeconds = Nothing
-    , _sClusterCreateTime = Nothing
-    , _sEstimatedSecondsToCompletion = Nothing
-    , _sActualIncrementalBackupSizeInMegaBytes = Nothing
-    , _sTags = Nothing
-    , _sPort = Nothing
-    , _sTotalBackupSizeInMegaBytes = Nothing
-    , _sDBName = Nothing
-    }
+  Snapshot'
+  { _sStatus = Nothing
+  , _sRestorableNodeTypes = Nothing
+  , _sAccountsWithRestoreAccess = Nothing
+  , _sEnhancedVPCRouting = Nothing
+  , _sSnapshotIdentifier = Nothing
+  , _sEncryptedWithHSM = Nothing
+  , _sMasterUsername = Nothing
+  , _sSourceRegion = Nothing
+  , _sVPCId = Nothing
+  , _sBackupProgressInMegaBytes = Nothing
+  , _sEncrypted = Nothing
+  , _sClusterIdentifier = Nothing
+  , _sNumberOfNodes = Nothing
+  , _sSnapshotType = Nothing
+  , _sKMSKeyId = Nothing
+  , _sAvailabilityZone = Nothing
+  , _sCurrentBackupRateInMegaBytesPerSecond = Nothing
+  , _sSnapshotCreateTime = Nothing
+  , _sClusterVersion = Nothing
+  , _sOwnerAccount = Nothing
+  , _sNodeType = Nothing
+  , _sElapsedTimeInSeconds = Nothing
+  , _sClusterCreateTime = Nothing
+  , _sEstimatedSecondsToCompletion = Nothing
+  , _sActualIncrementalBackupSizeInMegaBytes = Nothing
+  , _sTags = Nothing
+  , _sPort = Nothing
+  , _sTotalBackupSizeInMegaBytes = Nothing
+  , _sDBName = Nothing
+  }
 
--- | The snapshot status. The value of the status depends on the API operation used.
---
--- -   < CreateClusterSnapshot> and < CopyClusterSnapshot> returns status as \"creating\".
--- -   < DescribeClusterSnapshots> returns status as \"creating\", \"available\", \"final snapshot\", or \"failed\".
--- -   < DeleteClusterSnapshot> returns status as \"deleted\".
+
+-- | The snapshot status. The value of the status depends on the API operation used.      * 'CreateClusterSnapshot' and 'CopyClusterSnapshot' returns status as "creating".      * 'DescribeClusterSnapshots' returns status as "creating", "available", "final snapshot", or "failed".     * 'DeleteClusterSnapshot' returns status as "deleted".
 sStatus :: Lens' Snapshot (Maybe Text)
 sStatus = lens _sStatus (\ s a -> s{_sStatus = a});
 
@@ -2616,15 +2696,19 @@ sStatus = lens _sStatus (\ s a -> s{_sStatus = a});
 sRestorableNodeTypes :: Lens' Snapshot [Text]
 sRestorableNodeTypes = lens _sRestorableNodeTypes (\ s a -> s{_sRestorableNodeTypes = a}) . _Default . _Coerce;
 
--- | A list of the AWS customer accounts authorized to restore the snapshot. Returns 'null' if no accounts are authorized. Visible only to the snapshot owner.
+-- | A list of the AWS customer accounts authorized to restore the snapshot. Returns @null@ if no accounts are authorized. Visible only to the snapshot owner.
 sAccountsWithRestoreAccess :: Lens' Snapshot [AccountWithRestoreAccess]
 sAccountsWithRestoreAccess = lens _sAccountsWithRestoreAccess (\ s a -> s{_sAccountsWithRestoreAccess = a}) . _Default . _Coerce;
+
+-- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
+sEnhancedVPCRouting :: Lens' Snapshot (Maybe Bool)
+sEnhancedVPCRouting = lens _sEnhancedVPCRouting (\ s a -> s{_sEnhancedVPCRouting = a});
 
 -- | The snapshot identifier that is provided in the request.
 sSnapshotIdentifier :: Lens' Snapshot (Maybe Text)
 sSnapshotIdentifier = lens _sSnapshotIdentifier (\ s a -> s{_sSnapshotIdentifier = a});
 
--- | A boolean that indicates whether the snapshot data is encrypted using the HSM keys of the source cluster. 'true' indicates that the data is encrypted using HSM keys.
+-- | A boolean that indicates whether the snapshot data is encrypted using the HSM keys of the source cluster. @true@ indicates that the data is encrypted using HSM keys.
 sEncryptedWithHSM :: Lens' Snapshot (Maybe Bool)
 sEncryptedWithHSM = lens _sEncryptedWithHSM (\ s a -> s{_sEncryptedWithHSM = a});
 
@@ -2644,7 +2728,7 @@ sVPCId = lens _sVPCId (\ s a -> s{_sVPCId = a});
 sBackupProgressInMegaBytes :: Lens' Snapshot (Maybe Double)
 sBackupProgressInMegaBytes = lens _sBackupProgressInMegaBytes (\ s a -> s{_sBackupProgressInMegaBytes = a});
 
--- | If 'true', the data in the snapshot is encrypted at rest.
+-- | If @true@ , the data in the snapshot is encrypted at rest.
 sEncrypted :: Lens' Snapshot (Maybe Bool)
 sEncrypted = lens _sEncrypted (\ s a -> s{_sEncrypted = a});
 
@@ -2656,7 +2740,7 @@ sClusterIdentifier = lens _sClusterIdentifier (\ s a -> s{_sClusterIdentifier = 
 sNumberOfNodes :: Lens' Snapshot (Maybe Int)
 sNumberOfNodes = lens _sNumberOfNodes (\ s a -> s{_sNumberOfNodes = a});
 
--- | The snapshot type. Snapshots created using < CreateClusterSnapshot> and < CopyClusterSnapshot> will be of type \"manual\".
+-- | The snapshot type. Snapshots created using 'CreateClusterSnapshot' and 'CopyClusterSnapshot' will be of type "manual".
 sSnapshotType :: Lens' Snapshot (Maybe Text)
 sSnapshotType = lens _sSnapshotType (\ s a -> s{_sSnapshotType = a});
 
@@ -2668,7 +2752,7 @@ sKMSKeyId = lens _sKMSKeyId (\ s a -> s{_sKMSKeyId = a});
 sAvailabilityZone :: Lens' Snapshot (Maybe Text)
 sAvailabilityZone = lens _sAvailabilityZone (\ s a -> s{_sAvailabilityZone = a});
 
--- | The number of megabytes per second being transferred to the snapshot backup. Returns '0' for a completed backup.
+-- | The number of megabytes per second being transferred to the snapshot backup. Returns @0@ for a completed backup.
 sCurrentBackupRateInMegaBytesPerSecond :: Lens' Snapshot (Maybe Double)
 sCurrentBackupRateInMegaBytesPerSecond = lens _sCurrentBackupRateInMegaBytesPerSecond (\ s a -> s{_sCurrentBackupRateInMegaBytesPerSecond = a});
 
@@ -2696,7 +2780,7 @@ sElapsedTimeInSeconds = lens _sElapsedTimeInSeconds (\ s a -> s{_sElapsedTimeInS
 sClusterCreateTime :: Lens' Snapshot (Maybe UTCTime)
 sClusterCreateTime = lens _sClusterCreateTime (\ s a -> s{_sClusterCreateTime = a}) . mapping _Time;
 
--- | The estimate of the time remaining before the snapshot backup will complete. Returns '0' for a completed backup.
+-- | The estimate of the time remaining before the snapshot backup will complete. Returns @0@ for a completed backup.
 sEstimatedSecondsToCompletion :: Lens' Snapshot (Maybe Integer)
 sEstimatedSecondsToCompletion = lens _sEstimatedSecondsToCompletion (\ s a -> s{_sEstimatedSecondsToCompletion = a});
 
@@ -2729,6 +2813,7 @@ instance FromXML Snapshot where
                 <*>
                 (x .@? "AccountsWithRestoreAccess" .!@ mempty >>=
                    may (parseXMLList "AccountWithRestoreAccess"))
+                <*> (x .@? "EnhancedVpcRouting")
                 <*> (x .@? "SnapshotIdentifier")
                 <*> (x .@? "EncryptedWithHSM")
                 <*> (x .@? "MasterUsername")
@@ -2757,38 +2842,42 @@ instance FromXML Snapshot where
                 <*> (x .@? "TotalBackupSizeInMegaBytes")
                 <*> (x .@? "DBName")
 
-instance Hashable Snapshot
+instance Hashable Snapshot where
 
-instance NFData Snapshot
+instance NFData Snapshot where
 
 -- | The snapshot copy grant that grants Amazon Redshift permission to encrypt copied snapshots with the specified customer master key (CMK) from AWS KMS in the destination region.
 --
--- For more information about managing snapshot copy grants, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption> in the /Amazon Redshift Cluster Management Guide/.
+--
+-- For more information about managing snapshot copy grants, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption> in the /Amazon Redshift Cluster Management Guide/ .
+--
 --
 -- /See:/ 'snapshotCopyGrant' smart constructor.
 data SnapshotCopyGrant = SnapshotCopyGrant'
-    { _scgKMSKeyId              :: !(Maybe Text)
-    , _scgSnapshotCopyGrantName :: !(Maybe Text)
-    , _scgTags                  :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scgKMSKeyId              :: !(Maybe Text)
+  , _scgSnapshotCopyGrantName :: !(Maybe Text)
+  , _scgTags                  :: !(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SnapshotCopyGrant' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scgKMSKeyId'
+-- * 'scgKMSKeyId' - The unique identifier of the customer master key (CMK) in AWS KMS to which Amazon Redshift is granted permission.
 --
--- * 'scgSnapshotCopyGrantName'
+-- * 'scgSnapshotCopyGrantName' - The name of the snapshot copy grant.
 --
--- * 'scgTags'
+-- * 'scgTags' - A list of tag instances.
 snapshotCopyGrant
     :: SnapshotCopyGrant
 snapshotCopyGrant =
-    SnapshotCopyGrant'
-    { _scgKMSKeyId = Nothing
-    , _scgSnapshotCopyGrantName = Nothing
-    , _scgTags = Nothing
-    }
+  SnapshotCopyGrant'
+  { _scgKMSKeyId = Nothing
+  , _scgSnapshotCopyGrantName = Nothing
+  , _scgTags = Nothing
+  }
+
 
 -- | The unique identifier of the customer master key (CMK) in AWS KMS to which Amazon Redshift is granted permission.
 scgKMSKeyId :: Lens' SnapshotCopyGrant (Maybe Text)
@@ -2811,36 +2900,40 @@ instance FromXML SnapshotCopyGrant where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
-instance Hashable SnapshotCopyGrant
+instance Hashable SnapshotCopyGrant where
 
-instance NFData SnapshotCopyGrant
+instance NFData SnapshotCopyGrant where
 
 -- | Describes a subnet.
 --
+--
+--
 -- /See:/ 'subnet' smart constructor.
 data Subnet = Subnet'
-    { _sSubnetStatus           :: !(Maybe Text)
-    , _sSubnetIdentifier       :: !(Maybe Text)
-    , _sSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sSubnetStatus           :: !(Maybe Text)
+  , _sSubnetIdentifier       :: !(Maybe Text)
+  , _sSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Subnet' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sSubnetStatus'
+-- * 'sSubnetStatus' - The status of the subnet.
 --
--- * 'sSubnetIdentifier'
+-- * 'sSubnetIdentifier' - The identifier of the subnet.
 --
--- * 'sSubnetAvailabilityZone'
+-- * 'sSubnetAvailabilityZone' - Undocumented member.
 subnet
     :: Subnet
 subnet =
-    Subnet'
-    { _sSubnetStatus = Nothing
-    , _sSubnetIdentifier = Nothing
-    , _sSubnetAvailabilityZone = Nothing
-    }
+  Subnet'
+  { _sSubnetStatus = Nothing
+  , _sSubnetIdentifier = Nothing
+  , _sSubnetAvailabilityZone = Nothing
+  }
+
 
 -- | The status of the subnet.
 sSubnetStatus :: Lens' Subnet (Maybe Text)
@@ -2860,84 +2953,86 @@ instance FromXML Subnet where
               (x .@? "SubnetStatus") <*> (x .@? "SubnetIdentifier")
                 <*> (x .@? "SubnetAvailabilityZone")
 
-instance Hashable Subnet
+instance Hashable Subnet where
 
-instance NFData Subnet
+instance NFData Subnet where
 
--- | Describes the status of a < RestoreTableFromClusterSnapshot> operation.
+-- | Describes the status of a 'RestoreTableFromClusterSnapshot' operation.
+--
+--
 --
 -- /See:/ 'tableRestoreStatus' smart constructor.
 data TableRestoreStatus = TableRestoreStatus'
-    { _trsStatus                :: !(Maybe TableRestoreStatusType)
-    , _trsTargetSchemaName      :: !(Maybe Text)
-    , _trsSnapshotIdentifier    :: !(Maybe Text)
-    , _trsSourceDatabaseName    :: !(Maybe Text)
-    , _trsTableRestoreRequestId :: !(Maybe Text)
-    , _trsNewTableName          :: !(Maybe Text)
-    , _trsTargetDatabaseName    :: !(Maybe Text)
-    , _trsSourceSchemaName      :: !(Maybe Text)
-    , _trsClusterIdentifier     :: !(Maybe Text)
-    , _trsRequestTime           :: !(Maybe ISO8601)
-    , _trsSourceTableName       :: !(Maybe Text)
-    , _trsTotalDataInMegaBytes  :: !(Maybe Integer)
-    , _trsProgressInMegaBytes   :: !(Maybe Integer)
-    , _trsMessage               :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trsStatus                :: !(Maybe TableRestoreStatusType)
+  , _trsTargetSchemaName      :: !(Maybe Text)
+  , _trsSnapshotIdentifier    :: !(Maybe Text)
+  , _trsSourceDatabaseName    :: !(Maybe Text)
+  , _trsTableRestoreRequestId :: !(Maybe Text)
+  , _trsNewTableName          :: !(Maybe Text)
+  , _trsTargetDatabaseName    :: !(Maybe Text)
+  , _trsSourceSchemaName      :: !(Maybe Text)
+  , _trsClusterIdentifier     :: !(Maybe Text)
+  , _trsRequestTime           :: !(Maybe ISO8601)
+  , _trsSourceTableName       :: !(Maybe Text)
+  , _trsTotalDataInMegaBytes  :: !(Maybe Integer)
+  , _trsProgressInMegaBytes   :: !(Maybe Integer)
+  , _trsMessage               :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TableRestoreStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trsStatus'
+-- * 'trsStatus' - A value that describes the current state of the table restore request. Valid Values: @SUCCEEDED@ , @FAILED@ , @CANCELED@ , @PENDING@ , @IN_PROGRESS@
 --
--- * 'trsTargetSchemaName'
+-- * 'trsTargetSchemaName' - The name of the schema to restore the table to.
 --
--- * 'trsSnapshotIdentifier'
+-- * 'trsSnapshotIdentifier' - The identifier of the snapshot that the table is being restored from.
 --
--- * 'trsSourceDatabaseName'
+-- * 'trsSourceDatabaseName' - The name of the source database that contains the table being restored.
 --
--- * 'trsTableRestoreRequestId'
+-- * 'trsTableRestoreRequestId' - The unique identifier for the table restore request.
 --
--- * 'trsNewTableName'
+-- * 'trsNewTableName' - The name of the table to create as a result of the table restore request.
 --
--- * 'trsTargetDatabaseName'
+-- * 'trsTargetDatabaseName' - The name of the database to restore the table to.
 --
--- * 'trsSourceSchemaName'
+-- * 'trsSourceSchemaName' - The name of the source schema that contains the table being restored.
 --
--- * 'trsClusterIdentifier'
+-- * 'trsClusterIdentifier' - The identifier of the Amazon Redshift cluster that the table is being restored to.
 --
--- * 'trsRequestTime'
+-- * 'trsRequestTime' - The time that the table restore request was made, in Universal Coordinated Time (UTC).
 --
--- * 'trsSourceTableName'
+-- * 'trsSourceTableName' - The name of the source table being restored.
 --
--- * 'trsTotalDataInMegaBytes'
+-- * 'trsTotalDataInMegaBytes' - The total amount of data to restore to the new table, in megabytes (MB).
 --
--- * 'trsProgressInMegaBytes'
+-- * 'trsProgressInMegaBytes' - The amount of data restored to the new table so far, in megabytes (MB).
 --
--- * 'trsMessage'
+-- * 'trsMessage' - A description of the status of the table restore request. Status values include @SUCCEEDED@ , @FAILED@ , @CANCELED@ , @PENDING@ , @IN_PROGRESS@ .
 tableRestoreStatus
     :: TableRestoreStatus
 tableRestoreStatus =
-    TableRestoreStatus'
-    { _trsStatus = Nothing
-    , _trsTargetSchemaName = Nothing
-    , _trsSnapshotIdentifier = Nothing
-    , _trsSourceDatabaseName = Nothing
-    , _trsTableRestoreRequestId = Nothing
-    , _trsNewTableName = Nothing
-    , _trsTargetDatabaseName = Nothing
-    , _trsSourceSchemaName = Nothing
-    , _trsClusterIdentifier = Nothing
-    , _trsRequestTime = Nothing
-    , _trsSourceTableName = Nothing
-    , _trsTotalDataInMegaBytes = Nothing
-    , _trsProgressInMegaBytes = Nothing
-    , _trsMessage = Nothing
-    }
+  TableRestoreStatus'
+  { _trsStatus = Nothing
+  , _trsTargetSchemaName = Nothing
+  , _trsSnapshotIdentifier = Nothing
+  , _trsSourceDatabaseName = Nothing
+  , _trsTableRestoreRequestId = Nothing
+  , _trsNewTableName = Nothing
+  , _trsTargetDatabaseName = Nothing
+  , _trsSourceSchemaName = Nothing
+  , _trsClusterIdentifier = Nothing
+  , _trsRequestTime = Nothing
+  , _trsSourceTableName = Nothing
+  , _trsTotalDataInMegaBytes = Nothing
+  , _trsProgressInMegaBytes = Nothing
+  , _trsMessage = Nothing
+  }
 
--- | A value that describes the current state of the table restore request.
---
--- Valid Values: 'SUCCEEDED', 'FAILED', 'CANCELED', 'PENDING', 'IN_PROGRESS'
+
+-- | A value that describes the current state of the table restore request. Valid Values: @SUCCEEDED@ , @FAILED@ , @CANCELED@ , @PENDING@ , @IN_PROGRESS@
 trsStatus :: Lens' TableRestoreStatus (Maybe TableRestoreStatusType)
 trsStatus = lens _trsStatus (\ s a -> s{_trsStatus = a});
 
@@ -2989,7 +3084,7 @@ trsTotalDataInMegaBytes = lens _trsTotalDataInMegaBytes (\ s a -> s{_trsTotalDat
 trsProgressInMegaBytes :: Lens' TableRestoreStatus (Maybe Integer)
 trsProgressInMegaBytes = lens _trsProgressInMegaBytes (\ s a -> s{_trsProgressInMegaBytes = a});
 
--- | A description of the status of the table restore request. Status values include 'SUCCEEDED', 'FAILED', 'CANCELED', 'PENDING', 'IN_PROGRESS'.
+-- | A description of the status of the table restore request. Status values include @SUCCEEDED@ , @FAILED@ , @CANCELED@ , @PENDING@ , @IN_PROGRESS@ .
 trsMessage :: Lens' TableRestoreStatus (Maybe Text)
 trsMessage = lens _trsMessage (\ s a -> s{_trsMessage = a});
 
@@ -3010,32 +3105,32 @@ instance FromXML TableRestoreStatus where
                 <*> (x .@? "ProgressInMegaBytes")
                 <*> (x .@? "Message")
 
-instance Hashable TableRestoreStatus
+instance Hashable TableRestoreStatus where
 
-instance NFData TableRestoreStatus
+instance NFData TableRestoreStatus where
 
--- | A tag consisting of a name\/value pair for a resource.
+-- | A tag consisting of a name/value pair for a resource.
+--
+--
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue'
+-- * 'tagValue' - The value for the resource tag.
 --
--- * 'tagKey'
+-- * 'tagKey' - The key, or name, for the resource tag.
 tag
     :: Tag
-tag =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = Nothing
-    }
+tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
+
 
 -- | The value for the resource tag.
 tagValue :: Lens' Tag (Maybe Text)
@@ -3049,9 +3144,9 @@ instance FromXML Tag where
         parseXML x
           = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -3059,52 +3154,41 @@ instance ToQuery Tag where
 
 -- | A tag and its associated resource.
 --
+--
+--
 -- /See:/ 'taggedResource' smart constructor.
 data TaggedResource = TaggedResource'
-    { _trTag          :: !(Maybe Tag)
-    , _trResourceType :: !(Maybe Text)
-    , _trResourceName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trTag          :: !(Maybe Tag)
+  , _trResourceType :: !(Maybe Text)
+  , _trResourceName :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TaggedResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trTag'
+-- * 'trTag' - The tag for the resource.
 --
--- * 'trResourceType'
+-- * 'trResourceType' - The type of resource with which the tag is associated. Valid resource types are:      * Cluster     * CIDR/IP     * EC2 security group     * Snapshot     * Cluster security group     * Subnet group     * HSM connection     * HSM certificate     * Parameter group For more information about Amazon Redshift resource types and constructing ARNs, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the Amazon Redshift Cluster Management Guide.
 --
--- * 'trResourceName'
+-- * 'trResourceName' - The Amazon Resource Name (ARN) with which the tag is associated. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@ .
 taggedResource
     :: TaggedResource
 taggedResource =
-    TaggedResource'
-    { _trTag = Nothing
-    , _trResourceType = Nothing
-    , _trResourceName = Nothing
-    }
+  TaggedResource'
+  {_trTag = Nothing, _trResourceType = Nothing, _trResourceName = Nothing}
+
 
 -- | The tag for the resource.
 trTag :: Lens' TaggedResource (Maybe Tag)
 trTag = lens _trTag (\ s a -> s{_trTag = a});
 
--- | The type of resource with which the tag is associated. Valid resource types are:
---
--- -   Cluster
--- -   CIDR\/IP
--- -   EC2 security group
--- -   Snapshot
--- -   Cluster security group
--- -   Subnet group
--- -   HSM connection
--- -   HSM certificate
--- -   Parameter group
---
--- For more information about Amazon Redshift resource types and constructing ARNs, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the Amazon Redshift Cluster Management Guide.
+-- | The type of resource with which the tag is associated. Valid resource types are:      * Cluster     * CIDR/IP     * EC2 security group     * Snapshot     * Cluster security group     * Subnet group     * HSM connection     * HSM certificate     * Parameter group For more information about Amazon Redshift resource types and constructing ARNs, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the Amazon Redshift Cluster Management Guide.
 trResourceType :: Lens' TaggedResource (Maybe Text)
 trResourceType = lens _trResourceType (\ s a -> s{_trResourceType = a});
 
--- | The Amazon Resource Name (ARN) with which the tag is associated. For example, 'arn:aws:redshift:us-east-1:123456789:cluster:t1'.
+-- | The Amazon Resource Name (ARN) with which the tag is associated. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@ .
 trResourceName :: Lens' TaggedResource (Maybe Text)
 trResourceName = lens _trResourceName (\ s a -> s{_trResourceName = a});
 
@@ -3114,32 +3198,34 @@ instance FromXML TaggedResource where
               (x .@? "Tag") <*> (x .@? "ResourceType") <*>
                 (x .@? "ResourceName")
 
-instance Hashable TaggedResource
+instance Hashable TaggedResource where
 
-instance NFData TaggedResource
+instance NFData TaggedResource where
 
 -- | Describes the members of a VPC security group.
 --
+--
+--
 -- /See:/ 'vpcSecurityGroupMembership' smart constructor.
 data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
-    { _vsgmStatus             :: !(Maybe Text)
-    , _vsgmVPCSecurityGroupId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vsgmStatus             :: !(Maybe Text)
+  , _vsgmVPCSecurityGroupId :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VPCSecurityGroupMembership' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vsgmStatus'
+-- * 'vsgmStatus' - The status of the VPC security group.
 --
--- * 'vsgmVPCSecurityGroupId'
+-- * 'vsgmVPCSecurityGroupId' - The identifier of the VPC security group.
 vpcSecurityGroupMembership
     :: VPCSecurityGroupMembership
 vpcSecurityGroupMembership =
-    VPCSecurityGroupMembership'
-    { _vsgmStatus = Nothing
-    , _vsgmVPCSecurityGroupId = Nothing
-    }
+  VPCSecurityGroupMembership'
+  {_vsgmStatus = Nothing, _vsgmVPCSecurityGroupId = Nothing}
+
 
 -- | The status of the VPC security group.
 vsgmStatus :: Lens' VPCSecurityGroupMembership (Maybe Text)
@@ -3154,6 +3240,6 @@ instance FromXML VPCSecurityGroupMembership where
           = VPCSecurityGroupMembership' <$>
               (x .@? "Status") <*> (x .@? "VpcSecurityGroupId")
 
-instance Hashable VPCSecurityGroupMembership
+instance Hashable VPCSecurityGroupMembership where
 
-instance NFData VPCSecurityGroupMembership
+instance NFData VPCSecurityGroupMembership where

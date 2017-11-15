@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateVTLDeviceType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the type of medium changer in a gateway-VTL. When you activate a gateway-VTL, you select a medium changer type for the gateway-VTL. This operation enables you to select a different type of medium changer after a gateway-VTL is activated.
+-- Updates the type of medium changer in a tape gateway. When you activate a tape gateway, you select a medium changer type for the tape gateway. This operation enables you to select a different type of medium changer after a tape gateway is activated. This operation is only supported in the tape gateway architecture.
+--
+--
 module Network.AWS.StorageGateway.UpdateVTLDeviceType
     (
     -- * Creating a Request
@@ -36,43 +38,41 @@ module Network.AWS.StorageGateway.UpdateVTLDeviceType
     , uvtldtrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'updateVTLDeviceType' smart constructor.
 data UpdateVTLDeviceType = UpdateVTLDeviceType'
-    { _uvtldtVTLDeviceARN :: !Text
-    , _uvtldtDeviceType   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uvtldtVTLDeviceARN :: !Text
+  , _uvtldtDeviceType   :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateVTLDeviceType' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uvtldtVTLDeviceARN'
+-- * 'uvtldtVTLDeviceARN' - The Amazon Resource Name (ARN) of the medium changer you want to select.
 --
--- * 'uvtldtDeviceType'
+-- * 'uvtldtDeviceType' - The type of medium changer you want to select. Valid Values: "STK-L700", "AWS-Gateway-VTL"
 updateVTLDeviceType
     :: Text -- ^ 'uvtldtVTLDeviceARN'
     -> Text -- ^ 'uvtldtDeviceType'
     -> UpdateVTLDeviceType
 updateVTLDeviceType pVTLDeviceARN_ pDeviceType_ =
-    UpdateVTLDeviceType'
-    { _uvtldtVTLDeviceARN = pVTLDeviceARN_
-    , _uvtldtDeviceType = pDeviceType_
-    }
+  UpdateVTLDeviceType'
+  {_uvtldtVTLDeviceARN = pVTLDeviceARN_, _uvtldtDeviceType = pDeviceType_}
+
 
 -- | The Amazon Resource Name (ARN) of the medium changer you want to select.
 uvtldtVTLDeviceARN :: Lens' UpdateVTLDeviceType Text
 uvtldtVTLDeviceARN = lens _uvtldtVTLDeviceARN (\ s a -> s{_uvtldtVTLDeviceARN = a});
 
--- | The type of medium changer you want to select.
---
--- Valid Values: \"STK-L700\", \"AWS-Gateway-VTL\"
+-- | The type of medium changer you want to select. Valid Values: "STK-L700", "AWS-Gateway-VTL"
 uvtldtDeviceType :: Lens' UpdateVTLDeviceType Text
 uvtldtDeviceType = lens _uvtldtDeviceType (\ s a -> s{_uvtldtDeviceType = a});
 
@@ -86,9 +86,9 @@ instance AWSRequest UpdateVTLDeviceType where
                  UpdateVTLDeviceTypeResponse' <$>
                    (x .?> "VTLDeviceARN") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateVTLDeviceType
+instance Hashable UpdateVTLDeviceType where
 
-instance NFData UpdateVTLDeviceType
+instance NFData UpdateVTLDeviceType where
 
 instance ToHeaders UpdateVTLDeviceType where
         toHeaders
@@ -115,34 +115,36 @@ instance ToQuery UpdateVTLDeviceType where
 
 -- | UpdateVTLDeviceTypeOutput
 --
+--
+--
 -- /See:/ 'updateVTLDeviceTypeResponse' smart constructor.
 data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'
-    { _uvtldtrsVTLDeviceARN   :: !(Maybe Text)
-    , _uvtldtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uvtldtrsVTLDeviceARN   :: !(Maybe Text)
+  , _uvtldtrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateVTLDeviceTypeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uvtldtrsVTLDeviceARN'
+-- * 'uvtldtrsVTLDeviceARN' - The Amazon Resource Name (ARN) of the medium changer you have selected.
 --
--- * 'uvtldtrsResponseStatus'
+-- * 'uvtldtrsResponseStatus' - -- | The response status code.
 updateVTLDeviceTypeResponse
     :: Int -- ^ 'uvtldtrsResponseStatus'
     -> UpdateVTLDeviceTypeResponse
 updateVTLDeviceTypeResponse pResponseStatus_ =
-    UpdateVTLDeviceTypeResponse'
-    { _uvtldtrsVTLDeviceARN = Nothing
-    , _uvtldtrsResponseStatus = pResponseStatus_
-    }
+  UpdateVTLDeviceTypeResponse'
+  {_uvtldtrsVTLDeviceARN = Nothing, _uvtldtrsResponseStatus = pResponseStatus_}
+
 
 -- | The Amazon Resource Name (ARN) of the medium changer you have selected.
 uvtldtrsVTLDeviceARN :: Lens' UpdateVTLDeviceTypeResponse (Maybe Text)
 uvtldtrsVTLDeviceARN = lens _uvtldtrsVTLDeviceARN (\ s a -> s{_uvtldtrsVTLDeviceARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 uvtldtrsResponseStatus :: Lens' UpdateVTLDeviceTypeResponse Int
 uvtldtrsResponseStatus = lens _uvtldtrsResponseStatus (\ s a -> s{_uvtldtrsResponseStatus = a});
 
-instance NFData UpdateVTLDeviceTypeResponse
+instance NFData UpdateVTLDeviceTypeResponse where

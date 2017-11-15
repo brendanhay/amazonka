@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Config.DeleteEvaluationResults
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the evaluation results for the specified Config rule. You can specify one Config rule per request. After you delete the evaluation results, you can call the < StartConfigRulesEvaluation> API to start evaluating your AWS resources against the rule.
+-- Deletes the evaluation results for the specified Config rule. You can specify one Config rule per request. After you delete the evaluation results, you can call the 'StartConfigRulesEvaluation' API to start evaluating your AWS resources against the rule.
+--
+--
 module Network.AWS.Config.DeleteEvaluationResults
     (
     -- * Creating a Request
@@ -34,30 +36,34 @@ module Network.AWS.Config.DeleteEvaluationResults
     , derrsResponseStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | /See:/ 'deleteEvaluationResults' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'deleteEvaluationResults' smart constructor.
 newtype DeleteEvaluationResults = DeleteEvaluationResults'
-    { _derConfigRuleName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _derConfigRuleName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteEvaluationResults' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'derConfigRuleName'
+-- * 'derConfigRuleName' - The name of the Config rule for which you want to delete the evaluation results.
 deleteEvaluationResults
     :: Text -- ^ 'derConfigRuleName'
     -> DeleteEvaluationResults
 deleteEvaluationResults pConfigRuleName_ =
-    DeleteEvaluationResults'
-    { _derConfigRuleName = pConfigRuleName_
-    }
+  DeleteEvaluationResults' {_derConfigRuleName = pConfigRuleName_}
+
 
 -- | The name of the Config rule for which you want to delete the evaluation results.
 derConfigRuleName :: Lens' DeleteEvaluationResults Text
@@ -73,9 +79,9 @@ instance AWSRequest DeleteEvaluationResults where
                  DeleteEvaluationResultsResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteEvaluationResults
+instance Hashable DeleteEvaluationResults where
 
-instance NFData DeleteEvaluationResults
+instance NFData DeleteEvaluationResults where
 
 instance ToHeaders DeleteEvaluationResults where
         toHeaders
@@ -101,26 +107,28 @@ instance ToQuery DeleteEvaluationResults where
 
 -- | The output when you delete the evaluation results for the specified Config rule.
 --
+--
+--
 -- /See:/ 'deleteEvaluationResultsResponse' smart constructor.
 newtype DeleteEvaluationResultsResponse = DeleteEvaluationResultsResponse'
-    { _derrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _derrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteEvaluationResultsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'derrsResponseStatus'
+-- * 'derrsResponseStatus' - -- | The response status code.
 deleteEvaluationResultsResponse
     :: Int -- ^ 'derrsResponseStatus'
     -> DeleteEvaluationResultsResponse
 deleteEvaluationResultsResponse pResponseStatus_ =
-    DeleteEvaluationResultsResponse'
-    { _derrsResponseStatus = pResponseStatus_
-    }
+  DeleteEvaluationResultsResponse' {_derrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 derrsResponseStatus :: Lens' DeleteEvaluationResultsResponse Int
 derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a});
 
-instance NFData DeleteEvaluationResultsResponse
+instance NFData DeleteEvaluationResultsResponse where

@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.CreateTapes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates one or more virtual tapes. You write data to the virtual tapes and then archive the tapes.
+-- Creates one or more virtual tapes. You write data to the virtual tapes and then archive the tapes. This operation is only supported in the tape gateway architecture.
 --
--- Cache storage must be allocated to the gateway before you can create virtual tapes. Use the < AddCache> operation to add cache storage to a gateway.
+--
 module Network.AWS.StorageGateway.CreateTapes
     (
     -- * Creating a Request
@@ -41,37 +41,40 @@ module Network.AWS.StorageGateway.CreateTapes
     , ctrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | CreateTapesInput
 --
+--
+--
 -- /See:/ 'createTapes' smart constructor.
 data CreateTapes = CreateTapes'
-    { _ctGatewayARN        :: !Text
-    , _ctTapeSizeInBytes   :: !Integer
-    , _ctClientToken       :: !Text
-    , _ctNumTapesToCreate  :: !Nat
-    , _ctTapeBarcodePrefix :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctGatewayARN        :: !Text
+  , _ctTapeSizeInBytes   :: !Integer
+  , _ctClientToken       :: !Text
+  , _ctNumTapesToCreate  :: !Nat
+  , _ctTapeBarcodePrefix :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTapes' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctGatewayARN'
+-- * 'ctGatewayARN' - The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tapes with. Use the 'ListGateways' operation to return a list of gateways for your account and region.
 --
--- * 'ctTapeSizeInBytes'
+-- * 'ctTapeSizeInBytes' - The size, in bytes, of the virtual tapes that you want to create.
 --
--- * 'ctClientToken'
+-- * 'ctClientToken' - A unique identifier that you use to retry a request. If you retry a request, use the same @ClientToken@ you specified in the initial request.
 --
--- * 'ctNumTapesToCreate'
+-- * 'ctNumTapesToCreate' - The number of virtual tapes that you want to create.
 --
--- * 'ctTapeBarcodePrefix'
+-- * 'ctTapeBarcodePrefix' - A prefix that you append to the barcode of the virtual tape you are creating. This prefix makes the barcode unique.
 createTapes
     :: Text -- ^ 'ctGatewayARN'
     -> Integer -- ^ 'ctTapeSizeInBytes'
@@ -80,27 +83,24 @@ createTapes
     -> Text -- ^ 'ctTapeBarcodePrefix'
     -> CreateTapes
 createTapes pGatewayARN_ pTapeSizeInBytes_ pClientToken_ pNumTapesToCreate_ pTapeBarcodePrefix_ =
-    CreateTapes'
-    { _ctGatewayARN = pGatewayARN_
-    , _ctTapeSizeInBytes = pTapeSizeInBytes_
-    , _ctClientToken = pClientToken_
-    , _ctNumTapesToCreate = _Nat # pNumTapesToCreate_
-    , _ctTapeBarcodePrefix = pTapeBarcodePrefix_
-    }
+  CreateTapes'
+  { _ctGatewayARN = pGatewayARN_
+  , _ctTapeSizeInBytes = pTapeSizeInBytes_
+  , _ctClientToken = pClientToken_
+  , _ctNumTapesToCreate = _Nat # pNumTapesToCreate_
+  , _ctTapeBarcodePrefix = pTapeBarcodePrefix_
+  }
 
--- | The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tapes with. Use the < ListGateways> operation to return a list of gateways for your account and region.
+
+-- | The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tapes with. Use the 'ListGateways' operation to return a list of gateways for your account and region.
 ctGatewayARN :: Lens' CreateTapes Text
 ctGatewayARN = lens _ctGatewayARN (\ s a -> s{_ctGatewayARN = a});
 
 -- | The size, in bytes, of the virtual tapes that you want to create.
---
--- The size must be aligned by gigabyte (1024*1024*1024 byte).
 ctTapeSizeInBytes :: Lens' CreateTapes Integer
 ctTapeSizeInBytes = lens _ctTapeSizeInBytes (\ s a -> s{_ctTapeSizeInBytes = a});
 
--- | A unique identifier that you use to retry a request. If you retry a request, use the same 'ClientToken' you specified in the initial request.
---
--- Using the same 'ClientToken' prevents creating the tape multiple times.
+-- | A unique identifier that you use to retry a request. If you retry a request, use the same @ClientToken@ you specified in the initial request.
 ctClientToken :: Lens' CreateTapes Text
 ctClientToken = lens _ctClientToken (\ s a -> s{_ctClientToken = a});
 
@@ -109,8 +109,6 @@ ctNumTapesToCreate :: Lens' CreateTapes Natural
 ctNumTapesToCreate = lens _ctNumTapesToCreate (\ s a -> s{_ctNumTapesToCreate = a}) . _Nat;
 
 -- | A prefix that you append to the barcode of the virtual tape you are creating. This prefix makes the barcode unique.
---
--- The prefix must be 1 to 4 characters in length and must be one of the uppercase letters from A to Z.
 ctTapeBarcodePrefix :: Lens' CreateTapes Text
 ctTapeBarcodePrefix = lens _ctTapeBarcodePrefix (\ s a -> s{_ctTapeBarcodePrefix = a});
 
@@ -124,9 +122,9 @@ instance AWSRequest CreateTapes where
                    (x .?> "TapeARNs" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateTapes
+instance Hashable CreateTapes where
 
-instance NFData CreateTapes
+instance NFData CreateTapes where
 
 instance ToHeaders CreateTapes where
         toHeaders
@@ -156,34 +154,36 @@ instance ToQuery CreateTapes where
 
 -- | CreateTapeOutput
 --
+--
+--
 -- /See:/ 'createTapesResponse' smart constructor.
 data CreateTapesResponse = CreateTapesResponse'
-    { _ctrsTapeARNs       :: !(Maybe [Text])
-    , _ctrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctrsTapeARNs       :: !(Maybe [Text])
+  , _ctrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTapesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctrsTapeARNs'
+-- * 'ctrsTapeARNs' - A list of unique Amazon Resource Names (ARNs) that represents the virtual tapes that were created.
 --
--- * 'ctrsResponseStatus'
+-- * 'ctrsResponseStatus' - -- | The response status code.
 createTapesResponse
     :: Int -- ^ 'ctrsResponseStatus'
     -> CreateTapesResponse
 createTapesResponse pResponseStatus_ =
-    CreateTapesResponse'
-    { _ctrsTapeARNs = Nothing
-    , _ctrsResponseStatus = pResponseStatus_
-    }
+  CreateTapesResponse'
+  {_ctrsTapeARNs = Nothing, _ctrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of unique Amazon Resource Names (ARNs) that represents the virtual tapes that were created.
 ctrsTapeARNs :: Lens' CreateTapesResponse [Text]
 ctrsTapeARNs = lens _ctrsTapeARNs (\ s a -> s{_ctrsTapeARNs = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTapesResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
 
-instance NFData CreateTapesResponse
+instance NFData CreateTapesResponse where

@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteSigningCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a signing certificate associated with the specified IAM user.
 --
+--
 -- If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated IAM users.
+--
 module Network.AWS.IAM.DeleteSigningCertificate
     (
     -- * Creating a Request
@@ -35,44 +37,40 @@ module Network.AWS.IAM.DeleteSigningCertificate
     , DeleteSigningCertificateResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteSigningCertificate' smart constructor.
 data DeleteSigningCertificate = DeleteSigningCertificate'
-    { _dscUserName      :: !(Maybe Text)
-    , _dscCertificateId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dscUserName      :: !(Maybe Text)
+  , _dscCertificateId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSigningCertificate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dscUserName'
+-- * 'dscUserName' - The name of the user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'dscCertificateId'
+-- * 'dscCertificateId' - The ID of the signing certificate to delete. The format of this parameter, as described by its <http://wikipedia.org/wiki/regex regex> pattern, is a string of characters that can be upper- or lower-cased letters or digits.
 deleteSigningCertificate
     :: Text -- ^ 'dscCertificateId'
     -> DeleteSigningCertificate
 deleteSigningCertificate pCertificateId_ =
-    DeleteSigningCertificate'
-    { _dscUserName = Nothing
-    , _dscCertificateId = pCertificateId_
-    }
+  DeleteSigningCertificate'
+  {_dscUserName = Nothing, _dscCertificateId = pCertificateId_}
 
--- | The name of the user the signing certificate belongs to.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+
+-- | The name of the user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 dscUserName :: Lens' DeleteSigningCertificate (Maybe Text)
 dscUserName = lens _dscUserName (\ s a -> s{_dscUserName = a});
 
--- | The ID of the signing certificate to delete.
---
--- The format of this parameter, as described by its <http://wikipedia.org/wiki/regex regex> pattern, is a string of characters that can be upper- or lower-cased letters or digits.
+-- | The ID of the signing certificate to delete. The format of this parameter, as described by its <http://wikipedia.org/wiki/regex regex> pattern, is a string of characters that can be upper- or lower-cased letters or digits.
 dscCertificateId :: Lens' DeleteSigningCertificate Text
 dscCertificateId = lens _dscCertificateId (\ s a -> s{_dscCertificateId = a});
 
@@ -83,9 +81,9 @@ instance AWSRequest DeleteSigningCertificate where
         response
           = receiveNull DeleteSigningCertificateResponse'
 
-instance Hashable DeleteSigningCertificate
+instance Hashable DeleteSigningCertificate where
 
-instance NFData DeleteSigningCertificate
+instance NFData DeleteSigningCertificate where
 
 instance ToHeaders DeleteSigningCertificate where
         toHeaders = const mempty
@@ -104,8 +102,9 @@ instance ToQuery DeleteSigningCertificate where
 
 -- | /See:/ 'deleteSigningCertificateResponse' smart constructor.
 data DeleteSigningCertificateResponse =
-    DeleteSigningCertificateResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteSigningCertificateResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSigningCertificateResponse' with the minimum fields required to make a request.
 --
@@ -113,4 +112,6 @@ deleteSigningCertificateResponse
     :: DeleteSigningCertificateResponse
 deleteSigningCertificateResponse = DeleteSigningCertificateResponse'
 
+
 instance NFData DeleteSigningCertificateResponse
+         where

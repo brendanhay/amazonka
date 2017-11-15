@@ -11,9 +11,9 @@
 
 -- |
 -- Module      : Network.AWS.Data.Query
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
@@ -25,6 +25,7 @@ import qualified Data.ByteString.Char8       as BS8
 import qualified Data.ByteString.Lazy        as LBS
 import           Data.Data
 import           Data.List                   (sort)
+import           Data.Maybe                  (fromMaybe)
 import           Data.Monoid
 import           Data.String
 import qualified Data.Text.Encoding          as Text
@@ -50,8 +51,26 @@ instance Monoid QueryString where
         (l,       r)       -> QList [l, r]
 
 instance IsString QueryString where
-    fromString [] = mempty
-    fromString xs = QPair (BS8.pack xs) (QValue Nothing)
+    fromString = parseQueryString . fromString
+    {-# INLINE fromString #-}
+
+parseQueryString :: ByteString -> QueryString
+parseQueryString bs
+    | BS8.null bs = mempty
+    | otherwise   =
+        QList (map breakPair . filter (not . BS8.null) $ BS8.split '&' bs)
+  where
+    breakPair x =
+        case BS8.break (== '=') x of
+            ("", "") -> mempty
+            ("", v)  -> stripValue v
+            (k,  v)  -> QPair k (stripValue v)
+
+    stripValue x =
+        case x of
+            ""  -> QValue Nothing
+            "=" -> QValue Nothing
+            _   -> QValue (Just (fromMaybe x (BS8.stripPrefix "=" x)))
 
 -- FIXME: use Builder
 instance ToByteString QueryString where

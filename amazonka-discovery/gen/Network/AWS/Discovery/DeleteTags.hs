@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.DeleteTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the association between configuration items and one or more tags. This API accepts a list of multiple configuration items.
+--
+--
 module Network.AWS.Discovery.DeleteTags
     (
     -- * Creating a Request
@@ -35,37 +37,33 @@ module Network.AWS.Discovery.DeleteTags
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Discovery.Types
-import           Network.AWS.Discovery.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Discovery.Types
+import Network.AWS.Discovery.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-    { _dtTags             :: !(Maybe [Tag])
-    , _dtConfigurationIds :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtTags             :: !(Maybe [Tag])
+  , _dtConfigurationIds :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtTags'
+-- * 'dtTags' - Tags that you want to delete from one or more configuration items. Specify the tags that you want to delete in a /key/ -/value/ format. For example: @{"key": "serverType", "value": "webServer"}@
 --
--- * 'dtConfigurationIds'
+-- * 'dtConfigurationIds' - A list of configuration items with tags that you want to delete.
 deleteTags
     :: DeleteTags
-deleteTags =
-    DeleteTags'
-    { _dtTags = Nothing
-    , _dtConfigurationIds = mempty
-    }
+deleteTags = DeleteTags' {_dtTags = Nothing, _dtConfigurationIds = mempty}
 
--- | Tags that you want to delete from one or more configuration items. Specify the tags that you want to delete in a /key/-/value/ format. For example:
---
--- '{\"key\": \"serverType\", \"value\": \"webServer\"}'
+
+-- | Tags that you want to delete from one or more configuration items. Specify the tags that you want to delete in a /key/ -/value/ format. For example: @{"key": "serverType", "value": "webServer"}@
 dtTags :: Lens' DeleteTags [Tag]
 dtTags = lens _dtTags (\ s a -> s{_dtTags = a}) . _Default . _Coerce;
 
@@ -81,9 +79,9 @@ instance AWSRequest DeleteTags where
               (\ s h x ->
                  DeleteTagsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteTags
+instance Hashable DeleteTags where
 
-instance NFData DeleteTags
+instance NFData DeleteTags where
 
 instance ToHeaders DeleteTags where
         toHeaders
@@ -110,24 +108,24 @@ instance ToQuery DeleteTags where
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
 newtype DeleteTagsResponse = DeleteTagsResponse'
-    { _drsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteTagsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteTagsResponse
 deleteTagsResponse pResponseStatus_ =
-    DeleteTagsResponse'
-    { _drsResponseStatus = pResponseStatus_
-    }
+  DeleteTagsResponse' {_drsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteTagsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteTagsResponse
+instance NFData DeleteTagsResponse where

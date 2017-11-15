@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeAdjustmentTypes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the policy adjustment types for use with < PutScalingPolicy>.
+-- Describes the policy adjustment types for use with 'PutScalingPolicy' .
+--
+--
 module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     (
     -- * Creating a Request
@@ -33,23 +35,25 @@ module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     , datrsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAdjustmentTypes' smart constructor.
 data DescribeAdjustmentTypes =
-    DescribeAdjustmentTypes'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeAdjustmentTypes'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAdjustmentTypes' with the minimum fields required to make a request.
 --
 describeAdjustmentTypes
     :: DescribeAdjustmentTypes
 describeAdjustmentTypes = DescribeAdjustmentTypes'
+
 
 instance AWSRequest DescribeAdjustmentTypes where
         type Rs DescribeAdjustmentTypes =
@@ -63,9 +67,9 @@ instance AWSRequest DescribeAdjustmentTypes where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAdjustmentTypes
+instance Hashable DescribeAdjustmentTypes where
 
-instance NFData DescribeAdjustmentTypes
+instance NFData DescribeAdjustmentTypes where
 
 instance ToHeaders DescribeAdjustmentTypes where
         toHeaders = const mempty
@@ -81,36 +85,34 @@ instance ToQuery DescribeAdjustmentTypes where
                     ("DescribeAdjustmentTypes" :: ByteString),
                   "Version" =: ("2011-01-01" :: ByteString)])
 
--- | Contains the parameters for DescribeAdjustmentTypes.
---
--- /See:/ 'describeAdjustmentTypesResponse' smart constructor.
+-- | /See:/ 'describeAdjustmentTypesResponse' smart constructor.
 data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
-    { _datrsAdjustmentTypes :: !(Maybe [AdjustmentType])
-    , _datrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _datrsAdjustmentTypes :: !(Maybe [AdjustmentType])
+  , _datrsResponseStatus  :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAdjustmentTypesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'datrsAdjustmentTypes'
+-- * 'datrsAdjustmentTypes' - The policy adjustment types.
 --
--- * 'datrsResponseStatus'
+-- * 'datrsResponseStatus' - -- | The response status code.
 describeAdjustmentTypesResponse
     :: Int -- ^ 'datrsResponseStatus'
     -> DescribeAdjustmentTypesResponse
 describeAdjustmentTypesResponse pResponseStatus_ =
-    DescribeAdjustmentTypesResponse'
-    { _datrsAdjustmentTypes = Nothing
-    , _datrsResponseStatus = pResponseStatus_
-    }
+  DescribeAdjustmentTypesResponse'
+  {_datrsAdjustmentTypes = Nothing, _datrsResponseStatus = pResponseStatus_}
+
 
 -- | The policy adjustment types.
 datrsAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
 datrsAdjustmentTypes = lens _datrsAdjustmentTypes (\ s a -> s{_datrsAdjustmentTypes = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 datrsResponseStatus :: Lens' DescribeAdjustmentTypesResponse Int
 datrsResponseStatus = lens _datrsResponseStatus (\ s a -> s{_datrsResponseStatus = a});
 
-instance NFData DescribeAdjustmentTypesResponse
+instance NFData DescribeAdjustmentTypesResponse where

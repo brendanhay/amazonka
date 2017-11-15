@@ -5,11 +5,12 @@
         "lens >= 4.4"
     ],
     "operationPlugins": {
-        "DeleteObjects": ["contentMD5"],
-        "PutBucketCORS": ["contentMD5"],
-        "PutBucketLifecycle": ["contentMD5"],
-        "PutBucketPolicy": ["contentMD5"],
-        "PutBucketTagging": ["contentMD5"]
+        "DeleteObjects": ["contentMD5Header"],
+        "PutBucketCORS": ["contentMD5Header"],
+        "PutBucketLifecycle": ["contentMD5Header"],
+        "PutBucketPolicy": ["contentMD5Header"],
+        "PutBucketTagging": ["contentMD5Header"],
+        "PutObject": ["expectHeader"]
     },
     "typeModules": [
         "Network.AWS.S3.Internal"
@@ -47,37 +48,37 @@
         "BucketLocationConstraint": {
             "replacedBy": {
                 "name": "LocationConstraint",
-                "deriving": []
+                "underive": []
             }
         },
         "BucketName": {
             "replacedBy": {
                 "name": "BucketName",
-                "deriving": []
+                "underive": []
             }
         },
         "ObjectKey": {
             "replacedBy": {
                 "name": "ObjectKey",
-                "deriving": []
+                "underive": []
             }
         },
         "ObjectVersionId": {
             "replacedBy": {
                 "name": "ObjectVersionId",
-                "deriving": []
+                "underive": []
             }
         },
         "ETag": {
             "replacedBy": {
                 "name": "ETag",
-                "deriving": []
+                "underive": []
             }
         },
         "Delimiter": {
             "replacedBy": {
                 "name": "Delimiter",
-                "deriving": []
+                "underive": []
             }
         },
         "NoncurrentVersionExpiration": {
@@ -96,6 +97,9 @@
         },
         "ObjectCannedACL": {
             "enumPrefix": "O"
+        },
+        "InventoryOptionalField": {
+            "enumPrefix": "Field"
         }
     }
 }

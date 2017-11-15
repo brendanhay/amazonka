@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.ECS.UpdateContainerAgent
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the Amazon ECS container agent on a specified container instance. Updating the Amazon ECS container agent does not interrupt running tasks or services on the container instance. The process for updating the agent differs depending on whether your container instance was launched with the Amazon ECS-optimized AMI or another operating system.
 --
--- 'UpdateContainerAgent' requires the Amazon ECS-optimized AMI or Amazon Linux with the 'ecs-init' service installed and running. For help updating the Amazon ECS container agent on other operating systems, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent Manually Updating the Amazon ECS Container Agent> in the /Amazon EC2 Container Service Developer Guide/.
+--
+-- @UpdateContainerAgent@ requires the Amazon ECS-optimized AMI or Amazon Linux with the @ecs-init@ service installed and running. For help updating the Amazon ECS container agent on other operating systems, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent Manually Updating the Amazon ECS Container Agent> in the /Amazon EC2 Container Service Developer Guide/ .
+--
 module Network.AWS.ECS.UpdateContainerAgent
     (
     -- * Creating a Request
@@ -38,34 +40,34 @@ module Network.AWS.ECS.UpdateContainerAgent
     , ucarsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateContainerAgent' smart constructor.
 data UpdateContainerAgent = UpdateContainerAgent'
-    { _ucaCluster           :: !(Maybe Text)
-    , _ucaContainerInstance :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucaCluster           :: !(Maybe Text)
+  , _ucaContainerInstance :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateContainerAgent' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucaCluster'
+-- * 'ucaCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is running on. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'ucaContainerInstance'
+-- * 'ucaContainerInstance' - The container instance ID or full Amazon Resource Name (ARN) entries for the container instance on which you would like to update the Amazon ECS container agent.
 updateContainerAgent
     :: Text -- ^ 'ucaContainerInstance'
     -> UpdateContainerAgent
 updateContainerAgent pContainerInstance_ =
-    UpdateContainerAgent'
-    { _ucaCluster = Nothing
-    , _ucaContainerInstance = pContainerInstance_
-    }
+  UpdateContainerAgent'
+  {_ucaCluster = Nothing, _ucaContainerInstance = pContainerInstance_}
+
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is running on. If you do not specify a cluster, the default cluster is assumed.
 ucaCluster :: Lens' UpdateContainerAgent (Maybe Text)
@@ -85,9 +87,9 @@ instance AWSRequest UpdateContainerAgent where
                  UpdateContainerAgentResponse' <$>
                    (x .?> "containerInstance") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateContainerAgent
+instance Hashable UpdateContainerAgent where
 
-instance NFData UpdateContainerAgent
+instance NFData UpdateContainerAgent where
 
 instance ToHeaders UpdateContainerAgent where
         toHeaders
@@ -114,32 +116,32 @@ instance ToQuery UpdateContainerAgent where
 
 -- | /See:/ 'updateContainerAgentResponse' smart constructor.
 data UpdateContainerAgentResponse = UpdateContainerAgentResponse'
-    { _ucarsContainerInstance :: !(Maybe ContainerInstance)
-    , _ucarsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucarsContainerInstance :: !(Maybe ContainerInstance)
+  , _ucarsResponseStatus    :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateContainerAgentResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucarsContainerInstance'
+-- * 'ucarsContainerInstance' - The container instance for which the container agent was updated.
 --
--- * 'ucarsResponseStatus'
+-- * 'ucarsResponseStatus' - -- | The response status code.
 updateContainerAgentResponse
     :: Int -- ^ 'ucarsResponseStatus'
     -> UpdateContainerAgentResponse
 updateContainerAgentResponse pResponseStatus_ =
-    UpdateContainerAgentResponse'
-    { _ucarsContainerInstance = Nothing
-    , _ucarsResponseStatus = pResponseStatus_
-    }
+  UpdateContainerAgentResponse'
+  {_ucarsContainerInstance = Nothing, _ucarsResponseStatus = pResponseStatus_}
 
--- | Undocumented member.
+
+-- | The container instance for which the container agent was updated.
 ucarsContainerInstance :: Lens' UpdateContainerAgentResponse (Maybe ContainerInstance)
 ucarsContainerInstance = lens _ucarsContainerInstance (\ s a -> s{_ucarsContainerInstance = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ucarsResponseStatus :: Lens' UpdateContainerAgentResponse Int
 ucarsResponseStatus = lens _ucarsResponseStatus (\ s a -> s{_ucarsResponseStatus = a});
 
-instance NFData UpdateContainerAgentResponse
+instance NFData UpdateContainerAgentResponse where

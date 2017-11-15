@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.RegisterCrossAccountAccessRole
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers the IAM role that Amazon Inspector uses to list your EC2 instances at the start of the assessment run or when you call the < PreviewAgents> action.
+-- Registers the IAM role that Amazon Inspector uses to list your EC2 instances at the start of the assessment run or when you call the 'PreviewAgents' action.
+--
+--
 module Network.AWS.Inspector.RegisterCrossAccountAccessRole
     (
     -- * Creating a Request
@@ -32,32 +34,32 @@ module Network.AWS.Inspector.RegisterCrossAccountAccessRole
     , RegisterCrossAccountAccessRoleResponse
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'registerCrossAccountAccessRole' smart constructor.
 newtype RegisterCrossAccountAccessRole = RegisterCrossAccountAccessRole'
-    { _rcaarRoleARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcaarRoleARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterCrossAccountAccessRole' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcaarRoleARN'
+-- * 'rcaarRoleARN' - The ARN of the IAM role that Amazon Inspector uses to list your EC2 instances during the assessment run or when you call the 'PreviewAgents' action.
 registerCrossAccountAccessRole
     :: Text -- ^ 'rcaarRoleARN'
     -> RegisterCrossAccountAccessRole
 registerCrossAccountAccessRole pRoleARN_ =
-    RegisterCrossAccountAccessRole'
-    { _rcaarRoleARN = pRoleARN_
-    }
+  RegisterCrossAccountAccessRole' {_rcaarRoleARN = pRoleARN_}
 
--- | The ARN of the IAM role that Amazon Inspector uses to list your EC2 instances during the assessment run or when you call the < PreviewAgents> action.
+
+-- | The ARN of the IAM role that Amazon Inspector uses to list your EC2 instances during the assessment run or when you call the 'PreviewAgents' action.
 rcaarRoleARN :: Lens' RegisterCrossAccountAccessRole Text
 rcaarRoleARN = lens _rcaarRoleARN (\ s a -> s{_rcaarRoleARN = a});
 
@@ -70,8 +72,9 @@ instance AWSRequest RegisterCrossAccountAccessRole
           = receiveNull RegisterCrossAccountAccessRoleResponse'
 
 instance Hashable RegisterCrossAccountAccessRole
+         where
 
-instance NFData RegisterCrossAccountAccessRole
+instance NFData RegisterCrossAccountAccessRole where
 
 instance ToHeaders RegisterCrossAccountAccessRole
          where
@@ -97,15 +100,17 @@ instance ToQuery RegisterCrossAccountAccessRole where
 
 -- | /See:/ 'registerCrossAccountAccessRoleResponse' smart constructor.
 data RegisterCrossAccountAccessRoleResponse =
-    RegisterCrossAccountAccessRoleResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RegisterCrossAccountAccessRoleResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterCrossAccountAccessRoleResponse' with the minimum fields required to make a request.
 --
 registerCrossAccountAccessRoleResponse
     :: RegisterCrossAccountAccessRoleResponse
-registerCrossAccountAccessRoleResponse =
-    RegisterCrossAccountAccessRoleResponse'
+registerCrossAccountAccessRoleResponse = RegisterCrossAccountAccessRoleResponse'
+
 
 instance NFData
-         RegisterCrossAccountAccessRoleResponse
+           RegisterCrossAccountAccessRoleResponse
+         where

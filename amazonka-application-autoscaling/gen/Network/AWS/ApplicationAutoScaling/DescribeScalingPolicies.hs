@@ -12,17 +12,21 @@
 
 -- |
 -- Module      : Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides descriptive information for scaling policies with a specified service namespace.
+-- Describes the scaling policies for the specified service namespace.
 --
--- You can filter the results in a service namespace with the 'ResourceId', 'ScalableDimension', and 'PolicyNames' parameters.
 --
--- To create a new scaling policy or update an existing one, see < PutScalingPolicy>. If you are no longer using a scaling policy, you can delete it with < DeleteScalingPolicy>.
+-- You can filter the results using the @ResourceId@ , @ScalableDimension@ , and @PolicyNames@ parameters.
+--
+-- To create a scaling policy or update an existing one, see 'PutScalingPolicy' . If you are no longer using a scaling policy, you can delete it using 'DeleteScalingPolicy' .
+--
+--
+-- This operation returns paginated results.
 module Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
     (
     -- * Creating a Request
@@ -45,74 +49,84 @@ module Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
     , drsResponseStatus
     ) where
 
-import           Network.AWS.ApplicationAutoScaling.Types
-import           Network.AWS.ApplicationAutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ApplicationAutoScaling.Types
+import Network.AWS.ApplicationAutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeScalingPolicies' smart constructor.
 data DescribeScalingPolicies = DescribeScalingPolicies'
-    { _dPolicyNames       :: !(Maybe [Text])
-    , _dScalableDimension :: !(Maybe ScalableDimension)
-    , _dResourceId        :: !(Maybe Text)
-    , _dNextToken         :: !(Maybe Text)
-    , _dMaxResults        :: !(Maybe Int)
-    , _dServiceNamespace  :: !ServiceNamespace
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dPolicyNames       :: !(Maybe [Text])
+  , _dScalableDimension :: !(Maybe ScalableDimension)
+  , _dResourceId        :: !(Maybe Text)
+  , _dNextToken         :: !(Maybe Text)
+  , _dMaxResults        :: !(Maybe Int)
+  , _dServiceNamespace  :: !ServiceNamespace
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScalingPolicies' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dPolicyNames'
+-- * 'dPolicyNames' - The names of the scaling policies to describe.
 --
--- * 'dScalableDimension'
+-- * 'dScalableDimension' - The scalable dimension. This string consists of the service namespace, resource type, and scaling property. If you specify a scalable dimension, you must also specify a resource ID.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
 --
--- * 'dResourceId'
+-- * 'dResourceId' - The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier. If you specify a scalable dimension, you must also specify a resource ID.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
 --
--- * 'dNextToken'
+-- * 'dNextToken' - The token for the next set of results.
 --
--- * 'dMaxResults'
+-- * 'dMaxResults' - The maximum number of scalable target results. This value can be between 1 and 50. The default value is 50. If this parameter is used, the operation returns up to @MaxResults@ results at a time, along with a @NextToken@ value. To get the next set of results, include the @NextToken@ value in a subsequent call. If this parameter is not used, the operation returns up to 50 results and a @NextToken@ value, if applicable.
 --
--- * 'dServiceNamespace'
+-- * 'dServiceNamespace' - The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 describeScalingPolicies
     :: ServiceNamespace -- ^ 'dServiceNamespace'
     -> DescribeScalingPolicies
 describeScalingPolicies pServiceNamespace_ =
-    DescribeScalingPolicies'
-    { _dPolicyNames = Nothing
-    , _dScalableDimension = Nothing
-    , _dResourceId = Nothing
-    , _dNextToken = Nothing
-    , _dMaxResults = Nothing
-    , _dServiceNamespace = pServiceNamespace_
-    }
+  DescribeScalingPolicies'
+  { _dPolicyNames = Nothing
+  , _dScalableDimension = Nothing
+  , _dResourceId = Nothing
+  , _dNextToken = Nothing
+  , _dMaxResults = Nothing
+  , _dServiceNamespace = pServiceNamespace_
+  }
+
 
 -- | The names of the scaling policies to describe.
 dPolicyNames :: Lens' DescribeScalingPolicies [Text]
 dPolicyNames = lens _dPolicyNames (\ s a -> s{_dPolicyNames = a}) . _Default . _Coerce;
 
--- | The scalable dimension of the scalable target that the scaling policy is associated with. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service, or 'ec2:spot-fleet-request:TargetCapacity' for the target capacity of an Amazon EC2 Spot fleet request. If you specify a scalable dimension, you must also specify a resource ID.
+-- | The scalable dimension. This string consists of the service namespace, resource type, and scaling property. If you specify a scalable dimension, you must also specify a resource ID.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
 dScalableDimension :: Lens' DescribeScalingPolicies (Maybe ScalableDimension)
 dScalableDimension = lens _dScalableDimension (\ s a -> s{_dScalableDimension = a});
 
--- | The unique resource identifier string of the scalable target that the scaling policy is associated with. For Amazon ECS services, the resource type is 'services', and the identifier is the cluster name and service name; for example, 'service\/default\/sample-webapp'. For Amazon EC2 Spot fleet requests, the resource type is 'spot-fleet-request', and the identifier is the Spot fleet request ID; for example, 'spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE'. If you specify a scalable dimension, you must also specify a resource ID.
+-- | The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier. If you specify a scalable dimension, you must also specify a resource ID.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
 dResourceId :: Lens' DescribeScalingPolicies (Maybe Text)
 dResourceId = lens _dResourceId (\ s a -> s{_dResourceId = a});
 
--- | The 'NextToken' value returned from a previous paginated 'DescribeScalingPolicies' request. Pagination continues from the end of the previous results that returned the 'NextToken' value. This value is 'null' when there are no more results to return.
+-- | The token for the next set of results.
 dNextToken :: Lens' DescribeScalingPolicies (Maybe Text)
 dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
--- | The maximum number of scaling policy results returned by 'DescribeScalingPolicies' in paginated output. When this parameter is used, 'DescribeScalingPolicies' returns up to 'MaxResults' results in a single page along with a 'NextToken' response element. The remaining results of the initial request can be seen by sending another 'DescribeScalingPolicies' request with the returned 'NextToken' value. This value can be between 1 and 50. If this parameter is not used, then 'DescribeScalingPolicies' returns up to 50 results and a 'NextToken' value, if applicable.
+-- | The maximum number of scalable target results. This value can be between 1 and 50. The default value is 50. If this parameter is used, the operation returns up to @MaxResults@ results at a time, along with a @NextToken@ value. To get the next set of results, include the @NextToken@ value in a subsequent call. If this parameter is not used, the operation returns up to 50 results and a @NextToken@ value, if applicable.
 dMaxResults :: Lens' DescribeScalingPolicies (Maybe Int)
 dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a});
 
--- | The AWS service namespace of the scalable target that the scaling policy is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
+-- | The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 dServiceNamespace :: Lens' DescribeScalingPolicies ServiceNamespace
 dServiceNamespace = lens _dServiceNamespace (\ s a -> s{_dServiceNamespace = a});
+
+instance AWSPager DescribeScalingPolicies where
+        page rq rs
+          | stop (rs ^. drsNextToken) = Nothing
+          | stop (rs ^. drsScalingPolicies) = Nothing
+          | otherwise =
+            Just $ rq & dNextToken .~ rs ^. drsNextToken
 
 instance AWSRequest DescribeScalingPolicies where
         type Rs DescribeScalingPolicies =
@@ -126,9 +140,9 @@ instance AWSRequest DescribeScalingPolicies where
                      (x .?> "ScalingPolicies" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeScalingPolicies
+instance Hashable DescribeScalingPolicies where
 
-instance NFData DescribeScalingPolicies
+instance NFData DescribeScalingPolicies where
 
 instance ToHeaders DescribeScalingPolicies where
         toHeaders
@@ -159,40 +173,42 @@ instance ToQuery DescribeScalingPolicies where
 
 -- | /See:/ 'describeScalingPoliciesResponse' smart constructor.
 data DescribeScalingPoliciesResponse = DescribeScalingPoliciesResponse'
-    { _drsNextToken       :: !(Maybe Text)
-    , _drsScalingPolicies :: !(Maybe [ScalingPolicy])
-    , _drsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsNextToken       :: !(Maybe Text)
+  , _drsScalingPolicies :: !(Maybe [ScalingPolicy])
+  , _drsResponseStatus  :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScalingPoliciesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsNextToken'
+-- * 'drsNextToken' - The token required to get the next set of results. This value is @null@ if there are no more results to return.
 --
--- * 'drsScalingPolicies'
+-- * 'drsScalingPolicies' - Information about the scaling policies.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 describeScalingPoliciesResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeScalingPoliciesResponse
 describeScalingPoliciesResponse pResponseStatus_ =
-    DescribeScalingPoliciesResponse'
-    { _drsNextToken = Nothing
-    , _drsScalingPolicies = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeScalingPoliciesResponse'
+  { _drsNextToken = Nothing
+  , _drsScalingPolicies = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
 
--- | The 'NextToken' value to include in a future 'DescribeScalingPolicies' request. When the results of a 'DescribeScalingPolicies' request exceed 'MaxResults', this value can be used to retrieve the next page of results. This value is 'null' when there are no more results to return.
+
+-- | The token required to get the next set of results. This value is @null@ if there are no more results to return.
 drsNextToken :: Lens' DescribeScalingPoliciesResponse (Maybe Text)
 drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 
--- | A list of scaling policy objects.
+-- | Information about the scaling policies.
 drsScalingPolicies :: Lens' DescribeScalingPoliciesResponse [ScalingPolicy]
 drsScalingPolicies = lens _drsScalingPolicies (\ s a -> s{_drsScalingPolicies = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeScalingPoliciesResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DescribeScalingPoliciesResponse
+instance NFData DescribeScalingPoliciesResponse where

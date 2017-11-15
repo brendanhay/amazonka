@@ -5,19 +5,20 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon ElastiCache
+-- __Amazon ElastiCache__
 --
 -- Amazon ElastiCache is a web service that makes it easier to set up, operate, and scale a distributed cache in the cloud.
 --
--- With ElastiCache, customers gain all of the benefits of a high-performance, in-memory cache with far less of the administrative burden of launching and managing a distributed cache. The service makes setup, scaling, and cluster failure handling much simpler than in a self-managed cache deployment.
+-- With ElastiCache, customers get all of the benefits of a high-performance, in-memory cache with less of the administrative burden involved in launching and managing a distributed cache. The service makes setup, scaling, and cluster failure handling much simpler than in a self-managed cache deployment.
 --
 -- In addition, through integration with Amazon CloudWatch, customers get enhanced visibility into the key performance statistics associated with their cache and can receive alarms if a part of their cache runs hot.
+--
 module Network.AWS.ElastiCache
     (
     -- * Service Configuration
@@ -37,6 +38,9 @@ module Network.AWS.ElastiCache
 
     -- ** CacheSubnetGroupAlreadyExistsFault
     , _CacheSubnetGroupAlreadyExistsFault
+
+    -- ** NodeGroupsPerReplicationGroupQuotaExceededFault
+    , _NodeGroupsPerReplicationGroupQuotaExceededFault
 
     -- ** CacheSubnetGroupQuotaExceededFault
     , _CacheSubnetGroupQuotaExceededFault
@@ -80,6 +84,12 @@ module Network.AWS.ElastiCache
     -- ** NodeQuotaForClusterExceededFault
     , _NodeQuotaForClusterExceededFault
 
+    -- ** APICallRateForCustomerExceededFault
+    , _APICallRateForCustomerExceededFault
+
+    -- ** NodeGroupNotFoundFault
+    , _NodeGroupNotFoundFault
+
     -- ** CacheParameterGroupAlreadyExistsFault
     , _CacheParameterGroupAlreadyExistsFault
 
@@ -94,6 +104,9 @@ module Network.AWS.ElastiCache
 
     -- ** InvalidParameterValueException
     , _InvalidParameterValueException
+
+    -- ** TestFailoverNotAvailableFault
+    , _TestFailoverNotAvailableFault
 
     -- ** InvalidReplicationGroupStateFault
     , _InvalidReplicationGroupStateFault
@@ -197,6 +210,9 @@ module Network.AWS.ElastiCache
     -- ** ModifyCacheParameterGroup
     , module Network.AWS.ElastiCache.ModifyCacheParameterGroup
 
+    -- ** TestFailover
+    , module Network.AWS.ElastiCache.TestFailover
+
     -- ** DeleteReplicationGroup
     , module Network.AWS.ElastiCache.DeleteReplicationGroup
 
@@ -244,6 +260,9 @@ module Network.AWS.ElastiCache
 
     -- ** ListAllowedNodeTypeModifications
     , module Network.AWS.ElastiCache.ListAllowedNodeTypeModifications
+
+    -- ** ModifyReplicationGroupShardConfiguration
+    , module Network.AWS.ElastiCache.ModifyReplicationGroupShardConfiguration
 
     -- ** DescribeSnapshots (Paginated)
     , module Network.AWS.ElastiCache.DescribeSnapshots
@@ -313,14 +332,17 @@ module Network.AWS.ElastiCache
     , ccCacheNodeType
     , ccCacheNodes
     , ccCacheClusterCreateTime
+    , ccAtRestEncryptionEnabled
     , ccAutoMinorVersionUpgrade
     , ccSecurityGroups
     , ccNotificationConfiguration
+    , ccTransitEncryptionEnabled
     , ccSnapshotWindow
     , ccCacheClusterId
     , ccConfigurationEndpoint
     , ccEngine
     , ccCacheSecurityGroups
+    , ccAuthTokenEnabled
     , ccClientDownloadLandingPage
     , ccPreferredMaintenanceWindow
     , ccCacheSubnetGroupName
@@ -446,8 +468,17 @@ module Network.AWS.ElastiCache
     , nodeGroup
     , ngStatus
     , ngPrimaryEndpoint
+    , ngSlots
     , ngNodeGroupMembers
     , ngNodeGroupId
+
+    -- ** NodeGroupConfiguration
+    , NodeGroupConfiguration
+    , nodeGroupConfiguration
+    , ngcSlots
+    , ngcReplicaCount
+    , ngcPrimaryAvailabilityZone
+    , ngcReplicaAvailabilityZones
 
     -- ** NodeGroupMember
     , NodeGroupMember
@@ -461,8 +492,11 @@ module Network.AWS.ElastiCache
     -- ** NodeSnapshot
     , NodeSnapshot
     , nodeSnapshot
+    , nsNodeGroupConfiguration
     , nsCacheNodeCreateTime
+    , nsCacheClusterId
     , nsCacheNodeId
+    , nsNodeGroupId
     , nsSnapshotCreateTime
     , nsCacheSize
 
@@ -509,9 +543,17 @@ module Network.AWS.ElastiCache
     , ReplicationGroup
     , replicationGroup
     , rgStatus
+    , rgCacheNodeType
     , rgNodeGroups
     , rgSnapshottingClusterId
+    , rgClusterEnabled
+    , rgAtRestEncryptionEnabled
+    , rgTransitEncryptionEnabled
+    , rgSnapshotWindow
+    , rgConfigurationEndpoint
+    , rgAuthTokenEnabled
     , rgMemberClusters
+    , rgSnapshotRetentionLimit
     , rgDescription
     , rgReplicationGroupId
     , rgPendingModifiedValues
@@ -520,6 +562,7 @@ module Network.AWS.ElastiCache
     -- ** ReplicationGroupPendingModifiedValues
     , ReplicationGroupPendingModifiedValues
     , replicationGroupPendingModifiedValues
+    , rgpmvResharding
     , rgpmvPrimaryClusterId
     , rgpmvAutomaticFailoverStatus
 
@@ -551,11 +594,26 @@ module Network.AWS.ElastiCache
     , rcnoDuration
     , rcnoReservedCacheNodesOfferingId
 
+    -- ** ReshardingConfiguration
+    , ReshardingConfiguration
+    , reshardingConfiguration
+    , rcPreferredAvailabilityZones
+
+    -- ** ReshardingStatus
+    , ReshardingStatus
+    , reshardingStatus
+    , rsSlotMigration
+
     -- ** SecurityGroupMembership
     , SecurityGroupMembership
     , securityGroupMembership
     , sgmStatus
     , sgmSecurityGroupId
+
+    -- ** SlotMigration
+    , SlotMigration
+    , slotMigration
+    , smProgressPercentage
 
     -- ** Snapshot
     , Snapshot
@@ -565,6 +623,7 @@ module Network.AWS.ElastiCache
     , sCacheClusterCreateTime
     , sAutoMinorVersionUpgrade
     , sCacheParameterGroupName
+    , sReplicationGroupDescription
     , sVPCId
     , sSnapshotStatus
     , sSnapshotWindow
@@ -575,10 +634,13 @@ module Network.AWS.ElastiCache
     , sNodeSnapshots
     , sCacheSubnetGroupName
     , sPreferredAvailabilityZone
+    , sNumNodeGroups
     , sSnapshotRetentionLimit
     , sSnapshotName
+    , sReplicationGroupId
     , sNumCacheNodes
     , sPort
+    , sAutomaticFailover
     , sSnapshotSource
 
     -- ** Subnet
@@ -599,46 +661,48 @@ module Network.AWS.ElastiCache
     , tlmTagList
     ) where
 
-import           Network.AWS.ElastiCache.AddTagsToResource
-import           Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
-import           Network.AWS.ElastiCache.CopySnapshot
-import           Network.AWS.ElastiCache.CreateCacheCluster
-import           Network.AWS.ElastiCache.CreateCacheParameterGroup
-import           Network.AWS.ElastiCache.CreateCacheSecurityGroup
-import           Network.AWS.ElastiCache.CreateCacheSubnetGroup
-import           Network.AWS.ElastiCache.CreateReplicationGroup
-import           Network.AWS.ElastiCache.CreateSnapshot
-import           Network.AWS.ElastiCache.DeleteCacheCluster
-import           Network.AWS.ElastiCache.DeleteCacheParameterGroup
-import           Network.AWS.ElastiCache.DeleteCacheSecurityGroup
-import           Network.AWS.ElastiCache.DeleteCacheSubnetGroup
-import           Network.AWS.ElastiCache.DeleteReplicationGroup
-import           Network.AWS.ElastiCache.DeleteSnapshot
-import           Network.AWS.ElastiCache.DescribeCacheClusters
-import           Network.AWS.ElastiCache.DescribeCacheEngineVersions
-import           Network.AWS.ElastiCache.DescribeCacheParameterGroups
-import           Network.AWS.ElastiCache.DescribeCacheParameters
-import           Network.AWS.ElastiCache.DescribeCacheSecurityGroups
-import           Network.AWS.ElastiCache.DescribeCacheSubnetGroups
-import           Network.AWS.ElastiCache.DescribeEngineDefaultParameters
-import           Network.AWS.ElastiCache.DescribeEvents
-import           Network.AWS.ElastiCache.DescribeReplicationGroups
-import           Network.AWS.ElastiCache.DescribeReservedCacheNodes
-import           Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
-import           Network.AWS.ElastiCache.DescribeSnapshots
-import           Network.AWS.ElastiCache.ListAllowedNodeTypeModifications
-import           Network.AWS.ElastiCache.ListTagsForResource
-import           Network.AWS.ElastiCache.ModifyCacheCluster
-import           Network.AWS.ElastiCache.ModifyCacheParameterGroup
-import           Network.AWS.ElastiCache.ModifyCacheSubnetGroup
-import           Network.AWS.ElastiCache.ModifyReplicationGroup
-import           Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
-import           Network.AWS.ElastiCache.RebootCacheCluster
-import           Network.AWS.ElastiCache.RemoveTagsFromResource
-import           Network.AWS.ElastiCache.ResetCacheParameterGroup
-import           Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Waiters
+import Network.AWS.ElastiCache.AddTagsToResource
+import Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
+import Network.AWS.ElastiCache.CopySnapshot
+import Network.AWS.ElastiCache.CreateCacheCluster
+import Network.AWS.ElastiCache.CreateCacheParameterGroup
+import Network.AWS.ElastiCache.CreateCacheSecurityGroup
+import Network.AWS.ElastiCache.CreateCacheSubnetGroup
+import Network.AWS.ElastiCache.CreateReplicationGroup
+import Network.AWS.ElastiCache.CreateSnapshot
+import Network.AWS.ElastiCache.DeleteCacheCluster
+import Network.AWS.ElastiCache.DeleteCacheParameterGroup
+import Network.AWS.ElastiCache.DeleteCacheSecurityGroup
+import Network.AWS.ElastiCache.DeleteCacheSubnetGroup
+import Network.AWS.ElastiCache.DeleteReplicationGroup
+import Network.AWS.ElastiCache.DeleteSnapshot
+import Network.AWS.ElastiCache.DescribeCacheClusters
+import Network.AWS.ElastiCache.DescribeCacheEngineVersions
+import Network.AWS.ElastiCache.DescribeCacheParameterGroups
+import Network.AWS.ElastiCache.DescribeCacheParameters
+import Network.AWS.ElastiCache.DescribeCacheSecurityGroups
+import Network.AWS.ElastiCache.DescribeCacheSubnetGroups
+import Network.AWS.ElastiCache.DescribeEngineDefaultParameters
+import Network.AWS.ElastiCache.DescribeEvents
+import Network.AWS.ElastiCache.DescribeReplicationGroups
+import Network.AWS.ElastiCache.DescribeReservedCacheNodes
+import Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
+import Network.AWS.ElastiCache.DescribeSnapshots
+import Network.AWS.ElastiCache.ListAllowedNodeTypeModifications
+import Network.AWS.ElastiCache.ListTagsForResource
+import Network.AWS.ElastiCache.ModifyCacheCluster
+import Network.AWS.ElastiCache.ModifyCacheParameterGroup
+import Network.AWS.ElastiCache.ModifyCacheSubnetGroup
+import Network.AWS.ElastiCache.ModifyReplicationGroup
+import Network.AWS.ElastiCache.ModifyReplicationGroupShardConfiguration
+import Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
+import Network.AWS.ElastiCache.RebootCacheCluster
+import Network.AWS.ElastiCache.RemoveTagsFromResource
+import Network.AWS.ElastiCache.ResetCacheParameterGroup
+import Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
+import Network.AWS.ElastiCache.TestFailover
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

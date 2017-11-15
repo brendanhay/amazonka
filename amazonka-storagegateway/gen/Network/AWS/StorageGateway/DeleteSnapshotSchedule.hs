@@ -12,17 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DeleteSnapshotSchedule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a snapshot of a volume.
 --
--- You can take snapshots of your gateway volumes on a scheduled or ad hoc basis. This API action enables you to delete a snapshot schedule for a volume. For more information, see <http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html Working with Snapshots>. In the 'DeleteSnapshotSchedule' request, you identify the volume by providing its Amazon Resource Name (ARN).
 --
--- To list or delete a snapshot, you must use the Amazon EC2 API. in /Amazon Elastic Compute Cloud API Reference/.
+-- You can take snapshots of your gateway volumes on a scheduled or ad hoc basis. This API action enables you to delete a snapshot schedule for a volume. For more information, see <http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html Working with Snapshots> . In the @DeleteSnapshotSchedule@ request, you identify the volume by providing its Amazon Resource Name (ARN).
+--
 module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     (
     -- * Creating a Request
@@ -39,30 +39,30 @@ module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     , dsssrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'deleteSnapshotSchedule' smart constructor.
 newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule'
-    { _dVolumeARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dVolumeARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSnapshotSchedule' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dVolumeARN'
+-- * 'dVolumeARN' - Undocumented member.
 deleteSnapshotSchedule
     :: Text -- ^ 'dVolumeARN'
     -> DeleteSnapshotSchedule
 deleteSnapshotSchedule pVolumeARN_ =
-    DeleteSnapshotSchedule'
-    { _dVolumeARN = pVolumeARN_
-    }
+  DeleteSnapshotSchedule' {_dVolumeARN = pVolumeARN_}
+
 
 -- | Undocumented member.
 dVolumeARN :: Lens' DeleteSnapshotSchedule Text
@@ -78,9 +78,9 @@ instance AWSRequest DeleteSnapshotSchedule where
                  DeleteSnapshotScheduleResponse' <$>
                    (x .?> "VolumeARN") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteSnapshotSchedule
+instance Hashable DeleteSnapshotSchedule where
 
-instance NFData DeleteSnapshotSchedule
+instance NFData DeleteSnapshotSchedule where
 
 instance ToHeaders DeleteSnapshotSchedule where
         toHeaders
@@ -105,32 +105,32 @@ instance ToQuery DeleteSnapshotSchedule where
 
 -- | /See:/ 'deleteSnapshotScheduleResponse' smart constructor.
 data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
-    { _dsssrsVolumeARN      :: !(Maybe Text)
-    , _dsssrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsssrsVolumeARN      :: !(Maybe Text)
+  , _dsssrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSnapshotScheduleResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsssrsVolumeARN'
+-- * 'dsssrsVolumeARN' - Undocumented member.
 --
--- * 'dsssrsResponseStatus'
+-- * 'dsssrsResponseStatus' - -- | The response status code.
 deleteSnapshotScheduleResponse
     :: Int -- ^ 'dsssrsResponseStatus'
     -> DeleteSnapshotScheduleResponse
 deleteSnapshotScheduleResponse pResponseStatus_ =
-    DeleteSnapshotScheduleResponse'
-    { _dsssrsVolumeARN = Nothing
-    , _dsssrsResponseStatus = pResponseStatus_
-    }
+  DeleteSnapshotScheduleResponse'
+  {_dsssrsVolumeARN = Nothing, _dsssrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 dsssrsVolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
 dsssrsVolumeARN = lens _dsssrsVolumeARN (\ s a -> s{_dsssrsVolumeARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dsssrsResponseStatus :: Lens' DeleteSnapshotScheduleResponse Int
 dsssrsResponseStatus = lens _dsssrsResponseStatus (\ s a -> s{_dsssrsResponseStatus = a});
 
-instance NFData DeleteSnapshotScheduleResponse
+instance NFData DeleteSnapshotScheduleResponse where

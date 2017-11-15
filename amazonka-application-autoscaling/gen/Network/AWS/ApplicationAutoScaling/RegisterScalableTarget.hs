@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers or updates a scalable target. A scalable target is a resource that can be scaled out or in with Application Auto Scaling. After you have registered a scalable target, you can use this operation to update the minimum and maximum values for your scalable dimension.
+-- Registers or updates a scalable target. A scalable target is a resource that Application Auto Scaling can scale out or scale in. After you have registered a scalable target, you can use this operation to update the minimum and maximum values for your scalable dimension.
 --
--- After you register a scalable target with Application Auto Scaling, you can create and apply scaling policies to it with < PutScalingPolicy>. You can view the existing scaling policies for a service namespace with < DescribeScalableTargets>. If you are no longer using a scalable target, you can deregister it with < DeregisterScalableTarget>.
+--
+-- After you register a scalable target, you can create and apply scaling policies using 'PutScalingPolicy' . You can view the scaling policies for a service namespace using 'DescribeScalableTargets' . If you are no longer using a scalable target, you can deregister it using 'DeregisterScalableTarget' .
+--
 module Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
     (
     -- * Creating a Request
@@ -41,74 +43,76 @@ module Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
     , rstrsResponseStatus
     ) where
 
-import           Network.AWS.ApplicationAutoScaling.Types
-import           Network.AWS.ApplicationAutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ApplicationAutoScaling.Types
+import Network.AWS.ApplicationAutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'registerScalableTarget' smart constructor.
 data RegisterScalableTarget = RegisterScalableTarget'
-    { _rstMaxCapacity       :: !(Maybe Int)
-    , _rstMinCapacity       :: !(Maybe Int)
-    , _rstRoleARN           :: !(Maybe Text)
-    , _rstServiceNamespace  :: !ServiceNamespace
-    , _rstResourceId        :: !Text
-    , _rstScalableDimension :: !ScalableDimension
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rstMaxCapacity       :: !(Maybe Int)
+  , _rstMinCapacity       :: !(Maybe Int)
+  , _rstRoleARN           :: !(Maybe Text)
+  , _rstServiceNamespace  :: !ServiceNamespace
+  , _rstResourceId        :: !Text
+  , _rstScalableDimension :: !ScalableDimension
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterScalableTarget' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rstMaxCapacity'
+-- * 'rstMaxCapacity' - The maximum value to scale to in response to a scale out event. This parameter is required if you are registering a scalable target and optional if you are updating one.
 --
--- * 'rstMinCapacity'
+-- * 'rstMinCapacity' - The minimum value to scale to in response to a scale in event. This parameter is required if you are registering a scalable target and optional if you are updating one.
 --
--- * 'rstRoleARN'
+-- * 'rstRoleARN' - The ARN of an IAM role that allows Application Auto Scaling to modify the scalable target on your behalf. This parameter is required when you register a scalable target and optional when you update one.
 --
--- * 'rstServiceNamespace'
+-- * 'rstServiceNamespace' - The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 --
--- * 'rstResourceId'
+-- * 'rstResourceId' - The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
 --
--- * 'rstScalableDimension'
+-- * 'rstScalableDimension' - The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
 registerScalableTarget
     :: ServiceNamespace -- ^ 'rstServiceNamespace'
     -> Text -- ^ 'rstResourceId'
     -> ScalableDimension -- ^ 'rstScalableDimension'
     -> RegisterScalableTarget
 registerScalableTarget pServiceNamespace_ pResourceId_ pScalableDimension_ =
-    RegisterScalableTarget'
-    { _rstMaxCapacity = Nothing
-    , _rstMinCapacity = Nothing
-    , _rstRoleARN = Nothing
-    , _rstServiceNamespace = pServiceNamespace_
-    , _rstResourceId = pResourceId_
-    , _rstScalableDimension = pScalableDimension_
-    }
+  RegisterScalableTarget'
+  { _rstMaxCapacity = Nothing
+  , _rstMinCapacity = Nothing
+  , _rstRoleARN = Nothing
+  , _rstServiceNamespace = pServiceNamespace_
+  , _rstResourceId = pResourceId_
+  , _rstScalableDimension = pScalableDimension_
+  }
 
--- | The maximum value for this scalable target to scale out to in response to scaling activities. This parameter is required if you are registering a new scalable target, and it is optional if you are updating an existing one.
+
+-- | The maximum value to scale to in response to a scale out event. This parameter is required if you are registering a scalable target and optional if you are updating one.
 rstMaxCapacity :: Lens' RegisterScalableTarget (Maybe Int)
 rstMaxCapacity = lens _rstMaxCapacity (\ s a -> s{_rstMaxCapacity = a});
 
--- | The minimum value for this scalable target to scale in to in response to scaling activities. This parameter is required if you are registering a new scalable target, and it is optional if you are updating an existing one.
+-- | The minimum value to scale to in response to a scale in event. This parameter is required if you are registering a scalable target and optional if you are updating one.
 rstMinCapacity :: Lens' RegisterScalableTarget (Maybe Int)
 rstMinCapacity = lens _rstMinCapacity (\ s a -> s{_rstMinCapacity = a});
 
--- | The ARN of the IAM role that allows Application Auto Scaling to modify your scalable target on your behalf. This parameter is required if you are registering a new scalable target, and it is optional if you are updating an existing one.
+-- | The ARN of an IAM role that allows Application Auto Scaling to modify the scalable target on your behalf. This parameter is required when you register a scalable target and optional when you update one.
 rstRoleARN :: Lens' RegisterScalableTarget (Maybe Text)
 rstRoleARN = lens _rstRoleARN (\ s a -> s{_rstRoleARN = a});
 
--- | The namespace for the AWS service that the scalable target is associated with. For Amazon ECS services, the namespace value is 'ecs'. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
+-- | The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 rstServiceNamespace :: Lens' RegisterScalableTarget ServiceNamespace
 rstServiceNamespace = lens _rstServiceNamespace (\ s a -> s{_rstServiceNamespace = a});
 
--- | The resource type and unique identifier string for the resource to associate with the scalable target. For Amazon ECS services, the resource type is 'services', and the identifier is the cluster name and service name; for example, 'service\/default\/sample-webapp'. For Amazon EC2 Spot fleet requests, the resource type is 'spot-fleet-request', and the identifier is the Spot fleet request ID; for example, 'spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE'.
+-- | The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
 rstResourceId :: Lens' RegisterScalableTarget Text
 rstResourceId = lens _rstResourceId (\ s a -> s{_rstResourceId = a});
 
--- | The scalable dimension associated with the scalable target. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service, or 'ec2:spot-fleet-request:TargetCapacity' for the target capacity of an Amazon EC2 Spot fleet request.
+-- | The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
 rstScalableDimension :: Lens' RegisterScalableTarget ScalableDimension
 rstScalableDimension = lens _rstScalableDimension (\ s a -> s{_rstScalableDimension = a});
 
@@ -122,9 +126,9 @@ instance AWSRequest RegisterScalableTarget where
                  RegisterScalableTargetResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable RegisterScalableTarget
+instance Hashable RegisterScalableTarget where
 
-instance NFData RegisterScalableTarget
+instance NFData RegisterScalableTarget where
 
 instance ToHeaders RegisterScalableTarget where
         toHeaders
@@ -155,24 +159,24 @@ instance ToQuery RegisterScalableTarget where
 
 -- | /See:/ 'registerScalableTargetResponse' smart constructor.
 newtype RegisterScalableTargetResponse = RegisterScalableTargetResponse'
-    { _rstrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rstrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterScalableTargetResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rstrsResponseStatus'
+-- * 'rstrsResponseStatus' - -- | The response status code.
 registerScalableTargetResponse
     :: Int -- ^ 'rstrsResponseStatus'
     -> RegisterScalableTargetResponse
 registerScalableTargetResponse pResponseStatus_ =
-    RegisterScalableTargetResponse'
-    { _rstrsResponseStatus = pResponseStatus_
-    }
+  RegisterScalableTargetResponse' {_rstrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 rstrsResponseStatus :: Lens' RegisterScalableTargetResponse Int
 rstrsResponseStatus = lens _rstrsResponseStatus (\ s a -> s{_rstrsResponseStatus = a});
 
-instance NFData RegisterScalableTargetResponse
+instance NFData RegisterScalableTargetResponse where

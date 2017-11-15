@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.SignalResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sends a signal to the specified resource with a success or failure status. You can use the SignalResource API in conjunction with a creation policy or update policy. AWS CloudFormation doesn\'t proceed with a stack creation or update until resources receive the required number of signals or the timeout period is exceeded. The SignalResource API is useful in cases where you want to send signals from anywhere other than an Amazon EC2 instance.
+-- Sends a signal to the specified resource with a success or failure status. You can use the SignalResource API in conjunction with a creation policy or update policy. AWS CloudFormation doesn't proceed with a stack creation or update until resources receive the required number of signals or the timeout period is exceeded. The SignalResource API is useful in cases where you want to send signals from anywhere other than an Amazon EC2 instance.
+--
+--
 module Network.AWS.CloudFormation.SignalResource
     (
     -- * Creating a Request
@@ -35,34 +37,37 @@ module Network.AWS.CloudFormation.SignalResource
     , SignalResourceResponse
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | The input for the < SignalResource> action.
+-- | The input for the 'SignalResource' action.
+--
+--
 --
 -- /See:/ 'signalResource' smart constructor.
 data SignalResource = SignalResource'
-    { _sigStackName         :: !Text
-    , _sigLogicalResourceId :: !Text
-    , _sigUniqueId          :: !Text
-    , _sigStatus            :: !ResourceSignalStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sigStackName         :: !Text
+  , _sigLogicalResourceId :: !Text
+  , _sigUniqueId          :: !Text
+  , _sigStatus            :: !ResourceSignalStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SignalResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sigStackName'
+-- * 'sigStackName' - The stack name or unique stack ID that includes the resource that you want to signal.
 --
--- * 'sigLogicalResourceId'
+-- * 'sigLogicalResourceId' - The logical ID of the resource that you want to signal. The logical ID is the name of the resource that given in the template.
 --
--- * 'sigUniqueId'
+-- * 'sigUniqueId' - A unique ID of the signal. When you signal Amazon EC2 instances or Auto Scaling groups, specify the instance ID that you are signaling as the unique ID. If you send multiple signals to a single resource (such as signaling a wait condition), each signal requires a different unique ID.
 --
--- * 'sigStatus'
+-- * 'sigStatus' - The status of the signal, which is either success or failure. A failure signal causes AWS CloudFormation to immediately fail the stack creation or update.
 signalResource
     :: Text -- ^ 'sigStackName'
     -> Text -- ^ 'sigLogicalResourceId'
@@ -70,12 +75,13 @@ signalResource
     -> ResourceSignalStatus -- ^ 'sigStatus'
     -> SignalResource
 signalResource pStackName_ pLogicalResourceId_ pUniqueId_ pStatus_ =
-    SignalResource'
-    { _sigStackName = pStackName_
-    , _sigLogicalResourceId = pLogicalResourceId_
-    , _sigUniqueId = pUniqueId_
-    , _sigStatus = pStatus_
-    }
+  SignalResource'
+  { _sigStackName = pStackName_
+  , _sigLogicalResourceId = pLogicalResourceId_
+  , _sigUniqueId = pUniqueId_
+  , _sigStatus = pStatus_
+  }
+
 
 -- | The stack name or unique stack ID that includes the resource that you want to signal.
 sigStackName :: Lens' SignalResource Text
@@ -98,9 +104,9 @@ instance AWSRequest SignalResource where
         request = postQuery cloudFormation
         response = receiveNull SignalResourceResponse'
 
-instance Hashable SignalResource
+instance Hashable SignalResource where
 
-instance NFData SignalResource
+instance NFData SignalResource where
 
 instance ToHeaders SignalResource where
         toHeaders = const mempty
@@ -119,8 +125,9 @@ instance ToQuery SignalResource where
 
 -- | /See:/ 'signalResourceResponse' smart constructor.
 data SignalResourceResponse =
-    SignalResourceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SignalResourceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SignalResourceResponse' with the minimum fields required to make a request.
 --
@@ -128,4 +135,5 @@ signalResourceResponse
     :: SignalResourceResponse
 signalResourceResponse = SignalResourceResponse'
 
-instance NFData SignalResourceResponse
+
+instance NFData SignalResourceResponse where

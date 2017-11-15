@@ -5,67 +5,74 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS OpsWorks
+-- __AWS OpsWorks__
 --
--- Welcome to the /AWS OpsWorks API Reference/. This guide provides descriptions, syntax, and usage examples for AWS OpsWorks actions and data types, including common parameters and error codes.
+-- Welcome to the /AWS OpsWorks Stacks API Reference/ . This guide provides descriptions, syntax, and usage examples for AWS OpsWorks Stacks actions and data types, including common parameters and error codes.
 --
--- AWS OpsWorks is an application management service that provides an integrated experience for overseeing the complete application lifecycle. For information about this product, go to the <http://aws.amazon.com/opsworks/ AWS OpsWorks> details page.
+-- AWS OpsWorks Stacks is an application management service that provides an integrated experience for overseeing the complete application lifecycle. For information about this product, go to the <http://aws.amazon.com/opsworks/ AWS OpsWorks> details page.
 --
 -- __SDKs and CLI__
 --
--- The most common way to use the AWS OpsWorks API is by using the AWS Command Line Interface (CLI) or by using one of the AWS SDKs to implement applications in your preferred language. For more information, see:
+-- The most common way to use the AWS OpsWorks Stacks API is by using the AWS Command Line Interface (CLI) or by using one of the AWS SDKs to implement applications in your preferred language. For more information, see:
 --
--- -   <http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html AWS CLI>
+--     * <http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html AWS CLI>
 --
--- -   <http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/opsworks/AWSOpsWorksClient.html AWS SDK for Java>
+--     * <http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/opsworks/AWSOpsWorksClient.html AWS SDK for Java>
 --
--- -   <http://docs.aws.amazon.com/sdkfornet/latest/apidocs/html/N_Amazon_OpsWorks.htm AWS SDK for .NET>
+--     * <http://docs.aws.amazon.com/sdkfornet/latest/apidocs/html/N_Amazon_OpsWorks.htm AWS SDK for .NET>
 --
--- -   <http://docs.aws.amazon.com/aws-sdk-php-2/latest/class-Aws.OpsWorks.OpsWorksClient.html AWS SDK for PHP 2>
+--     * <http://docs.aws.amazon.com/aws-sdk-php-2/latest/class-Aws.OpsWorks.OpsWorksClient.html AWS SDK for PHP 2>
 --
--- -   <http://docs.aws.amazon.com/sdkforruby/api/ AWS SDK for Ruby>
+--     * <http://docs.aws.amazon.com/sdkforruby/api/ AWS SDK for Ruby>
 --
--- -   <http://aws.amazon.com/documentation/sdkforjavascript/ AWS SDK for Node.js>
+--     * <http://aws.amazon.com/documentation/sdkforjavascript/ AWS SDK for Node.js>
 --
--- -   <http://docs.pythonboto.org/en/latest/ref/opsworks.html AWS SDK for Python(Boto)>
+--     * <http://docs.pythonboto.org/en/latest/ref/opsworks.html AWS SDK for Python(Boto)>
+--
+--
 --
 -- __Endpoints__
 --
--- AWS OpsWorks supports the following endpoints, all HTTPS. You must connect to one of the following endpoints. Stacks can only be accessed or managed within the endpoint in which they are created.
+-- AWS OpsWorks Stacks supports the following endpoints, all HTTPS. You must connect to one of the following endpoints. Stacks can only be accessed or managed within the endpoint in which they are created.
 --
--- -   opsworks.us-east-1.amazonaws.com
+--     * opsworks.us-east-1.amazonaws.com
 --
--- -   opsworks.us-west-1.amazonaws.com
+--     * opsworks.us-east-2.amazonaws.com
 --
--- -   opsworks.us-west-2.amazonaws.com
+--     * opsworks.us-west-1.amazonaws.com
 --
--- -   opsworks.eu-west-1.amazonaws.com
+--     * opsworks.us-west-2.amazonaws.com
 --
--- -   opsworks.eu-central-1.amazonaws.com
+--     * opsworks.eu-west-1.amazonaws.com
 --
--- -   opsworks.ap-northeast-1.amazonaws.com
+--     * opsworks.eu-west-2.amazonaws.com
 --
--- -   opsworks.ap-northeast-2.amazonaws.com
+--     * opsworks.eu-central-1.amazonaws.com
 --
--- -   opsworks.ap-south-1.amazonaws.com
+--     * opsworks.ap-northeast-1.amazonaws.com
 --
--- -   opsworks.ap-southeast-1.amazonaws.com
+--     * opsworks.ap-northeast-2.amazonaws.com
 --
--- -   opsworks.ap-southeast-2.amazonaws.com
+--     * opsworks.ap-south-1.amazonaws.com
 --
--- -   opsworks.sa-east-1.amazonaws.com
+--     * opsworks.ap-southeast-1.amazonaws.com
+--
+--     * opsworks.ap-southeast-2.amazonaws.com
+--
+--     * opsworks.sa-east-1.amazonaws.com
+--
+--
 --
 -- __Chef Versions__
 --
--- When you call < CreateStack>, < CloneStack>, or < UpdateStack> we recommend you use the 'ConfigurationManager' parameter to specify the Chef version. The recommended and default value for Linux stacks is currently 12. Windows stacks use Chef 12.2. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html Chef Versions>.
+-- When you call 'CreateStack' , 'CloneStack' , or 'UpdateStack' we recommend you use the @ConfigurationManager@ parameter to specify the Chef version. The recommended and default value for Linux stacks is currently 12. Windows stacks use Chef 12.2. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html Chef Versions> .
 --
--- You can specify Chef 12, 11.10, or 11.4 for your Linux stack. We recommend migrating your existing Linux stacks to Chef 12 as soon as possible.
 module Network.AWS.OpsWorks
     (
     -- * Service Configuration
@@ -263,6 +270,12 @@ module Network.AWS.OpsWorks
     -- ** DescribeStackProvisioningParameters
     , module Network.AWS.OpsWorks.DescribeStackProvisioningParameters
 
+    -- ** TagResource
+    , module Network.AWS.OpsWorks.TagResource
+
+    -- ** ListTags
+    , module Network.AWS.OpsWorks.ListTags
+
     -- ** UnassignInstance
     , module Network.AWS.OpsWorks.UnassignInstance
 
@@ -280,6 +293,9 @@ module Network.AWS.OpsWorks
 
     -- ** RegisterRDSDBInstance
     , module Network.AWS.OpsWorks.RegisterRDSDBInstance
+
+    -- ** UntagResource
+    , module Network.AWS.OpsWorks.UntagResource
 
     -- ** StartStack
     , module Network.AWS.OpsWorks.StartStack
@@ -302,7 +318,7 @@ module Network.AWS.OpsWorks
     -- ** DeregisterInstance
     , module Network.AWS.OpsWorks.DeregisterInstance
 
-    -- ** DescribeEcsClusters
+    -- ** DescribeEcsClusters (Paginated)
     , module Network.AWS.OpsWorks.DescribeEcsClusters
 
     -- ** DescribeRAIdArrays
@@ -327,6 +343,15 @@ module Network.AWS.OpsWorks
 
     -- ** AutoScalingType
     , AutoScalingType (..)
+
+    -- ** CloudWatchLogsEncoding
+    , CloudWatchLogsEncoding (..)
+
+    -- ** CloudWatchLogsInitialPosition
+    , CloudWatchLogsInitialPosition (..)
+
+    -- ** CloudWatchLogsTimeZone
+    , CloudWatchLogsTimeZone (..)
 
     -- ** DeploymentCommandName
     , DeploymentCommandName (..)
@@ -400,6 +425,27 @@ module Network.AWS.OpsWorks
     , chefConfiguration
     , ccBerkshelfVersion
     , ccManageBerkshelf
+
+    -- ** CloudWatchLogsConfiguration
+    , CloudWatchLogsConfiguration
+    , cloudWatchLogsConfiguration
+    , cwlcEnabled
+    , cwlcLogStreams
+
+    -- ** CloudWatchLogsLogStream
+    , CloudWatchLogsLogStream
+    , cloudWatchLogsLogStream
+    , cwllsBatchCount
+    , cwllsFileFingerprintLines
+    , cwllsBufferDuration
+    , cwllsBatchSize
+    , cwllsLogGroupName
+    , cwllsMultiLineStartPattern
+    , cwllsInitialPosition
+    , cwllsDatetimeFormat
+    , cwllsEncoding
+    , cwllsTimeZone
+    , cwllsFile
 
     -- ** Command
     , Command
@@ -506,6 +552,7 @@ module Network.AWS.OpsWorks
     , iSSHHostRsaKeyFingerprint
     , iSecurityGroupIds
     , iEcsClusterARN
+    , iARN
     , iCreatedAt
     , iEC2InstanceId
     , iSSHKeyName
@@ -569,7 +616,9 @@ module Network.AWS.OpsWorks
     , lCustomInstanceProfileARN
     , lCustomSecurityGroupIds
     , lInstallUpdatesOnBoot
+    , lCloudWatchLogsConfiguration
     , lLifecycleEventConfiguration
+    , lARN
     , lCreatedAt
     , lShortname
     , lDefaultRecipes
@@ -801,78 +850,81 @@ module Network.AWS.OpsWorks
     , wassTuesday
     ) where
 
-import           Network.AWS.OpsWorks.AssignInstance
-import           Network.AWS.OpsWorks.AssignVolume
-import           Network.AWS.OpsWorks.AssociateElasticIP
-import           Network.AWS.OpsWorks.AttachElasticLoadBalancer
-import           Network.AWS.OpsWorks.CloneStack
-import           Network.AWS.OpsWorks.CreateApp
-import           Network.AWS.OpsWorks.CreateDeployment
-import           Network.AWS.OpsWorks.CreateInstance
-import           Network.AWS.OpsWorks.CreateLayer
-import           Network.AWS.OpsWorks.CreateStack
-import           Network.AWS.OpsWorks.CreateUserProfile
-import           Network.AWS.OpsWorks.DeleteApp
-import           Network.AWS.OpsWorks.DeleteInstance
-import           Network.AWS.OpsWorks.DeleteLayer
-import           Network.AWS.OpsWorks.DeleteStack
-import           Network.AWS.OpsWorks.DeleteUserProfile
-import           Network.AWS.OpsWorks.DeregisterEcsCluster
-import           Network.AWS.OpsWorks.DeregisterElasticIP
-import           Network.AWS.OpsWorks.DeregisterInstance
-import           Network.AWS.OpsWorks.DeregisterRDSDBInstance
-import           Network.AWS.OpsWorks.DeregisterVolume
-import           Network.AWS.OpsWorks.DescribeAgentVersions
-import           Network.AWS.OpsWorks.DescribeApps
-import           Network.AWS.OpsWorks.DescribeCommands
-import           Network.AWS.OpsWorks.DescribeDeployments
-import           Network.AWS.OpsWorks.DescribeEcsClusters
-import           Network.AWS.OpsWorks.DescribeElasticIPs
-import           Network.AWS.OpsWorks.DescribeElasticLoadBalancers
-import           Network.AWS.OpsWorks.DescribeInstances
-import           Network.AWS.OpsWorks.DescribeLayers
-import           Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
-import           Network.AWS.OpsWorks.DescribeMyUserProfile
-import           Network.AWS.OpsWorks.DescribePermissions
-import           Network.AWS.OpsWorks.DescribeRAIdArrays
-import           Network.AWS.OpsWorks.DescribeRDSDBInstances
-import           Network.AWS.OpsWorks.DescribeServiceErrors
-import           Network.AWS.OpsWorks.DescribeStackProvisioningParameters
-import           Network.AWS.OpsWorks.DescribeStacks
-import           Network.AWS.OpsWorks.DescribeStackSummary
-import           Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
-import           Network.AWS.OpsWorks.DescribeUserProfiles
-import           Network.AWS.OpsWorks.DescribeVolumes
-import           Network.AWS.OpsWorks.DetachElasticLoadBalancer
-import           Network.AWS.OpsWorks.DisassociateElasticIP
-import           Network.AWS.OpsWorks.GetHostnameSuggestion
-import           Network.AWS.OpsWorks.GrantAccess
-import           Network.AWS.OpsWorks.RebootInstance
-import           Network.AWS.OpsWorks.RegisterEcsCluster
-import           Network.AWS.OpsWorks.RegisterElasticIP
-import           Network.AWS.OpsWorks.RegisterInstance
-import           Network.AWS.OpsWorks.RegisterRDSDBInstance
-import           Network.AWS.OpsWorks.RegisterVolume
-import           Network.AWS.OpsWorks.SetLoadBasedAutoScaling
-import           Network.AWS.OpsWorks.SetPermission
-import           Network.AWS.OpsWorks.SetTimeBasedAutoScaling
-import           Network.AWS.OpsWorks.StartInstance
-import           Network.AWS.OpsWorks.StartStack
-import           Network.AWS.OpsWorks.StopInstance
-import           Network.AWS.OpsWorks.StopStack
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.UnassignInstance
-import           Network.AWS.OpsWorks.UnassignVolume
-import           Network.AWS.OpsWorks.UpdateApp
-import           Network.AWS.OpsWorks.UpdateElasticIP
-import           Network.AWS.OpsWorks.UpdateInstance
-import           Network.AWS.OpsWorks.UpdateLayer
-import           Network.AWS.OpsWorks.UpdateMyUserProfile
-import           Network.AWS.OpsWorks.UpdateRDSDBInstance
-import           Network.AWS.OpsWorks.UpdateStack
-import           Network.AWS.OpsWorks.UpdateUserProfile
-import           Network.AWS.OpsWorks.UpdateVolume
-import           Network.AWS.OpsWorks.Waiters
+import Network.AWS.OpsWorks.AssignInstance
+import Network.AWS.OpsWorks.AssignVolume
+import Network.AWS.OpsWorks.AssociateElasticIP
+import Network.AWS.OpsWorks.AttachElasticLoadBalancer
+import Network.AWS.OpsWorks.CloneStack
+import Network.AWS.OpsWorks.CreateApp
+import Network.AWS.OpsWorks.CreateDeployment
+import Network.AWS.OpsWorks.CreateInstance
+import Network.AWS.OpsWorks.CreateLayer
+import Network.AWS.OpsWorks.CreateStack
+import Network.AWS.OpsWorks.CreateUserProfile
+import Network.AWS.OpsWorks.DeleteApp
+import Network.AWS.OpsWorks.DeleteInstance
+import Network.AWS.OpsWorks.DeleteLayer
+import Network.AWS.OpsWorks.DeleteStack
+import Network.AWS.OpsWorks.DeleteUserProfile
+import Network.AWS.OpsWorks.DeregisterEcsCluster
+import Network.AWS.OpsWorks.DeregisterElasticIP
+import Network.AWS.OpsWorks.DeregisterInstance
+import Network.AWS.OpsWorks.DeregisterRDSDBInstance
+import Network.AWS.OpsWorks.DeregisterVolume
+import Network.AWS.OpsWorks.DescribeAgentVersions
+import Network.AWS.OpsWorks.DescribeApps
+import Network.AWS.OpsWorks.DescribeCommands
+import Network.AWS.OpsWorks.DescribeDeployments
+import Network.AWS.OpsWorks.DescribeEcsClusters
+import Network.AWS.OpsWorks.DescribeElasticIPs
+import Network.AWS.OpsWorks.DescribeElasticLoadBalancers
+import Network.AWS.OpsWorks.DescribeInstances
+import Network.AWS.OpsWorks.DescribeLayers
+import Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
+import Network.AWS.OpsWorks.DescribeMyUserProfile
+import Network.AWS.OpsWorks.DescribePermissions
+import Network.AWS.OpsWorks.DescribeRAIdArrays
+import Network.AWS.OpsWorks.DescribeRDSDBInstances
+import Network.AWS.OpsWorks.DescribeServiceErrors
+import Network.AWS.OpsWorks.DescribeStackProvisioningParameters
+import Network.AWS.OpsWorks.DescribeStacks
+import Network.AWS.OpsWorks.DescribeStackSummary
+import Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
+import Network.AWS.OpsWorks.DescribeUserProfiles
+import Network.AWS.OpsWorks.DescribeVolumes
+import Network.AWS.OpsWorks.DetachElasticLoadBalancer
+import Network.AWS.OpsWorks.DisassociateElasticIP
+import Network.AWS.OpsWorks.GetHostnameSuggestion
+import Network.AWS.OpsWorks.GrantAccess
+import Network.AWS.OpsWorks.ListTags
+import Network.AWS.OpsWorks.RebootInstance
+import Network.AWS.OpsWorks.RegisterEcsCluster
+import Network.AWS.OpsWorks.RegisterElasticIP
+import Network.AWS.OpsWorks.RegisterInstance
+import Network.AWS.OpsWorks.RegisterRDSDBInstance
+import Network.AWS.OpsWorks.RegisterVolume
+import Network.AWS.OpsWorks.SetLoadBasedAutoScaling
+import Network.AWS.OpsWorks.SetPermission
+import Network.AWS.OpsWorks.SetTimeBasedAutoScaling
+import Network.AWS.OpsWorks.StartInstance
+import Network.AWS.OpsWorks.StartStack
+import Network.AWS.OpsWorks.StopInstance
+import Network.AWS.OpsWorks.StopStack
+import Network.AWS.OpsWorks.TagResource
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.UnassignInstance
+import Network.AWS.OpsWorks.UnassignVolume
+import Network.AWS.OpsWorks.UntagResource
+import Network.AWS.OpsWorks.UpdateApp
+import Network.AWS.OpsWorks.UpdateElasticIP
+import Network.AWS.OpsWorks.UpdateInstance
+import Network.AWS.OpsWorks.UpdateLayer
+import Network.AWS.OpsWorks.UpdateMyUserProfile
+import Network.AWS.OpsWorks.UpdateRDSDBInstance
+import Network.AWS.OpsWorks.UpdateStack
+import Network.AWS.OpsWorks.UpdateUserProfile
+import Network.AWS.OpsWorks.UpdateVolume
+import Network.AWS.OpsWorks.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

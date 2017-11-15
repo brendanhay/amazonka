@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.SNS.ListSubscriptionsByTopic
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the subscriptions to a specific topic. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a 'NextToken' is also returned. Use the 'NextToken' parameter in a new 'ListSubscriptionsByTopic' call to get further results.
+-- Returns a list of the subscriptions to a specific topic. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a @NextToken@ is also returned. Use the @NextToken@ parameter in a new @ListSubscriptionsByTopic@ call to get further results.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListSubscriptionsByTopic
@@ -39,39 +41,41 @@ module Network.AWS.SNS.ListSubscriptionsByTopic
     , lsbtrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | Input for ListSubscriptionsByTopic action.
 --
+--
+--
 -- /See:/ 'listSubscriptionsByTopic' smart constructor.
 data ListSubscriptionsByTopic = ListSubscriptionsByTopic'
-    { _lsbtNextToken :: !(Maybe Text)
-    , _lsbtTopicARN  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsbtNextToken :: !(Maybe Text)
+  , _lsbtTopicARN  :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSubscriptionsByTopic' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsbtNextToken'
+-- * 'lsbtNextToken' - Token returned by the previous @ListSubscriptionsByTopic@ request.
 --
--- * 'lsbtTopicARN'
+-- * 'lsbtTopicARN' - The ARN of the topic for which you wish to find subscriptions.
 listSubscriptionsByTopic
     :: Text -- ^ 'lsbtTopicARN'
     -> ListSubscriptionsByTopic
 listSubscriptionsByTopic pTopicARN_ =
-    ListSubscriptionsByTopic'
-    { _lsbtNextToken = Nothing
-    , _lsbtTopicARN = pTopicARN_
-    }
+  ListSubscriptionsByTopic'
+  {_lsbtNextToken = Nothing, _lsbtTopicARN = pTopicARN_}
 
--- | Token returned by the previous 'ListSubscriptionsByTopic' request.
+
+-- | Token returned by the previous @ListSubscriptionsByTopic@ request.
 lsbtNextToken :: Lens' ListSubscriptionsByTopic (Maybe Text)
 lsbtNextToken = lens _lsbtNextToken (\ s a -> s{_lsbtNextToken = a});
 
@@ -99,9 +103,9 @@ instance AWSRequest ListSubscriptionsByTopic where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListSubscriptionsByTopic
+instance Hashable ListSubscriptionsByTopic where
 
-instance NFData ListSubscriptionsByTopic
+instance NFData ListSubscriptionsByTopic where
 
 instance ToHeaders ListSubscriptionsByTopic where
         toHeaders = const mempty
@@ -120,33 +124,37 @@ instance ToQuery ListSubscriptionsByTopic where
 
 -- | Response for ListSubscriptionsByTopic action.
 --
+--
+--
 -- /See:/ 'listSubscriptionsByTopicResponse' smart constructor.
 data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'
-    { _lsbtrsNextToken      :: !(Maybe Text)
-    , _lsbtrsSubscriptions  :: !(Maybe [Subscription])
-    , _lsbtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsbtrsNextToken      :: !(Maybe Text)
+  , _lsbtrsSubscriptions  :: !(Maybe [Subscription])
+  , _lsbtrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSubscriptionsByTopicResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsbtrsNextToken'
+-- * 'lsbtrsNextToken' - Token to pass along to the next @ListSubscriptionsByTopic@ request. This element is returned if there are more subscriptions to retrieve.
 --
--- * 'lsbtrsSubscriptions'
+-- * 'lsbtrsSubscriptions' - A list of subscriptions.
 --
--- * 'lsbtrsResponseStatus'
+-- * 'lsbtrsResponseStatus' - -- | The response status code.
 listSubscriptionsByTopicResponse
     :: Int -- ^ 'lsbtrsResponseStatus'
     -> ListSubscriptionsByTopicResponse
 listSubscriptionsByTopicResponse pResponseStatus_ =
-    ListSubscriptionsByTopicResponse'
-    { _lsbtrsNextToken = Nothing
-    , _lsbtrsSubscriptions = Nothing
-    , _lsbtrsResponseStatus = pResponseStatus_
-    }
+  ListSubscriptionsByTopicResponse'
+  { _lsbtrsNextToken = Nothing
+  , _lsbtrsSubscriptions = Nothing
+  , _lsbtrsResponseStatus = pResponseStatus_
+  }
 
--- | Token to pass along to the next 'ListSubscriptionsByTopic' request. This element is returned if there are more subscriptions to retrieve.
+
+-- | Token to pass along to the next @ListSubscriptionsByTopic@ request. This element is returned if there are more subscriptions to retrieve.
 lsbtrsNextToken :: Lens' ListSubscriptionsByTopicResponse (Maybe Text)
 lsbtrsNextToken = lens _lsbtrsNextToken (\ s a -> s{_lsbtrsNextToken = a});
 
@@ -154,8 +162,9 @@ lsbtrsNextToken = lens _lsbtrsNextToken (\ s a -> s{_lsbtrsNextToken = a});
 lsbtrsSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
 lsbtrsSubscriptions = lens _lsbtrsSubscriptions (\ s a -> s{_lsbtrsSubscriptions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lsbtrsResponseStatus :: Lens' ListSubscriptionsByTopicResponse Int
 lsbtrsResponseStatus = lens _lsbtrsResponseStatus (\ s a -> s{_lsbtrsResponseStatus = a});
 
 instance NFData ListSubscriptionsByTopicResponse
+         where

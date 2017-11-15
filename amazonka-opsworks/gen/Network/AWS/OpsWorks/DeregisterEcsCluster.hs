@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeregisterEcsCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deregisters a specified Amazon ECS cluster from a stack. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html#workinglayers-ecscluster-delete Resource Management>.
+-- Deregisters a specified Amazon ECS cluster from a stack. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html#workinglayers-ecscluster-delete Resource Management> .
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html> .
+--
 module Network.AWS.OpsWorks.DeregisterEcsCluster
     (
     -- * Creating a Request
@@ -34,32 +36,32 @@ module Network.AWS.OpsWorks.DeregisterEcsCluster
     , DeregisterEcsClusterResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deregisterEcsCluster' smart constructor.
 newtype DeregisterEcsCluster = DeregisterEcsCluster'
-    { _decEcsClusterARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _decEcsClusterARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterEcsCluster' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decEcsClusterARN'
+-- * 'decEcsClusterARN' - The cluster's ARN.
 deregisterEcsCluster
     :: Text -- ^ 'decEcsClusterARN'
     -> DeregisterEcsCluster
 deregisterEcsCluster pEcsClusterARN_ =
-    DeregisterEcsCluster'
-    { _decEcsClusterARN = pEcsClusterARN_
-    }
+  DeregisterEcsCluster' {_decEcsClusterARN = pEcsClusterARN_}
 
--- | The cluster\'s ARN.
+
+-- | The cluster's ARN.
 decEcsClusterARN :: Lens' DeregisterEcsCluster Text
 decEcsClusterARN = lens _decEcsClusterARN (\ s a -> s{_decEcsClusterARN = a});
 
@@ -69,9 +71,9 @@ instance AWSRequest DeregisterEcsCluster where
         request = postJSON opsWorks
         response = receiveNull DeregisterEcsClusterResponse'
 
-instance Hashable DeregisterEcsCluster
+instance Hashable DeregisterEcsCluster where
 
-instance NFData DeregisterEcsCluster
+instance NFData DeregisterEcsCluster where
 
 instance ToHeaders DeregisterEcsCluster where
         toHeaders
@@ -97,8 +99,9 @@ instance ToQuery DeregisterEcsCluster where
 
 -- | /See:/ 'deregisterEcsClusterResponse' smart constructor.
 data DeregisterEcsClusterResponse =
-    DeregisterEcsClusterResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeregisterEcsClusterResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterEcsClusterResponse' with the minimum fields required to make a request.
 --
@@ -106,4 +109,5 @@ deregisterEcsClusterResponse
     :: DeregisterEcsClusterResponse
 deregisterEcsClusterResponse = DeregisterEcsClusterResponse'
 
-instance NFData DeregisterEcsClusterResponse
+
+instance NFData DeregisterEcsClusterResponse where

@@ -12,25 +12,28 @@
 
 -- |
 -- Module      : Network.AWS.ELB.ModifyLoadBalancerAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the attributes of the specified load balancer.
 --
--- You can modify the load balancer attributes, such as 'AccessLogs', 'ConnectionDraining', and 'CrossZoneLoadBalancing' by either enabling or disabling them. Or, you can modify the load balancer attribute 'ConnectionSettings' by specifying an idle connection timeout value for your load balancer.
 --
--- For more information, see the following in the /Classic Load Balancers Guide/:
+-- You can modify the load balancer attributes, such as @AccessLogs@ , @ConnectionDraining@ , and @CrossZoneLoadBalancing@ by either enabling or disabling them. Or, you can modify the load balancer attribute @ConnectionSettings@ by specifying an idle connection timeout value for your load balancer.
 --
--- -   <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Cross-Zone Load Balancing>
+-- For more information, see the following in the /Classic Load Balancer Guide/ :
 --
--- -   <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Connection Draining>
+--     * <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Cross-Zone Load Balancing>
 --
--- -   <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html Access Logs>
+--     * <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Connection Draining>
 --
--- -   <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Idle Connection Timeout>
+--     * <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html Access Logs>
+--
+--     * <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Idle Connection Timeout>
+--
+--
 --
 module Network.AWS.ELB.ModifyLoadBalancerAttributes
     (
@@ -50,43 +53,47 @@ module Network.AWS.ELB.ModifyLoadBalancerAttributes
     , mlbarsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ModifyLoadBalancerAttributes.
 --
+--
+--
 -- /See:/ 'modifyLoadBalancerAttributes' smart constructor.
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
-    { _mlbaLoadBalancerName       :: !Text
-    , _mlbaLoadBalancerAttributes :: !LoadBalancerAttributes
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mlbaLoadBalancerName       :: !Text
+  , _mlbaLoadBalancerAttributes :: !LoadBalancerAttributes
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyLoadBalancerAttributes' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mlbaLoadBalancerName'
+-- * 'mlbaLoadBalancerName' - The name of the load balancer.
 --
--- * 'mlbaLoadBalancerAttributes'
+-- * 'mlbaLoadBalancerAttributes' - The attributes for the load balancer.
 modifyLoadBalancerAttributes
     :: Text -- ^ 'mlbaLoadBalancerName'
     -> LoadBalancerAttributes -- ^ 'mlbaLoadBalancerAttributes'
     -> ModifyLoadBalancerAttributes
 modifyLoadBalancerAttributes pLoadBalancerName_ pLoadBalancerAttributes_ =
-    ModifyLoadBalancerAttributes'
-    { _mlbaLoadBalancerName = pLoadBalancerName_
-    , _mlbaLoadBalancerAttributes = pLoadBalancerAttributes_
-    }
+  ModifyLoadBalancerAttributes'
+  { _mlbaLoadBalancerName = pLoadBalancerName_
+  , _mlbaLoadBalancerAttributes = pLoadBalancerAttributes_
+  }
+
 
 -- | The name of the load balancer.
 mlbaLoadBalancerName :: Lens' ModifyLoadBalancerAttributes Text
 mlbaLoadBalancerName = lens _mlbaLoadBalancerName (\ s a -> s{_mlbaLoadBalancerName = a});
 
--- | The attributes of the load balancer.
+-- | The attributes for the load balancer.
 mlbaLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributes LoadBalancerAttributes
 mlbaLoadBalancerAttributes = lens _mlbaLoadBalancerAttributes (\ s a -> s{_mlbaLoadBalancerAttributes = a});
 
@@ -104,9 +111,9 @@ instance AWSRequest ModifyLoadBalancerAttributes
                      (x .@? "LoadBalancerAttributes")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ModifyLoadBalancerAttributes
+instance Hashable ModifyLoadBalancerAttributes where
 
-instance NFData ModifyLoadBalancerAttributes
+instance NFData ModifyLoadBalancerAttributes where
 
 instance ToHeaders ModifyLoadBalancerAttributes where
         toHeaders = const mempty
@@ -126,42 +133,47 @@ instance ToQuery ModifyLoadBalancerAttributes where
 
 -- | Contains the output of ModifyLoadBalancerAttributes.
 --
+--
+--
 -- /See:/ 'modifyLoadBalancerAttributesResponse' smart constructor.
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
-    { _mlbarsLoadBalancerName       :: !(Maybe Text)
-    , _mlbarsLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
-    , _mlbarsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mlbarsLoadBalancerName       :: !(Maybe Text)
+  , _mlbarsLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
+  , _mlbarsResponseStatus         :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyLoadBalancerAttributesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mlbarsLoadBalancerName'
+-- * 'mlbarsLoadBalancerName' - The name of the load balancer.
 --
--- * 'mlbarsLoadBalancerAttributes'
+-- * 'mlbarsLoadBalancerAttributes' - Information about the load balancer attributes.
 --
--- * 'mlbarsResponseStatus'
+-- * 'mlbarsResponseStatus' - -- | The response status code.
 modifyLoadBalancerAttributesResponse
     :: Int -- ^ 'mlbarsResponseStatus'
     -> ModifyLoadBalancerAttributesResponse
 modifyLoadBalancerAttributesResponse pResponseStatus_ =
-    ModifyLoadBalancerAttributesResponse'
-    { _mlbarsLoadBalancerName = Nothing
-    , _mlbarsLoadBalancerAttributes = Nothing
-    , _mlbarsResponseStatus = pResponseStatus_
-    }
+  ModifyLoadBalancerAttributesResponse'
+  { _mlbarsLoadBalancerName = Nothing
+  , _mlbarsLoadBalancerAttributes = Nothing
+  , _mlbarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The name of the load balancer.
 mlbarsLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
 mlbarsLoadBalancerName = lens _mlbarsLoadBalancerName (\ s a -> s{_mlbarsLoadBalancerName = a});
 
--- | Undocumented member.
+-- | Information about the load balancer attributes.
 mlbarsLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
 mlbarsLoadBalancerAttributes = lens _mlbarsLoadBalancerAttributes (\ s a -> s{_mlbarsLoadBalancerAttributes = a});
 
--- | The response status code.
+-- | -- | The response status code.
 mlbarsResponseStatus :: Lens' ModifyLoadBalancerAttributesResponse Int
 mlbarsResponseStatus = lens _mlbarsResponseStatus (\ s a -> s{_mlbarsResponseStatus = a});
 
 instance NFData ModifyLoadBalancerAttributesResponse
+         where

@@ -5,21 +5,22 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS Elastic Beanstalk
+-- __AWS Elastic Beanstalk__
 --
 -- AWS Elastic Beanstalk makes it easy for you to create, deploy, and manage scalable, fault-tolerant applications running on the Amazon Web Services cloud.
 --
--- For more information about this product, go to the <http://aws.amazon.com/elasticbeanstalk/ AWS Elastic Beanstalk> details page. The location of the latest AWS Elastic Beanstalk WSDL is <http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl>. To install the Software Development Kits (SDKs), Integrated Development Environment (IDE) Toolkits, and command line tools that enable you to access the API, go to <https://aws.amazon.com/tools/ Tools for Amazon Web Services>.
+-- For more information about this product, go to the <http://aws.amazon.com/elasticbeanstalk/ AWS Elastic Beanstalk> details page. The location of the latest AWS Elastic Beanstalk WSDL is <http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl> . To install the Software Development Kits (SDKs), Integrated Development Environment (IDE) Toolkits, and command line tools that enable you to access the API, go to <http://aws.amazon.com/tools/ Tools for Amazon Web Services> .
 --
 -- __Endpoints__
 --
--- For a list of region-specific endpoints that AWS Elastic Beanstalk supports, go to <http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region Regions and Endpoints> in the /Amazon Web Services Glossary/.
+-- For a list of region-specific endpoints that AWS Elastic Beanstalk supports, go to <http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region Regions and Endpoints> in the /Amazon Web Services Glossary/ .
+--
 module Network.AWS.ElasticBeanstalk
     (
     -- * Service Configuration
@@ -40,11 +41,17 @@ module Network.AWS.ElasticBeanstalk
     -- ** OperationInProgressException
     , _OperationInProgressException
 
+    -- ** PlatformVersionStillReferencedException
+    , _PlatformVersionStillReferencedException
+
     -- ** TooManyApplicationVersionsException
     , _TooManyApplicationVersionsException
 
     -- ** TooManyConfigurationTemplatesException
     , _TooManyConfigurationTemplatesException
+
+    -- ** ResourceTypeNotSupportedException
+    , _ResourceTypeNotSupportedException
 
     -- ** InsufficientPrivilegesException
     , _InsufficientPrivilegesException
@@ -52,8 +59,14 @@ module Network.AWS.ElasticBeanstalk
     -- ** ElasticBeanstalkServiceException
     , _ElasticBeanstalkServiceException
 
+    -- ** TooManyTagsException
+    , _TooManyTagsException
+
     -- ** TooManyApplicationsException
     , _TooManyApplicationsException
+
+    -- ** TooManyPlatformsException
+    , _TooManyPlatformsException
 
     -- ** ManagedActionInvalidStateException
     , _ManagedActionInvalidStateException
@@ -64,8 +77,14 @@ module Network.AWS.ElasticBeanstalk
     -- ** S3LocationNotInServiceRegionException
     , _S3LocationNotInServiceRegionException
 
+    -- ** CodeBuildNotInServiceRegionException
+    , _CodeBuildNotInServiceRegionException
+
     -- ** TooManyEnvironmentsException
     , _TooManyEnvironmentsException
+
+    -- ** ResourceNotFoundException
+    , _ResourceNotFoundException
 
     -- * Waiters
     -- $waiters
@@ -82,6 +101,12 @@ module Network.AWS.ElasticBeanstalk
     -- ** TerminateEnvironment
     , module Network.AWS.ElasticBeanstalk.TerminateEnvironment
 
+    -- ** ListPlatformVersions
+    , module Network.AWS.ElasticBeanstalk.ListPlatformVersions
+
+    -- ** DeletePlatformVersion
+    , module Network.AWS.ElasticBeanstalk.DeletePlatformVersion
+
     -- ** CreateApplicationVersion
     , module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
 
@@ -91,8 +116,14 @@ module Network.AWS.ElasticBeanstalk
     -- ** RequestEnvironmentInfo
     , module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
 
+    -- ** ListTagsForResource
+    , module Network.AWS.ElasticBeanstalk.ListTagsForResource
+
     -- ** RetrieveEnvironmentInfo
     , module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
+
+    -- ** DescribePlatformVersion
+    , module Network.AWS.ElasticBeanstalk.DescribePlatformVersion
 
     -- ** DeleteApplication
     , module Network.AWS.ElasticBeanstalk.DeleteApplication
@@ -118,6 +149,9 @@ module Network.AWS.ElasticBeanstalk
     -- ** UpdateConfigurationTemplate
     , module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
 
+    -- ** UpdateTagsForResource
+    , module Network.AWS.ElasticBeanstalk.UpdateTagsForResource
+
     -- ** DescribeEnvironmentResources
     , module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
 
@@ -141,6 +175,9 @@ module Network.AWS.ElasticBeanstalk
 
     -- ** DeleteEnvironmentConfiguration
     , module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
+
+    -- ** UpdateApplicationResourceLifecycle
+    , module Network.AWS.ElasticBeanstalk.UpdateApplicationResourceLifecycle
 
     -- ** SwapEnvironmentCNAMEs
     , module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
@@ -181,6 +218,9 @@ module Network.AWS.ElasticBeanstalk
     -- ** CreateEnvironment
     , module Network.AWS.ElasticBeanstalk.CreateEnvironment
 
+    -- ** CreatePlatformVersion
+    , module Network.AWS.ElasticBeanstalk.CreatePlatformVersion
+
     -- * Types
 
     -- ** ActionHistoryStatus
@@ -194,6 +234,9 @@ module Network.AWS.ElasticBeanstalk
 
     -- ** ApplicationVersionStatus
     , ApplicationVersionStatus (..)
+
+    -- ** ComputeType
+    , ComputeType (..)
 
     -- ** ConfigurationDeploymentStatus
     , ConfigurationDeploymentStatus (..)
@@ -225,6 +268,15 @@ module Network.AWS.ElasticBeanstalk
     -- ** InstancesHealthAttribute
     , InstancesHealthAttribute (..)
 
+    -- ** PlatformStatus
+    , PlatformStatus (..)
+
+    -- ** SourceRepository
+    , SourceRepository (..)
+
+    -- ** SourceType
+    , SourceType (..)
+
     -- ** ValidationSeverity
     , ValidationSeverity (..)
 
@@ -236,6 +288,7 @@ module Network.AWS.ElasticBeanstalk
     , adDateCreated
     , adApplicationName
     , adConfigurationTemplates
+    , adResourceLifecycleConfig
     , adDescription
 
     -- ** ApplicationDescriptionMessage
@@ -251,6 +304,12 @@ module Network.AWS.ElasticBeanstalk
     , amStatusCodes
     , amDuration
 
+    -- ** ApplicationResourceLifecycleConfig
+    , ApplicationResourceLifecycleConfig
+    , applicationResourceLifecycleConfig
+    , arlcVersionLifecycleConfig
+    , arlcServiceRole
+
     -- ** ApplicationVersionDescription
     , ApplicationVersionDescription
     , applicationVersionDescription
@@ -259,7 +318,9 @@ module Network.AWS.ElasticBeanstalk
     , avdDateUpdated
     , avdDateCreated
     , avdVersionLabel
+    , avdSourceBuildInformation
     , avdApplicationName
+    , avdBuildARN
     , avdDescription
 
     -- ** ApplicationVersionDescriptionMessage
@@ -267,10 +328,30 @@ module Network.AWS.ElasticBeanstalk
     , applicationVersionDescriptionMessage
     , avdmApplicationVersion
 
+    -- ** ApplicationVersionLifecycleConfig
+    , ApplicationVersionLifecycleConfig
+    , applicationVersionLifecycleConfig
+    , avlcMaxAgeRule
+    , avlcMaxCountRule
+
     -- ** AutoScalingGroup
     , AutoScalingGroup
     , autoScalingGroup
     , asgName
+
+    -- ** BuildConfiguration
+    , BuildConfiguration
+    , buildConfiguration
+    , bcArtifactName
+    , bcComputeType
+    , bcTimeoutInMinutes
+    , bcCodeBuildServiceRole
+    , bcImage
+
+    -- ** Builder
+    , Builder
+    , builder
+    , bARN
 
     -- ** CPUUtilization
     , CPUUtilization
@@ -313,11 +394,18 @@ module Network.AWS.ElasticBeanstalk
     , csdOptionSettings
     , csdDateUpdated
     , csdDateCreated
+    , csdPlatformARN
     , csdEnvironmentName
     , csdApplicationName
     , csdDeploymentStatus
     , csdSolutionStackName
     , csdDescription
+
+    -- ** CustomAMI
+    , CustomAMI
+    , customAMI
+    , caVirtualizationType
+    , caImageId
 
     -- ** Deployment
     , Deployment
@@ -340,9 +428,11 @@ module Network.AWS.ElasticBeanstalk
     , eDateCreated
     , eHealth
     , eVersionLabel
+    , ePlatformARN
     , eTier
     , eEnvironmentName
     , eApplicationName
+    , eEnvironmentARN
     , eSolutionStackName
     , eEnvironmentId
     , eHealthStatus
@@ -352,6 +442,7 @@ module Network.AWS.ElasticBeanstalk
     -- ** EnvironmentDescriptionsMessage
     , EnvironmentDescriptionsMessage
     , environmentDescriptionsMessage
+    , edmNextToken
     , edmEnvironments
 
     -- ** EnvironmentInfoDescription
@@ -398,6 +489,7 @@ module Network.AWS.ElasticBeanstalk
     , edTemplateName
     , edSeverity
     , edVersionLabel
+    , edPlatformARN
     , edEnvironmentName
     , edApplicationName
     , edEventDate
@@ -476,6 +568,20 @@ module Network.AWS.ElasticBeanstalk
     , mahiExecutedTime
     , mahiActionType
 
+    -- ** MaxAgeRule
+    , MaxAgeRule
+    , maxAgeRule
+    , marDeleteSourceFromS3
+    , marMaxAgeInDays
+    , marEnabled
+
+    -- ** MaxCountRule
+    , MaxCountRule
+    , maxCountRule
+    , mcrMaxCount
+    , mcrDeleteSourceFromS3
+    , mcrEnabled
+
     -- ** OptionRestrictionRegex
     , OptionRestrictionRegex
     , optionRestrictionRegex
@@ -488,6 +594,59 @@ module Network.AWS.ElasticBeanstalk
     , osOptionName
     , osResourceName
     , osNamespace
+
+    -- ** PlatformDescription
+    , PlatformDescription
+    , platformDescription
+    , pdSupportedAddonList
+    , pdPlatformCategory
+    , pdPlatformVersion
+    , pdPlatformStatus
+    , pdMaintainer
+    , pdPlatformOwner
+    , pdDateUpdated
+    , pdCustomAMIList
+    , pdDateCreated
+    , pdOperatingSystemName
+    , pdFrameworks
+    , pdPlatformARN
+    , pdOperatingSystemVersion
+    , pdProgrammingLanguages
+    , pdSolutionStackName
+    , pdPlatformName
+    , pdDescription
+    , pdSupportedTierList
+
+    -- ** PlatformFilter
+    , PlatformFilter
+    , platformFilter
+    , pfValues
+    , pfOperator
+    , pfType
+
+    -- ** PlatformFramework
+    , PlatformFramework
+    , platformFramework
+    , pfName
+    , pfVersion
+
+    -- ** PlatformProgrammingLanguage
+    , PlatformProgrammingLanguage
+    , platformProgrammingLanguage
+    , pplName
+    , pplVersion
+
+    -- ** PlatformSummary
+    , PlatformSummary
+    , platformSummary
+    , psSupportedAddonList
+    , psPlatformCategory
+    , psPlatformStatus
+    , psPlatformOwner
+    , psOperatingSystemName
+    , psPlatformARN
+    , psOperatingSystemVersion
+    , psSupportedTierList
 
     -- ** Queue
     , Queue
@@ -520,6 +679,13 @@ module Network.AWS.ElasticBeanstalk
     , solutionStackDescription
     , ssdPermittedFileTypes
     , ssdSolutionStackName
+
+    -- ** SourceBuildInformation
+    , SourceBuildInformation
+    , sourceBuildInformation
+    , sbiSourceType
+    , sbiSourceRepository
+    , sbiSourceLocation
 
     -- ** SourceConfiguration
     , SourceConfiguration
@@ -561,44 +727,51 @@ module Network.AWS.ElasticBeanstalk
     , vmMessage
     ) where
 
-import           Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
-import           Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction
-import           Network.AWS.ElasticBeanstalk.CheckDNSAvailability
-import           Network.AWS.ElasticBeanstalk.ComposeEnvironments
-import           Network.AWS.ElasticBeanstalk.CreateApplication
-import           Network.AWS.ElasticBeanstalk.CreateApplicationVersion
-import           Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
-import           Network.AWS.ElasticBeanstalk.CreateEnvironment
-import           Network.AWS.ElasticBeanstalk.CreateStorageLocation
-import           Network.AWS.ElasticBeanstalk.DeleteApplication
-import           Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
-import           Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
-import           Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
-import           Network.AWS.ElasticBeanstalk.DescribeApplications
-import           Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
-import           Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
-import           Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
-import           Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
-import           Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
-import           Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActions
-import           Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
-import           Network.AWS.ElasticBeanstalk.DescribeEnvironments
-import           Network.AWS.ElasticBeanstalk.DescribeEvents
-import           Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
-import           Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
-import           Network.AWS.ElasticBeanstalk.RebuildEnvironment
-import           Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
-import           Network.AWS.ElasticBeanstalk.RestartAppServer
-import           Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
-import           Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
-import           Network.AWS.ElasticBeanstalk.TerminateEnvironment
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.UpdateApplication
-import           Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
-import           Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
-import           Network.AWS.ElasticBeanstalk.UpdateEnvironment
-import           Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
-import           Network.AWS.ElasticBeanstalk.Waiters
+import Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
+import Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction
+import Network.AWS.ElasticBeanstalk.CheckDNSAvailability
+import Network.AWS.ElasticBeanstalk.ComposeEnvironments
+import Network.AWS.ElasticBeanstalk.CreateApplication
+import Network.AWS.ElasticBeanstalk.CreateApplicationVersion
+import Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
+import Network.AWS.ElasticBeanstalk.CreateEnvironment
+import Network.AWS.ElasticBeanstalk.CreatePlatformVersion
+import Network.AWS.ElasticBeanstalk.CreateStorageLocation
+import Network.AWS.ElasticBeanstalk.DeleteApplication
+import Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
+import Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
+import Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
+import Network.AWS.ElasticBeanstalk.DeletePlatformVersion
+import Network.AWS.ElasticBeanstalk.DescribeApplications
+import Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
+import Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
+import Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
+import Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
+import Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
+import Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActions
+import Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
+import Network.AWS.ElasticBeanstalk.DescribeEnvironments
+import Network.AWS.ElasticBeanstalk.DescribeEvents
+import Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
+import Network.AWS.ElasticBeanstalk.DescribePlatformVersion
+import Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
+import Network.AWS.ElasticBeanstalk.ListPlatformVersions
+import Network.AWS.ElasticBeanstalk.ListTagsForResource
+import Network.AWS.ElasticBeanstalk.RebuildEnvironment
+import Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
+import Network.AWS.ElasticBeanstalk.RestartAppServer
+import Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
+import Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
+import Network.AWS.ElasticBeanstalk.TerminateEnvironment
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.UpdateApplication
+import Network.AWS.ElasticBeanstalk.UpdateApplicationResourceLifecycle
+import Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
+import Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
+import Network.AWS.ElasticBeanstalk.UpdateEnvironment
+import Network.AWS.ElasticBeanstalk.UpdateTagsForResource
+import Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
+import Network.AWS.ElasticBeanstalk.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

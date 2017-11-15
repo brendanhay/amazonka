@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.VerifyTrust
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- AWS Directory Service for Microsoft Active Directory allows you to configure and verify trust relationships.
 --
+--
 -- This action verifies a trust relationship between your Microsoft AD in the AWS cloud and an external domain.
+--
 module Network.AWS.DirectoryService.VerifyTrust
     (
     -- * Creating a Request
@@ -37,32 +39,33 @@ module Network.AWS.DirectoryService.VerifyTrust
     , vtrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Initiates the verification of an existing trust relationship between a Microsoft AD in the AWS cloud and an external domain.
 --
+--
+--
 -- /See:/ 'verifyTrust' smart constructor.
 newtype VerifyTrust = VerifyTrust'
-    { _vtTrustId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vtTrustId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VerifyTrust' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vtTrustId'
+-- * 'vtTrustId' - The unique Trust ID of the trust relationship to verify.
 verifyTrust
     :: Text -- ^ 'vtTrustId'
     -> VerifyTrust
-verifyTrust pTrustId_ =
-    VerifyTrust'
-    { _vtTrustId = pTrustId_
-    }
+verifyTrust pTrustId_ = VerifyTrust' {_vtTrustId = pTrustId_}
+
 
 -- | The unique Trust ID of the trust relationship to verify.
 vtTrustId :: Lens' VerifyTrust Text
@@ -77,9 +80,9 @@ instance AWSRequest VerifyTrust where
                  VerifyTrustResponse' <$>
                    (x .?> "TrustId") <*> (pure (fromEnum s)))
 
-instance Hashable VerifyTrust
+instance Hashable VerifyTrust where
 
-instance NFData VerifyTrust
+instance NFData VerifyTrust where
 
 instance ToHeaders VerifyTrust where
         toHeaders
@@ -103,34 +106,36 @@ instance ToQuery VerifyTrust where
 
 -- | Result of a VerifyTrust request.
 --
+--
+--
 -- /See:/ 'verifyTrustResponse' smart constructor.
 data VerifyTrustResponse = VerifyTrustResponse'
-    { _vtrsTrustId        :: !(Maybe Text)
-    , _vtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vtrsTrustId        :: !(Maybe Text)
+  , _vtrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VerifyTrustResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vtrsTrustId'
+-- * 'vtrsTrustId' - The unique Trust ID of the trust relationship that was verified.
 --
--- * 'vtrsResponseStatus'
+-- * 'vtrsResponseStatus' - -- | The response status code.
 verifyTrustResponse
     :: Int -- ^ 'vtrsResponseStatus'
     -> VerifyTrustResponse
 verifyTrustResponse pResponseStatus_ =
-    VerifyTrustResponse'
-    { _vtrsTrustId = Nothing
-    , _vtrsResponseStatus = pResponseStatus_
-    }
+  VerifyTrustResponse'
+  {_vtrsTrustId = Nothing, _vtrsResponseStatus = pResponseStatus_}
+
 
 -- | The unique Trust ID of the trust relationship that was verified.
 vtrsTrustId :: Lens' VerifyTrustResponse (Maybe Text)
 vtrsTrustId = lens _vtrsTrustId (\ s a -> s{_vtrsTrustId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 vtrsResponseStatus :: Lens' VerifyTrustResponse Int
 vtrsResponseStatus = lens _vtrsResponseStatus (\ s a -> s{_vtrsResponseStatus = a});
 
-instance NFData VerifyTrustResponse
+instance NFData VerifyTrustResponse where

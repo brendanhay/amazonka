@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.AddTagsToResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or overwrites one or more tags for the specified Amazon Directory Services directory. Each directory can have a maximum of 10 tags. Each tag consists of a key and optional value. Tag keys must be unique to each resource.
+-- Adds or overwrites one or more tags for the specified directory. Each directory can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique to each resource.
+--
+--
 module Network.AWS.DirectoryService.AddTagsToResource
     (
     -- * Creating a Request
@@ -35,40 +37,39 @@ module Network.AWS.DirectoryService.AddTagsToResource
     , attrrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'addTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'
-    { _attrResourceId :: !Text
-    , _attrTags       :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _attrResourceId :: !Text
+  , _attrTags       :: ![Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTagsToResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'attrResourceId'
+-- * 'attrResourceId' - Identifier (ID) for the directory to which to add the tag.
 --
--- * 'attrTags'
+-- * 'attrTags' - The tags to be assigned to the directory.
 addTagsToResource
     :: Text -- ^ 'attrResourceId'
     -> AddTagsToResource
 addTagsToResource pResourceId_ =
-    AddTagsToResource'
-    { _attrResourceId = pResourceId_
-    , _attrTags = mempty
-    }
+  AddTagsToResource' {_attrResourceId = pResourceId_, _attrTags = mempty}
+
 
 -- | Identifier (ID) for the directory to which to add the tag.
 attrResourceId :: Lens' AddTagsToResource Text
 attrResourceId = lens _attrResourceId (\ s a -> s{_attrResourceId = a});
 
--- | The tags to be assigned to the Amazon Directory Services directory.
+-- | The tags to be assigned to the directory.
 attrTags :: Lens' AddTagsToResource [Tag]
 attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce;
 
@@ -80,9 +81,9 @@ instance AWSRequest AddTagsToResource where
               (\ s h x ->
                  AddTagsToResourceResponse' <$> (pure (fromEnum s)))
 
-instance Hashable AddTagsToResource
+instance Hashable AddTagsToResource where
 
-instance NFData AddTagsToResource
+instance NFData AddTagsToResource where
 
 instance ToHeaders AddTagsToResource where
         toHeaders
@@ -109,24 +110,24 @@ instance ToQuery AddTagsToResource where
 
 -- | /See:/ 'addTagsToResourceResponse' smart constructor.
 newtype AddTagsToResourceResponse = AddTagsToResourceResponse'
-    { _attrrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _attrrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTagsToResourceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'attrrsResponseStatus'
+-- * 'attrrsResponseStatus' - -- | The response status code.
 addTagsToResourceResponse
     :: Int -- ^ 'attrrsResponseStatus'
     -> AddTagsToResourceResponse
 addTagsToResourceResponse pResponseStatus_ =
-    AddTagsToResourceResponse'
-    { _attrrsResponseStatus = pResponseStatus_
-    }
+  AddTagsToResourceResponse' {_attrrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 attrrsResponseStatus :: Lens' AddTagsToResourceResponse Int
 attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a});
 
-instance NFData AddTagsToResourceResponse
+instance NFData AddTagsToResourceResponse where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListJobs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about jobs.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListJobs
@@ -39,43 +41,43 @@ module Network.AWS.DeviceFarm.ListJobs
     , ljrsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the list jobs operation.
 --
+--
+--
 -- /See:/ 'listJobs' smart constructor.
 data ListJobs = ListJobs'
-    { _ljNextToken :: !(Maybe Text)
-    , _ljArn       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ljNextToken :: !(Maybe Text)
+  , _ljArn       :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ljNextToken'
+-- * 'ljNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'ljArn'
+-- * 'ljArn' - The jobs' ARNs.
 listJobs
     :: Text -- ^ 'ljArn'
     -> ListJobs
-listJobs pArn_ =
-    ListJobs'
-    { _ljNextToken = Nothing
-    , _ljArn = pArn_
-    }
+listJobs pArn_ = ListJobs' {_ljNextToken = Nothing, _ljArn = pArn_}
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 ljNextToken :: Lens' ListJobs (Maybe Text)
 ljNextToken = lens _ljNextToken (\ s a -> s{_ljNextToken = a});
 
--- | The jobs\' ARNs.
+-- | The jobs' ARNs.
 ljArn :: Lens' ListJobs Text
 ljArn = lens _ljArn (\ s a -> s{_ljArn = a});
 
@@ -96,9 +98,9 @@ instance AWSRequest ListJobs where
                    (x .?> "jobs" .!@ mempty) <*> (x .?> "nextToken") <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListJobs
+instance Hashable ListJobs where
 
-instance NFData ListJobs
+instance NFData ListJobs where
 
 instance ToHeaders ListJobs where
         toHeaders
@@ -124,31 +126,35 @@ instance ToQuery ListJobs where
 
 -- | Represents the result of a list jobs request.
 --
+--
+--
 -- /See:/ 'listJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-    { _ljrsJobs           :: !(Maybe [Job])
-    , _ljrsNextToken      :: !(Maybe Text)
-    , _ljrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ljrsJobs           :: !(Maybe [Job])
+  , _ljrsNextToken      :: !(Maybe Text)
+  , _ljrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ljrsJobs'
+-- * 'ljrsJobs' - Information about the jobs.
 --
--- * 'ljrsNextToken'
+-- * 'ljrsNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 --
--- * 'ljrsResponseStatus'
+-- * 'ljrsResponseStatus' - -- | The response status code.
 listJobsResponse
     :: Int -- ^ 'ljrsResponseStatus'
     -> ListJobsResponse
 listJobsResponse pResponseStatus_ =
-    ListJobsResponse'
-    { _ljrsJobs = Nothing
-    , _ljrsNextToken = Nothing
-    , _ljrsResponseStatus = pResponseStatus_
-    }
+  ListJobsResponse'
+  { _ljrsJobs = Nothing
+  , _ljrsNextToken = Nothing
+  , _ljrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the jobs.
 ljrsJobs :: Lens' ListJobsResponse [Job]
@@ -158,8 +164,8 @@ ljrsJobs = lens _ljrsJobs (\ s a -> s{_ljrsJobs = a}) . _Default . _Coerce;
 ljrsNextToken :: Lens' ListJobsResponse (Maybe Text)
 ljrsNextToken = lens _ljrsNextToken (\ s a -> s{_ljrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ljrsResponseStatus :: Lens' ListJobsResponse Int
 ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a});
 
-instance NFData ListJobsResponse
+instance NFData ListJobsResponse where

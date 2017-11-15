@@ -9,12 +9,12 @@
 {-# LANGUAGE ViewPatterns          #-}
 
 -- Module      : Gen.Tree
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
@@ -24,25 +24,31 @@ module Gen.Tree
     , populate
     ) where
 
-import           Control.Error
-import           Control.Lens              (each, (^.), (^..))
-import           Control.Monad
-import           Control.Monad.Except
-import           Data.Aeson                hiding (json)
-import           Data.Bifunctor
-import           Data.Functor.Identity
-import           Data.Monoid
-import           Data.Text                 (Text)
-import qualified Data.Text                 as Text
-import qualified Data.Text.Lazy            as LText
-import           Filesystem.Path.CurrentOS hiding (FilePath, root)
-import           Gen.Formatting            (failure, shown)
-import           Gen.Import
-import qualified Gen.JSON                  as JS
-import           Gen.Types
-import           Prelude                   hiding (mod)
-import           System.Directory.Tree     hiding (file)
-import           Text.EDE                  hiding (failure, render)
+import Control.Lens         (each, (^.), (^..))
+import Control.Monad
+import Control.Monad.Except
+
+import Data.Aeson            hiding (json)
+import Data.Bifunctor
+import Data.Functor.Identity
+import Data.Monoid
+import Data.Text             (Text)
+
+import Filesystem.Path.CurrentOS hiding (FilePath, root)
+
+import Gen.Formatting (failure, shown)
+import Gen.Import
+import Gen.Types
+
+import Prelude hiding (mod)
+
+import System.Directory.Tree hiding (file)
+
+import Text.EDE hiding (failure, render)
+
+import qualified Data.Text      as Text
+import qualified Data.Text.Lazy as LText
+import qualified Gen.JSON       as JS
 
 root :: AnchoredDirTree a -> Path
 root (p :/ d) = decodeString p </> decodeString (name d)
@@ -61,8 +67,7 @@ fold g f (p :/ t) = (p :/) <$> go (decodeString p) t
           where
             d = x </> decodeString n
 
--- If Nothing, then touch the file, otherwise write the Just contents.
-type Touch = Maybe Rendered
+type Touch = Either Rendered Rendered
 
 populate :: Path
          -> Templates
@@ -74,7 +79,7 @@ populate d Templates{..} l = (encodeString d :/) . dir lib <$> layout
     layout = traverse sequenceA
         [ dir "src"
               -- Supress cabal warnings about directories listed that don't exist.
-            [ touch ".gitkeep"
+            [ touch ".gitkeep" blankTemplate mempty
             ]
 
         , dir "gen"
@@ -94,13 +99,23 @@ populate d Templates{..} l = (encodeString d :/) . dir lib <$> layout
             ]
 
         , dir "test"
-            [ mod "Main" (testImports l) testsTemplate
+            [ mod "Main" (testImports l) testMainTemplate
             , dir "Test"
                 [ dir "AWS"
-                    [ touch (l ^. serviceAbbrev <> ".hs")
+                    [ touch (l ^. serviceAbbrev <> ".hs") testNamespaceTemplate $
+                        fromPairs
+                            [ "moduleName" .=
+                                ("Test.AWS." <> l ^. serviceAbbrev)
+                            ]
+
                     , dir svc
-                        [ touch "Internal.hs"
+                        [ touch "Internal.hs" testInternalTemplate $
+                            fromPairs
+                                [ "moduleName" .=
+                                    ("Test.AWS." <> l ^. serviceAbbrev <> ".Internal")
+                                ]
                         ]
+
                     , dir "Gen"
                         [ mod (l ^. fixturesNS) (fixtureImports l) fixturesTemplate
                         ]
@@ -124,8 +139,12 @@ populate d Templates{..} l = (encodeString d :/) . dir lib <$> layout
 
     fixture :: Operation Identity SData a -> [DirTree (Either Error Touch)]
     fixture o =
-        [ touch (n <> ".yaml")
-        , touch (n <> "Response.proto")
+        [ touch (n <> "Response.proto") blankTemplate mempty
+        , touch (n <> ".yaml")          fixtureRequestTemplate $
+            fromPairs
+                [ "method"         .= (o ^. opHTTP . method)
+                , "endpointPrefix" .= (l ^. endpointPrefix)
+                ]
         ]
       where
        n = typeId (_opName o)
@@ -159,27 +178,29 @@ module' :: ToJSON a
         -> Template
         -> Either Error a
         -> DirTree (Either Error Rendered)
-module' ns is t f = file' (filename $ nsToPath ns) t $ do
-    x <- f >>= JS.objectErr (show ns)
-    return $! x <> fromPairs
-        [ "moduleName"    .= ns
-        , "moduleImports" .= is
-        ]
+module' ns is tmpl f =
+    file' (filename $ nsToPath ns) tmpl $ do
+        x <- f >>= JS.objectErr (show ns)
+        return $! x <> fromPairs
+            [ "moduleName"    .= ns
+            , "moduleImports" .= is
+            ]
 
 file' :: ToJSON a
       => Path
       -> Template
       -> Either Error a
       -> DirTree (Either Error Rendered)
-file' (encodeString -> p) t f = File p $
+file' (encodeString -> p) tmpl f = File p $
     f >>= JS.objectErr p
-      >>= fmapL LText.pack . eitherRender t
+      >>= first LText.pack . eitherRender tmpl
 
 dir :: Path -> [DirTree a] -> DirTree a
 dir p = Dir (encodeString p)
 
-write :: DirTree (Either e a) -> DirTree (Either e (Maybe a))
-write = fmap (second Just)
+write :: DirTree (Either e b) -> DirTree (Either e (Either a b))
+write = fmap (second Right)
 
-touch :: Text -> DirTree (Either e (Maybe a))
-touch f = File (Text.unpack f) (Right Nothing)
+touch :: Text -> Template -> Object -> DirTree (Either Error Touch)
+touch f tmpl env =
+    File (Text.unpack f) (bimap LText.pack Left (eitherRender tmpl env))

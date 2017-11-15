@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.EnableRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables a rule. If the rule does not exist, the operation fails.
+-- Enables the specified rule. If the rule does not exist, the operation fails.
 --
--- __Note:__ When you enable a rule, incoming events might not immediately start matching to a newly enabled rule. Please allow a short period of time for changes to take effect.
+--
+-- When you enable a rule, incoming events might not immediately start matching to a newly enabled rule. Please allow a short period of time for changes to take effect.
+--
 module Network.AWS.CloudWatchEvents.EnableRule
     (
     -- * Creating a Request
@@ -34,34 +36,31 @@ module Network.AWS.CloudWatchEvents.EnableRule
     , EnableRuleResponse
     ) where
 
-import           Network.AWS.CloudWatchEvents.Types
-import           Network.AWS.CloudWatchEvents.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchEvents.Types
+import Network.AWS.CloudWatchEvents.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Container for the parameters to the < EnableRule> operation.
---
--- /See:/ 'enableRule' smart constructor.
+-- | /See:/ 'enableRule' smart constructor.
 newtype EnableRule = EnableRule'
-    { _erName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _erName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableRule' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'erName'
+-- * 'erName' - The name of the rule.
 enableRule
     :: Text -- ^ 'erName'
     -> EnableRule
-enableRule pName_ =
-    EnableRule'
-    { _erName = pName_
-    }
+enableRule pName_ = EnableRule' {_erName = pName_}
 
--- | The name of the rule that you want to enable.
+
+-- | The name of the rule.
 erName :: Lens' EnableRule Text
 erName = lens _erName (\ s a -> s{_erName = a});
 
@@ -70,9 +69,9 @@ instance AWSRequest EnableRule where
         request = postJSON cloudWatchEvents
         response = receiveNull EnableRuleResponse'
 
-instance Hashable EnableRule
+instance Hashable EnableRule where
 
-instance NFData EnableRule
+instance NFData EnableRule where
 
 instance ToHeaders EnableRule where
         toHeaders
@@ -95,8 +94,9 @@ instance ToQuery EnableRule where
 
 -- | /See:/ 'enableRuleResponse' smart constructor.
 data EnableRuleResponse =
-    EnableRuleResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  EnableRuleResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableRuleResponse' with the minimum fields required to make a request.
 --
@@ -104,4 +104,5 @@ enableRuleResponse
     :: EnableRuleResponse
 enableRuleResponse = EnableRuleResponse'
 
-instance NFData EnableRuleResponse
+
+instance NFData EnableRuleResponse where

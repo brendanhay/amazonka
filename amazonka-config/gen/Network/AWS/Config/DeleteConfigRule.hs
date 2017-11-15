@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.Config.DeleteConfigRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified AWS Config rule and all of its evaluation results.
 --
--- AWS Config sets the state of a rule to 'DELETING' until the deletion is complete. You cannot update a rule while it is in this state. If you make a 'PutConfigRule' or 'DeleteConfigRule' request for the rule, you will receive a 'ResourceInUseException'.
 --
--- You can check the state of a rule by using the 'DescribeConfigRules' request.
+-- AWS Config sets the state of a rule to @DELETING@ until the deletion is complete. You cannot update a rule while it is in this state. If you make a @PutConfigRule@ or @DeleteConfigRule@ request for the rule, you will receive a @ResourceInUseException@ .
+--
+-- You can check the state of a rule by using the @DescribeConfigRules@ request.
+--
 module Network.AWS.Config.DeleteConfigRule
     (
     -- * Creating a Request
@@ -36,30 +38,34 @@ module Network.AWS.Config.DeleteConfigRule
     , DeleteConfigRuleResponse
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | /See:/ 'deleteConfigRule' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'deleteConfigRule' smart constructor.
 newtype DeleteConfigRule = DeleteConfigRule'
-    { _dcrConfigRuleName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrConfigRuleName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteConfigRule' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrConfigRuleName'
+-- * 'dcrConfigRuleName' - The name of the AWS Config rule that you want to delete.
 deleteConfigRule
     :: Text -- ^ 'dcrConfigRuleName'
     -> DeleteConfigRule
 deleteConfigRule pConfigRuleName_ =
-    DeleteConfigRule'
-    { _dcrConfigRuleName = pConfigRuleName_
-    }
+  DeleteConfigRule' {_dcrConfigRuleName = pConfigRuleName_}
+
 
 -- | The name of the AWS Config rule that you want to delete.
 dcrConfigRuleName :: Lens' DeleteConfigRule Text
@@ -70,9 +76,9 @@ instance AWSRequest DeleteConfigRule where
         request = postJSON config
         response = receiveNull DeleteConfigRuleResponse'
 
-instance Hashable DeleteConfigRule
+instance Hashable DeleteConfigRule where
 
-instance NFData DeleteConfigRule
+instance NFData DeleteConfigRule where
 
 instance ToHeaders DeleteConfigRule where
         toHeaders
@@ -98,8 +104,9 @@ instance ToQuery DeleteConfigRule where
 
 -- | /See:/ 'deleteConfigRuleResponse' smart constructor.
 data DeleteConfigRuleResponse =
-    DeleteConfigRuleResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteConfigRuleResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteConfigRuleResponse' with the minimum fields required to make a request.
 --
@@ -107,4 +114,5 @@ deleteConfigRuleResponse
     :: DeleteConfigRuleResponse
 deleteConfigRuleResponse = DeleteConfigRuleResponse'
 
-instance NFData DeleteConfigRuleResponse
+
+instance NFData DeleteConfigRuleResponse where

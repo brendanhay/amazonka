@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBSecurityGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of 'DBSecurityGroup' descriptions. If a 'DBSecurityGroupName' is specified, the list will contain only the descriptions of the specified DB security group.
+-- Returns a list of @DBSecurityGroup@ descriptions. If a @DBSecurityGroupName@ is specified, the list will contain only the descriptions of the specified DB security group.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBSecurityGroups
@@ -41,58 +43,58 @@ module Network.AWS.RDS.DescribeDBSecurityGroups
     , ddbsgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeDBSecurityGroups' smart constructor.
 data DescribeDBSecurityGroups = DescribeDBSecurityGroups'
-    { _ddbsgFilters             :: !(Maybe [Filter])
-    , _ddbsgMarker              :: !(Maybe Text)
-    , _ddbsgMaxRecords          :: !(Maybe Int)
-    , _ddbsgDBSecurityGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddbsgFilters             :: !(Maybe [Filter])
+  , _ddbsgMarker              :: !(Maybe Text)
+  , _ddbsgMaxRecords          :: !(Maybe Int)
+  , _ddbsgDBSecurityGroupName :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBSecurityGroups' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddbsgFilters'
+-- * 'ddbsgFilters' - This parameter is not currently supported.
 --
--- * 'ddbsgMarker'
+-- * 'ddbsgMarker' - An optional pagination token provided by a previous @DescribeDBSecurityGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'ddbsgMaxRecords'
+-- * 'ddbsgMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 --
--- * 'ddbsgDBSecurityGroupName'
+-- * 'ddbsgDBSecurityGroupName' - The name of the DB security group to return details for.
 describeDBSecurityGroups
     :: DescribeDBSecurityGroups
 describeDBSecurityGroups =
-    DescribeDBSecurityGroups'
-    { _ddbsgFilters = Nothing
-    , _ddbsgMarker = Nothing
-    , _ddbsgMaxRecords = Nothing
-    , _ddbsgDBSecurityGroupName = Nothing
-    }
+  DescribeDBSecurityGroups'
+  { _ddbsgFilters = Nothing
+  , _ddbsgMarker = Nothing
+  , _ddbsgMaxRecords = Nothing
+  , _ddbsgDBSecurityGroupName = Nothing
+  }
+
 
 -- | This parameter is not currently supported.
 ddbsgFilters :: Lens' DescribeDBSecurityGroups [Filter]
 ddbsgFilters = lens _ddbsgFilters (\ s a -> s{_ddbsgFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous 'DescribeDBSecurityGroups' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous @DescribeDBSecurityGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddbsgMarker :: Lens' DescribeDBSecurityGroups (Maybe Text)
 ddbsgMarker = lens _ddbsgMarker (\ s a -> s{_ddbsgMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 ddbsgMaxRecords :: Lens' DescribeDBSecurityGroups (Maybe Int)
 ddbsgMaxRecords = lens _ddbsgMaxRecords (\ s a -> s{_ddbsgMaxRecords = a});
 
@@ -120,9 +122,9 @@ instance AWSRequest DescribeDBSecurityGroups where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDBSecurityGroups
+instance Hashable DescribeDBSecurityGroups where
 
-instance NFData DescribeDBSecurityGroups
+instance NFData DescribeDBSecurityGroups where
 
 instance ToHeaders DescribeDBSecurityGroups where
         toHeaders = const mempty
@@ -142,44 +144,49 @@ instance ToQuery DescribeDBSecurityGroups where
                "MaxRecords" =: _ddbsgMaxRecords,
                "DBSecurityGroupName" =: _ddbsgDBSecurityGroupName]
 
--- | Contains the result of a successful invocation of the < DescribeDBSecurityGroups> action.
+-- | Contains the result of a successful invocation of the 'DescribeDBSecurityGroups' action.
+--
+--
 --
 -- /See:/ 'describeDBSecurityGroupsResponse' smart constructor.
 data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'
-    { _ddbsgrsDBSecurityGroups :: !(Maybe [DBSecurityGroup])
-    , _ddbsgrsMarker           :: !(Maybe Text)
-    , _ddbsgrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddbsgrsDBSecurityGroups :: !(Maybe [DBSecurityGroup])
+  , _ddbsgrsMarker           :: !(Maybe Text)
+  , _ddbsgrsResponseStatus   :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBSecurityGroupsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddbsgrsDBSecurityGroups'
+-- * 'ddbsgrsDBSecurityGroups' - A list of 'DBSecurityGroup' instances.
 --
--- * 'ddbsgrsMarker'
+-- * 'ddbsgrsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'ddbsgrsResponseStatus'
+-- * 'ddbsgrsResponseStatus' - -- | The response status code.
 describeDBSecurityGroupsResponse
     :: Int -- ^ 'ddbsgrsResponseStatus'
     -> DescribeDBSecurityGroupsResponse
 describeDBSecurityGroupsResponse pResponseStatus_ =
-    DescribeDBSecurityGroupsResponse'
-    { _ddbsgrsDBSecurityGroups = Nothing
-    , _ddbsgrsMarker = Nothing
-    , _ddbsgrsResponseStatus = pResponseStatus_
-    }
+  DescribeDBSecurityGroupsResponse'
+  { _ddbsgrsDBSecurityGroups = Nothing
+  , _ddbsgrsMarker = Nothing
+  , _ddbsgrsResponseStatus = pResponseStatus_
+  }
 
--- | A list of < DBSecurityGroup> instances.
+
+-- | A list of 'DBSecurityGroup' instances.
 ddbsgrsDBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse [DBSecurityGroup]
 ddbsgrsDBSecurityGroups = lens _ddbsgrsDBSecurityGroups (\ s a -> s{_ddbsgrsDBSecurityGroups = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddbsgrsMarker :: Lens' DescribeDBSecurityGroupsResponse (Maybe Text)
 ddbsgrsMarker = lens _ddbsgrsMarker (\ s a -> s{_ddbsgrsMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ddbsgrsResponseStatus :: Lens' DescribeDBSecurityGroupsResponse Int
 ddbsgrsResponseStatus = lens _ddbsgrsResponseStatus (\ s a -> s{_ddbsgrsResponseStatus = a});
 
 instance NFData DescribeDBSecurityGroupsResponse
+         where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DeleteCACertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a registered CA certificate.
+--
+--
 module Network.AWS.IoT.DeleteCACertificate
     (
     -- * Creating a Request
@@ -34,32 +36,34 @@ module Network.AWS.IoT.DeleteCACertificate
     , dcacrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input for the DeleteCACertificate operation.
 --
+--
+--
 -- /See:/ 'deleteCACertificate' smart constructor.
 newtype DeleteCACertificate = DeleteCACertificate'
-    { _dcacCertificateId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcacCertificateId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCACertificate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcacCertificateId'
+-- * 'dcacCertificateId' - The ID of the certificate to delete.
 deleteCACertificate
     :: Text -- ^ 'dcacCertificateId'
     -> DeleteCACertificate
 deleteCACertificate pCertificateId_ =
-    DeleteCACertificate'
-    { _dcacCertificateId = pCertificateId_
-    }
+  DeleteCACertificate' {_dcacCertificateId = pCertificateId_}
+
 
 -- | The ID of the certificate to delete.
 dcacCertificateId :: Lens' DeleteCACertificate Text
@@ -74,9 +78,9 @@ instance AWSRequest DeleteCACertificate where
               (\ s h x ->
                  DeleteCACertificateResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteCACertificate
+instance Hashable DeleteCACertificate where
 
-instance NFData DeleteCACertificate
+instance NFData DeleteCACertificate where
 
 instance ToHeaders DeleteCACertificate where
         toHeaders = const mempty
@@ -91,26 +95,28 @@ instance ToQuery DeleteCACertificate where
 
 -- | The output for the DeleteCACertificate operation.
 --
+--
+--
 -- /See:/ 'deleteCACertificateResponse' smart constructor.
 newtype DeleteCACertificateResponse = DeleteCACertificateResponse'
-    { _dcacrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcacrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCACertificateResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcacrsResponseStatus'
+-- * 'dcacrsResponseStatus' - -- | The response status code.
 deleteCACertificateResponse
     :: Int -- ^ 'dcacrsResponseStatus'
     -> DeleteCACertificateResponse
 deleteCACertificateResponse pResponseStatus_ =
-    DeleteCACertificateResponse'
-    { _dcacrsResponseStatus = pResponseStatus_
-    }
+  DeleteCACertificateResponse' {_dcacrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 dcacrsResponseStatus :: Lens' DeleteCACertificateResponse Int
 dcacrsResponseStatus = lens _dcacrsResponseStatus (\ s a -> s{_dcacrsResponseStatus = a});
 
-instance NFData DeleteCACertificateResponse
+instance NFData DeleteCACertificateResponse where

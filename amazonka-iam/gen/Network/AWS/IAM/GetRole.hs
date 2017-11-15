@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetRole
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about the specified role, including the role\'s path, GUID, ARN, and the role\'s trust policy that grants permission to assume the role. For more information about roles, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
+-- Retrieves information about the specified role, including the role's path, GUID, ARN, and the role's trust policy that grants permission to assume the role. For more information about roles, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles> .
 --
--- Policies returned by this API are URL-encoded compliant with <https://tools.ietf.org/html/rfc3986 RFC 3986>. You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the 'decode' method of the 'java.net.URLDecoder' utility class in the Java SDK. Other languages and SDKs provide similar functionality.
+--
 module Network.AWS.IAM.GetRole
     (
     -- * Creating a Request
@@ -37,34 +37,31 @@ module Network.AWS.IAM.GetRole
     , grrsRole
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getRole' smart constructor.
 newtype GetRole = GetRole'
-    { _grRoleName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grRoleName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRole' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grRoleName'
+-- * 'grRoleName' - The name of the IAM role to get information about. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 getRole
     :: Text -- ^ 'grRoleName'
     -> GetRole
-getRole pRoleName_ =
-    GetRole'
-    { _grRoleName = pRoleName_
-    }
+getRole pRoleName_ = GetRole' {_grRoleName = pRoleName_}
 
--- | The name of the IAM role to get information about.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+
+-- | The name of the IAM role to get information about. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 grRoleName :: Lens' GetRole Text
 grRoleName = lens _grRoleName (\ s a -> s{_grRoleName = a});
 
@@ -77,9 +74,9 @@ instance AWSRequest GetRole where
                  GetRoleResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Role"))
 
-instance Hashable GetRole
+instance Hashable GetRole where
 
-instance NFData GetRole
+instance NFData GetRole where
 
 instance ToHeaders GetRole where
         toHeaders = const mempty
@@ -94,32 +91,33 @@ instance ToQuery GetRole where
                "Version" =: ("2010-05-08" :: ByteString),
                "RoleName" =: _grRoleName]
 
--- | Contains the response to a successful < GetRole> request.
+-- | Contains the response to a successful 'GetRole' request.
+--
+--
 --
 -- /See:/ 'getRoleResponse' smart constructor.
 data GetRoleResponse = GetRoleResponse'
-    { _grrsResponseStatus :: !Int
-    , _grrsRole           :: !Role
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grrsResponseStatus :: !Int
+  , _grrsRole           :: !Role
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRoleResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grrsResponseStatus'
+-- * 'grrsResponseStatus' - -- | The response status code.
 --
--- * 'grrsRole'
+-- * 'grrsRole' - A structure containing details about the IAM role.
 getRoleResponse
     :: Int -- ^ 'grrsResponseStatus'
     -> Role -- ^ 'grrsRole'
     -> GetRoleResponse
 getRoleResponse pResponseStatus_ pRole_ =
-    GetRoleResponse'
-    { _grrsResponseStatus = pResponseStatus_
-    , _grrsRole = pRole_
-    }
+  GetRoleResponse' {_grrsResponseStatus = pResponseStatus_, _grrsRole = pRole_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 grrsResponseStatus :: Lens' GetRoleResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
 
@@ -127,4 +125,4 @@ grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = 
 grrsRole :: Lens' GetRoleResponse Role
 grrsRole = lens _grrsRole (\ s a -> s{_grrsRole = a});
 
-instance NFData GetRoleResponse
+instance NFData GetRoleResponse where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeAssessmentRuns
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the assessment runs that are specified by the ARNs of the assessment runs.
+--
+--
 module Network.AWS.Inspector.DescribeAssessmentRuns
     (
     -- * Creating a Request
@@ -36,30 +38,30 @@ module Network.AWS.Inspector.DescribeAssessmentRuns
     , darrsFailedItems
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAssessmentRuns' smart constructor.
 newtype DescribeAssessmentRuns = DescribeAssessmentRuns'
-    { _darAssessmentRunARNs :: List1 Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _darAssessmentRunARNs :: List1 Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAssessmentRuns' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darAssessmentRunARNs'
+-- * 'darAssessmentRunARNs' - The ARN that specifies the assessment run that you want to describe.
 describeAssessmentRuns
     :: NonEmpty Text -- ^ 'darAssessmentRunARNs'
     -> DescribeAssessmentRuns
 describeAssessmentRuns pAssessmentRunARNs_ =
-    DescribeAssessmentRuns'
-    { _darAssessmentRunARNs = _List1 # pAssessmentRunARNs_
-    }
+  DescribeAssessmentRuns' {_darAssessmentRunARNs = _List1 # pAssessmentRunARNs_}
+
 
 -- | The ARN that specifies the assessment run that you want to describe.
 darAssessmentRunARNs :: Lens' DescribeAssessmentRuns (NonEmpty Text)
@@ -77,9 +79,9 @@ instance AWSRequest DescribeAssessmentRuns where
                      (x .?> "assessmentRuns" .!@ mempty)
                      <*> (x .?> "failedItems" .!@ mempty))
 
-instance Hashable DescribeAssessmentRuns
+instance Hashable DescribeAssessmentRuns where
 
-instance NFData DescribeAssessmentRuns
+instance NFData DescribeAssessmentRuns where
 
 instance ToHeaders DescribeAssessmentRuns where
         toHeaders
@@ -106,31 +108,33 @@ instance ToQuery DescribeAssessmentRuns where
 
 -- | /See:/ 'describeAssessmentRunsResponse' smart constructor.
 data DescribeAssessmentRunsResponse = DescribeAssessmentRunsResponse'
-    { _darrsResponseStatus :: !Int
-    , _darrsAssessmentRuns :: ![AssessmentRun]
-    , _darrsFailedItems    :: !(Map Text FailedItemDetails)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _darrsResponseStatus :: !Int
+  , _darrsAssessmentRuns :: ![AssessmentRun]
+  , _darrsFailedItems    :: !(Map Text FailedItemDetails)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAssessmentRunsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darrsResponseStatus'
+-- * 'darrsResponseStatus' - -- | The response status code.
 --
--- * 'darrsAssessmentRuns'
+-- * 'darrsAssessmentRuns' - Information about the assessment run.
 --
--- * 'darrsFailedItems'
+-- * 'darrsFailedItems' - Assessment run details that cannot be described. An error code is provided for each failed item.
 describeAssessmentRunsResponse
     :: Int -- ^ 'darrsResponseStatus'
     -> DescribeAssessmentRunsResponse
 describeAssessmentRunsResponse pResponseStatus_ =
-    DescribeAssessmentRunsResponse'
-    { _darrsResponseStatus = pResponseStatus_
-    , _darrsAssessmentRuns = mempty
-    , _darrsFailedItems = mempty
-    }
+  DescribeAssessmentRunsResponse'
+  { _darrsResponseStatus = pResponseStatus_
+  , _darrsAssessmentRuns = mempty
+  , _darrsFailedItems = mempty
+  }
 
--- | The response status code.
+
+-- | -- | The response status code.
 darrsResponseStatus :: Lens' DescribeAssessmentRunsResponse Int
 darrsResponseStatus = lens _darrsResponseStatus (\ s a -> s{_darrsResponseStatus = a});
 
@@ -142,4 +146,4 @@ darrsAssessmentRuns = lens _darrsAssessmentRuns (\ s a -> s{_darrsAssessmentRuns
 darrsFailedItems :: Lens' DescribeAssessmentRunsResponse (HashMap Text FailedItemDetails)
 darrsFailedItems = lens _darrsFailedItems (\ s a -> s{_darrsFailedItems = a}) . _Map;
 
-instance NFData DescribeAssessmentRunsResponse
+instance NFData DescribeAssessmentRunsResponse where

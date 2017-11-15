@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetDeploymentInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about an instance as part of a deployment.
+--
+--
 module Network.AWS.CodeDeploy.GetDeploymentInstance
     (
     -- * Creating a Request
@@ -36,37 +38,39 @@ module Network.AWS.CodeDeploy.GetDeploymentInstance
     , gdirsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a get deployment instance operation.
+-- | Represents the input of a GetDeploymentInstance operation.
+--
+--
 --
 -- /See:/ 'getDeploymentInstance' smart constructor.
 data GetDeploymentInstance = GetDeploymentInstance'
-    { _gdiDeploymentId :: !Text
-    , _gdiInstanceId   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdiDeploymentId :: !Text
+  , _gdiInstanceId   :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDeploymentInstance' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdiDeploymentId'
+-- * 'gdiDeploymentId' - The unique ID of a deployment.
 --
--- * 'gdiInstanceId'
+-- * 'gdiInstanceId' - The unique ID of an instance in the deployment group.
 getDeploymentInstance
     :: Text -- ^ 'gdiDeploymentId'
     -> Text -- ^ 'gdiInstanceId'
     -> GetDeploymentInstance
 getDeploymentInstance pDeploymentId_ pInstanceId_ =
-    GetDeploymentInstance'
-    { _gdiDeploymentId = pDeploymentId_
-    , _gdiInstanceId = pInstanceId_
-    }
+  GetDeploymentInstance'
+  {_gdiDeploymentId = pDeploymentId_, _gdiInstanceId = pInstanceId_}
+
 
 -- | The unique ID of a deployment.
 gdiDeploymentId :: Lens' GetDeploymentInstance Text
@@ -86,9 +90,9 @@ instance AWSRequest GetDeploymentInstance where
                  GetDeploymentInstanceResponse' <$>
                    (x .?> "instanceSummary") <*> (pure (fromEnum s)))
 
-instance Hashable GetDeploymentInstance
+instance Hashable GetDeploymentInstance where
 
-instance NFData GetDeploymentInstance
+instance NFData GetDeploymentInstance where
 
 instance ToHeaders GetDeploymentInstance where
         toHeaders
@@ -113,36 +117,38 @@ instance ToPath GetDeploymentInstance where
 instance ToQuery GetDeploymentInstance where
         toQuery = const mempty
 
--- | Represents the output of a get deployment instance operation.
+-- | Represents the output of a GetDeploymentInstance operation.
+--
+--
 --
 -- /See:/ 'getDeploymentInstanceResponse' smart constructor.
 data GetDeploymentInstanceResponse = GetDeploymentInstanceResponse'
-    { _gdirsInstanceSummary :: !(Maybe InstanceSummary)
-    , _gdirsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdirsInstanceSummary :: !(Maybe InstanceSummary)
+  , _gdirsResponseStatus  :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDeploymentInstanceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdirsInstanceSummary'
+-- * 'gdirsInstanceSummary' - Information about the instance.
 --
--- * 'gdirsResponseStatus'
+-- * 'gdirsResponseStatus' - -- | The response status code.
 getDeploymentInstanceResponse
     :: Int -- ^ 'gdirsResponseStatus'
     -> GetDeploymentInstanceResponse
 getDeploymentInstanceResponse pResponseStatus_ =
-    GetDeploymentInstanceResponse'
-    { _gdirsInstanceSummary = Nothing
-    , _gdirsResponseStatus = pResponseStatus_
-    }
+  GetDeploymentInstanceResponse'
+  {_gdirsInstanceSummary = Nothing, _gdirsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the instance.
 gdirsInstanceSummary :: Lens' GetDeploymentInstanceResponse (Maybe InstanceSummary)
 gdirsInstanceSummary = lens _gdirsInstanceSummary (\ s a -> s{_gdirsInstanceSummary = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gdirsResponseStatus :: Lens' GetDeploymentInstanceResponse Int
 gdirsResponseStatus = lens _gdirsResponseStatus (\ s a -> s{_gdirsResponseStatus = a});
 
-instance NFData GetDeploymentInstanceResponse
+instance NFData GetDeploymentInstanceResponse where

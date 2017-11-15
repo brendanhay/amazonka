@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeApplications
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the descriptions of existing applications.
+--
+--
 module Network.AWS.ElasticBeanstalk.DescribeApplications
     (
     -- * Creating a Request
@@ -35,31 +37,32 @@ module Network.AWS.ElasticBeanstalk.DescribeApplications
     , darsResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to describe one or more applications.
 --
+--
+--
 -- /See:/ 'describeApplications' smart constructor.
 newtype DescribeApplications = DescribeApplications'
-    { _daApplicationNames :: Maybe [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daApplicationNames :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeApplications' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daApplicationNames'
+-- * 'daApplicationNames' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include those with the specified names.
 describeApplications
     :: DescribeApplications
-describeApplications =
-    DescribeApplications'
-    { _daApplicationNames = Nothing
-    }
+describeApplications = DescribeApplications' {_daApplicationNames = Nothing}
+
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include those with the specified names.
 daApplicationNames :: Lens' DescribeApplications [Text]
@@ -77,9 +80,9 @@ instance AWSRequest DescribeApplications where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeApplications
+instance Hashable DescribeApplications where
 
-instance NFData DescribeApplications
+instance NFData DescribeApplications where
 
 instance ToHeaders DescribeApplications where
         toHeaders = const mempty
@@ -98,34 +101,36 @@ instance ToQuery DescribeApplications where
 
 -- | Result message containing a list of application descriptions.
 --
+--
+--
 -- /See:/ 'describeApplicationsResponse' smart constructor.
 data DescribeApplicationsResponse = DescribeApplicationsResponse'
-    { _darsApplications   :: !(Maybe [ApplicationDescription])
-    , _darsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _darsApplications   :: !(Maybe [ApplicationDescription])
+  , _darsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeApplicationsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darsApplications'
+-- * 'darsApplications' - This parameter contains a list of 'ApplicationDescription' .
 --
--- * 'darsResponseStatus'
+-- * 'darsResponseStatus' - -- | The response status code.
 describeApplicationsResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DescribeApplicationsResponse
 describeApplicationsResponse pResponseStatus_ =
-    DescribeApplicationsResponse'
-    { _darsApplications = Nothing
-    , _darsResponseStatus = pResponseStatus_
-    }
+  DescribeApplicationsResponse'
+  {_darsApplications = Nothing, _darsResponseStatus = pResponseStatus_}
 
--- | This parameter contains a list of < ApplicationDescription>.
+
+-- | This parameter contains a list of 'ApplicationDescription' .
 darsApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
 darsApplications = lens _darsApplications (\ s a -> s{_darsApplications = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeApplicationsResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 
-instance NFData DescribeApplicationsResponse
+instance NFData DescribeApplicationsResponse where

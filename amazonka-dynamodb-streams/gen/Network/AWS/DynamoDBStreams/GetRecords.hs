@@ -12,17 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDBStreams.GetRecords
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the stream records from a given shard.
 --
--- Specify a shard iterator using the 'ShardIterator' parameter. The shard iterator specifies the position in the shard from which you want to start reading stream records sequentially. If there are no stream records available in the portion of the shard that the iterator points to, 'GetRecords' returns an empty list. Note that it might take multiple calls to get to a portion of the shard that contains stream records.
 --
--- 'GetRecords' can retrieve a maximum of 1 MB of data or 1000 stream records, whichever comes first.
+-- Specify a shard iterator using the @ShardIterator@ parameter. The shard iterator specifies the position in the shard from which you want to start reading stream records sequentially. If there are no stream records available in the portion of the shard that the iterator points to, @GetRecords@ returns an empty list. Note that it might take multiple calls to get to a portion of the shard that contains stream records.
+--
 module Network.AWS.DynamoDBStreams.GetRecords
     (
     -- * Creating a Request
@@ -41,36 +41,37 @@ module Network.AWS.DynamoDBStreams.GetRecords
     , grrsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDBStreams.Types
-import           Network.AWS.DynamoDBStreams.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDBStreams.Types
+import Network.AWS.DynamoDBStreams.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a /GetRecords/ operation.
+-- | Represents the input of a @GetRecords@ operation.
+--
+--
 --
 -- /See:/ 'getRecords' smart constructor.
 data GetRecords = GetRecords'
-    { _grLimit         :: !(Maybe Nat)
-    , _grShardIterator :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grLimit         :: !(Maybe Nat)
+  , _grShardIterator :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRecords' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grLimit'
+-- * 'grLimit' - The maximum number of records to return from the shard. The upper limit is 1000.
 --
--- * 'grShardIterator'
+-- * 'grShardIterator' - A shard iterator that was retrieved from a previous GetShardIterator operation. This iterator can be used to access the stream records in this shard.
 getRecords
     :: Text -- ^ 'grShardIterator'
     -> GetRecords
 getRecords pShardIterator_ =
-    GetRecords'
-    { _grLimit = Nothing
-    , _grShardIterator = pShardIterator_
-    }
+  GetRecords' {_grLimit = Nothing, _grShardIterator = pShardIterator_}
+
 
 -- | The maximum number of records to return from the shard. The upper limit is 1000.
 grLimit :: Lens' GetRecords (Maybe Natural)
@@ -91,9 +92,9 @@ instance AWSRequest GetRecords where
                      (x .?> "NextShardIterator")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetRecords
+instance Hashable GetRecords where
 
-instance NFData GetRecords
+instance NFData GetRecords where
 
 instance ToHeaders GetRecords where
         toHeaders
@@ -118,44 +119,48 @@ instance ToPath GetRecords where
 instance ToQuery GetRecords where
         toQuery = const mempty
 
--- | Represents the output of a /GetRecords/ operation.
+-- | Represents the output of a @GetRecords@ operation.
+--
+--
 --
 -- /See:/ 'getRecordsResponse' smart constructor.
 data GetRecordsResponse = GetRecordsResponse'
-    { _grrsRecords           :: !(Maybe [Record])
-    , _grrsNextShardIterator :: !(Maybe Text)
-    , _grrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grrsRecords           :: !(Maybe [Record])
+  , _grrsNextShardIterator :: !(Maybe Text)
+  , _grrsResponseStatus    :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRecordsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grrsRecords'
+-- * 'grrsRecords' - The stream records from the shard, which were retrieved using the shard iterator.
 --
--- * 'grrsNextShardIterator'
+-- * 'grrsNextShardIterator' - The next position in the shard from which to start sequentially reading stream records. If set to @null@ , the shard has been closed and the requested iterator will not return any more data.
 --
--- * 'grrsResponseStatus'
+-- * 'grrsResponseStatus' - -- | The response status code.
 getRecordsResponse
     :: Int -- ^ 'grrsResponseStatus'
     -> GetRecordsResponse
 getRecordsResponse pResponseStatus_ =
-    GetRecordsResponse'
-    { _grrsRecords = Nothing
-    , _grrsNextShardIterator = Nothing
-    , _grrsResponseStatus = pResponseStatus_
-    }
+  GetRecordsResponse'
+  { _grrsRecords = Nothing
+  , _grrsNextShardIterator = Nothing
+  , _grrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The stream records from the shard, which were retrieved using the shard iterator.
 grrsRecords :: Lens' GetRecordsResponse [Record]
 grrsRecords = lens _grrsRecords (\ s a -> s{_grrsRecords = a}) . _Default . _Coerce;
 
--- | The next position in the shard from which to start sequentially reading stream records. If set to 'null', the shard has been closed and the requested iterator will not return any more data.
+-- | The next position in the shard from which to start sequentially reading stream records. If set to @null@ , the shard has been closed and the requested iterator will not return any more data.
 grrsNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
 grrsNextShardIterator = lens _grrsNextShardIterator (\ s a -> s{_grrsNextShardIterator = a});
 
--- | The response status code.
+-- | -- | The response status code.
 grrsResponseStatus :: Lens' GetRecordsResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
 
-instance NFData GetRecordsResponse
+instance NFData GetRecordsResponse where

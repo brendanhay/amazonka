@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.DeleteApplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified application. Amazon Kinesis Analytics halts application execution and deletes the application, including any application artifacts (such as in-application streams, reference table, and application code).
 --
--- This operation requires permissions to perform the 'kinesisanalytics:DeleteApplication' action.
+--
+-- This operation requires permissions to perform the @kinesisanalytics:DeleteApplication@ action.
+--
 module Network.AWS.KinesisAnalytics.DeleteApplication
     (
     -- * Creating a Request
@@ -37,43 +39,47 @@ module Network.AWS.KinesisAnalytics.DeleteApplication
     , drsResponseStatus
     ) where
 
-import           Network.AWS.KinesisAnalytics.Types
-import           Network.AWS.KinesisAnalytics.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KinesisAnalytics.Types
+import Network.AWS.KinesisAnalytics.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteApplication' smart constructor.
 data DeleteApplication = DeleteApplication'
-    { _dApplicationName :: !Text
-    , _dCreateTimestamp :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dApplicationName :: !Text
+  , _dCreateTimestamp :: !POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteApplication' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dApplicationName'
+-- * 'dApplicationName' - Name of the Amazon Kinesis Analytics application to delete.
 --
--- * 'dCreateTimestamp'
+-- * 'dCreateTimestamp' - You can use the @DescribeApplication@ operation to get this value.
 deleteApplication
     :: Text -- ^ 'dApplicationName'
     -> UTCTime -- ^ 'dCreateTimestamp'
     -> DeleteApplication
 deleteApplication pApplicationName_ pCreateTimestamp_ =
-    DeleteApplication'
-    { _dApplicationName = pApplicationName_
-    , _dCreateTimestamp = _Time # pCreateTimestamp_
-    }
+  DeleteApplication'
+  { _dApplicationName = pApplicationName_
+  , _dCreateTimestamp = _Time # pCreateTimestamp_
+  }
+
 
 -- | Name of the Amazon Kinesis Analytics application to delete.
 dApplicationName :: Lens' DeleteApplication Text
 dApplicationName = lens _dApplicationName (\ s a -> s{_dApplicationName = a});
 
--- | You can use the 'DescribeApplication' operation to get this value.
+-- | You can use the @DescribeApplication@ operation to get this value.
 dCreateTimestamp :: Lens' DeleteApplication UTCTime
 dCreateTimestamp = lens _dCreateTimestamp (\ s a -> s{_dCreateTimestamp = a}) . _Time;
 
@@ -85,9 +91,9 @@ instance AWSRequest DeleteApplication where
               (\ s h x ->
                  DeleteApplicationResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteApplication
+instance Hashable DeleteApplication where
 
-instance NFData DeleteApplication
+instance NFData DeleteApplication where
 
 instance ToHeaders DeleteApplication where
         toHeaders
@@ -114,26 +120,28 @@ instance ToQuery DeleteApplication where
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteApplicationResponse' smart constructor.
 newtype DeleteApplicationResponse = DeleteApplicationResponse'
-    { _drsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteApplicationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteApplicationResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteApplicationResponse
 deleteApplicationResponse pResponseStatus_ =
-    DeleteApplicationResponse'
-    { _drsResponseStatus = pResponseStatus_
-    }
+  DeleteApplicationResponse' {_drsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteApplicationResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteApplicationResponse
+instance NFData DeleteApplicationResponse where

@@ -12,27 +12,29 @@
 
 -- |
 -- Module      : Network.AWS.SWF.RequestCancelWorkflowExecution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Records a 'WorkflowExecutionCancelRequested' event in the currently running workflow execution identified by the given domain, workflowId, and runId. This logically requests the cancellation of the workflow execution as a whole. It is up to the decider to take appropriate actions when it receives an execution history with this event.
+-- Records a @WorkflowExecutionCancelRequested@ event in the currently running workflow execution identified by the given domain, workflowId, and runId. This logically requests the cancellation of the workflow execution as a whole. It is up to the decider to take appropriate actions when it receives an execution history with this event.
 --
--- If the runId is not specified, the 'WorkflowExecutionCancelRequested' event is recorded in the history of the current open workflow execution with the specified workflowId in the domain.
---
--- Because this action allows the workflow to properly clean up and gracefully close, it should be used instead of < TerminateWorkflowExecution> when possible.
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this action's access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this action.
--- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--     * Use an @Action@ element to allow or deny permission to call this action.
+--
+--     * You cannot use an IAM policy to constrain this action's parameters.
+--
+--
+--
+-- If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's @cause@ parameter is set to @OPERATION_NOT_PERMITTED@ . For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
+--
 module Network.AWS.SWF.RequestCancelWorkflowExecution
     (
     -- * Creating a Request
@@ -48,39 +50,38 @@ module Network.AWS.SWF.RequestCancelWorkflowExecution
     , RequestCancelWorkflowExecutionResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'requestCancelWorkflowExecution' smart constructor.
 data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution'
-    { _rcweRunId      :: !(Maybe Text)
-    , _rcweDomain     :: !Text
-    , _rcweWorkflowId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcweRunId      :: !(Maybe Text)
+  , _rcweDomain     :: !Text
+  , _rcweWorkflowId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RequestCancelWorkflowExecution' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcweRunId'
+-- * 'rcweRunId' - The runId of the workflow execution to cancel.
 --
--- * 'rcweDomain'
+-- * 'rcweDomain' - The name of the domain containing the workflow execution to cancel.
 --
--- * 'rcweWorkflowId'
+-- * 'rcweWorkflowId' - The workflowId of the workflow execution to cancel.
 requestCancelWorkflowExecution
     :: Text -- ^ 'rcweDomain'
     -> Text -- ^ 'rcweWorkflowId'
     -> RequestCancelWorkflowExecution
 requestCancelWorkflowExecution pDomain_ pWorkflowId_ =
-    RequestCancelWorkflowExecution'
-    { _rcweRunId = Nothing
-    , _rcweDomain = pDomain_
-    , _rcweWorkflowId = pWorkflowId_
-    }
+  RequestCancelWorkflowExecution'
+  {_rcweRunId = Nothing, _rcweDomain = pDomain_, _rcweWorkflowId = pWorkflowId_}
+
 
 -- | The runId of the workflow execution to cancel.
 rcweRunId :: Lens' RequestCancelWorkflowExecution (Maybe Text)
@@ -103,8 +104,9 @@ instance AWSRequest RequestCancelWorkflowExecution
           = receiveNull RequestCancelWorkflowExecutionResponse'
 
 instance Hashable RequestCancelWorkflowExecution
+         where
 
-instance NFData RequestCancelWorkflowExecution
+instance NFData RequestCancelWorkflowExecution where
 
 instance ToHeaders RequestCancelWorkflowExecution
          where
@@ -133,15 +135,17 @@ instance ToQuery RequestCancelWorkflowExecution where
 
 -- | /See:/ 'requestCancelWorkflowExecutionResponse' smart constructor.
 data RequestCancelWorkflowExecutionResponse =
-    RequestCancelWorkflowExecutionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RequestCancelWorkflowExecutionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RequestCancelWorkflowExecutionResponse' with the minimum fields required to make a request.
 --
 requestCancelWorkflowExecutionResponse
     :: RequestCancelWorkflowExecutionResponse
-requestCancelWorkflowExecutionResponse =
-    RequestCancelWorkflowExecutionResponse'
+requestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResponse'
+
 
 instance NFData
-         RequestCancelWorkflowExecutionResponse
+           RequestCancelWorkflowExecutionResponse
+         where

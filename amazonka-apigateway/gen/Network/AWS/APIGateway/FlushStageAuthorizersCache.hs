@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.FlushStageAuthorizersCache
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Flushes all authorizer cache entries on a stage.
+--
+--
 module Network.AWS.APIGateway.FlushStageAuthorizersCache
     (
     -- * Creating a Request
@@ -33,39 +35,41 @@ module Network.AWS.APIGateway.FlushStageAuthorizersCache
     , FlushStageAuthorizersCacheResponse
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to flush authorizer cache entries on a specified stage.
 --
+--
+--
 -- /See:/ 'flushStageAuthorizersCache' smart constructor.
 data FlushStageAuthorizersCache = FlushStageAuthorizersCache'
-    { _fsacRestAPIId :: !Text
-    , _fsacStageName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fsacRestAPIId :: !Text
+  , _fsacStageName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FlushStageAuthorizersCache' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fsacRestAPIId'
+-- * 'fsacRestAPIId' - The string identifier of the associated 'RestApi' .
 --
--- * 'fsacStageName'
+-- * 'fsacStageName' - The name of the stage to flush.
 flushStageAuthorizersCache
     :: Text -- ^ 'fsacRestAPIId'
     -> Text -- ^ 'fsacStageName'
     -> FlushStageAuthorizersCache
 flushStageAuthorizersCache pRestAPIId_ pStageName_ =
-    FlushStageAuthorizersCache'
-    { _fsacRestAPIId = pRestAPIId_
-    , _fsacStageName = pStageName_
-    }
+  FlushStageAuthorizersCache'
+  {_fsacRestAPIId = pRestAPIId_, _fsacStageName = pStageName_}
 
--- | The API identifier of the stage to flush.
+
+-- | The string identifier of the associated 'RestApi' .
 fsacRestAPIId :: Lens' FlushStageAuthorizersCache Text
 fsacRestAPIId = lens _fsacRestAPIId (\ s a -> s{_fsacRestAPIId = a});
 
@@ -80,9 +84,9 @@ instance AWSRequest FlushStageAuthorizersCache where
         response
           = receiveNull FlushStageAuthorizersCacheResponse'
 
-instance Hashable FlushStageAuthorizersCache
+instance Hashable FlushStageAuthorizersCache where
 
-instance NFData FlushStageAuthorizersCache
+instance NFData FlushStageAuthorizersCache where
 
 instance ToHeaders FlushStageAuthorizersCache where
         toHeaders
@@ -101,8 +105,9 @@ instance ToQuery FlushStageAuthorizersCache where
 
 -- | /See:/ 'flushStageAuthorizersCacheResponse' smart constructor.
 data FlushStageAuthorizersCacheResponse =
-    FlushStageAuthorizersCacheResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  FlushStageAuthorizersCacheResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FlushStageAuthorizersCacheResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +115,6 @@ flushStageAuthorizersCacheResponse
     :: FlushStageAuthorizersCacheResponse
 flushStageAuthorizersCacheResponse = FlushStageAuthorizersCacheResponse'
 
+
 instance NFData FlushStageAuthorizersCacheResponse
+         where

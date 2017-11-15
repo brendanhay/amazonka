@@ -8,26 +8,27 @@
 
 ## Version
 
-`1.4.4`
+`1.5.0`
 
 
 ## Description
-
-AWS Database Migration Service
-
-AWS Database Migration Service (AWS DMS) can migrate your data to and from the most widely used commercial and open-source databases such as Oracle, PostgreSQL, Microsoft SQL Server, Amazon Redshift, MariaDB, Amazon Aurora, and MySQL. The service supports homogeneous migrations such as Oracle to Oracle, as well as heterogeneous migrations between different database platforms, such as Oracle to MySQL or SQL Server to PostgreSQL.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-dms)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).
 
 The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
-which provides mechanisms for specifying AuthN/AuthZ information and sending requests.
+which provides mechanisms for specifying AuthN/AuthZ information, sending requests,
+and receiving responses.
 
-Use of lenses is required for constructing and manipulating types.
-This is due to the amount of nesting of AWS types and transparency regarding
+Lenses are used for constructing and manipulating types,
+due to the depth of nesting of AWS types and transparency regarding
 de/serialisation into more palatable Haskell values.
 The provided lenses should be compatible with any of the major lens libraries
 [lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
+
+See [Network.AWS.DMS](http://hackage.haskell.org/package/amazonka-dms/docs/Network-AWS-DMS.html)
+or [the AWS documentation](https://aws.amazon.com/documentation/) to get started.
+
 
 ## Contribute
 

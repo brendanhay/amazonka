@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListTagsForResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the tags that have been added to the specified resource.
+-- Lists the tags that have been added to the specified resource. This operation is only supported in the cached volume, stored volume and tape gateway architecture.
+--
+--
 module Network.AWS.StorageGateway.ListTagsForResource
     (
     -- * Creating a Request
@@ -39,40 +41,44 @@ module Network.AWS.StorageGateway.ListTagsForResource
     , ltfrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | ListTagsForResourceInput
 --
+--
+--
 -- /See:/ 'listTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-    { _ltfrMarker      :: !(Maybe Text)
-    , _ltfrLimit       :: !(Maybe Nat)
-    , _ltfrResourceARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfrMarker      :: !(Maybe Text)
+  , _ltfrLimit       :: !(Maybe Nat)
+  , _ltfrResourceARN :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrMarker'
+-- * 'ltfrMarker' - An opaque string that indicates the position at which to begin returning the list of tags.
 --
--- * 'ltfrLimit'
+-- * 'ltfrLimit' - Specifies that the list of tags returned be limited to the specified number of items.
 --
--- * 'ltfrResourceARN'
+-- * 'ltfrResourceARN' - The Amazon Resource Name (ARN) of the resource for which you want to list tags.
 listTagsForResource
     :: Text -- ^ 'ltfrResourceARN'
     -> ListTagsForResource
 listTagsForResource pResourceARN_ =
-    ListTagsForResource'
-    { _ltfrMarker = Nothing
-    , _ltfrLimit = Nothing
-    , _ltfrResourceARN = pResourceARN_
-    }
+  ListTagsForResource'
+  { _ltfrMarker = Nothing
+  , _ltfrLimit = Nothing
+  , _ltfrResourceARN = pResourceARN_
+  }
+
 
 -- | An opaque string that indicates the position at which to begin returning the list of tags.
 ltfrMarker :: Lens' ListTagsForResource (Maybe Text)
@@ -98,9 +104,9 @@ instance AWSRequest ListTagsForResource where
                      (x .?> "Tags" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListTagsForResource
+instance Hashable ListTagsForResource where
 
-instance NFData ListTagsForResource
+instance NFData ListTagsForResource where
 
 instance ToHeaders ListTagsForResource where
         toHeaders
@@ -128,35 +134,39 @@ instance ToQuery ListTagsForResource where
 
 -- | ListTagsForResourceOutput
 --
+--
+--
 -- /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-    { _ltfrrsResourceARN    :: !(Maybe Text)
-    , _ltfrrsMarker         :: !(Maybe Text)
-    , _ltfrrsTags           :: !(Maybe [Tag])
-    , _ltfrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfrrsResourceARN    :: !(Maybe Text)
+  , _ltfrrsMarker         :: !(Maybe Text)
+  , _ltfrrsTags           :: !(Maybe [Tag])
+  , _ltfrrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrrsResourceARN'
+-- * 'ltfrrsResourceARN' - he Amazon Resource Name (ARN) of the resource for which you want to list tags.
 --
--- * 'ltfrrsMarker'
+-- * 'ltfrrsMarker' - An opaque string that indicates the position at which to stop returning the list of tags.
 --
--- * 'ltfrrsTags'
+-- * 'ltfrrsTags' - An array that contains the tags for the specified resource.
 --
--- * 'ltfrrsResponseStatus'
+-- * 'ltfrrsResponseStatus' - -- | The response status code.
 listTagsForResourceResponse
     :: Int -- ^ 'ltfrrsResponseStatus'
     -> ListTagsForResourceResponse
 listTagsForResourceResponse pResponseStatus_ =
-    ListTagsForResourceResponse'
-    { _ltfrrsResourceARN = Nothing
-    , _ltfrrsMarker = Nothing
-    , _ltfrrsTags = Nothing
-    , _ltfrrsResponseStatus = pResponseStatus_
-    }
+  ListTagsForResourceResponse'
+  { _ltfrrsResourceARN = Nothing
+  , _ltfrrsMarker = Nothing
+  , _ltfrrsTags = Nothing
+  , _ltfrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | he Amazon Resource Name (ARN) of the resource for which you want to list tags.
 ltfrrsResourceARN :: Lens' ListTagsForResourceResponse (Maybe Text)
@@ -170,8 +180,8 @@ ltfrrsMarker = lens _ltfrrsMarker (\ s a -> s{_ltfrrsMarker = a});
 ltfrrsTags :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
 
-instance NFData ListTagsForResourceResponse
+instance NFData ListTagsForResourceResponse where

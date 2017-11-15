@@ -5,15 +5,16 @@
 
 -- |
 -- Module      : Network.AWS.IoTDataPlane
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS IoT
+-- __AWS IoT__
 --
 -- AWS IoT-Data enables secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. It implements a broker for applications and things to publish messages over HTTP (Publish) and retrieve, update, and delete thing shadows. A thing shadow is a persistent representation of your things and their state in the AWS cloud.
+--
 module Network.AWS.IoTDataPlane
     (
     -- * Service Configuration
@@ -73,12 +74,12 @@ module Network.AWS.IoTDataPlane
     -- * Types
     ) where
 
-import           Network.AWS.IoTDataPlane.DeleteThingShadow
-import           Network.AWS.IoTDataPlane.GetThingShadow
-import           Network.AWS.IoTDataPlane.Publish
-import           Network.AWS.IoTDataPlane.Types
-import           Network.AWS.IoTDataPlane.UpdateThingShadow
-import           Network.AWS.IoTDataPlane.Waiters
+import Network.AWS.IoTDataPlane.DeleteThingShadow
+import Network.AWS.IoTDataPlane.GetThingShadow
+import Network.AWS.IoTDataPlane.Publish
+import Network.AWS.IoTDataPlane.Types
+import Network.AWS.IoTDataPlane.UpdateThingShadow
+import Network.AWS.IoTDataPlane.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

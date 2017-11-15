@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.UpdateIdentityPool
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a user pool.
 --
+--
 -- You must use AWS Developer credentials to call this API.
+--
 module Network.AWS.CognitoIdentity.UpdateIdentityPool
     (
     -- * Creating a Request
@@ -50,62 +52,66 @@ module Network.AWS.CognitoIdentity.UpdateIdentityPool
     , ipAllowUnauthenticatedIdentities
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | An object representing a Cognito identity pool.
+-- | An object representing an Amazon Cognito identity pool.
+--
+--
 --
 -- /See:/ 'updateIdentityPool' smart constructor.
 data UpdateIdentityPool = UpdateIdentityPool'
-    { _uipSamlProviderARNs               :: !(Maybe [Text])
-    , _uipSupportedLoginProviders        :: !(Maybe (Map Text Text))
-    , _uipDeveloperProviderName          :: !(Maybe Text)
-    , _uipOpenIdConnectProviderARNs      :: !(Maybe [Text])
-    , _uipCognitoIdentityProviders       :: !(Maybe [CognitoIdentityProvider])
-    , _uipIdentityPoolId                 :: !Text
-    , _uipIdentityPoolName               :: !Text
-    , _uipAllowUnauthenticatedIdentities :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uipSamlProviderARNs               :: !(Maybe [Text])
+  , _uipSupportedLoginProviders        :: !(Maybe (Map Text Text))
+  , _uipDeveloperProviderName          :: !(Maybe Text)
+  , _uipOpenIdConnectProviderARNs      :: !(Maybe [Text])
+  , _uipCognitoIdentityProviders       :: !(Maybe [CognitoIdentityProvider])
+  , _uipIdentityPoolId                 :: !Text
+  , _uipIdentityPoolName               :: !Text
+  , _uipAllowUnauthenticatedIdentities :: !Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateIdentityPool' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uipSamlProviderARNs'
+-- * 'uipSamlProviderARNs' - An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
 --
--- * 'uipSupportedLoginProviders'
+-- * 'uipSupportedLoginProviders' - Optional key:value pairs mapping provider names to provider app IDs.
 --
--- * 'uipDeveloperProviderName'
+-- * 'uipDeveloperProviderName' - The "domain" by which Cognito will refer to your users.
 --
--- * 'uipOpenIdConnectProviderARNs'
+-- * 'uipOpenIdConnectProviderARNs' - A list of OpendID Connect provider ARNs.
 --
--- * 'uipCognitoIdentityProviders'
+-- * 'uipCognitoIdentityProviders' - A list representing an Amazon Cognito Identity User Pool and its client ID.
 --
--- * 'uipIdentityPoolId'
+-- * 'uipIdentityPoolId' - An identity pool ID in the format REGION:GUID.
 --
--- * 'uipIdentityPoolName'
+-- * 'uipIdentityPoolName' - A string that you provide.
 --
--- * 'uipAllowUnauthenticatedIdentities'
+-- * 'uipAllowUnauthenticatedIdentities' - TRUE if the identity pool supports unauthenticated logins.
 updateIdentityPool
     :: Text -- ^ 'uipIdentityPoolId'
     -> Text -- ^ 'uipIdentityPoolName'
     -> Bool -- ^ 'uipAllowUnauthenticatedIdentities'
     -> UpdateIdentityPool
 updateIdentityPool pIdentityPoolId_ pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
-    UpdateIdentityPool'
-    { _uipSamlProviderARNs = Nothing
-    , _uipSupportedLoginProviders = Nothing
-    , _uipDeveloperProviderName = Nothing
-    , _uipOpenIdConnectProviderARNs = Nothing
-    , _uipCognitoIdentityProviders = Nothing
-    , _uipIdentityPoolId = pIdentityPoolId_
-    , _uipIdentityPoolName = pIdentityPoolName_
-    , _uipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
-    }
+  UpdateIdentityPool'
+  { _uipSamlProviderARNs = Nothing
+  , _uipSupportedLoginProviders = Nothing
+  , _uipDeveloperProviderName = Nothing
+  , _uipOpenIdConnectProviderARNs = Nothing
+  , _uipCognitoIdentityProviders = Nothing
+  , _uipIdentityPoolId = pIdentityPoolId_
+  , _uipIdentityPoolName = pIdentityPoolName_
+  , _uipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
+  }
+
 
 -- | An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
 uipSamlProviderARNs :: Lens' UpdateIdentityPool [Text]
@@ -115,7 +121,7 @@ uipSamlProviderARNs = lens _uipSamlProviderARNs (\ s a -> s{_uipSamlProviderARNs
 uipSupportedLoginProviders :: Lens' UpdateIdentityPool (HashMap Text Text)
 uipSupportedLoginProviders = lens _uipSupportedLoginProviders (\ s a -> s{_uipSupportedLoginProviders = a}) . _Default . _Map;
 
--- | The \"domain\" by which Cognito will refer to your users.
+-- | The "domain" by which Cognito will refer to your users.
 uipDeveloperProviderName :: Lens' UpdateIdentityPool (Maybe Text)
 uipDeveloperProviderName = lens _uipDeveloperProviderName (\ s a -> s{_uipDeveloperProviderName = a});
 
@@ -144,9 +150,9 @@ instance AWSRequest UpdateIdentityPool where
         request = postJSON cognitoIdentity
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateIdentityPool
+instance Hashable UpdateIdentityPool where
 
-instance NFData UpdateIdentityPool
+instance NFData UpdateIdentityPool where
 
 instance ToHeaders UpdateIdentityPool where
         toHeaders

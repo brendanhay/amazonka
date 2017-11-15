@@ -12,13 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateAuthorizer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing < Authorizer> resource.
+-- Updates an existing 'Authorizer' resource.
+--
 --
 -- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html AWS CLI>
 module Network.AWS.APIGateway.UpdateAuthorizer
@@ -47,51 +48,55 @@ module Network.AWS.APIGateway.UpdateAuthorizer
     , aAuthorizerCredentials
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Request to update an existing < Authorizer> resource.
+-- | Request to update an existing 'Authorizer' resource.
+--
+--
 --
 -- /See:/ 'updateAuthorizer' smart constructor.
 data UpdateAuthorizer = UpdateAuthorizer'
-    { _uaaPatchOperations :: !(Maybe [PatchOperation])
-    , _uaaRestAPIId       :: !Text
-    , _uaaAuthorizerId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uaaPatchOperations :: !(Maybe [PatchOperation])
+  , _uaaRestAPIId       :: !Text
+  , _uaaAuthorizerId    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAuthorizer' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaaPatchOperations'
+-- * 'uaaPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uaaRestAPIId'
+-- * 'uaaRestAPIId' - The string identifier of the associated 'RestApi' .
 --
--- * 'uaaAuthorizerId'
+-- * 'uaaAuthorizerId' - The identifier of the 'Authorizer' resource.
 updateAuthorizer
     :: Text -- ^ 'uaaRestAPIId'
     -> Text -- ^ 'uaaAuthorizerId'
     -> UpdateAuthorizer
 updateAuthorizer pRestAPIId_ pAuthorizerId_ =
-    UpdateAuthorizer'
-    { _uaaPatchOperations = Nothing
-    , _uaaRestAPIId = pRestAPIId_
-    , _uaaAuthorizerId = pAuthorizerId_
-    }
+  UpdateAuthorizer'
+  { _uaaPatchOperations = Nothing
+  , _uaaRestAPIId = pRestAPIId_
+  , _uaaAuthorizerId = pAuthorizerId_
+  }
+
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uaaPatchOperations :: Lens' UpdateAuthorizer [PatchOperation]
 uaaPatchOperations = lens _uaaPatchOperations (\ s a -> s{_uaaPatchOperations = a}) . _Default . _Coerce;
 
--- | The < RestApi> identifier for the < Authorizer> resource.
+-- | The string identifier of the associated 'RestApi' .
 uaaRestAPIId :: Lens' UpdateAuthorizer Text
 uaaRestAPIId = lens _uaaRestAPIId (\ s a -> s{_uaaRestAPIId = a});
 
--- | The identifier of the < Authorizer> resource.
+-- | The identifier of the 'Authorizer' resource.
 uaaAuthorizerId :: Lens' UpdateAuthorizer Text
 uaaAuthorizerId = lens _uaaAuthorizerId (\ s a -> s{_uaaAuthorizerId = a});
 
@@ -100,9 +105,9 @@ instance AWSRequest UpdateAuthorizer where
         request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateAuthorizer
+instance Hashable UpdateAuthorizer where
 
-instance NFData UpdateAuthorizer
+instance NFData UpdateAuthorizer where
 
 instance ToHeaders UpdateAuthorizer where
         toHeaders

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.SignUp
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers the user in the specified user pool and creates a user name, password, and user attributes.
+--
+--
 module Network.AWS.CognitoIdentityProvider.SignUp
     (
     -- * Creating a Request
@@ -36,61 +38,66 @@ module Network.AWS.CognitoIdentityProvider.SignUp
     , signUpResponse
     , SignUpResponse
     -- * Response Lenses
-    , sursUserConfirmed
     , sursCodeDeliveryDetails
     , sursResponseStatus
+    , sursUserConfirmed
+    , sursUserSub
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to register a user.
 --
+--
+--
 -- /See:/ 'signUp' smart constructor.
 data SignUp = SignUp'
-    { _suUserAttributes :: !(Maybe [AttributeType])
-    , _suSecretHash     :: !(Maybe (Sensitive Text))
-    , _suValidationData :: !(Maybe [AttributeType])
-    , _suClientId       :: !(Sensitive Text)
-    , _suUsername       :: !(Sensitive Text)
-    , _suPassword       :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _suUserAttributes :: !(Maybe [AttributeType])
+  , _suSecretHash     :: !(Maybe (Sensitive Text))
+  , _suValidationData :: !(Maybe [AttributeType])
+  , _suClientId       :: !(Sensitive Text)
+  , _suUsername       :: !(Sensitive Text)
+  , _suPassword       :: !(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SignUp' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'suUserAttributes'
+-- * 'suUserAttributes' - An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 --
--- * 'suSecretHash'
+-- * 'suSecretHash' - A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 --
--- * 'suValidationData'
+-- * 'suValidationData' - The validation data in the request to register a user.
 --
--- * 'suClientId'
+-- * 'suClientId' - The ID of the client associated with the user pool.
 --
--- * 'suUsername'
+-- * 'suUsername' - The user name of the user you wish to register.
 --
--- * 'suPassword'
+-- * 'suPassword' - The password of the user you wish to register.
 signUp
     :: Text -- ^ 'suClientId'
     -> Text -- ^ 'suUsername'
     -> Text -- ^ 'suPassword'
     -> SignUp
 signUp pClientId_ pUsername_ pPassword_ =
-    SignUp'
-    { _suUserAttributes = Nothing
-    , _suSecretHash = Nothing
-    , _suValidationData = Nothing
-    , _suClientId = _Sensitive # pClientId_
-    , _suUsername = _Sensitive # pUsername_
-    , _suPassword = _Sensitive # pPassword_
-    }
+  SignUp'
+  { _suUserAttributes = Nothing
+  , _suSecretHash = Nothing
+  , _suValidationData = Nothing
+  , _suClientId = _Sensitive # pClientId_
+  , _suUsername = _Sensitive # pUsername_
+  , _suPassword = _Sensitive # pPassword_
+  }
 
--- | An array of name-value pairs representing user attributes.
+
+-- | An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 suUserAttributes :: Lens' SignUp [AttributeType]
 suUserAttributes = lens _suUserAttributes (\ s a -> s{_suUserAttributes = a}) . _Default . _Coerce;
 
@@ -121,13 +128,13 @@ instance AWSRequest SignUp where
           = receiveJSON
               (\ s h x ->
                  SignUpResponse' <$>
-                   (x .?> "UserConfirmed") <*>
-                     (x .?> "CodeDeliveryDetails")
-                     <*> (pure (fromEnum s)))
+                   (x .?> "CodeDeliveryDetails") <*> (pure (fromEnum s))
+                     <*> (x .:> "UserConfirmed")
+                     <*> (x .:> "UserSub"))
 
-instance Hashable SignUp
+instance Hashable SignUp where
 
-instance NFData SignUp
+instance NFData SignUp where
 
 instance ToHeaders SignUp where
         toHeaders
@@ -158,42 +165,56 @@ instance ToQuery SignUp where
 
 -- | The response from the server for a registration request.
 --
+--
+--
 -- /See:/ 'signUpResponse' smart constructor.
 data SignUpResponse = SignUpResponse'
-    { _sursUserConfirmed       :: !(Maybe Bool)
-    , _sursCodeDeliveryDetails :: !(Maybe CodeDeliveryDetailsType)
-    , _sursResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sursCodeDeliveryDetails :: !(Maybe CodeDeliveryDetailsType)
+  , _sursResponseStatus      :: !Int
+  , _sursUserConfirmed       :: !Bool
+  , _sursUserSub             :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SignUpResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sursUserConfirmed'
+-- * 'sursCodeDeliveryDetails' - The code delivery details returned by the server response to the user registration request.
 --
--- * 'sursCodeDeliveryDetails'
+-- * 'sursResponseStatus' - -- | The response status code.
 --
--- * 'sursResponseStatus'
+-- * 'sursUserConfirmed' - A response from the server indicating that a user registration has been confirmed.
+--
+-- * 'sursUserSub' - The UUID of the authenticated user. This is not the same as @username@ .
 signUpResponse
     :: Int -- ^ 'sursResponseStatus'
+    -> Bool -- ^ 'sursUserConfirmed'
+    -> Text -- ^ 'sursUserSub'
     -> SignUpResponse
-signUpResponse pResponseStatus_ =
-    SignUpResponse'
-    { _sursUserConfirmed = Nothing
-    , _sursCodeDeliveryDetails = Nothing
-    , _sursResponseStatus = pResponseStatus_
-    }
+signUpResponse pResponseStatus_ pUserConfirmed_ pUserSub_ =
+  SignUpResponse'
+  { _sursCodeDeliveryDetails = Nothing
+  , _sursResponseStatus = pResponseStatus_
+  , _sursUserConfirmed = pUserConfirmed_
+  , _sursUserSub = pUserSub_
+  }
 
--- | A response from the server indicating that a user registration has been confirmed.
-sursUserConfirmed :: Lens' SignUpResponse (Maybe Bool)
-sursUserConfirmed = lens _sursUserConfirmed (\ s a -> s{_sursUserConfirmed = a});
 
--- | Undocumented member.
+-- | The code delivery details returned by the server response to the user registration request.
 sursCodeDeliveryDetails :: Lens' SignUpResponse (Maybe CodeDeliveryDetailsType)
 sursCodeDeliveryDetails = lens _sursCodeDeliveryDetails (\ s a -> s{_sursCodeDeliveryDetails = a});
 
--- | The response status code.
+-- | -- | The response status code.
 sursResponseStatus :: Lens' SignUpResponse Int
 sursResponseStatus = lens _sursResponseStatus (\ s a -> s{_sursResponseStatus = a});
 
-instance NFData SignUpResponse
+-- | A response from the server indicating that a user registration has been confirmed.
+sursUserConfirmed :: Lens' SignUpResponse Bool
+sursUserConfirmed = lens _sursUserConfirmed (\ s a -> s{_sursUserConfirmed = a});
+
+-- | The UUID of the authenticated user. This is not the same as @username@ .
+sursUserSub :: Lens' SignUpResponse Text
+sursUserSub = lens _sursUserSub (\ s a -> s{_sursUserSub = a});
+
+instance NFData SignUpResponse where

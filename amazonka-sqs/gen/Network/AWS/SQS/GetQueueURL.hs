@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.SQS.GetQueueURL
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the URL of an existing queue. This action provides a simple way to retrieve the URL of an Amazon SQS queue.
 --
--- To access a queue that belongs to another AWS account, use the 'QueueOwnerAWSAccountId' parameter to specify the account ID of the queue\'s owner. The queue\'s owner must grant you permission to access the queue. For more information about shared queue access, see < AddPermission> or go to <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues> in the /Amazon SQS Developer Guide/.
+--
+-- To access a queue that belongs to another AWS account, use the @QueueOwnerAWSAccountId@ parameter to specify the account ID of the queue's owner. The queue's owner must grant you permission to access the queue. For more information about shared queue access, see @'AddPermission' @ or see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues> in the /Amazon Simple Queue Service Developer Guide/ .
+--
 module Network.AWS.SQS.GetQueueURL
     (
     -- * Creating a Request
@@ -38,44 +40,44 @@ module Network.AWS.SQS.GetQueueURL
     , gqursQueueURL
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.Types.Product
 
 -- |
 --
+--
+--
 -- /See:/ 'getQueueURL' smart constructor.
 data GetQueueURL = GetQueueURL'
-    { _gquQueueOwnerAWSAccountId :: !(Maybe Text)
-    , _gquQueueName              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gquQueueOwnerAWSAccountId :: !(Maybe Text)
+  , _gquQueueName              :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetQueueURL' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gquQueueOwnerAWSAccountId'
+-- * 'gquQueueOwnerAWSAccountId' - The AWS account ID of the account that created the queue.
 --
--- * 'gquQueueName'
+-- * 'gquQueueName' - The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values: alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ). Queue names are case-sensitive.
 getQueueURL
     :: Text -- ^ 'gquQueueName'
     -> GetQueueURL
 getQueueURL pQueueName_ =
-    GetQueueURL'
-    { _gquQueueOwnerAWSAccountId = Nothing
-    , _gquQueueName = pQueueName_
-    }
+  GetQueueURL'
+  {_gquQueueOwnerAWSAccountId = Nothing, _gquQueueName = pQueueName_}
+
 
 -- | The AWS account ID of the account that created the queue.
 gquQueueOwnerAWSAccountId :: Lens' GetQueueURL (Maybe Text)
 gquQueueOwnerAWSAccountId = lens _gquQueueOwnerAWSAccountId (\ s a -> s{_gquQueueOwnerAWSAccountId = a});
 
--- | The name of the queue whose URL must be fetched. Maximum 80 characters; alphanumeric characters, hyphens (-), and underscores (_) are allowed.
---
--- Queue names are case-sensitive.
+-- | The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values: alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ). Queue names are case-sensitive.
 gquQueueName :: Lens' GetQueueURL Text
 gquQueueName = lens _gquQueueName (\ s a -> s{_gquQueueName = a});
 
@@ -88,9 +90,9 @@ instance AWSRequest GetQueueURL where
                  GetQueueURLResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "QueueUrl"))
 
-instance Hashable GetQueueURL
+instance Hashable GetQueueURL where
 
-instance NFData GetQueueURL
+instance NFData GetQueueURL where
 
 instance ToHeaders GetQueueURL where
         toHeaders = const mempty
@@ -107,37 +109,39 @@ instance ToQuery GetQueueURL where
                  _gquQueueOwnerAWSAccountId,
                "QueueName" =: _gquQueueName]
 
--- | For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/UnderstandingResponses.html Responses> in the /Amazon SQS Developer Guide/.
+-- | For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/UnderstandingResponses.html Responses> in the /Amazon Simple Queue Service Developer Guide/ .
+--
+--
 --
 -- /See:/ 'getQueueURLResponse' smart constructor.
 data GetQueueURLResponse = GetQueueURLResponse'
-    { _gqursResponseStatus :: !Int
-    , _gqursQueueURL       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gqursResponseStatus :: !Int
+  , _gqursQueueURL       :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetQueueURLResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gqursResponseStatus'
+-- * 'gqursResponseStatus' - -- | The response status code.
 --
--- * 'gqursQueueURL'
+-- * 'gqursQueueURL' - The URL of the queue.
 getQueueURLResponse
     :: Int -- ^ 'gqursResponseStatus'
     -> Text -- ^ 'gqursQueueURL'
     -> GetQueueURLResponse
 getQueueURLResponse pResponseStatus_ pQueueURL_ =
-    GetQueueURLResponse'
-    { _gqursResponseStatus = pResponseStatus_
-    , _gqursQueueURL = pQueueURL_
-    }
+  GetQueueURLResponse'
+  {_gqursResponseStatus = pResponseStatus_, _gqursQueueURL = pQueueURL_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 gqursResponseStatus :: Lens' GetQueueURLResponse Int
 gqursResponseStatus = lens _gqursResponseStatus (\ s a -> s{_gqursResponseStatus = a});
 
--- | The URL for the queue.
+-- | The URL of the queue.
 gqursQueueURL :: Lens' GetQueueURLResponse Text
 gqursQueueURL = lens _gqursQueueURL (\ s a -> s{_gqursQueueURL = a});
 
-instance NFData GetQueueURLResponse
+instance NFData GetQueueURLResponse where

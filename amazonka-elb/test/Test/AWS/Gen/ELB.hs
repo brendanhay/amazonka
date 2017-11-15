@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.ELB
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.ELB where
 
 import Data.Proxy
+import Network.AWS.ELB
+import Test.AWS.ELB.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.ELB
-import Test.AWS.ELB.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -69,6 +69,9 @@ import Test.AWS.ELB.Internal
 --
 --         , requestSetLoadBalancerListenerSSLCertificate $
 --             setLoadBalancerListenerSSLCertificate
+--
+--         , requestDescribeAccountLimits $
+--             describeAccountLimits
 --
 --         , requestAttachLoadBalancerToSubnets $
 --             attachLoadBalancerToSubnets
@@ -156,6 +159,9 @@ import Test.AWS.ELB.Internal
 --
 --         , responseSetLoadBalancerListenerSSLCertificate $
 --             setLoadBalancerListenerSSLCertificateResponse
+--
+--         , responseDescribeAccountLimits $
+--             describeAccountLimitsResponse
 --
 --         , responseAttachLoadBalancerToSubnets $
 --             attachLoadBalancerToSubnetsResponse
@@ -273,6 +279,11 @@ requestSetLoadBalancerListenerSSLCertificate :: SetLoadBalancerListenerSSLCertif
 requestSetLoadBalancerListenerSSLCertificate = req
     "SetLoadBalancerListenerSSLCertificate"
     "fixture/SetLoadBalancerListenerSSLCertificate.yaml"
+
+requestDescribeAccountLimits :: DescribeAccountLimits -> TestTree
+requestDescribeAccountLimits = req
+    "DescribeAccountLimits"
+    "fixture/DescribeAccountLimits.yaml"
 
 requestAttachLoadBalancerToSubnets :: AttachLoadBalancerToSubnets -> TestTree
 requestAttachLoadBalancerToSubnets = req
@@ -443,6 +454,13 @@ responseSetLoadBalancerListenerSSLCertificate = res
     "fixture/SetLoadBalancerListenerSSLCertificateResponse.proto"
     elb
     (Proxy :: Proxy SetLoadBalancerListenerSSLCertificate)
+
+responseDescribeAccountLimits :: DescribeAccountLimitsResponse -> TestTree
+responseDescribeAccountLimits = res
+    "DescribeAccountLimitsResponse"
+    "fixture/DescribeAccountLimitsResponse.proto"
+    elb
+    (Proxy :: Proxy DescribeAccountLimits)
 
 responseAttachLoadBalancerToSubnets :: AttachLoadBalancerToSubnetsResponse -> TestTree
 responseAttachLoadBalancerToSubnets = res

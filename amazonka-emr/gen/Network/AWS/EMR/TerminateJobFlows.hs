@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.EMR.TerminateJobFlows
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- TerminateJobFlows shuts a list of job flows down. When a job flow is shut down, any step not yet completed is canceled and the EC2 instances on which the job flow is running are stopped. Any log files not already saved are uploaded to Amazon S3 if a LogUri was specified when the job flow was created.
+-- TerminateJobFlows shuts a list of clusters (job flows) down. When a job flow is shut down, any step not yet completed is canceled and the EC2 instances on which the cluster is running are stopped. Any log files not already saved are uploaded to Amazon S3 if a LogUri was specified when the cluster was created.
 --
--- The maximum number of JobFlows allowed is 10. The call to TerminateJobFlows is asynchronous. Depending on the configuration of the job flow, it may take up to 5-20 minutes for the job flow to completely terminate and release allocated resources, such as Amazon EC2 instances.
+--
+-- The maximum number of clusters allowed is 10. The call to @TerminateJobFlows@ is asynchronous. Depending on the configuration of the cluster, it may take up to 1-5 minutes for the cluster to completely terminate and release allocated resources, such as Amazon EC2 instances.
+--
 module Network.AWS.EMR.TerminateJobFlows
     (
     -- * Creating a Request
@@ -34,31 +36,32 @@ module Network.AWS.EMR.TerminateJobFlows
     , TerminateJobFlowsResponse
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Input to the < TerminateJobFlows> operation.
+-- | Input to the 'TerminateJobFlows' operation.
+--
+--
 --
 -- /See:/ 'terminateJobFlows' smart constructor.
 newtype TerminateJobFlows = TerminateJobFlows'
-    { _tjfJobFlowIds :: [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tjfJobFlowIds :: [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TerminateJobFlows' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tjfJobFlowIds'
+-- * 'tjfJobFlowIds' - A list of job flows to be shutdown.
 terminateJobFlows
     :: TerminateJobFlows
-terminateJobFlows =
-    TerminateJobFlows'
-    { _tjfJobFlowIds = mempty
-    }
+terminateJobFlows = TerminateJobFlows' {_tjfJobFlowIds = mempty}
+
 
 -- | A list of job flows to be shutdown.
 tjfJobFlowIds :: Lens' TerminateJobFlows [Text]
@@ -69,9 +72,9 @@ instance AWSRequest TerminateJobFlows where
         request = postJSON emr
         response = receiveNull TerminateJobFlowsResponse'
 
-instance Hashable TerminateJobFlows
+instance Hashable TerminateJobFlows where
 
-instance NFData TerminateJobFlows
+instance NFData TerminateJobFlows where
 
 instance ToHeaders TerminateJobFlows where
         toHeaders
@@ -95,8 +98,9 @@ instance ToQuery TerminateJobFlows where
 
 -- | /See:/ 'terminateJobFlowsResponse' smart constructor.
 data TerminateJobFlowsResponse =
-    TerminateJobFlowsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  TerminateJobFlowsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TerminateJobFlowsResponse' with the minimum fields required to make a request.
 --
@@ -104,4 +108,5 @@ terminateJobFlowsResponse
     :: TerminateJobFlowsResponse
 terminateJobFlowsResponse = TerminateJobFlowsResponse'
 
-instance NFData TerminateJobFlowsResponse
+
+instance NFData TerminateJobFlowsResponse where

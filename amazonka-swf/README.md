@@ -8,30 +8,27 @@
 
 ## Version
 
-`1.4.4`
+`1.5.0`
 
 
 ## Description
-
-Amazon Simple Workflow Service
-
-The Amazon Simple Workflow Service (Amazon SWF) makes it easy to build applications that use Amazon\'s cloud to coordinate work across distributed components. In Amazon SWF, a /task/ represents a logical unit of work that is performed by a component of your workflow. Coordinating tasks in a workflow involves managing intertask dependencies, scheduling, and concurrency in accordance with the logical flow of the application.
-
-Amazon SWF gives you full control over implementing tasks and coordinating them without worrying about underlying complexities such as tracking their progress and maintaining their state.
-
-This documentation serves as reference only. For a broader overview of the Amazon SWF programming model, see the <http://docs.aws.amazon.com/amazonswf/latest/developerguide/ Amazon SWF Developer Guide>.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-swf)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).
 
 The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
-which provides mechanisms for specifying AuthN/AuthZ information and sending requests.
+which provides mechanisms for specifying AuthN/AuthZ information, sending requests,
+and receiving responses.
 
-Use of lenses is required for constructing and manipulating types.
-This is due to the amount of nesting of AWS types and transparency regarding
+Lenses are used for constructing and manipulating types,
+due to the depth of nesting of AWS types and transparency regarding
 de/serialisation into more palatable Haskell values.
 The provided lenses should be compatible with any of the major lens libraries
 [lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
+
+See [Network.AWS.SWF](http://hackage.haskell.org/package/amazonka-swf/docs/Network-AWS-SWF.html)
+or [the AWS documentation](https://aws.amazon.com/documentation/) to get started.
+
 
 ## Contribute
 

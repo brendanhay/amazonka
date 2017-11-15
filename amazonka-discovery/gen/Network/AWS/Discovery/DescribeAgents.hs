@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.DescribeAgents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists AWS agents by ID or lists all agents associated with your user account if you did not specify an agent ID.
+-- Lists agents or the Connector by ID or lists all agents/Connectors associated with your user account if you did not specify an ID.
+--
+--
 module Network.AWS.Discovery.DescribeAgents
     (
     -- * Creating a Request
@@ -26,6 +28,7 @@ module Network.AWS.Discovery.DescribeAgents
     , DescribeAgents
     -- * Request Lenses
     , daAgentIds
+    , daFilters
     , daNextToken
     , daMaxResults
 
@@ -33,52 +36,62 @@ module Network.AWS.Discovery.DescribeAgents
     , describeAgentsResponse
     , DescribeAgentsResponse
     -- * Response Lenses
-    , darsAgentsInfo
-    , darsNextToken
-    , darsResponseStatus
+    , dasrsAgentsInfo
+    , dasrsNextToken
+    , dasrsResponseStatus
     ) where
 
-import           Network.AWS.Discovery.Types
-import           Network.AWS.Discovery.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Discovery.Types
+import Network.AWS.Discovery.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAgents' smart constructor.
 data DescribeAgents = DescribeAgents'
-    { _daAgentIds   :: !(Maybe [Text])
-    , _daNextToken  :: !(Maybe Text)
-    , _daMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daAgentIds   :: !(Maybe [Text])
+  , _daFilters    :: !(Maybe [Filter])
+  , _daNextToken  :: !(Maybe Text)
+  , _daMaxResults :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAgents' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daAgentIds'
+-- * 'daAgentIds' - The agent or the Connector IDs for which you want information. If you specify no IDs, the system returns information about all agents/Connectors associated with your AWS user account.
 --
--- * 'daNextToken'
+-- * 'daFilters' - You can filter the request using various logical operators and a /key/ -/value/ format. For example:  @{"key": "collectionStatus", "value": "STARTED"}@
 --
--- * 'daMaxResults'
+-- * 'daNextToken' - Token to retrieve the next set of results. For example, if you previously specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
+--
+-- * 'daMaxResults' - The total number of agents/Connectors to return in a single page of output. The maximum value is 100.
 describeAgents
     :: DescribeAgents
 describeAgents =
-    DescribeAgents'
-    { _daAgentIds = Nothing
-    , _daNextToken = Nothing
-    , _daMaxResults = Nothing
-    }
+  DescribeAgents'
+  { _daAgentIds = Nothing
+  , _daFilters = Nothing
+  , _daNextToken = Nothing
+  , _daMaxResults = Nothing
+  }
 
--- | The agent IDs for which you want information. If you specify no IDs, the system returns information about all agents associated with your AWS user account.
+
+-- | The agent or the Connector IDs for which you want information. If you specify no IDs, the system returns information about all agents/Connectors associated with your AWS user account.
 daAgentIds :: Lens' DescribeAgents [Text]
 daAgentIds = lens _daAgentIds (\ s a -> s{_daAgentIds = a}) . _Default . _Coerce;
 
--- | A token to start the list. Use this token to get the next set of results.
+-- | You can filter the request using various logical operators and a /key/ -/value/ format. For example:  @{"key": "collectionStatus", "value": "STARTED"}@
+daFilters :: Lens' DescribeAgents [Filter]
+daFilters = lens _daFilters (\ s a -> s{_daFilters = a}) . _Default . _Coerce;
+
+-- | Token to retrieve the next set of results. For example, if you previously specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
 daNextToken :: Lens' DescribeAgents (Maybe Text)
 daNextToken = lens _daNextToken (\ s a -> s{_daNextToken = a});
 
--- | The total number of agents to return. The maximum value is 100.
+-- | The total number of agents/Connectors to return in a single page of output. The maximum value is 100.
 daMaxResults :: Lens' DescribeAgents (Maybe Int)
 daMaxResults = lens _daMaxResults (\ s a -> s{_daMaxResults = a});
 
@@ -93,9 +106,9 @@ instance AWSRequest DescribeAgents where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAgents
+instance Hashable DescribeAgents where
 
-instance NFData DescribeAgents
+instance NFData DescribeAgents where
 
 instance ToHeaders DescribeAgents where
         toHeaders
@@ -112,6 +125,7 @@ instance ToJSON DescribeAgents where
           = object
               (catMaybes
                  [("agentIds" .=) <$> _daAgentIds,
+                  ("filters" .=) <$> _daFilters,
                   ("nextToken" .=) <$> _daNextToken,
                   ("maxResults" .=) <$> _daMaxResults])
 
@@ -123,40 +137,42 @@ instance ToQuery DescribeAgents where
 
 -- | /See:/ 'describeAgentsResponse' smart constructor.
 data DescribeAgentsResponse = DescribeAgentsResponse'
-    { _darsAgentsInfo     :: !(Maybe [AgentInfo])
-    , _darsNextToken      :: !(Maybe Text)
-    , _darsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dasrsAgentsInfo     :: !(Maybe [AgentInfo])
+  , _dasrsNextToken      :: !(Maybe Text)
+  , _dasrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAgentsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darsAgentsInfo'
+-- * 'dasrsAgentsInfo' - Lists agents or the Connector by ID or lists all agents/Connectors associated with your user account if you did not specify an agent/Connector ID. The output includes agent/Connector IDs, IP addresses, media access control (MAC) addresses, agent/Connector health, host name where the agent/Connector resides, and the version number of each agent/Connector.
 --
--- * 'darsNextToken'
+-- * 'dasrsNextToken' - Token to retrieve the next set of results. For example, if you specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10.
 --
--- * 'darsResponseStatus'
+-- * 'dasrsResponseStatus' - -- | The response status code.
 describeAgentsResponse
-    :: Int -- ^ 'darsResponseStatus'
+    :: Int -- ^ 'dasrsResponseStatus'
     -> DescribeAgentsResponse
 describeAgentsResponse pResponseStatus_ =
-    DescribeAgentsResponse'
-    { _darsAgentsInfo = Nothing
-    , _darsNextToken = Nothing
-    , _darsResponseStatus = pResponseStatus_
-    }
+  DescribeAgentsResponse'
+  { _dasrsAgentsInfo = Nothing
+  , _dasrsNextToken = Nothing
+  , _dasrsResponseStatus = pResponseStatus_
+  }
 
--- | Lists AWS agents by ID or lists all agents associated with your user account if you did not specify an agent ID. The output includes agent IDs, IP addresses, media access control (MAC) addresses, agent health, host name where the agent resides, and the version number of each agent.
-darsAgentsInfo :: Lens' DescribeAgentsResponse [AgentInfo]
-darsAgentsInfo = lens _darsAgentsInfo (\ s a -> s{_darsAgentsInfo = a}) . _Default . _Coerce;
 
--- | The call returns a token. Use this token to get the next set of results.
-darsNextToken :: Lens' DescribeAgentsResponse (Maybe Text)
-darsNextToken = lens _darsNextToken (\ s a -> s{_darsNextToken = a});
+-- | Lists agents or the Connector by ID or lists all agents/Connectors associated with your user account if you did not specify an agent/Connector ID. The output includes agent/Connector IDs, IP addresses, media access control (MAC) addresses, agent/Connector health, host name where the agent/Connector resides, and the version number of each agent/Connector.
+dasrsAgentsInfo :: Lens' DescribeAgentsResponse [AgentInfo]
+dasrsAgentsInfo = lens _dasrsAgentsInfo (\ s a -> s{_dasrsAgentsInfo = a}) . _Default . _Coerce;
 
--- | The response status code.
-darsResponseStatus :: Lens' DescribeAgentsResponse Int
-darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+-- | Token to retrieve the next set of results. For example, if you specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10.
+dasrsNextToken :: Lens' DescribeAgentsResponse (Maybe Text)
+dasrsNextToken = lens _dasrsNextToken (\ s a -> s{_dasrsNextToken = a});
 
-instance NFData DescribeAgentsResponse
+-- | -- | The response status code.
+dasrsResponseStatus :: Lens' DescribeAgentsResponse Int
+dasrsResponseStatus = lens _dasrsResponseStatus (\ s a -> s{_dasrsResponseStatus = a});
+
+instance NFData DescribeAgentsResponse where

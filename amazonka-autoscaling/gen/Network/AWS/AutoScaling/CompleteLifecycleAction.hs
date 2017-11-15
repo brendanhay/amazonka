@@ -12,27 +12,31 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.CompleteLifecycleAction
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Completes the lifecycle action for the specified token or instance with the specified result.
 --
+--
 -- This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:
 --
--- 1.  (Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when Auto Scaling launches or terminates instances.
+--     * (Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when Auto Scaling launches or terminates instances.
 --
--- 2.  (Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Auto Scaling to publish lifecycle notifications to the target.
+--     * (Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Auto Scaling to publish lifecycle notifications to the target.
 --
--- 3.  Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.
+--     * Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.
 --
--- 4.  If you need more time, record the lifecycle action heartbeat to keep the instance in a pending state.
+--     * If you need more time, record the lifecycle action heartbeat to keep the instance in a pending state.
 --
--- 5.  __If you finish before the timeout period ends, complete the lifecycle action.__
+--     * __If you finish before the timeout period ends, complete the lifecycle action.__
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/.
+--
+--
+-- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/ .
+--
 module Network.AWS.AutoScaling.CompleteLifecycleAction
     (
     -- * Creating a Request
@@ -52,50 +56,50 @@ module Network.AWS.AutoScaling.CompleteLifecycleAction
     , clarsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for CompleteLifecycleAction.
---
--- /See:/ 'completeLifecycleAction' smart constructor.
+-- | /See:/ 'completeLifecycleAction' smart constructor.
 data CompleteLifecycleAction = CompleteLifecycleAction'
-    { _claInstanceId            :: !(Maybe Text)
-    , _claLifecycleActionToken  :: !(Maybe Text)
-    , _claLifecycleHookName     :: !Text
-    , _claAutoScalingGroupName  :: !Text
-    , _claLifecycleActionResult :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _claInstanceId            :: !(Maybe Text)
+  , _claLifecycleActionToken  :: !(Maybe Text)
+  , _claLifecycleHookName     :: !Text
+  , _claAutoScalingGroupName  :: !Text
+  , _claLifecycleActionResult :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CompleteLifecycleAction' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'claInstanceId'
+-- * 'claInstanceId' - The ID of the instance.
 --
--- * 'claLifecycleActionToken'
+-- * 'claLifecycleActionToken' - A universally unique identifier (UUID) that identifies a specific lifecycle action associated with an instance. Auto Scaling sends this token to the notification target you specified when you created the lifecycle hook.
 --
--- * 'claLifecycleHookName'
+-- * 'claLifecycleHookName' - The name of the lifecycle hook.
 --
--- * 'claAutoScalingGroupName'
+-- * 'claAutoScalingGroupName' - The name of the group for the lifecycle hook.
 --
--- * 'claLifecycleActionResult'
+-- * 'claLifecycleActionResult' - The action for the group to take. This parameter can be either @CONTINUE@ or @ABANDON@ .
 completeLifecycleAction
     :: Text -- ^ 'claLifecycleHookName'
     -> Text -- ^ 'claAutoScalingGroupName'
     -> Text -- ^ 'claLifecycleActionResult'
     -> CompleteLifecycleAction
 completeLifecycleAction pLifecycleHookName_ pAutoScalingGroupName_ pLifecycleActionResult_ =
-    CompleteLifecycleAction'
-    { _claInstanceId = Nothing
-    , _claLifecycleActionToken = Nothing
-    , _claLifecycleHookName = pLifecycleHookName_
-    , _claAutoScalingGroupName = pAutoScalingGroupName_
-    , _claLifecycleActionResult = pLifecycleActionResult_
-    }
+  CompleteLifecycleAction'
+  { _claInstanceId = Nothing
+  , _claLifecycleActionToken = Nothing
+  , _claLifecycleHookName = pLifecycleHookName_
+  , _claAutoScalingGroupName = pAutoScalingGroupName_
+  , _claLifecycleActionResult = pLifecycleActionResult_
+  }
+
 
 -- | The ID of the instance.
 claInstanceId :: Lens' CompleteLifecycleAction (Maybe Text)
@@ -113,7 +117,7 @@ claLifecycleHookName = lens _claLifecycleHookName (\ s a -> s{_claLifecycleHookN
 claAutoScalingGroupName :: Lens' CompleteLifecycleAction Text
 claAutoScalingGroupName = lens _claAutoScalingGroupName (\ s a -> s{_claAutoScalingGroupName = a});
 
--- | The action for the group to take. This parameter can be either 'CONTINUE' or 'ABANDON'.
+-- | The action for the group to take. This parameter can be either @CONTINUE@ or @ABANDON@ .
 claLifecycleActionResult :: Lens' CompleteLifecycleAction Text
 claLifecycleActionResult = lens _claLifecycleActionResult (\ s a -> s{_claLifecycleActionResult = a});
 
@@ -127,9 +131,9 @@ instance AWSRequest CompleteLifecycleAction where
                  CompleteLifecycleActionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable CompleteLifecycleAction
+instance Hashable CompleteLifecycleAction where
 
-instance NFData CompleteLifecycleAction
+instance NFData CompleteLifecycleAction where
 
 instance ToHeaders CompleteLifecycleAction where
         toHeaders = const mempty
@@ -149,28 +153,26 @@ instance ToQuery CompleteLifecycleAction where
                "AutoScalingGroupName" =: _claAutoScalingGroupName,
                "LifecycleActionResult" =: _claLifecycleActionResult]
 
--- | Contains the output of CompleteLifecycleAction.
---
--- /See:/ 'completeLifecycleActionResponse' smart constructor.
+-- | /See:/ 'completeLifecycleActionResponse' smart constructor.
 newtype CompleteLifecycleActionResponse = CompleteLifecycleActionResponse'
-    { _clarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CompleteLifecycleActionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clarsResponseStatus'
+-- * 'clarsResponseStatus' - -- | The response status code.
 completeLifecycleActionResponse
     :: Int -- ^ 'clarsResponseStatus'
     -> CompleteLifecycleActionResponse
 completeLifecycleActionResponse pResponseStatus_ =
-    CompleteLifecycleActionResponse'
-    { _clarsResponseStatus = pResponseStatus_
-    }
+  CompleteLifecycleActionResponse' {_clarsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 clarsResponseStatus :: Lens' CompleteLifecycleActionResponse Int
 clarsResponseStatus = lens _clarsResponseStatus (\ s a -> s{_clarsResponseStatus = a});
 
-instance NFData CompleteLifecycleActionResponse
+instance NFData CompleteLifecycleActionResponse where

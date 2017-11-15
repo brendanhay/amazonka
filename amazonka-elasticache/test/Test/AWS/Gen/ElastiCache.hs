@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.ElastiCache
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.ElastiCache where
 
 import Data.Proxy
+import Network.AWS.ElastiCache
+import Test.AWS.ElastiCache.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.ElastiCache
-import Test.AWS.ElastiCache.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -54,6 +54,9 @@ import Test.AWS.ElastiCache.Internal
 --
 --         , requestModifyCacheParameterGroup $
 --             modifyCacheParameterGroup
+--
+--         , requestTestFailover $
+--             testFailover
 --
 --         , requestDeleteReplicationGroup $
 --             deleteReplicationGroup
@@ -102,6 +105,9 @@ import Test.AWS.ElastiCache.Internal
 --
 --         , requestListAllowedNodeTypeModifications $
 --             listAllowedNodeTypeModifications
+--
+--         , requestModifyReplicationGroupShardConfiguration $
+--             modifyReplicationGroupShardConfiguration
 --
 --         , requestDescribeSnapshots $
 --             describeSnapshots
@@ -172,6 +178,9 @@ import Test.AWS.ElastiCache.Internal
 --         , responseModifyCacheParameterGroup $
 --             cacheParameterGroupNameMessage
 --
+--         , responseTestFailover $
+--             testFailoverResponse
+--
 --         , responseDeleteReplicationGroup $
 --             deleteReplicationGroupResponse
 --
@@ -219,6 +228,9 @@ import Test.AWS.ElastiCache.Internal
 --
 --         , responseListAllowedNodeTypeModifications $
 --             listAllowedNodeTypeModificationsResponse
+--
+--         , responseModifyReplicationGroupShardConfiguration $
+--             modifyReplicationGroupShardConfigurationResponse
 --
 --         , responseDescribeSnapshots $
 --             describeSnapshotsResponse
@@ -309,6 +321,11 @@ requestModifyCacheParameterGroup = req
     "ModifyCacheParameterGroup"
     "fixture/ModifyCacheParameterGroup.yaml"
 
+requestTestFailover :: TestFailover -> TestTree
+requestTestFailover = req
+    "TestFailover"
+    "fixture/TestFailover.yaml"
+
 requestDeleteReplicationGroup :: DeleteReplicationGroup -> TestTree
 requestDeleteReplicationGroup = req
     "DeleteReplicationGroup"
@@ -388,6 +405,11 @@ requestListAllowedNodeTypeModifications :: ListAllowedNodeTypeModifications -> T
 requestListAllowedNodeTypeModifications = req
     "ListAllowedNodeTypeModifications"
     "fixture/ListAllowedNodeTypeModifications.yaml"
+
+requestModifyReplicationGroupShardConfiguration :: ModifyReplicationGroupShardConfiguration -> TestTree
+requestModifyReplicationGroupShardConfiguration = req
+    "ModifyReplicationGroupShardConfiguration"
+    "fixture/ModifyReplicationGroupShardConfiguration.yaml"
 
 requestDescribeSnapshots :: DescribeSnapshots -> TestTree
 requestDescribeSnapshots = req
@@ -519,6 +541,13 @@ responseModifyCacheParameterGroup = res
     elastiCache
     (Proxy :: Proxy ModifyCacheParameterGroup)
 
+responseTestFailover :: TestFailoverResponse -> TestTree
+responseTestFailover = res
+    "TestFailoverResponse"
+    "fixture/TestFailoverResponse.proto"
+    elastiCache
+    (Proxy :: Proxy TestFailover)
+
 responseDeleteReplicationGroup :: DeleteReplicationGroupResponse -> TestTree
 responseDeleteReplicationGroup = res
     "DeleteReplicationGroupResponse"
@@ -630,6 +659,13 @@ responseListAllowedNodeTypeModifications = res
     "fixture/ListAllowedNodeTypeModificationsResponse.proto"
     elastiCache
     (Proxy :: Proxy ListAllowedNodeTypeModifications)
+
+responseModifyReplicationGroupShardConfiguration :: ModifyReplicationGroupShardConfigurationResponse -> TestTree
+responseModifyReplicationGroupShardConfiguration = res
+    "ModifyReplicationGroupShardConfigurationResponse"
+    "fixture/ModifyReplicationGroupShardConfigurationResponse.proto"
+    elastiCache
+    (Proxy :: Proxy ModifyReplicationGroupShardConfiguration)
 
 responseDescribeSnapshots :: DescribeSnapshotsResponse -> TestTree
 responseDescribeSnapshots = res

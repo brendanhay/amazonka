@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -25,6 +25,9 @@ module Network.AWS.CloudWatchLogs.Types
     , _InvalidOperationException
     , _ResourceNotFoundException
     , _LimitExceededException
+
+    -- * Distribution
+    , Distribution (..)
 
     -- * ExportTaskStatusCode
     , ExportTaskStatusCode (..)
@@ -90,6 +93,7 @@ module Network.AWS.CloudWatchLogs.Types
     , lgArn
     , lgLogGroupName
     , lgRetentionInDays
+    , lgKmsKeyId
     , lgStoredBytes
 
     -- * LogStream
@@ -109,6 +113,7 @@ module Network.AWS.CloudWatchLogs.Types
     , metricFilter
     , mfCreationTime
     , mfFilterName
+    , mfLogGroupName
     , mfFilterPattern
     , mfMetricTransformations
 
@@ -141,6 +146,13 @@ module Network.AWS.CloudWatchLogs.Types
     , rleiTooNewLogEventStartIndex
     , rleiExpiredLogEventEndIndex
 
+    -- * ResourcePolicy
+    , ResourcePolicy
+    , resourcePolicy
+    , rpPolicyName
+    , rpPolicyDocument
+    , rpLastUpdatedTime
+
     -- * SearchedLogStream
     , SearchedLogStream
     , searchedLogStream
@@ -152,44 +164,47 @@ module Network.AWS.CloudWatchLogs.Types
     , subscriptionFilter
     , sfCreationTime
     , sfFilterName
+    , sfDistribution
     , sfDestinationARN
     , sfLogGroupName
     , sfFilterPattern
     , sfRoleARN
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.CloudWatchLogs.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.CloudWatchLogs.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
--- | API version '2014-03-28' of the Amazon CloudWatch Logs SDK configuration.
+-- | API version @2014-03-28@ of the Amazon CloudWatch Logs SDK configuration.
 cloudWatchLogs :: Service
 cloudWatchLogs =
-    Service
-    { _svcAbbrev = "CloudWatchLogs"
-    , _svcSigner = v4
-    , _svcPrefix = "logs"
-    , _svcVersion = "2014-03-28"
-    , _svcEndpoint = defaultEndpoint cloudWatchLogs
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "CloudWatchLogs"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "CloudWatchLogs"
+  , _svcSigner = v4
+  , _svcPrefix = "logs"
+  , _svcVersion = "2014-03-28"
+  , _svcEndpoint = defaultEndpoint cloudWatchLogs
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "CloudWatchLogs"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -198,46 +213,75 @@ cloudWatchLogs =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Returned if a parameter of the request is incorrectly specified.
+
+-- | A parameter is specified incorrectly.
+--
+--
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
-    _ServiceError . hasCode "InvalidParameterException"
+  _MatchServiceError cloudWatchLogs "InvalidParameterException"
 
--- | Prism for InvalidSequenceTokenException' errors.
+
+-- | The sequence token is not valid.
+--
+--
 _InvalidSequenceTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSequenceTokenException =
-    _ServiceError . hasCode "InvalidSequenceTokenException"
+  _MatchServiceError cloudWatchLogs "InvalidSequenceTokenException"
 
--- | Returned if the specified resource already exists.
+
+-- | The specified resource already exists.
+--
+--
 _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceAlreadyExistsException =
-    _ServiceError . hasCode "ResourceAlreadyExistsException"
+  _MatchServiceError cloudWatchLogs "ResourceAlreadyExistsException"
 
--- | Returned if multiple requests to update the same resource were in conflict.
+
+-- | Multiple requests to update the same resource were in conflict.
+--
+--
 _OperationAbortedException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationAbortedException =
-    _ServiceError . hasCode "OperationAbortedException"
+  _MatchServiceError cloudWatchLogs "OperationAbortedException"
 
--- | Returned if the service cannot complete the request.
+
+-- | The service cannot complete the request.
+--
+--
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
-    _ServiceError . hasCode "ServiceUnavailableException"
+  _MatchServiceError cloudWatchLogs "ServiceUnavailableException"
 
--- | Prism for DataAlreadyAcceptedException' errors.
+
+-- | The event was already logged.
+--
+--
 _DataAlreadyAcceptedException :: AsError a => Getting (First ServiceError) a ServiceError
 _DataAlreadyAcceptedException =
-    _ServiceError . hasCode "DataAlreadyAcceptedException"
+  _MatchServiceError cloudWatchLogs "DataAlreadyAcceptedException"
 
--- | Returned if the operation is not valid on the specified resource
+
+-- | The operation is not valid on the specified resource.
+--
+--
 _InvalidOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidOperationException =
-    _ServiceError . hasCode "InvalidOperationException"
+  _MatchServiceError cloudWatchLogs "InvalidOperationException"
 
--- | Returned if the specified resource does not exist.
+
+-- | The specified resource does not exist.
+--
+--
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasCode "ResourceNotFoundException"
+  _MatchServiceError cloudWatchLogs "ResourceNotFoundException"
 
--- | Returned if you have reached the maximum number of resources that can be created.
+
+-- | You have reached the maximum number of resources that can be created.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+_LimitExceededException =
+  _MatchServiceError cloudWatchLogs "LimitExceededException"
+

@@ -5,15 +5,16 @@
 
 -- |
 -- Module      : Network.AWS.Inspector
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon Inspector
+-- __Amazon Inspector__
 --
--- Amazon Inspector enables you to analyze the behavior of your AWS resources and to identify potential security issues. For more information, see <http://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html Amazon Inspector User Guide>.
+-- Amazon Inspector enables you to analyze the behavior of your AWS resources and to identify potential security issues. For more information, see <http://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html Amazon Inspector User Guide> .
+--
 module Network.AWS.Inspector
     (
     -- * Service Configuration
@@ -30,6 +31,9 @@ module Network.AWS.Inspector
 
     -- ** NoSuchEntityException
     , _NoSuchEntityException
+
+    -- ** UnsupportedFeatureException
+    , _UnsupportedFeatureException
 
     -- ** AgentsAlreadyRunningAssessmentException
     , _AgentsAlreadyRunningAssessmentException
@@ -133,6 +137,9 @@ module Network.AWS.Inspector
     -- ** ListAssessmentRuns
     , module Network.AWS.Inspector.ListAssessmentRuns
 
+    -- ** GetAssessmentReport
+    , module Network.AWS.Inspector.GetAssessmentReport
+
     -- ** ListRulesPackages
     , module Network.AWS.Inspector.ListRulesPackages
 
@@ -174,8 +181,20 @@ module Network.AWS.Inspector
     -- ** Locale
     , Locale (..)
 
+    -- ** ReportFileFormat
+    , ReportFileFormat (..)
+
+    -- ** ReportStatus
+    , ReportStatus (..)
+
+    -- ** ReportType
+    , ReportType (..)
+
     -- ** Severity
     , Severity (..)
+
+    -- ** StopAction
+    , StopAction (..)
 
     -- ** AgentFilter
     , AgentFilter
@@ -206,6 +225,7 @@ module Network.AWS.Inspector
     , arDataCollected
     , arStateChanges
     , arNotifications
+    , arFindingCounts
 
     -- ** AssessmentRunAgent
     , AssessmentRunAgent
@@ -401,40 +421,41 @@ module Network.AWS.Inspector
     , trBeginDate
     ) where
 
-import           Network.AWS.Inspector.AddAttributesToFindings
-import           Network.AWS.Inspector.CreateAssessmentTarget
-import           Network.AWS.Inspector.CreateAssessmentTemplate
-import           Network.AWS.Inspector.CreateResourceGroup
-import           Network.AWS.Inspector.DeleteAssessmentRun
-import           Network.AWS.Inspector.DeleteAssessmentTarget
-import           Network.AWS.Inspector.DeleteAssessmentTemplate
-import           Network.AWS.Inspector.DescribeAssessmentRuns
-import           Network.AWS.Inspector.DescribeAssessmentTargets
-import           Network.AWS.Inspector.DescribeAssessmentTemplates
-import           Network.AWS.Inspector.DescribeCrossAccountAccessRole
-import           Network.AWS.Inspector.DescribeFindings
-import           Network.AWS.Inspector.DescribeResourceGroups
-import           Network.AWS.Inspector.DescribeRulesPackages
-import           Network.AWS.Inspector.GetTelemetryMetadata
-import           Network.AWS.Inspector.ListAssessmentRunAgents
-import           Network.AWS.Inspector.ListAssessmentRuns
-import           Network.AWS.Inspector.ListAssessmentTargets
-import           Network.AWS.Inspector.ListAssessmentTemplates
-import           Network.AWS.Inspector.ListEventSubscriptions
-import           Network.AWS.Inspector.ListFindings
-import           Network.AWS.Inspector.ListRulesPackages
-import           Network.AWS.Inspector.ListTagsForResource
-import           Network.AWS.Inspector.PreviewAgents
-import           Network.AWS.Inspector.RegisterCrossAccountAccessRole
-import           Network.AWS.Inspector.RemoveAttributesFromFindings
-import           Network.AWS.Inspector.SetTagsForResource
-import           Network.AWS.Inspector.StartAssessmentRun
-import           Network.AWS.Inspector.StopAssessmentRun
-import           Network.AWS.Inspector.SubscribeToEvent
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.UnsubscribeFromEvent
-import           Network.AWS.Inspector.UpdateAssessmentTarget
-import           Network.AWS.Inspector.Waiters
+import Network.AWS.Inspector.AddAttributesToFindings
+import Network.AWS.Inspector.CreateAssessmentTarget
+import Network.AWS.Inspector.CreateAssessmentTemplate
+import Network.AWS.Inspector.CreateResourceGroup
+import Network.AWS.Inspector.DeleteAssessmentRun
+import Network.AWS.Inspector.DeleteAssessmentTarget
+import Network.AWS.Inspector.DeleteAssessmentTemplate
+import Network.AWS.Inspector.DescribeAssessmentRuns
+import Network.AWS.Inspector.DescribeAssessmentTargets
+import Network.AWS.Inspector.DescribeAssessmentTemplates
+import Network.AWS.Inspector.DescribeCrossAccountAccessRole
+import Network.AWS.Inspector.DescribeFindings
+import Network.AWS.Inspector.DescribeResourceGroups
+import Network.AWS.Inspector.DescribeRulesPackages
+import Network.AWS.Inspector.GetAssessmentReport
+import Network.AWS.Inspector.GetTelemetryMetadata
+import Network.AWS.Inspector.ListAssessmentRunAgents
+import Network.AWS.Inspector.ListAssessmentRuns
+import Network.AWS.Inspector.ListAssessmentTargets
+import Network.AWS.Inspector.ListAssessmentTemplates
+import Network.AWS.Inspector.ListEventSubscriptions
+import Network.AWS.Inspector.ListFindings
+import Network.AWS.Inspector.ListRulesPackages
+import Network.AWS.Inspector.ListTagsForResource
+import Network.AWS.Inspector.PreviewAgents
+import Network.AWS.Inspector.RegisterCrossAccountAccessRole
+import Network.AWS.Inspector.RemoveAttributesFromFindings
+import Network.AWS.Inspector.SetTagsForResource
+import Network.AWS.Inspector.StartAssessmentRun
+import Network.AWS.Inspector.StopAssessmentRun
+import Network.AWS.Inspector.SubscribeToEvent
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.UnsubscribeFromEvent
+import Network.AWS.Inspector.UpdateAssessmentTarget
+import Network.AWS.Inspector.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

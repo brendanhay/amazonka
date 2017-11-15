@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -21,6 +21,7 @@ module Network.AWS.KinesisAnalytics.Types
     , _InvalidArgumentException
     , _CodeValidationException
     , _ConcurrentModificationException
+    , _ServiceUnavailableException
     , _UnableToDetectSchemaException
     , _ResourceNotFoundException
     , _LimitExceededException
@@ -40,6 +41,7 @@ module Network.AWS.KinesisAnalytics.Types
     , applicationDetail
     , adApplicationDescription
     , adOutputDescriptions
+    , adCloudWatchLoggingOptionDescriptions
     , adReferenceDataSourceDescriptions
     , adInputDescriptions
     , adApplicationCode
@@ -62,6 +64,7 @@ module Network.AWS.KinesisAnalytics.Types
     , applicationUpdate
     , auReferenceDataSourceUpdates
     , auInputUpdates
+    , auCloudWatchLoggingOptionUpdates
     , auOutputUpdates
     , auApplicationCodeUpdate
 
@@ -70,6 +73,26 @@ module Network.AWS.KinesisAnalytics.Types
     , csvMappingParameters
     , cmpRecordRowDelimiter
     , cmpRecordColumnDelimiter
+
+    -- * CloudWatchLoggingOption
+    , CloudWatchLoggingOption
+    , cloudWatchLoggingOption
+    , cwloLogStreamARN
+    , cwloRoleARN
+
+    -- * CloudWatchLoggingOptionDescription
+    , CloudWatchLoggingOptionDescription
+    , cloudWatchLoggingOptionDescription
+    , cwlodCloudWatchLoggingOptionId
+    , cwlodLogStreamARN
+    , cwlodRoleARN
+
+    -- * CloudWatchLoggingOptionUpdate
+    , CloudWatchLoggingOptionUpdate
+    , cloudWatchLoggingOptionUpdate
+    , cwlouRoleARNUpdate
+    , cwlouLogStreamARNUpdate
+    , cwlouCloudWatchLoggingOptionId
 
     -- * DestinationSchema
     , DestinationSchema
@@ -80,10 +103,11 @@ module Network.AWS.KinesisAnalytics.Types
     , Input
     , input
     , iInputParallelism
+    , iInputProcessingConfiguration
     , iKinesisStreamsInput
     , iKinesisFirehoseInput
-    , iInputSchema
     , iNamePrefix
+    , iInputSchema
 
     -- * InputConfiguration
     , InputConfiguration
@@ -102,6 +126,25 @@ module Network.AWS.KinesisAnalytics.Types
     , idInputSchema
     , idKinesisStreamsInputDescription
     , idNamePrefix
+    , idInputProcessingConfigurationDescription
+
+    -- * InputLambdaProcessor
+    , InputLambdaProcessor
+    , inputLambdaProcessor
+    , ilpResourceARN
+    , ilpRoleARN
+
+    -- * InputLambdaProcessorDescription
+    , InputLambdaProcessorDescription
+    , inputLambdaProcessorDescription
+    , ilpdResourceARN
+    , ilpdRoleARN
+
+    -- * InputLambdaProcessorUpdate
+    , InputLambdaProcessorUpdate
+    , inputLambdaProcessorUpdate
+    , ilpuRoleARNUpdate
+    , ilpuResourceARNUpdate
 
     -- * InputParallelism
     , InputParallelism
@@ -112,6 +155,21 @@ module Network.AWS.KinesisAnalytics.Types
     , InputParallelismUpdate
     , inputParallelismUpdate
     , ipuCountUpdate
+
+    -- * InputProcessingConfiguration
+    , InputProcessingConfiguration
+    , inputProcessingConfiguration
+    , ipcInputLambdaProcessor
+
+    -- * InputProcessingConfigurationDescription
+    , InputProcessingConfigurationDescription
+    , inputProcessingConfigurationDescription
+    , ipcdInputLambdaProcessorDescription
+
+    -- * InputProcessingConfigurationUpdate
+    , InputProcessingConfigurationUpdate
+    , inputProcessingConfigurationUpdate
+    , ipcuInputLambdaProcessorUpdate
 
     -- * InputSchemaUpdate
     , InputSchemaUpdate
@@ -128,6 +186,7 @@ module Network.AWS.KinesisAnalytics.Types
     -- * InputUpdate
     , InputUpdate
     , inputUpdate
+    , iuInputProcessingConfigurationUpdate
     , iuKinesisStreamsInputUpdate
     , iuInputParallelismUpdate
     , iuNamePrefixUpdate
@@ -280,6 +339,13 @@ module Network.AWS.KinesisAnalytics.Types
     , rdsuReferenceSchemaUpdate
     , rdsuReferenceId
 
+    -- * S3Configuration
+    , S3Configuration
+    , s3Configuration
+    , scRoleARN
+    , scBucketARN
+    , scFileKey
+
     -- * S3ReferenceDataSource
     , S3ReferenceDataSource
     , s3ReferenceDataSource
@@ -309,38 +375,40 @@ module Network.AWS.KinesisAnalytics.Types
     , ssRecordColumns
     ) where
 
-import           Network.AWS.KinesisAnalytics.Types.Product
-import           Network.AWS.KinesisAnalytics.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.KinesisAnalytics.Types.Product
+import Network.AWS.KinesisAnalytics.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
--- | API version '2015-08-14' of the Amazon Kinesis Analytics SDK configuration.
+-- | API version @2015-08-14@ of the Amazon Kinesis Analytics SDK configuration.
 kinesisAnalytics :: Service
 kinesisAnalytics =
-    Service
-    { _svcAbbrev = "KinesisAnalytics"
-    , _svcSigner = v4
-    , _svcPrefix = "kinesisanalytics"
-    , _svcVersion = "2015-08-14"
-    , _svcEndpoint = defaultEndpoint kinesisAnalytics
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "KinesisAnalytics"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "KinesisAnalytics"
+  , _svcSigner = v4
+  , _svcPrefix = "kinesisanalytics"
+  , _svcVersion = "2015-08-14"
+  , _svcEndpoint = defaultEndpoint kinesisAnalytics
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "KinesisAnalytics"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -349,43 +417,85 @@ kinesisAnalytics =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | User-provided application configuration is not valid.
+--
+--
 _InvalidApplicationConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidApplicationConfigurationException =
-    _ServiceError . hasCode "InvalidApplicationConfigurationException"
+  _MatchServiceError kinesisAnalytics "InvalidApplicationConfigurationException"
 
--- | Discovery failed to get a record from the streaming source because of the Kinesis Streams ProvisionedThroughputExceededException.
+
+-- | Discovery failed to get a record from the streaming source because of the Amazon Kinesis Streams ProvisionedThroughputExceededException. For more information, see <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html GetRecords> in the Amazon Kinesis Streams API Reference.
+--
+--
 _ResourceProvisionedThroughputExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceProvisionedThroughputExceededException =
-    _ServiceError . hasCode "ResourceProvisionedThroughputExceededException"
+  _MatchServiceError
+    kinesisAnalytics
+    "ResourceProvisionedThroughputExceededException"
+
 
 -- | Specified input parameter value is invalid.
+--
+--
 _InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidArgumentException = _ServiceError . hasCode "InvalidArgumentException"
+_InvalidArgumentException =
+  _MatchServiceError kinesisAnalytics "InvalidArgumentException"
+
 
 -- | User-provided application code (query) is invalid. This can be a simple syntax error.
+--
+--
 _CodeValidationException :: AsError a => Getting (First ServiceError) a ServiceError
-_CodeValidationException = _ServiceError . hasCode "CodeValidationException"
+_CodeValidationException =
+  _MatchServiceError kinesisAnalytics "CodeValidationException"
+
 
 -- | Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.
+--
+--
 _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConcurrentModificationException =
-    _ServiceError . hasCode "ConcurrentModificationException"
+  _MatchServiceError kinesisAnalytics "ConcurrentModificationException"
 
--- | Data format is not valid, Kinesis Analytics is not able to detect schema for the given streaming source.
+
+-- | The service is unavailable, back off and retry the operation.
+--
+--
+_ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
+_ServiceUnavailableException =
+  _MatchServiceError kinesisAnalytics "ServiceUnavailableException"
+
+
+-- | Data format is not valid, Amazon Kinesis Analytics is not able to detect schema for the given streaming source.
+--
+--
 _UnableToDetectSchemaException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnableToDetectSchemaException =
-    _ServiceError . hasCode "UnableToDetectSchemaException"
+  _MatchServiceError kinesisAnalytics "UnableToDetectSchemaException"
 
--- | Specified application can\'t be found.
+
+-- | Specified application can't be found.
+--
+--
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasCode "ResourceNotFoundException"
+  _MatchServiceError kinesisAnalytics "ResourceNotFoundException"
+
 
 -- | Exceeded the number of applications allowed.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+_LimitExceededException =
+  _MatchServiceError kinesisAnalytics "LimitExceededException"
+
 
 -- | Application is not available for this operation.
+--
+--
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"
+_ResourceInUseException =
+  _MatchServiceError kinesisAnalytics "ResourceInUseException"
+

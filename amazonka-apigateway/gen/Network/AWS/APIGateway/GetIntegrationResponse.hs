@@ -12,100 +12,107 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetIntegrationResponse
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents a get integration response.
+--
+--
 module Network.AWS.APIGateway.GetIntegrationResponse
     (
     -- * Creating a Request
       getIntegrationResponse
     , GetIntegrationResponse
     -- * Request Lenses
-    , getRestAPIId
-    , getResourceId
-    , getHttpMethod
-    , getStatusCode
+    , giiRestAPIId
+    , giiResourceId
+    , giiHttpMethod
+    , giiStatusCode
 
     -- * Destructuring the Response
     , integrationResponse
     , IntegrationResponse
     -- * Response Lenses
-    , iResponseTemplates
-    , iSelectionPattern
-    , iStatusCode
-    , iResponseParameters
+    , intContentHandling
+    , intResponseTemplates
+    , intSelectionPattern
+    , intStatusCode
+    , intResponseParameters
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a get integration response request.
 --
+--
+--
 -- /See:/ 'getIntegrationResponse' smart constructor.
 data GetIntegrationResponse = GetIntegrationResponse'
-    { _getRestAPIId  :: !Text
-    , _getResourceId :: !Text
-    , _getHttpMethod :: !Text
-    , _getStatusCode :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _giiRestAPIId  :: !Text
+  , _giiResourceId :: !Text
+  , _giiHttpMethod :: !Text
+  , _giiStatusCode :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIntegrationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'getRestAPIId'
+-- * 'giiRestAPIId' - The string identifier of the associated 'RestApi' .
 --
--- * 'getResourceId'
+-- * 'giiResourceId' - Specifies a get integration response request's resource identifier.
 --
--- * 'getHttpMethod'
+-- * 'giiHttpMethod' - Specifies a get integration response request's HTTP method.
 --
--- * 'getStatusCode'
+-- * 'giiStatusCode' - Specifies a get integration response request's status code.
 getIntegrationResponse
-    :: Text -- ^ 'getRestAPIId'
-    -> Text -- ^ 'getResourceId'
-    -> Text -- ^ 'getHttpMethod'
-    -> Text -- ^ 'getStatusCode'
+    :: Text -- ^ 'giiRestAPIId'
+    -> Text -- ^ 'giiResourceId'
+    -> Text -- ^ 'giiHttpMethod'
+    -> Text -- ^ 'giiStatusCode'
     -> GetIntegrationResponse
 getIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
-    GetIntegrationResponse'
-    { _getRestAPIId = pRestAPIId_
-    , _getResourceId = pResourceId_
-    , _getHttpMethod = pHttpMethod_
-    , _getStatusCode = pStatusCode_
-    }
+  GetIntegrationResponse'
+  { _giiRestAPIId = pRestAPIId_
+  , _giiResourceId = pResourceId_
+  , _giiHttpMethod = pHttpMethod_
+  , _giiStatusCode = pStatusCode_
+  }
 
--- | Specifies a get integration response request\'s API identifier.
-getRestAPIId :: Lens' GetIntegrationResponse Text
-getRestAPIId = lens _getRestAPIId (\ s a -> s{_getRestAPIId = a});
 
--- | Specifies a get integration response request\'s resource identifier.
-getResourceId :: Lens' GetIntegrationResponse Text
-getResourceId = lens _getResourceId (\ s a -> s{_getResourceId = a});
+-- | The string identifier of the associated 'RestApi' .
+giiRestAPIId :: Lens' GetIntegrationResponse Text
+giiRestAPIId = lens _giiRestAPIId (\ s a -> s{_giiRestAPIId = a});
 
--- | Specifies a get integration response request\'s HTTP method.
-getHttpMethod :: Lens' GetIntegrationResponse Text
-getHttpMethod = lens _getHttpMethod (\ s a -> s{_getHttpMethod = a});
+-- | Specifies a get integration response request's resource identifier.
+giiResourceId :: Lens' GetIntegrationResponse Text
+giiResourceId = lens _giiResourceId (\ s a -> s{_giiResourceId = a});
 
--- | Specifies a get integration response request\'s status code.
-getStatusCode :: Lens' GetIntegrationResponse Text
-getStatusCode = lens _getStatusCode (\ s a -> s{_getStatusCode = a});
+-- | Specifies a get integration response request's HTTP method.
+giiHttpMethod :: Lens' GetIntegrationResponse Text
+giiHttpMethod = lens _giiHttpMethod (\ s a -> s{_giiHttpMethod = a});
+
+-- | Specifies a get integration response request's status code.
+giiStatusCode :: Lens' GetIntegrationResponse Text
+giiStatusCode = lens _giiStatusCode (\ s a -> s{_giiStatusCode = a});
 
 instance AWSRequest GetIntegrationResponse where
         type Rs GetIntegrationResponse = IntegrationResponse
         request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetIntegrationResponse
+instance Hashable GetIntegrationResponse where
 
-instance NFData GetIntegrationResponse
+instance NFData GetIntegrationResponse where
 
 instance ToHeaders GetIntegrationResponse where
         toHeaders
@@ -116,10 +123,10 @@ instance ToHeaders GetIntegrationResponse where
 instance ToPath GetIntegrationResponse where
         toPath GetIntegrationResponse'{..}
           = mconcat
-              ["/restapis/", toBS _getRestAPIId, "/resources/",
-               toBS _getResourceId, "/methods/",
-               toBS _getHttpMethod, "/integration/responses/",
-               toBS _getStatusCode]
+              ["/restapis/", toBS _giiRestAPIId, "/resources/",
+               toBS _giiResourceId, "/methods/",
+               toBS _giiHttpMethod, "/integration/responses/",
+               toBS _giiStatusCode]
 
 instance ToQuery GetIntegrationResponse where
         toQuery = const mempty

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ListStacks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the summary information for stacks whose status matches the specified StackStatusFilter. Summary information for stacks that have been deleted is kept for 90 days after the stack is deleted. If no StackStatusFilter is specified, summary information for all stacks is returned (including existing stacks and stacks that have been deleted).
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudFormation.ListStacks
@@ -39,42 +41,43 @@ module Network.AWS.CloudFormation.ListStacks
     , lsrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | The input for < ListStacks> action.
+-- | The input for 'ListStacks' action.
+--
+--
 --
 -- /See:/ 'listStacks' smart constructor.
 data ListStacks = ListStacks'
-    { _lsNextToken         :: !(Maybe Text)
-    , _lsStackStatusFilter :: !(Maybe [StackStatus])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsNextToken         :: !(Maybe Text)
+  , _lsStackStatusFilter :: !(Maybe [StackStatus])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStacks' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsNextToken'
+-- * 'lsNextToken' - A string that identifies the next page of stacks that you want to retrieve.
 --
--- * 'lsStackStatusFilter'
+-- * 'lsStackStatusFilter' - Stack status to use as a filter. Specify one or more stack status codes to list only stacks with the specified status codes. For a complete list of stack status codes, see the @StackStatus@ parameter of the 'Stack' data type.
 listStacks
     :: ListStacks
 listStacks =
-    ListStacks'
-    { _lsNextToken = Nothing
-    , _lsStackStatusFilter = Nothing
-    }
+  ListStacks' {_lsNextToken = Nothing, _lsStackStatusFilter = Nothing}
+
 
 -- | A string that identifies the next page of stacks that you want to retrieve.
 lsNextToken :: Lens' ListStacks (Maybe Text)
 lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 
--- | Stack status to use as a filter. Specify one or more stack status codes to list only stacks with the specified status codes. For a complete list of stack status codes, see the 'StackStatus' parameter of the < Stack> data type.
+-- | Stack status to use as a filter. Specify one or more stack status codes to list only stacks with the specified status codes. For a complete list of stack status codes, see the @StackStatus@ parameter of the 'Stack' data type.
 lsStackStatusFilter :: Lens' ListStacks [StackStatus]
 lsStackStatusFilter = lens _lsStackStatusFilter (\ s a -> s{_lsStackStatusFilter = a}) . _Default . _Coerce;
 
@@ -97,9 +100,9 @@ instance AWSRequest ListStacks where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListStacks
+instance Hashable ListStacks where
 
-instance NFData ListStacks
+instance NFData ListStacks where
 
 instance ToHeaders ListStacks where
         toHeaders = const mempty
@@ -117,44 +120,48 @@ instance ToQuery ListStacks where
                  toQuery
                    (toQueryList "member" <$> _lsStackStatusFilter)]
 
--- | The output for < ListStacks> action.
+-- | The output for 'ListStacks' action.
+--
+--
 --
 -- /See:/ 'listStacksResponse' smart constructor.
 data ListStacksResponse = ListStacksResponse'
-    { _lsrsNextToken      :: !(Maybe Text)
-    , _lsrsStackSummaries :: !(Maybe [StackSummary])
-    , _lsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsrsNextToken      :: !(Maybe Text)
+  , _lsrsStackSummaries :: !(Maybe [StackSummary])
+  , _lsrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStacksResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsrsNextToken'
+-- * 'lsrsNextToken' - If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If no additional page exists, this value is null.
 --
--- * 'lsrsStackSummaries'
+-- * 'lsrsStackSummaries' - A list of @StackSummary@ structures containing information about the specified stacks.
 --
--- * 'lsrsResponseStatus'
+-- * 'lsrsResponseStatus' - -- | The response status code.
 listStacksResponse
     :: Int -- ^ 'lsrsResponseStatus'
     -> ListStacksResponse
 listStacksResponse pResponseStatus_ =
-    ListStacksResponse'
-    { _lsrsNextToken = Nothing
-    , _lsrsStackSummaries = Nothing
-    , _lsrsResponseStatus = pResponseStatus_
-    }
+  ListStacksResponse'
+  { _lsrsNextToken = Nothing
+  , _lsrsStackSummaries = Nothing
+  , _lsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If no additional page exists, this value is null.
 lsrsNextToken :: Lens' ListStacksResponse (Maybe Text)
 lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 
--- | A list of 'StackSummary' structures containing information about the specified stacks.
+-- | A list of @StackSummary@ structures containing information about the specified stacks.
 lsrsStackSummaries :: Lens' ListStacksResponse [StackSummary]
 lsrsStackSummaries = lens _lsrsStackSummaries (\ s a -> s{_lsrsStackSummaries = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lsrsResponseStatus :: Lens' ListStacksResponse Int
 lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});
 
-instance NFData ListStacksResponse
+instance NFData ListStacksResponse where

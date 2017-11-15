@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeLaunchConfigurations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more launch configurations.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeLaunchConfigurations
@@ -40,40 +42,40 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     , dlcrsLaunchConfigurations
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for DescribeLaunchConfigurations.
---
--- /See:/ 'describeLaunchConfigurations' smart constructor.
+-- | /See:/ 'describeLaunchConfigurations' smart constructor.
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
-    { _dlcLaunchConfigurationNames :: !(Maybe [Text])
-    , _dlcNextToken                :: !(Maybe Text)
-    , _dlcMaxRecords               :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlcLaunchConfigurationNames :: !(Maybe [Text])
+  , _dlcNextToken                :: !(Maybe Text)
+  , _dlcMaxRecords               :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLaunchConfigurations' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlcLaunchConfigurationNames'
+-- * 'dlcLaunchConfigurationNames' - The launch configuration names. If you omit this parameter, all launch configurations are described.
 --
--- * 'dlcNextToken'
+-- * 'dlcNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dlcMaxRecords'
+-- * 'dlcMaxRecords' - The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 describeLaunchConfigurations
     :: DescribeLaunchConfigurations
 describeLaunchConfigurations =
-    DescribeLaunchConfigurations'
-    { _dlcLaunchConfigurationNames = Nothing
-    , _dlcNextToken = Nothing
-    , _dlcMaxRecords = Nothing
-    }
+  DescribeLaunchConfigurations'
+  { _dlcLaunchConfigurationNames = Nothing
+  , _dlcNextToken = Nothing
+  , _dlcMaxRecords = Nothing
+  }
+
 
 -- | The launch configuration names. If you omit this parameter, all launch configurations are described.
 dlcLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
@@ -83,7 +85,7 @@ dlcLaunchConfigurationNames = lens _dlcLaunchConfigurationNames (\ s a -> s{_dlc
 dlcNextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
 dlcNextToken = lens _dlcNextToken (\ s a -> s{_dlcNextToken = a});
 
--- | The maximum number of items to return with this call. The default is 100.
+-- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 dlcMaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Int)
 dlcMaxRecords = lens _dlcMaxRecords (\ s a -> s{_dlcMaxRecords = a});
 
@@ -108,9 +110,9 @@ instance AWSRequest DescribeLaunchConfigurations
                      (x .@? "LaunchConfigurations" .!@ mempty >>=
                         parseXMLList "member"))
 
-instance Hashable DescribeLaunchConfigurations
+instance Hashable DescribeLaunchConfigurations where
 
-instance NFData DescribeLaunchConfigurations
+instance NFData DescribeLaunchConfigurations where
 
 instance ToHeaders DescribeLaunchConfigurations where
         toHeaders = const mempty
@@ -131,39 +133,39 @@ instance ToQuery DescribeLaunchConfigurations where
                "NextToken" =: _dlcNextToken,
                "MaxRecords" =: _dlcMaxRecords]
 
--- | Contains the output of DescribeLaunchConfigurations.
---
--- /See:/ 'describeLaunchConfigurationsResponse' smart constructor.
+-- | /See:/ 'describeLaunchConfigurationsResponse' smart constructor.
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'
-    { _dlcrsNextToken            :: !(Maybe Text)
-    , _dlcrsResponseStatus       :: !Int
-    , _dlcrsLaunchConfigurations :: ![LaunchConfiguration]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlcrsNextToken            :: !(Maybe Text)
+  , _dlcrsResponseStatus       :: !Int
+  , _dlcrsLaunchConfigurations :: ![LaunchConfiguration]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLaunchConfigurationsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlcrsNextToken'
+-- * 'dlcrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
--- * 'dlcrsResponseStatus'
+-- * 'dlcrsResponseStatus' - -- | The response status code.
 --
--- * 'dlcrsLaunchConfigurations'
+-- * 'dlcrsLaunchConfigurations' - The launch configurations.
 describeLaunchConfigurationsResponse
     :: Int -- ^ 'dlcrsResponseStatus'
     -> DescribeLaunchConfigurationsResponse
 describeLaunchConfigurationsResponse pResponseStatus_ =
-    DescribeLaunchConfigurationsResponse'
-    { _dlcrsNextToken = Nothing
-    , _dlcrsResponseStatus = pResponseStatus_
-    , _dlcrsLaunchConfigurations = mempty
-    }
+  DescribeLaunchConfigurationsResponse'
+  { _dlcrsNextToken = Nothing
+  , _dlcrsResponseStatus = pResponseStatus_
+  , _dlcrsLaunchConfigurations = mempty
+  }
+
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dlcrsNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
 dlcrsNextToken = lens _dlcrsNextToken (\ s a -> s{_dlcrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dlcrsResponseStatus :: Lens' DescribeLaunchConfigurationsResponse Int
 dlcrsResponseStatus = lens _dlcrsResponseStatus (\ s a -> s{_dlcrsResponseStatus = a});
 
@@ -172,3 +174,4 @@ dlcrsLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchC
 dlcrsLaunchConfigurations = lens _dlcrsLaunchConfigurations (\ s a -> s{_dlcrsLaunchConfigurations = a}) . _Coerce;
 
 instance NFData DescribeLaunchConfigurationsResponse
+         where

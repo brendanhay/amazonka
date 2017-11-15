@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.IoT.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.IoT.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AutoRegistrationStatus
-    = Disable
-    | Enable
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Disable
+  | Enable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AutoRegistrationStatus where
     parser = takeLowerText >>= \case
@@ -49,9 +50,10 @@ instance FromJSON AutoRegistrationStatus where
     parseJSON = parseJSONText "AutoRegistrationStatus"
 
 data CACertificateStatus
-    = CACSActive
-    | CACSInactive
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CACSActive
+  | CACSInactive
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CACertificateStatus where
     parser = takeLowerText >>= \case
@@ -77,14 +79,63 @@ instance ToJSON CACertificateStatus where
 instance FromJSON CACertificateStatus where
     parseJSON = parseJSONText "CACertificateStatus"
 
+data CannedAccessControlList
+  = AWSExecRead
+  | AuthenticatedRead
+  | BucketOwnerFullControl
+  | BucketOwnerRead
+  | LogDeliveryWrite
+  | Private
+  | PublicRead
+  | PublicReadWrite
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CannedAccessControlList where
+    parser = takeLowerText >>= \case
+        "aws-exec-read" -> pure AWSExecRead
+        "authenticated-read" -> pure AuthenticatedRead
+        "bucket-owner-full-control" -> pure BucketOwnerFullControl
+        "bucket-owner-read" -> pure BucketOwnerRead
+        "log-delivery-write" -> pure LogDeliveryWrite
+        "private" -> pure Private
+        "public-read" -> pure PublicRead
+        "public-read-write" -> pure PublicReadWrite
+        e -> fromTextError $ "Failure parsing CannedAccessControlList from value: '" <> e
+           <> "'. Accepted values: aws-exec-read, authenticated-read, bucket-owner-full-control, bucket-owner-read, log-delivery-write, private, public-read, public-read-write"
+
+instance ToText CannedAccessControlList where
+    toText = \case
+        AWSExecRead -> "aws-exec-read"
+        AuthenticatedRead -> "authenticated-read"
+        BucketOwnerFullControl -> "bucket-owner-full-control"
+        BucketOwnerRead -> "bucket-owner-read"
+        LogDeliveryWrite -> "log-delivery-write"
+        Private -> "private"
+        PublicRead -> "public-read"
+        PublicReadWrite -> "public-read-write"
+
+instance Hashable     CannedAccessControlList
+instance NFData       CannedAccessControlList
+instance ToByteString CannedAccessControlList
+instance ToQuery      CannedAccessControlList
+instance ToHeader     CannedAccessControlList
+
+instance ToJSON CannedAccessControlList where
+    toJSON = toJSONText
+
+instance FromJSON CannedAccessControlList where
+    parseJSON = parseJSONText "CannedAccessControlList"
+
 data CertificateStatus
-    = Active
-    | Inactive
-    | PendingActivation
-    | PendingTransfer
-    | RegisterInactive
-    | Revoked
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | Inactive
+  | PendingActivation
+  | PendingTransfer
+  | RegisterInactive
+  | Revoked
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CertificateStatus where
     parser = takeLowerText >>= \case
@@ -119,9 +170,10 @@ instance FromJSON CertificateStatus where
     parseJSON = parseJSONText "CertificateStatus"
 
 data DynamoKeyType
-    = Number
-    | String
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Number
+  | String
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DynamoKeyType where
     parser = takeLowerText >>= \case
@@ -148,12 +200,13 @@ instance FromJSON DynamoKeyType where
     parseJSON = parseJSONText "DynamoKeyType"
 
 data LogLevel
-    = Debug
-    | Disabled
-    | Error'
-    | Info
-    | Warn
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Debug
+  | Disabled
+  | Error'
+  | Info
+  | Warn
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LogLevel where
     parser = takeLowerText >>= \case
@@ -186,9 +239,10 @@ instance FromJSON LogLevel where
     parseJSON = parseJSONText "LogLevel"
 
 data MessageFormat
-    = JSON
-    | Raw
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = JSON
+  | Raw
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MessageFormat where
     parser = takeLowerText >>= \case

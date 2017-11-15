@@ -5,45 +5,38 @@
 
 -- |
 -- Module      : Network.AWS.ApplicationAutoScaling
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Application Auto Scaling is a general purpose Auto Scaling service for supported elastic AWS resources. With Application Auto Scaling, you can automatically scale your AWS resources, with an experience similar to that of Auto Scaling.
+-- With Application Auto Scaling, you can automatically scale your AWS resources. The experience is similar to that of <https://aws.amazon.com/autoscaling/ Auto Scaling> . You can use Application Auto Scaling to accomplish the following tasks:
 --
--- Application Auto Scaling supports scaling the following AWS resources:
 --
--- -   Amazon ECS services
+--     * Define scaling policies to automatically scale your AWS resources
 --
--- -   Amazon EC2 Spot fleet instances
+--     * Scale your resources in response to CloudWatch alarms
 --
--- You can use Application Auto Scaling to accomplish the following tasks:
+--     * View the history of your scaling events
 --
--- -   Define scaling policies for automatically adjusting your AWS resources
 --
--- -   Scale your resources in response to CloudWatch alarms
 --
--- -   View history of your scaling events
+-- Application Auto Scaling can scale the following AWS resources:
 --
--- Application Auto Scaling is available in the following regions:
+--     * Amazon ECS services. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html Service Auto Scaling> in the /Amazon EC2 Container Service Developer Guide/ .
 --
--- -   'us-east-1'
+--     * Amazon EC2 Spot fleets. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-auto-scaling.html Automatic Scaling for Spot Fleet> in the /Amazon EC2 User Guide/ .
 --
--- -   'us-west-1'
+--     * Amazon EMR clusters. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-automatic-scaling.html Using Automatic Scaling in Amazon EMR> in the /Amazon EMR Management Guide/ .
 --
--- -   'us-west-2'
+--     * AppStream 2.0 fleets. For more information, see <http://docs.aws.amazon.com/appstream2/latest/developerguide/autoscaling.html Fleet Auto Scaling for Amazon AppStream 2.0> in the /Amazon AppStream 2.0 Developer Guide/ .
 --
--- -   'ap-southeast-1'
+--     * Provisioned read and write capacity for Amazon DynamoDB tables and global secondary indexes. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html Managing Throughput Capacity Automatically with DynamoDB Auto Scaling> in the /Amazon DynamoDB Developer Guide/ .
 --
--- -   'ap-southeast-2'
 --
--- -   'ap-northeast-1'
 --
--- -   'eu-central-1'
---
--- -   'eu-west-1'
+-- For a list of supported regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#as-app_region AWS Regions and Endpoints: Application Auto Scaling> in the /AWS General Reference/ .
 --
 module Network.AWS.ApplicationAutoScaling
     (
@@ -89,13 +82,22 @@ module Network.AWS.ApplicationAutoScaling
     -- ** RegisterScalableTarget
     , module Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
 
-    -- ** DescribeScalingPolicies
+    -- ** DescribeScalingPolicies (Paginated)
     , module Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
 
-    -- ** DescribeScalableTargets
+    -- ** PutScheduledAction
+    , module Network.AWS.ApplicationAutoScaling.PutScheduledAction
+
+    -- ** DeleteScheduledAction
+    , module Network.AWS.ApplicationAutoScaling.DeleteScheduledAction
+
+    -- ** DescribeScheduledActions
+    , module Network.AWS.ApplicationAutoScaling.DescribeScheduledActions
+
+    -- ** DescribeScalableTargets (Paginated)
     , module Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
 
-    -- ** DescribeScalingActivities
+    -- ** DescribeScalingActivities (Paginated)
     , module Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
 
     -- ** DeregisterScalableTarget
@@ -108,6 +110,12 @@ module Network.AWS.ApplicationAutoScaling
 
     -- ** MetricAggregationType
     , MetricAggregationType (..)
+
+    -- ** MetricStatistic
+    , MetricStatistic (..)
+
+    -- ** MetricType
+    , MetricType (..)
 
     -- ** PolicyType
     , PolicyType (..)
@@ -127,6 +135,27 @@ module Network.AWS.ApplicationAutoScaling
     , aAlarmName
     , aAlarmARN
 
+    -- ** CustomizedMetricSpecification
+    , CustomizedMetricSpecification
+    , customizedMetricSpecification
+    , cmsDimensions
+    , cmsUnit
+    , cmsMetricName
+    , cmsNamespace
+    , cmsStatistic
+
+    -- ** MetricDimension
+    , MetricDimension
+    , metricDimension
+    , mdName
+    , mdValue
+
+    -- ** PredefinedMetricSpecification
+    , PredefinedMetricSpecification
+    , predefinedMetricSpecification
+    , pmsResourceLabel
+    , pmsPredefinedMetricType
+
     -- ** ScalableTarget
     , ScalableTarget
     , scalableTarget
@@ -138,24 +167,31 @@ module Network.AWS.ApplicationAutoScaling
     , stRoleARN
     , stCreationTime
 
+    -- ** ScalableTargetAction
+    , ScalableTargetAction
+    , scalableTargetAction
+    , staMaxCapacity
+    , staMinCapacity
+
     -- ** ScalingActivity
     , ScalingActivity
     , scalingActivity
-    , saStatusMessage
-    , saEndTime
-    , saDetails
-    , saActivityId
-    , saServiceNamespace
-    , saResourceId
-    , saScalableDimension
-    , saDescription
-    , saCause
-    , saStartTime
-    , saStatusCode
+    , sStatusMessage
+    , sEndTime
+    , sDetails
+    , sActivityId
+    , sServiceNamespace
+    , sResourceId
+    , sScalableDimension
+    , sDescription
+    , sCause
+    , sStartTime
+    , sStatusCode
 
     -- ** ScalingPolicy
     , ScalingPolicy
     , scalingPolicy
+    , spTargetTrackingScalingPolicyConfiguration
     , spStepScalingPolicyConfiguration
     , spAlarms
     , spPolicyARN
@@ -165,6 +201,20 @@ module Network.AWS.ApplicationAutoScaling
     , spScalableDimension
     , spPolicyType
     , spCreationTime
+
+    -- ** ScheduledAction
+    , ScheduledAction
+    , scheduledAction
+    , saScalableDimension
+    , saStartTime
+    , saEndTime
+    , saScalableTargetAction
+    , saScheduledActionName
+    , saScheduledActionARN
+    , saServiceNamespace
+    , saSchedule
+    , saResourceId
+    , saCreationTime
 
     -- ** StepAdjustment
     , StepAdjustment
@@ -181,17 +231,30 @@ module Network.AWS.ApplicationAutoScaling
     , sspcCooldown
     , sspcMetricAggregationType
     , sspcMinAdjustmentMagnitude
+
+    -- ** TargetTrackingScalingPolicyConfiguration
+    , TargetTrackingScalingPolicyConfiguration
+    , targetTrackingScalingPolicyConfiguration
+    , ttspcPredefinedMetricSpecification
+    , ttspcScaleInCooldown
+    , ttspcCustomizedMetricSpecification
+    , ttspcDisableScaleIn
+    , ttspcScaleOutCooldown
+    , ttspcTargetValue
     ) where
 
-import           Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
-import           Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
-import           Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
-import           Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
-import           Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
-import           Network.AWS.ApplicationAutoScaling.PutScalingPolicy
-import           Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
-import           Network.AWS.ApplicationAutoScaling.Types
-import           Network.AWS.ApplicationAutoScaling.Waiters
+import Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
+import Network.AWS.ApplicationAutoScaling.DeleteScheduledAction
+import Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
+import Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
+import Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
+import Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
+import Network.AWS.ApplicationAutoScaling.DescribeScheduledActions
+import Network.AWS.ApplicationAutoScaling.PutScalingPolicy
+import Network.AWS.ApplicationAutoScaling.PutScheduledAction
+import Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
+import Network.AWS.ApplicationAutoScaling.Types
+import Network.AWS.ApplicationAutoScaling.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

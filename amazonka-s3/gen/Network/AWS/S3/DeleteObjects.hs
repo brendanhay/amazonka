@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteObjects
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,45 +40,47 @@ module Network.AWS.S3.DeleteObjects
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteObjects' smart constructor.
 data DeleteObjects = DeleteObjects'
-    { _dosMFA          :: !(Maybe Text)
-    , _dosRequestPayer :: !(Maybe RequestPayer)
-    , _dosBucket       :: !BucketName
-    , _dosDelete       :: !Delete
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dosMFA          :: !(Maybe Text)
+  , _dosRequestPayer :: !(Maybe RequestPayer)
+  , _dosBucket       :: !BucketName
+  , _dosDelete       :: !Delete
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteObjects' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dosMFA'
+-- * 'dosMFA' - The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 --
--- * 'dosRequestPayer'
+-- * 'dosRequestPayer' - Undocumented member.
 --
--- * 'dosBucket'
+-- * 'dosBucket' - Undocumented member.
 --
--- * 'dosDelete'
+-- * 'dosDelete' - Undocumented member.
 deleteObjects
     :: BucketName -- ^ 'dosBucket'
     -> Delete -- ^ 'dosDelete'
     -> DeleteObjects
 deleteObjects pBucket_ pDelete_ =
-    DeleteObjects'
-    { _dosMFA = Nothing
-    , _dosRequestPayer = Nothing
-    , _dosBucket = pBucket_
-    , _dosDelete = pDelete_
-    }
+  DeleteObjects'
+  { _dosMFA = Nothing
+  , _dosRequestPayer = Nothing
+  , _dosBucket = pBucket_
+  , _dosDelete = pDelete_
+  }
 
--- | The concatenation of the authentication device\'s serial number, a space, and the value that is displayed on your authentication device.
+
+-- | The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 dosMFA :: Lens' DeleteObjects (Maybe Text)
 dosMFA = lens _dosMFA (\ s a -> s{_dosMFA = a});
 
@@ -96,7 +98,7 @@ dosDelete = lens _dosDelete (\ s a -> s{_dosDelete = a});
 
 instance AWSRequest DeleteObjects where
         type Rs DeleteObjects = DeleteObjectsResponse
-        request = contentMD5 . postXML s3
+        request = contentMD5Header . postXML s3
         response
           = receiveXML
               (\ s h x ->
@@ -106,9 +108,9 @@ instance AWSRequest DeleteObjects where
                      <*> (may (parseXMLList "Error") x)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DeleteObjects
+instance Hashable DeleteObjects where
 
-instance NFData DeleteObjects
+instance NFData DeleteObjects where
 
 instance ToElement DeleteObjects where
         toElement
@@ -132,33 +134,35 @@ instance ToQuery DeleteObjects where
 
 -- | /See:/ 'deleteObjectsResponse' smart constructor.
 data DeleteObjectsResponse = DeleteObjectsResponse'
-    { _drsRequestCharged :: !(Maybe RequestCharged)
-    , _drsDeleted        :: !(Maybe [DeletedObject])
-    , _drsErrors         :: !(Maybe [S3ServiceError])
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsRequestCharged :: !(Maybe RequestCharged)
+  , _drsDeleted        :: !(Maybe [DeletedObject])
+  , _drsErrors         :: !(Maybe [S3ServiceError])
+  , _drsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteObjectsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsRequestCharged'
+-- * 'drsRequestCharged' - Undocumented member.
 --
--- * 'drsDeleted'
+-- * 'drsDeleted' - Undocumented member.
 --
--- * 'drsErrors'
+-- * 'drsErrors' - Undocumented member.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteObjectsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteObjectsResponse
 deleteObjectsResponse pResponseStatus_ =
-    DeleteObjectsResponse'
-    { _drsRequestCharged = Nothing
-    , _drsDeleted = Nothing
-    , _drsErrors = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DeleteObjectsResponse'
+  { _drsRequestCharged = Nothing
+  , _drsDeleted = Nothing
+  , _drsErrors = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 drsRequestCharged :: Lens' DeleteObjectsResponse (Maybe RequestCharged)
@@ -172,8 +176,8 @@ drsDeleted = lens _drsDeleted (\ s a -> s{_drsDeleted = a}) . _Default . _Coerce
 drsErrors :: Lens' DeleteObjectsResponse [S3ServiceError]
 drsErrors = lens _drsErrors (\ s a -> s{_drsErrors = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteObjectsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteObjectsResponse
+instance NFData DeleteObjectsResponse where

@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.DescribeIdentity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns metadata related to the given identity, including when the identity was created and any associated linked logins.
 --
+--
 -- You must use AWS Developer credentials to call this API.
+--
 module Network.AWS.CognitoIdentity.DescribeIdentity
     (
     -- * Creating a Request
@@ -39,32 +41,33 @@ module Network.AWS.CognitoIdentity.DescribeIdentity
     , idIdentityId
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Input to the 'DescribeIdentity' action.
+-- | Input to the @DescribeIdentity@ action.
+--
+--
 --
 -- /See:/ 'describeIdentity' smart constructor.
 newtype DescribeIdentity = DescribeIdentity'
-    { _diIdentityId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diIdentityId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeIdentity' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diIdentityId'
+-- * 'diIdentityId' - A unique identifier in the format REGION:GUID.
 describeIdentity
     :: Text -- ^ 'diIdentityId'
     -> DescribeIdentity
-describeIdentity pIdentityId_ =
-    DescribeIdentity'
-    { _diIdentityId = pIdentityId_
-    }
+describeIdentity pIdentityId_ = DescribeIdentity' {_diIdentityId = pIdentityId_}
+
 
 -- | A unique identifier in the format REGION:GUID.
 diIdentityId :: Lens' DescribeIdentity Text
@@ -75,9 +78,9 @@ instance AWSRequest DescribeIdentity where
         request = postJSON cognitoIdentity
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable DescribeIdentity
+instance Hashable DescribeIdentity where
 
-instance NFData DescribeIdentity
+instance NFData DescribeIdentity where
 
 instance ToHeaders DescribeIdentity where
         toHeaders

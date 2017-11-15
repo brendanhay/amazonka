@@ -12,23 +12,21 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ShutdownGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Shuts down a gateway. To specify which gateway to shut down, use the Amazon Resource Name (ARN) of the gateway in the body of your request.
 --
--- The operation shuts down the gateway service component running in the storage gateway\'s virtual machine (VM) and not the VM.
 --
--- If you want to shut down the VM, it is recommended that you first shut down the gateway component in the VM to avoid unpredictable conditions.
+-- The operation shuts down the gateway service component running in the gateway's virtual machine (VM) and not the host VM.
 --
--- After the gateway is shutdown, you cannot call any other API except < StartGateway>, < DescribeGatewayInformation>, and < ListGateways>. For more information, see < ActivateGateway>. Your applications cannot read from or write to the gateway\'s storage volumes, and there are no snapshots taken.
+-- After the gateway is shutdown, you cannot call any other API except 'StartGateway' , 'DescribeGatewayInformation' , and 'ListGateways' . For more information, see 'ActivateGateway' . Your applications cannot read from or write to the gateway's storage volumes, and there are no snapshots taken.
 --
--- When you make a shutdown request, you will get a '200 OK' success response immediately. However, it might take some time for the gateway to shut down. You can call the < DescribeGatewayInformation> API to check the status. For more information, see < ActivateGateway>.
+-- If do not intend to use the gateway again, you must delete the gateway (using 'DeleteGateway' ) to no longer pay software charges associated with the gateway.
 --
--- If do not intend to use the gateway again, you must delete the gateway (using < DeleteGateway>) to no longer pay software charges associated with the gateway.
 module Network.AWS.StorageGateway.ShutdownGateway
     (
     -- * Creating a Request
@@ -45,32 +43,33 @@ module Network.AWS.StorageGateway.ShutdownGateway
     , srsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the of the gateway to shut down.
 --
+--
+--
 -- /See:/ 'shutdownGateway' smart constructor.
 newtype ShutdownGateway = ShutdownGateway'
-    { _sGatewayARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sGatewayARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ShutdownGateway' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sGatewayARN'
+-- * 'sGatewayARN' - Undocumented member.
 shutdownGateway
     :: Text -- ^ 'sGatewayARN'
     -> ShutdownGateway
-shutdownGateway pGatewayARN_ =
-    ShutdownGateway'
-    { _sGatewayARN = pGatewayARN_
-    }
+shutdownGateway pGatewayARN_ = ShutdownGateway' {_sGatewayARN = pGatewayARN_}
+
 
 -- | Undocumented member.
 sGatewayARN :: Lens' ShutdownGateway Text
@@ -85,9 +84,9 @@ instance AWSRequest ShutdownGateway where
                  ShutdownGatewayResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-instance Hashable ShutdownGateway
+instance Hashable ShutdownGateway where
 
-instance NFData ShutdownGateway
+instance NFData ShutdownGateway where
 
 instance ToHeaders ShutdownGateway where
         toHeaders
@@ -112,34 +111,36 @@ instance ToQuery ShutdownGateway where
 
 -- | A JSON object containing the of the gateway that was shut down.
 --
+--
+--
 -- /See:/ 'shutdownGatewayResponse' smart constructor.
 data ShutdownGatewayResponse = ShutdownGatewayResponse'
-    { _srsGatewayARN     :: !(Maybe Text)
-    , _srsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsGatewayARN     :: !(Maybe Text)
+  , _srsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ShutdownGatewayResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsGatewayARN'
+-- * 'srsGatewayARN' - Undocumented member.
 --
--- * 'srsResponseStatus'
+-- * 'srsResponseStatus' - -- | The response status code.
 shutdownGatewayResponse
     :: Int -- ^ 'srsResponseStatus'
     -> ShutdownGatewayResponse
 shutdownGatewayResponse pResponseStatus_ =
-    ShutdownGatewayResponse'
-    { _srsGatewayARN = Nothing
-    , _srsResponseStatus = pResponseStatus_
-    }
+  ShutdownGatewayResponse'
+  {_srsGatewayARN = Nothing, _srsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 srsGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
 srsGatewayARN = lens _srsGatewayARN (\ s a -> s{_srsGatewayARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 srsResponseStatus :: Lens' ShutdownGatewayResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 
-instance NFData ShutdownGatewayResponse
+instance NFData ShutdownGatewayResponse where

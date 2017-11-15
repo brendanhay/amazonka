@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListOutgoingCertificates
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists certificates that are being transfered but not yet accepted.
+--
+--
+--
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListOutgoingCertificates
     (
     -- * Creating a Request
@@ -38,39 +42,41 @@ module Network.AWS.IoT.ListOutgoingCertificates
     , locrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input to the ListOutgoingCertificates operation.
 --
+--
+--
 -- /See:/ 'listOutgoingCertificates' smart constructor.
 data ListOutgoingCertificates = ListOutgoingCertificates'
-    { _locMarker         :: !(Maybe Text)
-    , _locAscendingOrder :: !(Maybe Bool)
-    , _locPageSize       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _locMarker         :: !(Maybe Text)
+  , _locAscendingOrder :: !(Maybe Bool)
+  , _locPageSize       :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListOutgoingCertificates' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'locMarker'
+-- * 'locMarker' - The marker for the next set of results.
 --
--- * 'locAscendingOrder'
+-- * 'locAscendingOrder' - Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
 --
--- * 'locPageSize'
+-- * 'locPageSize' - The result page size.
 listOutgoingCertificates
     :: ListOutgoingCertificates
 listOutgoingCertificates =
-    ListOutgoingCertificates'
-    { _locMarker = Nothing
-    , _locAscendingOrder = Nothing
-    , _locPageSize = Nothing
-    }
+  ListOutgoingCertificates'
+  {_locMarker = Nothing, _locAscendingOrder = Nothing, _locPageSize = Nothing}
+
 
 -- | The marker for the next set of results.
 locMarker :: Lens' ListOutgoingCertificates (Maybe Text)
@@ -84,6 +90,13 @@ locAscendingOrder = lens _locAscendingOrder (\ s a -> s{_locAscendingOrder = a})
 locPageSize :: Lens' ListOutgoingCertificates (Maybe Natural)
 locPageSize = lens _locPageSize (\ s a -> s{_locPageSize = a}) . mapping _Nat;
 
+instance AWSPager ListOutgoingCertificates where
+        page rq rs
+          | stop (rs ^. locrsNextMarker) = Nothing
+          | stop (rs ^. locrsOutgoingCertificates) = Nothing
+          | otherwise =
+            Just $ rq & locMarker .~ rs ^. locrsNextMarker
+
 instance AWSRequest ListOutgoingCertificates where
         type Rs ListOutgoingCertificates =
              ListOutgoingCertificatesResponse
@@ -96,9 +109,9 @@ instance AWSRequest ListOutgoingCertificates where
                      (x .?> "outgoingCertificates" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListOutgoingCertificates
+instance Hashable ListOutgoingCertificates where
 
-instance NFData ListOutgoingCertificates
+instance NFData ListOutgoingCertificates where
 
 instance ToHeaders ListOutgoingCertificates where
         toHeaders = const mempty
@@ -115,31 +128,35 @@ instance ToQuery ListOutgoingCertificates where
 
 -- | The output from the ListOutgoingCertificates operation.
 --
+--
+--
 -- /See:/ 'listOutgoingCertificatesResponse' smart constructor.
 data ListOutgoingCertificatesResponse = ListOutgoingCertificatesResponse'
-    { _locrsNextMarker           :: !(Maybe Text)
-    , _locrsOutgoingCertificates :: !(Maybe [OutgoingCertificate])
-    , _locrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _locrsNextMarker           :: !(Maybe Text)
+  , _locrsOutgoingCertificates :: !(Maybe [OutgoingCertificate])
+  , _locrsResponseStatus       :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListOutgoingCertificatesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'locrsNextMarker'
+-- * 'locrsNextMarker' - The marker for the next set of results.
 --
--- * 'locrsOutgoingCertificates'
+-- * 'locrsOutgoingCertificates' - The certificates that are being transfered but not yet accepted.
 --
--- * 'locrsResponseStatus'
+-- * 'locrsResponseStatus' - -- | The response status code.
 listOutgoingCertificatesResponse
     :: Int -- ^ 'locrsResponseStatus'
     -> ListOutgoingCertificatesResponse
 listOutgoingCertificatesResponse pResponseStatus_ =
-    ListOutgoingCertificatesResponse'
-    { _locrsNextMarker = Nothing
-    , _locrsOutgoingCertificates = Nothing
-    , _locrsResponseStatus = pResponseStatus_
-    }
+  ListOutgoingCertificatesResponse'
+  { _locrsNextMarker = Nothing
+  , _locrsOutgoingCertificates = Nothing
+  , _locrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The marker for the next set of results.
 locrsNextMarker :: Lens' ListOutgoingCertificatesResponse (Maybe Text)
@@ -149,8 +166,9 @@ locrsNextMarker = lens _locrsNextMarker (\ s a -> s{_locrsNextMarker = a});
 locrsOutgoingCertificates :: Lens' ListOutgoingCertificatesResponse [OutgoingCertificate]
 locrsOutgoingCertificates = lens _locrsOutgoingCertificates (\ s a -> s{_locrsOutgoingCertificates = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 locrsResponseStatus :: Lens' ListOutgoingCertificatesResponse Int
 locrsResponseStatus = lens _locrsResponseStatus (\ s a -> s{_locrsResponseStatus = a});
 
 instance NFData ListOutgoingCertificatesResponse
+         where

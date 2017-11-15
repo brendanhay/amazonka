@@ -12,19 +12,25 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a configuration template. Templates are associated with a specific application and are used to deploy different versions of the application with the same configuration settings.
 --
+--
 -- Related Topics
 --
--- -   < DescribeConfigurationOptions>
--- -   < DescribeConfigurationSettings>
--- -   < ListAvailableSolutionStacks>
+--     * 'DescribeConfigurationOptions'
+--
+--     * 'DescribeConfigurationSettings'
+--
+--     * 'ListAvailableSolutionStacks'
+--
+--
+--
 module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     (
     -- * Creating a Request
@@ -32,6 +38,7 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     , CreateConfigurationTemplate
     -- * Request Lenses
     , cctOptionSettings
+    , cctPlatformARN
     , cctSourceConfiguration
     , cctSolutionStackName
     , cctEnvironmentId
@@ -47,6 +54,7 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     , csdOptionSettings
     , csdDateUpdated
     , csdDateCreated
+    , csdPlatformARN
     , csdEnvironmentName
     , csdApplicationName
     , csdDeploymentStatus
@@ -54,79 +62,79 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     , csdDescription
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to create a configuration template.
 --
+--
+--
 -- /See:/ 'createConfigurationTemplate' smart constructor.
 data CreateConfigurationTemplate = CreateConfigurationTemplate'
-    { _cctOptionSettings      :: !(Maybe [ConfigurationOptionSetting])
-    , _cctSourceConfiguration :: !(Maybe SourceConfiguration)
-    , _cctSolutionStackName   :: !(Maybe Text)
-    , _cctEnvironmentId       :: !(Maybe Text)
-    , _cctDescription         :: !(Maybe Text)
-    , _cctApplicationName     :: !Text
-    , _cctTemplateName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cctOptionSettings      :: !(Maybe [ConfigurationOptionSetting])
+  , _cctPlatformARN         :: !(Maybe Text)
+  , _cctSourceConfiguration :: !(Maybe SourceConfiguration)
+  , _cctSolutionStackName   :: !(Maybe Text)
+  , _cctEnvironmentId       :: !(Maybe Text)
+  , _cctDescription         :: !(Maybe Text)
+  , _cctApplicationName     :: !Text
+  , _cctTemplateName        :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateConfigurationTemplate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cctOptionSettings'
+-- * 'cctOptionSettings' - If specified, AWS Elastic Beanstalk sets the specified configuration option to the requested value. The new value overrides the value obtained from the solution stack or the source configuration template.
 --
--- * 'cctSourceConfiguration'
+-- * 'cctPlatformARN' - The ARN of the custome platform.
 --
--- * 'cctSolutionStackName'
+-- * 'cctSourceConfiguration' - If specified, AWS Elastic Beanstalk uses the configuration values from the specified configuration template to create a new configuration. Values specified in the @OptionSettings@ parameter of this call overrides any values obtained from the @SourceConfiguration@ .  If no configuration template is found, returns an @InvalidParameterValue@ error.  Constraint: If both the solution stack name parameter and the source configuration parameters are specified, the solution stack of the source configuration template must match the specified solution stack name or else AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error.
 --
--- * 'cctEnvironmentId'
+-- * 'cctSolutionStackName' - The name of the solution stack used by this configuration. The solution stack specifies the operating system, architecture, and application server for a configuration template. It determines the set of configuration options as well as the possible and default values. Use 'ListAvailableSolutionStacks' to obtain a list of available solution stacks.  A solution stack name or a source configuration parameter must be specified, otherwise AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.  If a solution stack name is not specified and the source configuration parameter is specified, AWS Elastic Beanstalk uses the same solution stack as the source configuration template.
 --
--- * 'cctDescription'
+-- * 'cctEnvironmentId' - The ID of the environment used with this configuration template.
 --
--- * 'cctApplicationName'
+-- * 'cctDescription' - Describes this configuration.
 --
--- * 'cctTemplateName'
+-- * 'cctApplicationName' - The name of the application to associate with this configuration template. If no application is found with this name, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
+--
+-- * 'cctTemplateName' - The name of the configuration template. Constraint: This name must be unique per application. Default: If a configuration template already exists with this name, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
 createConfigurationTemplate
     :: Text -- ^ 'cctApplicationName'
     -> Text -- ^ 'cctTemplateName'
     -> CreateConfigurationTemplate
 createConfigurationTemplate pApplicationName_ pTemplateName_ =
-    CreateConfigurationTemplate'
-    { _cctOptionSettings = Nothing
-    , _cctSourceConfiguration = Nothing
-    , _cctSolutionStackName = Nothing
-    , _cctEnvironmentId = Nothing
-    , _cctDescription = Nothing
-    , _cctApplicationName = pApplicationName_
-    , _cctTemplateName = pTemplateName_
-    }
+  CreateConfigurationTemplate'
+  { _cctOptionSettings = Nothing
+  , _cctPlatformARN = Nothing
+  , _cctSourceConfiguration = Nothing
+  , _cctSolutionStackName = Nothing
+  , _cctEnvironmentId = Nothing
+  , _cctDescription = Nothing
+  , _cctApplicationName = pApplicationName_
+  , _cctTemplateName = pTemplateName_
+  }
+
 
 -- | If specified, AWS Elastic Beanstalk sets the specified configuration option to the requested value. The new value overrides the value obtained from the solution stack or the source configuration template.
 cctOptionSettings :: Lens' CreateConfigurationTemplate [ConfigurationOptionSetting]
 cctOptionSettings = lens _cctOptionSettings (\ s a -> s{_cctOptionSettings = a}) . _Default . _Coerce;
 
--- | If specified, AWS Elastic Beanstalk uses the configuration values from the specified configuration template to create a new configuration.
---
--- Values specified in the 'OptionSettings' parameter of this call overrides any values obtained from the 'SourceConfiguration'.
---
--- If no configuration template is found, returns an 'InvalidParameterValue' error.
---
--- Constraint: If both the solution stack name parameter and the source configuration parameters are specified, the solution stack of the source configuration template must match the specified solution stack name or else AWS Elastic Beanstalk returns an 'InvalidParameterCombination' error.
+-- | The ARN of the custome platform.
+cctPlatformARN :: Lens' CreateConfigurationTemplate (Maybe Text)
+cctPlatformARN = lens _cctPlatformARN (\ s a -> s{_cctPlatformARN = a});
+
+-- | If specified, AWS Elastic Beanstalk uses the configuration values from the specified configuration template to create a new configuration. Values specified in the @OptionSettings@ parameter of this call overrides any values obtained from the @SourceConfiguration@ .  If no configuration template is found, returns an @InvalidParameterValue@ error.  Constraint: If both the solution stack name parameter and the source configuration parameters are specified, the solution stack of the source configuration template must match the specified solution stack name or else AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error.
 cctSourceConfiguration :: Lens' CreateConfigurationTemplate (Maybe SourceConfiguration)
 cctSourceConfiguration = lens _cctSourceConfiguration (\ s a -> s{_cctSourceConfiguration = a});
 
--- | The name of the solution stack used by this configuration. The solution stack specifies the operating system, architecture, and application server for a configuration template. It determines the set of configuration options as well as the possible and default values.
---
--- Use < ListAvailableSolutionStacks> to obtain a list of available solution stacks.
---
--- A solution stack name or a source configuration parameter must be specified, otherwise AWS Elastic Beanstalk returns an 'InvalidParameterValue' error.
---
--- If a solution stack name is not specified and the source configuration parameter is specified, AWS Elastic Beanstalk uses the same solution stack as the source configuration template.
+-- | The name of the solution stack used by this configuration. The solution stack specifies the operating system, architecture, and application server for a configuration template. It determines the set of configuration options as well as the possible and default values. Use 'ListAvailableSolutionStacks' to obtain a list of available solution stacks.  A solution stack name or a source configuration parameter must be specified, otherwise AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.  If a solution stack name is not specified and the source configuration parameter is specified, AWS Elastic Beanstalk uses the same solution stack as the source configuration template.
 cctSolutionStackName :: Lens' CreateConfigurationTemplate (Maybe Text)
 cctSolutionStackName = lens _cctSolutionStackName (\ s a -> s{_cctSolutionStackName = a});
 
@@ -138,15 +146,11 @@ cctEnvironmentId = lens _cctEnvironmentId (\ s a -> s{_cctEnvironmentId = a});
 cctDescription :: Lens' CreateConfigurationTemplate (Maybe Text)
 cctDescription = lens _cctDescription (\ s a -> s{_cctDescription = a});
 
--- | The name of the application to associate with this configuration template. If no application is found with this name, AWS Elastic Beanstalk returns an 'InvalidParameterValue' error.
+-- | The name of the application to associate with this configuration template. If no application is found with this name, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
 cctApplicationName :: Lens' CreateConfigurationTemplate Text
 cctApplicationName = lens _cctApplicationName (\ s a -> s{_cctApplicationName = a});
 
--- | The name of the configuration template.
---
--- Constraint: This name must be unique per application.
---
--- Default: If a configuration template already exists with this name, AWS Elastic Beanstalk returns an 'InvalidParameterValue' error.
+-- | The name of the configuration template. Constraint: This name must be unique per application. Default: If a configuration template already exists with this name, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
 cctTemplateName :: Lens' CreateConfigurationTemplate Text
 cctTemplateName = lens _cctTemplateName (\ s a -> s{_cctTemplateName = a});
 
@@ -159,9 +163,9 @@ instance AWSRequest CreateConfigurationTemplate where
               "CreateConfigurationTemplateResult"
               (\ s h x -> parseXML x)
 
-instance Hashable CreateConfigurationTemplate
+instance Hashable CreateConfigurationTemplate where
 
-instance NFData CreateConfigurationTemplate
+instance NFData CreateConfigurationTemplate where
 
 instance ToHeaders CreateConfigurationTemplate where
         toHeaders = const mempty
@@ -178,6 +182,7 @@ instance ToQuery CreateConfigurationTemplate where
                "OptionSettings" =:
                  toQuery
                    (toQueryList "member" <$> _cctOptionSettings),
+               "PlatformArn" =: _cctPlatformARN,
                "SourceConfiguration" =: _cctSourceConfiguration,
                "SolutionStackName" =: _cctSolutionStackName,
                "EnvironmentId" =: _cctEnvironmentId,

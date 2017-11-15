@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeRules
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the specified rules or the rules for the specified listener. You must specify either a listener or one or more rules.
+--
+--
 module Network.AWS.ELBv2.DescribeRules
     (
     -- * Creating a Request
@@ -26,53 +28,72 @@ module Network.AWS.ELBv2.DescribeRules
     , DescribeRules
     -- * Request Lenses
     , drListenerARN
+    , drMarker
     , drRuleARNs
+    , drPageSize
 
     -- * Destructuring the Response
     , describeRulesResponse
     , DescribeRulesResponse
     -- * Response Lenses
     , drsrsRules
+    , drsrsNextMarker
     , drsrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for DescribeRules.
---
--- /See:/ 'describeRules' smart constructor.
+-- | /See:/ 'describeRules' smart constructor.
 data DescribeRules = DescribeRules'
-    { _drListenerARN :: !(Maybe Text)
-    , _drRuleARNs    :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drListenerARN :: !(Maybe Text)
+  , _drMarker      :: !(Maybe Text)
+  , _drRuleARNs    :: !(Maybe [Text])
+  , _drPageSize    :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRules' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drListenerARN'
+-- * 'drListenerARN' - The Amazon Resource Name (ARN) of the listener.
 --
--- * 'drRuleARNs'
+-- * 'drMarker' - The marker for the next set of results. (You received this marker from a previous call.)
+--
+-- * 'drRuleARNs' - The Amazon Resource Names (ARN) of the rules.
+--
+-- * 'drPageSize' - The maximum number of results to return with this call.
 describeRules
     :: DescribeRules
 describeRules =
-    DescribeRules'
-    { _drListenerARN = Nothing
-    , _drRuleARNs = Nothing
-    }
+  DescribeRules'
+  { _drListenerARN = Nothing
+  , _drMarker = Nothing
+  , _drRuleARNs = Nothing
+  , _drPageSize = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the listener.
 drListenerARN :: Lens' DescribeRules (Maybe Text)
 drListenerARN = lens _drListenerARN (\ s a -> s{_drListenerARN = a});
 
+-- | The marker for the next set of results. (You received this marker from a previous call.)
+drMarker :: Lens' DescribeRules (Maybe Text)
+drMarker = lens _drMarker (\ s a -> s{_drMarker = a});
+
 -- | The Amazon Resource Names (ARN) of the rules.
 drRuleARNs :: Lens' DescribeRules [Text]
 drRuleARNs = lens _drRuleARNs (\ s a -> s{_drRuleARNs = a}) . _Default . _Coerce;
+
+-- | The maximum number of results to return with this call.
+drPageSize :: Lens' DescribeRules (Maybe Natural)
+drPageSize = lens _drPageSize (\ s a -> s{_drPageSize = a}) . mapping _Nat;
 
 instance AWSRequest DescribeRules where
         type Rs DescribeRules = DescribeRulesResponse
@@ -83,11 +104,12 @@ instance AWSRequest DescribeRules where
                  DescribeRulesResponse' <$>
                    (x .@? "Rules" .!@ mempty >>=
                       may (parseXMLList "member"))
+                     <*> (x .@? "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeRules
+instance Hashable DescribeRules where
 
-instance NFData DescribeRules
+instance NFData DescribeRules where
 
 instance ToHeaders DescribeRules where
         toHeaders = const mempty
@@ -101,39 +123,49 @@ instance ToQuery DescribeRules where
               ["Action" =: ("DescribeRules" :: ByteString),
                "Version" =: ("2015-12-01" :: ByteString),
                "ListenerArn" =: _drListenerARN,
+               "Marker" =: _drMarker,
                "RuleArns" =:
-                 toQuery (toQueryList "member" <$> _drRuleARNs)]
+                 toQuery (toQueryList "member" <$> _drRuleARNs),
+               "PageSize" =: _drPageSize]
 
--- | Contains the output of DescribeRules.
---
--- /See:/ 'describeRulesResponse' smart constructor.
+-- | /See:/ 'describeRulesResponse' smart constructor.
 data DescribeRulesResponse = DescribeRulesResponse'
-    { _drsrsRules          :: !(Maybe [Rule])
-    , _drsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsrsRules          :: !(Maybe [Rule])
+  , _drsrsNextMarker     :: !(Maybe Text)
+  , _drsrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRulesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsrsRules'
+-- * 'drsrsRules' - Information about the rules.
 --
--- * 'drsrsResponseStatus'
+-- * 'drsrsNextMarker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
+--
+-- * 'drsrsResponseStatus' - -- | The response status code.
 describeRulesResponse
     :: Int -- ^ 'drsrsResponseStatus'
     -> DescribeRulesResponse
 describeRulesResponse pResponseStatus_ =
-    DescribeRulesResponse'
-    { _drsrsRules = Nothing
-    , _drsrsResponseStatus = pResponseStatus_
-    }
+  DescribeRulesResponse'
+  { _drsrsRules = Nothing
+  , _drsrsNextMarker = Nothing
+  , _drsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the rules.
 drsrsRules :: Lens' DescribeRulesResponse [Rule]
 drsrsRules = lens _drsrsRules (\ s a -> s{_drsrsRules = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
+drsrsNextMarker :: Lens' DescribeRulesResponse (Maybe Text)
+drsrsNextMarker = lens _drsrsNextMarker (\ s a -> s{_drsrsNextMarker = a});
+
+-- | -- | The response status code.
 drsrsResponseStatus :: Lens' DescribeRulesResponse Int
 drsrsResponseStatus = lens _drsrsResponseStatus (\ s a -> s{_drsrsResponseStatus = a});
 
-instance NFData DescribeRulesResponse
+instance NFData DescribeRulesResponse where

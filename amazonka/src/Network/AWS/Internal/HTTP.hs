@@ -9,9 +9,9 @@
 
 -- |
 -- Module      : Network.AWS.Internal.HTTP
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
@@ -20,23 +20,25 @@ module Network.AWS.Internal.HTTP
     , waiter
     ) where
 
-import           Control.Arrow                (first)
-import           Control.Monad
-import           Control.Monad.Catch
-import           Control.Monad.Reader
-import           Control.Monad.Trans.Resource
-import           Control.Retry
-import           Data.List                    (intersperse)
-import           Data.Monoid
-import           Data.Proxy
-import           Data.Time
-import           Network.AWS.Env
-import           Network.AWS.Internal.Logger
-import           Network.AWS.Lens             ((%~), (&), (^.), (^?))
-import           Network.AWS.Lens             (to, view, _Just)
-import           Network.AWS.Prelude
-import           Network.AWS.Waiter
-import           Network.HTTP.Conduit         hiding (Proxy, Request, Response)
+import Control.Arrow                (first)
+import Control.Monad
+import Control.Monad.Catch
+import Control.Monad.Reader
+import Control.Monad.Trans.Resource
+import Control.Retry
+
+import Data.List   (intersperse)
+import Data.Monoid
+import Data.Proxy
+import Data.Time
+
+import Network.AWS.Env
+import Network.AWS.Internal.Logger
+import Network.AWS.Lens            ((%~), (&), (^.), (^?))
+import Network.AWS.Lens            (to, view, _Just)
+import Network.AWS.Prelude
+import Network.AWS.Waiter
+import Network.HTTP.Conduit        hiding (Proxy, Request, Response)
 
 retrier :: ( MonadCatch m
            , MonadResource m

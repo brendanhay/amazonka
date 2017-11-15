@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.CreateTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates one or more tags for configuration items. Tags are metadata that help you categorize IT assets. This API accepts a list of multiple configuration items.
+--
+--
 module Network.AWS.Discovery.CreateTags
     (
     -- * Creating a Request
@@ -35,41 +37,37 @@ module Network.AWS.Discovery.CreateTags
     , ctrsResponseStatus
     ) where
 
-import           Network.AWS.Discovery.Types
-import           Network.AWS.Discovery.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Discovery.Types
+import Network.AWS.Discovery.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createTags' smart constructor.
 data CreateTags = CreateTags'
-    { _ctConfigurationIds :: ![Text]
-    , _ctTags             :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctConfigurationIds :: ![Text]
+  , _ctTags             :: ![Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTags' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctConfigurationIds'
+-- * 'ctConfigurationIds' - A list of configuration items that you want to tag.
 --
--- * 'ctTags'
+-- * 'ctTags' - Tags that you want to associate with one or more configuration items. Specify the tags that you want to create in a /key/ -/value/ format. For example: @{"key": "serverType", "value": "webServer"}@
 createTags
     :: CreateTags
-createTags =
-    CreateTags'
-    { _ctConfigurationIds = mempty
-    , _ctTags = mempty
-    }
+createTags = CreateTags' {_ctConfigurationIds = mempty, _ctTags = mempty}
+
 
 -- | A list of configuration items that you want to tag.
 ctConfigurationIds :: Lens' CreateTags [Text]
 ctConfigurationIds = lens _ctConfigurationIds (\ s a -> s{_ctConfigurationIds = a}) . _Coerce;
 
--- | Tags that you want to associate with one or more configuration items. Specify the tags that you want to create in a /key/-/value/ format. For example:
---
--- '{\"key\": \"serverType\", \"value\": \"webServer\"}'
+-- | Tags that you want to associate with one or more configuration items. Specify the tags that you want to create in a /key/ -/value/ format. For example: @{"key": "serverType", "value": "webServer"}@
 ctTags :: Lens' CreateTags [Tag]
 ctTags = lens _ctTags (\ s a -> s{_ctTags = a}) . _Coerce;
 
@@ -81,9 +79,9 @@ instance AWSRequest CreateTags where
               (\ s h x ->
                  CreateTagsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CreateTags
+instance Hashable CreateTags where
 
-instance NFData CreateTags
+instance NFData CreateTags where
 
 instance ToHeaders CreateTags where
         toHeaders
@@ -110,24 +108,24 @@ instance ToQuery CreateTags where
 
 -- | /See:/ 'createTagsResponse' smart constructor.
 newtype CreateTagsResponse = CreateTagsResponse'
-    { _ctrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTagsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctrsResponseStatus'
+-- * 'ctrsResponseStatus' - -- | The response status code.
 createTagsResponse
     :: Int -- ^ 'ctrsResponseStatus'
     -> CreateTagsResponse
 createTagsResponse pResponseStatus_ =
-    CreateTagsResponse'
-    { _ctrsResponseStatus = pResponseStatus_
-    }
+  CreateTagsResponse' {_ctrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTagsResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
 
-instance NFData CreateTagsResponse
+instance NFData CreateTagsResponse where

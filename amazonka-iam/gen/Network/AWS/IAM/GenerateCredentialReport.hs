@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GenerateCredentialReport
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates a credential report for the AWS account. For more information about the credential report, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports> in the /IAM User Guide/.
+-- Generates a credential report for the AWS account. For more information about the credential report, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports> in the /IAM User Guide/ .
+--
+--
 module Network.AWS.IAM.GenerateCredentialReport
     (
     -- * Creating a Request
@@ -34,23 +36,25 @@ module Network.AWS.IAM.GenerateCredentialReport
     , gcrrsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'generateCredentialReport' smart constructor.
 data GenerateCredentialReport =
-    GenerateCredentialReport'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  GenerateCredentialReport'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GenerateCredentialReport' with the minimum fields required to make a request.
 --
 generateCredentialReport
     :: GenerateCredentialReport
 generateCredentialReport = GenerateCredentialReport'
+
 
 instance AWSRequest GenerateCredentialReport where
         type Rs GenerateCredentialReport =
@@ -63,9 +67,9 @@ instance AWSRequest GenerateCredentialReport where
                    (x .@? "State") <*> (x .@? "Description") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GenerateCredentialReport
+instance Hashable GenerateCredentialReport where
 
-instance NFData GenerateCredentialReport
+instance NFData GenerateCredentialReport where
 
 instance ToHeaders GenerateCredentialReport where
         toHeaders = const mempty
@@ -81,33 +85,37 @@ instance ToQuery GenerateCredentialReport where
                     ("GenerateCredentialReport" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | Contains the response to a successful < GenerateCredentialReport> request.
+-- | Contains the response to a successful 'GenerateCredentialReport' request.
+--
+--
 --
 -- /See:/ 'generateCredentialReportResponse' smart constructor.
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse'
-    { _gcrrsState          :: !(Maybe ReportStateType)
-    , _gcrrsDescription    :: !(Maybe Text)
-    , _gcrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcrrsState          :: !(Maybe ReportStateType)
+  , _gcrrsDescription    :: !(Maybe Text)
+  , _gcrrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GenerateCredentialReportResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcrrsState'
+-- * 'gcrrsState' - Information about the state of the credential report.
 --
--- * 'gcrrsDescription'
+-- * 'gcrrsDescription' - Information about the credential report.
 --
--- * 'gcrrsResponseStatus'
+-- * 'gcrrsResponseStatus' - -- | The response status code.
 generateCredentialReportResponse
     :: Int -- ^ 'gcrrsResponseStatus'
     -> GenerateCredentialReportResponse
 generateCredentialReportResponse pResponseStatus_ =
-    GenerateCredentialReportResponse'
-    { _gcrrsState = Nothing
-    , _gcrrsDescription = Nothing
-    , _gcrrsResponseStatus = pResponseStatus_
-    }
+  GenerateCredentialReportResponse'
+  { _gcrrsState = Nothing
+  , _gcrrsDescription = Nothing
+  , _gcrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the state of the credential report.
 gcrrsState :: Lens' GenerateCredentialReportResponse (Maybe ReportStateType)
@@ -117,8 +125,9 @@ gcrrsState = lens _gcrrsState (\ s a -> s{_gcrrsState = a});
 gcrrsDescription :: Lens' GenerateCredentialReportResponse (Maybe Text)
 gcrrsDescription = lens _gcrrsDescription (\ s a -> s{_gcrrsDescription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gcrrsResponseStatus :: Lens' GenerateCredentialReportResponse Int
 gcrrsResponseStatus = lens _gcrrsResponseStatus (\ s a -> s{_gcrrsResponseStatus = a});
 
 instance NFData GenerateCredentialReportResponse
+         where

@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.CompleteVaultLock
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation completes the vault locking process by transitioning the vault lock from the 'InProgress' state to the 'Locked' state, which causes the vault lock policy to become unchangeable. A vault lock is put into the 'InProgress' state by calling < InitiateVaultLock>. You can obtain the state of the vault lock by calling < GetVaultLock>. For more information about the vault locking process, <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html Amazon Glacier Vault Lock>.
+-- This operation completes the vault locking process by transitioning the vault lock from the @InProgress@ state to the @Locked@ state, which causes the vault lock policy to become unchangeable. A vault lock is put into the @InProgress@ state by calling 'InitiateVaultLock' . You can obtain the state of the vault lock by calling 'GetVaultLock' . For more information about the vault locking process, <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html Amazon Glacier Vault Lock> .
 --
--- This operation is idempotent. This request is always successful if the vault lock is in the 'Locked' state and the provided lock ID matches the lock ID originally used to lock the vault.
 --
--- If an invalid lock ID is passed in the request when the vault lock is in the 'Locked' state, the operation returns an 'AccessDeniedException' error. If an invalid lock ID is passed in the request when the vault lock is in the 'InProgress' state, the operation throws an 'InvalidParameter' error.
+-- This operation is idempotent. This request is always successful if the vault lock is in the @Locked@ state and the provided lock ID matches the lock ID originally used to lock the vault.
+--
+-- If an invalid lock ID is passed in the request when the vault lock is in the @Locked@ state, the operation returns an @AccessDeniedException@ error. If an invalid lock ID is passed in the request when the vault lock is in the @InProgress@ state, the operation throws an @InvalidParameter@ error.
+--
 module Network.AWS.Glacier.CompleteVaultLock
     (
     -- * Creating a Request
@@ -38,44 +40,48 @@ module Network.AWS.Glacier.CompleteVaultLock
     , CompleteVaultLockResponse
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | The input values for 'CompleteVaultLock'.
+-- | The input values for @CompleteVaultLock@ .
+--
+--
 --
 -- /See:/ 'completeVaultLock' smart constructor.
 data CompleteVaultLock = CompleteVaultLock'
-    { _cvlAccountId :: !Text
-    , _cvlVaultName :: !Text
-    , _cvlLockId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cvlAccountId :: !Text
+  , _cvlVaultName :: !Text
+  , _cvlLockId    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CompleteVaultLock' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvlAccountId'
+-- * 'cvlAccountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 --
--- * 'cvlVaultName'
+-- * 'cvlVaultName' - The name of the vault.
 --
--- * 'cvlLockId'
+-- * 'cvlLockId' - The @lockId@ value is the lock ID obtained from a 'InitiateVaultLock' request.
 completeVaultLock
     :: Text -- ^ 'cvlAccountId'
     -> Text -- ^ 'cvlVaultName'
     -> Text -- ^ 'cvlLockId'
     -> CompleteVaultLock
 completeVaultLock pAccountId_ pVaultName_ pLockId_ =
-    CompleteVaultLock'
-    { _cvlAccountId = pAccountId_
-    , _cvlVaultName = pVaultName_
-    , _cvlLockId = pLockId_
-    }
+  CompleteVaultLock'
+  { _cvlAccountId = pAccountId_
+  , _cvlVaultName = pVaultName_
+  , _cvlLockId = pLockId_
+  }
 
--- | The 'AccountId' value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (apos-apos) in the ID.
+
+-- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 cvlAccountId :: Lens' CompleteVaultLock Text
 cvlAccountId = lens _cvlAccountId (\ s a -> s{_cvlAccountId = a});
 
@@ -83,7 +89,7 @@ cvlAccountId = lens _cvlAccountId (\ s a -> s{_cvlAccountId = a});
 cvlVaultName :: Lens' CompleteVaultLock Text
 cvlVaultName = lens _cvlVaultName (\ s a -> s{_cvlVaultName = a});
 
--- | The 'lockId' value is the lock ID obtained from a < InitiateVaultLock> request.
+-- | The @lockId@ value is the lock ID obtained from a 'InitiateVaultLock' request.
 cvlLockId :: Lens' CompleteVaultLock Text
 cvlLockId = lens _cvlLockId (\ s a -> s{_cvlLockId = a});
 
@@ -92,9 +98,9 @@ instance AWSRequest CompleteVaultLock where
         request = postJSON glacier
         response = receiveNull CompleteVaultLockResponse'
 
-instance Hashable CompleteVaultLock
+instance Hashable CompleteVaultLock where
 
-instance NFData CompleteVaultLock
+instance NFData CompleteVaultLock where
 
 instance ToHeaders CompleteVaultLock where
         toHeaders = const mempty
@@ -113,8 +119,9 @@ instance ToQuery CompleteVaultLock where
 
 -- | /See:/ 'completeVaultLockResponse' smart constructor.
 data CompleteVaultLockResponse =
-    CompleteVaultLockResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CompleteVaultLockResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CompleteVaultLockResponse' with the minimum fields required to make a request.
 --
@@ -122,4 +129,5 @@ completeVaultLockResponse
     :: CompleteVaultLockResponse
 completeVaultLockResponse = CompleteVaultLockResponse'
 
-instance NFData CompleteVaultLockResponse
+
+instance NFData CompleteVaultLockResponse where

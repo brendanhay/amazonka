@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeEventCategories
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Displays a list of categories for all event source types, or, if specified, for a specified source type. You can see a list of the event categories and source types in the <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events> topic in the /Amazon RDS User Guide./
+--
+--
 module Network.AWS.RDS.DescribeEventCategories
     (
     -- * Creating a Request
@@ -36,39 +38,38 @@ module Network.AWS.RDS.DescribeEventCategories
     , decrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeEventCategories' smart constructor.
 data DescribeEventCategories = DescribeEventCategories'
-    { _decSourceType :: !(Maybe Text)
-    , _decFilters    :: !(Maybe [Filter])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _decSourceType :: !(Maybe Text)
+  , _decFilters    :: !(Maybe [Filter])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventCategories' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decSourceType'
+-- * 'decSourceType' - The type of source that is generating the events. Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot
 --
--- * 'decFilters'
+-- * 'decFilters' - This parameter is not currently supported.
 describeEventCategories
     :: DescribeEventCategories
 describeEventCategories =
-    DescribeEventCategories'
-    { _decSourceType = Nothing
-    , _decFilters = Nothing
-    }
+  DescribeEventCategories' {_decSourceType = Nothing, _decFilters = Nothing}
 
--- | The type of source that will be generating the events.
---
--- Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot
+
+-- | The type of source that is generating the events. Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot
 decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a});
 
@@ -88,9 +89,9 @@ instance AWSRequest DescribeEventCategories where
                       may (parseXMLList "EventCategoriesMap"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEventCategories
+instance Hashable DescribeEventCategories where
 
-instance NFData DescribeEventCategories
+instance NFData DescribeEventCategories where
 
 instance ToHeaders DescribeEventCategories where
         toHeaders = const mempty
@@ -110,34 +111,38 @@ instance ToQuery DescribeEventCategories where
 
 -- | Data returned from the __DescribeEventCategories__ action.
 --
+--
+--
 -- /See:/ 'describeEventCategoriesResponse' smart constructor.
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
-    { _decrsEventCategoriesMapList :: !(Maybe [EventCategoriesMap])
-    , _decrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _decrsEventCategoriesMapList :: !(Maybe [EventCategoriesMap])
+  , _decrsResponseStatus         :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventCategoriesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decrsEventCategoriesMapList'
+-- * 'decrsEventCategoriesMapList' - A list of EventCategoriesMap data types.
 --
--- * 'decrsResponseStatus'
+-- * 'decrsResponseStatus' - -- | The response status code.
 describeEventCategoriesResponse
     :: Int -- ^ 'decrsResponseStatus'
     -> DescribeEventCategoriesResponse
 describeEventCategoriesResponse pResponseStatus_ =
-    DescribeEventCategoriesResponse'
-    { _decrsEventCategoriesMapList = Nothing
-    , _decrsResponseStatus = pResponseStatus_
-    }
+  DescribeEventCategoriesResponse'
+  { _decrsEventCategoriesMapList = Nothing
+  , _decrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of EventCategoriesMap data types.
 decrsEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
 decrsEventCategoriesMapList = lens _decrsEventCategoriesMapList (\ s a -> s{_decrsEventCategoriesMapList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 decrsResponseStatus :: Lens' DescribeEventCategoriesResponse Int
 decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus = a});
 
-instance NFData DescribeEventCategoriesResponse
+instance NFData DescribeEventCategoriesResponse where

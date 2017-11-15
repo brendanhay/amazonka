@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateApplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the specified application to have the specified properties.
 --
--- If a property (for example, 'description') is not provided, the value remains unchanged. To clear these properties, specify an empty string.
+--
 module Network.AWS.ElasticBeanstalk.UpdateApplication
     (
     -- * Creating a Request
@@ -37,44 +37,44 @@ module Network.AWS.ElasticBeanstalk.UpdateApplication
     , admApplication
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to update an application.
 --
+--
+--
 -- /See:/ 'updateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-    { _uaDescription     :: !(Maybe Text)
-    , _uaApplicationName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uaDescription     :: !(Maybe Text)
+  , _uaApplicationName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateApplication' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaDescription'
+-- * 'uaDescription' - A new description for the application. Default: If not specified, AWS Elastic Beanstalk does not update the description.
 --
--- * 'uaApplicationName'
+-- * 'uaApplicationName' - The name of the application to update. If no such application is found, @UpdateApplication@ returns an @InvalidParameterValue@ error.
 updateApplication
     :: Text -- ^ 'uaApplicationName'
     -> UpdateApplication
 updateApplication pApplicationName_ =
-    UpdateApplication'
-    { _uaDescription = Nothing
-    , _uaApplicationName = pApplicationName_
-    }
+  UpdateApplication'
+  {_uaDescription = Nothing, _uaApplicationName = pApplicationName_}
 
--- | A new description for the application.
---
--- Default: If not specified, AWS Elastic Beanstalk does not update the description.
+
+-- | A new description for the application. Default: If not specified, AWS Elastic Beanstalk does not update the description.
 uaDescription :: Lens' UpdateApplication (Maybe Text)
 uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a});
 
--- | The name of the application to update. If no such application is found, 'UpdateApplication' returns an 'InvalidParameterValue' error.
+-- | The name of the application to update. If no such application is found, @UpdateApplication@ returns an @InvalidParameterValue@ error.
 uaApplicationName :: Lens' UpdateApplication Text
 uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
 
@@ -86,9 +86,9 @@ instance AWSRequest UpdateApplication where
           = receiveXMLWrapper "UpdateApplicationResult"
               (\ s h x -> parseXML x)
 
-instance Hashable UpdateApplication
+instance Hashable UpdateApplication where
 
-instance NFData UpdateApplication
+instance NFData UpdateApplication where
 
 instance ToHeaders UpdateApplication where
         toHeaders = const mempty

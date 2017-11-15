@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.IoT.UpdateCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the status of the specified certificate. This operation is idempotent.
 --
+--
 -- Moving a certificate from the ACTIVE state (including REVOKED) will not disconnect currently connected devices, but these devices will be unable to reconnect.
 --
 -- The ACTIVE state is required to authenticate devices connecting to AWS IoT using a certificate.
+--
 module Network.AWS.IoT.UpdateCertificate
     (
     -- * Creating a Request
@@ -37,47 +39,45 @@ module Network.AWS.IoT.UpdateCertificate
     , UpdateCertificateResponse
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the UpdateCertificate operation.
 --
+--
+--
 -- /See:/ 'updateCertificate' smart constructor.
 data UpdateCertificate = UpdateCertificate'
-    { _ucCertificateId :: !Text
-    , _ucNewStatus     :: !CertificateStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucCertificateId :: !Text
+  , _ucNewStatus     :: !CertificateStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateCertificate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucCertificateId'
+-- * 'ucCertificateId' - The ID of the certificate.
 --
--- * 'ucNewStatus'
+-- * 'ucNewStatus' - The new status. __Note:__ Setting the status to PENDING_TRANSFER will result in an exception being thrown. PENDING_TRANSFER is a status used internally by AWS IoT. It is not intended for developer use. __Note:__ The status value REGISTER_INACTIVE is deprecated and should not be used.
 updateCertificate
     :: Text -- ^ 'ucCertificateId'
     -> CertificateStatus -- ^ 'ucNewStatus'
     -> UpdateCertificate
 updateCertificate pCertificateId_ pNewStatus_ =
-    UpdateCertificate'
-    { _ucCertificateId = pCertificateId_
-    , _ucNewStatus = pNewStatus_
-    }
+  UpdateCertificate'
+  {_ucCertificateId = pCertificateId_, _ucNewStatus = pNewStatus_}
+
 
 -- | The ID of the certificate.
 ucCertificateId :: Lens' UpdateCertificate Text
 ucCertificateId = lens _ucCertificateId (\ s a -> s{_ucCertificateId = a});
 
--- | The new status.
---
--- __Note:__ Setting the status to PENDING_TRANSFER will result in an exception being thrown. PENDING_TRANSFER is a status used internally by AWS IoT. It is not intended for developer use.
---
--- __Note:__ The status value REGISTER_INACTIVE is deprecated and should not be used.
+-- | The new status. __Note:__ Setting the status to PENDING_TRANSFER will result in an exception being thrown. PENDING_TRANSFER is a status used internally by AWS IoT. It is not intended for developer use. __Note:__ The status value REGISTER_INACTIVE is deprecated and should not be used.
 ucNewStatus :: Lens' UpdateCertificate CertificateStatus
 ucNewStatus = lens _ucNewStatus (\ s a -> s{_ucNewStatus = a});
 
@@ -86,9 +86,9 @@ instance AWSRequest UpdateCertificate where
         request = putJSON ioT
         response = receiveNull UpdateCertificateResponse'
 
-instance Hashable UpdateCertificate
+instance Hashable UpdateCertificate where
 
-instance NFData UpdateCertificate
+instance NFData UpdateCertificate where
 
 instance ToHeaders UpdateCertificate where
         toHeaders = const mempty
@@ -106,8 +106,9 @@ instance ToQuery UpdateCertificate where
 
 -- | /See:/ 'updateCertificateResponse' smart constructor.
 data UpdateCertificateResponse =
-    UpdateCertificateResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateCertificateResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateCertificateResponse' with the minimum fields required to make a request.
 --
@@ -115,4 +116,5 @@ updateCertificateResponse
     :: UpdateCertificateResponse
 updateCertificateResponse = UpdateCertificateResponse'
 
-instance NFData UpdateCertificateResponse
+
+instance NFData UpdateCertificateResponse where

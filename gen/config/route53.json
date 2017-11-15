@@ -1,5 +1,8 @@
 {
     "libraryName": "amazonka-route53",
+    "extraDependencies": [
+        "text >= 1.1"
+    ],
     "typeModules": [
         "Network.AWS.Route53.Internal"
     ],
@@ -12,7 +15,7 @@
         "ResourceRecordSetRegion": {
             "replacedBy": {
                 "name": "Region",
-                "deriving": []
+                "underive": []
             }
         },
         "RRType": {
@@ -20,6 +23,12 @@
         },
         "ResourceRecordSetFailover": {
             "renamedTo": "Failover"
+        },
+        "ResourceId": {
+            "replacedBy": {
+                "name": "ResourceId",
+                "underive": []
+            }
         }
     }
 }

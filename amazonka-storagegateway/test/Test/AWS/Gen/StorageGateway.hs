@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.StorageGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.StorageGateway where
 
 import Data.Proxy
+import Network.AWS.StorageGateway
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.Tasty
-import Network.AWS.StorageGateway
 import Test.AWS.StorageGateway.Internal
+import Test.Tasty
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -34,6 +34,9 @@ import Test.AWS.StorageGateway.Internal
 --         , requestCreateStorediSCSIVolume $
 --             createStorediSCSIVolume
 --
+--         , requestCreateNFSFileShare $
+--             createNFSFileShare
+--
 --         , requestDescribeChapCredentials $
 --             describeChapCredentials
 --
@@ -48,6 +51,12 @@ import Test.AWS.StorageGateway.Internal
 --
 --         , requestCreateCachediSCSIVolume $
 --             createCachediSCSIVolume
+--
+--         , requestListFileShares $
+--             listFileShares
+--
+--         , requestDeleteFileShare $
+--             deleteFileShare
 --
 --         , requestListVolumeInitiators $
 --             listVolumeInitiators
@@ -118,6 +127,12 @@ import Test.AWS.StorageGateway.Internal
 --         , requestDescribeGatewayInformation $
 --             describeGatewayInformation
 --
+--         , requestRefreshCache $
+--             refreshCache
+--
+--         , requestUpdateNFSFileShare $
+--             updateNFSFileShare
+--
 --         , requestRetrieveTapeArchive $
 --             retrieveTapeArchive
 --
@@ -153,6 +168,9 @@ import Test.AWS.StorageGateway.Internal
 --
 --         , requestDeleteTapeArchive $
 --             deleteTapeArchive
+--
+--         , requestDescribeNFSFileShares $
+--             describeNFSFileShares
 --
 --         , requestListVolumeRecoveryPoints $
 --             listVolumeRecoveryPoints
@@ -205,6 +223,9 @@ import Test.AWS.StorageGateway.Internal
 --         , responseCreateStorediSCSIVolume $
 --             createStorediSCSIVolumeResponse
 --
+--         , responseCreateNFSFileShare $
+--             createNFSFileShareResponse
+--
 --         , responseDescribeChapCredentials $
 --             describeChapCredentialsResponse
 --
@@ -219,6 +240,12 @@ import Test.AWS.StorageGateway.Internal
 --
 --         , responseCreateCachediSCSIVolume $
 --             createCachediSCSIVolumeResponse
+--
+--         , responseListFileShares $
+--             listFileSharesResponse
+--
+--         , responseDeleteFileShare $
+--             deleteFileShareResponse
 --
 --         , responseListVolumeInitiators $
 --             listVolumeInitiatorsResponse
@@ -289,6 +316,12 @@ import Test.AWS.StorageGateway.Internal
 --         , responseDescribeGatewayInformation $
 --             describeGatewayInformationResponse
 --
+--         , responseRefreshCache $
+--             refreshCacheResponse
+--
+--         , responseUpdateNFSFileShare $
+--             updateNFSFileShareResponse
+--
 --         , responseRetrieveTapeArchive $
 --             retrieveTapeArchiveResponse
 --
@@ -324,6 +357,9 @@ import Test.AWS.StorageGateway.Internal
 --
 --         , responseDeleteTapeArchive $
 --             deleteTapeArchiveResponse
+--
+--         , responseDescribeNFSFileShares $
+--             describeNFSFileSharesResponse
 --
 --         , responseListVolumeRecoveryPoints $
 --             listVolumeRecoveryPointsResponse
@@ -382,6 +418,11 @@ requestCreateStorediSCSIVolume = req
     "CreateStorediSCSIVolume"
     "fixture/CreateStorediSCSIVolume.yaml"
 
+requestCreateNFSFileShare :: CreateNFSFileShare -> TestTree
+requestCreateNFSFileShare = req
+    "CreateNFSFileShare"
+    "fixture/CreateNFSFileShare.yaml"
+
 requestDescribeChapCredentials :: DescribeChapCredentials -> TestTree
 requestDescribeChapCredentials = req
     "DescribeChapCredentials"
@@ -406,6 +447,16 @@ requestCreateCachediSCSIVolume :: CreateCachediSCSIVolume -> TestTree
 requestCreateCachediSCSIVolume = req
     "CreateCachediSCSIVolume"
     "fixture/CreateCachediSCSIVolume.yaml"
+
+requestListFileShares :: ListFileShares -> TestTree
+requestListFileShares = req
+    "ListFileShares"
+    "fixture/ListFileShares.yaml"
+
+requestDeleteFileShare :: DeleteFileShare -> TestTree
+requestDeleteFileShare = req
+    "DeleteFileShare"
+    "fixture/DeleteFileShare.yaml"
 
 requestListVolumeInitiators :: ListVolumeInitiators -> TestTree
 requestListVolumeInitiators = req
@@ -522,6 +573,16 @@ requestDescribeGatewayInformation = req
     "DescribeGatewayInformation"
     "fixture/DescribeGatewayInformation.yaml"
 
+requestRefreshCache :: RefreshCache -> TestTree
+requestRefreshCache = req
+    "RefreshCache"
+    "fixture/RefreshCache.yaml"
+
+requestUpdateNFSFileShare :: UpdateNFSFileShare -> TestTree
+requestUpdateNFSFileShare = req
+    "UpdateNFSFileShare"
+    "fixture/UpdateNFSFileShare.yaml"
+
 requestRetrieveTapeArchive :: RetrieveTapeArchive -> TestTree
 requestRetrieveTapeArchive = req
     "RetrieveTapeArchive"
@@ -581,6 +642,11 @@ requestDeleteTapeArchive :: DeleteTapeArchive -> TestTree
 requestDeleteTapeArchive = req
     "DeleteTapeArchive"
     "fixture/DeleteTapeArchive.yaml"
+
+requestDescribeNFSFileShares :: DescribeNFSFileShares -> TestTree
+requestDescribeNFSFileShares = req
+    "DescribeNFSFileShares"
+    "fixture/DescribeNFSFileShares.yaml"
 
 requestListVolumeRecoveryPoints :: ListVolumeRecoveryPoints -> TestTree
 requestListVolumeRecoveryPoints = req
@@ -668,6 +734,13 @@ responseCreateStorediSCSIVolume = res
     storageGateway
     (Proxy :: Proxy CreateStorediSCSIVolume)
 
+responseCreateNFSFileShare :: CreateNFSFileShareResponse -> TestTree
+responseCreateNFSFileShare = res
+    "CreateNFSFileShareResponse"
+    "fixture/CreateNFSFileShareResponse.proto"
+    storageGateway
+    (Proxy :: Proxy CreateNFSFileShare)
+
 responseDescribeChapCredentials :: DescribeChapCredentialsResponse -> TestTree
 responseDescribeChapCredentials = res
     "DescribeChapCredentialsResponse"
@@ -702,6 +775,20 @@ responseCreateCachediSCSIVolume = res
     "fixture/CreateCachediSCSIVolumeResponse.proto"
     storageGateway
     (Proxy :: Proxy CreateCachediSCSIVolume)
+
+responseListFileShares :: ListFileSharesResponse -> TestTree
+responseListFileShares = res
+    "ListFileSharesResponse"
+    "fixture/ListFileSharesResponse.proto"
+    storageGateway
+    (Proxy :: Proxy ListFileShares)
+
+responseDeleteFileShare :: DeleteFileShareResponse -> TestTree
+responseDeleteFileShare = res
+    "DeleteFileShareResponse"
+    "fixture/DeleteFileShareResponse.proto"
+    storageGateway
+    (Proxy :: Proxy DeleteFileShare)
 
 responseListVolumeInitiators :: ListVolumeInitiatorsResponse -> TestTree
 responseListVolumeInitiators = res
@@ -864,6 +951,20 @@ responseDescribeGatewayInformation = res
     storageGateway
     (Proxy :: Proxy DescribeGatewayInformation)
 
+responseRefreshCache :: RefreshCacheResponse -> TestTree
+responseRefreshCache = res
+    "RefreshCacheResponse"
+    "fixture/RefreshCacheResponse.proto"
+    storageGateway
+    (Proxy :: Proxy RefreshCache)
+
+responseUpdateNFSFileShare :: UpdateNFSFileShareResponse -> TestTree
+responseUpdateNFSFileShare = res
+    "UpdateNFSFileShareResponse"
+    "fixture/UpdateNFSFileShareResponse.proto"
+    storageGateway
+    (Proxy :: Proxy UpdateNFSFileShare)
+
 responseRetrieveTapeArchive :: RetrieveTapeArchiveResponse -> TestTree
 responseRetrieveTapeArchive = res
     "RetrieveTapeArchiveResponse"
@@ -947,6 +1048,13 @@ responseDeleteTapeArchive = res
     "fixture/DeleteTapeArchiveResponse.proto"
     storageGateway
     (Proxy :: Proxy DeleteTapeArchive)
+
+responseDescribeNFSFileShares :: DescribeNFSFileSharesResponse -> TestTree
+responseDescribeNFSFileShares = res
+    "DescribeNFSFileSharesResponse"
+    "fixture/DescribeNFSFileSharesResponse.proto"
+    storageGateway
+    (Proxy :: Proxy DescribeNFSFileShares)
 
 responseListVolumeRecoveryPoints :: ListVolumeRecoveryPointsResponse -> TestTree
 responseListVolumeRecoveryPoints = res

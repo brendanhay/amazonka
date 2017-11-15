@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListUserPools
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the user pools associated with an AWS account.
+--
+--
 module Network.AWS.CognitoIdentityProvider.ListUserPools
     (
     -- * Creating a Request
@@ -37,36 +39,37 @@ module Network.AWS.CognitoIdentityProvider.ListUserPools
     , luprsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to list user pools.
 --
+--
+--
 -- /See:/ 'listUserPools' smart constructor.
 data ListUserPools = ListUserPools'
-    { _lupNextToken  :: !(Maybe Text)
-    , _lupMaxResults :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lupNextToken  :: !(Maybe Text)
+  , _lupMaxResults :: !Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListUserPools' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lupNextToken'
+-- * 'lupNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'lupMaxResults'
+-- * 'lupMaxResults' - The maximum number of results you want the request to return when listing the user pools.
 listUserPools
     :: Natural -- ^ 'lupMaxResults'
     -> ListUserPools
 listUserPools pMaxResults_ =
-    ListUserPools'
-    { _lupNextToken = Nothing
-    , _lupMaxResults = _Nat # pMaxResults_
-    }
+  ListUserPools' {_lupNextToken = Nothing, _lupMaxResults = _Nat # pMaxResults_}
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lupNextToken :: Lens' ListUserPools (Maybe Text)
@@ -87,9 +90,9 @@ instance AWSRequest ListUserPools where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListUserPools
+instance Hashable ListUserPools where
 
-instance NFData ListUserPools
+instance NFData ListUserPools where
 
 instance ToHeaders ListUserPools where
         toHeaders
@@ -116,31 +119,35 @@ instance ToQuery ListUserPools where
 
 -- | Represents the response to list user pools.
 --
+--
+--
 -- /See:/ 'listUserPoolsResponse' smart constructor.
 data ListUserPoolsResponse = ListUserPoolsResponse'
-    { _luprsUserPools      :: !(Maybe [UserPoolDescriptionType])
-    , _luprsNextToken      :: !(Maybe Text)
-    , _luprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _luprsUserPools      :: !(Maybe [UserPoolDescriptionType])
+  , _luprsNextToken      :: !(Maybe Text)
+  , _luprsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListUserPoolsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'luprsUserPools'
+-- * 'luprsUserPools' - The user pools from the response to list users.
 --
--- * 'luprsNextToken'
+-- * 'luprsNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'luprsResponseStatus'
+-- * 'luprsResponseStatus' - -- | The response status code.
 listUserPoolsResponse
     :: Int -- ^ 'luprsResponseStatus'
     -> ListUserPoolsResponse
 listUserPoolsResponse pResponseStatus_ =
-    ListUserPoolsResponse'
-    { _luprsUserPools = Nothing
-    , _luprsNextToken = Nothing
-    , _luprsResponseStatus = pResponseStatus_
-    }
+  ListUserPoolsResponse'
+  { _luprsUserPools = Nothing
+  , _luprsNextToken = Nothing
+  , _luprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The user pools from the response to list users.
 luprsUserPools :: Lens' ListUserPoolsResponse [UserPoolDescriptionType]
@@ -150,8 +157,8 @@ luprsUserPools = lens _luprsUserPools (\ s a -> s{_luprsUserPools = a}) . _Defau
 luprsNextToken :: Lens' ListUserPoolsResponse (Maybe Text)
 luprsNextToken = lens _luprsNextToken (\ s a -> s{_luprsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 luprsResponseStatus :: Lens' ListUserPoolsResponse Int
 luprsResponseStatus = lens _luprsResponseStatus (\ s a -> s{_luprsResponseStatus = a});
 
-instance NFData ListUserPoolsResponse
+instance NFData ListUserPoolsResponse where

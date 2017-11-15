@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.ConnectDirectory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an AD Connector to connect to an on-premises directory.
+--
+--
+-- Before you call /ConnectDirectory/ , ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the /ConnectDirectory/ operation, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference> .
+--
 module Network.AWS.DirectoryService.ConnectDirectory
     (
     -- * Creating a Request
@@ -40,40 +44,43 @@ module Network.AWS.DirectoryService.ConnectDirectory
     , cdrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the inputs for the < ConnectDirectory> operation.
+-- | Contains the inputs for the 'ConnectDirectory' operation.
+--
+--
 --
 -- /See:/ 'connectDirectory' smart constructor.
 data ConnectDirectory = ConnectDirectory'
-    { _cdShortName       :: !(Maybe Text)
-    , _cdDescription     :: !(Maybe Text)
-    , _cdName            :: !Text
-    , _cdPassword        :: !(Sensitive Text)
-    , _cdSize            :: !DirectorySize
-    , _cdConnectSettings :: !DirectoryConnectSettings
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdShortName       :: !(Maybe Text)
+  , _cdDescription     :: !(Maybe Text)
+  , _cdName            :: !Text
+  , _cdPassword        :: !(Sensitive Text)
+  , _cdSize            :: !DirectorySize
+  , _cdConnectSettings :: !DirectoryConnectSettings
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConnectDirectory' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdShortName'
+-- * 'cdShortName' - The NetBIOS name of the on-premises directory, such as @CORP@ .
 --
--- * 'cdDescription'
+-- * 'cdDescription' - A textual description for the directory.
 --
--- * 'cdName'
+-- * 'cdName' - The fully-qualified name of the on-premises directory, such as @corp.example.com@ .
 --
--- * 'cdPassword'
+-- * 'cdPassword' - The password for the on-premises user account.
 --
--- * 'cdSize'
+-- * 'cdSize' - The size of the directory.
 --
--- * 'cdConnectSettings'
+-- * 'cdConnectSettings' - A 'DirectoryConnectSettings' object that contains additional information for the operation.
 connectDirectory
     :: Text -- ^ 'cdName'
     -> Text -- ^ 'cdPassword'
@@ -81,16 +88,17 @@ connectDirectory
     -> DirectoryConnectSettings -- ^ 'cdConnectSettings'
     -> ConnectDirectory
 connectDirectory pName_ pPassword_ pSize_ pConnectSettings_ =
-    ConnectDirectory'
-    { _cdShortName = Nothing
-    , _cdDescription = Nothing
-    , _cdName = pName_
-    , _cdPassword = _Sensitive # pPassword_
-    , _cdSize = pSize_
-    , _cdConnectSettings = pConnectSettings_
-    }
+  ConnectDirectory'
+  { _cdShortName = Nothing
+  , _cdDescription = Nothing
+  , _cdName = pName_
+  , _cdPassword = _Sensitive # pPassword_
+  , _cdSize = pSize_
+  , _cdConnectSettings = pConnectSettings_
+  }
 
--- | The NetBIOS name of the on-premises directory, such as 'CORP'.
+
+-- | The NetBIOS name of the on-premises directory, such as @CORP@ .
 cdShortName :: Lens' ConnectDirectory (Maybe Text)
 cdShortName = lens _cdShortName (\ s a -> s{_cdShortName = a});
 
@@ -98,7 +106,7 @@ cdShortName = lens _cdShortName (\ s a -> s{_cdShortName = a});
 cdDescription :: Lens' ConnectDirectory (Maybe Text)
 cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
 
--- | The fully-qualified name of the on-premises directory, such as 'corp.example.com'.
+-- | The fully-qualified name of the on-premises directory, such as @corp.example.com@ .
 cdName :: Lens' ConnectDirectory Text
 cdName = lens _cdName (\ s a -> s{_cdName = a});
 
@@ -110,7 +118,7 @@ cdPassword = lens _cdPassword (\ s a -> s{_cdPassword = a}) . _Sensitive;
 cdSize :: Lens' ConnectDirectory DirectorySize
 cdSize = lens _cdSize (\ s a -> s{_cdSize = a});
 
--- | A < DirectoryConnectSettings> object that contains additional information for the operation.
+-- | A 'DirectoryConnectSettings' object that contains additional information for the operation.
 cdConnectSettings :: Lens' ConnectDirectory DirectoryConnectSettings
 cdConnectSettings = lens _cdConnectSettings (\ s a -> s{_cdConnectSettings = a});
 
@@ -123,9 +131,9 @@ instance AWSRequest ConnectDirectory where
                  ConnectDirectoryResponse' <$>
                    (x .?> "DirectoryId") <*> (pure (fromEnum s)))
 
-instance Hashable ConnectDirectory
+instance Hashable ConnectDirectory where
 
-instance NFData ConnectDirectory
+instance NFData ConnectDirectory where
 
 instance ToHeaders ConnectDirectory where
         toHeaders
@@ -154,36 +162,38 @@ instance ToPath ConnectDirectory where
 instance ToQuery ConnectDirectory where
         toQuery = const mempty
 
--- | Contains the results of the < ConnectDirectory> operation.
+-- | Contains the results of the 'ConnectDirectory' operation.
+--
+--
 --
 -- /See:/ 'connectDirectoryResponse' smart constructor.
 data ConnectDirectoryResponse = ConnectDirectoryResponse'
-    { _cdrsDirectoryId    :: !(Maybe Text)
-    , _cdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdrsDirectoryId    :: !(Maybe Text)
+  , _cdrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConnectDirectoryResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdrsDirectoryId'
+-- * 'cdrsDirectoryId' - The identifier of the new directory.
 --
--- * 'cdrsResponseStatus'
+-- * 'cdrsResponseStatus' - -- | The response status code.
 connectDirectoryResponse
     :: Int -- ^ 'cdrsResponseStatus'
     -> ConnectDirectoryResponse
 connectDirectoryResponse pResponseStatus_ =
-    ConnectDirectoryResponse'
-    { _cdrsDirectoryId = Nothing
-    , _cdrsResponseStatus = pResponseStatus_
-    }
+  ConnectDirectoryResponse'
+  {_cdrsDirectoryId = Nothing, _cdrsResponseStatus = pResponseStatus_}
+
 
 -- | The identifier of the new directory.
 cdrsDirectoryId :: Lens' ConnectDirectoryResponse (Maybe Text)
 cdrsDirectoryId = lens _cdrsDirectoryId (\ s a -> s{_cdrsDirectoryId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdrsResponseStatus :: Lens' ConnectDirectoryResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
 
-instance NFData ConnectDirectoryResponse
+instance NFData ConnectDirectoryResponse where

@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteOpenIdConnectProvider
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an OpenID Connect identity provider (IdP) resource object in IAM.
 --
+--
 -- Deleting an IAM OIDC provider resource does not update any roles that reference the provider as a principal in their trust policies. Any attempt to assume a role that references a deleted provider fails.
 --
 -- This action is idempotent; it does not fail or return an error if you call the action for a provider that does not exist.
+--
 module Network.AWS.IAM.DeleteOpenIdConnectProvider
     (
     -- * Creating a Request
@@ -36,32 +38,33 @@ module Network.AWS.IAM.DeleteOpenIdConnectProvider
     , DeleteOpenIdConnectProviderResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteOpenIdConnectProvider' smart constructor.
 newtype DeleteOpenIdConnectProvider = DeleteOpenIdConnectProvider'
-    { _doicpOpenIdConnectProviderARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _doicpOpenIdConnectProviderARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteOpenIdConnectProvider' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'doicpOpenIdConnectProviderARN'
+-- * 'doicpOpenIdConnectProviderARN' - The Amazon Resource Name (ARN) of the IAM OpenID Connect provider resource object to delete. You can get a list of OpenID Connect provider resource ARNs by using the 'ListOpenIDConnectProviders' action.
 deleteOpenIdConnectProvider
     :: Text -- ^ 'doicpOpenIdConnectProviderARN'
     -> DeleteOpenIdConnectProvider
 deleteOpenIdConnectProvider pOpenIdConnectProviderARN_ =
-    DeleteOpenIdConnectProvider'
-    { _doicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
-    }
+  DeleteOpenIdConnectProvider'
+  {_doicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_}
 
--- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider resource object to delete. You can get a list of OpenID Connect provider resource ARNs by using the < ListOpenIDConnectProviders> action.
+
+-- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider resource object to delete. You can get a list of OpenID Connect provider resource ARNs by using the 'ListOpenIDConnectProviders' action.
 doicpOpenIdConnectProviderARN :: Lens' DeleteOpenIdConnectProvider Text
 doicpOpenIdConnectProviderARN = lens _doicpOpenIdConnectProviderARN (\ s a -> s{_doicpOpenIdConnectProviderARN = a});
 
@@ -72,9 +75,9 @@ instance AWSRequest DeleteOpenIdConnectProvider where
         response
           = receiveNull DeleteOpenIdConnectProviderResponse'
 
-instance Hashable DeleteOpenIdConnectProvider
+instance Hashable DeleteOpenIdConnectProvider where
 
-instance NFData DeleteOpenIdConnectProvider
+instance NFData DeleteOpenIdConnectProvider where
 
 instance ToHeaders DeleteOpenIdConnectProvider where
         toHeaders = const mempty
@@ -93,8 +96,9 @@ instance ToQuery DeleteOpenIdConnectProvider where
 
 -- | /See:/ 'deleteOpenIdConnectProviderResponse' smart constructor.
 data DeleteOpenIdConnectProviderResponse =
-    DeleteOpenIdConnectProviderResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteOpenIdConnectProviderResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteOpenIdConnectProviderResponse' with the minimum fields required to make a request.
 --
@@ -102,4 +106,6 @@ deleteOpenIdConnectProviderResponse
     :: DeleteOpenIdConnectProviderResponse
 deleteOpenIdConnectProviderResponse = DeleteOpenIdConnectProviderResponse'
 
+
 instance NFData DeleteOpenIdConnectProviderResponse
+         where

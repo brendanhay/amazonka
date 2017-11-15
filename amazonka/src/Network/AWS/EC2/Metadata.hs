@@ -7,9 +7,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.Metadata
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
@@ -54,6 +54,7 @@ module Network.AWS.EC2.Metadata
     , kernelId
     , ramdiskId
     , architecture
+    , pendingTime
     ) where
 
 import           Control.Monad
@@ -64,7 +65,8 @@ import qualified Data.ByteString.Lazy   as LBS
 import           Data.Monoid
 import qualified Data.Text              as Text
 import           Network.AWS.Data.JSON
-import           Network.AWS.Lens       (Lens', lens)
+import           Network.AWS.Data.Time
+import           Network.AWS.Lens       (Lens', lens, mapping)
 import           Network.AWS.Prelude    hiding (request)
 import           Network.HTTP.Conduit
 
@@ -342,17 +344,18 @@ userdata m = do
 data IdentityDocument = IdentityDocument
     { _devpayProductCodes :: Maybe Text
     , _billingProducts    :: Maybe Text
-    , _version            :: Text
-    , _privateIp          :: Text
+    , _version            :: Maybe Text
+    , _privateIp          :: Maybe Text
     , _availabilityZone   :: Text
     , _region             :: !Region
     , _instanceId         :: Text
     , _instanceType       :: Text
     , _accountId          :: Text
-    , _imageId            :: Text
-    , _kernelId           :: Text
+    , _imageId            :: Maybe Text
+    , _kernelId           :: Maybe Text
     , _ramdiskId          :: Maybe Text
-    , _architecture       :: Text
+    , _architecture       :: Maybe Text
+    , _pendingTime        :: Maybe ISO8601
     } deriving (Eq, Show)
 
 devpayProductCodes :: Lens' IdentityDocument (Maybe Text)
@@ -361,10 +364,10 @@ devpayProductCodes = lens _devpayProductCodes (\s a -> s { _devpayProductCodes =
 billingProducts :: Lens' IdentityDocument (Maybe Text)
 billingProducts = lens _billingProducts (\s a -> s { _billingProducts = a })
 
-version :: Lens' IdentityDocument Text
+version :: Lens' IdentityDocument (Maybe Text)
 version = lens _version (\s a -> s { _version = a })
 
-privateIp :: Lens' IdentityDocument Text
+privateIp :: Lens' IdentityDocument (Maybe Text)
 privateIp = lens _privateIp (\s a -> s { _privateIp = a })
 
 availabilityZone :: Lens' IdentityDocument Text
@@ -382,33 +385,37 @@ instanceType = lens _instanceType (\s a -> s { _instanceType = a })
 accountId :: Lens' IdentityDocument Text
 accountId = lens _accountId (\s a -> s { _accountId = a })
 
-imageId :: Lens' IdentityDocument Text
+imageId :: Lens' IdentityDocument (Maybe Text)
 imageId = lens _imageId (\s a -> s { _imageId = a })
 
-kernelId :: Lens' IdentityDocument Text
+kernelId :: Lens' IdentityDocument (Maybe Text)
 kernelId = lens _kernelId (\s a -> s { _kernelId = a })
 
 ramdiskId :: Lens' IdentityDocument (Maybe Text)
 ramdiskId = lens _ramdiskId (\s a -> s { _ramdiskId = a })
 
-architecture :: Lens' IdentityDocument Text
+architecture :: Lens' IdentityDocument (Maybe Text)
 architecture = lens _architecture (\s a -> s { _architecture = a })
+
+pendingTime :: Lens' IdentityDocument (Maybe UTCTime)
+pendingTime = lens _pendingTime (\s a -> s { _pendingTime = a }) . mapping _Time
 
 instance FromJSON IdentityDocument where
     parseJSON = withObject "dynamic/instance-identity/document" $ \o -> do
             _devpayProductCodes <- o .:? "devpayProductCodes"
-            _billingProducts    <- o .:?  "billingProducts"
-            _privateIp          <- o .:  "privateIp"
-            _version            <- o .:  "version"
-            _availabilityZone   <- o .: "availabilityZone"
+            _billingProducts    <- o .:? "billingProducts"
+            _privateIp          <- o .:? "privateIp"
+            _version            <- o .:? "version"
+            _availabilityZone   <- o .:  "availabilityZone"
             _region             <- o .:  "region"
             _instanceId         <- o .:  "instanceId"
             _instanceType       <- o .:  "instanceType"
             _accountId          <- o .:  "accountId"
-            _imageId            <- o .:  "imageId"
-            _kernelId           <- o .:  "kernelId"
+            _imageId            <- o .:? "imageId"
+            _kernelId           <- o .:? "kernelId"
             _ramdiskId          <- o .:? "ramdiskId"
-            _architecture       <- o .:  "architecture"
+            _architecture       <- o .:? "architecture"
+            _pendingTime        <- o .:? "pendingTime"
             pure IdentityDocument{..}
 
 instance ToJSON IdentityDocument where
@@ -430,6 +437,9 @@ instance ToJSON IdentityDocument where
             ]
 
 -- | Retrieve the instance's identity document, detailing various EC2 metadata.
+--
+-- You can alternatively retrieve the raw unparsed identity document by using
+-- 'dynamic' and the 'Document' path.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-identity-documents.html AWS Instance Identity Documents>.
 identity :: (MonadIO m, MonadThrow m)

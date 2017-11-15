@@ -12,22 +12,24 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeEndpoints
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about the endpoints for your account in the current region.
+--
+--
 module Network.AWS.DMS.DescribeEndpoints
     (
     -- * Creating a Request
       describeEndpoints
     , DescribeEndpoints
     -- * Request Lenses
-    , deFilters
-    , deMarker
-    , deMaxRecords
+    , desFilters
+    , desMarker
+    , desMaxRecords
 
     -- * Destructuring the Response
     , describeEndpointsResponse
@@ -38,57 +40,52 @@ module Network.AWS.DMS.DescribeEndpoints
     , dersResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeEndpoints' smart constructor.
 data DescribeEndpoints = DescribeEndpoints'
-    { _deFilters    :: !(Maybe [Filter])
-    , _deMarker     :: !(Maybe Text)
-    , _deMaxRecords :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desFilters    :: !(Maybe [Filter])
+  , _desMarker     :: !(Maybe Text)
+  , _desMaxRecords :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEndpoints' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'deFilters'
+-- * 'desFilters' - Filters applied to the describe action. Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name
 --
--- * 'deMarker'
+-- * 'desMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'deMaxRecords'
+-- * 'desMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 describeEndpoints
     :: DescribeEndpoints
 describeEndpoints =
-    DescribeEndpoints'
-    { _deFilters = Nothing
-    , _deMarker = Nothing
-    , _deMaxRecords = Nothing
-    }
+  DescribeEndpoints'
+  {_desFilters = Nothing, _desMarker = Nothing, _desMaxRecords = Nothing}
 
--- | Filters applied to the describe action.
---
--- Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name
-deFilters :: Lens' DescribeEndpoints [Filter]
-deFilters = lens _deFilters (\ s a -> s{_deFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
-deMarker :: Lens' DescribeEndpoints (Maybe Text)
-deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
+-- | Filters applied to the describe action. Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name
+desFilters :: Lens' DescribeEndpoints [Filter]
+desFilters = lens _desFilters (\ s a -> s{_desFilters = a}) . _Default . _Coerce;
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
-deMaxRecords :: Lens' DescribeEndpoints (Maybe Int)
-deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a});
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+desMarker :: Lens' DescribeEndpoints (Maybe Text)
+desMarker = lens _desMarker (\ s a -> s{_desMarker = a});
+
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
+desMaxRecords :: Lens' DescribeEndpoints (Maybe Int)
+desMaxRecords = lens _desMaxRecords (\ s a -> s{_desMaxRecords = a});
 
 instance AWSRequest DescribeEndpoints where
         type Rs DescribeEndpoints = DescribeEndpointsResponse
@@ -100,9 +97,9 @@ instance AWSRequest DescribeEndpoints where
                    (x .?> "Marker") <*> (x .?> "Endpoints" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEndpoints
+instance Hashable DescribeEndpoints where
 
-instance NFData DescribeEndpoints
+instance NFData DescribeEndpoints where
 
 instance ToHeaders DescribeEndpoints where
         toHeaders
@@ -118,9 +115,9 @@ instance ToJSON DescribeEndpoints where
         toJSON DescribeEndpoints'{..}
           = object
               (catMaybes
-                 [("Filters" .=) <$> _deFilters,
-                  ("Marker" .=) <$> _deMarker,
-                  ("MaxRecords" .=) <$> _deMaxRecords])
+                 [("Filters" .=) <$> _desFilters,
+                  ("Marker" .=) <$> _desMarker,
+                  ("MaxRecords" .=) <$> _desMaxRecords])
 
 instance ToPath DescribeEndpoints where
         toPath = const "/"
@@ -130,33 +127,37 @@ instance ToQuery DescribeEndpoints where
 
 -- |
 --
+--
+--
 -- /See:/ 'describeEndpointsResponse' smart constructor.
 data DescribeEndpointsResponse = DescribeEndpointsResponse'
-    { _dersMarker         :: !(Maybe Text)
-    , _dersEndpoints      :: !(Maybe [Endpoint])
-    , _dersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dersMarker         :: !(Maybe Text)
+  , _dersEndpoints      :: !(Maybe [Endpoint])
+  , _dersResponseStatus :: !Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEndpointsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dersMarker'
+-- * 'dersMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dersEndpoints'
+-- * 'dersEndpoints' - Endpoint description.
 --
--- * 'dersResponseStatus'
+-- * 'dersResponseStatus' - -- | The response status code.
 describeEndpointsResponse
     :: Int -- ^ 'dersResponseStatus'
     -> DescribeEndpointsResponse
 describeEndpointsResponse pResponseStatus_ =
-    DescribeEndpointsResponse'
-    { _dersMarker = Nothing
-    , _dersEndpoints = Nothing
-    , _dersResponseStatus = pResponseStatus_
-    }
+  DescribeEndpointsResponse'
+  { _dersMarker = Nothing
+  , _dersEndpoints = Nothing
+  , _dersResponseStatus = pResponseStatus_
+  }
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dersMarker :: Lens' DescribeEndpointsResponse (Maybe Text)
 dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
 
@@ -164,8 +165,8 @@ dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
 dersEndpoints :: Lens' DescribeEndpointsResponse [Endpoint]
 dersEndpoints = lens _dersEndpoints (\ s a -> s{_dersEndpoints = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dersResponseStatus :: Lens' DescribeEndpointsResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
 
-instance NFData DescribeEndpointsResponse
+instance NFData DescribeEndpointsResponse where

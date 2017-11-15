@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.RemoveTagsFromResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes one or more tags from the specified resource.
+-- Removes one or more tags from the specified resource. This operation is only supported in the cached volume, stored volume and tape gateway architectures.
+--
+--
 module Network.AWS.StorageGateway.RemoveTagsFromResource
     (
     -- * Creating a Request
@@ -36,42 +38,44 @@ module Network.AWS.StorageGateway.RemoveTagsFromResource
     , rtfrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | RemoveTagsFromResourceInput
 --
+--
+--
 -- /See:/ 'removeTagsFromResource' smart constructor.
 data RemoveTagsFromResource = RemoveTagsFromResource'
-    { _rtfrResourceARN :: !Text
-    , _rtfrTagKeys     :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtfrResourceARN :: !Text
+  , _rtfrTagKeys     :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTagsFromResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfrResourceARN'
+-- * 'rtfrResourceARN' - The Amazon Resource Name (ARN) of the resource you want to remove the tags from.
 --
--- * 'rtfrTagKeys'
+-- * 'rtfrTagKeys' - The keys of the tags you want to remove from the specified resource. A tag is composed of a key/value pair.
 removeTagsFromResource
     :: Text -- ^ 'rtfrResourceARN'
     -> RemoveTagsFromResource
 removeTagsFromResource pResourceARN_ =
-    RemoveTagsFromResource'
-    { _rtfrResourceARN = pResourceARN_
-    , _rtfrTagKeys = mempty
-    }
+  RemoveTagsFromResource'
+  {_rtfrResourceARN = pResourceARN_, _rtfrTagKeys = mempty}
+
 
 -- | The Amazon Resource Name (ARN) of the resource you want to remove the tags from.
 rtfrResourceARN :: Lens' RemoveTagsFromResource Text
 rtfrResourceARN = lens _rtfrResourceARN (\ s a -> s{_rtfrResourceARN = a});
 
--- | The keys of the tags you want to remove from the specified resource. A tag is composed of a key\/value pair.
+-- | The keys of the tags you want to remove from the specified resource. A tag is composed of a key/value pair.
 rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
 rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce;
 
@@ -85,9 +89,9 @@ instance AWSRequest RemoveTagsFromResource where
                  RemoveTagsFromResourceResponse' <$>
                    (x .?> "ResourceARN") <*> (pure (fromEnum s)))
 
-instance Hashable RemoveTagsFromResource
+instance Hashable RemoveTagsFromResource where
 
-instance NFData RemoveTagsFromResource
+instance NFData RemoveTagsFromResource where
 
 instance ToHeaders RemoveTagsFromResource where
         toHeaders
@@ -114,34 +118,36 @@ instance ToQuery RemoveTagsFromResource where
 
 -- | RemoveTagsFromResourceOutput
 --
+--
+--
 -- /See:/ 'removeTagsFromResourceResponse' smart constructor.
 data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
-    { _rtfrrsResourceARN    :: !(Maybe Text)
-    , _rtfrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtfrrsResourceARN    :: !(Maybe Text)
+  , _rtfrrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTagsFromResourceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfrrsResourceARN'
+-- * 'rtfrrsResourceARN' - The Amazon Resource Name (ARN) of the resource that the tags were removed from.
 --
--- * 'rtfrrsResponseStatus'
+-- * 'rtfrrsResponseStatus' - -- | The response status code.
 removeTagsFromResourceResponse
     :: Int -- ^ 'rtfrrsResponseStatus'
     -> RemoveTagsFromResourceResponse
 removeTagsFromResourceResponse pResponseStatus_ =
-    RemoveTagsFromResourceResponse'
-    { _rtfrrsResourceARN = Nothing
-    , _rtfrrsResponseStatus = pResponseStatus_
-    }
+  RemoveTagsFromResourceResponse'
+  {_rtfrrsResourceARN = Nothing, _rtfrrsResponseStatus = pResponseStatus_}
+
 
 -- | The Amazon Resource Name (ARN) of the resource that the tags were removed from.
 rtfrrsResourceARN :: Lens' RemoveTagsFromResourceResponse (Maybe Text)
 rtfrrsResourceARN = lens _rtfrrsResourceARN (\ s a -> s{_rtfrrsResourceARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rtfrrsResponseStatus :: Lens' RemoveTagsFromResourceResponse Int
 rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a});
 
-instance NFData RemoveTagsFromResourceResponse
+instance NFData RemoveTagsFromResourceResponse where

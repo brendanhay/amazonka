@@ -12,33 +12,37 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.CreateDeliveryStream
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a delivery stream.
 --
--- < CreateDeliveryStream> is an asynchronous operation that immediately returns. The initial status of the delivery stream is 'CREATING'. After the delivery stream is created, its status is 'ACTIVE' and it now accepts data. Attempts to send data to a delivery stream that is not in the 'ACTIVE' state cause an exception. To check the state of a delivery stream, use < DescribeDeliveryStream>.
---
--- The name of a delivery stream identifies it. You can\'t have two delivery streams with the same name in the same region. Two delivery streams in different AWS accounts or different regions in the same AWS account can have the same name.
 --
 -- By default, you can create up to 20 delivery streams per region.
 --
--- A delivery stream can only be configured with a single destination, Amazon S3, Amazon Elasticsearch Service, or Amazon Redshift. For correct < CreateDeliveryStream> request syntax, specify only one destination configuration parameter: either __S3DestinationConfiguration__, __ElasticsearchDestinationConfiguration__, or __RedshiftDestinationConfiguration__.
+-- This is an asynchronous operation that immediately returns. The initial status of the delivery stream is @CREATING@ . After the delivery stream is created, its status is @ACTIVE@ and it now accepts data. Attempts to send data to a delivery stream that is not in the @ACTIVE@ state cause an exception. To check the state of a delivery stream, use 'DescribeDeliveryStream' .
 --
--- As part of __S3DestinationConfiguration__, optional values __BufferingHints__, __EncryptionConfiguration__, and __CompressionFormat__ can be provided. By default, if no __BufferingHints__ value is provided, Firehose buffers data up to 5 MB or for 5 minutes, whichever condition is satisfied first. Note that __BufferingHints__ is a hint, so there are some cases where the service cannot adhere to these conditions strictly; for example, record boundaries are such that the size is a little over or under the configured buffering size. By default, no encryption is performed. We strongly recommend that you enable encryption to ensure secure data storage in Amazon S3.
+-- A Kinesis Firehose delivery stream can be configured to receive records directly from providers using 'PutRecord' or 'PutRecordBatch' , or it can be configured to use an existing Kinesis stream as its source. To specify a Kinesis stream as input, set the @DeliveryStreamType@ parameter to @KinesisStreamAsSource@ , and provide the Kinesis stream ARN and role ARN in the @KinesisStreamSourceConfiguration@ parameter.
 --
--- A few notes about __RedshiftDestinationConfiguration__:
+-- A delivery stream is configured with a single destination: Amazon S3, Amazon ES, or Amazon Redshift. You must specify only one of the following destination configuration parameters: __ExtendedS3DestinationConfiguration__ , __S3DestinationConfiguration__ , __ElasticsearchDestinationConfiguration__ , or __RedshiftDestinationConfiguration__ .
 --
--- -   An Amazon Redshift destination requires an S3 bucket as intermediate location, as Firehose first delivers data to S3 and then uses 'COPY' syntax to load data into an Amazon Redshift table. This is specified in the __RedshiftDestinationConfiguration.S3Configuration__ parameter element.
+-- When you specify __S3DestinationConfiguration__ , you can also provide the following optional values: __BufferingHints__ , __EncryptionConfiguration__ , and __CompressionFormat__ . By default, if no __BufferingHints__ value is provided, Kinesis Firehose buffers data up to 5 MB or for 5 minutes, whichever condition is satisfied first. Note that __BufferingHints__ is a hint, so there are some cases where the service cannot adhere to these conditions strictly; for example, record boundaries are such that the size is a little over or under the configured buffering size. By default, no encryption is performed. We strongly recommend that you enable encryption to ensure secure data storage in Amazon S3.
 --
--- -   The compression formats 'SNAPPY' or 'ZIP' cannot be specified in __RedshiftDestinationConfiguration.S3Configuration__ because the Amazon Redshift 'COPY' operation that reads from the S3 bucket doesn\'t support these compression formats.
+-- A few notes about Amazon Redshift as a destination:
 --
--- -   We strongly recommend that the username and password provided is used exclusively for Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift 'INSERT' permissions.
+--     * An Amazon Redshift destination requires an S3 bucket as intermediate location, as Kinesis Firehose first delivers data to S3 and then uses @COPY@ syntax to load data into an Amazon Redshift table. This is specified in the __RedshiftDestinationConfiguration.S3Configuration__ parameter.
 --
--- Firehose assumes the IAM role that is configured as part of destinations. The IAM role should allow the Firehose principal to assume the role, and the role should have permissions that allows the service to deliver the data. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Amazon S3 Bucket Access> in the /Amazon Kinesis Firehose Developer Guide/.
+--     * The compression formats @SNAPPY@ or @ZIP@ cannot be specified in __RedshiftDestinationConfiguration.S3Configuration__ because the Amazon Redshift @COPY@ operation that reads from the S3 bucket doesn't support these compression formats.
+--
+--     * We strongly recommend that you use the user name and password you provide exclusively with Kinesis Firehose, and that the permissions for the account are restricted for Amazon Redshift @INSERT@ permissions.
+--
+--
+--
+-- Kinesis Firehose assumes the IAM role that is configured as part of the destination. The role should allow the Kinesis Firehose principal to assume the role, and the role should have permissions that allow the service to deliver the data. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Amazon S3 Bucket Access> in the /Amazon Kinesis Firehose Developer Guide/ .
+--
 module Network.AWS.Firehose.CreateDeliveryStream
     (
     -- * Creating a Request
@@ -48,6 +52,9 @@ module Network.AWS.Firehose.CreateDeliveryStream
     , cdsS3DestinationConfiguration
     , cdsRedshiftDestinationConfiguration
     , cdsElasticsearchDestinationConfiguration
+    , cdsExtendedS3DestinationConfiguration
+    , cdsKinesisStreamSourceConfiguration
+    , cdsDeliveryStreamType
     , cdsDeliveryStreamName
 
     -- * Destructuring the Response
@@ -58,58 +65,82 @@ module Network.AWS.Firehose.CreateDeliveryStream
     , cdsrsResponseStatus
     ) where
 
-import           Network.AWS.Firehose.Types
-import           Network.AWS.Firehose.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Firehose.Types
+import Network.AWS.Firehose.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for < CreateDeliveryStream>.
---
--- /See:/ 'createDeliveryStream' smart constructor.
+-- | /See:/ 'createDeliveryStream' smart constructor.
 data CreateDeliveryStream = CreateDeliveryStream'
-    { _cdsS3DestinationConfiguration            :: !(Maybe S3DestinationConfiguration)
-    , _cdsRedshiftDestinationConfiguration      :: !(Maybe RedshiftDestinationConfiguration)
-    , _cdsElasticsearchDestinationConfiguration :: !(Maybe ElasticsearchDestinationConfiguration)
-    , _cdsDeliveryStreamName                    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdsS3DestinationConfiguration :: !(Maybe S3DestinationConfiguration)
+  , _cdsRedshiftDestinationConfiguration :: !(Maybe RedshiftDestinationConfiguration)
+  , _cdsElasticsearchDestinationConfiguration :: !(Maybe ElasticsearchDestinationConfiguration)
+  , _cdsExtendedS3DestinationConfiguration :: !(Maybe ExtendedS3DestinationConfiguration)
+  , _cdsKinesisStreamSourceConfiguration :: !(Maybe KinesisStreamSourceConfiguration)
+  , _cdsDeliveryStreamType :: !(Maybe DeliveryStreamType)
+  , _cdsDeliveryStreamName :: !Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDeliveryStream' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdsS3DestinationConfiguration'
+-- * 'cdsS3DestinationConfiguration' - [Deprecated] The destination in Amazon S3. You can specify only one destination.
 --
--- * 'cdsRedshiftDestinationConfiguration'
+-- * 'cdsRedshiftDestinationConfiguration' - The destination in Amazon Redshift. You can specify only one destination.
 --
--- * 'cdsElasticsearchDestinationConfiguration'
+-- * 'cdsElasticsearchDestinationConfiguration' - The destination in Amazon ES. You can specify only one destination.
 --
--- * 'cdsDeliveryStreamName'
+-- * 'cdsExtendedS3DestinationConfiguration' - The destination in Amazon S3. You can specify only one destination.
+--
+-- * 'cdsKinesisStreamSourceConfiguration' - When a Kinesis stream is used as the source for the delivery stream, a 'KinesisStreamSourceConfiguration' containing the Kinesis stream ARN and the role ARN for the source stream.
+--
+-- * 'cdsDeliveryStreamType' - The delivery stream type. This parameter can be one of the following values:     * @DirectPut@ : Provider applications access the delivery stream directly.     * @KinesisStreamAsSource@ : The delivery stream uses a Kinesis stream as a source.
+--
+-- * 'cdsDeliveryStreamName' - The name of the delivery stream. This name must be unique per AWS account in the same region. If the delivery streams are in different accounts or different regions, you can have multiple delivery streams with the same name.
 createDeliveryStream
     :: Text -- ^ 'cdsDeliveryStreamName'
     -> CreateDeliveryStream
 createDeliveryStream pDeliveryStreamName_ =
-    CreateDeliveryStream'
-    { _cdsS3DestinationConfiguration = Nothing
-    , _cdsRedshiftDestinationConfiguration = Nothing
-    , _cdsElasticsearchDestinationConfiguration = Nothing
-    , _cdsDeliveryStreamName = pDeliveryStreamName_
-    }
+  CreateDeliveryStream'
+  { _cdsS3DestinationConfiguration = Nothing
+  , _cdsRedshiftDestinationConfiguration = Nothing
+  , _cdsElasticsearchDestinationConfiguration = Nothing
+  , _cdsExtendedS3DestinationConfiguration = Nothing
+  , _cdsKinesisStreamSourceConfiguration = Nothing
+  , _cdsDeliveryStreamType = Nothing
+  , _cdsDeliveryStreamName = pDeliveryStreamName_
+  }
 
--- | The destination in Amazon S3. This value must be specified if __ElasticsearchDestinationConfiguration__ or __RedshiftDestinationConfiguration__ is specified (see restrictions listed above).
+
+-- | [Deprecated] The destination in Amazon S3. You can specify only one destination.
 cdsS3DestinationConfiguration :: Lens' CreateDeliveryStream (Maybe S3DestinationConfiguration)
 cdsS3DestinationConfiguration = lens _cdsS3DestinationConfiguration (\ s a -> s{_cdsS3DestinationConfiguration = a});
 
--- | The destination in Amazon Redshift. This value cannot be specified if Amazon S3 or Amazon Elasticsearch is the desired destination (see restrictions listed above).
+-- | The destination in Amazon Redshift. You can specify only one destination.
 cdsRedshiftDestinationConfiguration :: Lens' CreateDeliveryStream (Maybe RedshiftDestinationConfiguration)
 cdsRedshiftDestinationConfiguration = lens _cdsRedshiftDestinationConfiguration (\ s a -> s{_cdsRedshiftDestinationConfiguration = a});
 
--- | The destination in Amazon ES. This value cannot be specified if Amazon S3 or Amazon Redshift is the desired destination (see restrictions listed above).
+-- | The destination in Amazon ES. You can specify only one destination.
 cdsElasticsearchDestinationConfiguration :: Lens' CreateDeliveryStream (Maybe ElasticsearchDestinationConfiguration)
 cdsElasticsearchDestinationConfiguration = lens _cdsElasticsearchDestinationConfiguration (\ s a -> s{_cdsElasticsearchDestinationConfiguration = a});
 
--- | The name of the delivery stream.
+-- | The destination in Amazon S3. You can specify only one destination.
+cdsExtendedS3DestinationConfiguration :: Lens' CreateDeliveryStream (Maybe ExtendedS3DestinationConfiguration)
+cdsExtendedS3DestinationConfiguration = lens _cdsExtendedS3DestinationConfiguration (\ s a -> s{_cdsExtendedS3DestinationConfiguration = a});
+
+-- | When a Kinesis stream is used as the source for the delivery stream, a 'KinesisStreamSourceConfiguration' containing the Kinesis stream ARN and the role ARN for the source stream.
+cdsKinesisStreamSourceConfiguration :: Lens' CreateDeliveryStream (Maybe KinesisStreamSourceConfiguration)
+cdsKinesisStreamSourceConfiguration = lens _cdsKinesisStreamSourceConfiguration (\ s a -> s{_cdsKinesisStreamSourceConfiguration = a});
+
+-- | The delivery stream type. This parameter can be one of the following values:     * @DirectPut@ : Provider applications access the delivery stream directly.     * @KinesisStreamAsSource@ : The delivery stream uses a Kinesis stream as a source.
+cdsDeliveryStreamType :: Lens' CreateDeliveryStream (Maybe DeliveryStreamType)
+cdsDeliveryStreamType = lens _cdsDeliveryStreamType (\ s a -> s{_cdsDeliveryStreamType = a});
+
+-- | The name of the delivery stream. This name must be unique per AWS account in the same region. If the delivery streams are in different accounts or different regions, you can have multiple delivery streams with the same name.
 cdsDeliveryStreamName :: Lens' CreateDeliveryStream Text
 cdsDeliveryStreamName = lens _cdsDeliveryStreamName (\ s a -> s{_cdsDeliveryStreamName = a});
 
@@ -123,9 +154,9 @@ instance AWSRequest CreateDeliveryStream where
                  CreateDeliveryStreamResponse' <$>
                    (x .?> "DeliveryStreamARN") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDeliveryStream
+instance Hashable CreateDeliveryStream where
 
-instance NFData CreateDeliveryStream
+instance NFData CreateDeliveryStream where
 
 instance ToHeaders CreateDeliveryStream where
         toHeaders
@@ -147,6 +178,11 @@ instance ToJSON CreateDeliveryStream where
                     _cdsRedshiftDestinationConfiguration,
                   ("ElasticsearchDestinationConfiguration" .=) <$>
                     _cdsElasticsearchDestinationConfiguration,
+                  ("ExtendedS3DestinationConfiguration" .=) <$>
+                    _cdsExtendedS3DestinationConfiguration,
+                  ("KinesisStreamSourceConfiguration" .=) <$>
+                    _cdsKinesisStreamSourceConfiguration,
+                  ("DeliveryStreamType" .=) <$> _cdsDeliveryStreamType,
                   Just
                     ("DeliveryStreamName" .= _cdsDeliveryStreamName)])
 
@@ -156,36 +192,34 @@ instance ToPath CreateDeliveryStream where
 instance ToQuery CreateDeliveryStream where
         toQuery = const mempty
 
--- | Contains the output of < CreateDeliveryStream>.
---
--- /See:/ 'createDeliveryStreamResponse' smart constructor.
+-- | /See:/ 'createDeliveryStreamResponse' smart constructor.
 data CreateDeliveryStreamResponse = CreateDeliveryStreamResponse'
-    { _cdsrsDeliveryStreamARN :: !(Maybe Text)
-    , _cdsrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdsrsDeliveryStreamARN :: !(Maybe Text)
+  , _cdsrsResponseStatus    :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDeliveryStreamResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdsrsDeliveryStreamARN'
+-- * 'cdsrsDeliveryStreamARN' - The ARN of the delivery stream.
 --
--- * 'cdsrsResponseStatus'
+-- * 'cdsrsResponseStatus' - -- | The response status code.
 createDeliveryStreamResponse
     :: Int -- ^ 'cdsrsResponseStatus'
     -> CreateDeliveryStreamResponse
 createDeliveryStreamResponse pResponseStatus_ =
-    CreateDeliveryStreamResponse'
-    { _cdsrsDeliveryStreamARN = Nothing
-    , _cdsrsResponseStatus = pResponseStatus_
-    }
+  CreateDeliveryStreamResponse'
+  {_cdsrsDeliveryStreamARN = Nothing, _cdsrsResponseStatus = pResponseStatus_}
+
 
 -- | The ARN of the delivery stream.
 cdsrsDeliveryStreamARN :: Lens' CreateDeliveryStreamResponse (Maybe Text)
 cdsrsDeliveryStreamARN = lens _cdsrsDeliveryStreamARN (\ s a -> s{_cdsrsDeliveryStreamARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdsrsResponseStatus :: Lens' CreateDeliveryStreamResponse Int
 cdsrsResponseStatus = lens _cdsrsResponseStatus (\ s a -> s{_cdsrsResponseStatus = a});
 
-instance NFData CreateDeliveryStreamResponse
+instance NFData CreateDeliveryStreamResponse where

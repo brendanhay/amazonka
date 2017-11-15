@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.ElastiCache.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AZMode
-    = CrossAz
-    | SingleAz
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CrossAz
+  | SingleAz
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AZMode where
     parser = takeLowerText >>= \case
@@ -43,11 +44,12 @@ instance ToQuery      AZMode
 instance ToHeader     AZMode
 
 data AutomaticFailoverStatus
-    = AFSDisabled
-    | AFSDisabling
-    | AFSEnabled
-    | AFSEnabling
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AFSDisabled
+  | AFSDisabling
+  | AFSEnabled
+  | AFSEnabling
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AutomaticFailoverStatus where
     parser = takeLowerText >>= \case
@@ -75,9 +77,10 @@ instance FromXML AutomaticFailoverStatus where
     parseXML = parseXMLText "AutomaticFailoverStatus"
 
 data ChangeType
-    = Immediate
-    | RequiresReboot
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Immediate
+  | RequiresReboot
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChangeType where
     parser = takeLowerText >>= \case
@@ -101,9 +104,10 @@ instance FromXML ChangeType where
     parseXML = parseXMLText "ChangeType"
 
 data PendingAutomaticFailoverStatus
-    = Disabled
-    | Enabled
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Disabled
+  | Enabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PendingAutomaticFailoverStatus where
     parser = takeLowerText >>= \case
@@ -127,11 +131,13 @@ instance FromXML PendingAutomaticFailoverStatus where
     parseXML = parseXMLText "PendingAutomaticFailoverStatus"
 
 data SourceType
-    = CacheCluster
-    | CacheParameterGroup
-    | CacheSecurityGroup
-    | CacheSubnetGroup
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CacheCluster
+  | CacheParameterGroup
+  | CacheSecurityGroup
+  | CacheSubnetGroup
+  | ReplicationGroup
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case
@@ -139,8 +145,9 @@ instance FromText SourceType where
         "cache-parameter-group" -> pure CacheParameterGroup
         "cache-security-group" -> pure CacheSecurityGroup
         "cache-subnet-group" -> pure CacheSubnetGroup
+        "replication-group" -> pure ReplicationGroup
         e -> fromTextError $ "Failure parsing SourceType from value: '" <> e
-           <> "'. Accepted values: cache-cluster, cache-parameter-group, cache-security-group, cache-subnet-group"
+           <> "'. Accepted values: cache-cluster, cache-parameter-group, cache-security-group, cache-subnet-group, replication-group"
 
 instance ToText SourceType where
     toText = \case
@@ -148,6 +155,7 @@ instance ToText SourceType where
         CacheParameterGroup -> "cache-parameter-group"
         CacheSecurityGroup -> "cache-security-group"
         CacheSubnetGroup -> "cache-subnet-group"
+        ReplicationGroup -> "replication-group"
 
 instance Hashable     SourceType
 instance NFData       SourceType

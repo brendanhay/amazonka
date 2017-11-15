@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeRulesPackages
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the rules packages that are specified by the ARNs of the rules packages.
+--
+--
 module Network.AWS.Inspector.DescribeRulesPackages
     (
     -- * Creating a Request
@@ -37,34 +39,34 @@ module Network.AWS.Inspector.DescribeRulesPackages
     , drprsFailedItems
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeRulesPackages' smart constructor.
 data DescribeRulesPackages = DescribeRulesPackages'
-    { _drpLocale           :: !(Maybe Locale)
-    , _drpRulesPackageARNs :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drpLocale           :: !(Maybe Locale)
+  , _drpRulesPackageARNs :: !(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRulesPackages' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drpLocale'
+-- * 'drpLocale' - The locale that you want to translate a rules package description into.
 --
--- * 'drpRulesPackageARNs'
+-- * 'drpRulesPackageARNs' - The ARN that specifies the rules package that you want to describe.
 describeRulesPackages
     :: NonEmpty Text -- ^ 'drpRulesPackageARNs'
     -> DescribeRulesPackages
 describeRulesPackages pRulesPackageARNs_ =
-    DescribeRulesPackages'
-    { _drpLocale = Nothing
-    , _drpRulesPackageARNs = _List1 # pRulesPackageARNs_
-    }
+  DescribeRulesPackages'
+  {_drpLocale = Nothing, _drpRulesPackageARNs = _List1 # pRulesPackageARNs_}
+
 
 -- | The locale that you want to translate a rules package description into.
 drpLocale :: Lens' DescribeRulesPackages (Maybe Locale)
@@ -86,9 +88,9 @@ instance AWSRequest DescribeRulesPackages where
                      (x .?> "rulesPackages" .!@ mempty)
                      <*> (x .?> "failedItems" .!@ mempty))
 
-instance Hashable DescribeRulesPackages
+instance Hashable DescribeRulesPackages where
 
-instance NFData DescribeRulesPackages
+instance NFData DescribeRulesPackages where
 
 instance ToHeaders DescribeRulesPackages where
         toHeaders
@@ -115,31 +117,33 @@ instance ToQuery DescribeRulesPackages where
 
 -- | /See:/ 'describeRulesPackagesResponse' smart constructor.
 data DescribeRulesPackagesResponse = DescribeRulesPackagesResponse'
-    { _drprsResponseStatus :: !Int
-    , _drprsRulesPackages  :: ![RulesPackage]
-    , _drprsFailedItems    :: !(Map Text FailedItemDetails)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drprsResponseStatus :: !Int
+  , _drprsRulesPackages  :: ![RulesPackage]
+  , _drprsFailedItems    :: !(Map Text FailedItemDetails)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRulesPackagesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drprsResponseStatus'
+-- * 'drprsResponseStatus' - -- | The response status code.
 --
--- * 'drprsRulesPackages'
+-- * 'drprsRulesPackages' - Information about the rules package.
 --
--- * 'drprsFailedItems'
+-- * 'drprsFailedItems' - Rules package details that cannot be described. An error code is provided for each failed item.
 describeRulesPackagesResponse
     :: Int -- ^ 'drprsResponseStatus'
     -> DescribeRulesPackagesResponse
 describeRulesPackagesResponse pResponseStatus_ =
-    DescribeRulesPackagesResponse'
-    { _drprsResponseStatus = pResponseStatus_
-    , _drprsRulesPackages = mempty
-    , _drprsFailedItems = mempty
-    }
+  DescribeRulesPackagesResponse'
+  { _drprsResponseStatus = pResponseStatus_
+  , _drprsRulesPackages = mempty
+  , _drprsFailedItems = mempty
+  }
 
--- | The response status code.
+
+-- | -- | The response status code.
 drprsResponseStatus :: Lens' DescribeRulesPackagesResponse Int
 drprsResponseStatus = lens _drprsResponseStatus (\ s a -> s{_drprsResponseStatus = a});
 
@@ -151,4 +155,4 @@ drprsRulesPackages = lens _drprsRulesPackages (\ s a -> s{_drprsRulesPackages = 
 drprsFailedItems :: Lens' DescribeRulesPackagesResponse (HashMap Text FailedItemDetails)
 drprsFailedItems = lens _drprsFailedItems (\ s a -> s{_drprsFailedItems = a}) . _Map;
 
-instance NFData DescribeRulesPackagesResponse
+instance NFData DescribeRulesPackagesResponse where

@@ -12,17 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateUser
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the name and\/or the path of the specified IAM user.
+-- Updates the name and/or the path of the specified IAM user.
 --
--- You should understand the implications of changing an IAM user\'s path or name. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming Renaming an IAM User> and <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html Renaming an IAM Group> in the /IAM User Guide/.
 --
--- To change a user name the requester must have appropriate permissions on both the source object and the target object. For example, to change Bob to Robert, the entity making the request must have permission on Bob and Robert, or must have permission on all (*). For more information about permissions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html Permissions and Policies>.
+-- /Important:/ You should understand the implications of changing an IAM user's path or name. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming Renaming an IAM User> and <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html Renaming an IAM Group> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.UpdateUser
     (
     -- * Creating a Request
@@ -38,54 +38,47 @@ module Network.AWS.IAM.UpdateUser
     , UpdateUserResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateUser' smart constructor.
 data UpdateUser = UpdateUser'
-    { _uuNewUserName :: !(Maybe Text)
-    , _uuNewPath     :: !(Maybe Text)
-    , _uuUserName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uuNewUserName :: !(Maybe Text)
+  , _uuNewPath     :: !(Maybe Text)
+  , _uuUserName    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUser' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uuNewUserName'
+-- * 'uuNewUserName' - New name for the user. Include this parameter only if you're changing the user's name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'uuNewPath'
+-- * 'uuNewPath' - New path for the IAM user. Include this parameter only if you're changing the user's path. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 --
--- * 'uuUserName'
+-- * 'uuUserName' - Name of the user to update. If you're changing the name of the user, this is the original user name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 updateUser
     :: Text -- ^ 'uuUserName'
     -> UpdateUser
 updateUser pUserName_ =
-    UpdateUser'
-    { _uuNewUserName = Nothing
-    , _uuNewPath = Nothing
-    , _uuUserName = pUserName_
-    }
+  UpdateUser'
+  {_uuNewUserName = Nothing, _uuNewPath = Nothing, _uuUserName = pUserName_}
 
--- | New name for the user. Include this parameter only if you\'re changing the user\'s name.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+
+-- | New name for the user. Include this parameter only if you're changing the user's name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 uuNewUserName :: Lens' UpdateUser (Maybe Text)
 uuNewUserName = lens _uuNewUserName (\ s a -> s{_uuNewUserName = a});
 
--- | New path for the IAM user. Include this parameter only if you\'re changing the user\'s path.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- | New path for the IAM user. Include this parameter only if you're changing the user's path. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 uuNewPath :: Lens' UpdateUser (Maybe Text)
 uuNewPath = lens _uuNewPath (\ s a -> s{_uuNewPath = a});
 
--- | Name of the user to update. If you\'re changing the name of the user, this is the original user name.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | Name of the user to update. If you're changing the name of the user, this is the original user name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 uuUserName :: Lens' UpdateUser Text
 uuUserName = lens _uuUserName (\ s a -> s{_uuUserName = a});
 
@@ -94,9 +87,9 @@ instance AWSRequest UpdateUser where
         request = postQuery iam
         response = receiveNull UpdateUserResponse'
 
-instance Hashable UpdateUser
+instance Hashable UpdateUser where
 
-instance NFData UpdateUser
+instance NFData UpdateUser where
 
 instance ToHeaders UpdateUser where
         toHeaders = const mempty
@@ -114,8 +107,9 @@ instance ToQuery UpdateUser where
 
 -- | /See:/ 'updateUserResponse' smart constructor.
 data UpdateUserResponse =
-    UpdateUserResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateUserResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUserResponse' with the minimum fields required to make a request.
 --
@@ -123,4 +117,5 @@ updateUserResponse
     :: UpdateUserResponse
 updateUserResponse = UpdateUserResponse'
 
-instance NFData UpdateUserResponse
+
+instance NFData UpdateUserResponse where

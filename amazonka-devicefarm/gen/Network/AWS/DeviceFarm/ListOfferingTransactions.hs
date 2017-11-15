@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListOfferingTransactions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of all historical purchases, renewals, and system renewal transactions for an AWS account. The list is paginated and ordered by a descending timestamp (most recent transactions are first). The API returns a 'NotEligible' error if the user is not permitted to invoke the operation. Please contact <mailto:aws-devicefarm-support'amazon.com aws-devicefarm-support\'amazon.com> if you believe that you should be able to invoke this operation.
+-- Returns a list of all historical purchases, renewals, and system renewal transactions for an AWS account. The list is paginated and ordered by a descending timestamp (most recent transactions are first). The API returns a @NotEligible@ error if the user is not permitted to invoke the operation. Please contact <mailto:aws-devicefarm-support@amazon.com aws-devicefarm-support@amazon.com> if you believe that you should be able to invoke this operation.
+--
+--
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListOfferingTransactions
     (
     -- * Creating a Request
@@ -36,35 +40,44 @@ module Network.AWS.DeviceFarm.ListOfferingTransactions
     , lotrsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to list the offering transaction history.
 --
+--
+--
 -- /See:/ 'listOfferingTransactions' smart constructor.
 newtype ListOfferingTransactions = ListOfferingTransactions'
-    { _lotNextToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lotNextToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListOfferingTransactions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lotNextToken'
+-- * 'lotNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 listOfferingTransactions
     :: ListOfferingTransactions
-listOfferingTransactions =
-    ListOfferingTransactions'
-    { _lotNextToken = Nothing
-    }
+listOfferingTransactions = ListOfferingTransactions' {_lotNextToken = Nothing}
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lotNextToken :: Lens' ListOfferingTransactions (Maybe Text)
 lotNextToken = lens _lotNextToken (\ s a -> s{_lotNextToken = a});
+
+instance AWSPager ListOfferingTransactions where
+        page rq rs
+          | stop (rs ^. lotrsNextToken) = Nothing
+          | stop (rs ^. lotrsOfferingTransactions) = Nothing
+          | otherwise =
+            Just $ rq & lotNextToken .~ rs ^. lotrsNextToken
 
 instance AWSRequest ListOfferingTransactions where
         type Rs ListOfferingTransactions =
@@ -78,9 +91,9 @@ instance AWSRequest ListOfferingTransactions where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListOfferingTransactions
+instance Hashable ListOfferingTransactions where
 
-instance NFData ListOfferingTransactions
+instance NFData ListOfferingTransactions where
 
 instance ToHeaders ListOfferingTransactions where
         toHeaders
@@ -105,31 +118,35 @@ instance ToQuery ListOfferingTransactions where
 
 -- | Returns the transaction log of the specified offerings.
 --
+--
+--
 -- /See:/ 'listOfferingTransactionsResponse' smart constructor.
 data ListOfferingTransactionsResponse = ListOfferingTransactionsResponse'
-    { _lotrsOfferingTransactions :: !(Maybe [OfferingTransaction])
-    , _lotrsNextToken            :: !(Maybe Text)
-    , _lotrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lotrsOfferingTransactions :: !(Maybe [OfferingTransaction])
+  , _lotrsNextToken            :: !(Maybe Text)
+  , _lotrsResponseStatus       :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListOfferingTransactionsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lotrsOfferingTransactions'
+-- * 'lotrsOfferingTransactions' - The audit log of subscriptions you have purchased and modified through AWS Device Farm.
 --
--- * 'lotrsNextToken'
+-- * 'lotrsNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'lotrsResponseStatus'
+-- * 'lotrsResponseStatus' - -- | The response status code.
 listOfferingTransactionsResponse
     :: Int -- ^ 'lotrsResponseStatus'
     -> ListOfferingTransactionsResponse
 listOfferingTransactionsResponse pResponseStatus_ =
-    ListOfferingTransactionsResponse'
-    { _lotrsOfferingTransactions = Nothing
-    , _lotrsNextToken = Nothing
-    , _lotrsResponseStatus = pResponseStatus_
-    }
+  ListOfferingTransactionsResponse'
+  { _lotrsOfferingTransactions = Nothing
+  , _lotrsNextToken = Nothing
+  , _lotrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The audit log of subscriptions you have purchased and modified through AWS Device Farm.
 lotrsOfferingTransactions :: Lens' ListOfferingTransactionsResponse [OfferingTransaction]
@@ -139,8 +156,9 @@ lotrsOfferingTransactions = lens _lotrsOfferingTransactions (\ s a -> s{_lotrsOf
 lotrsNextToken :: Lens' ListOfferingTransactionsResponse (Maybe Text)
 lotrsNextToken = lens _lotrsNextToken (\ s a -> s{_lotrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lotrsResponseStatus :: Lens' ListOfferingTransactionsResponse Int
 lotrsResponseStatus = lens _lotrsResponseStatus (\ s a -> s{_lotrsResponseStatus = a});
 
 instance NFData ListOfferingTransactionsResponse
+         where

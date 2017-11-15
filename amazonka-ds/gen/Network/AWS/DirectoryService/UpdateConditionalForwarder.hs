@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.UpdateConditionalForwarder
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a conditional forwarder that has been set up for your AWS directory.
+--
+--
 module Network.AWS.DirectoryService.UpdateConditionalForwarder
     (
     -- * Creating a Request
@@ -36,41 +38,45 @@ module Network.AWS.DirectoryService.UpdateConditionalForwarder
     , ucfrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Updates a conditional forwarder.
 --
+--
+--
 -- /See:/ 'updateConditionalForwarder' smart constructor.
 data UpdateConditionalForwarder = UpdateConditionalForwarder'
-    { _ucfDirectoryId      :: !Text
-    , _ucfRemoteDomainName :: !Text
-    , _ucfDNSIPAddrs       :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucfDirectoryId      :: !Text
+  , _ucfRemoteDomainName :: !Text
+  , _ucfDNSIPAddrs       :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateConditionalForwarder' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucfDirectoryId'
+-- * 'ucfDirectoryId' - The directory ID of the AWS directory for which to update the conditional forwarder.
 --
--- * 'ucfRemoteDomainName'
+-- * 'ucfRemoteDomainName' - The fully qualified domain name (FQDN) of the remote domain with which you will set up a trust relationship.
 --
--- * 'ucfDNSIPAddrs'
+-- * 'ucfDNSIPAddrs' - The updated IP addresses of the remote DNS server associated with the conditional forwarder.
 updateConditionalForwarder
     :: Text -- ^ 'ucfDirectoryId'
     -> Text -- ^ 'ucfRemoteDomainName'
     -> UpdateConditionalForwarder
 updateConditionalForwarder pDirectoryId_ pRemoteDomainName_ =
-    UpdateConditionalForwarder'
-    { _ucfDirectoryId = pDirectoryId_
-    , _ucfRemoteDomainName = pRemoteDomainName_
-    , _ucfDNSIPAddrs = mempty
-    }
+  UpdateConditionalForwarder'
+  { _ucfDirectoryId = pDirectoryId_
+  , _ucfRemoteDomainName = pRemoteDomainName_
+  , _ucfDNSIPAddrs = mempty
+  }
+
 
 -- | The directory ID of the AWS directory for which to update the conditional forwarder.
 ucfDirectoryId :: Lens' UpdateConditionalForwarder Text
@@ -94,9 +100,9 @@ instance AWSRequest UpdateConditionalForwarder where
                  UpdateConditionalForwarderResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable UpdateConditionalForwarder
+instance Hashable UpdateConditionalForwarder where
 
-instance NFData UpdateConditionalForwarder
+instance NFData UpdateConditionalForwarder where
 
 instance ToHeaders UpdateConditionalForwarder where
         toHeaders
@@ -124,26 +130,29 @@ instance ToQuery UpdateConditionalForwarder where
 
 -- | The result of an UpdateConditionalForwarder request.
 --
+--
+--
 -- /See:/ 'updateConditionalForwarderResponse' smart constructor.
 newtype UpdateConditionalForwarderResponse = UpdateConditionalForwarderResponse'
-    { _ucfrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucfrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateConditionalForwarderResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucfrsResponseStatus'
+-- * 'ucfrsResponseStatus' - -- | The response status code.
 updateConditionalForwarderResponse
     :: Int -- ^ 'ucfrsResponseStatus'
     -> UpdateConditionalForwarderResponse
 updateConditionalForwarderResponse pResponseStatus_ =
-    UpdateConditionalForwarderResponse'
-    { _ucfrsResponseStatus = pResponseStatus_
-    }
+  UpdateConditionalForwarderResponse' {_ucfrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 ucfrsResponseStatus :: Lens' UpdateConditionalForwarderResponse Int
 ucfrsResponseStatus = lens _ucfrsResponseStatus (\ s a -> s{_ucfrsResponseStatus = a});
 
 instance NFData UpdateConditionalForwarderResponse
+         where

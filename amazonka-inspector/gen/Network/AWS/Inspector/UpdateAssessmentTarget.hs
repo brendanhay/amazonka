@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.UpdateAssessmentTarget
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the assessment target that is specified by the ARN of the assessment target.
+--
+--
 module Network.AWS.Inspector.UpdateAssessmentTarget
     (
     -- * Creating a Request
@@ -34,40 +36,42 @@ module Network.AWS.Inspector.UpdateAssessmentTarget
     , UpdateAssessmentTargetResponse
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateAssessmentTarget' smart constructor.
 data UpdateAssessmentTarget = UpdateAssessmentTarget'
-    { _uatAssessmentTargetARN  :: !Text
-    , _uatAssessmentTargetName :: !Text
-    , _uatResourceGroupARN     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uatAssessmentTargetARN  :: !Text
+  , _uatAssessmentTargetName :: !Text
+  , _uatResourceGroupARN     :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAssessmentTarget' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uatAssessmentTargetARN'
+-- * 'uatAssessmentTargetARN' - The ARN of the assessment target that you want to update.
 --
--- * 'uatAssessmentTargetName'
+-- * 'uatAssessmentTargetName' - The name of the assessment target that you want to update.
 --
--- * 'uatResourceGroupARN'
+-- * 'uatResourceGroupARN' - The ARN of the resource group that is used to specify the new resource group to associate with the assessment target.
 updateAssessmentTarget
     :: Text -- ^ 'uatAssessmentTargetARN'
     -> Text -- ^ 'uatAssessmentTargetName'
     -> Text -- ^ 'uatResourceGroupARN'
     -> UpdateAssessmentTarget
 updateAssessmentTarget pAssessmentTargetARN_ pAssessmentTargetName_ pResourceGroupARN_ =
-    UpdateAssessmentTarget'
-    { _uatAssessmentTargetARN = pAssessmentTargetARN_
-    , _uatAssessmentTargetName = pAssessmentTargetName_
-    , _uatResourceGroupARN = pResourceGroupARN_
-    }
+  UpdateAssessmentTarget'
+  { _uatAssessmentTargetARN = pAssessmentTargetARN_
+  , _uatAssessmentTargetName = pAssessmentTargetName_
+  , _uatResourceGroupARN = pResourceGroupARN_
+  }
+
 
 -- | The ARN of the assessment target that you want to update.
 uatAssessmentTargetARN :: Lens' UpdateAssessmentTarget Text
@@ -88,9 +92,9 @@ instance AWSRequest UpdateAssessmentTarget where
         response
           = receiveNull UpdateAssessmentTargetResponse'
 
-instance Hashable UpdateAssessmentTarget
+instance Hashable UpdateAssessmentTarget where
 
-instance NFData UpdateAssessmentTarget
+instance NFData UpdateAssessmentTarget where
 
 instance ToHeaders UpdateAssessmentTarget where
         toHeaders
@@ -120,8 +124,9 @@ instance ToQuery UpdateAssessmentTarget where
 
 -- | /See:/ 'updateAssessmentTargetResponse' smart constructor.
 data UpdateAssessmentTargetResponse =
-    UpdateAssessmentTargetResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateAssessmentTargetResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAssessmentTargetResponse' with the minimum fields required to make a request.
 --
@@ -129,4 +134,5 @@ updateAssessmentTargetResponse
     :: UpdateAssessmentTargetResponse
 updateAssessmentTargetResponse = UpdateAssessmentTargetResponse'
 
-instance NFData UpdateAssessmentTargetResponse
+
+instance NFData UpdateAssessmentTargetResponse where

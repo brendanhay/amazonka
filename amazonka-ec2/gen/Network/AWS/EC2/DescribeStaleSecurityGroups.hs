@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeStaleSecurityGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- [EC2-VPC only] Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in a peer VPC, or a security group in a peer VPC for which the VPC peering connection has been deleted.
+--
+--
 module Network.AWS.EC2.DescribeStaleSecurityGroups
     (
     -- * Creating a Request
@@ -39,42 +41,44 @@ module Network.AWS.EC2.DescribeStaleSecurityGroups
     , dssgrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeStaleSecurityGroups' smart constructor.
 data DescribeStaleSecurityGroups = DescribeStaleSecurityGroups'
-    { _dssgNextToken  :: !(Maybe Text)
-    , _dssgDryRun     :: !(Maybe Bool)
-    , _dssgMaxResults :: !(Maybe Nat)
-    , _dssgVPCId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dssgNextToken  :: !(Maybe Text)
+  , _dssgDryRun     :: !(Maybe Bool)
+  , _dssgMaxResults :: !(Maybe Nat)
+  , _dssgVPCId      :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStaleSecurityGroups' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssgNextToken'
+-- * 'dssgNextToken' - The token for the next set of items to return. (You received this token from a prior call.)
 --
--- * 'dssgDryRun'
+-- * 'dssgDryRun' - Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 --
--- * 'dssgMaxResults'
+-- * 'dssgMaxResults' - The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
 --
--- * 'dssgVPCId'
+-- * 'dssgVPCId' - The ID of the VPC.
 describeStaleSecurityGroups
     :: Text -- ^ 'dssgVPCId'
     -> DescribeStaleSecurityGroups
 describeStaleSecurityGroups pVPCId_ =
-    DescribeStaleSecurityGroups'
-    { _dssgNextToken = Nothing
-    , _dssgDryRun = Nothing
-    , _dssgMaxResults = Nothing
-    , _dssgVPCId = pVPCId_
-    }
+  DescribeStaleSecurityGroups'
+  { _dssgNextToken = Nothing
+  , _dssgDryRun = Nothing
+  , _dssgMaxResults = Nothing
+  , _dssgVPCId = pVPCId_
+  }
+
 
 -- | The token for the next set of items to return. (You received this token from a prior call.)
 dssgNextToken :: Lens' DescribeStaleSecurityGroups (Maybe Text)
@@ -105,9 +109,9 @@ instance AWSRequest DescribeStaleSecurityGroups where
                      <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeStaleSecurityGroups
+instance Hashable DescribeStaleSecurityGroups where
 
-instance NFData DescribeStaleSecurityGroups
+instance NFData DescribeStaleSecurityGroups where
 
 instance ToHeaders DescribeStaleSecurityGroups where
         toHeaders = const mempty
@@ -120,7 +124,7 @@ instance ToQuery DescribeStaleSecurityGroups where
           = mconcat
               ["Action" =:
                  ("DescribeStaleSecurityGroups" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "NextToken" =: _dssgNextToken,
                "DryRun" =: _dssgDryRun,
                "MaxResults" =: _dssgMaxResults,
@@ -128,29 +132,31 @@ instance ToQuery DescribeStaleSecurityGroups where
 
 -- | /See:/ 'describeStaleSecurityGroupsResponse' smart constructor.
 data DescribeStaleSecurityGroupsResponse = DescribeStaleSecurityGroupsResponse'
-    { _dssgrsStaleSecurityGroupSet :: !(Maybe [StaleSecurityGroup])
-    , _dssgrsNextToken             :: !(Maybe Text)
-    , _dssgrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dssgrsStaleSecurityGroupSet :: !(Maybe [StaleSecurityGroup])
+  , _dssgrsNextToken             :: !(Maybe Text)
+  , _dssgrsResponseStatus        :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStaleSecurityGroupsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssgrsStaleSecurityGroupSet'
+-- * 'dssgrsStaleSecurityGroupSet' - Information about the stale security groups.
 --
--- * 'dssgrsNextToken'
+-- * 'dssgrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
--- * 'dssgrsResponseStatus'
+-- * 'dssgrsResponseStatus' - -- | The response status code.
 describeStaleSecurityGroupsResponse
     :: Int -- ^ 'dssgrsResponseStatus'
     -> DescribeStaleSecurityGroupsResponse
 describeStaleSecurityGroupsResponse pResponseStatus_ =
-    DescribeStaleSecurityGroupsResponse'
-    { _dssgrsStaleSecurityGroupSet = Nothing
-    , _dssgrsNextToken = Nothing
-    , _dssgrsResponseStatus = pResponseStatus_
-    }
+  DescribeStaleSecurityGroupsResponse'
+  { _dssgrsStaleSecurityGroupSet = Nothing
+  , _dssgrsNextToken = Nothing
+  , _dssgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the stale security groups.
 dssgrsStaleSecurityGroupSet :: Lens' DescribeStaleSecurityGroupsResponse [StaleSecurityGroup]
@@ -160,8 +166,9 @@ dssgrsStaleSecurityGroupSet = lens _dssgrsStaleSecurityGroupSet (\ s a -> s{_dss
 dssgrsNextToken :: Lens' DescribeStaleSecurityGroupsResponse (Maybe Text)
 dssgrsNextToken = lens _dssgrsNextToken (\ s a -> s{_dssgrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dssgrsResponseStatus :: Lens' DescribeStaleSecurityGroupsResponse Int
 dssgrsResponseStatus = lens _dssgrsResponseStatus (\ s a -> s{_dssgrsResponseStatus = a});
 
 instance NFData DescribeStaleSecurityGroupsResponse
+         where

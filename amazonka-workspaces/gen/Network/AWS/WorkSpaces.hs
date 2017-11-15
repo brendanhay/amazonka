@@ -5,15 +5,16 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon WorkSpaces Service
+-- __Amazon WorkSpaces Service__
 --
 -- This reference provides detailed information about the Amazon WorkSpaces operations.
+--
 module Network.AWS.WorkSpaces
     (
     -- * Service Configuration
@@ -58,10 +59,10 @@ module Network.AWS.WorkSpaces
     -- ** DescribeTags
     , module Network.AWS.WorkSpaces.DescribeTags
 
-    -- ** DescribeWorkspaceDirectories
+    -- ** DescribeWorkspaceDirectories (Paginated)
     , module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
 
-    -- ** DescribeWorkspaceBundles
+    -- ** DescribeWorkspaceBundles (Paginated)
     , module Network.AWS.WorkSpaces.DescribeWorkspaceBundles
 
     -- ** RebuildWorkspaces
@@ -88,7 +89,7 @@ module Network.AWS.WorkSpaces
     -- ** CreateWorkspaces
     , module Network.AWS.WorkSpaces.CreateWorkspaces
 
-    -- ** DescribeWorkspaces
+    -- ** DescribeWorkspaces (Paginated)
     , module Network.AWS.WorkSpaces.DescribeWorkspaces
 
     -- ** StartWorkspaces
@@ -249,22 +250,22 @@ module Network.AWS.WorkSpaces
     , wrBundleId
     ) where
 
-import           Network.AWS.WorkSpaces.CreateTags
-import           Network.AWS.WorkSpaces.CreateWorkspaces
-import           Network.AWS.WorkSpaces.DeleteTags
-import           Network.AWS.WorkSpaces.DescribeTags
-import           Network.AWS.WorkSpaces.DescribeWorkspaceBundles
-import           Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
-import           Network.AWS.WorkSpaces.DescribeWorkspaces
-import           Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
-import           Network.AWS.WorkSpaces.ModifyWorkspaceProperties
-import           Network.AWS.WorkSpaces.RebootWorkspaces
-import           Network.AWS.WorkSpaces.RebuildWorkspaces
-import           Network.AWS.WorkSpaces.StartWorkspaces
-import           Network.AWS.WorkSpaces.StopWorkspaces
-import           Network.AWS.WorkSpaces.TerminateWorkspaces
-import           Network.AWS.WorkSpaces.Types
-import           Network.AWS.WorkSpaces.Waiters
+import Network.AWS.WorkSpaces.CreateTags
+import Network.AWS.WorkSpaces.CreateWorkspaces
+import Network.AWS.WorkSpaces.DeleteTags
+import Network.AWS.WorkSpaces.DescribeTags
+import Network.AWS.WorkSpaces.DescribeWorkspaceBundles
+import Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
+import Network.AWS.WorkSpaces.DescribeWorkspaces
+import Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
+import Network.AWS.WorkSpaces.ModifyWorkspaceProperties
+import Network.AWS.WorkSpaces.RebootWorkspaces
+import Network.AWS.WorkSpaces.RebuildWorkspaces
+import Network.AWS.WorkSpaces.StartWorkspaces
+import Network.AWS.WorkSpaces.StopWorkspaces
+import Network.AWS.WorkSpaces.TerminateWorkspaces
+import Network.AWS.WorkSpaces.Types
+import Network.AWS.WorkSpaces.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

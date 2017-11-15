@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.RegisterRDSDBInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers an Amazon RDS instance with a stack.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.RegisterRDSDBInstance
     (
     -- * Creating a Request
@@ -37,32 +39,33 @@ module Network.AWS.OpsWorks.RegisterRDSDBInstance
     , RegisterRDSDBInstanceResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'registerRDSDBInstance' smart constructor.
 data RegisterRDSDBInstance = RegisterRDSDBInstance'
-    { _rrdiStackId          :: !Text
-    , _rrdiRDSDBInstanceARN :: !Text
-    , _rrdiDBUser           :: !Text
-    , _rrdiDBPassword       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrdiStackId          :: !Text
+  , _rrdiRDSDBInstanceARN :: !Text
+  , _rrdiDBUser           :: !Text
+  , _rrdiDBPassword       :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterRDSDBInstance' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrdiStackId'
+-- * 'rrdiStackId' - The stack ID.
 --
--- * 'rrdiRDSDBInstanceARN'
+-- * 'rrdiRDSDBInstanceARN' - The Amazon RDS instance's ARN.
 --
--- * 'rrdiDBUser'
+-- * 'rrdiDBUser' - The database's master user name.
 --
--- * 'rrdiDBPassword'
+-- * 'rrdiDBPassword' - The database password.
 registerRDSDBInstance
     :: Text -- ^ 'rrdiStackId'
     -> Text -- ^ 'rrdiRDSDBInstanceARN'
@@ -70,22 +73,23 @@ registerRDSDBInstance
     -> Text -- ^ 'rrdiDBPassword'
     -> RegisterRDSDBInstance
 registerRDSDBInstance pStackId_ pRDSDBInstanceARN_ pDBUser_ pDBPassword_ =
-    RegisterRDSDBInstance'
-    { _rrdiStackId = pStackId_
-    , _rrdiRDSDBInstanceARN = pRDSDBInstanceARN_
-    , _rrdiDBUser = pDBUser_
-    , _rrdiDBPassword = pDBPassword_
-    }
+  RegisterRDSDBInstance'
+  { _rrdiStackId = pStackId_
+  , _rrdiRDSDBInstanceARN = pRDSDBInstanceARN_
+  , _rrdiDBUser = pDBUser_
+  , _rrdiDBPassword = pDBPassword_
+  }
+
 
 -- | The stack ID.
 rrdiStackId :: Lens' RegisterRDSDBInstance Text
 rrdiStackId = lens _rrdiStackId (\ s a -> s{_rrdiStackId = a});
 
--- | The Amazon RDS instance\'s ARN.
+-- | The Amazon RDS instance's ARN.
 rrdiRDSDBInstanceARN :: Lens' RegisterRDSDBInstance Text
 rrdiRDSDBInstanceARN = lens _rrdiRDSDBInstanceARN (\ s a -> s{_rrdiRDSDBInstanceARN = a});
 
--- | The database\'s master user name.
+-- | The database's master user name.
 rrdiDBUser :: Lens' RegisterRDSDBInstance Text
 rrdiDBUser = lens _rrdiDBUser (\ s a -> s{_rrdiDBUser = a});
 
@@ -99,9 +103,9 @@ instance AWSRequest RegisterRDSDBInstance where
         request = postJSON opsWorks
         response = receiveNull RegisterRDSDBInstanceResponse'
 
-instance Hashable RegisterRDSDBInstance
+instance Hashable RegisterRDSDBInstance where
 
-instance NFData RegisterRDSDBInstance
+instance NFData RegisterRDSDBInstance where
 
 instance ToHeaders RegisterRDSDBInstance where
         toHeaders
@@ -130,8 +134,9 @@ instance ToQuery RegisterRDSDBInstance where
 
 -- | /See:/ 'registerRDSDBInstanceResponse' smart constructor.
 data RegisterRDSDBInstanceResponse =
-    RegisterRDSDBInstanceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RegisterRDSDBInstanceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterRDSDBInstanceResponse' with the minimum fields required to make a request.
 --
@@ -139,4 +144,5 @@ registerRDSDBInstanceResponse
     :: RegisterRDSDBInstanceResponse
 registerRDSDBInstanceResponse = RegisterRDSDBInstanceResponse'
 
-instance NFData RegisterRDSDBInstanceResponse
+
+instance NFData RegisterRDSDBInstanceResponse where

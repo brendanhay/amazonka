@@ -12,33 +12,53 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.GetMetricStatistics
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets statistics for the specified metric.
 --
--- The maximum number of data points that can be queried is 50,850, whereas the maximum number of data points returned from a single 'GetMetricStatistics' request is 1,440. If you make a request that generates more than 1,440 data points, Amazon CloudWatch returns an error. In such a case, you can alter the request by narrowing the specified time range or increasing the specified period. A period can be as short as one minute (60 seconds) or as long as one day (86,400 seconds). Alternatively, you can make multiple requests across adjacent time ranges. 'GetMetricStatistics' does not return the data in chronological order.
 --
--- Amazon CloudWatch aggregates data points based on the length of the 'period' that you specify. For example, if you request statistics with a one-minute granularity, Amazon CloudWatch aggregates data points with time stamps that fall within the same one-minute period. In such a case, the data points queried can greatly outnumber the data points returned.
+-- The maximum number of data points returned from a single call is 1,440. If you request more than 1,440 data points, CloudWatch returns an error. To reduce the number of data points, you can narrow the specified time range and make multiple requests across adjacent time ranges, or you can increase the specified period. Data points are not returned in chronological order.
 --
--- The following examples show various statistics allowed by the data point query maximum of 50,850 when you call 'GetMetricStatistics' on Amazon EC2 instances with detailed (one-minute) monitoring enabled:
+-- CloudWatch aggregates data points based on the length of the period that you specify. For example, if you request statistics with a one-hour period, CloudWatch aggregates all data points with time stamps that fall within each one-hour period. Therefore, the number of values aggregated by CloudWatch is larger than the number of data points returned.
 --
--- -   Statistics for up to 400 instances for a span of one hour
+-- CloudWatch needs raw data points to calculate percentile statistics. If you publish data using a statistic set instead, you can only retrieve percentile statistics for this data if one of the following conditions is true:
 --
--- -   Statistics for up to 35 instances over a span of 24 hours
+--     * The SampleCount value of the statistic set is 1.
 --
--- -   Statistics for up to 2 instances over a span of 2 weeks
+--     * The Min and the Max values of the statistic set are equal.
 --
--- For information about the namespace, metric names, and dimensions that other Amazon Web Services products use to send metrics to CloudWatch, go to <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html Amazon CloudWatch Metrics, Namespaces, and Dimensions Reference> in the /Amazon CloudWatch Developer Guide/.
+--
+--
+-- Amazon CloudWatch retains metric data as follows:
+--
+--     * Data points with a period of less than 60 seconds are available for 3 hours. These data points are high-resolution metrics and are available only for custom metrics that have been defined with a @StorageResolution@ of 1.
+--
+--     * Data points with a period of 60 seconds (1-minute) are available for 15 days.
+--
+--     * Data points with a period of 300 seconds (5-minute) are available for 63 days.
+--
+--     * Data points with a period of 3600 seconds (1 hour) are available for 455 days (15 months).
+--
+--
+--
+-- Data points that are initially published with a shorter period are aggregated together for long-term storage. For example, if you collect data using a period of 1 minute, the data remains available for 15 days with 1-minute resolution. After 15 days, this data is still available, but is aggregated and retrievable only with a resolution of 5 minutes. After 63 days, the data is further aggregated and is available with a resolution of 1 hour.
+--
+-- CloudWatch started retaining 5-minute and 1-hour metric data as of July 9, 2016.
+--
+-- For information about metrics and dimensions supported by AWS services, see the <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html Amazon CloudWatch Metrics and Dimensions Reference> in the /Amazon CloudWatch User Guide/ .
+--
 module Network.AWS.CloudWatch.GetMetricStatistics
     (
     -- * Creating a Request
       getMetricStatistics
     , GetMetricStatistics
     -- * Request Lenses
+    , gmsExtendedStatistics
+    , gmsStatistics
     , gmsDimensions
     , gmsUnit
     , gmsNamespace
@@ -46,7 +66,6 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     , gmsStartTime
     , gmsEndTime
     , gmsPeriod
-    , gmsStatistics
 
     -- * Destructuring the Response
     , getMetricStatisticsResponse
@@ -57,71 +76,82 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     , gmsrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Describes the inputs for GetMetricStatistics.
---
--- /See:/ 'getMetricStatistics' smart constructor.
+-- | /See:/ 'getMetricStatistics' smart constructor.
 data GetMetricStatistics = GetMetricStatistics'
-    { _gmsDimensions :: !(Maybe [Dimension])
-    , _gmsUnit       :: !(Maybe StandardUnit)
-    , _gmsNamespace  :: !Text
-    , _gmsMetricName :: !Text
-    , _gmsStartTime  :: !ISO8601
-    , _gmsEndTime    :: !ISO8601
-    , _gmsPeriod     :: !Nat
-    , _gmsStatistics :: !(List1 Statistic)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmsExtendedStatistics :: !(Maybe (List1 Text))
+  , _gmsStatistics         :: !(Maybe (List1 Statistic))
+  , _gmsDimensions         :: !(Maybe [Dimension])
+  , _gmsUnit               :: !(Maybe StandardUnit)
+  , _gmsNamespace          :: !Text
+  , _gmsMetricName         :: !Text
+  , _gmsStartTime          :: !ISO8601
+  , _gmsEndTime            :: !ISO8601
+  , _gmsPeriod             :: !Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetMetricStatistics' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmsDimensions'
+-- * 'gmsExtendedStatistics' - The percentile statistics. Specify values between p0.0 and p100. When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both.
 --
--- * 'gmsUnit'
+-- * 'gmsStatistics' - The metric statistics, other than percentile. For percentile statistics, use @ExtendedStatistics@ . When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both.
 --
--- * 'gmsNamespace'
+-- * 'gmsDimensions' - The dimensions. If the metric contains multiple dimensions, you must include a value for each dimension. CloudWatch treats each unique combination of dimensions as a separate metric. If a specific combination of dimensions was not published, you can't retrieve statistics for it. You must specify the same dimensions that were used when the metrics were created. For an example, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations Dimension Combinations> in the /Amazon CloudWatch User Guide/ . For more information about specifying dimensions, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publishing Metrics> in the /Amazon CloudWatch User Guide/ .
 --
--- * 'gmsMetricName'
+-- * 'gmsUnit' - The unit for a given metric. Metrics may be reported in multiple units. Not supplying a unit results in all units being returned. If the metric only ever reports one unit, specifying a unit has no effect.
 --
--- * 'gmsStartTime'
+-- * 'gmsNamespace' - The namespace of the metric, with or without spaces.
 --
--- * 'gmsEndTime'
+-- * 'gmsMetricName' - The name of the metric, with or without spaces.
 --
--- * 'gmsPeriod'
+-- * 'gmsStartTime' - The time stamp that determines the first data point to return. Start times are evaluated relative to the time that CloudWatch receives the request. The value specified is inclusive; results include data points with the specified time stamp. The time stamp must be in ISO 8601 UTC format (for example, 2016-10-03T23:00:00Z). CloudWatch rounds the specified time stamp as follows:     * Start time less than 15 days ago - Round down to the nearest whole minute. For example, 12:32:34 is rounded down to 12:32:00.     * Start time between 15 and 63 days ago - Round down to the nearest 5-minute clock interval. For example, 12:32:34 is rounded down to 12:30:00.     * Start time greater than 63 days ago - Round down to the nearest 1-hour clock interval. For example, 12:32:34 is rounded down to 12:00:00. If you set @Period@ to 5, 10, or 30, the start time of your request is rounded down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions of a minute. For example, if you make a query at (HH:mm:ss) 01:05:23 for the previous 10-second period, the start time of your request is rounded down and you receive data from 01:05:10 to 01:05:20. If you make a query at 15:07:17 for the previous 5 minutes of data, using a period of 5 seconds, you receive data timestamped between 15:02:15 and 15:07:15.
 --
--- * 'gmsStatistics'
+-- * 'gmsEndTime' - The time stamp that determines the last data point to return. The value specified is exclusive; results include data points up to the specified time stamp. The time stamp must be in ISO 8601 UTC format (for example, 2016-10-10T23:00:00Z).
+--
+-- * 'gmsPeriod' - The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a @PutMetricData@ call that includes a @StorageResolution@ of 1 second. If the @StartTime@ parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:     * Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).     * Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).     * Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).
 getMetricStatistics
     :: Text -- ^ 'gmsNamespace'
     -> Text -- ^ 'gmsMetricName'
     -> UTCTime -- ^ 'gmsStartTime'
     -> UTCTime -- ^ 'gmsEndTime'
     -> Natural -- ^ 'gmsPeriod'
-    -> NonEmpty Statistic -- ^ 'gmsStatistics'
     -> GetMetricStatistics
-getMetricStatistics pNamespace_ pMetricName_ pStartTime_ pEndTime_ pPeriod_ pStatistics_ =
-    GetMetricStatistics'
-    { _gmsDimensions = Nothing
-    , _gmsUnit = Nothing
-    , _gmsNamespace = pNamespace_
-    , _gmsMetricName = pMetricName_
-    , _gmsStartTime = _Time # pStartTime_
-    , _gmsEndTime = _Time # pEndTime_
-    , _gmsPeriod = _Nat # pPeriod_
-    , _gmsStatistics = _List1 # pStatistics_
-    }
+getMetricStatistics pNamespace_ pMetricName_ pStartTime_ pEndTime_ pPeriod_ =
+  GetMetricStatistics'
+  { _gmsExtendedStatistics = Nothing
+  , _gmsStatistics = Nothing
+  , _gmsDimensions = Nothing
+  , _gmsUnit = Nothing
+  , _gmsNamespace = pNamespace_
+  , _gmsMetricName = pMetricName_
+  , _gmsStartTime = _Time # pStartTime_
+  , _gmsEndTime = _Time # pEndTime_
+  , _gmsPeriod = _Nat # pPeriod_
+  }
 
--- | A list of dimensions describing qualities of the metric.
+
+-- | The percentile statistics. Specify values between p0.0 and p100. When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both.
+gmsExtendedStatistics :: Lens' GetMetricStatistics (Maybe (NonEmpty Text))
+gmsExtendedStatistics = lens _gmsExtendedStatistics (\ s a -> s{_gmsExtendedStatistics = a}) . mapping _List1;
+
+-- | The metric statistics, other than percentile. For percentile statistics, use @ExtendedStatistics@ . When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both.
+gmsStatistics :: Lens' GetMetricStatistics (Maybe (NonEmpty Statistic))
+gmsStatistics = lens _gmsStatistics (\ s a -> s{_gmsStatistics = a}) . mapping _List1;
+
+-- | The dimensions. If the metric contains multiple dimensions, you must include a value for each dimension. CloudWatch treats each unique combination of dimensions as a separate metric. If a specific combination of dimensions was not published, you can't retrieve statistics for it. You must specify the same dimensions that were used when the metrics were created. For an example, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations Dimension Combinations> in the /Amazon CloudWatch User Guide/ . For more information about specifying dimensions, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publishing Metrics> in the /Amazon CloudWatch User Guide/ .
 gmsDimensions :: Lens' GetMetricStatistics [Dimension]
 gmsDimensions = lens _gmsDimensions (\ s a -> s{_gmsDimensions = a}) . _Default . _Coerce;
 
--- | The specific unit for a given metric. Metrics may be reported in multiple units. Not supplying a unit results in all units being returned. If the metric only ever reports one unit, specifying a unit will have no effect.
+-- | The unit for a given metric. Metrics may be reported in multiple units. Not supplying a unit results in all units being returned. If the metric only ever reports one unit, specifying a unit has no effect.
 gmsUnit :: Lens' GetMetricStatistics (Maybe StandardUnit)
 gmsUnit = lens _gmsUnit (\ s a -> s{_gmsUnit = a});
 
@@ -133,25 +163,17 @@ gmsNamespace = lens _gmsNamespace (\ s a -> s{_gmsNamespace = a});
 gmsMetricName :: Lens' GetMetricStatistics Text
 gmsMetricName = lens _gmsMetricName (\ s a -> s{_gmsMetricName = a});
 
--- | The time stamp to use for determining the first datapoint to return. The value specified is inclusive; results include datapoints with the time stamp specified. The time stamp must be in ISO 8601 UTC format (e.g., 2014-09-03T23:00:00Z).
---
--- The specified start time is rounded down to the nearest value. Datapoints are returned for start times up to two weeks in the past. Specified start times that are more than two weeks in the past will not return datapoints for metrics that are older than two weeks.
---
--- Data that is timestamped 24 hours or more in the past may take in excess of 48 hours to become available from submission time using 'GetMetricStatistics'.
+-- | The time stamp that determines the first data point to return. Start times are evaluated relative to the time that CloudWatch receives the request. The value specified is inclusive; results include data points with the specified time stamp. The time stamp must be in ISO 8601 UTC format (for example, 2016-10-03T23:00:00Z). CloudWatch rounds the specified time stamp as follows:     * Start time less than 15 days ago - Round down to the nearest whole minute. For example, 12:32:34 is rounded down to 12:32:00.     * Start time between 15 and 63 days ago - Round down to the nearest 5-minute clock interval. For example, 12:32:34 is rounded down to 12:30:00.     * Start time greater than 63 days ago - Round down to the nearest 1-hour clock interval. For example, 12:32:34 is rounded down to 12:00:00. If you set @Period@ to 5, 10, or 30, the start time of your request is rounded down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions of a minute. For example, if you make a query at (HH:mm:ss) 01:05:23 for the previous 10-second period, the start time of your request is rounded down and you receive data from 01:05:10 to 01:05:20. If you make a query at 15:07:17 for the previous 5 minutes of data, using a period of 5 seconds, you receive data timestamped between 15:02:15 and 15:07:15.
 gmsStartTime :: Lens' GetMetricStatistics UTCTime
 gmsStartTime = lens _gmsStartTime (\ s a -> s{_gmsStartTime = a}) . _Time;
 
--- | The time stamp to use for determining the last datapoint to return. The value specified is exclusive; results will include datapoints up to the time stamp specified. The time stamp must be in ISO 8601 UTC format (e.g., 2014-09-03T23:00:00Z).
+-- | The time stamp that determines the last data point to return. The value specified is exclusive; results include data points up to the specified time stamp. The time stamp must be in ISO 8601 UTC format (for example, 2016-10-10T23:00:00Z).
 gmsEndTime :: Lens' GetMetricStatistics UTCTime
 gmsEndTime = lens _gmsEndTime (\ s a -> s{_gmsEndTime = a}) . _Time;
 
--- | The granularity, in seconds, of the returned datapoints. A 'Period' can be as short as one minute (60 seconds) or as long as one day (86,400 seconds), and must be a multiple of 60. The default value is 60.
+-- | The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a @PutMetricData@ call that includes a @StorageResolution@ of 1 second. If the @StartTime@ parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:     * Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).     * Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).     * Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).
 gmsPeriod :: Lens' GetMetricStatistics Natural
 gmsPeriod = lens _gmsPeriod (\ s a -> s{_gmsPeriod = a}) . _Nat;
-
--- | The metric statistics to return. For information about specific statistics returned by GetMetricStatistics, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Statistic Statistics> in the /Amazon CloudWatch Developer Guide/.
-gmsStatistics :: Lens' GetMetricStatistics (NonEmpty Statistic)
-gmsStatistics = lens _gmsStatistics (\ s a -> s{_gmsStatistics = a}) . _List1;
 
 instance AWSRequest GetMetricStatistics where
         type Rs GetMetricStatistics =
@@ -166,9 +188,9 @@ instance AWSRequest GetMetricStatistics where
                      <*> (x .@? "Label")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetMetricStatistics
+instance Hashable GetMetricStatistics where
 
-instance NFData GetMetricStatistics
+instance NFData GetMetricStatistics where
 
 instance ToHeaders GetMetricStatistics where
         toHeaders = const mempty
@@ -181,52 +203,56 @@ instance ToQuery GetMetricStatistics where
           = mconcat
               ["Action" =: ("GetMetricStatistics" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
+               "ExtendedStatistics" =:
+                 toQuery
+                   (toQueryList "member" <$> _gmsExtendedStatistics),
+               "Statistics" =:
+                 toQuery (toQueryList "member" <$> _gmsStatistics),
                "Dimensions" =:
                  toQuery (toQueryList "member" <$> _gmsDimensions),
                "Unit" =: _gmsUnit, "Namespace" =: _gmsNamespace,
                "MetricName" =: _gmsMetricName,
                "StartTime" =: _gmsStartTime,
-               "EndTime" =: _gmsEndTime, "Period" =: _gmsPeriod,
-               "Statistics" =: toQueryList "member" _gmsStatistics]
+               "EndTime" =: _gmsEndTime, "Period" =: _gmsPeriod]
 
--- | The output for < GetMetricStatistics>.
---
--- /See:/ 'getMetricStatisticsResponse' smart constructor.
+-- | /See:/ 'getMetricStatisticsResponse' smart constructor.
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse'
-    { _gmsrsDatapoints     :: !(Maybe [Datapoint])
-    , _gmsrsLabel          :: !(Maybe Text)
-    , _gmsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmsrsDatapoints     :: !(Maybe [Datapoint])
+  , _gmsrsLabel          :: !(Maybe Text)
+  , _gmsrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetMetricStatisticsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmsrsDatapoints'
+-- * 'gmsrsDatapoints' - The data points for the specified metric.
 --
--- * 'gmsrsLabel'
+-- * 'gmsrsLabel' - A label for the specified metric.
 --
--- * 'gmsrsResponseStatus'
+-- * 'gmsrsResponseStatus' - -- | The response status code.
 getMetricStatisticsResponse
     :: Int -- ^ 'gmsrsResponseStatus'
     -> GetMetricStatisticsResponse
 getMetricStatisticsResponse pResponseStatus_ =
-    GetMetricStatisticsResponse'
-    { _gmsrsDatapoints = Nothing
-    , _gmsrsLabel = Nothing
-    , _gmsrsResponseStatus = pResponseStatus_
-    }
+  GetMetricStatisticsResponse'
+  { _gmsrsDatapoints = Nothing
+  , _gmsrsLabel = Nothing
+  , _gmsrsResponseStatus = pResponseStatus_
+  }
 
--- | The datapoints for the specified metric.
+
+-- | The data points for the specified metric.
 gmsrsDatapoints :: Lens' GetMetricStatisticsResponse [Datapoint]
 gmsrsDatapoints = lens _gmsrsDatapoints (\ s a -> s{_gmsrsDatapoints = a}) . _Default . _Coerce;
 
--- | A label describing the specified metric.
+-- | A label for the specified metric.
 gmsrsLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)
 gmsrsLabel = lens _gmsrsLabel (\ s a -> s{_gmsrsLabel = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gmsrsResponseStatus :: Lens' GetMetricStatisticsResponse Int
 gmsrsResponseStatus = lens _gmsrsResponseStatus (\ s a -> s{_gmsrsResponseStatus = a});
 
-instance NFData GetMetricStatisticsResponse
+instance NFData GetMetricStatisticsResponse where

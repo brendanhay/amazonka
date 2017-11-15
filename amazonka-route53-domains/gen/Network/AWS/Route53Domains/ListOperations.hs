@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.ListOperations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation returns the operation IDs of operations that are not yet complete.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.Route53Domains.ListOperations
@@ -39,56 +41,42 @@ module Network.AWS.Route53Domains.ListOperations
     , lorsOperations
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | The ListOperations request includes the following elements.
 --
+--
+--
 -- /See:/ 'listOperations' smart constructor.
 data ListOperations = ListOperations'
-    { _loMarker   :: !(Maybe Text)
-    , _loMaxItems :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _loMarker   :: !(Maybe Text)
+  , _loMaxItems :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListOperations' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'loMarker'
+-- * 'loMarker' - For an initial request for a list of operations, omit this element. If the number of operations that are not yet complete is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional operations. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element.
 --
--- * 'loMaxItems'
+-- * 'loMaxItems' - Number of domains to be returned. Default: 20
 listOperations
     :: ListOperations
-listOperations =
-    ListOperations'
-    { _loMarker = Nothing
-    , _loMaxItems = Nothing
-    }
+listOperations = ListOperations' {_loMarker = Nothing, _loMaxItems = Nothing}
 
--- | For an initial request for a list of operations, omit this element. If the number of operations that are not yet complete is greater than the value that you specified for 'MaxItems', you can use 'Marker' to return additional operations. Get the value of 'NextPageMarker' from the previous response, and submit another request that includes the value of 'NextPageMarker' in the 'Marker' element.
---
--- Type: String
---
--- Default: None
---
--- Required: No
+
+-- | For an initial request for a list of operations, omit this element. If the number of operations that are not yet complete is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional operations. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element.
 loMarker :: Lens' ListOperations (Maybe Text)
 loMarker = lens _loMarker (\ s a -> s{_loMarker = a});
 
--- | Number of domains to be returned.
---
--- Type: Integer
---
--- Default: 20
---
--- Constraints: A value between 1 and 100.
---
--- Required: No
+-- | Number of domains to be returned. Default: 20
 loMaxItems :: Lens' ListOperations (Maybe Int)
 loMaxItems = lens _loMaxItems (\ s a -> s{_loMaxItems = a});
 
@@ -109,9 +97,9 @@ instance AWSRequest ListOperations where
                    (x .?> "NextPageMarker") <*> (pure (fromEnum s)) <*>
                      (x .?> "Operations" .!@ mempty))
 
-instance Hashable ListOperations
+instance Hashable ListOperations where
 
-instance NFData ListOperations
+instance NFData ListOperations where
 
 instance ToHeaders ListOperations where
         toHeaders
@@ -138,50 +126,46 @@ instance ToQuery ListOperations where
 
 -- | The ListOperations response includes the following elements.
 --
+--
+--
 -- /See:/ 'listOperationsResponse' smart constructor.
 data ListOperationsResponse = ListOperationsResponse'
-    { _lorsNextPageMarker :: !(Maybe Text)
-    , _lorsResponseStatus :: !Int
-    , _lorsOperations     :: ![OperationSummary]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lorsNextPageMarker :: !(Maybe Text)
+  , _lorsResponseStatus :: !Int
+  , _lorsOperations     :: ![OperationSummary]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListOperationsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lorsNextPageMarker'
+-- * 'lorsNextPageMarker' - If there are more operations than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ .
 --
--- * 'lorsResponseStatus'
+-- * 'lorsResponseStatus' - -- | The response status code.
 --
--- * 'lorsOperations'
+-- * 'lorsOperations' - Lists summaries of the operations.
 listOperationsResponse
     :: Int -- ^ 'lorsResponseStatus'
     -> ListOperationsResponse
 listOperationsResponse pResponseStatus_ =
-    ListOperationsResponse'
-    { _lorsNextPageMarker = Nothing
-    , _lorsResponseStatus = pResponseStatus_
-    , _lorsOperations = mempty
-    }
+  ListOperationsResponse'
+  { _lorsNextPageMarker = Nothing
+  , _lorsResponseStatus = pResponseStatus_
+  , _lorsOperations = mempty
+  }
 
--- | If there are more operations than you specified for 'MaxItems' in the request, submit another request and include the value of 'NextPageMarker' in the value of 'Marker'.
---
--- Type: String
---
--- Parent: 'Operations'
+
+-- | If there are more operations than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ .
 lorsNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
 lorsNextPageMarker = lens _lorsNextPageMarker (\ s a -> s{_lorsNextPageMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lorsResponseStatus :: Lens' ListOperationsResponse Int
 lorsResponseStatus = lens _lorsResponseStatus (\ s a -> s{_lorsResponseStatus = a});
 
 -- | Lists summaries of the operations.
---
--- Type: Complex type containing a list of operation summaries
---
--- Children: 'OperationId', 'Status', 'SubmittedDate', 'Type'
 lorsOperations :: Lens' ListOperationsResponse [OperationSummary]
 lorsOperations = lens _lorsOperations (\ s a -> s{_lorsOperations = a}) . _Coerce;
 
-instance NFData ListOperationsResponse
+instance NFData ListOperationsResponse where

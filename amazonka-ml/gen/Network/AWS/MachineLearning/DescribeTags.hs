@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DescribeTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of the tags for your Amazon ML object.
+--
+--
 module Network.AWS.MachineLearning.DescribeTags
     (
     -- * Creating a Request
@@ -38,37 +40,36 @@ module Network.AWS.MachineLearning.DescribeTags
     , dtrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeTags' smart constructor.
 data DescribeTags = DescribeTags'
-    { _dtResourceId   :: !Text
-    , _dtResourceType :: !TaggableResourceType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtResourceId   :: !Text
+  , _dtResourceType :: !TaggableResourceType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtResourceId'
+-- * 'dtResourceId' - The ID of the ML object. For example, @exampleModelId@ .
 --
--- * 'dtResourceType'
+-- * 'dtResourceType' - The type of the ML object.
 describeTags
     :: Text -- ^ 'dtResourceId'
     -> TaggableResourceType -- ^ 'dtResourceType'
     -> DescribeTags
 describeTags pResourceId_ pResourceType_ =
-    DescribeTags'
-    { _dtResourceId = pResourceId_
-    , _dtResourceType = pResourceType_
-    }
+  DescribeTags' {_dtResourceId = pResourceId_, _dtResourceType = pResourceType_}
 
--- | The ID of the ML object. For example, 'exampleModelId'.
+
+-- | The ID of the ML object. For example, @exampleModelId@ .
 dtResourceId :: Lens' DescribeTags Text
 dtResourceId = lens _dtResourceId (\ s a -> s{_dtResourceId = a});
 
@@ -87,9 +88,9 @@ instance AWSRequest DescribeTags where
                      (x .?> "Tags" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeTags
+instance Hashable DescribeTags where
 
-instance NFData DescribeTags
+instance NFData DescribeTags where
 
 instance ToHeaders DescribeTags where
         toHeaders
@@ -115,35 +116,39 @@ instance ToQuery DescribeTags where
 
 -- | Amazon ML returns the following elements.
 --
+--
+--
 -- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrsResourceId     :: !(Maybe Text)
-    , _dtrsResourceType   :: !(Maybe TaggableResourceType)
-    , _dtrsTags           :: !(Maybe [Tag])
-    , _dtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrsResourceId     :: !(Maybe Text)
+  , _dtrsResourceType   :: !(Maybe TaggableResourceType)
+  , _dtrsTags           :: !(Maybe [Tag])
+  , _dtrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrsResourceId'
+-- * 'dtrsResourceId' - The ID of the tagged ML object.
 --
--- * 'dtrsResourceType'
+-- * 'dtrsResourceType' - The type of the tagged ML object.
 --
--- * 'dtrsTags'
+-- * 'dtrsTags' - A list of tags associated with the ML object.
 --
--- * 'dtrsResponseStatus'
+-- * 'dtrsResponseStatus' - -- | The response status code.
 describeTagsResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
 describeTagsResponse pResponseStatus_ =
-    DescribeTagsResponse'
-    { _dtrsResourceId = Nothing
-    , _dtrsResourceType = Nothing
-    , _dtrsTags = Nothing
-    , _dtrsResponseStatus = pResponseStatus_
-    }
+  DescribeTagsResponse'
+  { _dtrsResourceId = Nothing
+  , _dtrsResourceType = Nothing
+  , _dtrsTags = Nothing
+  , _dtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the tagged ML object.
 dtrsResourceId :: Lens' DescribeTagsResponse (Maybe Text)
@@ -157,8 +162,8 @@ dtrsResourceType = lens _dtrsResourceType (\ s a -> s{_dtrsResourceType = a});
 dtrsTags :: Lens' DescribeTagsResponse [Tag]
 dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 
-instance NFData DescribeTagsResponse
+instance NFData DescribeTagsResponse where

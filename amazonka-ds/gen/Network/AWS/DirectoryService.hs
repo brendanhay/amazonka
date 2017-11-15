@@ -5,15 +5,16 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS Directory Service
+-- __AWS Directory Service__
 --
--- This is the /AWS Directory Service API Reference/. This guide provides detailed information about AWS Directory Service operations, data types, parameters, and errors.
+-- AWS Directory Service is a web service that makes it easy for you to setup and run directories in the AWS cloud, or connect your AWS resources with an existing on-premises Microsoft Active Directory. This guide provides detailed information about AWS Directory Service operations, data types, parameters, and errors. For information about AWS Directory Services features, see <https://aws.amazon.com/directoryservice/ AWS Directory Service> and the <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html AWS Directory Service Administration Guide> .
+--
 module Network.AWS.DirectoryService
     (
     -- * Service Configuration
@@ -58,6 +59,9 @@ module Network.AWS.DirectoryService
     -- ** SnapshotLimitExceededException
     , _SnapshotLimitExceededException
 
+    -- ** DomainControllerLimitExceededException
+    , _DomainControllerLimitExceededException
+
     -- ** TagLimitExceededException
     , _TagLimitExceededException
 
@@ -69,6 +73,9 @@ module Network.AWS.DirectoryService
 
     -- * Operations
     -- $operations
+
+    -- ** UpdateNumberOfDomainControllers
+    , module Network.AWS.DirectoryService.UpdateNumberOfDomainControllers
 
     -- ** DescribeConditionalForwarders
     , module Network.AWS.DirectoryService.DescribeConditionalForwarders
@@ -124,6 +131,9 @@ module Network.AWS.DirectoryService
     -- ** EnableSSO
     , module Network.AWS.DirectoryService.EnableSSO
 
+    -- ** CancelSchemaExtension
+    , module Network.AWS.DirectoryService.CancelSchemaExtension
+
     -- ** EnableRadius
     , module Network.AWS.DirectoryService.EnableRadius
 
@@ -133,11 +143,17 @@ module Network.AWS.DirectoryService
     -- ** AddTagsToResource
     , module Network.AWS.DirectoryService.AddTagsToResource
 
+    -- ** ListSchemaExtensions
+    , module Network.AWS.DirectoryService.ListSchemaExtensions
+
     -- ** DisableRadius
     , module Network.AWS.DirectoryService.DisableRadius
 
     -- ** RestoreFromSnapshot
     , module Network.AWS.DirectoryService.RestoreFromSnapshot
+
+    -- ** DescribeDomainControllers
+    , module Network.AWS.DirectoryService.DescribeDomainControllers
 
     -- ** DescribeSnapshots
     , module Network.AWS.DirectoryService.DescribeSnapshots
@@ -147,6 +163,9 @@ module Network.AWS.DirectoryService
 
     -- ** DeleteSnapshot
     , module Network.AWS.DirectoryService.DeleteSnapshot
+
+    -- ** StartSchemaExtension
+    , module Network.AWS.DirectoryService.StartSchemaExtension
 
     -- ** CreateTrust
     , module Network.AWS.DirectoryService.CreateTrust
@@ -186,6 +205,9 @@ module Network.AWS.DirectoryService
     -- ** DirectoryType
     , DirectoryType (..)
 
+    -- ** DomainControllerStatus
+    , DomainControllerStatus (..)
+
     -- ** IPRouteStatusMsg
     , IPRouteStatusMsg (..)
 
@@ -197,6 +219,9 @@ module Network.AWS.DirectoryService
 
     -- ** ReplicationScope
     , ReplicationScope (..)
+
+    -- ** SchemaExtensionStatus
+    , SchemaExtensionStatus (..)
 
     -- ** SnapshotStatus
     , SnapshotStatus (..)
@@ -263,6 +288,7 @@ module Network.AWS.DirectoryService
     , ddAccessURL
     , ddShortName
     , ddSize
+    , ddDesiredNumberOfDomainControllers
     , ddRadiusSettings
     , ddLaunchTime
     , ddAlias
@@ -303,6 +329,20 @@ module Network.AWS.DirectoryService
     , dvsdSecurityGroupId
     , dvsdAvailabilityZones
 
+    -- ** DomainController
+    , DomainController
+    , domainController
+    , dcStatus
+    , dcDirectoryId
+    , dcVPCId
+    , dcLaunchTime
+    , dcSubnetId
+    , dcAvailabilityZone
+    , dcStatusLastUpdatedDateTime
+    , dcStatusReason
+    , dcDNSIPAddr
+    , dcDomainControllerId
+
     -- ** EventTopic
     , EventTopic
     , eventTopic
@@ -315,7 +355,7 @@ module Network.AWS.DirectoryService
     -- ** IPRoute
     , IPRoute
     , ipRoute
-    , irCIdRIP
+    , irCidrIP
     , irDescription
 
     -- ** IPRouteInfo
@@ -324,7 +364,7 @@ module Network.AWS.DirectoryService
     , iriDirectoryId
     , iriIPRouteStatusReason
     , iriAddedDateTime
-    , iriCIdRIP
+    , iriCidrIP
     , iriIPRouteStatusMsg
     , iriDescription
 
@@ -339,6 +379,17 @@ module Network.AWS.DirectoryService
     , rsSharedSecret
     , rsRadiusTimeout
     , rsRadiusPort
+
+    -- ** SchemaExtensionInfo
+    , SchemaExtensionInfo
+    , schemaExtensionInfo
+    , seiDirectoryId
+    , seiSchemaExtensionId
+    , seiSchemaExtensionStatusReason
+    , seiSchemaExtensionStatus
+    , seiDescription
+    , seiEndDateTime
+    , seiStartDateTime
 
     -- ** Snapshot
     , Snapshot
@@ -378,43 +429,48 @@ module Network.AWS.DirectoryService
     , tCreatedDateTime
     ) where
 
-import           Network.AWS.DirectoryService.AddIPRoutes
-import           Network.AWS.DirectoryService.AddTagsToResource
-import           Network.AWS.DirectoryService.ConnectDirectory
-import           Network.AWS.DirectoryService.CreateAlias
-import           Network.AWS.DirectoryService.CreateComputer
-import           Network.AWS.DirectoryService.CreateConditionalForwarder
-import           Network.AWS.DirectoryService.CreateDirectory
-import           Network.AWS.DirectoryService.CreateMicrosoftAD
-import           Network.AWS.DirectoryService.CreateSnapshot
-import           Network.AWS.DirectoryService.CreateTrust
-import           Network.AWS.DirectoryService.DeleteConditionalForwarder
-import           Network.AWS.DirectoryService.DeleteDirectory
-import           Network.AWS.DirectoryService.DeleteSnapshot
-import           Network.AWS.DirectoryService.DeleteTrust
-import           Network.AWS.DirectoryService.DeregisterEventTopic
-import           Network.AWS.DirectoryService.DescribeConditionalForwarders
-import           Network.AWS.DirectoryService.DescribeDirectories
-import           Network.AWS.DirectoryService.DescribeEventTopics
-import           Network.AWS.DirectoryService.DescribeSnapshots
-import           Network.AWS.DirectoryService.DescribeTrusts
-import           Network.AWS.DirectoryService.DisableRadius
-import           Network.AWS.DirectoryService.DisableSSO
-import           Network.AWS.DirectoryService.EnableRadius
-import           Network.AWS.DirectoryService.EnableSSO
-import           Network.AWS.DirectoryService.GetDirectoryLimits
-import           Network.AWS.DirectoryService.GetSnapshotLimits
-import           Network.AWS.DirectoryService.ListIPRoutes
-import           Network.AWS.DirectoryService.ListTagsForResource
-import           Network.AWS.DirectoryService.RegisterEventTopic
-import           Network.AWS.DirectoryService.RemoveIPRoutes
-import           Network.AWS.DirectoryService.RemoveTagsFromResource
-import           Network.AWS.DirectoryService.RestoreFromSnapshot
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.UpdateConditionalForwarder
-import           Network.AWS.DirectoryService.UpdateRadius
-import           Network.AWS.DirectoryService.VerifyTrust
-import           Network.AWS.DirectoryService.Waiters
+import Network.AWS.DirectoryService.AddIPRoutes
+import Network.AWS.DirectoryService.AddTagsToResource
+import Network.AWS.DirectoryService.CancelSchemaExtension
+import Network.AWS.DirectoryService.ConnectDirectory
+import Network.AWS.DirectoryService.CreateAlias
+import Network.AWS.DirectoryService.CreateComputer
+import Network.AWS.DirectoryService.CreateConditionalForwarder
+import Network.AWS.DirectoryService.CreateDirectory
+import Network.AWS.DirectoryService.CreateMicrosoftAD
+import Network.AWS.DirectoryService.CreateSnapshot
+import Network.AWS.DirectoryService.CreateTrust
+import Network.AWS.DirectoryService.DeleteConditionalForwarder
+import Network.AWS.DirectoryService.DeleteDirectory
+import Network.AWS.DirectoryService.DeleteSnapshot
+import Network.AWS.DirectoryService.DeleteTrust
+import Network.AWS.DirectoryService.DeregisterEventTopic
+import Network.AWS.DirectoryService.DescribeConditionalForwarders
+import Network.AWS.DirectoryService.DescribeDirectories
+import Network.AWS.DirectoryService.DescribeDomainControllers
+import Network.AWS.DirectoryService.DescribeEventTopics
+import Network.AWS.DirectoryService.DescribeSnapshots
+import Network.AWS.DirectoryService.DescribeTrusts
+import Network.AWS.DirectoryService.DisableRadius
+import Network.AWS.DirectoryService.DisableSSO
+import Network.AWS.DirectoryService.EnableRadius
+import Network.AWS.DirectoryService.EnableSSO
+import Network.AWS.DirectoryService.GetDirectoryLimits
+import Network.AWS.DirectoryService.GetSnapshotLimits
+import Network.AWS.DirectoryService.ListIPRoutes
+import Network.AWS.DirectoryService.ListSchemaExtensions
+import Network.AWS.DirectoryService.ListTagsForResource
+import Network.AWS.DirectoryService.RegisterEventTopic
+import Network.AWS.DirectoryService.RemoveIPRoutes
+import Network.AWS.DirectoryService.RemoveTagsFromResource
+import Network.AWS.DirectoryService.RestoreFromSnapshot
+import Network.AWS.DirectoryService.StartSchemaExtension
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.UpdateConditionalForwarder
+import Network.AWS.DirectoryService.UpdateNumberOfDomainControllers
+import Network.AWS.DirectoryService.UpdateRadius
+import Network.AWS.DirectoryService.VerifyTrust
+import Network.AWS.DirectoryService.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

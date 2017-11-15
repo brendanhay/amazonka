@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances.
+--
+--
 module Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
     (
     -- * Creating a Request
@@ -27,8 +29,10 @@ module Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
     -- * Request Lenses
     , uedcEBSOptions
     , uedcAccessPolicies
+    , uedcLogPublishingOptions
     , uedcElasticsearchClusterConfig
     , uedcSnapshotOptions
+    , uedcVPCOptions
     , uedcAdvancedOptions
     , uedcDomainName
 
@@ -40,52 +44,64 @@ module Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
     , uedcrsDomainConfig
     ) where
 
-import           Network.AWS.ElasticSearch.Types
-import           Network.AWS.ElasticSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticSearch.Types
+import Network.AWS.ElasticSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Container for the parameters to the 'UpdateElasticsearchDomain' operation. Specifies the type and number of instances in the domain cluster.
+-- | Container for the parameters to the @'UpdateElasticsearchDomain' @ operation. Specifies the type and number of instances in the domain cluster.
+--
+--
 --
 -- /See:/ 'updateElasticsearchDomainConfig' smart constructor.
 data UpdateElasticsearchDomainConfig = UpdateElasticsearchDomainConfig'
-    { _uedcEBSOptions                 :: !(Maybe EBSOptions)
-    , _uedcAccessPolicies             :: !(Maybe Text)
-    , _uedcElasticsearchClusterConfig :: !(Maybe ElasticsearchClusterConfig)
-    , _uedcSnapshotOptions            :: !(Maybe SnapshotOptions)
-    , _uedcAdvancedOptions            :: !(Maybe (Map Text Text))
-    , _uedcDomainName                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uedcEBSOptions :: !(Maybe EBSOptions)
+  , _uedcAccessPolicies :: !(Maybe Text)
+  , _uedcLogPublishingOptions :: !(Maybe (Map LogType LogPublishingOption))
+  , _uedcElasticsearchClusterConfig :: !(Maybe ElasticsearchClusterConfig)
+  , _uedcSnapshotOptions :: !(Maybe SnapshotOptions)
+  , _uedcVPCOptions :: !(Maybe VPCOptions)
+  , _uedcAdvancedOptions :: !(Maybe (Map Text Text))
+  , _uedcDomainName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateElasticsearchDomainConfig' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uedcEBSOptions'
+-- * 'uedcEBSOptions' - Specify the type and size of the EBS volume that you want to use.
 --
--- * 'uedcAccessPolicies'
+-- * 'uedcAccessPolicies' - IAM access policy as a JSON-formatted string.
 --
--- * 'uedcElasticsearchClusterConfig'
+-- * 'uedcLogPublishingOptions' - Map of @LogType@ and @LogPublishingOption@ , each containing options to publish a given type of Elasticsearch log.
 --
--- * 'uedcSnapshotOptions'
+-- * 'uedcElasticsearchClusterConfig' - The type and number of instances to instantiate for the domain cluster.
 --
--- * 'uedcAdvancedOptions'
+-- * 'uedcSnapshotOptions' - Option to set the time, in UTC format, for the daily automated snapshot. Default value is @0@ hours.
 --
--- * 'uedcDomainName'
+-- * 'uedcVPCOptions' - Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC> in /VPC Endpoints for Amazon Elasticsearch Service Domains/
+--
+-- * 'uedcAdvancedOptions' - Modifies the advanced option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
+--
+-- * 'uedcDomainName' - The name of the Elasticsearch domain that you are updating.
 updateElasticsearchDomainConfig
     :: Text -- ^ 'uedcDomainName'
     -> UpdateElasticsearchDomainConfig
 updateElasticsearchDomainConfig pDomainName_ =
-    UpdateElasticsearchDomainConfig'
-    { _uedcEBSOptions = Nothing
-    , _uedcAccessPolicies = Nothing
-    , _uedcElasticsearchClusterConfig = Nothing
-    , _uedcSnapshotOptions = Nothing
-    , _uedcAdvancedOptions = Nothing
-    , _uedcDomainName = pDomainName_
-    }
+  UpdateElasticsearchDomainConfig'
+  { _uedcEBSOptions = Nothing
+  , _uedcAccessPolicies = Nothing
+  , _uedcLogPublishingOptions = Nothing
+  , _uedcElasticsearchClusterConfig = Nothing
+  , _uedcSnapshotOptions = Nothing
+  , _uedcVPCOptions = Nothing
+  , _uedcAdvancedOptions = Nothing
+  , _uedcDomainName = pDomainName_
+  }
+
 
 -- | Specify the type and size of the EBS volume that you want to use.
 uedcEBSOptions :: Lens' UpdateElasticsearchDomainConfig (Maybe EBSOptions)
@@ -95,15 +111,23 @@ uedcEBSOptions = lens _uedcEBSOptions (\ s a -> s{_uedcEBSOptions = a});
 uedcAccessPolicies :: Lens' UpdateElasticsearchDomainConfig (Maybe Text)
 uedcAccessPolicies = lens _uedcAccessPolicies (\ s a -> s{_uedcAccessPolicies = a});
 
+-- | Map of @LogType@ and @LogPublishingOption@ , each containing options to publish a given type of Elasticsearch log.
+uedcLogPublishingOptions :: Lens' UpdateElasticsearchDomainConfig (HashMap LogType LogPublishingOption)
+uedcLogPublishingOptions = lens _uedcLogPublishingOptions (\ s a -> s{_uedcLogPublishingOptions = a}) . _Default . _Map;
+
 -- | The type and number of instances to instantiate for the domain cluster.
 uedcElasticsearchClusterConfig :: Lens' UpdateElasticsearchDomainConfig (Maybe ElasticsearchClusterConfig)
 uedcElasticsearchClusterConfig = lens _uedcElasticsearchClusterConfig (\ s a -> s{_uedcElasticsearchClusterConfig = a});
 
--- | Option to set the time, in UTC format, for the daily automated snapshot. Default value is '0' hours.
+-- | Option to set the time, in UTC format, for the daily automated snapshot. Default value is @0@ hours.
 uedcSnapshotOptions :: Lens' UpdateElasticsearchDomainConfig (Maybe SnapshotOptions)
 uedcSnapshotOptions = lens _uedcSnapshotOptions (\ s a -> s{_uedcSnapshotOptions = a});
 
--- | Modifies the advanced option to allow references to indices in an HTTP request body. Must be 'false' when configuring access to individual sub-resources. By default, the value is 'true'. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
+-- | Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC> in /VPC Endpoints for Amazon Elasticsearch Service Domains/
+uedcVPCOptions :: Lens' UpdateElasticsearchDomainConfig (Maybe VPCOptions)
+uedcVPCOptions = lens _uedcVPCOptions (\ s a -> s{_uedcVPCOptions = a});
+
+-- | Modifies the advanced option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
 uedcAdvancedOptions :: Lens' UpdateElasticsearchDomainConfig (HashMap Text Text)
 uedcAdvancedOptions = lens _uedcAdvancedOptions (\ s a -> s{_uedcAdvancedOptions = a}) . _Default . _Map;
 
@@ -123,8 +147,9 @@ instance AWSRequest UpdateElasticsearchDomainConfig
                    (pure (fromEnum s)) <*> (x .:> "DomainConfig"))
 
 instance Hashable UpdateElasticsearchDomainConfig
+         where
 
-instance NFData UpdateElasticsearchDomainConfig
+instance NFData UpdateElasticsearchDomainConfig where
 
 instance ToHeaders UpdateElasticsearchDomainConfig
          where
@@ -136,9 +161,12 @@ instance ToJSON UpdateElasticsearchDomainConfig where
               (catMaybes
                  [("EBSOptions" .=) <$> _uedcEBSOptions,
                   ("AccessPolicies" .=) <$> _uedcAccessPolicies,
+                  ("LogPublishingOptions" .=) <$>
+                    _uedcLogPublishingOptions,
                   ("ElasticsearchClusterConfig" .=) <$>
                     _uedcElasticsearchClusterConfig,
                   ("SnapshotOptions" .=) <$> _uedcSnapshotOptions,
+                  ("VPCOptions" .=) <$> _uedcVPCOptions,
                   ("AdvancedOptions" .=) <$> _uedcAdvancedOptions])
 
 instance ToPath UpdateElasticsearchDomainConfig where
@@ -151,32 +179,36 @@ instance ToQuery UpdateElasticsearchDomainConfig
          where
         toQuery = const mempty
 
--- | The result of an 'UpdateElasticsearchDomain' request. Contains the status of the Elasticsearch domain being updated.
+-- | The result of an @UpdateElasticsearchDomain@ request. Contains the status of the Elasticsearch domain being updated.
+--
+--
 --
 -- /See:/ 'updateElasticsearchDomainConfigResponse' smart constructor.
 data UpdateElasticsearchDomainConfigResponse = UpdateElasticsearchDomainConfigResponse'
-    { _uedcrsResponseStatus :: !Int
-    , _uedcrsDomainConfig   :: !ElasticsearchDomainConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uedcrsResponseStatus :: !Int
+  , _uedcrsDomainConfig   :: !ElasticsearchDomainConfig
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateElasticsearchDomainConfigResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uedcrsResponseStatus'
+-- * 'uedcrsResponseStatus' - -- | The response status code.
 --
--- * 'uedcrsDomainConfig'
+-- * 'uedcrsDomainConfig' - The status of the updated Elasticsearch domain.
 updateElasticsearchDomainConfigResponse
     :: Int -- ^ 'uedcrsResponseStatus'
     -> ElasticsearchDomainConfig -- ^ 'uedcrsDomainConfig'
     -> UpdateElasticsearchDomainConfigResponse
 updateElasticsearchDomainConfigResponse pResponseStatus_ pDomainConfig_ =
-    UpdateElasticsearchDomainConfigResponse'
-    { _uedcrsResponseStatus = pResponseStatus_
-    , _uedcrsDomainConfig = pDomainConfig_
-    }
+  UpdateElasticsearchDomainConfigResponse'
+  { _uedcrsResponseStatus = pResponseStatus_
+  , _uedcrsDomainConfig = pDomainConfig_
+  }
 
--- | The response status code.
+
+-- | -- | The response status code.
 uedcrsResponseStatus :: Lens' UpdateElasticsearchDomainConfigResponse Int
 uedcrsResponseStatus = lens _uedcrsResponseStatus (\ s a -> s{_uedcrsResponseStatus = a});
 
@@ -185,4 +217,5 @@ uedcrsDomainConfig :: Lens' UpdateElasticsearchDomainConfigResponse Elasticsearc
 uedcrsDomainConfig = lens _uedcrsDomainConfig (\ s a -> s{_uedcrsDomainConfig = a});
 
 instance NFData
-         UpdateElasticsearchDomainConfigResponse
+           UpdateElasticsearchDomainConfigResponse
+         where

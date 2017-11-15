@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.CreateStorageLocation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates the Amazon S3 storage location for the account.
 --
+--
 -- This location is used to store user log files.
+--
 module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     (
     -- * Creating a Request
@@ -35,23 +37,25 @@ module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     , cslrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createStorageLocation' smart constructor.
 data CreateStorageLocation =
-    CreateStorageLocation'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CreateStorageLocation'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStorageLocation' with the minimum fields required to make a request.
 --
 createStorageLocation
     :: CreateStorageLocation
 createStorageLocation = CreateStorageLocation'
+
 
 instance AWSRequest CreateStorageLocation where
         type Rs CreateStorageLocation =
@@ -63,9 +67,9 @@ instance AWSRequest CreateStorageLocation where
                  CreateStorageLocationResponse' <$>
                    (x .@? "S3Bucket") <*> (pure (fromEnum s)))
 
-instance Hashable CreateStorageLocation
+instance Hashable CreateStorageLocation where
 
-instance NFData CreateStorageLocation
+instance NFData CreateStorageLocation where
 
 instance ToHeaders CreateStorageLocation where
         toHeaders = const mempty
@@ -80,36 +84,38 @@ instance ToQuery CreateStorageLocation where
                  ["Action" =: ("CreateStorageLocation" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | Results of a < CreateStorageLocationResult> call.
+-- | Results of a 'CreateStorageLocationResult' call.
+--
+--
 --
 -- /See:/ 'createStorageLocationResponse' smart constructor.
 data CreateStorageLocationResponse = CreateStorageLocationResponse'
-    { _cslrsS3Bucket       :: !(Maybe Text)
-    , _cslrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cslrsS3Bucket       :: !(Maybe Text)
+  , _cslrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStorageLocationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cslrsS3Bucket'
+-- * 'cslrsS3Bucket' - The name of the Amazon S3 bucket created.
 --
--- * 'cslrsResponseStatus'
+-- * 'cslrsResponseStatus' - -- | The response status code.
 createStorageLocationResponse
     :: Int -- ^ 'cslrsResponseStatus'
     -> CreateStorageLocationResponse
 createStorageLocationResponse pResponseStatus_ =
-    CreateStorageLocationResponse'
-    { _cslrsS3Bucket = Nothing
-    , _cslrsResponseStatus = pResponseStatus_
-    }
+  CreateStorageLocationResponse'
+  {_cslrsS3Bucket = Nothing, _cslrsResponseStatus = pResponseStatus_}
+
 
 -- | The name of the Amazon S3 bucket created.
 cslrsS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
 cslrsS3Bucket = lens _cslrsS3Bucket (\ s a -> s{_cslrsS3Bucket = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cslrsResponseStatus :: Lens' CreateStorageLocationResponse Int
 cslrsResponseStatus = lens _cslrsResponseStatus (\ s a -> s{_cslrsResponseStatus = a});
 
-instance NFData CreateStorageLocationResponse
+instance NFData CreateStorageLocationResponse where

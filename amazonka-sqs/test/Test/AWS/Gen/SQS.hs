@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.SQS
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.SQS where
 
 import Data.Proxy
+import Network.AWS.SQS
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.Tasty
-import Network.AWS.SQS
 import Test.AWS.SQS.Internal
+import Test.Tasty
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -55,6 +55,9 @@ import Test.AWS.SQS.Internal
 --         , requestDeleteQueue $
 --             deleteQueue
 --
+--         , requestTagQueue $
+--             tagQueue
+--
 --         , requestDeleteMessageBatch $
 --             deleteMessageBatch
 --
@@ -70,8 +73,14 @@ import Test.AWS.SQS.Internal
 --         , requestDeleteMessage $
 --             deleteMessage
 --
+--         , requestListQueueTags $
+--             listQueueTags
+--
 --         , requestCreateQueue $
 --             createQueue
+--
+--         , requestUntagQueue $
+--             untagQueue
 --
 --         , requestSendMessageBatch $
 --             sendMessageBatch
@@ -109,6 +118,9 @@ import Test.AWS.SQS.Internal
 --         , responseDeleteQueue $
 --             deleteQueueResponse
 --
+--         , responseTagQueue $
+--             tagQueueResponse
+--
 --         , responseDeleteMessageBatch $
 --             deleteMessageBatchResponse
 --
@@ -124,8 +136,14 @@ import Test.AWS.SQS.Internal
 --         , responseDeleteMessage $
 --             deleteMessageResponse
 --
+--         , responseListQueueTags $
+--             listQueueTagsResponse
+--
 --         , responseCreateQueue $
 --             createQueueResponse
+--
+--         , responseUntagQueue $
+--             untagQueueResponse
 --
 --         , responseSendMessageBatch $
 --             sendMessageBatchResponse
@@ -183,6 +201,11 @@ requestDeleteQueue = req
     "DeleteQueue"
     "fixture/DeleteQueue.yaml"
 
+requestTagQueue :: TagQueue -> TestTree
+requestTagQueue = req
+    "TagQueue"
+    "fixture/TagQueue.yaml"
+
 requestDeleteMessageBatch :: DeleteMessageBatch -> TestTree
 requestDeleteMessageBatch = req
     "DeleteMessageBatch"
@@ -208,10 +231,20 @@ requestDeleteMessage = req
     "DeleteMessage"
     "fixture/DeleteMessage.yaml"
 
+requestListQueueTags :: ListQueueTags -> TestTree
+requestListQueueTags = req
+    "ListQueueTags"
+    "fixture/ListQueueTags.yaml"
+
 requestCreateQueue :: CreateQueue -> TestTree
 requestCreateQueue = req
     "CreateQueue"
     "fixture/CreateQueue.yaml"
+
+requestUntagQueue :: UntagQueue -> TestTree
+requestUntagQueue = req
+    "UntagQueue"
+    "fixture/UntagQueue.yaml"
 
 requestSendMessageBatch :: SendMessageBatch -> TestTree
 requestSendMessageBatch = req
@@ -288,6 +321,13 @@ responseDeleteQueue = res
     sqs
     (Proxy :: Proxy DeleteQueue)
 
+responseTagQueue :: TagQueueResponse -> TestTree
+responseTagQueue = res
+    "TagQueueResponse"
+    "fixture/TagQueueResponse.proto"
+    sqs
+    (Proxy :: Proxy TagQueue)
+
 responseDeleteMessageBatch :: DeleteMessageBatchResponse -> TestTree
 responseDeleteMessageBatch = res
     "DeleteMessageBatchResponse"
@@ -323,12 +363,26 @@ responseDeleteMessage = res
     sqs
     (Proxy :: Proxy DeleteMessage)
 
+responseListQueueTags :: ListQueueTagsResponse -> TestTree
+responseListQueueTags = res
+    "ListQueueTagsResponse"
+    "fixture/ListQueueTagsResponse.proto"
+    sqs
+    (Proxy :: Proxy ListQueueTags)
+
 responseCreateQueue :: CreateQueueResponse -> TestTree
 responseCreateQueue = res
     "CreateQueueResponse"
     "fixture/CreateQueueResponse.proto"
     sqs
     (Proxy :: Proxy CreateQueue)
+
+responseUntagQueue :: UntagQueueResponse -> TestTree
+responseUntagQueue = res
+    "UntagQueueResponse"
+    "fixture/UntagQueueResponse.proto"
+    sqs
+    (Proxy :: Proxy UntagQueue)
 
 responseSendMessageBatch :: SendMessageBatchResponse -> TestTree
 responseSendMessageBatch = res

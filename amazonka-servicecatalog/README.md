@@ -8,34 +8,27 @@
 
 ## Version
 
-`1.4.4`
+`1.5.0`
 
 
 ## Description
-
-AWS Service Catalog
-
-__Overview__
-
-<https://aws.amazon.com/servicecatalog/ AWS Service Catalog> allows organizations to create and manage catalogs of IT services that are approved for use on AWS. This documentation provides reference material for the AWS Service Catalog end user API. To get the most out of this documentation, you need to be familiar with the terminology discussed in <http://docs.aws.amazon.com/servicecatalog/latest/userguide/what-is_concepts.html AWS Service Catalog Concepts>.
-
-/Additional Resources/
-
--   <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html AWS Service Catalog Administrator Guide>
-
--   <http://docs.aws.amazon.com/servicecatalog/latest/userguide/introduction.html AWS Service Catalog User Guide>
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-servicecatalog)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).
 
 The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
-which provides mechanisms for specifying AuthN/AuthZ information and sending requests.
+which provides mechanisms for specifying AuthN/AuthZ information, sending requests,
+and receiving responses.
 
-Use of lenses is required for constructing and manipulating types.
-This is due to the amount of nesting of AWS types and transparency regarding
+Lenses are used for constructing and manipulating types,
+due to the depth of nesting of AWS types and transparency regarding
 de/serialisation into more palatable Haskell values.
 The provided lenses should be compatible with any of the major lens libraries
 [lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
+
+See [Network.AWS.ServiceCatalog](http://hackage.haskell.org/package/amazonka-servicecatalog/docs/Network-AWS-ServiceCatalog.html)
+or [the AWS documentation](https://aws.amazon.com/documentation/) to get started.
+
 
 ## Contribute
 

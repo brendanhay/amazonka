@@ -12,17 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.StartGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts a gateway that you previously shut down (see < ShutdownGateway>). After the gateway starts, you can then make other API calls, your applications can read from or write to the gateway\'s storage volumes and you will be able to take snapshot backups.
+-- Starts a gateway that you previously shut down (see 'ShutdownGateway' ). After the gateway starts, you can then make other API calls, your applications can read from or write to the gateway's storage volumes and you will be able to take snapshot backups.
 --
--- When you make a request, you will get a 200 OK success response immediately. However, it might take some time for the gateway to be ready. You should call < DescribeGatewayInformation> and check the status before making any additional API calls. For more information, see < ActivateGateway>.
 --
 -- To specify which gateway to start, use the Amazon Resource Name (ARN) of the gateway in your request.
+--
 module Network.AWS.StorageGateway.StartGateway
     (
     -- * Creating a Request
@@ -39,32 +39,33 @@ module Network.AWS.StorageGateway.StartGateway
     , sgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the of the gateway to start.
 --
+--
+--
 -- /See:/ 'startGateway' smart constructor.
 newtype StartGateway = StartGateway'
-    { _sgGatewayARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sgGatewayARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartGateway' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sgGatewayARN'
+-- * 'sgGatewayARN' - Undocumented member.
 startGateway
     :: Text -- ^ 'sgGatewayARN'
     -> StartGateway
-startGateway pGatewayARN_ =
-    StartGateway'
-    { _sgGatewayARN = pGatewayARN_
-    }
+startGateway pGatewayARN_ = StartGateway' {_sgGatewayARN = pGatewayARN_}
+
 
 -- | Undocumented member.
 sgGatewayARN :: Lens' StartGateway Text
@@ -79,9 +80,9 @@ instance AWSRequest StartGateway where
                  StartGatewayResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-instance Hashable StartGateway
+instance Hashable StartGateway where
 
-instance NFData StartGateway
+instance NFData StartGateway where
 
 instance ToHeaders StartGateway where
         toHeaders
@@ -106,34 +107,36 @@ instance ToQuery StartGateway where
 
 -- | A JSON object containing the of the gateway that was restarted.
 --
+--
+--
 -- /See:/ 'startGatewayResponse' smart constructor.
 data StartGatewayResponse = StartGatewayResponse'
-    { _sgrsGatewayARN     :: !(Maybe Text)
-    , _sgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sgrsGatewayARN     :: !(Maybe Text)
+  , _sgrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartGatewayResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sgrsGatewayARN'
+-- * 'sgrsGatewayARN' - Undocumented member.
 --
--- * 'sgrsResponseStatus'
+-- * 'sgrsResponseStatus' - -- | The response status code.
 startGatewayResponse
     :: Int -- ^ 'sgrsResponseStatus'
     -> StartGatewayResponse
 startGatewayResponse pResponseStatus_ =
-    StartGatewayResponse'
-    { _sgrsGatewayARN = Nothing
-    , _sgrsResponseStatus = pResponseStatus_
-    }
+  StartGatewayResponse'
+  {_sgrsGatewayARN = Nothing, _sgrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 sgrsGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
 sgrsGatewayARN = lens _sgrsGatewayARN (\ s a -> s{_sgrsGatewayARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 sgrsResponseStatus :: Lens' StartGatewayResponse Int
 sgrsResponseStatus = lens _sgrsResponseStatus (\ s a -> s{_sgrsResponseStatus = a});
 
-instance NFData StartGatewayResponse
+instance NFData StartGatewayResponse where

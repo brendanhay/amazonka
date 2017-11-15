@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetIntegration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents a get integration.
+--
+--
 module Network.AWS.APIGateway.GetIntegration
     (
     -- * Creating a Request
@@ -37,6 +39,7 @@ module Network.AWS.APIGateway.GetIntegration
     , iRequestTemplates
     , iCredentials
     , iRequestParameters
+    , iContentHandling
     , iPassthroughBehavior
     , iUri
     , iIntegrationResponses
@@ -45,52 +48,56 @@ module Network.AWS.APIGateway.GetIntegration
     , iCacheKeyParameters
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a get integration request.
 --
+--
+--
 -- /See:/ 'getIntegration' smart constructor.
 data GetIntegration = GetIntegration'
-    { _giRestAPIId  :: !Text
-    , _giResourceId :: !Text
-    , _giHttpMethod :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _giRestAPIId  :: !Text
+  , _giResourceId :: !Text
+  , _giHttpMethod :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIntegration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'giRestAPIId'
+-- * 'giRestAPIId' - The string identifier of the associated 'RestApi' .
 --
--- * 'giResourceId'
+-- * 'giResourceId' - Specifies a get integration request's resource identifier
 --
--- * 'giHttpMethod'
+-- * 'giHttpMethod' - Specifies a get integration request's HTTP method.
 getIntegration
     :: Text -- ^ 'giRestAPIId'
     -> Text -- ^ 'giResourceId'
     -> Text -- ^ 'giHttpMethod'
     -> GetIntegration
 getIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
-    GetIntegration'
-    { _giRestAPIId = pRestAPIId_
-    , _giResourceId = pResourceId_
-    , _giHttpMethod = pHttpMethod_
-    }
+  GetIntegration'
+  { _giRestAPIId = pRestAPIId_
+  , _giResourceId = pResourceId_
+  , _giHttpMethod = pHttpMethod_
+  }
 
--- | Specifies a get integration request\'s API identifier.
+
+-- | The string identifier of the associated 'RestApi' .
 giRestAPIId :: Lens' GetIntegration Text
 giRestAPIId = lens _giRestAPIId (\ s a -> s{_giRestAPIId = a});
 
--- | Specifies a get integration request\'s resource identifier
+-- | Specifies a get integration request's resource identifier
 giResourceId :: Lens' GetIntegration Text
 giResourceId = lens _giResourceId (\ s a -> s{_giResourceId = a});
 
--- | Specifies a get integration request\'s HTTP method.
+-- | Specifies a get integration request's HTTP method.
 giHttpMethod :: Lens' GetIntegration Text
 giHttpMethod = lens _giHttpMethod (\ s a -> s{_giHttpMethod = a});
 
@@ -99,9 +106,9 @@ instance AWSRequest GetIntegration where
         request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetIntegration
+instance Hashable GetIntegration where
 
-instance NFData GetIntegration
+instance NFData GetIntegration where
 
 instance ToHeaders GetIntegration where
         toHeaders

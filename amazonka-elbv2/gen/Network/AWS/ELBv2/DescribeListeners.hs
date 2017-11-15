@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeListeners
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified listeners or the listeners for the specified load balancer. You must specify either a load balancer or one or more listeners.
+-- Describes the specified listeners or the listeners for the specified Application Load Balancer or Network Load Balancer. You must specify either a load balancer or one or more listeners.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.ELBv2.DescribeListeners
@@ -41,44 +43,44 @@ module Network.AWS.ELBv2.DescribeListeners
     , dlsrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for DescribeListeners.
---
--- /See:/ 'describeListeners' smart constructor.
+-- | /See:/ 'describeListeners' smart constructor.
 data DescribeListeners = DescribeListeners'
-    { _dlListenerARNs    :: !(Maybe [Text])
-    , _dlLoadBalancerARN :: !(Maybe Text)
-    , _dlMarker          :: !(Maybe Text)
-    , _dlPageSize        :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlListenerARNs    :: !(Maybe [Text])
+  , _dlLoadBalancerARN :: !(Maybe Text)
+  , _dlMarker          :: !(Maybe Text)
+  , _dlPageSize        :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeListeners' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlListenerARNs'
+-- * 'dlListenerARNs' - The Amazon Resource Names (ARN) of the listeners.
 --
--- * 'dlLoadBalancerARN'
+-- * 'dlLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
 --
--- * 'dlMarker'
+-- * 'dlMarker' - The marker for the next set of results. (You received this marker from a previous call.)
 --
--- * 'dlPageSize'
+-- * 'dlPageSize' - The maximum number of results to return with this call.
 describeListeners
     :: DescribeListeners
 describeListeners =
-    DescribeListeners'
-    { _dlListenerARNs = Nothing
-    , _dlLoadBalancerARN = Nothing
-    , _dlMarker = Nothing
-    , _dlPageSize = Nothing
-    }
+  DescribeListeners'
+  { _dlListenerARNs = Nothing
+  , _dlLoadBalancerARN = Nothing
+  , _dlMarker = Nothing
+  , _dlPageSize = Nothing
+  }
+
 
 -- | The Amazon Resource Names (ARN) of the listeners.
 dlListenerARNs :: Lens' DescribeListeners [Text]
@@ -115,9 +117,9 @@ instance AWSRequest DescribeListeners where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeListeners
+instance Hashable DescribeListeners where
 
-instance NFData DescribeListeners
+instance NFData DescribeListeners where
 
 instance ToHeaders DescribeListeners where
         toHeaders = const mempty
@@ -135,33 +137,33 @@ instance ToQuery DescribeListeners where
                "LoadBalancerArn" =: _dlLoadBalancerARN,
                "Marker" =: _dlMarker, "PageSize" =: _dlPageSize]
 
--- | Contains the output of DescribeListeners.
---
--- /See:/ 'describeListenersResponse' smart constructor.
+-- | /See:/ 'describeListenersResponse' smart constructor.
 data DescribeListenersResponse = DescribeListenersResponse'
-    { _dlsrsNextMarker     :: !(Maybe Text)
-    , _dlsrsListeners      :: !(Maybe [Listener])
-    , _dlsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlsrsNextMarker     :: !(Maybe Text)
+  , _dlsrsListeners      :: !(Maybe [Listener])
+  , _dlsrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeListenersResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlsrsNextMarker'
+-- * 'dlsrsNextMarker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 --
--- * 'dlsrsListeners'
+-- * 'dlsrsListeners' - Information about the listeners.
 --
--- * 'dlsrsResponseStatus'
+-- * 'dlsrsResponseStatus' - -- | The response status code.
 describeListenersResponse
     :: Int -- ^ 'dlsrsResponseStatus'
     -> DescribeListenersResponse
 describeListenersResponse pResponseStatus_ =
-    DescribeListenersResponse'
-    { _dlsrsNextMarker = Nothing
-    , _dlsrsListeners = Nothing
-    , _dlsrsResponseStatus = pResponseStatus_
-    }
+  DescribeListenersResponse'
+  { _dlsrsNextMarker = Nothing
+  , _dlsrsListeners = Nothing
+  , _dlsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 dlsrsNextMarker :: Lens' DescribeListenersResponse (Maybe Text)
@@ -171,8 +173,8 @@ dlsrsNextMarker = lens _dlsrsNextMarker (\ s a -> s{_dlsrsNextMarker = a});
 dlsrsListeners :: Lens' DescribeListenersResponse [Listener]
 dlsrsListeners = lens _dlsrsListeners (\ s a -> s{_dlsrsListeners = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dlsrsResponseStatus :: Lens' DescribeListenersResponse Int
 dlsrsResponseStatus = lens _dlsrsResponseStatus (\ s a -> s{_dlsrsResponseStatus = a});
 
-instance NFData DescribeListenersResponse
+instance NFData DescribeListenersResponse where

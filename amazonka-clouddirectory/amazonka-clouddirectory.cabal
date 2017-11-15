@@ -1,0 +1,144 @@
+name:                  amazonka-clouddirectory
+version:               1.5.0
+synopsis:              Amazon CloudDirectory SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2017 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+cabal-version:         >= 1.10
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+description:
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.CloudDirectory" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
+
+source-repository head
+    type:              git
+    location:          git://github.com/brendanhay/amazonka.git
+    subdir:            amazonka-clouddirectory
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:
+        -Wall
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updates
+        -funbox-strict-fields
+
+    exposed-modules:
+          Network.AWS.CloudDirectory
+        , Network.AWS.CloudDirectory.AddFacetToObject
+        , Network.AWS.CloudDirectory.ApplySchema
+        , Network.AWS.CloudDirectory.AttachObject
+        , Network.AWS.CloudDirectory.AttachPolicy
+        , Network.AWS.CloudDirectory.AttachToIndex
+        , Network.AWS.CloudDirectory.AttachTypedLink
+        , Network.AWS.CloudDirectory.BatchRead
+        , Network.AWS.CloudDirectory.BatchWrite
+        , Network.AWS.CloudDirectory.CreateDirectory
+        , Network.AWS.CloudDirectory.CreateFacet
+        , Network.AWS.CloudDirectory.CreateIndex
+        , Network.AWS.CloudDirectory.CreateObject
+        , Network.AWS.CloudDirectory.CreateSchema
+        , Network.AWS.CloudDirectory.CreateTypedLinkFacet
+        , Network.AWS.CloudDirectory.DeleteDirectory
+        , Network.AWS.CloudDirectory.DeleteFacet
+        , Network.AWS.CloudDirectory.DeleteObject
+        , Network.AWS.CloudDirectory.DeleteSchema
+        , Network.AWS.CloudDirectory.DeleteTypedLinkFacet
+        , Network.AWS.CloudDirectory.DetachFromIndex
+        , Network.AWS.CloudDirectory.DetachObject
+        , Network.AWS.CloudDirectory.DetachPolicy
+        , Network.AWS.CloudDirectory.DetachTypedLink
+        , Network.AWS.CloudDirectory.DisableDirectory
+        , Network.AWS.CloudDirectory.EnableDirectory
+        , Network.AWS.CloudDirectory.GetDirectory
+        , Network.AWS.CloudDirectory.GetFacet
+        , Network.AWS.CloudDirectory.GetObjectInformation
+        , Network.AWS.CloudDirectory.GetSchemaAsJSON
+        , Network.AWS.CloudDirectory.GetTypedLinkFacetInformation
+        , Network.AWS.CloudDirectory.ListAppliedSchemaARNs
+        , Network.AWS.CloudDirectory.ListAttachedIndices
+        , Network.AWS.CloudDirectory.ListDevelopmentSchemaARNs
+        , Network.AWS.CloudDirectory.ListDirectories
+        , Network.AWS.CloudDirectory.ListFacetAttributes
+        , Network.AWS.CloudDirectory.ListFacetNames
+        , Network.AWS.CloudDirectory.ListIncomingTypedLinks
+        , Network.AWS.CloudDirectory.ListIndex
+        , Network.AWS.CloudDirectory.ListObjectAttributes
+        , Network.AWS.CloudDirectory.ListObjectChildren
+        , Network.AWS.CloudDirectory.ListObjectParentPaths
+        , Network.AWS.CloudDirectory.ListObjectParents
+        , Network.AWS.CloudDirectory.ListObjectPolicies
+        , Network.AWS.CloudDirectory.ListOutgoingTypedLinks
+        , Network.AWS.CloudDirectory.ListPolicyAttachments
+        , Network.AWS.CloudDirectory.ListPublishedSchemaARNs
+        , Network.AWS.CloudDirectory.ListTagsForResource
+        , Network.AWS.CloudDirectory.ListTypedLinkFacetAttributes
+        , Network.AWS.CloudDirectory.ListTypedLinkFacetNames
+        , Network.AWS.CloudDirectory.LookupPolicy
+        , Network.AWS.CloudDirectory.PublishSchema
+        , Network.AWS.CloudDirectory.PutSchemaFromJSON
+        , Network.AWS.CloudDirectory.RemoveFacetFromObject
+        , Network.AWS.CloudDirectory.TagResource
+        , Network.AWS.CloudDirectory.Types
+        , Network.AWS.CloudDirectory.UntagResource
+        , Network.AWS.CloudDirectory.UpdateFacet
+        , Network.AWS.CloudDirectory.UpdateObjectAttributes
+        , Network.AWS.CloudDirectory.UpdateSchema
+        , Network.AWS.CloudDirectory.UpdateTypedLinkFacet
+        , Network.AWS.CloudDirectory.Waiters
+
+    other-modules:
+          Network.AWS.CloudDirectory.Types.Product
+        , Network.AWS.CloudDirectory.Types.Sum
+
+    build-depends:
+          amazonka-core == 1.5.0.*
+        , base          >= 4.7     && < 5
+
+test-suite amazonka-clouddirectory-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.CloudDirectory
+        , Test.AWS.Gen.CloudDirectory
+        , Test.AWS.CloudDirectory.Internal
+
+    build-depends:
+          amazonka-core == 1.5.0.*
+        , amazonka-test == 1.5.0.*
+        , amazonka-clouddirectory == 1.5.0.*
+        , base
+        , bytestring
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.UpdateDevicePool
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the name, description, and rules in a device pool given the attributes and the pool ARN. Rule updates are all-or-nothing, meaning they can only be updated as a whole (or not at all).
+--
+--
 module Network.AWS.DeviceFarm.UpdateDevicePool
     (
     -- * Creating a Request
@@ -38,44 +40,48 @@ module Network.AWS.DeviceFarm.UpdateDevicePool
     , udprsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the update device pool operation.
 --
+--
+--
 -- /See:/ 'updateDevicePool' smart constructor.
 data UpdateDevicePool = UpdateDevicePool'
-    { _udpRules       :: !(Maybe [Rule])
-    , _udpName        :: !(Maybe Text)
-    , _udpDescription :: !(Maybe Text)
-    , _udpArn         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udpRules       :: !(Maybe [Rule])
+  , _udpName        :: !(Maybe Text)
+  , _udpDescription :: !(Maybe Text)
+  , _udpArn         :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDevicePool' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udpRules'
+-- * 'udpRules' - Represents the rules you wish to modify for the device pool. Updating rules is optional; however, if you choose to update rules for your request, the update will replace the existing rules.
 --
--- * 'udpName'
+-- * 'udpName' - A string representing the name of the device pool you wish to update.
 --
--- * 'udpDescription'
+-- * 'udpDescription' - A description of the device pool you wish to update.
 --
--- * 'udpArn'
+-- * 'udpArn' - The Amazon Resourc Name (ARN) of the Device Farm device pool you wish to update.
 updateDevicePool
     :: Text -- ^ 'udpArn'
     -> UpdateDevicePool
 updateDevicePool pArn_ =
-    UpdateDevicePool'
-    { _udpRules = Nothing
-    , _udpName = Nothing
-    , _udpDescription = Nothing
-    , _udpArn = pArn_
-    }
+  UpdateDevicePool'
+  { _udpRules = Nothing
+  , _udpName = Nothing
+  , _udpDescription = Nothing
+  , _udpArn = pArn_
+  }
+
 
 -- | Represents the rules you wish to modify for the device pool. Updating rules is optional; however, if you choose to update rules for your request, the update will replace the existing rules.
 udpRules :: Lens' UpdateDevicePool [Rule]
@@ -102,9 +108,9 @@ instance AWSRequest UpdateDevicePool where
                  UpdateDevicePoolResponse' <$>
                    (x .?> "devicePool") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateDevicePool
+instance Hashable UpdateDevicePool where
 
-instance NFData UpdateDevicePool
+instance NFData UpdateDevicePool where
 
 instance ToHeaders UpdateDevicePool where
         toHeaders
@@ -133,34 +139,36 @@ instance ToQuery UpdateDevicePool where
 
 -- | Represents the result of an update device pool request.
 --
+--
+--
 -- /See:/ 'updateDevicePoolResponse' smart constructor.
 data UpdateDevicePoolResponse = UpdateDevicePoolResponse'
-    { _udprsDevicePool     :: !(Maybe DevicePool)
-    , _udprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udprsDevicePool     :: !(Maybe DevicePool)
+  , _udprsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDevicePoolResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udprsDevicePool'
+-- * 'udprsDevicePool' - The device pool you just updated.
 --
--- * 'udprsResponseStatus'
+-- * 'udprsResponseStatus' - -- | The response status code.
 updateDevicePoolResponse
     :: Int -- ^ 'udprsResponseStatus'
     -> UpdateDevicePoolResponse
 updateDevicePoolResponse pResponseStatus_ =
-    UpdateDevicePoolResponse'
-    { _udprsDevicePool = Nothing
-    , _udprsResponseStatus = pResponseStatus_
-    }
+  UpdateDevicePoolResponse'
+  {_udprsDevicePool = Nothing, _udprsResponseStatus = pResponseStatus_}
 
--- | Undocumented member.
+
+-- | The device pool you just updated.
 udprsDevicePool :: Lens' UpdateDevicePoolResponse (Maybe DevicePool)
 udprsDevicePool = lens _udprsDevicePool (\ s a -> s{_udprsDevicePool = a});
 
--- | The response status code.
+-- | -- | The response status code.
 udprsResponseStatus :: Lens' UpdateDevicePoolResponse Int
 udprsResponseStatus = lens _udprsResponseStatus (\ s a -> s{_udprsResponseStatus = a});
 
-instance NFData UpdateDevicePoolResponse
+instance NFData UpdateDevicePoolResponse where

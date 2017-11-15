@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.SubscribeToEvent
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables the process of sending Amazon Simple Notification Service (SNS) notifications about a specified event to a specified SNS topic.
+--
+--
 module Network.AWS.Inspector.SubscribeToEvent
     (
     -- * Creating a Request
@@ -34,40 +36,42 @@ module Network.AWS.Inspector.SubscribeToEvent
     , SubscribeToEventResponse
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'subscribeToEvent' smart constructor.
 data SubscribeToEvent = SubscribeToEvent'
-    { _steResourceARN :: !Text
-    , _steEvent       :: !InspectorEvent
-    , _steTopicARN    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _steResourceARN :: !Text
+  , _steEvent       :: !InspectorEvent
+  , _steTopicARN    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SubscribeToEvent' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'steResourceARN'
+-- * 'steResourceARN' - The ARN of the assessment template that is used during the event for which you want to receive SNS notifications.
 --
--- * 'steEvent'
+-- * 'steEvent' - The event for which you want to receive SNS notifications.
 --
--- * 'steTopicARN'
+-- * 'steTopicARN' - The ARN of the SNS topic to which the SNS notifications are sent.
 subscribeToEvent
     :: Text -- ^ 'steResourceARN'
     -> InspectorEvent -- ^ 'steEvent'
     -> Text -- ^ 'steTopicARN'
     -> SubscribeToEvent
 subscribeToEvent pResourceARN_ pEvent_ pTopicARN_ =
-    SubscribeToEvent'
-    { _steResourceARN = pResourceARN_
-    , _steEvent = pEvent_
-    , _steTopicARN = pTopicARN_
-    }
+  SubscribeToEvent'
+  { _steResourceARN = pResourceARN_
+  , _steEvent = pEvent_
+  , _steTopicARN = pTopicARN_
+  }
+
 
 -- | The ARN of the assessment template that is used during the event for which you want to receive SNS notifications.
 steResourceARN :: Lens' SubscribeToEvent Text
@@ -86,9 +90,9 @@ instance AWSRequest SubscribeToEvent where
         request = postJSON inspector
         response = receiveNull SubscribeToEventResponse'
 
-instance Hashable SubscribeToEvent
+instance Hashable SubscribeToEvent where
 
-instance NFData SubscribeToEvent
+instance NFData SubscribeToEvent where
 
 instance ToHeaders SubscribeToEvent where
         toHeaders
@@ -115,8 +119,9 @@ instance ToQuery SubscribeToEvent where
 
 -- | /See:/ 'subscribeToEventResponse' smart constructor.
 data SubscribeToEventResponse =
-    SubscribeToEventResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SubscribeToEventResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SubscribeToEventResponse' with the minimum fields required to make a request.
 --
@@ -124,4 +129,5 @@ subscribeToEventResponse
     :: SubscribeToEventResponse
 subscribeToEventResponse = SubscribeToEventResponse'
 
-instance NFData SubscribeToEventResponse
+
+instance NFData SubscribeToEventResponse where

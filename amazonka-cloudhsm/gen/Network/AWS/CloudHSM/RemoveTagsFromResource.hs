@@ -12,15 +12,21 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.RemoveTagsFromResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This is documentation for __AWS CloudHSM Classic__ . For more information, see <http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs> , the <http://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference> .
+--
+--
+-- __For information about the current version of AWS CloudHSM__ , see <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> , the <http://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference> .
+--
 -- Removes one or more tags from the specified AWS CloudHSM resource.
 --
--- To remove a tag, specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use < AddTagsToResource>.
+-- To remove a tag, specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use 'AddTagsToResource' .
+--
 module Network.AWS.CloudHSM.RemoveTagsFromResource
     (
     -- * Creating a Request
@@ -38,42 +44,40 @@ module Network.AWS.CloudHSM.RemoveTagsFromResource
     , rtfrrsStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'removeTagsFromResource' smart constructor.
 data RemoveTagsFromResource = RemoveTagsFromResource'
-    { _rtfrResourceARN :: !Text
-    , _rtfrTagKeyList  :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtfrResourceARN :: !Text
+  , _rtfrTagKeyList  :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTagsFromResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfrResourceARN'
+-- * 'rtfrResourceARN' - The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
 --
--- * 'rtfrTagKeyList'
+-- * 'rtfrTagKeyList' - The tag key or keys to remove. Specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use 'AddTagsToResource' .
 removeTagsFromResource
     :: Text -- ^ 'rtfrResourceARN'
     -> RemoveTagsFromResource
 removeTagsFromResource pResourceARN_ =
-    RemoveTagsFromResource'
-    { _rtfrResourceARN = pResourceARN_
-    , _rtfrTagKeyList = mempty
-    }
+  RemoveTagsFromResource'
+  {_rtfrResourceARN = pResourceARN_, _rtfrTagKeyList = mempty}
+
 
 -- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
 rtfrResourceARN :: Lens' RemoveTagsFromResource Text
 rtfrResourceARN = lens _rtfrResourceARN (\ s a -> s{_rtfrResourceARN = a});
 
--- | The tag key or keys to remove.
---
--- Specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use < AddTagsToResource>.
+-- | The tag key or keys to remove. Specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use 'AddTagsToResource' .
 rtfrTagKeyList :: Lens' RemoveTagsFromResource [Text]
 rtfrTagKeyList = lens _rtfrTagKeyList (\ s a -> s{_rtfrTagKeyList = a}) . _Coerce;
 
@@ -87,9 +91,9 @@ instance AWSRequest RemoveTagsFromResource where
                  RemoveTagsFromResourceResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Status"))
 
-instance Hashable RemoveTagsFromResource
+instance Hashable RemoveTagsFromResource where
 
-instance NFData RemoveTagsFromResource
+instance NFData RemoveTagsFromResource where
 
 instance ToHeaders RemoveTagsFromResource where
         toHeaders
@@ -116,28 +120,28 @@ instance ToQuery RemoveTagsFromResource where
 
 -- | /See:/ 'removeTagsFromResourceResponse' smart constructor.
 data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
-    { _rtfrrsResponseStatus :: !Int
-    , _rtfrrsStatus         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtfrrsResponseStatus :: !Int
+  , _rtfrrsStatus         :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTagsFromResourceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfrrsResponseStatus'
+-- * 'rtfrrsResponseStatus' - -- | The response status code.
 --
--- * 'rtfrrsStatus'
+-- * 'rtfrrsStatus' - The status of the operation.
 removeTagsFromResourceResponse
     :: Int -- ^ 'rtfrrsResponseStatus'
     -> Text -- ^ 'rtfrrsStatus'
     -> RemoveTagsFromResourceResponse
 removeTagsFromResourceResponse pResponseStatus_ pStatus_ =
-    RemoveTagsFromResourceResponse'
-    { _rtfrrsResponseStatus = pResponseStatus_
-    , _rtfrrsStatus = pStatus_
-    }
+  RemoveTagsFromResourceResponse'
+  {_rtfrrsResponseStatus = pResponseStatus_, _rtfrrsStatus = pStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 rtfrrsResponseStatus :: Lens' RemoveTagsFromResourceResponse Int
 rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a});
 
@@ -145,4 +149,4 @@ rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseSta
 rtfrrsStatus :: Lens' RemoveTagsFromResourceResponse Text
 rtfrrsStatus = lens _rtfrrsStatus (\ s a -> s{_rtfrrsStatus = a});
 
-instance NFData RemoveTagsFromResourceResponse
+instance NFData RemoveTagsFromResourceResponse where

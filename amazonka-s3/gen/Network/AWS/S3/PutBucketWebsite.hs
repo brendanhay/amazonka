@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketWebsite
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,39 +34,41 @@ module Network.AWS.S3.PutBucketWebsite
     , PutBucketWebsiteResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketWebsite' smart constructor.
 data PutBucketWebsite = PutBucketWebsite'
-    { _pbwContentMD5           :: !(Maybe Text)
-    , _pbwBucket               :: !BucketName
-    , _pbwWebsiteConfiguration :: !WebsiteConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pbwContentMD5           :: !(Maybe Text)
+  , _pbwBucket               :: !BucketName
+  , _pbwWebsiteConfiguration :: !WebsiteConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketWebsite' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbwContentMD5'
+-- * 'pbwContentMD5' - Undocumented member.
 --
--- * 'pbwBucket'
+-- * 'pbwBucket' - Undocumented member.
 --
--- * 'pbwWebsiteConfiguration'
+-- * 'pbwWebsiteConfiguration' - Undocumented member.
 putBucketWebsite
     :: BucketName -- ^ 'pbwBucket'
     -> WebsiteConfiguration -- ^ 'pbwWebsiteConfiguration'
     -> PutBucketWebsite
 putBucketWebsite pBucket_ pWebsiteConfiguration_ =
-    PutBucketWebsite'
-    { _pbwContentMD5 = Nothing
-    , _pbwBucket = pBucket_
-    , _pbwWebsiteConfiguration = pWebsiteConfiguration_
-    }
+  PutBucketWebsite'
+  { _pbwContentMD5 = Nothing
+  , _pbwBucket = pBucket_
+  , _pbwWebsiteConfiguration = pWebsiteConfiguration_
+  }
+
 
 -- | Undocumented member.
 pbwContentMD5 :: Lens' PutBucketWebsite (Maybe Text)
@@ -85,9 +87,9 @@ instance AWSRequest PutBucketWebsite where
         request = putXML s3
         response = receiveNull PutBucketWebsiteResponse'
 
-instance Hashable PutBucketWebsite
+instance Hashable PutBucketWebsite where
 
-instance NFData PutBucketWebsite
+instance NFData PutBucketWebsite where
 
 instance ToElement PutBucketWebsite where
         toElement
@@ -109,8 +111,9 @@ instance ToQuery PutBucketWebsite where
 
 -- | /See:/ 'putBucketWebsiteResponse' smart constructor.
 data PutBucketWebsiteResponse =
-    PutBucketWebsiteResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutBucketWebsiteResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketWebsiteResponse' with the minimum fields required to make a request.
 --
@@ -118,4 +121,5 @@ putBucketWebsiteResponse
     :: PutBucketWebsiteResponse
 putBucketWebsiteResponse = PutBucketWebsiteResponse'
 
-instance NFData PutBucketWebsiteResponse
+
+instance NFData PutBucketWebsiteResponse where

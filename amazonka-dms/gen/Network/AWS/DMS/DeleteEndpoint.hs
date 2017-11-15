@@ -12,15 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DeleteEndpoint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified endpoint.
 --
--- All tasks associated with the endpoint must be deleted before you can delete the endpoint.
+--
+--
 --
 module Network.AWS.DMS.DeleteEndpoint
     (
@@ -38,32 +39,33 @@ module Network.AWS.DMS.DeleteEndpoint
     , delrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteEndpoint' smart constructor.
 newtype DeleteEndpoint = DeleteEndpoint'
-    { _deEndpointARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deEndpointARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteEndpoint' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'deEndpointARN'
+-- * 'deEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 deleteEndpoint
     :: Text -- ^ 'deEndpointARN'
     -> DeleteEndpoint
-deleteEndpoint pEndpointARN_ =
-    DeleteEndpoint'
-    { _deEndpointARN = pEndpointARN_
-    }
+deleteEndpoint pEndpointARN_ = DeleteEndpoint' {_deEndpointARN = pEndpointARN_}
+
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 deEndpointARN :: Lens' DeleteEndpoint Text
@@ -78,9 +80,9 @@ instance AWSRequest DeleteEndpoint where
                  DeleteEndpointResponse' <$>
                    (x .?> "Endpoint") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteEndpoint
+instance Hashable DeleteEndpoint where
 
-instance NFData DeleteEndpoint
+instance NFData DeleteEndpoint where
 
 instance ToHeaders DeleteEndpoint where
         toHeaders
@@ -104,34 +106,36 @@ instance ToQuery DeleteEndpoint where
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteEndpointResponse' smart constructor.
 data DeleteEndpointResponse = DeleteEndpointResponse'
-    { _delrsEndpoint       :: !(Maybe Endpoint)
-    , _delrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delrsEndpoint       :: !(Maybe Endpoint)
+  , _delrsResponseStatus :: !Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteEndpointResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsEndpoint'
+-- * 'delrsEndpoint' - The endpoint that was deleted.
 --
--- * 'delrsResponseStatus'
+-- * 'delrsResponseStatus' - -- | The response status code.
 deleteEndpointResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteEndpointResponse
 deleteEndpointResponse pResponseStatus_ =
-    DeleteEndpointResponse'
-    { _delrsEndpoint = Nothing
-    , _delrsResponseStatus = pResponseStatus_
-    }
+  DeleteEndpointResponse'
+  {_delrsEndpoint = Nothing, _delrsResponseStatus = pResponseStatus_}
+
 
 -- | The endpoint that was deleted.
 delrsEndpoint :: Lens' DeleteEndpointResponse (Maybe Endpoint)
 delrsEndpoint = lens _delrsEndpoint (\ s a -> s{_delrsEndpoint = a});
 
--- | The response status code.
+-- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteEndpointResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 
-instance NFData DeleteEndpointResponse
+instance NFData DeleteEndpointResponse where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.SSM.UpdateManagedInstanceRole
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Assigns or changes an Amazon Identity and Access Management (IAM) role to the managed instance.
+--
+--
 module Network.AWS.SSM.UpdateManagedInstanceRole
     (
     -- * Creating a Request
@@ -35,35 +37,35 @@ module Network.AWS.SSM.UpdateManagedInstanceRole
     , umirrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updateManagedInstanceRole' smart constructor.
 data UpdateManagedInstanceRole = UpdateManagedInstanceRole'
-    { _umirInstanceId :: !Text
-    , _umirIAMRole    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _umirInstanceId :: !Text
+  , _umirIAMRole    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateManagedInstanceRole' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'umirInstanceId'
+-- * 'umirInstanceId' - The ID of the managed instance where you want to update the role.
 --
--- * 'umirIAMRole'
+-- * 'umirIAMRole' - The IAM role you want to assign or change.
 updateManagedInstanceRole
     :: Text -- ^ 'umirInstanceId'
     -> Text -- ^ 'umirIAMRole'
     -> UpdateManagedInstanceRole
 updateManagedInstanceRole pInstanceId_ pIAMRole_ =
-    UpdateManagedInstanceRole'
-    { _umirInstanceId = pInstanceId_
-    , _umirIAMRole = pIAMRole_
-    }
+  UpdateManagedInstanceRole'
+  {_umirInstanceId = pInstanceId_, _umirIAMRole = pIAMRole_}
+
 
 -- | The ID of the managed instance where you want to update the role.
 umirInstanceId :: Lens' UpdateManagedInstanceRole Text
@@ -83,9 +85,9 @@ instance AWSRequest UpdateManagedInstanceRole where
                  UpdateManagedInstanceRoleResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable UpdateManagedInstanceRole
+instance Hashable UpdateManagedInstanceRole where
 
-instance NFData UpdateManagedInstanceRole
+instance NFData UpdateManagedInstanceRole where
 
 instance ToHeaders UpdateManagedInstanceRole where
         toHeaders
@@ -112,24 +114,25 @@ instance ToQuery UpdateManagedInstanceRole where
 
 -- | /See:/ 'updateManagedInstanceRoleResponse' smart constructor.
 newtype UpdateManagedInstanceRoleResponse = UpdateManagedInstanceRoleResponse'
-    { _umirrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _umirrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateManagedInstanceRoleResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'umirrsResponseStatus'
+-- * 'umirrsResponseStatus' - -- | The response status code.
 updateManagedInstanceRoleResponse
     :: Int -- ^ 'umirrsResponseStatus'
     -> UpdateManagedInstanceRoleResponse
 updateManagedInstanceRoleResponse pResponseStatus_ =
-    UpdateManagedInstanceRoleResponse'
-    { _umirrsResponseStatus = pResponseStatus_
-    }
+  UpdateManagedInstanceRoleResponse' {_umirrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 umirrsResponseStatus :: Lens' UpdateManagedInstanceRoleResponse Int
 umirrsResponseStatus = lens _umirrsResponseStatus (\ s a -> s{_umirrsResponseStatus = a});
 
 instance NFData UpdateManagedInstanceRoleResponse
+         where

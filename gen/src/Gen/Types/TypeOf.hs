@@ -6,12 +6,12 @@
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Gen.Types.TypeOf
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
@@ -26,14 +26,16 @@ module Gen.Types.TypeOf
     , typeDefault
     ) where
 
-import           Control.Comonad.Cofree
-import           Control.Lens           hiding ((:<), List, enum, mapping, (??))
-import           Data.Foldable          (foldr')
-import           Data.List              (intersect, nub, sort)
-import           Data.Monoid
-import           Gen.Types.Ann
-import           Gen.Types.Id
-import           Gen.Types.Service
+import Control.Comonad.Cofree
+import Control.Lens           hiding ((:<), List, enum, mapping, (??))
+
+import Data.Foldable (foldr')
+import Data.List     (delete, intersect, nub, sort)
+import Data.Monoid
+
+import Gen.Types.Ann
+import Gen.Types.Id
+import Gen.Types.Service
 
 class TypeOf a where
     typeOf :: a -> TType
@@ -102,7 +104,7 @@ derivingOf = uniq . typ . typeOf
         TNatural        -> derivingBase <> num
         TStream         -> stream
         TMaybe     t    -> typ t
-        TSensitive t    -> DShow : typ t
+        TSensitive t    -> DShow : delete DRead (typ t)
         TList      e    -> monoid <> intersect derivingBase (typ e)
         TList1     e    -> DSemigroup : intersect derivingBase (typ e)
         TMap       k v  -> monoid <> intersect (typ k) (typ v)

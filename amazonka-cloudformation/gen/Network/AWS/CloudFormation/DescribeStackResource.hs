@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DescribeStackResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a description of the specified resource in the specified stack.
 --
+--
 -- For deleted stacks, DescribeStackResource returns resource information for up to 90 days after the stack has been deleted.
+--
 module Network.AWS.CloudFormation.DescribeStackResource
     (
     -- * Creating a Request
@@ -38,51 +40,45 @@ module Network.AWS.CloudFormation.DescribeStackResource
     , dsrrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | The input for < DescribeStackResource> action.
+-- | The input for 'DescribeStackResource' action.
+--
+--
 --
 -- /See:/ 'describeStackResource' smart constructor.
 data DescribeStackResource = DescribeStackResource'
-    { _dsrsStackName         :: !Text
-    , _dsrsLogicalResourceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrsStackName         :: !Text
+  , _dsrsLogicalResourceId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStackResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrsStackName'
+-- * 'dsrsStackName' - The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value.
 --
--- * 'dsrsLogicalResourceId'
+-- * 'dsrsLogicalResourceId' - The logical name of the resource as specified in the template. Default: There is no default value.
 describeStackResource
     :: Text -- ^ 'dsrsStackName'
     -> Text -- ^ 'dsrsLogicalResourceId'
     -> DescribeStackResource
 describeStackResource pStackName_ pLogicalResourceId_ =
-    DescribeStackResource'
-    { _dsrsStackName = pStackName_
-    , _dsrsLogicalResourceId = pLogicalResourceId_
-    }
+  DescribeStackResource'
+  {_dsrsStackName = pStackName_, _dsrsLogicalResourceId = pLogicalResourceId_}
 
--- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
---
--- -   Running stacks: You can specify either the stack\'s name or its unique stack ID.
---
--- -   Deleted stacks: You must specify the unique stack ID.
---
--- Default: There is no default value.
+
+-- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value.
 dsrsStackName :: Lens' DescribeStackResource Text
 dsrsStackName = lens _dsrsStackName (\ s a -> s{_dsrsStackName = a});
 
--- | The logical name of the resource as specified in the template.
---
--- Default: There is no default value.
+-- | The logical name of the resource as specified in the template. Default: There is no default value.
 dsrsLogicalResourceId :: Lens' DescribeStackResource Text
 dsrsLogicalResourceId = lens _dsrsLogicalResourceId (\ s a -> s{_dsrsLogicalResourceId = a});
 
@@ -97,9 +93,9 @@ instance AWSRequest DescribeStackResource where
                    (x .@? "StackResourceDetail") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeStackResource
+instance Hashable DescribeStackResource where
 
-instance NFData DescribeStackResource
+instance NFData DescribeStackResource where
 
 instance ToHeaders DescribeStackResource where
         toHeaders = const mempty
@@ -115,36 +111,38 @@ instance ToQuery DescribeStackResource where
                "StackName" =: _dsrsStackName,
                "LogicalResourceId" =: _dsrsLogicalResourceId]
 
--- | The output for a < DescribeStackResource> action.
+-- | The output for a 'DescribeStackResource' action.
+--
+--
 --
 -- /See:/ 'describeStackResourceResponse' smart constructor.
 data DescribeStackResourceResponse = DescribeStackResourceResponse'
-    { _dsrrsStackResourceDetail :: !(Maybe StackResourceDetail)
-    , _dsrrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrrsStackResourceDetail :: !(Maybe StackResourceDetail)
+  , _dsrrsResponseStatus      :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStackResourceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrrsStackResourceDetail'
+-- * 'dsrrsStackResourceDetail' - A @StackResourceDetail@ structure containing the description of the specified resource in the specified stack.
 --
--- * 'dsrrsResponseStatus'
+-- * 'dsrrsResponseStatus' - -- | The response status code.
 describeStackResourceResponse
     :: Int -- ^ 'dsrrsResponseStatus'
     -> DescribeStackResourceResponse
 describeStackResourceResponse pResponseStatus_ =
-    DescribeStackResourceResponse'
-    { _dsrrsStackResourceDetail = Nothing
-    , _dsrrsResponseStatus = pResponseStatus_
-    }
+  DescribeStackResourceResponse'
+  {_dsrrsStackResourceDetail = Nothing, _dsrrsResponseStatus = pResponseStatus_}
 
--- | A 'StackResourceDetail' structure containing the description of the specified resource in the specified stack.
+
+-- | A @StackResourceDetail@ structure containing the description of the specified resource in the specified stack.
 dsrrsStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
 dsrrsStackResourceDetail = lens _dsrrsStackResourceDetail (\ s a -> s{_dsrrsStackResourceDetail = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dsrrsResponseStatus :: Lens' DescribeStackResourceResponse Int
 dsrrsResponseStatus = lens _dsrrsResponseStatus (\ s a -> s{_dsrrsResponseStatus = a});
 
-instance NFData DescribeStackResourceResponse
+instance NFData DescribeStackResourceResponse where

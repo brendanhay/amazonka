@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.KMS.DisableKey
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the state of a customer master key (CMK) to disabled, thereby preventing its use for cryptographic operations. For more information about how key state affects the use of a CMK, see <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects the Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/.
+-- Sets the state of a customer master key (CMK) to disabled, thereby preventing its use for cryptographic operations. You cannot perform this operation on a CMK in a different AWS account.
+--
+--
+-- For more information about how key state affects the use of a CMK, see <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects the Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/ .
+--
 module Network.AWS.KMS.DisableKey
     (
     -- * Creating a Request
@@ -32,39 +36,31 @@ module Network.AWS.KMS.DisableKey
     , DisableKeyResponse
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disableKey' smart constructor.
 newtype DisableKey = DisableKey'
-    { _dkKeyId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dkKeyId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableKey' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dkKeyId'
+-- * 'dkKeyId' - A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 disableKey
     :: Text -- ^ 'dkKeyId'
     -> DisableKey
-disableKey pKeyId_ =
-    DisableKey'
-    { _dkKeyId = pKeyId_
-    }
+disableKey pKeyId_ = DisableKey' {_dkKeyId = pKeyId_}
 
--- | A unique identifier for the CMK.
---
--- Use the CMK\'s unique identifier or its Amazon Resource Name (ARN). For example:
---
--- -   Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab
---
--- -   ARN: arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab
---
+
+-- | A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 dkKeyId :: Lens' DisableKey Text
 dkKeyId = lens _dkKeyId (\ s a -> s{_dkKeyId = a});
 
@@ -73,9 +69,9 @@ instance AWSRequest DisableKey where
         request = postJSON kms
         response = receiveNull DisableKeyResponse'
 
-instance Hashable DisableKey
+instance Hashable DisableKey where
 
-instance NFData DisableKey
+instance NFData DisableKey where
 
 instance ToHeaders DisableKey where
         toHeaders
@@ -98,8 +94,9 @@ instance ToQuery DisableKey where
 
 -- | /See:/ 'disableKeyResponse' smart constructor.
 data DisableKeyResponse =
-    DisableKeyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DisableKeyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableKeyResponse' with the minimum fields required to make a request.
 --
@@ -107,4 +104,5 @@ disableKeyResponse
     :: DisableKeyResponse
 disableKeyResponse = DisableKeyResponse'
 
-instance NFData DisableKeyResponse
+
+instance NFData DisableKeyResponse where

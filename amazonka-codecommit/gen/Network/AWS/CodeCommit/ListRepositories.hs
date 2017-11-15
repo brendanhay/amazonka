@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.ListRepositories
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more repositories.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.CodeCommit.ListRepositories
@@ -40,40 +42,41 @@ module Network.AWS.CodeCommit.ListRepositories
     , lrrsResponseStatus
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.CodeCommit.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a list repositories operation.
 --
+--
+--
 -- /See:/ 'listRepositories' smart constructor.
 data ListRepositories = ListRepositories'
-    { _lrNextToken :: !(Maybe Text)
-    , _lrOrder     :: !(Maybe OrderEnum)
-    , _lrSortBy    :: !(Maybe SortByEnum)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrNextToken :: !(Maybe Text)
+  , _lrOrder     :: !(Maybe OrderEnum)
+  , _lrSortBy    :: !(Maybe SortByEnum)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRepositories' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrNextToken'
+-- * 'lrNextToken' - An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
 --
--- * 'lrOrder'
+-- * 'lrOrder' - The order in which to sort the results of a list repositories operation.
 --
--- * 'lrSortBy'
+-- * 'lrSortBy' - The criteria used to sort the results of a list repositories operation.
 listRepositories
     :: ListRepositories
 listRepositories =
-    ListRepositories'
-    { _lrNextToken = Nothing
-    , _lrOrder = Nothing
-    , _lrSortBy = Nothing
-    }
+  ListRepositories'
+  {_lrNextToken = Nothing, _lrOrder = Nothing, _lrSortBy = Nothing}
+
 
 -- | An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
 lrNextToken :: Lens' ListRepositories (Maybe Text)
@@ -105,9 +108,9 @@ instance AWSRequest ListRepositories where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListRepositories
+instance Hashable ListRepositories where
 
-instance NFData ListRepositories
+instance NFData ListRepositories where
 
 instance ToHeaders ListRepositories where
         toHeaders
@@ -135,31 +138,35 @@ instance ToQuery ListRepositories where
 
 -- | Represents the output of a list repositories operation.
 --
+--
+--
 -- /See:/ 'listRepositoriesResponse' smart constructor.
 data ListRepositoriesResponse = ListRepositoriesResponse'
-    { _lrrsRepositories   :: !(Maybe [RepositoryNameIdPair])
-    , _lrrsNextToken      :: !(Maybe Text)
-    , _lrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrrsRepositories   :: !(Maybe [RepositoryNameIdPair])
+  , _lrrsNextToken      :: !(Maybe Text)
+  , _lrrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRepositoriesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrrsRepositories'
+-- * 'lrrsRepositories' - Lists the repositories called by the list repositories operation.
 --
--- * 'lrrsNextToken'
+-- * 'lrrsNextToken' - An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
 --
--- * 'lrrsResponseStatus'
+-- * 'lrrsResponseStatus' - -- | The response status code.
 listRepositoriesResponse
     :: Int -- ^ 'lrrsResponseStatus'
     -> ListRepositoriesResponse
 listRepositoriesResponse pResponseStatus_ =
-    ListRepositoriesResponse'
-    { _lrrsRepositories = Nothing
-    , _lrrsNextToken = Nothing
-    , _lrrsResponseStatus = pResponseStatus_
-    }
+  ListRepositoriesResponse'
+  { _lrrsRepositories = Nothing
+  , _lrrsNextToken = Nothing
+  , _lrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Lists the repositories called by the list repositories operation.
 lrrsRepositories :: Lens' ListRepositoriesResponse [RepositoryNameIdPair]
@@ -169,8 +176,8 @@ lrrsRepositories = lens _lrrsRepositories (\ s a -> s{_lrrsRepositories = a}) . 
 lrrsNextToken :: Lens' ListRepositoriesResponse (Maybe Text)
 lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lrrsResponseStatus :: Lens' ListRepositoriesResponse Int
 lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});
 
-instance NFData ListRepositoriesResponse
+instance NFData ListRepositoriesResponse where

@@ -12,21 +12,23 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.StartApplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts the specified Amazon Kinesis Analytics application. After creating an application, you must exclusively call this operation to start your application.
 --
+--
 -- After the application starts, it begins consuming the input data, processes it, and writes the output to the configured destination.
 --
--- The application status must be 'READY' for you to start an application. You can get the application status in the console or using the < DescribeApplication> operation.
+-- The application status must be @READY@ for you to start an application. You can get the application status in the console or using the 'DescribeApplication' operation.
 --
--- After you start the application, you can stop the application from processing the input by calling the < StopApplication> operation.
+-- After you start the application, you can stop the application from processing the input by calling the 'StopApplication' operation.
 --
--- This operation requires permissions to perform the 'kinesisanalytics:StartApplication' action.
+-- This operation requires permissions to perform the @kinesisanalytics:StartApplication@ action.
+--
 module Network.AWS.KinesisAnalytics.StartApplication
     (
     -- * Creating a Request
@@ -43,36 +45,38 @@ module Network.AWS.KinesisAnalytics.StartApplication
     , sarsResponseStatus
     ) where
 
-import           Network.AWS.KinesisAnalytics.Types
-import           Network.AWS.KinesisAnalytics.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KinesisAnalytics.Types
+import Network.AWS.KinesisAnalytics.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'startApplication' smart constructor.
 data StartApplication = StartApplication'
-    { _saApplicationName     :: !Text
-    , _saInputConfigurations :: ![InputConfiguration]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _saApplicationName     :: !Text
+  , _saInputConfigurations :: ![InputConfiguration]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartApplication' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'saApplicationName'
+-- * 'saApplicationName' - Name of the application.
 --
--- * 'saInputConfigurations'
+-- * 'saInputConfigurations' - Identifies the specific input, by ID, that the application starts consuming. Amazon Kinesis Analytics starts reading the streaming source associated with the input. You can also specify where in the streaming source you want Amazon Kinesis Analytics to start reading.
 startApplication
     :: Text -- ^ 'saApplicationName'
     -> StartApplication
 startApplication pApplicationName_ =
-    StartApplication'
-    { _saApplicationName = pApplicationName_
-    , _saInputConfigurations = mempty
-    }
+  StartApplication'
+  {_saApplicationName = pApplicationName_, _saInputConfigurations = mempty}
+
 
 -- | Name of the application.
 saApplicationName :: Lens' StartApplication Text
@@ -90,9 +94,9 @@ instance AWSRequest StartApplication where
               (\ s h x ->
                  StartApplicationResponse' <$> (pure (fromEnum s)))
 
-instance Hashable StartApplication
+instance Hashable StartApplication where
 
-instance NFData StartApplication
+instance NFData StartApplication where
 
 instance ToHeaders StartApplication where
         toHeaders
@@ -120,26 +124,28 @@ instance ToQuery StartApplication where
 
 -- |
 --
+--
+--
 -- /See:/ 'startApplicationResponse' smart constructor.
 newtype StartApplicationResponse = StartApplicationResponse'
-    { _sarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartApplicationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sarsResponseStatus'
+-- * 'sarsResponseStatus' - -- | The response status code.
 startApplicationResponse
     :: Int -- ^ 'sarsResponseStatus'
     -> StartApplicationResponse
 startApplicationResponse pResponseStatus_ =
-    StartApplicationResponse'
-    { _sarsResponseStatus = pResponseStatus_
-    }
+  StartApplicationResponse' {_sarsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 sarsResponseStatus :: Lens' StartApplicationResponse Int
 sarsResponseStatus = lens _sarsResponseStatus (\ s a -> s{_sarsResponseStatus = a});
 
-instance NFData StartApplicationResponse
+instance NFData StartApplicationResponse where

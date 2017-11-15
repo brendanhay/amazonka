@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.CreateDeployment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Runs deployment or stack commands. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html Deploying Apps> and <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-commands.html Run Stack Commands>.
+-- Runs deployment or stack commands. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html Deploying Apps> and <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-commands.html Run Stack Commands> .
 --
--- __Required Permissions__: To use this action, an IAM user must have a Deploy or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Deploy or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.CreateDeployment
     (
     -- * Creating a Request
@@ -43,61 +45,59 @@ module Network.AWS.OpsWorks.CreateDeployment
     , cdrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
-    { _cdCustomJSON  :: !(Maybe Text)
-    , _cdAppId       :: !(Maybe Text)
-    , _cdInstanceIds :: !(Maybe [Text])
-    , _cdLayerIds    :: !(Maybe [Text])
-    , _cdComment     :: !(Maybe Text)
-    , _cdStackId     :: !Text
-    , _cdCommand     :: !DeploymentCommand
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdCustomJSON  :: !(Maybe Text)
+  , _cdAppId       :: !(Maybe Text)
+  , _cdInstanceIds :: !(Maybe [Text])
+  , _cdLayerIds    :: !(Maybe [Text])
+  , _cdComment     :: !(Maybe Text)
+  , _cdStackId     :: !Text
+  , _cdCommand     :: !DeploymentCommand
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDeployment' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdCustomJSON'
+-- * 'cdCustomJSON' - A string that contains user-defined, custom JSON. It is used to override the corresponding default stack configuration JSON values. The string should be in the following format: @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@  For more information on custom JSON, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
 --
--- * 'cdAppId'
+-- * 'cdAppId' - The app ID. This parameter is required for app deployments, but not for other deployment commands.
 --
--- * 'cdInstanceIds'
+-- * 'cdInstanceIds' - The instance IDs for the deployment targets.
 --
--- * 'cdLayerIds'
+-- * 'cdLayerIds' - The layer IDs for the deployment targets.
 --
--- * 'cdComment'
+-- * 'cdComment' - A user-defined comment.
 --
--- * 'cdStackId'
+-- * 'cdStackId' - The stack ID.
 --
--- * 'cdCommand'
+-- * 'cdCommand' - A @DeploymentCommand@ object that specifies the deployment command and any associated arguments.
 createDeployment
     :: Text -- ^ 'cdStackId'
     -> DeploymentCommand -- ^ 'cdCommand'
     -> CreateDeployment
 createDeployment pStackId_ pCommand_ =
-    CreateDeployment'
-    { _cdCustomJSON = Nothing
-    , _cdAppId = Nothing
-    , _cdInstanceIds = Nothing
-    , _cdLayerIds = Nothing
-    , _cdComment = Nothing
-    , _cdStackId = pStackId_
-    , _cdCommand = pCommand_
-    }
+  CreateDeployment'
+  { _cdCustomJSON = Nothing
+  , _cdAppId = Nothing
+  , _cdInstanceIds = Nothing
+  , _cdLayerIds = Nothing
+  , _cdComment = Nothing
+  , _cdStackId = pStackId_
+  , _cdCommand = pCommand_
+  }
 
--- | A string that contains user-defined, custom JSON. It is used to override the corresponding default stack configuration JSON values. The string should be in the following format and must escape characters such as \'\"\':
---
--- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'
---
--- For more information on custom JSON, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
+
+-- | A string that contains user-defined, custom JSON. It is used to override the corresponding default stack configuration JSON values. The string should be in the following format: @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@  For more information on custom JSON, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
 cdCustomJSON :: Lens' CreateDeployment (Maybe Text)
 cdCustomJSON = lens _cdCustomJSON (\ s a -> s{_cdCustomJSON = a});
 
@@ -121,7 +121,7 @@ cdComment = lens _cdComment (\ s a -> s{_cdComment = a});
 cdStackId :: Lens' CreateDeployment Text
 cdStackId = lens _cdStackId (\ s a -> s{_cdStackId = a});
 
--- | A 'DeploymentCommand' object that specifies the deployment command and any associated arguments.
+-- | A @DeploymentCommand@ object that specifies the deployment command and any associated arguments.
 cdCommand :: Lens' CreateDeployment DeploymentCommand
 cdCommand = lens _cdCommand (\ s a -> s{_cdCommand = a});
 
@@ -134,9 +134,9 @@ instance AWSRequest CreateDeployment where
                  CreateDeploymentResponse' <$>
                    (x .?> "DeploymentId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDeployment
+instance Hashable CreateDeployment where
 
-instance NFData CreateDeployment
+instance NFData CreateDeployment where
 
 instance ToHeaders CreateDeployment where
         toHeaders
@@ -165,36 +165,38 @@ instance ToPath CreateDeployment where
 instance ToQuery CreateDeployment where
         toQuery = const mempty
 
--- | Contains the response to a 'CreateDeployment' request.
+-- | Contains the response to a @CreateDeployment@ request.
+--
+--
 --
 -- /See:/ 'createDeploymentResponse' smart constructor.
 data CreateDeploymentResponse = CreateDeploymentResponse'
-    { _cdrsDeploymentId   :: !(Maybe Text)
-    , _cdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdrsDeploymentId   :: !(Maybe Text)
+  , _cdrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDeploymentResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdrsDeploymentId'
+-- * 'cdrsDeploymentId' - The deployment ID, which can be used with other requests to identify the deployment.
 --
--- * 'cdrsResponseStatus'
+-- * 'cdrsResponseStatus' - -- | The response status code.
 createDeploymentResponse
     :: Int -- ^ 'cdrsResponseStatus'
     -> CreateDeploymentResponse
 createDeploymentResponse pResponseStatus_ =
-    CreateDeploymentResponse'
-    { _cdrsDeploymentId = Nothing
-    , _cdrsResponseStatus = pResponseStatus_
-    }
+  CreateDeploymentResponse'
+  {_cdrsDeploymentId = Nothing, _cdrsResponseStatus = pResponseStatus_}
+
 
 -- | The deployment ID, which can be used with other requests to identify the deployment.
 cdrsDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrsDeploymentId = lens _cdrsDeploymentId (\ s a -> s{_cdrsDeploymentId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdrsResponseStatus :: Lens' CreateDeploymentResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
 
-instance NFData CreateDeploymentResponse
+instance NFData CreateDeploymentResponse where

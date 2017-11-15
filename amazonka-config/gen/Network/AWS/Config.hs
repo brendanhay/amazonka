@@ -5,23 +5,24 @@
 
 -- |
 -- Module      : Network.AWS.Config
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS Config
+-- __AWS Config__
 --
--- AWS Config provides a way to keep track of the configurations of all the AWS resources associated with your AWS account. You can use AWS Config to get the current and historical configurations of each AWS resource and also to get information about the relationship between the resources. An AWS resource can be an Amazon Compute Cloud (Amazon EC2) instance, an Elastic Block Store (EBS) volume, an Elastic network Interface (ENI), or a security group. For a complete list of resources currently supported by AWS Config, see <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resources>.
+-- AWS Config provides a way to keep track of the configurations of all the AWS resources associated with your AWS account. You can use AWS Config to get the current and historical configurations of each AWS resource and also to get information about the relationship between the resources. An AWS resource can be an Amazon Compute Cloud (Amazon EC2) instance, an Elastic Block Store (EBS) volume, an Elastic network Interface (ENI), or a security group. For a complete list of resources currently supported by AWS Config, see <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resources> .
 --
 -- You can access and manage AWS Config through the AWS Management Console, the AWS Command Line Interface (AWS CLI), the AWS Config API, or the AWS SDKs for AWS Config
 --
 -- This reference guide contains documentation for the AWS Config API and the AWS CLI commands that you can use to manage AWS Config.
 --
--- The AWS Config API uses the Signature Version 4 protocol for signing requests. For more information about how to sign a request with this protocol, see <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process>.
+-- The AWS Config API uses the Signature Version 4 protocol for signing requests. For more information about how to sign a request with this protocol, see <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> .
 --
--- For detailed information about AWS Config features and their associated actions or commands, as well as how to work with AWS Management Console, see <http://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html What Is AWS Config?> in the /AWS Config Developer Guide/.
+-- For detailed information about AWS Config features and their associated actions or commands, as well as how to work with AWS Management Console, see <http://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html What Is AWS Config?> in the /AWS Config Developer Guide/ .
+--
 module Network.AWS.Config
     (
     -- * Service Configuration
@@ -120,16 +121,16 @@ module Network.AWS.Config
     -- * Operations
     -- $operations
 
-    -- ** GetResourceConfigHistory
+    -- ** GetResourceConfigHistory (Paginated)
     , module Network.AWS.Config.GetResourceConfigHistory
 
-    -- ** DescribeComplianceByConfigRule
+    -- ** DescribeComplianceByConfigRule (Paginated)
     , module Network.AWS.Config.DescribeComplianceByConfigRule
 
     -- ** StopConfigurationRecorder
     , module Network.AWS.Config.StopConfigurationRecorder
 
-    -- ** DescribeConfigRules
+    -- ** DescribeConfigRules (Paginated)
     , module Network.AWS.Config.DescribeConfigRules
 
     -- ** DeleteEvaluationResults
@@ -141,7 +142,7 @@ module Network.AWS.Config
     -- ** DeleteConfigRule
     , module Network.AWS.Config.DeleteConfigRule
 
-    -- ** GetComplianceDetailsByResource
+    -- ** GetComplianceDetailsByResource (Paginated)
     , module Network.AWS.Config.GetComplianceDetailsByResource
 
     -- ** DeliverConfigSnapshot
@@ -150,10 +151,13 @@ module Network.AWS.Config
     -- ** DescribeConfigRuleEvaluationStatus
     , module Network.AWS.Config.DescribeConfigRuleEvaluationStatus
 
+    -- ** GetDiscoveredResourceCounts
+    , module Network.AWS.Config.GetDiscoveredResourceCounts
+
     -- ** StartConfigRulesEvaluation
     , module Network.AWS.Config.StartConfigRulesEvaluation
 
-    -- ** DescribeComplianceByResource
+    -- ** DescribeComplianceByResource (Paginated)
     , module Network.AWS.Config.DescribeComplianceByResource
 
     -- ** PutEvaluations
@@ -186,13 +190,13 @@ module Network.AWS.Config
     -- ** PutDeliveryChannel
     , module Network.AWS.Config.PutDeliveryChannel
 
-    -- ** GetComplianceDetailsByConfigRule
+    -- ** GetComplianceDetailsByConfigRule (Paginated)
     , module Network.AWS.Config.GetComplianceDetailsByConfigRule
 
     -- ** DeleteDeliveryChannel
     , module Network.AWS.Config.DeleteDeliveryChannel
 
-    -- ** ListDiscoveredResources
+    -- ** ListDiscoveredResources (Paginated)
     , module Network.AWS.Config.ListDiscoveredResources
 
     -- ** DescribeDeliveryChannels
@@ -427,6 +431,12 @@ module Network.AWS.Config
     , rResourceName
     , rRelationshipName
 
+    -- ** ResourceCount
+    , ResourceCount
+    , resourceCount
+    , rcResourceType
+    , rcCount
+
     -- ** ResourceIdentifier
     , ResourceIdentifier
     , resourceIdentifier
@@ -446,9 +456,9 @@ module Network.AWS.Config
     -- ** Source
     , Source
     , source
-    , sSourceIdentifier
-    , sOwner
     , sSourceDetails
+    , sOwner
+    , sSourceIdentifier
 
     -- ** SourceDetail
     , SourceDetail
@@ -458,34 +468,35 @@ module Network.AWS.Config
     , sdEventSource
     ) where
 
-import           Network.AWS.Config.DeleteConfigRule
-import           Network.AWS.Config.DeleteConfigurationRecorder
-import           Network.AWS.Config.DeleteDeliveryChannel
-import           Network.AWS.Config.DeleteEvaluationResults
-import           Network.AWS.Config.DeliverConfigSnapshot
-import           Network.AWS.Config.DescribeComplianceByConfigRule
-import           Network.AWS.Config.DescribeComplianceByResource
-import           Network.AWS.Config.DescribeConfigRuleEvaluationStatus
-import           Network.AWS.Config.DescribeConfigRules
-import           Network.AWS.Config.DescribeConfigurationRecorders
-import           Network.AWS.Config.DescribeConfigurationRecorderStatus
-import           Network.AWS.Config.DescribeDeliveryChannels
-import           Network.AWS.Config.DescribeDeliveryChannelStatus
-import           Network.AWS.Config.GetComplianceDetailsByConfigRule
-import           Network.AWS.Config.GetComplianceDetailsByResource
-import           Network.AWS.Config.GetComplianceSummaryByConfigRule
-import           Network.AWS.Config.GetComplianceSummaryByResourceType
-import           Network.AWS.Config.GetResourceConfigHistory
-import           Network.AWS.Config.ListDiscoveredResources
-import           Network.AWS.Config.PutConfigRule
-import           Network.AWS.Config.PutConfigurationRecorder
-import           Network.AWS.Config.PutDeliveryChannel
-import           Network.AWS.Config.PutEvaluations
-import           Network.AWS.Config.StartConfigRulesEvaluation
-import           Network.AWS.Config.StartConfigurationRecorder
-import           Network.AWS.Config.StopConfigurationRecorder
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Waiters
+import Network.AWS.Config.DeleteConfigRule
+import Network.AWS.Config.DeleteConfigurationRecorder
+import Network.AWS.Config.DeleteDeliveryChannel
+import Network.AWS.Config.DeleteEvaluationResults
+import Network.AWS.Config.DeliverConfigSnapshot
+import Network.AWS.Config.DescribeComplianceByConfigRule
+import Network.AWS.Config.DescribeComplianceByResource
+import Network.AWS.Config.DescribeConfigRuleEvaluationStatus
+import Network.AWS.Config.DescribeConfigRules
+import Network.AWS.Config.DescribeConfigurationRecorders
+import Network.AWS.Config.DescribeConfigurationRecorderStatus
+import Network.AWS.Config.DescribeDeliveryChannels
+import Network.AWS.Config.DescribeDeliveryChannelStatus
+import Network.AWS.Config.GetComplianceDetailsByConfigRule
+import Network.AWS.Config.GetComplianceDetailsByResource
+import Network.AWS.Config.GetComplianceSummaryByConfigRule
+import Network.AWS.Config.GetComplianceSummaryByResourceType
+import Network.AWS.Config.GetDiscoveredResourceCounts
+import Network.AWS.Config.GetResourceConfigHistory
+import Network.AWS.Config.ListDiscoveredResources
+import Network.AWS.Config.PutConfigRule
+import Network.AWS.Config.PutConfigurationRecorder
+import Network.AWS.Config.PutDeliveryChannel
+import Network.AWS.Config.PutEvaluations
+import Network.AWS.Config.StartConfigRulesEvaluation
+import Network.AWS.Config.StartConfigurationRecorder
+import Network.AWS.Config.StopConfigurationRecorder
+import Network.AWS.Config.Types
+import Network.AWS.Config.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

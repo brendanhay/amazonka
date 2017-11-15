@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.UpdateDefaultBranch
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets or changes the default branch name for the specified repository.
 --
--- If you use this operation to change the default branch name to the current default branch name, a success message is returned even though the default branch did not change.
+--
 module Network.AWS.CodeCommit.UpdateDefaultBranch
     (
     -- * Creating a Request
@@ -35,37 +35,41 @@ module Network.AWS.CodeCommit.UpdateDefaultBranch
     , UpdateDefaultBranchResponse
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.CodeCommit.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of an update default branch operation.
 --
+--
+--
 -- /See:/ 'updateDefaultBranch' smart constructor.
 data UpdateDefaultBranch = UpdateDefaultBranch'
-    { _udbRepositoryName    :: !Text
-    , _udbDefaultBranchName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udbRepositoryName    :: !Text
+  , _udbDefaultBranchName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDefaultBranch' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udbRepositoryName'
+-- * 'udbRepositoryName' - The name of the repository to set or change the default branch for.
 --
--- * 'udbDefaultBranchName'
+-- * 'udbDefaultBranchName' - The name of the branch to set as the default.
 updateDefaultBranch
     :: Text -- ^ 'udbRepositoryName'
     -> Text -- ^ 'udbDefaultBranchName'
     -> UpdateDefaultBranch
 updateDefaultBranch pRepositoryName_ pDefaultBranchName_ =
-    UpdateDefaultBranch'
-    { _udbRepositoryName = pRepositoryName_
-    , _udbDefaultBranchName = pDefaultBranchName_
-    }
+  UpdateDefaultBranch'
+  { _udbRepositoryName = pRepositoryName_
+  , _udbDefaultBranchName = pDefaultBranchName_
+  }
+
 
 -- | The name of the repository to set or change the default branch for.
 udbRepositoryName :: Lens' UpdateDefaultBranch Text
@@ -81,9 +85,9 @@ instance AWSRequest UpdateDefaultBranch where
         request = postJSON codeCommit
         response = receiveNull UpdateDefaultBranchResponse'
 
-instance Hashable UpdateDefaultBranch
+instance Hashable UpdateDefaultBranch where
 
-instance NFData UpdateDefaultBranch
+instance NFData UpdateDefaultBranch where
 
 instance ToHeaders UpdateDefaultBranch where
         toHeaders
@@ -110,8 +114,9 @@ instance ToQuery UpdateDefaultBranch where
 
 -- | /See:/ 'updateDefaultBranchResponse' smart constructor.
 data UpdateDefaultBranchResponse =
-    UpdateDefaultBranchResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateDefaultBranchResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDefaultBranchResponse' with the minimum fields required to make a request.
 --
@@ -119,4 +124,5 @@ updateDefaultBranchResponse
     :: UpdateDefaultBranchResponse
 updateDefaultBranchResponse = UpdateDefaultBranchResponse'
 
-instance NFData UpdateDefaultBranchResponse
+
+instance NFData UpdateDefaultBranchResponse where

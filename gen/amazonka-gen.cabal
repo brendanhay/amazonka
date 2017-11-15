@@ -1,12 +1,12 @@
 name:                  amazonka-gen
-version:               1.4.4
+version:               1.5.0
 synopsis:              Amazonka Code Generator
 homepage:              https://github.com/brendanhay/amazonka
-license:               OtherLicense
+license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2016 Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2017 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
@@ -14,6 +14,11 @@ cabal-version:         >= 1.10
 
 description:
     Compiler and generator for Amazonka related AWS SDKs
+
+source-repository head
+    type:              git
+    location:          git://github.com/brendanhay/amazonka.git
+    subdir:            gen
 
 executable amazonka-gen
     default-language:  Haskell2010
@@ -40,31 +45,34 @@ executable amazonka-gen
         , Gen.Tree
         , Gen.Types
         , Gen.Types.Ann
+        , Gen.Types.Config
         , Gen.Types.Data
         , Gen.Types.Help
         , Gen.Types.Id
         , Gen.Types.Map
         , Gen.Types.NS
         , Gen.Types.Notation
-        , Gen.Types.Orphans
-        , Gen.Types.Pager
         , Gen.Types.Pager
         , Gen.Types.Retry
         , Gen.Types.Service
         , Gen.Types.TypeOf
         , Gen.Types.URI
-        , Gen.Types.Config
         , Gen.Types.Waiter
 
-    ghc-options:       -Wall -threaded
+    ghc-options:
+        -threaded
+        -Wall
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updates
 
     build-depends:
-          aeson
+          aeson                >= 1.2
         , attoparsec
-        , base                 == 4.8.*
+        , base                 >= 4.9
         , bytestring
         , case-insensitive
         , comonad
+        , containers
         , data-default-class
         , directory-tree
         , ede
@@ -72,12 +80,12 @@ executable amazonka-gen
         , formatting
         , free
         , hashable
-        , haskell-src-exts
+        , haskell-src-exts     == 1.19.*
         , hindent
+        , html-conduit
         , lens
         , mtl
         , optparse-applicative
-        , pandoc
         , parsec
         , scientific
         , semigroups
@@ -92,3 +100,4 @@ executable amazonka-gen
         , transformers
         , unexceptionalio
         , unordered-containers
+        , xml-conduit

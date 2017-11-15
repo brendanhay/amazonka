@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ResendConfirmationCode
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Resends the confirmation (for confirmation of registration) to a specific user in the user pool.
+--
+--
 module Network.AWS.CognitoIdentityProvider.ResendConfirmationCode
     (
     -- * Creating a Request
@@ -37,41 +39,45 @@ module Network.AWS.CognitoIdentityProvider.ResendConfirmationCode
     , rccrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to resend the confirmation code.
 --
+--
+--
 -- /See:/ 'resendConfirmationCode' smart constructor.
 data ResendConfirmationCode = ResendConfirmationCode'
-    { _rccSecretHash :: !(Maybe (Sensitive Text))
-    , _rccClientId   :: !(Sensitive Text)
-    , _rccUsername   :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rccSecretHash :: !(Maybe (Sensitive Text))
+  , _rccClientId   :: !(Sensitive Text)
+  , _rccUsername   :: !(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResendConfirmationCode' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rccSecretHash'
+-- * 'rccSecretHash' - A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 --
--- * 'rccClientId'
+-- * 'rccClientId' - The ID of the client associated with the user pool.
 --
--- * 'rccUsername'
+-- * 'rccUsername' - The user name of the user to whom you wish to resend a confirmation code.
 resendConfirmationCode
     :: Text -- ^ 'rccClientId'
     -> Text -- ^ 'rccUsername'
     -> ResendConfirmationCode
 resendConfirmationCode pClientId_ pUsername_ =
-    ResendConfirmationCode'
-    { _rccSecretHash = Nothing
-    , _rccClientId = _Sensitive # pClientId_
-    , _rccUsername = _Sensitive # pUsername_
-    }
+  ResendConfirmationCode'
+  { _rccSecretHash = Nothing
+  , _rccClientId = _Sensitive # pClientId_
+  , _rccUsername = _Sensitive # pUsername_
+  }
+
 
 -- | A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 rccSecretHash :: Lens' ResendConfirmationCode (Maybe Text)
@@ -96,9 +102,9 @@ instance AWSRequest ResendConfirmationCode where
                    (x .?> "CodeDeliveryDetails") <*>
                      (pure (fromEnum s)))
 
-instance Hashable ResendConfirmationCode
+instance Hashable ResendConfirmationCode where
 
-instance NFData ResendConfirmationCode
+instance NFData ResendConfirmationCode where
 
 instance ToHeaders ResendConfirmationCode where
         toHeaders
@@ -124,36 +130,38 @@ instance ToPath ResendConfirmationCode where
 instance ToQuery ResendConfirmationCode where
         toQuery = const mempty
 
--- | The response from the server when the Amazon Cognito service makes the request to resend a confirmation code.
+-- | The response from the server when the Amazon Cognito Your User Pools service makes the request to resend a confirmation code.
+--
+--
 --
 -- /See:/ 'resendConfirmationCodeResponse' smart constructor.
 data ResendConfirmationCodeResponse = ResendConfirmationCodeResponse'
-    { _rccrsCodeDeliveryDetails :: !(Maybe CodeDeliveryDetailsType)
-    , _rccrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rccrsCodeDeliveryDetails :: !(Maybe CodeDeliveryDetailsType)
+  , _rccrsResponseStatus      :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResendConfirmationCodeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rccrsCodeDeliveryDetails'
+-- * 'rccrsCodeDeliveryDetails' - The code delivery details returned by the server in response to the request to resend the confirmation code.
 --
--- * 'rccrsResponseStatus'
+-- * 'rccrsResponseStatus' - -- | The response status code.
 resendConfirmationCodeResponse
     :: Int -- ^ 'rccrsResponseStatus'
     -> ResendConfirmationCodeResponse
 resendConfirmationCodeResponse pResponseStatus_ =
-    ResendConfirmationCodeResponse'
-    { _rccrsCodeDeliveryDetails = Nothing
-    , _rccrsResponseStatus = pResponseStatus_
-    }
+  ResendConfirmationCodeResponse'
+  {_rccrsCodeDeliveryDetails = Nothing, _rccrsResponseStatus = pResponseStatus_}
 
--- | Undocumented member.
+
+-- | The code delivery details returned by the server in response to the request to resend the confirmation code.
 rccrsCodeDeliveryDetails :: Lens' ResendConfirmationCodeResponse (Maybe CodeDeliveryDetailsType)
 rccrsCodeDeliveryDetails = lens _rccrsCodeDeliveryDetails (\ s a -> s{_rccrsCodeDeliveryDetails = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rccrsResponseStatus :: Lens' ResendConfirmationCodeResponse Int
 rccrsResponseStatus = lens _rccrsResponseStatus (\ s a -> s{_rccrsResponseStatus = a});
 
-instance NFData ResendConfirmationCodeResponse
+instance NFData ResendConfirmationCodeResponse where

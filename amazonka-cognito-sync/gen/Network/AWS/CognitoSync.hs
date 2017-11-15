@@ -5,19 +5,20 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon Cognito Sync
+-- __Amazon Cognito Sync__
 --
--- Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of application-related user data. High-level client libraries are available for both iOS and Android. You can use these libraries to persist data locally so that it\'s available even if the device is offline. Developer credentials don\'t need to be stored on the mobile device to access the service. You can use Amazon Cognito to obtain a normalized user ID and credentials. User data is persisted in a dataset that can store up to 1 MB of key-value pairs, and you can have up to 20 datasets per user identity.
+-- Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of application-related user data. High-level client libraries are available for both iOS and Android. You can use these libraries to persist data locally so that it's available even if the device is offline. Developer credentials don't need to be stored on the mobile device to access the service. You can use Amazon Cognito to obtain a normalized user ID and credentials. User data is persisted in a dataset that can store up to 1 MB of key-value pairs, and you can have up to 20 datasets per user identity.
 --
--- With Amazon Cognito Sync, the data stored for each identity is accessible only to credentials assigned to that identity. In order to use the Cognito Sync service, you need to make API calls using credentials retrieved with <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html Amazon Cognito Identity service>.
+-- With Amazon Cognito Sync, the data stored for each identity is accessible only to credentials assigned to that identity. In order to use the Cognito Sync service, you need to make API calls using credentials retrieved with <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html Amazon Cognito Identity service> .
 --
--- If you want to use Cognito Sync in an Android or iOS application, you will probably want to make API calls via the AWS Mobile SDK. To learn more, see the <http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/cognito-sync.html Developer Guide for Android> and the <http://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-sync.html Developer Guide for iOS>.
+-- If you want to use Cognito Sync in an Android or iOS application, you will probably want to make API calls via the AWS Mobile SDK. To learn more, see the <http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/cognito-sync.html Developer Guide for Android> and the <http://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-sync.html Developer Guide for iOS> .
+--
 module Network.AWS.CognitoSync
     (
     -- * Service Configuration
@@ -197,25 +198,25 @@ module Network.AWS.CognitoSync
     , rpSyncCount
     ) where
 
-import           Network.AWS.CognitoSync.BulkPublish
-import           Network.AWS.CognitoSync.DeleteDataset
-import           Network.AWS.CognitoSync.DescribeDataset
-import           Network.AWS.CognitoSync.DescribeIdentityPoolUsage
-import           Network.AWS.CognitoSync.DescribeIdentityUsage
-import           Network.AWS.CognitoSync.GetBulkPublishDetails
-import           Network.AWS.CognitoSync.GetCognitoEvents
-import           Network.AWS.CognitoSync.GetIdentityPoolConfiguration
-import           Network.AWS.CognitoSync.ListDatasets
-import           Network.AWS.CognitoSync.ListIdentityPoolUsage
-import           Network.AWS.CognitoSync.ListRecords
-import           Network.AWS.CognitoSync.RegisterDevice
-import           Network.AWS.CognitoSync.SetCognitoEvents
-import           Network.AWS.CognitoSync.SetIdentityPoolConfiguration
-import           Network.AWS.CognitoSync.SubscribeToDataset
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.CognitoSync.UnsubscribeFromDataset
-import           Network.AWS.CognitoSync.UpdateRecords
-import           Network.AWS.CognitoSync.Waiters
+import Network.AWS.CognitoSync.BulkPublish
+import Network.AWS.CognitoSync.DeleteDataset
+import Network.AWS.CognitoSync.DescribeDataset
+import Network.AWS.CognitoSync.DescribeIdentityPoolUsage
+import Network.AWS.CognitoSync.DescribeIdentityUsage
+import Network.AWS.CognitoSync.GetBulkPublishDetails
+import Network.AWS.CognitoSync.GetCognitoEvents
+import Network.AWS.CognitoSync.GetIdentityPoolConfiguration
+import Network.AWS.CognitoSync.ListDatasets
+import Network.AWS.CognitoSync.ListIdentityPoolUsage
+import Network.AWS.CognitoSync.ListRecords
+import Network.AWS.CognitoSync.RegisterDevice
+import Network.AWS.CognitoSync.SetCognitoEvents
+import Network.AWS.CognitoSync.SetIdentityPoolConfiguration
+import Network.AWS.CognitoSync.SubscribeToDataset
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.UnsubscribeFromDataset
+import Network.AWS.CognitoSync.UpdateRecords
+import Network.AWS.CognitoSync.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

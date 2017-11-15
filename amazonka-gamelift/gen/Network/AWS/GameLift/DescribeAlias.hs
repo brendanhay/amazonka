@@ -12,13 +12,33 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeAlias
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves properties for a specified alias. To get the alias, specify an alias ID. If successful, an < Alias> object is returned.
+-- Retrieves properties for an alias. This operation returns all alias metadata and settings. To get an alias's target fleet ID only, use @ResolveAlias@ .
+--
+--
+-- To get alias properties, specify the alias ID. If successful, the requested alias record is returned.
+--
+-- Alias-related operations include:
+--
+--     * 'CreateAlias'
+--
+--     * 'ListAliases'
+--
+--     * 'DescribeAlias'
+--
+--     * 'UpdateAlias'
+--
+--     * 'DeleteAlias'
+--
+--     * 'ResolveAlias'
+--
+--
+--
 module Network.AWS.GameLift.DescribeAlias
     (
     -- * Creating a Request
@@ -35,32 +55,33 @@ module Network.AWS.GameLift.DescribeAlias
     , darsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'describeAlias' smart constructor.
 newtype DescribeAlias = DescribeAlias'
-    { _dAliasId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dAliasId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAlias' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dAliasId'
+-- * 'dAliasId' - Unique identifier for a fleet alias. Specify the alias you want to retrieve.
 describeAlias
     :: Text -- ^ 'dAliasId'
     -> DescribeAlias
-describeAlias pAliasId_ =
-    DescribeAlias'
-    { _dAliasId = pAliasId_
-    }
+describeAlias pAliasId_ = DescribeAlias' {_dAliasId = pAliasId_}
+
 
 -- | Unique identifier for a fleet alias. Specify the alias you want to retrieve.
 dAliasId :: Lens' DescribeAlias Text
@@ -75,9 +96,9 @@ instance AWSRequest DescribeAlias where
                  DescribeAliasResponse' <$>
                    (x .?> "Alias") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAlias
+instance Hashable DescribeAlias where
 
-instance NFData DescribeAlias
+instance NFData DescribeAlias where
 
 instance ToHeaders DescribeAlias where
         toHeaders
@@ -100,34 +121,36 @@ instance ToQuery DescribeAlias where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'describeAliasResponse' smart constructor.
 data DescribeAliasResponse = DescribeAliasResponse'
-    { _darsAlias          :: !(Maybe Alias)
-    , _darsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _darsAlias          :: !(Maybe Alias)
+  , _darsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAliasResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darsAlias'
+-- * 'darsAlias' - Object that contains the requested alias.
 --
--- * 'darsResponseStatus'
+-- * 'darsResponseStatus' - -- | The response status code.
 describeAliasResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DescribeAliasResponse
 describeAliasResponse pResponseStatus_ =
-    DescribeAliasResponse'
-    { _darsAlias = Nothing
-    , _darsResponseStatus = pResponseStatus_
-    }
+  DescribeAliasResponse'
+  {_darsAlias = Nothing, _darsResponseStatus = pResponseStatus_}
 
--- | Object containing the requested alias.
+
+-- | Object that contains the requested alias.
 darsAlias :: Lens' DescribeAliasResponse (Maybe Alias)
 darsAlias = lens _darsAlias (\ s a -> s{_darsAlias = a});
 
--- | The response status code.
+-- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeAliasResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 
-instance NFData DescribeAliasResponse
+instance NFData DescribeAliasResponse where

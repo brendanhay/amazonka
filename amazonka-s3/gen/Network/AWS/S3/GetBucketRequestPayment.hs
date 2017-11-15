@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketRequestPayment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,30 +35,30 @@ module Network.AWS.S3.GetBucketRequestPayment
     , gbrprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketRequestPayment' smart constructor.
 newtype GetBucketRequestPayment = GetBucketRequestPayment'
-    { _gbrpBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbrpBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketRequestPayment' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbrpBucket'
+-- * 'gbrpBucket' - Undocumented member.
 getBucketRequestPayment
     :: BucketName -- ^ 'gbrpBucket'
     -> GetBucketRequestPayment
 getBucketRequestPayment pBucket_ =
-    GetBucketRequestPayment'
-    { _gbrpBucket = pBucket_
-    }
+  GetBucketRequestPayment' {_gbrpBucket = pBucket_}
+
 
 -- | Undocumented member.
 gbrpBucket :: Lens' GetBucketRequestPayment BucketName
@@ -74,9 +74,9 @@ instance AWSRequest GetBucketRequestPayment where
                  GetBucketRequestPaymentResponse' <$>
                    (x .@? "Payer") <*> (pure (fromEnum s)))
 
-instance Hashable GetBucketRequestPayment
+instance Hashable GetBucketRequestPayment where
 
-instance NFData GetBucketRequestPayment
+instance NFData GetBucketRequestPayment where
 
 instance ToHeaders GetBucketRequestPayment where
         toHeaders = const mempty
@@ -90,32 +90,32 @@ instance ToQuery GetBucketRequestPayment where
 
 -- | /See:/ 'getBucketRequestPaymentResponse' smart constructor.
 data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'
-    { _gbrprsPayer          :: !(Maybe Payer)
-    , _gbrprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbrprsPayer          :: !(Maybe Payer)
+  , _gbrprsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketRequestPaymentResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbrprsPayer'
+-- * 'gbrprsPayer' - Specifies who pays for the download and request fees.
 --
--- * 'gbrprsResponseStatus'
+-- * 'gbrprsResponseStatus' - -- | The response status code.
 getBucketRequestPaymentResponse
     :: Int -- ^ 'gbrprsResponseStatus'
     -> GetBucketRequestPaymentResponse
 getBucketRequestPaymentResponse pResponseStatus_ =
-    GetBucketRequestPaymentResponse'
-    { _gbrprsPayer = Nothing
-    , _gbrprsResponseStatus = pResponseStatus_
-    }
+  GetBucketRequestPaymentResponse'
+  {_gbrprsPayer = Nothing, _gbrprsResponseStatus = pResponseStatus_}
+
 
 -- | Specifies who pays for the download and request fees.
 gbrprsPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
 gbrprsPayer = lens _gbrprsPayer (\ s a -> s{_gbrprsPayer = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gbrprsResponseStatus :: Lens' GetBucketRequestPaymentResponse Int
 gbrprsResponseStatus = lens _gbrprsResponseStatus (\ s a -> s{_gbrprsResponseStatus = a});
 
-instance NFData GetBucketRequestPaymentResponse
+instance NFData GetBucketRequestPaymentResponse where

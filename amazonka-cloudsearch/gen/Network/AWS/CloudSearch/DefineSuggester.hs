@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DefineSuggester
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures a suggester for a domain. A suggester enables you to display possible matches before users finish typing their queries. When you configure a suggester, you must specify the name of the text field you want to search for possible matches and a unique name for the suggester. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Search Suggestions> in the /Amazon CloudSearch Developer Guide/.
+-- Configures a suggester for a domain. A suggester enables you to display possible matches before users finish typing their queries. When you configure a suggester, you must specify the name of the text field you want to search for possible matches and a unique name for the suggester. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Search Suggestions> in the /Amazon CloudSearch Developer Guide/ .
+--
+--
 module Network.AWS.CloudSearch.DefineSuggester
     (
     -- * Creating a Request
@@ -36,37 +38,38 @@ module Network.AWS.CloudSearch.DefineSuggester
     , dsrsSuggester
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Container for the parameters to the 'DefineSuggester' operation. Specifies the name of the domain you want to update and the suggester configuration.
+-- | Container for the parameters to the @'DefineSuggester' @ operation. Specifies the name of the domain you want to update and the suggester configuration.
+--
+--
 --
 -- /See:/ 'defineSuggester' smart constructor.
 data DefineSuggester = DefineSuggester'
-    { _defDomainName :: !Text
-    , _defSuggester  :: !Suggester
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _defDomainName :: !Text
+  , _defSuggester  :: !Suggester
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DefineSuggester' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'defDomainName'
+-- * 'defDomainName' - Undocumented member.
 --
--- * 'defSuggester'
+-- * 'defSuggester' - Undocumented member.
 defineSuggester
     :: Text -- ^ 'defDomainName'
     -> Suggester -- ^ 'defSuggester'
     -> DefineSuggester
 defineSuggester pDomainName_ pSuggester_ =
-    DefineSuggester'
-    { _defDomainName = pDomainName_
-    , _defSuggester = pSuggester_
-    }
+  DefineSuggester' {_defDomainName = pDomainName_, _defSuggester = pSuggester_}
+
 
 -- | Undocumented member.
 defDomainName :: Lens' DefineSuggester Text
@@ -85,9 +88,9 @@ instance AWSRequest DefineSuggester where
                  DefineSuggesterResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Suggester"))
 
-instance Hashable DefineSuggester
+instance Hashable DefineSuggester where
 
-instance NFData DefineSuggester
+instance NFData DefineSuggester where
 
 instance ToHeaders DefineSuggester where
         toHeaders = const mempty
@@ -103,32 +106,34 @@ instance ToQuery DefineSuggester where
                "DomainName" =: _defDomainName,
                "Suggester" =: _defSuggester]
 
--- | The result of a 'DefineSuggester' request. Contains the status of the newly-configured suggester.
+-- | The result of a @DefineSuggester@ request. Contains the status of the newly-configured suggester.
+--
+--
 --
 -- /See:/ 'defineSuggesterResponse' smart constructor.
 data DefineSuggesterResponse = DefineSuggesterResponse'
-    { _dsrsResponseStatus :: !Int
-    , _dsrsSuggester      :: !SuggesterStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrsResponseStatus :: !Int
+  , _dsrsSuggester      :: !SuggesterStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DefineSuggesterResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrsResponseStatus'
+-- * 'dsrsResponseStatus' - -- | The response status code.
 --
--- * 'dsrsSuggester'
+-- * 'dsrsSuggester' - Undocumented member.
 defineSuggesterResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> SuggesterStatus -- ^ 'dsrsSuggester'
     -> DefineSuggesterResponse
 defineSuggesterResponse pResponseStatus_ pSuggester_ =
-    DefineSuggesterResponse'
-    { _dsrsResponseStatus = pResponseStatus_
-    , _dsrsSuggester = pSuggester_
-    }
+  DefineSuggesterResponse'
+  {_dsrsResponseStatus = pResponseStatus_, _dsrsSuggester = pSuggester_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 dsrsResponseStatus :: Lens' DefineSuggesterResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 
@@ -136,4 +141,4 @@ dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = 
 dsrsSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
 dsrsSuggester = lens _dsrsSuggester (\ s a -> s{_dsrsSuggester = a});
 
-instance NFData DefineSuggesterResponse
+instance NFData DefineSuggesterResponse where

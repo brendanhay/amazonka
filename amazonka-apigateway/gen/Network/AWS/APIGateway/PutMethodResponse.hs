@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.PutMethodResponse
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a < MethodResponse> to an existing < Method> resource.
+-- Adds a 'MethodResponse' to an existing 'Method' resource.
+--
+--
 module Network.AWS.APIGateway.PutMethodResponse
     (
     -- * Creating a Request
@@ -41,40 +43,43 @@ module Network.AWS.APIGateway.PutMethodResponse
     , mResponseParameters
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Request to add a < MethodResponse> to an existing < Method> resource.
+-- | Request to add a 'MethodResponse' to an existing 'Method' resource.
+--
+--
 --
 -- /See:/ 'putMethodResponse' smart constructor.
 data PutMethodResponse = PutMethodResponse'
-    { _pmResponseModels     :: !(Maybe (Map Text Text))
-    , _pmResponseParameters :: !(Maybe (Map Text Bool))
-    , _pmRestAPIId          :: !Text
-    , _pmResourceId         :: !Text
-    , _pmHttpMethod         :: !Text
-    , _pmStatusCode         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pmResponseModels     :: !(Maybe (Map Text Text))
+  , _pmResponseParameters :: !(Maybe (Map Text Bool))
+  , _pmRestAPIId          :: !Text
+  , _pmResourceId         :: !Text
+  , _pmHttpMethod         :: !Text
+  , _pmStatusCode         :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutMethodResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pmResponseModels'
+-- * 'pmResponseModels' - Specifies the 'Model' resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a 'Model' name as the value.
 --
--- * 'pmResponseParameters'
+-- * 'pmResponseParameters' - A key-value map specifying required or optional response parameters that Amazon API Gateway can send back to the caller. A key defines a method response header name and the associated value is a Boolean flag indicating whether the method response parameter is required or not. The method response header names must match the pattern of @method.response.header.{name}@ , where @name@ is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in @integration.response.header.{name}@ , a static value enclosed within a pair of single quotes (e.g., @'application/json'@ ), or a JSON expression from the back-end response payload in the form of @integration.response.body.{JSON-expression}@ , where @JSON-expression@ is a valid JSON expression without the @> @ prefix.)
 --
--- * 'pmRestAPIId'
+-- * 'pmRestAPIId' - The string identifier of the associated 'RestApi' .
 --
--- * 'pmResourceId'
+-- * 'pmResourceId' - The 'Resource' identifier for the 'Method' resource.
 --
--- * 'pmHttpMethod'
+-- * 'pmHttpMethod' - The HTTP verb of the 'Method' resource.
 --
--- * 'pmStatusCode'
+-- * 'pmStatusCode' - The method response's status code.
 putMethodResponse
     :: Text -- ^ 'pmRestAPIId'
     -> Text -- ^ 'pmResourceId'
@@ -82,36 +87,37 @@ putMethodResponse
     -> Text -- ^ 'pmStatusCode'
     -> PutMethodResponse
 putMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
-    PutMethodResponse'
-    { _pmResponseModels = Nothing
-    , _pmResponseParameters = Nothing
-    , _pmRestAPIId = pRestAPIId_
-    , _pmResourceId = pResourceId_
-    , _pmHttpMethod = pHttpMethod_
-    , _pmStatusCode = pStatusCode_
-    }
+  PutMethodResponse'
+  { _pmResponseModels = Nothing
+  , _pmResponseParameters = Nothing
+  , _pmRestAPIId = pRestAPIId_
+  , _pmResourceId = pResourceId_
+  , _pmHttpMethod = pHttpMethod_
+  , _pmStatusCode = pStatusCode_
+  }
 
--- | Specifies the < Model> resources used for the response\'s content type. Response models are represented as a key\/value map, with a content type as the key and a < Model> name as the value.
+
+-- | Specifies the 'Model' resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a 'Model' name as the value.
 pmResponseModels :: Lens' PutMethodResponse (HashMap Text Text)
 pmResponseModels = lens _pmResponseModels (\ s a -> s{_pmResponseModels = a}) . _Default . _Map;
 
--- | A key-value map specifying required or optional response parameters that Amazon API Gateway can send back to the caller. A key defines a method response header name and the associated value is a Boolean flag indicating whether the method response parameter is required or not. The method response header names must match the pattern of 'method.response.header.{name}', where 'name' is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in 'integration.response.header.{name}', a static value enclosed within a pair of single quotes (e.g., '\'application\/json\''), or a JSON expression from the back-end response payload in the form of 'integration.response.body.{JSON-expression}', where 'JSON-expression' is a valid JSON expression without the '>' prefix.)
+-- | A key-value map specifying required or optional response parameters that Amazon API Gateway can send back to the caller. A key defines a method response header name and the associated value is a Boolean flag indicating whether the method response parameter is required or not. The method response header names must match the pattern of @method.response.header.{name}@ , where @name@ is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in @integration.response.header.{name}@ , a static value enclosed within a pair of single quotes (e.g., @'application/json'@ ), or a JSON expression from the back-end response payload in the form of @integration.response.body.{JSON-expression}@ , where @JSON-expression@ is a valid JSON expression without the @> @ prefix.)
 pmResponseParameters :: Lens' PutMethodResponse (HashMap Text Bool)
 pmResponseParameters = lens _pmResponseParameters (\ s a -> s{_pmResponseParameters = a}) . _Default . _Map;
 
--- | The < RestApi> identifier for the < Method> resource.
+-- | The string identifier of the associated 'RestApi' .
 pmRestAPIId :: Lens' PutMethodResponse Text
 pmRestAPIId = lens _pmRestAPIId (\ s a -> s{_pmRestAPIId = a});
 
--- | The < Resource> identifier for the < Method> resource.
+-- | The 'Resource' identifier for the 'Method' resource.
 pmResourceId :: Lens' PutMethodResponse Text
 pmResourceId = lens _pmResourceId (\ s a -> s{_pmResourceId = a});
 
--- | The HTTP verb of the < Method> resource.
+-- | The HTTP verb of the 'Method' resource.
 pmHttpMethod :: Lens' PutMethodResponse Text
 pmHttpMethod = lens _pmHttpMethod (\ s a -> s{_pmHttpMethod = a});
 
--- | The method response\'s status code.
+-- | The method response's status code.
 pmStatusCode :: Lens' PutMethodResponse Text
 pmStatusCode = lens _pmStatusCode (\ s a -> s{_pmStatusCode = a});
 
@@ -120,9 +126,9 @@ instance AWSRequest PutMethodResponse where
         request = putJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable PutMethodResponse
+instance Hashable PutMethodResponse where
 
-instance NFData PutMethodResponse
+instance NFData PutMethodResponse where
 
 instance ToHeaders PutMethodResponse where
         toHeaders

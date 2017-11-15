@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateStage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new < Stage> resource that references a pre-existing < Deployment> for the API.
+-- Creates a new 'Stage' resource that references a pre-existing 'Deployment' for the API.
+--
+--
 module Network.AWS.APIGateway.CreateStage
     (
     -- * Creating a Request
@@ -26,6 +28,7 @@ module Network.AWS.APIGateway.CreateStage
     , CreateStage
     -- * Request Lenses
     , csVariables
+    , csDocumentationVersion
     , csCacheClusterSize
     , csCacheClusterEnabled
     , csDescription
@@ -39,6 +42,7 @@ module Network.AWS.APIGateway.CreateStage
     -- * Response Lenses
     , sDeploymentId
     , sVariables
+    , sDocumentationVersion
     , sClientCertificateId
     , sCreatedDate
     , sCacheClusterStatus
@@ -50,64 +54,76 @@ module Network.AWS.APIGateway.CreateStage
     , sDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Requests Amazon API Gateway to create a < Stage> resource.
+-- | Requests Amazon API Gateway to create a 'Stage' resource.
+--
+--
 --
 -- /See:/ 'createStage' smart constructor.
 data CreateStage = CreateStage'
-    { _csVariables           :: !(Maybe (Map Text Text))
-    , _csCacheClusterSize    :: !(Maybe CacheClusterSize)
-    , _csCacheClusterEnabled :: !(Maybe Bool)
-    , _csDescription         :: !(Maybe Text)
-    , _csRestAPIId           :: !Text
-    , _csStageName           :: !Text
-    , _csDeploymentId        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csVariables            :: !(Maybe (Map Text Text))
+  , _csDocumentationVersion :: !(Maybe Text)
+  , _csCacheClusterSize     :: !(Maybe CacheClusterSize)
+  , _csCacheClusterEnabled  :: !(Maybe Bool)
+  , _csDescription          :: !(Maybe Text)
+  , _csRestAPIId            :: !Text
+  , _csStageName            :: !Text
+  , _csDeploymentId         :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStage' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csVariables'
+-- * 'csVariables' - A map that defines the stage variables for the new 'Stage' resource. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
 --
--- * 'csCacheClusterSize'
+-- * 'csDocumentationVersion' - The version of the associated API documentation.
 --
--- * 'csCacheClusterEnabled'
+-- * 'csCacheClusterSize' - The stage's cache cluster size.
 --
--- * 'csDescription'
+-- * 'csCacheClusterEnabled' - Whether cache clustering is enabled for the stage.
 --
--- * 'csRestAPIId'
+-- * 'csDescription' - The description of the 'Stage' resource.
 --
--- * 'csStageName'
+-- * 'csRestAPIId' - The string identifier of the associated 'RestApi' .
 --
--- * 'csDeploymentId'
+-- * 'csStageName' - The name for the 'Stage' resource.
+--
+-- * 'csDeploymentId' - The identifier of the 'Deployment' resource for the 'Stage' resource.
 createStage
     :: Text -- ^ 'csRestAPIId'
     -> Text -- ^ 'csStageName'
     -> Text -- ^ 'csDeploymentId'
     -> CreateStage
 createStage pRestAPIId_ pStageName_ pDeploymentId_ =
-    CreateStage'
-    { _csVariables = Nothing
-    , _csCacheClusterSize = Nothing
-    , _csCacheClusterEnabled = Nothing
-    , _csDescription = Nothing
-    , _csRestAPIId = pRestAPIId_
-    , _csStageName = pStageName_
-    , _csDeploymentId = pDeploymentId_
-    }
+  CreateStage'
+  { _csVariables = Nothing
+  , _csDocumentationVersion = Nothing
+  , _csCacheClusterSize = Nothing
+  , _csCacheClusterEnabled = Nothing
+  , _csDescription = Nothing
+  , _csRestAPIId = pRestAPIId_
+  , _csStageName = pStageName_
+  , _csDeploymentId = pDeploymentId_
+  }
 
--- | A map that defines the stage variables for the new < Stage> resource. Variable names can have alphanumeric and underscore characters, and the values must match '[A-Za-z0-9-._~:\/?#&=,]+'.
+
+-- | A map that defines the stage variables for the new 'Stage' resource. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
 csVariables :: Lens' CreateStage (HashMap Text Text)
 csVariables = lens _csVariables (\ s a -> s{_csVariables = a}) . _Default . _Map;
 
--- | The stage\'s cache cluster size.
+-- | The version of the associated API documentation.
+csDocumentationVersion :: Lens' CreateStage (Maybe Text)
+csDocumentationVersion = lens _csDocumentationVersion (\ s a -> s{_csDocumentationVersion = a});
+
+-- | The stage's cache cluster size.
 csCacheClusterSize :: Lens' CreateStage (Maybe CacheClusterSize)
 csCacheClusterSize = lens _csCacheClusterSize (\ s a -> s{_csCacheClusterSize = a});
 
@@ -115,19 +131,19 @@ csCacheClusterSize = lens _csCacheClusterSize (\ s a -> s{_csCacheClusterSize = 
 csCacheClusterEnabled :: Lens' CreateStage (Maybe Bool)
 csCacheClusterEnabled = lens _csCacheClusterEnabled (\ s a -> s{_csCacheClusterEnabled = a});
 
--- | The description of the < Stage> resource.
+-- | The description of the 'Stage' resource.
 csDescription :: Lens' CreateStage (Maybe Text)
 csDescription = lens _csDescription (\ s a -> s{_csDescription = a});
 
--- | The identifier of the < RestApi> resource for the < Stage> resource to create.
+-- | The string identifier of the associated 'RestApi' .
 csRestAPIId :: Lens' CreateStage Text
 csRestAPIId = lens _csRestAPIId (\ s a -> s{_csRestAPIId = a});
 
--- | The name for the < Stage> resource.
+-- | The name for the 'Stage' resource.
 csStageName :: Lens' CreateStage Text
 csStageName = lens _csStageName (\ s a -> s{_csStageName = a});
 
--- | The identifier of the < Deployment> resource for the < Stage> resource.
+-- | The identifier of the 'Deployment' resource for the 'Stage' resource.
 csDeploymentId :: Lens' CreateStage Text
 csDeploymentId = lens _csDeploymentId (\ s a -> s{_csDeploymentId = a});
 
@@ -136,9 +152,9 @@ instance AWSRequest CreateStage where
         request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateStage
+instance Hashable CreateStage where
 
-instance NFData CreateStage
+instance NFData CreateStage where
 
 instance ToHeaders CreateStage where
         toHeaders
@@ -151,6 +167,8 @@ instance ToJSON CreateStage where
           = object
               (catMaybes
                  [("variables" .=) <$> _csVariables,
+                  ("documentationVersion" .=) <$>
+                    _csDocumentationVersion,
                   ("cacheClusterSize" .=) <$> _csCacheClusterSize,
                   ("cacheClusterEnabled" .=) <$>
                     _csCacheClusterEnabled,

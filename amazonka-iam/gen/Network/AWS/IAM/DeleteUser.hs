@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteUser
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified IAM user. The user must not belong to any groups or have any access keys, signing certificates, or attached policies.
+--
+--
 module Network.AWS.IAM.DeleteUser
     (
     -- * Creating a Request
@@ -32,34 +34,31 @@ module Network.AWS.IAM.DeleteUser
     , DeleteUserResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteUser' smart constructor.
 newtype DeleteUser = DeleteUser'
-    { _duUserName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _duUserName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUser' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duUserName'
+-- * 'duUserName' - The name of the user to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 deleteUser
     :: Text -- ^ 'duUserName'
     -> DeleteUser
-deleteUser pUserName_ =
-    DeleteUser'
-    { _duUserName = pUserName_
-    }
+deleteUser pUserName_ = DeleteUser' {_duUserName = pUserName_}
 
--- | The name of the user to delete.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+
+-- | The name of the user to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 duUserName :: Lens' DeleteUser Text
 duUserName = lens _duUserName (\ s a -> s{_duUserName = a});
 
@@ -68,9 +67,9 @@ instance AWSRequest DeleteUser where
         request = postQuery iam
         response = receiveNull DeleteUserResponse'
 
-instance Hashable DeleteUser
+instance Hashable DeleteUser where
 
-instance NFData DeleteUser
+instance NFData DeleteUser where
 
 instance ToHeaders DeleteUser where
         toHeaders = const mempty
@@ -87,8 +86,9 @@ instance ToQuery DeleteUser where
 
 -- | /See:/ 'deleteUserResponse' smart constructor.
 data DeleteUserResponse =
-    DeleteUserResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteUserResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUserResponse' with the minimum fields required to make a request.
 --
@@ -96,4 +96,5 @@ deleteUserResponse
     :: DeleteUserResponse
 deleteUserResponse = DeleteUserResponse'
 
-instance NFData DeleteUserResponse
+
+instance NFData DeleteUserResponse where

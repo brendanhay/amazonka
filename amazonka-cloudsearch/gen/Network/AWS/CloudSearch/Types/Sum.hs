@@ -9,22 +9,23 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CloudSearch.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AlgorithmicStemming
-    = ASFull
-    | ASLight
-    | ASMinimal
-    | ASNone
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ASFull
+  | ASLight
+  | ASMinimal
+  | ASNone
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AlgorithmicStemming where
     parser = takeLowerText >>= \case
@@ -51,44 +52,47 @@ instance ToHeader     AlgorithmicStemming
 instance FromXML AlgorithmicStemming where
     parseXML = parseXMLText "AlgorithmicStemming"
 
--- | An <http://tools.ietf.org/html/rfc4646 IETF RFC 4646> language code or 'mul' for multiple languages.
+-- | An <http://tools.ietf.org/html/rfc4646 IETF RFC 4646> language code or @mul@ for multiple languages.
+--
+--
 data AnalysisSchemeLanguage
-    = AR
-    | BG
-    | CA
-    | CS
-    | DA
-    | DE
-    | EL
-    | EN
-    | ES
-    | EU
-    | FA
-    | FI
-    | FR
-    | GA
-    | GL
-    | HE
-    | HI
-    | HU
-    | HY
-    | IT
-    | Id
-    | JA
-    | KO
-    | LV
-    | Mul
-    | NL
-    | NO
-    | PT
-    | RO
-    | RU
-    | SV
-    | TH
-    | TR
-    | ZhHans
-    | ZhHant
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AR
+  | BG
+  | CA
+  | CS
+  | DA
+  | DE
+  | EL
+  | EN
+  | ES
+  | EU
+  | FA
+  | FI
+  | FR
+  | GA
+  | GL
+  | HE
+  | HI
+  | HU
+  | HY
+  | IT
+  | Id
+  | JA
+  | KO
+  | LV
+  | Mul
+  | NL
+  | NO
+  | PT
+  | RO
+  | RU
+  | SV
+  | TH
+  | TR
+  | ZhHans
+  | ZhHant
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AnalysisSchemeLanguage where
     parser = takeLowerText >>= \case
@@ -177,20 +181,23 @@ instance ToHeader     AnalysisSchemeLanguage
 instance FromXML AnalysisSchemeLanguage where
     parseXML = parseXMLText "AnalysisSchemeLanguage"
 
--- | The type of field. The valid options for a field depend on the field type. For more information about the supported field types, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields> in the /Amazon CloudSearch Developer Guide/.
+-- | The type of field. The valid options for a field depend on the field type. For more information about the supported field types, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields> in the /Amazon CloudSearch Developer Guide/ .
+--
+--
 data IndexFieldType
-    = Date
-    | DateArray
-    | Double
-    | DoubleArray
-    | Int
-    | IntArray
-    | Latlon
-    | Literal
-    | LiteralArray
-    | Text
-    | TextArray
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Date
+  | DateArray
+  | Double
+  | DoubleArray
+  | Int
+  | IntArray
+  | Latlon
+  | Literal
+  | LiteralArray
+  | Text
+  | TextArray
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText IndexFieldType where
     parser = takeLowerText >>= \case
@@ -233,16 +240,16 @@ instance FromXML IndexFieldType where
 
 -- | The state of processing a change to an option. One of:
 --
--- -   RequiresIndexDocuments: The option\'s latest value will not be deployed until < IndexDocuments> has been called and indexing is complete.
--- -   Processing: The option\'s latest value is in the process of being activated.
--- -   Active: The option\'s latest value is fully deployed.
--- -   FailedToValidate: The option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+--
+--     * RequiresIndexDocuments: The option's latest value will not be deployed until 'IndexDocuments' has been called and indexing is complete.    * Processing: The option's latest value is in the process of being activated.    * Active: The option's latest value is fully deployed.     * FailedToValidate: The option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+--
 data OptionState
-    = Active
-    | FailedToValidate
-    | Processing
-    | RequiresIndexDocuments
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | FailedToValidate
+  | Processing
+  | RequiresIndexDocuments
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OptionState where
     parser = takeLowerText >>= \case
@@ -269,17 +276,20 @@ instance ToHeader     OptionState
 instance FromXML OptionState where
     parseXML = parseXMLText "OptionState"
 
--- | The instance type (such as 'search.m1.small') on which an index partition is hosted.
+-- | The instance type (such as @search.m1.small@ ) on which an index partition is hosted.
+--
+--
 data PartitionInstanceType
-    = Search_M1_Large
-    | Search_M1_Small
-    | Search_M2_2XLarge
-    | Search_M2_XLarge
-    | Search_M3_2XLarge
-    | Search_M3_Large
-    | Search_M3_Medium
-    | Search_M3_XLarge
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Search_M1_Large
+  | Search_M1_Small
+  | Search_M2_2XLarge
+  | Search_M2_XLarge
+  | Search_M3_2XLarge
+  | Search_M3_Large
+  | Search_M3_Medium
+  | Search_M3_XLarge
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PartitionInstanceType where
     parser = takeLowerText >>= \case
@@ -315,10 +325,11 @@ instance FromXML PartitionInstanceType where
     parseXML = parseXMLText "PartitionInstanceType"
 
 data SuggesterFuzzyMatching
-    = High
-    | Low
-    | None
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = High
+  | Low
+  | None
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SuggesterFuzzyMatching where
     parser = takeLowerText >>= \case

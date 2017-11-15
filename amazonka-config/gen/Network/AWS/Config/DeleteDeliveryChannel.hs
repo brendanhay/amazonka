@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Config.DeleteDeliveryChannel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the delivery channel.
 --
--- Before you can delete the delivery channel, you must stop the configuration recorder by using the < StopConfigurationRecorder> action.
+--
+-- Before you can delete the delivery channel, you must stop the configuration recorder by using the 'StopConfigurationRecorder' action.
+--
 module Network.AWS.Config.DeleteDeliveryChannel
     (
     -- * Creating a Request
@@ -34,32 +36,34 @@ module Network.AWS.Config.DeleteDeliveryChannel
     , DeleteDeliveryChannelResponse
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | The input for the < DeleteDeliveryChannel> action. The action accepts the following data in JSON format.
+-- | The input for the 'DeleteDeliveryChannel' action. The action accepts the following data in JSON format.
+--
+--
 --
 -- /See:/ 'deleteDeliveryChannel' smart constructor.
 newtype DeleteDeliveryChannel = DeleteDeliveryChannel'
-    { _ddcDeliveryChannelName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddcDeliveryChannelName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDeliveryChannel' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcDeliveryChannelName'
+-- * 'ddcDeliveryChannelName' - The name of the delivery channel to delete.
 deleteDeliveryChannel
     :: Text -- ^ 'ddcDeliveryChannelName'
     -> DeleteDeliveryChannel
 deleteDeliveryChannel pDeliveryChannelName_ =
-    DeleteDeliveryChannel'
-    { _ddcDeliveryChannelName = pDeliveryChannelName_
-    }
+  DeleteDeliveryChannel' {_ddcDeliveryChannelName = pDeliveryChannelName_}
+
 
 -- | The name of the delivery channel to delete.
 ddcDeliveryChannelName :: Lens' DeleteDeliveryChannel Text
@@ -71,9 +75,9 @@ instance AWSRequest DeleteDeliveryChannel where
         request = postJSON config
         response = receiveNull DeleteDeliveryChannelResponse'
 
-instance Hashable DeleteDeliveryChannel
+instance Hashable DeleteDeliveryChannel where
 
-instance NFData DeleteDeliveryChannel
+instance NFData DeleteDeliveryChannel where
 
 instance ToHeaders DeleteDeliveryChannel where
         toHeaders
@@ -100,8 +104,9 @@ instance ToQuery DeleteDeliveryChannel where
 
 -- | /See:/ 'deleteDeliveryChannelResponse' smart constructor.
 data DeleteDeliveryChannelResponse =
-    DeleteDeliveryChannelResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteDeliveryChannelResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDeliveryChannelResponse' with the minimum fields required to make a request.
 --
@@ -109,4 +114,5 @@ deleteDeliveryChannelResponse
     :: DeleteDeliveryChannelResponse
 deleteDeliveryChannelResponse = DeleteDeliveryChannelResponse'
 
-instance NFData DeleteDeliveryChannelResponse
+
+instance NFData DeleteDeliveryChannelResponse where

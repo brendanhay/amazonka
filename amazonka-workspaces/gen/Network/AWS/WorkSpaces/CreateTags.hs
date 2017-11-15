@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.CreateTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates tags for a WorkSpace.
+--
+--
 module Network.AWS.WorkSpaces.CreateTags
     (
     -- * Creating a Request
@@ -35,36 +37,37 @@ module Network.AWS.WorkSpaces.CreateTags
     , ctrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkSpaces.Types
-import           Network.AWS.WorkSpaces.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkSpaces.Types
+import Network.AWS.WorkSpaces.Types.Product
 
--- | The request of the < CreateTags> operation.
+-- | The request of the 'CreateTags' operation.
+--
+--
 --
 -- /See:/ 'createTags' smart constructor.
 data CreateTags = CreateTags'
-    { _ctResourceId :: !Text
-    , _ctTags       :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctResourceId :: !Text
+  , _ctTags       :: ![Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTags' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctResourceId'
+-- * 'ctResourceId' - The resource ID of the request.
 --
--- * 'ctTags'
+-- * 'ctTags' - The tags of the request.
 createTags
     :: Text -- ^ 'ctResourceId'
     -> CreateTags
 createTags pResourceId_ =
-    CreateTags'
-    { _ctResourceId = pResourceId_
-    , _ctTags = mempty
-    }
+  CreateTags' {_ctResourceId = pResourceId_, _ctTags = mempty}
+
 
 -- | The resource ID of the request.
 ctResourceId :: Lens' CreateTags Text
@@ -82,9 +85,9 @@ instance AWSRequest CreateTags where
               (\ s h x ->
                  CreateTagsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CreateTags
+instance Hashable CreateTags where
 
-instance NFData CreateTags
+instance NFData CreateTags where
 
 instance ToHeaders CreateTags where
         toHeaders
@@ -108,28 +111,30 @@ instance ToPath CreateTags where
 instance ToQuery CreateTags where
         toQuery = const mempty
 
--- | The result of the < CreateTags> operation.
+-- | The result of the 'CreateTags' operation.
+--
+--
 --
 -- /See:/ 'createTagsResponse' smart constructor.
 newtype CreateTagsResponse = CreateTagsResponse'
-    { _ctrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTagsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctrsResponseStatus'
+-- * 'ctrsResponseStatus' - -- | The response status code.
 createTagsResponse
     :: Int -- ^ 'ctrsResponseStatus'
     -> CreateTagsResponse
 createTagsResponse pResponseStatus_ =
-    CreateTagsResponse'
-    { _ctrsResponseStatus = pResponseStatus_
-    }
+  CreateTagsResponse' {_ctrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTagsResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
 
-instance NFData CreateTagsResponse
+instance NFData CreateTagsResponse where

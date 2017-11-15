@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CreateThingType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new thing type.
+--
+--
 module Network.AWS.IoT.CreateThingType
     (
     -- * Creating a Request
@@ -37,36 +39,38 @@ module Network.AWS.IoT.CreateThingType
     , cttrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the CreateThingType operation.
 --
+--
+--
 -- /See:/ 'createThingType' smart constructor.
 data CreateThingType = CreateThingType'
-    { _cttThingTypeProperties :: !(Maybe ThingTypeProperties)
-    , _cttThingTypeName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cttThingTypeProperties :: !(Maybe ThingTypeProperties)
+  , _cttThingTypeName       :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateThingType' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cttThingTypeProperties'
+-- * 'cttThingTypeProperties' - The ThingTypeProperties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names.
 --
--- * 'cttThingTypeName'
+-- * 'cttThingTypeName' - The name of the thing type.
 createThingType
     :: Text -- ^ 'cttThingTypeName'
     -> CreateThingType
 createThingType pThingTypeName_ =
-    CreateThingType'
-    { _cttThingTypeProperties = Nothing
-    , _cttThingTypeName = pThingTypeName_
-    }
+  CreateThingType'
+  {_cttThingTypeProperties = Nothing, _cttThingTypeName = pThingTypeName_}
+
 
 -- | The ThingTypeProperties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names.
 cttThingTypeProperties :: Lens' CreateThingType (Maybe ThingTypeProperties)
@@ -86,9 +90,9 @@ instance AWSRequest CreateThingType where
                    (x .?> "thingTypeName") <*> (x .?> "thingTypeArn")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateThingType
+instance Hashable CreateThingType where
 
-instance NFData CreateThingType
+instance NFData CreateThingType where
 
 instance ToHeaders CreateThingType where
         toHeaders = const mempty
@@ -109,31 +113,35 @@ instance ToQuery CreateThingType where
 
 -- | The output of the CreateThingType operation.
 --
+--
+--
 -- /See:/ 'createThingTypeResponse' smart constructor.
 data CreateThingTypeResponse = CreateThingTypeResponse'
-    { _cttrsThingTypeName  :: !(Maybe Text)
-    , _cttrsThingTypeARN   :: !(Maybe Text)
-    , _cttrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cttrsThingTypeName  :: !(Maybe Text)
+  , _cttrsThingTypeARN   :: !(Maybe Text)
+  , _cttrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateThingTypeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cttrsThingTypeName'
+-- * 'cttrsThingTypeName' - The name of the thing type.
 --
--- * 'cttrsThingTypeARN'
+-- * 'cttrsThingTypeARN' - The Amazon Resource Name (ARN) of the thing type.
 --
--- * 'cttrsResponseStatus'
+-- * 'cttrsResponseStatus' - -- | The response status code.
 createThingTypeResponse
     :: Int -- ^ 'cttrsResponseStatus'
     -> CreateThingTypeResponse
 createThingTypeResponse pResponseStatus_ =
-    CreateThingTypeResponse'
-    { _cttrsThingTypeName = Nothing
-    , _cttrsThingTypeARN = Nothing
-    , _cttrsResponseStatus = pResponseStatus_
-    }
+  CreateThingTypeResponse'
+  { _cttrsThingTypeName = Nothing
+  , _cttrsThingTypeARN = Nothing
+  , _cttrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The name of the thing type.
 cttrsThingTypeName :: Lens' CreateThingTypeResponse (Maybe Text)
@@ -143,8 +151,8 @@ cttrsThingTypeName = lens _cttrsThingTypeName (\ s a -> s{_cttrsThingTypeName = 
 cttrsThingTypeARN :: Lens' CreateThingTypeResponse (Maybe Text)
 cttrsThingTypeARN = lens _cttrsThingTypeARN (\ s a -> s{_cttrsThingTypeARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cttrsResponseStatus :: Lens' CreateThingTypeResponse Int
 cttrsResponseStatus = lens _cttrsResponseStatus (\ s a -> s{_cttrsResponseStatus = a});
 
-instance NFData CreateThingTypeResponse
+instance NFData CreateThingTypeResponse where

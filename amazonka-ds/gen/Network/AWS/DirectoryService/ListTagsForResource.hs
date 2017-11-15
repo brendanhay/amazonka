@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.ListTagsForResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all tags on an Amazon Directory Services directory.
+-- Lists all tags on a directory.
+--
+--
 module Network.AWS.DirectoryService.ListTagsForResource
     (
     -- * Creating a Request
@@ -38,38 +40,40 @@ module Network.AWS.DirectoryService.ListTagsForResource
     , ltfrrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-    { _ltfrNextToken  :: !(Maybe Text)
-    , _ltfrLimit      :: !(Maybe Nat)
-    , _ltfrResourceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfrNextToken  :: !(Maybe Text)
+  , _ltfrLimit      :: !(Maybe Nat)
+  , _ltfrResourceId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrNextToken'
+-- * 'ltfrNextToken' - Reserved for future use.
 --
--- * 'ltfrLimit'
+-- * 'ltfrLimit' - Reserved for future use.
 --
--- * 'ltfrResourceId'
+-- * 'ltfrResourceId' - Identifier (ID) of the directory for which you want to retrieve tags.
 listTagsForResource
     :: Text -- ^ 'ltfrResourceId'
     -> ListTagsForResource
 listTagsForResource pResourceId_ =
-    ListTagsForResource'
-    { _ltfrNextToken = Nothing
-    , _ltfrLimit = Nothing
-    , _ltfrResourceId = pResourceId_
-    }
+  ListTagsForResource'
+  { _ltfrNextToken = Nothing
+  , _ltfrLimit = Nothing
+  , _ltfrResourceId = pResourceId_
+  }
+
 
 -- | Reserved for future use.
 ltfrNextToken :: Lens' ListTagsForResource (Maybe Text)
@@ -94,9 +98,9 @@ instance AWSRequest ListTagsForResource where
                    (x .?> "NextToken") <*> (x .?> "Tags" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListTagsForResource
+instance Hashable ListTagsForResource where
 
-instance NFData ListTagsForResource
+instance NFData ListTagsForResource where
 
 instance ToHeaders ListTagsForResource where
         toHeaders
@@ -124,29 +128,31 @@ instance ToQuery ListTagsForResource where
 
 -- | /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-    { _ltfrrsNextToken      :: !(Maybe Text)
-    , _ltfrrsTags           :: !(Maybe [Tag])
-    , _ltfrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfrrsNextToken      :: !(Maybe Text)
+  , _ltfrrsTags           :: !(Maybe [Tag])
+  , _ltfrrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrrsNextToken'
+-- * 'ltfrrsNextToken' - Reserved for future use.
 --
--- * 'ltfrrsTags'
+-- * 'ltfrrsTags' - List of tags returned by the ListTagsForResource operation.
 --
--- * 'ltfrrsResponseStatus'
+-- * 'ltfrrsResponseStatus' - -- | The response status code.
 listTagsForResourceResponse
     :: Int -- ^ 'ltfrrsResponseStatus'
     -> ListTagsForResourceResponse
 listTagsForResourceResponse pResponseStatus_ =
-    ListTagsForResourceResponse'
-    { _ltfrrsNextToken = Nothing
-    , _ltfrrsTags = Nothing
-    , _ltfrrsResponseStatus = pResponseStatus_
-    }
+  ListTagsForResourceResponse'
+  { _ltfrrsNextToken = Nothing
+  , _ltfrrsTags = Nothing
+  , _ltfrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Reserved for future use.
 ltfrrsNextToken :: Lens' ListTagsForResourceResponse (Maybe Text)
@@ -156,8 +162,8 @@ ltfrrsNextToken = lens _ltfrrsNextToken (\ s a -> s{_ltfrrsNextToken = a});
 ltfrrsTags :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
 
-instance NFData ListTagsForResourceResponse
+instance NFData ListTagsForResourceResponse where

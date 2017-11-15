@@ -12,19 +12,22 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ModifyInstanceGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- ModifyInstanceGroups modifies the number of nodes and configuration settings of an instance group. The input parameters include the new target instance count for the group and the instance group ID. The call will either succeed or fail atomically.
+--
+--
 module Network.AWS.EMR.ModifyInstanceGroups
     (
     -- * Creating a Request
       modifyInstanceGroups
     , ModifyInstanceGroups
     -- * Request Lenses
+    , migClusterId
     , migInstanceGroups
 
     -- * Destructuring the Response
@@ -32,31 +35,40 @@ module Network.AWS.EMR.ModifyInstanceGroups
     , ModifyInstanceGroupsResponse
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Change the size of some instance groups.
 --
+--
+--
 -- /See:/ 'modifyInstanceGroups' smart constructor.
-newtype ModifyInstanceGroups = ModifyInstanceGroups'
-    { _migInstanceGroups :: Maybe [InstanceGroupModifyConfig]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+data ModifyInstanceGroups = ModifyInstanceGroups'
+  { _migClusterId      :: !(Maybe Text)
+  , _migInstanceGroups :: !(Maybe [InstanceGroupModifyConfig])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyInstanceGroups' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'migInstanceGroups'
+-- * 'migClusterId' - The ID of the cluster to which the instance group belongs.
+--
+-- * 'migInstanceGroups' - Instance groups to change.
 modifyInstanceGroups
     :: ModifyInstanceGroups
 modifyInstanceGroups =
-    ModifyInstanceGroups'
-    { _migInstanceGroups = Nothing
-    }
+  ModifyInstanceGroups' {_migClusterId = Nothing, _migInstanceGroups = Nothing}
+
+
+-- | The ID of the cluster to which the instance group belongs.
+migClusterId :: Lens' ModifyInstanceGroups (Maybe Text)
+migClusterId = lens _migClusterId (\ s a -> s{_migClusterId = a});
 
 -- | Instance groups to change.
 migInstanceGroups :: Lens' ModifyInstanceGroups [InstanceGroupModifyConfig]
@@ -68,9 +80,9 @@ instance AWSRequest ModifyInstanceGroups where
         request = postJSON emr
         response = receiveNull ModifyInstanceGroupsResponse'
 
-instance Hashable ModifyInstanceGroups
+instance Hashable ModifyInstanceGroups where
 
-instance NFData ModifyInstanceGroups
+instance NFData ModifyInstanceGroups where
 
 instance ToHeaders ModifyInstanceGroups where
         toHeaders
@@ -86,7 +98,8 @@ instance ToJSON ModifyInstanceGroups where
         toJSON ModifyInstanceGroups'{..}
           = object
               (catMaybes
-                 [("InstanceGroups" .=) <$> _migInstanceGroups])
+                 [("ClusterId" .=) <$> _migClusterId,
+                  ("InstanceGroups" .=) <$> _migInstanceGroups])
 
 instance ToPath ModifyInstanceGroups where
         toPath = const "/"
@@ -96,8 +109,9 @@ instance ToQuery ModifyInstanceGroups where
 
 -- | /See:/ 'modifyInstanceGroupsResponse' smart constructor.
 data ModifyInstanceGroupsResponse =
-    ModifyInstanceGroupsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ModifyInstanceGroupsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyInstanceGroupsResponse' with the minimum fields required to make a request.
 --
@@ -105,4 +119,5 @@ modifyInstanceGroupsResponse
     :: ModifyInstanceGroupsResponse
 modifyInstanceGroupsResponse = ModifyInstanceGroupsResponse'
 
-instance NFData ModifyInstanceGroupsResponse
+
+instance NFData ModifyInstanceGroupsResponse where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.GetSnapshotLimits
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Obtains the manual snapshot limits for a directory.
+--
+--
 module Network.AWS.DirectoryService.GetSnapshotLimits
     (
     -- * Creating a Request
@@ -35,32 +37,34 @@ module Network.AWS.DirectoryService.GetSnapshotLimits
     , gslrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the inputs for the < GetSnapshotLimits> operation.
+-- | Contains the inputs for the 'GetSnapshotLimits' operation.
+--
+--
 --
 -- /See:/ 'getSnapshotLimits' smart constructor.
 newtype GetSnapshotLimits = GetSnapshotLimits'
-    { _gslDirectoryId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gslDirectoryId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSnapshotLimits' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gslDirectoryId'
+-- * 'gslDirectoryId' - Contains the identifier of the directory to obtain the limits for.
 getSnapshotLimits
     :: Text -- ^ 'gslDirectoryId'
     -> GetSnapshotLimits
 getSnapshotLimits pDirectoryId_ =
-    GetSnapshotLimits'
-    { _gslDirectoryId = pDirectoryId_
-    }
+  GetSnapshotLimits' {_gslDirectoryId = pDirectoryId_}
+
 
 -- | Contains the identifier of the directory to obtain the limits for.
 gslDirectoryId :: Lens' GetSnapshotLimits Text
@@ -75,9 +79,9 @@ instance AWSRequest GetSnapshotLimits where
                  GetSnapshotLimitsResponse' <$>
                    (x .?> "SnapshotLimits") <*> (pure (fromEnum s)))
 
-instance Hashable GetSnapshotLimits
+instance Hashable GetSnapshotLimits where
 
-instance NFData GetSnapshotLimits
+instance NFData GetSnapshotLimits where
 
 instance ToHeaders GetSnapshotLimits where
         toHeaders
@@ -100,36 +104,38 @@ instance ToPath GetSnapshotLimits where
 instance ToQuery GetSnapshotLimits where
         toQuery = const mempty
 
--- | Contains the results of the < GetSnapshotLimits> operation.
+-- | Contains the results of the 'GetSnapshotLimits' operation.
+--
+--
 --
 -- /See:/ 'getSnapshotLimitsResponse' smart constructor.
 data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
-    { _gslrsSnapshotLimits :: !(Maybe SnapshotLimits)
-    , _gslrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gslrsSnapshotLimits :: !(Maybe SnapshotLimits)
+  , _gslrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSnapshotLimitsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gslrsSnapshotLimits'
+-- * 'gslrsSnapshotLimits' - A 'SnapshotLimits' object that contains the manual snapshot limits for the specified directory.
 --
--- * 'gslrsResponseStatus'
+-- * 'gslrsResponseStatus' - -- | The response status code.
 getSnapshotLimitsResponse
     :: Int -- ^ 'gslrsResponseStatus'
     -> GetSnapshotLimitsResponse
 getSnapshotLimitsResponse pResponseStatus_ =
-    GetSnapshotLimitsResponse'
-    { _gslrsSnapshotLimits = Nothing
-    , _gslrsResponseStatus = pResponseStatus_
-    }
+  GetSnapshotLimitsResponse'
+  {_gslrsSnapshotLimits = Nothing, _gslrsResponseStatus = pResponseStatus_}
 
--- | A < SnapshotLimits> object that contains the manual snapshot limits for the specified directory.
+
+-- | A 'SnapshotLimits' object that contains the manual snapshot limits for the specified directory.
 gslrsSnapshotLimits :: Lens' GetSnapshotLimitsResponse (Maybe SnapshotLimits)
 gslrsSnapshotLimits = lens _gslrsSnapshotLimits (\ s a -> s{_gslrsSnapshotLimits = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gslrsResponseStatus :: Lens' GetSnapshotLimitsResponse Int
 gslrsResponseStatus = lens _gslrsResponseStatus (\ s a -> s{_gslrsResponseStatus = a});
 
-instance NFData GetSnapshotLimitsResponse
+instance NFData GetSnapshotLimitsResponse where

@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Signs out users from all devices, as an administrator.
+--
+--
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut
     (
     -- * Creating a Request
@@ -35,37 +39,39 @@ module Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut
     , augsorsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to sign out of all devices, as an administrator.
 --
+--
+--
 -- /See:/ 'adminUserGlobalSignOut' smart constructor.
 data AdminUserGlobalSignOut = AdminUserGlobalSignOut'
-    { _augsoUserPoolId :: !Text
-    , _augsoUsername   :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _augsoUserPoolId :: !Text
+  , _augsoUsername   :: !(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminUserGlobalSignOut' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'augsoUserPoolId'
+-- * 'augsoUserPoolId' - The user pool ID.
 --
--- * 'augsoUsername'
+-- * 'augsoUsername' - The user name.
 adminUserGlobalSignOut
     :: Text -- ^ 'augsoUserPoolId'
     -> Text -- ^ 'augsoUsername'
     -> AdminUserGlobalSignOut
 adminUserGlobalSignOut pUserPoolId_ pUsername_ =
-    AdminUserGlobalSignOut'
-    { _augsoUserPoolId = pUserPoolId_
-    , _augsoUsername = _Sensitive # pUsername_
-    }
+  AdminUserGlobalSignOut'
+  {_augsoUserPoolId = pUserPoolId_, _augsoUsername = _Sensitive # pUsername_}
+
 
 -- | The user pool ID.
 augsoUserPoolId :: Lens' AdminUserGlobalSignOut Text
@@ -85,9 +91,9 @@ instance AWSRequest AdminUserGlobalSignOut where
                  AdminUserGlobalSignOutResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable AdminUserGlobalSignOut
+instance Hashable AdminUserGlobalSignOut where
 
-instance NFData AdminUserGlobalSignOut
+instance NFData AdminUserGlobalSignOut where
 
 instance ToHeaders AdminUserGlobalSignOut where
         toHeaders
@@ -114,26 +120,28 @@ instance ToQuery AdminUserGlobalSignOut where
 
 -- | The global sign-out response, as an administrator.
 --
+--
+--
 -- /See:/ 'adminUserGlobalSignOutResponse' smart constructor.
 newtype AdminUserGlobalSignOutResponse = AdminUserGlobalSignOutResponse'
-    { _augsorsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _augsorsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminUserGlobalSignOutResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'augsorsResponseStatus'
+-- * 'augsorsResponseStatus' - -- | The response status code.
 adminUserGlobalSignOutResponse
     :: Int -- ^ 'augsorsResponseStatus'
     -> AdminUserGlobalSignOutResponse
 adminUserGlobalSignOutResponse pResponseStatus_ =
-    AdminUserGlobalSignOutResponse'
-    { _augsorsResponseStatus = pResponseStatus_
-    }
+  AdminUserGlobalSignOutResponse' {_augsorsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 augsorsResponseStatus :: Lens' AdminUserGlobalSignOutResponse Int
 augsorsResponseStatus = lens _augsorsResponseStatus (\ s a -> s{_augsorsResponseStatus = a});
 
-instance NFData AdminUserGlobalSignOutResponse
+instance NFData AdminUserGlobalSignOutResponse where

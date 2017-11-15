@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.CognitoIdentityProvider
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.CognitoIdentityProvider where
 
 import Data.Proxy
+import Network.AWS.CognitoIdentityProvider
+import Test.AWS.CognitoIdentityProvider.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.CognitoIdentityProvider
-import Test.AWS.CognitoIdentityProvider.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -34,8 +34,14 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestUpdateUserPool $
 --             updateUserPool
 --
+--         , requestDeleteUserPoolDomain $
+--             deleteUserPoolDomain
+--
 --         , requestAdminInitiateAuth $
 --             adminInitiateAuth
+--
+--         , requestAdminLinkProviderForUser $
+--             adminLinkProviderForUser
 --
 --         , requestAdminEnableUser $
 --             adminEnableUser
@@ -64,11 +70,17 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestListUserImportJobs $
 --             listUserImportJobs
 --
+--         , requestDescribeIdentityProvider $
+--             describeIdentityProvider
+--
 --         , requestListUsers $
 --             listUsers
 --
 --         , requestAdminDeleteUserAttributes $
 --             adminDeleteUserAttributes
+--
+--         , requestDescribeUserPoolDomain $
+--             describeUserPoolDomain
 --
 --         , requestAdminUpdateUserAttributes $
 --             adminUpdateUserAttributes
@@ -79,6 +91,12 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestAdminUserGlobalSignOut $
 --             adminUserGlobalSignOut
 --
+--         , requestListUsersInGroup $
+--             listUsersInGroup
+--
+--         , requestAdminDisableProviderForUser $
+--             adminDisableProviderForUser
+--
 --         , requestForgotPassword $
 --             forgotPassword
 --
@@ -88,11 +106,23 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestInitiateAuth $
 --             initiateAuth
 --
+--         , requestAdminListGroupsForUser $
+--             adminListGroupsForUser
+--
 --         , requestAdminConfirmSignUp $
 --             adminConfirmSignUp
 --
 --         , requestStartUserImportJob $
 --             startUserImportJob
+--
+--         , requestCreateIdentityProvider $
+--             createIdentityProvider
+--
+--         , requestSetUICustomization $
+--             setUICustomization
+--
+--         , requestListIdentityProviders $
+--             listIdentityProviders
 --
 --         , requestGetDevice $
 --             getDevice
@@ -100,8 +130,17 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestSignUp $
 --             signUp
 --
+--         , requestDeleteResourceServer $
+--             deleteResourceServer
+--
+--         , requestUpdateResourceServer $
+--             updateResourceServer
+--
 --         , requestChangePassword $
 --             changePassword
+--
+--         , requestCreateUserPoolDomain $
+--             createUserPoolDomain
 --
 --         , requestRespondToAuthChallenge $
 --             respondToAuthChallenge
@@ -111,6 +150,12 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --
 --         , requestAdminGetDevice $
 --             adminGetDevice
+--
+--         , requestGetIdentityProviderByIdentifier $
+--             getIdentityProviderByIdentifier
+--
+--         , requestAdminRemoveUserFromGroup $
+--             adminRemoveUserFromGroup
 --
 --         , requestConfirmSignUp $
 --             confirmSignUp
@@ -127,6 +172,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestGetUser $
 --             getUser
 --
+--         , requestGetUICustomization $
+--             getUICustomization
+--
 --         , requestGetCSVHeader $
 --             getCSVHeader
 --
@@ -136,8 +184,14 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestAdminForgetDevice $
 --             adminForgetDevice
 --
+--         , requestDescribeResourceServer $
+--             describeResourceServer
+--
 --         , requestAdminUpdateDeviceStatus $
 --             adminUpdateDeviceStatus
+--
+--         , requestAdminCreateUser $
+--             adminCreateUser
 --
 --         , requestAddCustomAttributes $
 --             addCustomAttributes
@@ -163,14 +217,41 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestCreateUserPoolClient $
 --             createUserPoolClient
 --
+--         , requestCreateResourceServer $
+--             createResourceServer
+--
+--         , requestCreateGroup $
+--             createGroup
+--
+--         , requestAdminAddUserToGroup $
+--             adminAddUserToGroup
+--
 --         , requestStopUserImportJob $
 --             stopUserImportJob
 --
 --         , requestDescribeUserImportJob $
 --             describeUserImportJob
 --
+--         , requestDeleteGroup $
+--             deleteGroup
+--
+--         , requestUpdateGroup $
+--             updateGroup
+--
 --         , requestGlobalSignOut $
 --             globalSignOut
+--
+--         , requestListGroups $
+--             listGroups
+--
+--         , requestUpdateIdentityProvider $
+--             updateIdentityProvider
+--
+--         , requestDeleteIdentityProvider $
+--             deleteIdentityProvider
+--
+--         , requestListResourceServers $
+--             listResourceServers
 --
 --         , requestAdminRespondToAuthChallenge $
 --             adminRespondToAuthChallenge
@@ -187,6 +268,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestResendConfirmationCode $
 --             resendConfirmationCode
 --
+--         , requestGetGroup $
+--             getGroup
+--
 --         , requestAdminSetUserSettings $
 --             adminSetUserSettings
 --
@@ -202,8 +286,14 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , responseUpdateUserPool $
 --             updateUserPoolResponse
 --
+--         , responseDeleteUserPoolDomain $
+--             deleteUserPoolDomainResponse
+--
 --         , responseAdminInitiateAuth $
 --             adminInitiateAuthResponse
+--
+--         , responseAdminLinkProviderForUser $
+--             adminLinkProviderForUserResponse
 --
 --         , responseAdminEnableUser $
 --             adminEnableUserResponse
@@ -232,11 +322,17 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , responseListUserImportJobs $
 --             listUserImportJobsResponse
 --
+--         , responseDescribeIdentityProvider $
+--             describeIdentityProviderResponse
+--
 --         , responseListUsers $
 --             listUsersResponse
 --
 --         , responseAdminDeleteUserAttributes $
 --             adminDeleteUserAttributesResponse
+--
+--         , responseDescribeUserPoolDomain $
+--             describeUserPoolDomainResponse
 --
 --         , responseAdminUpdateUserAttributes $
 --             adminUpdateUserAttributesResponse
@@ -247,6 +343,12 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , responseAdminUserGlobalSignOut $
 --             adminUserGlobalSignOutResponse
 --
+--         , responseListUsersInGroup $
+--             listUsersInGroupResponse
+--
+--         , responseAdminDisableProviderForUser $
+--             adminDisableProviderForUserResponse
+--
 --         , responseForgotPassword $
 --             forgotPasswordResponse
 --
@@ -256,11 +358,23 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , responseInitiateAuth $
 --             initiateAuthResponse
 --
+--         , responseAdminListGroupsForUser $
+--             adminListGroupsForUserResponse
+--
 --         , responseAdminConfirmSignUp $
 --             adminConfirmSignUpResponse
 --
 --         , responseStartUserImportJob $
 --             startUserImportJobResponse
+--
+--         , responseCreateIdentityProvider $
+--             createIdentityProviderResponse
+--
+--         , responseSetUICustomization $
+--             setUICustomizationResponse
+--
+--         , responseListIdentityProviders $
+--             listIdentityProvidersResponse
 --
 --         , responseGetDevice $
 --             getDeviceResponse
@@ -268,8 +382,17 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , responseSignUp $
 --             signUpResponse
 --
+--         , responseDeleteResourceServer $
+--             deleteResourceServerResponse
+--
+--         , responseUpdateResourceServer $
+--             updateResourceServerResponse
+--
 --         , responseChangePassword $
 --             changePasswordResponse
+--
+--         , responseCreateUserPoolDomain $
+--             createUserPoolDomainResponse
 --
 --         , responseRespondToAuthChallenge $
 --             respondToAuthChallengeResponse
@@ -279,6 +402,12 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --
 --         , responseAdminGetDevice $
 --             adminGetDeviceResponse
+--
+--         , responseGetIdentityProviderByIdentifier $
+--             getIdentityProviderByIdentifierResponse
+--
+--         , responseAdminRemoveUserFromGroup $
+--             adminRemoveUserFromGroupResponse
 --
 --         , responseConfirmSignUp $
 --             confirmSignUpResponse
@@ -295,6 +424,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , responseGetUser $
 --             getUserResponse
 --
+--         , responseGetUICustomization $
+--             getUICustomizationResponse
+--
 --         , responseGetCSVHeader $
 --             getCSVHeaderResponse
 --
@@ -304,8 +436,14 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , responseAdminForgetDevice $
 --             adminForgetDeviceResponse
 --
+--         , responseDescribeResourceServer $
+--             describeResourceServerResponse
+--
 --         , responseAdminUpdateDeviceStatus $
 --             adminUpdateDeviceStatusResponse
+--
+--         , responseAdminCreateUser $
+--             adminCreateUserResponse
 --
 --         , responseAddCustomAttributes $
 --             addCustomAttributesResponse
@@ -331,14 +469,41 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , responseCreateUserPoolClient $
 --             createUserPoolClientResponse
 --
+--         , responseCreateResourceServer $
+--             createResourceServerResponse
+--
+--         , responseCreateGroup $
+--             createGroupResponse
+--
+--         , responseAdminAddUserToGroup $
+--             adminAddUserToGroupResponse
+--
 --         , responseStopUserImportJob $
 --             stopUserImportJobResponse
 --
 --         , responseDescribeUserImportJob $
 --             describeUserImportJobResponse
 --
+--         , responseDeleteGroup $
+--             deleteGroupResponse
+--
+--         , responseUpdateGroup $
+--             updateGroupResponse
+--
 --         , responseGlobalSignOut $
 --             globalSignOutResponse
+--
+--         , responseListGroups $
+--             listGroupsResponse
+--
+--         , responseUpdateIdentityProvider $
+--             updateIdentityProviderResponse
+--
+--         , responseDeleteIdentityProvider $
+--             deleteIdentityProviderResponse
+--
+--         , responseListResourceServers $
+--             listResourceServersResponse
 --
 --         , responseAdminRespondToAuthChallenge $
 --             adminRespondToAuthChallengeResponse
@@ -354,6 +519,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --
 --         , responseResendConfirmationCode $
 --             resendConfirmationCodeResponse
+--
+--         , responseGetGroup $
+--             getGroupResponse
 --
 --         , responseAdminSetUserSettings $
 --             adminSetUserSettingsResponse
@@ -376,10 +544,20 @@ requestUpdateUserPool = req
     "UpdateUserPool"
     "fixture/UpdateUserPool.yaml"
 
+requestDeleteUserPoolDomain :: DeleteUserPoolDomain -> TestTree
+requestDeleteUserPoolDomain = req
+    "DeleteUserPoolDomain"
+    "fixture/DeleteUserPoolDomain.yaml"
+
 requestAdminInitiateAuth :: AdminInitiateAuth -> TestTree
 requestAdminInitiateAuth = req
     "AdminInitiateAuth"
     "fixture/AdminInitiateAuth.yaml"
+
+requestAdminLinkProviderForUser :: AdminLinkProviderForUser -> TestTree
+requestAdminLinkProviderForUser = req
+    "AdminLinkProviderForUser"
+    "fixture/AdminLinkProviderForUser.yaml"
 
 requestAdminEnableUser :: AdminEnableUser -> TestTree
 requestAdminEnableUser = req
@@ -426,6 +604,11 @@ requestListUserImportJobs = req
     "ListUserImportJobs"
     "fixture/ListUserImportJobs.yaml"
 
+requestDescribeIdentityProvider :: DescribeIdentityProvider -> TestTree
+requestDescribeIdentityProvider = req
+    "DescribeIdentityProvider"
+    "fixture/DescribeIdentityProvider.yaml"
+
 requestListUsers :: ListUsers -> TestTree
 requestListUsers = req
     "ListUsers"
@@ -435,6 +618,11 @@ requestAdminDeleteUserAttributes :: AdminDeleteUserAttributes -> TestTree
 requestAdminDeleteUserAttributes = req
     "AdminDeleteUserAttributes"
     "fixture/AdminDeleteUserAttributes.yaml"
+
+requestDescribeUserPoolDomain :: DescribeUserPoolDomain -> TestTree
+requestDescribeUserPoolDomain = req
+    "DescribeUserPoolDomain"
+    "fixture/DescribeUserPoolDomain.yaml"
 
 requestAdminUpdateUserAttributes :: AdminUpdateUserAttributes -> TestTree
 requestAdminUpdateUserAttributes = req
@@ -451,6 +639,16 @@ requestAdminUserGlobalSignOut = req
     "AdminUserGlobalSignOut"
     "fixture/AdminUserGlobalSignOut.yaml"
 
+requestListUsersInGroup :: ListUsersInGroup -> TestTree
+requestListUsersInGroup = req
+    "ListUsersInGroup"
+    "fixture/ListUsersInGroup.yaml"
+
+requestAdminDisableProviderForUser :: AdminDisableProviderForUser -> TestTree
+requestAdminDisableProviderForUser = req
+    "AdminDisableProviderForUser"
+    "fixture/AdminDisableProviderForUser.yaml"
+
 requestForgotPassword :: ForgotPassword -> TestTree
 requestForgotPassword = req
     "ForgotPassword"
@@ -466,6 +664,11 @@ requestInitiateAuth = req
     "InitiateAuth"
     "fixture/InitiateAuth.yaml"
 
+requestAdminListGroupsForUser :: AdminListGroupsForUser -> TestTree
+requestAdminListGroupsForUser = req
+    "AdminListGroupsForUser"
+    "fixture/AdminListGroupsForUser.yaml"
+
 requestAdminConfirmSignUp :: AdminConfirmSignUp -> TestTree
 requestAdminConfirmSignUp = req
     "AdminConfirmSignUp"
@@ -475,6 +678,21 @@ requestStartUserImportJob :: StartUserImportJob -> TestTree
 requestStartUserImportJob = req
     "StartUserImportJob"
     "fixture/StartUserImportJob.yaml"
+
+requestCreateIdentityProvider :: CreateIdentityProvider -> TestTree
+requestCreateIdentityProvider = req
+    "CreateIdentityProvider"
+    "fixture/CreateIdentityProvider.yaml"
+
+requestSetUICustomization :: SetUICustomization -> TestTree
+requestSetUICustomization = req
+    "SetUICustomization"
+    "fixture/SetUICustomization.yaml"
+
+requestListIdentityProviders :: ListIdentityProviders -> TestTree
+requestListIdentityProviders = req
+    "ListIdentityProviders"
+    "fixture/ListIdentityProviders.yaml"
 
 requestGetDevice :: GetDevice -> TestTree
 requestGetDevice = req
@@ -486,10 +704,25 @@ requestSignUp = req
     "SignUp"
     "fixture/SignUp.yaml"
 
+requestDeleteResourceServer :: DeleteResourceServer -> TestTree
+requestDeleteResourceServer = req
+    "DeleteResourceServer"
+    "fixture/DeleteResourceServer.yaml"
+
+requestUpdateResourceServer :: UpdateResourceServer -> TestTree
+requestUpdateResourceServer = req
+    "UpdateResourceServer"
+    "fixture/UpdateResourceServer.yaml"
+
 requestChangePassword :: ChangePassword -> TestTree
 requestChangePassword = req
     "ChangePassword"
     "fixture/ChangePassword.yaml"
+
+requestCreateUserPoolDomain :: CreateUserPoolDomain -> TestTree
+requestCreateUserPoolDomain = req
+    "CreateUserPoolDomain"
+    "fixture/CreateUserPoolDomain.yaml"
 
 requestRespondToAuthChallenge :: RespondToAuthChallenge -> TestTree
 requestRespondToAuthChallenge = req
@@ -505,6 +738,16 @@ requestAdminGetDevice :: AdminGetDevice -> TestTree
 requestAdminGetDevice = req
     "AdminGetDevice"
     "fixture/AdminGetDevice.yaml"
+
+requestGetIdentityProviderByIdentifier :: GetIdentityProviderByIdentifier -> TestTree
+requestGetIdentityProviderByIdentifier = req
+    "GetIdentityProviderByIdentifier"
+    "fixture/GetIdentityProviderByIdentifier.yaml"
+
+requestAdminRemoveUserFromGroup :: AdminRemoveUserFromGroup -> TestTree
+requestAdminRemoveUserFromGroup = req
+    "AdminRemoveUserFromGroup"
+    "fixture/AdminRemoveUserFromGroup.yaml"
 
 requestConfirmSignUp :: ConfirmSignUp -> TestTree
 requestConfirmSignUp = req
@@ -531,6 +774,11 @@ requestGetUser = req
     "GetUser"
     "fixture/GetUser.yaml"
 
+requestGetUICustomization :: GetUICustomization -> TestTree
+requestGetUICustomization = req
+    "GetUICustomization"
+    "fixture/GetUICustomization.yaml"
+
 requestGetCSVHeader :: GetCSVHeader -> TestTree
 requestGetCSVHeader = req
     "GetCSVHeader"
@@ -546,10 +794,20 @@ requestAdminForgetDevice = req
     "AdminForgetDevice"
     "fixture/AdminForgetDevice.yaml"
 
+requestDescribeResourceServer :: DescribeResourceServer -> TestTree
+requestDescribeResourceServer = req
+    "DescribeResourceServer"
+    "fixture/DescribeResourceServer.yaml"
+
 requestAdminUpdateDeviceStatus :: AdminUpdateDeviceStatus -> TestTree
 requestAdminUpdateDeviceStatus = req
     "AdminUpdateDeviceStatus"
     "fixture/AdminUpdateDeviceStatus.yaml"
+
+requestAdminCreateUser :: AdminCreateUser -> TestTree
+requestAdminCreateUser = req
+    "AdminCreateUser"
+    "fixture/AdminCreateUser.yaml"
 
 requestAddCustomAttributes :: AddCustomAttributes -> TestTree
 requestAddCustomAttributes = req
@@ -591,6 +849,21 @@ requestCreateUserPoolClient = req
     "CreateUserPoolClient"
     "fixture/CreateUserPoolClient.yaml"
 
+requestCreateResourceServer :: CreateResourceServer -> TestTree
+requestCreateResourceServer = req
+    "CreateResourceServer"
+    "fixture/CreateResourceServer.yaml"
+
+requestCreateGroup :: CreateGroup -> TestTree
+requestCreateGroup = req
+    "CreateGroup"
+    "fixture/CreateGroup.yaml"
+
+requestAdminAddUserToGroup :: AdminAddUserToGroup -> TestTree
+requestAdminAddUserToGroup = req
+    "AdminAddUserToGroup"
+    "fixture/AdminAddUserToGroup.yaml"
+
 requestStopUserImportJob :: StopUserImportJob -> TestTree
 requestStopUserImportJob = req
     "StopUserImportJob"
@@ -601,10 +874,40 @@ requestDescribeUserImportJob = req
     "DescribeUserImportJob"
     "fixture/DescribeUserImportJob.yaml"
 
+requestDeleteGroup :: DeleteGroup -> TestTree
+requestDeleteGroup = req
+    "DeleteGroup"
+    "fixture/DeleteGroup.yaml"
+
+requestUpdateGroup :: UpdateGroup -> TestTree
+requestUpdateGroup = req
+    "UpdateGroup"
+    "fixture/UpdateGroup.yaml"
+
 requestGlobalSignOut :: GlobalSignOut -> TestTree
 requestGlobalSignOut = req
     "GlobalSignOut"
     "fixture/GlobalSignOut.yaml"
+
+requestListGroups :: ListGroups -> TestTree
+requestListGroups = req
+    "ListGroups"
+    "fixture/ListGroups.yaml"
+
+requestUpdateIdentityProvider :: UpdateIdentityProvider -> TestTree
+requestUpdateIdentityProvider = req
+    "UpdateIdentityProvider"
+    "fixture/UpdateIdentityProvider.yaml"
+
+requestDeleteIdentityProvider :: DeleteIdentityProvider -> TestTree
+requestDeleteIdentityProvider = req
+    "DeleteIdentityProvider"
+    "fixture/DeleteIdentityProvider.yaml"
+
+requestListResourceServers :: ListResourceServers -> TestTree
+requestListResourceServers = req
+    "ListResourceServers"
+    "fixture/ListResourceServers.yaml"
 
 requestAdminRespondToAuthChallenge :: AdminRespondToAuthChallenge -> TestTree
 requestAdminRespondToAuthChallenge = req
@@ -630,6 +933,11 @@ requestResendConfirmationCode :: ResendConfirmationCode -> TestTree
 requestResendConfirmationCode = req
     "ResendConfirmationCode"
     "fixture/ResendConfirmationCode.yaml"
+
+requestGetGroup :: GetGroup -> TestTree
+requestGetGroup = req
+    "GetGroup"
+    "fixture/GetGroup.yaml"
 
 requestAdminSetUserSettings :: AdminSetUserSettings -> TestTree
 requestAdminSetUserSettings = req
@@ -657,12 +965,26 @@ responseUpdateUserPool = res
     cognitoIdentityProvider
     (Proxy :: Proxy UpdateUserPool)
 
+responseDeleteUserPoolDomain :: DeleteUserPoolDomainResponse -> TestTree
+responseDeleteUserPoolDomain = res
+    "DeleteUserPoolDomainResponse"
+    "fixture/DeleteUserPoolDomainResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy DeleteUserPoolDomain)
+
 responseAdminInitiateAuth :: AdminInitiateAuthResponse -> TestTree
 responseAdminInitiateAuth = res
     "AdminInitiateAuthResponse"
     "fixture/AdminInitiateAuthResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy AdminInitiateAuth)
+
+responseAdminLinkProviderForUser :: AdminLinkProviderForUserResponse -> TestTree
+responseAdminLinkProviderForUser = res
+    "AdminLinkProviderForUserResponse"
+    "fixture/AdminLinkProviderForUserResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy AdminLinkProviderForUser)
 
 responseAdminEnableUser :: AdminEnableUserResponse -> TestTree
 responseAdminEnableUser = res
@@ -727,6 +1049,13 @@ responseListUserImportJobs = res
     cognitoIdentityProvider
     (Proxy :: Proxy ListUserImportJobs)
 
+responseDescribeIdentityProvider :: DescribeIdentityProviderResponse -> TestTree
+responseDescribeIdentityProvider = res
+    "DescribeIdentityProviderResponse"
+    "fixture/DescribeIdentityProviderResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy DescribeIdentityProvider)
+
 responseListUsers :: ListUsersResponse -> TestTree
 responseListUsers = res
     "ListUsersResponse"
@@ -740,6 +1069,13 @@ responseAdminDeleteUserAttributes = res
     "fixture/AdminDeleteUserAttributesResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy AdminDeleteUserAttributes)
+
+responseDescribeUserPoolDomain :: DescribeUserPoolDomainResponse -> TestTree
+responseDescribeUserPoolDomain = res
+    "DescribeUserPoolDomainResponse"
+    "fixture/DescribeUserPoolDomainResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy DescribeUserPoolDomain)
 
 responseAdminUpdateUserAttributes :: AdminUpdateUserAttributesResponse -> TestTree
 responseAdminUpdateUserAttributes = res
@@ -762,6 +1098,20 @@ responseAdminUserGlobalSignOut = res
     cognitoIdentityProvider
     (Proxy :: Proxy AdminUserGlobalSignOut)
 
+responseListUsersInGroup :: ListUsersInGroupResponse -> TestTree
+responseListUsersInGroup = res
+    "ListUsersInGroupResponse"
+    "fixture/ListUsersInGroupResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy ListUsersInGroup)
+
+responseAdminDisableProviderForUser :: AdminDisableProviderForUserResponse -> TestTree
+responseAdminDisableProviderForUser = res
+    "AdminDisableProviderForUserResponse"
+    "fixture/AdminDisableProviderForUserResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy AdminDisableProviderForUser)
+
 responseForgotPassword :: ForgotPasswordResponse -> TestTree
 responseForgotPassword = res
     "ForgotPasswordResponse"
@@ -783,6 +1133,13 @@ responseInitiateAuth = res
     cognitoIdentityProvider
     (Proxy :: Proxy InitiateAuth)
 
+responseAdminListGroupsForUser :: AdminListGroupsForUserResponse -> TestTree
+responseAdminListGroupsForUser = res
+    "AdminListGroupsForUserResponse"
+    "fixture/AdminListGroupsForUserResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy AdminListGroupsForUser)
+
 responseAdminConfirmSignUp :: AdminConfirmSignUpResponse -> TestTree
 responseAdminConfirmSignUp = res
     "AdminConfirmSignUpResponse"
@@ -796,6 +1153,27 @@ responseStartUserImportJob = res
     "fixture/StartUserImportJobResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy StartUserImportJob)
+
+responseCreateIdentityProvider :: CreateIdentityProviderResponse -> TestTree
+responseCreateIdentityProvider = res
+    "CreateIdentityProviderResponse"
+    "fixture/CreateIdentityProviderResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy CreateIdentityProvider)
+
+responseSetUICustomization :: SetUICustomizationResponse -> TestTree
+responseSetUICustomization = res
+    "SetUICustomizationResponse"
+    "fixture/SetUICustomizationResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy SetUICustomization)
+
+responseListIdentityProviders :: ListIdentityProvidersResponse -> TestTree
+responseListIdentityProviders = res
+    "ListIdentityProvidersResponse"
+    "fixture/ListIdentityProvidersResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy ListIdentityProviders)
 
 responseGetDevice :: GetDeviceResponse -> TestTree
 responseGetDevice = res
@@ -811,12 +1189,33 @@ responseSignUp = res
     cognitoIdentityProvider
     (Proxy :: Proxy SignUp)
 
+responseDeleteResourceServer :: DeleteResourceServerResponse -> TestTree
+responseDeleteResourceServer = res
+    "DeleteResourceServerResponse"
+    "fixture/DeleteResourceServerResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy DeleteResourceServer)
+
+responseUpdateResourceServer :: UpdateResourceServerResponse -> TestTree
+responseUpdateResourceServer = res
+    "UpdateResourceServerResponse"
+    "fixture/UpdateResourceServerResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy UpdateResourceServer)
+
 responseChangePassword :: ChangePasswordResponse -> TestTree
 responseChangePassword = res
     "ChangePasswordResponse"
     "fixture/ChangePasswordResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy ChangePassword)
+
+responseCreateUserPoolDomain :: CreateUserPoolDomainResponse -> TestTree
+responseCreateUserPoolDomain = res
+    "CreateUserPoolDomainResponse"
+    "fixture/CreateUserPoolDomainResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy CreateUserPoolDomain)
 
 responseRespondToAuthChallenge :: RespondToAuthChallengeResponse -> TestTree
 responseRespondToAuthChallenge = res
@@ -838,6 +1237,20 @@ responseAdminGetDevice = res
     "fixture/AdminGetDeviceResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy AdminGetDevice)
+
+responseGetIdentityProviderByIdentifier :: GetIdentityProviderByIdentifierResponse -> TestTree
+responseGetIdentityProviderByIdentifier = res
+    "GetIdentityProviderByIdentifierResponse"
+    "fixture/GetIdentityProviderByIdentifierResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy GetIdentityProviderByIdentifier)
+
+responseAdminRemoveUserFromGroup :: AdminRemoveUserFromGroupResponse -> TestTree
+responseAdminRemoveUserFromGroup = res
+    "AdminRemoveUserFromGroupResponse"
+    "fixture/AdminRemoveUserFromGroupResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy AdminRemoveUserFromGroup)
 
 responseConfirmSignUp :: ConfirmSignUpResponse -> TestTree
 responseConfirmSignUp = res
@@ -874,6 +1287,13 @@ responseGetUser = res
     cognitoIdentityProvider
     (Proxy :: Proxy GetUser)
 
+responseGetUICustomization :: GetUICustomizationResponse -> TestTree
+responseGetUICustomization = res
+    "GetUICustomizationResponse"
+    "fixture/GetUICustomizationResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy GetUICustomization)
+
 responseGetCSVHeader :: GetCSVHeaderResponse -> TestTree
 responseGetCSVHeader = res
     "GetCSVHeaderResponse"
@@ -895,12 +1315,26 @@ responseAdminForgetDevice = res
     cognitoIdentityProvider
     (Proxy :: Proxy AdminForgetDevice)
 
+responseDescribeResourceServer :: DescribeResourceServerResponse -> TestTree
+responseDescribeResourceServer = res
+    "DescribeResourceServerResponse"
+    "fixture/DescribeResourceServerResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy DescribeResourceServer)
+
 responseAdminUpdateDeviceStatus :: AdminUpdateDeviceStatusResponse -> TestTree
 responseAdminUpdateDeviceStatus = res
     "AdminUpdateDeviceStatusResponse"
     "fixture/AdminUpdateDeviceStatusResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy AdminUpdateDeviceStatus)
+
+responseAdminCreateUser :: AdminCreateUserResponse -> TestTree
+responseAdminCreateUser = res
+    "AdminCreateUserResponse"
+    "fixture/AdminCreateUserResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy AdminCreateUser)
 
 responseAddCustomAttributes :: AddCustomAttributesResponse -> TestTree
 responseAddCustomAttributes = res
@@ -958,6 +1392,27 @@ responseCreateUserPoolClient = res
     cognitoIdentityProvider
     (Proxy :: Proxy CreateUserPoolClient)
 
+responseCreateResourceServer :: CreateResourceServerResponse -> TestTree
+responseCreateResourceServer = res
+    "CreateResourceServerResponse"
+    "fixture/CreateResourceServerResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy CreateResourceServer)
+
+responseCreateGroup :: CreateGroupResponse -> TestTree
+responseCreateGroup = res
+    "CreateGroupResponse"
+    "fixture/CreateGroupResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy CreateGroup)
+
+responseAdminAddUserToGroup :: AdminAddUserToGroupResponse -> TestTree
+responseAdminAddUserToGroup = res
+    "AdminAddUserToGroupResponse"
+    "fixture/AdminAddUserToGroupResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy AdminAddUserToGroup)
+
 responseStopUserImportJob :: StopUserImportJobResponse -> TestTree
 responseStopUserImportJob = res
     "StopUserImportJobResponse"
@@ -972,12 +1427,54 @@ responseDescribeUserImportJob = res
     cognitoIdentityProvider
     (Proxy :: Proxy DescribeUserImportJob)
 
+responseDeleteGroup :: DeleteGroupResponse -> TestTree
+responseDeleteGroup = res
+    "DeleteGroupResponse"
+    "fixture/DeleteGroupResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy DeleteGroup)
+
+responseUpdateGroup :: UpdateGroupResponse -> TestTree
+responseUpdateGroup = res
+    "UpdateGroupResponse"
+    "fixture/UpdateGroupResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy UpdateGroup)
+
 responseGlobalSignOut :: GlobalSignOutResponse -> TestTree
 responseGlobalSignOut = res
     "GlobalSignOutResponse"
     "fixture/GlobalSignOutResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy GlobalSignOut)
+
+responseListGroups :: ListGroupsResponse -> TestTree
+responseListGroups = res
+    "ListGroupsResponse"
+    "fixture/ListGroupsResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy ListGroups)
+
+responseUpdateIdentityProvider :: UpdateIdentityProviderResponse -> TestTree
+responseUpdateIdentityProvider = res
+    "UpdateIdentityProviderResponse"
+    "fixture/UpdateIdentityProviderResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy UpdateIdentityProvider)
+
+responseDeleteIdentityProvider :: DeleteIdentityProviderResponse -> TestTree
+responseDeleteIdentityProvider = res
+    "DeleteIdentityProviderResponse"
+    "fixture/DeleteIdentityProviderResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy DeleteIdentityProvider)
+
+responseListResourceServers :: ListResourceServersResponse -> TestTree
+responseListResourceServers = res
+    "ListResourceServersResponse"
+    "fixture/ListResourceServersResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy ListResourceServers)
 
 responseAdminRespondToAuthChallenge :: AdminRespondToAuthChallengeResponse -> TestTree
 responseAdminRespondToAuthChallenge = res
@@ -1013,6 +1510,13 @@ responseResendConfirmationCode = res
     "fixture/ResendConfirmationCodeResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy ResendConfirmationCode)
+
+responseGetGroup :: GetGroupResponse -> TestTree
+responseGetGroup = res
+    "GetGroupResponse"
+    "fixture/GetGroupResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy GetGroup)
 
 responseAdminSetUserSettings :: AdminSetUserSettingsResponse -> TestTree
 responseAdminSetUserSettings = res

@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.GetJobDetails
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about a job. Only used for custom actions.
 --
--- When this API is called, AWS CodePipeline returns temporary credentials for the Amazon S3 bucket used to store artifacts for the pipeline, if the action requires access to that Amazon S3 bucket for input or output artifacts. Additionally, this API returns any secret values defined for the action.
+--
+-- /Important:/ When this API is called, AWS CodePipeline returns temporary credentials for the Amazon S3 bucket used to store artifacts for the pipeline, if the action requires access to that Amazon S3 bucket for input or output artifacts. Additionally, this API returns any secret values defined for the action.
+--
 module Network.AWS.CodePipeline.GetJobDetails
     (
     -- * Creating a Request
@@ -37,32 +39,33 @@ module Network.AWS.CodePipeline.GetJobDetails
     , gjdrsResponseStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a get job details action.
+-- | Represents the input of a GetJobDetails action.
+--
+--
 --
 -- /See:/ 'getJobDetails' smart constructor.
 newtype GetJobDetails = GetJobDetails'
-    { _gjdJobId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gjdJobId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetJobDetails' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gjdJobId'
+-- * 'gjdJobId' - The unique system-generated ID for the job.
 getJobDetails
     :: Text -- ^ 'gjdJobId'
     -> GetJobDetails
-getJobDetails pJobId_ =
-    GetJobDetails'
-    { _gjdJobId = pJobId_
-    }
+getJobDetails pJobId_ = GetJobDetails' {_gjdJobId = pJobId_}
+
 
 -- | The unique system-generated ID for the job.
 gjdJobId :: Lens' GetJobDetails Text
@@ -77,9 +80,9 @@ instance AWSRequest GetJobDetails where
                  GetJobDetailsResponse' <$>
                    (x .?> "jobDetails") <*> (pure (fromEnum s)))
 
-instance Hashable GetJobDetails
+instance Hashable GetJobDetails where
 
-instance NFData GetJobDetails
+instance NFData GetJobDetails where
 
 instance ToHeaders GetJobDetails where
         toHeaders
@@ -101,38 +104,38 @@ instance ToPath GetJobDetails where
 instance ToQuery GetJobDetails where
         toQuery = const mempty
 
--- | Represents the output of a get job details action.
+-- | Represents the output of a GetJobDetails action.
+--
+--
 --
 -- /See:/ 'getJobDetailsResponse' smart constructor.
 data GetJobDetailsResponse = GetJobDetailsResponse'
-    { _gjdrsJobDetails     :: !(Maybe JobDetails)
-    , _gjdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gjdrsJobDetails     :: !(Maybe JobDetails)
+  , _gjdrsResponseStatus :: !Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetJobDetailsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gjdrsJobDetails'
+-- * 'gjdrsJobDetails' - The details of the job.
 --
--- * 'gjdrsResponseStatus'
+-- * 'gjdrsResponseStatus' - -- | The response status code.
 getJobDetailsResponse
     :: Int -- ^ 'gjdrsResponseStatus'
     -> GetJobDetailsResponse
 getJobDetailsResponse pResponseStatus_ =
-    GetJobDetailsResponse'
-    { _gjdrsJobDetails = Nothing
-    , _gjdrsResponseStatus = pResponseStatus_
-    }
+  GetJobDetailsResponse'
+  {_gjdrsJobDetails = Nothing, _gjdrsResponseStatus = pResponseStatus_}
+
 
 -- | The details of the job.
---
--- If AWSSessionCredentials is used, a long-running job can call GetJobDetails again to obtain new credentials.
 gjdrsJobDetails :: Lens' GetJobDetailsResponse (Maybe JobDetails)
 gjdrsJobDetails = lens _gjdrsJobDetails (\ s a -> s{_gjdrsJobDetails = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gjdrsResponseStatus :: Lens' GetJobDetailsResponse Int
 gjdrsResponseStatus = lens _gjdrsResponseStatus (\ s a -> s{_gjdrsResponseStatus = a});
 
-instance NFData GetJobDetailsResponse
+instance NFData GetJobDetailsResponse where

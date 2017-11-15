@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetObjectTorrent
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -33,44 +33,43 @@ module Network.AWS.S3.GetObjectTorrent
     , getObjectTorrentResponse
     , GetObjectTorrentResponse
     -- * Response Lenses
-    , gotrsRequestCharged
-    , gotrsResponseStatus
-    , gotrsBody
+    , getrsRequestCharged
+    , getrsResponseStatus
+    , getrsBody
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getObjectTorrent' smart constructor.
 data GetObjectTorrent = GetObjectTorrent'
-    { _gotRequestPayer :: !(Maybe RequestPayer)
-    , _gotBucket       :: !BucketName
-    , _gotKey          :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gotRequestPayer :: !(Maybe RequestPayer)
+  , _gotBucket       :: !BucketName
+  , _gotKey          :: !ObjectKey
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetObjectTorrent' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gotRequestPayer'
+-- * 'gotRequestPayer' - Undocumented member.
 --
--- * 'gotBucket'
+-- * 'gotBucket' - Undocumented member.
 --
--- * 'gotKey'
+-- * 'gotKey' - Undocumented member.
 getObjectTorrent
     :: BucketName -- ^ 'gotBucket'
     -> ObjectKey -- ^ 'gotKey'
     -> GetObjectTorrent
 getObjectTorrent pBucket_ pKey_ =
-    GetObjectTorrent'
-    { _gotRequestPayer = Nothing
-    , _gotBucket = pBucket_
-    , _gotKey = pKey_
-    }
+  GetObjectTorrent'
+  {_gotRequestPayer = Nothing, _gotBucket = pBucket_, _gotKey = pKey_}
+
 
 -- | Undocumented member.
 gotRequestPayer :: Lens' GetObjectTorrent (Maybe RequestPayer)
@@ -95,9 +94,9 @@ instance AWSRequest GetObjectTorrent where
                      (pure (fromEnum s))
                      <*> (pure x))
 
-instance Hashable GetObjectTorrent
+instance Hashable GetObjectTorrent where
 
-instance NFData GetObjectTorrent
+instance NFData GetObjectTorrent where
 
 instance ToHeaders GetObjectTorrent where
         toHeaders GetObjectTorrent'{..}
@@ -112,39 +111,41 @@ instance ToQuery GetObjectTorrent where
 
 -- | /See:/ 'getObjectTorrentResponse' smart constructor.
 data GetObjectTorrentResponse = GetObjectTorrentResponse'
-    { _gotrsRequestCharged :: !(Maybe RequestCharged)
-    , _gotrsResponseStatus :: !Int
-    , _gotrsBody           :: !RsBody
-    } deriving (Show,Generic)
+  { _getrsRequestCharged :: !(Maybe RequestCharged)
+  , _getrsResponseStatus :: !Int
+  , _getrsBody           :: !RsBody
+  } deriving (Show, Generic)
+
 
 -- | Creates a value of 'GetObjectTorrentResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gotrsRequestCharged'
+-- * 'getrsRequestCharged' - Undocumented member.
 --
--- * 'gotrsResponseStatus'
+-- * 'getrsResponseStatus' - -- | The response status code.
 --
--- * 'gotrsBody'
+-- * 'getrsBody' - Undocumented member.
 getObjectTorrentResponse
-    :: Int -- ^ 'gotrsResponseStatus'
-    -> RsBody -- ^ 'gotrsBody'
+    :: Int -- ^ 'getrsResponseStatus'
+    -> RsBody -- ^ 'getrsBody'
     -> GetObjectTorrentResponse
 getObjectTorrentResponse pResponseStatus_ pBody_ =
-    GetObjectTorrentResponse'
-    { _gotrsRequestCharged = Nothing
-    , _gotrsResponseStatus = pResponseStatus_
-    , _gotrsBody = pBody_
-    }
+  GetObjectTorrentResponse'
+  { _getrsRequestCharged = Nothing
+  , _getrsResponseStatus = pResponseStatus_
+  , _getrsBody = pBody_
+  }
+
 
 -- | Undocumented member.
-gotrsRequestCharged :: Lens' GetObjectTorrentResponse (Maybe RequestCharged)
-gotrsRequestCharged = lens _gotrsRequestCharged (\ s a -> s{_gotrsRequestCharged = a});
+getrsRequestCharged :: Lens' GetObjectTorrentResponse (Maybe RequestCharged)
+getrsRequestCharged = lens _getrsRequestCharged (\ s a -> s{_getrsRequestCharged = a});
 
--- | The response status code.
-gotrsResponseStatus :: Lens' GetObjectTorrentResponse Int
-gotrsResponseStatus = lens _gotrsResponseStatus (\ s a -> s{_gotrsResponseStatus = a});
+-- | -- | The response status code.
+getrsResponseStatus :: Lens' GetObjectTorrentResponse Int
+getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a});
 
 -- | Undocumented member.
-gotrsBody :: Lens' GetObjectTorrentResponse RsBody
-gotrsBody = lens _gotrsBody (\ s a -> s{_gotrsBody = a});
+getrsBody :: Lens' GetObjectTorrentResponse RsBody
+getrsBody = lens _getrsBody (\ s a -> s{_getrsBody = a});

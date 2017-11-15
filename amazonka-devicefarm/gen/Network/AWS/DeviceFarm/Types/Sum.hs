@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.DeviceFarm.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ArtifactCategory
-    = ACFile
-    | ACLog
-    | ACScreenshot
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ACFile
+  | ACLog
+  | ACScreenshot
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ArtifactCategory where
     parser = takeLowerText >>= \case
@@ -49,32 +50,35 @@ instance ToJSON ArtifactCategory where
     toJSON = toJSONText
 
 data ArtifactType
-    = AppiumJavaOutput
-    | AppiumJavaXMLOutput
-    | AppiumPythonOutput
-    | AppiumPythonXMLOutput
-    | AppiumServerOutput
-    | ApplicationCrashReport
-    | AutomationOutput
-    | CalabashJSONOutput
-    | CalabashJavaXMLOutput
-    | CalabashPrettyOutput
-    | CalabashStandardOutput
-    | DeviceLog
-    | ExerciserMonkeyOutput
-    | ExplorerEventLog
-    | ExplorerSummaryLog
-    | InstrumentationOutput
-    | MessageLog
-    | ResultLog
-    | Screenshot
-    | ServiceLog
-    | Unknown
-    | Video
-    | VideoLog
-    | WebkitLog
-    | XctestLog
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AppiumJavaOutput
+  | AppiumJavaXMLOutput
+  | AppiumPythonOutput
+  | AppiumPythonXMLOutput
+  | AppiumServerOutput
+  | ApplicationCrashReport
+  | AutomationOutput
+  | CalabashJSONOutput
+  | CalabashJavaXMLOutput
+  | CalabashPrettyOutput
+  | CalabashStandardOutput
+  | CustomerArtifact
+  | CustomerArtifactLog
+  | DeviceLog
+  | ExerciserMonkeyOutput
+  | ExplorerEventLog
+  | ExplorerSummaryLog
+  | InstrumentationOutput
+  | MessageLog
+  | ResultLog
+  | Screenshot
+  | ServiceLog
+  | Unknown
+  | Video
+  | VideoLog
+  | WebkitLog
+  | XctestLog
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ArtifactType where
     parser = takeLowerText >>= \case
@@ -89,6 +93,8 @@ instance FromText ArtifactType where
         "calabash_java_xml_output" -> pure CalabashJavaXMLOutput
         "calabash_pretty_output" -> pure CalabashPrettyOutput
         "calabash_standard_output" -> pure CalabashStandardOutput
+        "customer_artifact" -> pure CustomerArtifact
+        "customer_artifact_log" -> pure CustomerArtifactLog
         "device_log" -> pure DeviceLog
         "exerciser_monkey_output" -> pure ExerciserMonkeyOutput
         "explorer_event_log" -> pure ExplorerEventLog
@@ -104,7 +110,7 @@ instance FromText ArtifactType where
         "webkit_log" -> pure WebkitLog
         "xctest_log" -> pure XctestLog
         e -> fromTextError $ "Failure parsing ArtifactType from value: '" <> e
-           <> "'. Accepted values: appium_java_output, appium_java_xml_output, appium_python_output, appium_python_xml_output, appium_server_output, application_crash_report, automation_output, calabash_json_output, calabash_java_xml_output, calabash_pretty_output, calabash_standard_output, device_log, exerciser_monkey_output, explorer_event_log, explorer_summary_log, instrumentation_output, message_log, result_log, screenshot, service_log, unknown, video, video_log, webkit_log, xctest_log"
+           <> "'. Accepted values: appium_java_output, appium_java_xml_output, appium_python_output, appium_python_xml_output, appium_server_output, application_crash_report, automation_output, calabash_json_output, calabash_java_xml_output, calabash_pretty_output, calabash_standard_output, customer_artifact, customer_artifact_log, device_log, exerciser_monkey_output, explorer_event_log, explorer_summary_log, instrumentation_output, message_log, result_log, screenshot, service_log, unknown, video, video_log, webkit_log, xctest_log"
 
 instance ToText ArtifactType where
     toText = \case
@@ -119,6 +125,8 @@ instance ToText ArtifactType where
         CalabashJavaXMLOutput -> "CALABASH_JAVA_XML_OUTPUT"
         CalabashPrettyOutput -> "CALABASH_PRETTY_OUTPUT"
         CalabashStandardOutput -> "CALABASH_STANDARD_OUTPUT"
+        CustomerArtifact -> "CUSTOMER_ARTIFACT"
+        CustomerArtifactLog -> "CUSTOMER_ARTIFACT_LOG"
         DeviceLog -> "DEVICE_LOG"
         ExerciserMonkeyOutput -> "EXERCISER_MONKEY_OUTPUT"
         ExplorerEventLog -> "EXPLORER_EVENT_LOG"
@@ -144,9 +152,10 @@ instance FromJSON ArtifactType where
     parseJSON = parseJSONText "ArtifactType"
 
 data BillingMethod
-    = Metered
-    | Unmetered
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Metered
+  | Unmetered
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BillingMethod where
     parser = takeLowerText >>= \case
@@ -173,8 +182,9 @@ instance FromJSON BillingMethod where
     parseJSON = parseJSONText "BillingMethod"
 
 data CurrencyCode =
-    Usd
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Usd
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CurrencyCode where
     parser = takeLowerText >>= \case
@@ -196,30 +206,37 @@ instance FromJSON CurrencyCode where
     parseJSON = parseJSONText "CurrencyCode"
 
 data DeviceAttribute
-    = ARN
-    | FormFactor
-    | Manufacturer
-    | Platform
-    | RemoteAccessEnabled
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ARN
+  | AppiumVersion
+  | FormFactor
+  | Manufacturer
+  | Platform
+  | RemoteAccessEnabled
+  | RemoteDebugEnabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeviceAttribute where
     parser = takeLowerText >>= \case
         "arn" -> pure ARN
+        "appium_version" -> pure AppiumVersion
         "form_factor" -> pure FormFactor
         "manufacturer" -> pure Manufacturer
         "platform" -> pure Platform
         "remote_access_enabled" -> pure RemoteAccessEnabled
+        "remote_debug_enabled" -> pure RemoteDebugEnabled
         e -> fromTextError $ "Failure parsing DeviceAttribute from value: '" <> e
-           <> "'. Accepted values: arn, form_factor, manufacturer, platform, remote_access_enabled"
+           <> "'. Accepted values: arn, appium_version, form_factor, manufacturer, platform, remote_access_enabled, remote_debug_enabled"
 
 instance ToText DeviceAttribute where
     toText = \case
         ARN -> "ARN"
+        AppiumVersion -> "APPIUM_VERSION"
         FormFactor -> "FORM_FACTOR"
         Manufacturer -> "MANUFACTURER"
         Platform -> "PLATFORM"
         RemoteAccessEnabled -> "REMOTE_ACCESS_ENABLED"
+        RemoteDebugEnabled -> "REMOTE_DEBUG_ENABLED"
 
 instance Hashable     DeviceAttribute
 instance NFData       DeviceAttribute
@@ -234,9 +251,10 @@ instance FromJSON DeviceAttribute where
     parseJSON = parseJSONText "DeviceAttribute"
 
 data DeviceFormFactor
-    = Phone
-    | Tablet
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Phone
+  | Tablet
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeviceFormFactor where
     parser = takeLowerText >>= \case
@@ -260,9 +278,10 @@ instance FromJSON DeviceFormFactor where
     parseJSON = parseJSONText "DeviceFormFactor"
 
 data DevicePlatform
-    = Android
-    | Ios
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Android
+  | Ios
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DevicePlatform where
     parser = takeLowerText >>= \case
@@ -286,21 +305,22 @@ instance FromJSON DevicePlatform where
     parseJSON = parseJSONText "DevicePlatform"
 
 data DevicePoolType
-    = Curated
-    | Private
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DPTCurated
+  | DPTPrivate
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DevicePoolType where
     parser = takeLowerText >>= \case
-        "curated" -> pure Curated
-        "private" -> pure Private
+        "curated" -> pure DPTCurated
+        "private" -> pure DPTPrivate
         e -> fromTextError $ "Failure parsing DevicePoolType from value: '" <> e
            <> "'. Accepted values: curated, private"
 
 instance ToText DevicePoolType where
     toText = \case
-        Curated -> "CURATED"
-        Private -> "PRIVATE"
+        DPTCurated -> "CURATED"
+        DPTPrivate -> "PRIVATE"
 
 instance Hashable     DevicePoolType
 instance NFData       DevicePoolType
@@ -315,14 +335,15 @@ instance FromJSON DevicePoolType where
     parseJSON = parseJSONText "DevicePoolType"
 
 data ExecutionResult
-    = ERErrored
-    | ERFailed
-    | ERPassed
-    | ERPending
-    | ERSkipped
-    | ERStopped
-    | ERWarned
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ERErrored
+  | ERFailed
+  | ERPassed
+  | ERPending
+  | ERSkipped
+  | ERStopped
+  | ERWarned
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ExecutionResult where
     parser = takeLowerText >>= \case
@@ -355,17 +376,42 @@ instance ToHeader     ExecutionResult
 instance FromJSON ExecutionResult where
     parseJSON = parseJSONText "ExecutionResult"
 
+data ExecutionResultCode =
+  ParsingFailed
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ExecutionResultCode where
+    parser = takeLowerText >>= \case
+        "parsing_failed" -> pure ParsingFailed
+        e -> fromTextError $ "Failure parsing ExecutionResultCode from value: '" <> e
+           <> "'. Accepted values: parsing_failed"
+
+instance ToText ExecutionResultCode where
+    toText = \case
+        ParsingFailed -> "PARSING_FAILED"
+
+instance Hashable     ExecutionResultCode
+instance NFData       ExecutionResultCode
+instance ToByteString ExecutionResultCode
+instance ToQuery      ExecutionResultCode
+instance ToHeader     ExecutionResultCode
+
+instance FromJSON ExecutionResultCode where
+    parseJSON = parseJSONText "ExecutionResultCode"
+
 data ExecutionStatus
-    = Completed
-    | Pending
-    | PendingConcurrency
-    | PendingDevice
-    | Preparing
-    | Processing
-    | Running
-    | Scheduling
-    | Stopping
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Completed
+  | Pending
+  | PendingConcurrency
+  | PendingDevice
+  | Preparing
+  | Processing
+  | Running
+  | Scheduling
+  | Stopping
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ExecutionStatus where
     parser = takeLowerText >>= \case
@@ -402,11 +448,42 @@ instance ToHeader     ExecutionStatus
 instance FromJSON ExecutionStatus where
     parseJSON = parseJSONText "ExecutionStatus"
 
+data NetworkProfileType
+  = Curated
+  | Private
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText NetworkProfileType where
+    parser = takeLowerText >>= \case
+        "curated" -> pure Curated
+        "private" -> pure Private
+        e -> fromTextError $ "Failure parsing NetworkProfileType from value: '" <> e
+           <> "'. Accepted values: curated, private"
+
+instance ToText NetworkProfileType where
+    toText = \case
+        Curated -> "CURATED"
+        Private -> "PRIVATE"
+
+instance Hashable     NetworkProfileType
+instance NFData       NetworkProfileType
+instance ToByteString NetworkProfileType
+instance ToQuery      NetworkProfileType
+instance ToHeader     NetworkProfileType
+
+instance ToJSON NetworkProfileType where
+    toJSON = toJSONText
+
+instance FromJSON NetworkProfileType where
+    parseJSON = parseJSONText "NetworkProfileType"
+
 data OfferingTransactionType
-    = Purchase
-    | Renew
-    | System
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Purchase
+  | Renew
+  | System
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OfferingTransactionType where
     parser = takeLowerText >>= \case
@@ -432,8 +509,9 @@ instance FromJSON OfferingTransactionType where
     parseJSON = parseJSONText "OfferingTransactionType"
 
 data OfferingType =
-    Recurring
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Recurring
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OfferingType where
     parser = takeLowerText >>= \case
@@ -455,8 +533,9 @@ instance FromJSON OfferingType where
     parseJSON = parseJSONText "OfferingType"
 
 data RecurringChargeFrequency =
-    Monthly
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Monthly
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RecurringChargeFrequency where
     parser = takeLowerText >>= \case
@@ -478,25 +557,29 @@ instance FromJSON RecurringChargeFrequency where
     parseJSON = parseJSONText "RecurringChargeFrequency"
 
 data RuleOperator
-    = Equals
-    | GreaterThan
-    | IN
-    | LessThan
-    | NotIn
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Contains
+  | Equals
+  | GreaterThan
+  | IN
+  | LessThan
+  | NotIn
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RuleOperator where
     parser = takeLowerText >>= \case
+        "contains" -> pure Contains
         "equals" -> pure Equals
         "greater_than" -> pure GreaterThan
         "in" -> pure IN
         "less_than" -> pure LessThan
         "not_in" -> pure NotIn
         e -> fromTextError $ "Failure parsing RuleOperator from value: '" <> e
-           <> "'. Accepted values: equals, greater_than, in, less_than, not_in"
+           <> "'. Accepted values: contains, equals, greater_than, in, less_than, not_in"
 
 instance ToText RuleOperator where
     toText = \case
+        Contains -> "CONTAINS"
         Equals -> "EQUALS"
         GreaterThan -> "GREATER_THAN"
         IN -> "IN"
@@ -516,24 +599,25 @@ instance FromJSON RuleOperator where
     parseJSON = parseJSONText "RuleOperator"
 
 data SampleType
-    = CPU
-    | Memory
-    | NativeAvgDrawtime
-    | NativeFps
-    | NativeFrames
-    | NativeMaxDrawtime
-    | NativeMinDrawtime
-    | OpenglAvgDrawtime
-    | OpenglFps
-    | OpenglFrames
-    | OpenglMaxDrawtime
-    | OpenglMinDrawtime
-    | RX
-    | RxRate
-    | TX
-    | Threads
-    | TxRate
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CPU
+  | Memory
+  | NativeAvgDrawtime
+  | NativeFps
+  | NativeFrames
+  | NativeMaxDrawtime
+  | NativeMinDrawtime
+  | OpenglAvgDrawtime
+  | OpenglFps
+  | OpenglFrames
+  | OpenglMaxDrawtime
+  | OpenglMinDrawtime
+  | RX
+  | RxRate
+  | TX
+  | Threads
+  | TxRate
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SampleType where
     parser = takeLowerText >>= \case
@@ -587,21 +671,22 @@ instance FromJSON SampleType where
     parseJSON = parseJSONText "SampleType"
 
 data TestType
-    = AppiumJavaJunit
-    | AppiumJavaTestng
-    | AppiumPython
-    | AppiumWebJavaJunit
-    | AppiumWebJavaTestng
-    | AppiumWebPython
-    | BuiltinExplorer
-    | BuiltinFuzz
-    | Calabash
-    | Instrumentation
-    | Uiautomation
-    | Uiautomator
-    | Xctest
-    | XctestUi
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AppiumJavaJunit
+  | AppiumJavaTestng
+  | AppiumPython
+  | AppiumWebJavaJunit
+  | AppiumWebJavaTestng
+  | AppiumWebPython
+  | BuiltinExplorer
+  | BuiltinFuzz
+  | Calabash
+  | Instrumentation
+  | Uiautomation
+  | Uiautomator
+  | Xctest
+  | XctestUi
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TestType where
     parser = takeLowerText >>= \case
@@ -652,11 +737,12 @@ instance FromJSON TestType where
     parseJSON = parseJSONText "TestType"
 
 data UploadStatus
-    = USFailed
-    | USInitialized
-    | USProcessing
-    | USSucceeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = USFailed
+  | USInitialized
+  | USProcessing
+  | USSucceeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText UploadStatus where
     parser = takeLowerText >>= \case
@@ -684,23 +770,24 @@ instance FromJSON UploadStatus where
     parseJSON = parseJSONText "UploadStatus"
 
 data UploadType
-    = AndroidApp
-    | AppiumJavaJunitTestPackage
-    | AppiumJavaTestngTestPackage
-    | AppiumPythonTestPackage
-    | AppiumWebJavaJunitTestPackage
-    | AppiumWebJavaTestngTestPackage
-    | AppiumWebPythonTestPackage
-    | CalabashTestPackage
-    | ExternalData
-    | InstrumentationTestPackage
-    | IosApp
-    | UiautomationTestPackage
-    | UiautomatorTestPackage
-    | WebApp
-    | XctestTestPackage
-    | XctestUiTestPackage
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AndroidApp
+  | AppiumJavaJunitTestPackage
+  | AppiumJavaTestngTestPackage
+  | AppiumPythonTestPackage
+  | AppiumWebJavaJunitTestPackage
+  | AppiumWebJavaTestngTestPackage
+  | AppiumWebPythonTestPackage
+  | CalabashTestPackage
+  | ExternalData
+  | InstrumentationTestPackage
+  | IosApp
+  | UiautomationTestPackage
+  | UiautomatorTestPackage
+  | WebApp
+  | XctestTestPackage
+  | XctestUiTestPackage
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText UploadType where
     parser = takeLowerText >>= \case

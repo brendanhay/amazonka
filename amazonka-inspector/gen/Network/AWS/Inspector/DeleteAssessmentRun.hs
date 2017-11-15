@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DeleteAssessmentRun
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the assessment run that is specified by the ARN of the assessment run.
+--
+--
 module Network.AWS.Inspector.DeleteAssessmentRun
     (
     -- * Creating a Request
@@ -32,30 +34,30 @@ module Network.AWS.Inspector.DeleteAssessmentRun
     , DeleteAssessmentRunResponse
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteAssessmentRun' smart constructor.
 newtype DeleteAssessmentRun = DeleteAssessmentRun'
-    { _darAssessmentRunARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _darAssessmentRunARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAssessmentRun' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darAssessmentRunARN'
+-- * 'darAssessmentRunARN' - The ARN that specifies the assessment run that you want to delete.
 deleteAssessmentRun
     :: Text -- ^ 'darAssessmentRunARN'
     -> DeleteAssessmentRun
 deleteAssessmentRun pAssessmentRunARN_ =
-    DeleteAssessmentRun'
-    { _darAssessmentRunARN = pAssessmentRunARN_
-    }
+  DeleteAssessmentRun' {_darAssessmentRunARN = pAssessmentRunARN_}
+
 
 -- | The ARN that specifies the assessment run that you want to delete.
 darAssessmentRunARN :: Lens' DeleteAssessmentRun Text
@@ -67,9 +69,9 @@ instance AWSRequest DeleteAssessmentRun where
         request = postJSON inspector
         response = receiveNull DeleteAssessmentRunResponse'
 
-instance Hashable DeleteAssessmentRun
+instance Hashable DeleteAssessmentRun where
 
-instance NFData DeleteAssessmentRun
+instance NFData DeleteAssessmentRun where
 
 instance ToHeaders DeleteAssessmentRun where
         toHeaders
@@ -95,8 +97,9 @@ instance ToQuery DeleteAssessmentRun where
 
 -- | /See:/ 'deleteAssessmentRunResponse' smart constructor.
 data DeleteAssessmentRunResponse =
-    DeleteAssessmentRunResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteAssessmentRunResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAssessmentRunResponse' with the minimum fields required to make a request.
 --
@@ -104,4 +107,5 @@ deleteAssessmentRunResponse
     :: DeleteAssessmentRunResponse
 deleteAssessmentRunResponse = DeleteAssessmentRunResponse'
 
-instance NFData DeleteAssessmentRunResponse
+
+instance NFData DeleteAssessmentRunResponse where

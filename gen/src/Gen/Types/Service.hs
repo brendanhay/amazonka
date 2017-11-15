@@ -1,3 +1,4 @@
+
 {-# LANGUAGE DataKinds              #-}
 {-# LANGUAGE DefaultSignatures      #-}
 {-# LANGUAGE DeriveFoldable         #-}
@@ -18,41 +19,44 @@
 {-# LANGUAGE TypeOperators          #-}
 
 -- Module      : Gen.Types.Service
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>44
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>44
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
 module Gen.Types.Service where
 
-import           Control.Comonad
-import           Control.Comonad.Cofree
-import           Control.Lens           hiding ((:<), List, (.=))
-import           Data.Aeson             hiding (Bool)
-import           Data.Bifunctor
-import qualified Data.HashMap.Strict    as Map
-import           Data.List              (nub)
-import           Data.Maybe
-import           Data.Text              (Text)
-import qualified Data.Text              as Text
-import           Gen.Text
-import           Gen.TH
-import           Gen.Types.Ann
-import           Gen.Types.Help
-import           Gen.Types.Id
-import           Gen.Types.Map
-import           Gen.Types.NS
-import           Gen.Types.Orphans      ()
-import           Gen.Types.Pager
-import           Gen.Types.Retry
-import           Gen.Types.URI
-import           Gen.Types.Waiter
-import           GHC.Generics           (Generic)
-import           Numeric.Natural
+import Control.Comonad
+import Control.Comonad.Cofree
+import Control.Lens           hiding ((:<), List, (.=))
+
+import Data.Aeson      hiding (Bool)
+import Data.Bifunctor
+import Data.List       (nub)
+import Data.Maybe
+import Data.Scientific (Scientific)
+import Data.Text       (Text)
+
+import Gen.Text
+import Gen.TH
+import Gen.Types.Ann
+import Gen.Types.Help
+import Gen.Types.Id
+import Gen.Types.Map
+import Gen.Types.NS
+import Gen.Types.Pager
+import Gen.Types.Retry
+import Gen.Types.URI
+import Gen.Types.Waiter
+
+import GHC.Generics (Generic)
+
+import qualified Data.HashMap.Strict as Map
+import qualified Data.Text           as Text
 
 makePrisms ''Identity
 
@@ -194,7 +198,7 @@ class HasRefs f where
 
 data ErrorInfo = ErrorInfo
     { _errCode        :: Maybe Text
-    , _errStatus      :: !Integer
+    , _errStatus      :: !Int
     , _errSenderFault :: !Bool
     } deriving (Show, Generic)
 
@@ -202,14 +206,14 @@ makeLenses ''ErrorInfo
 
 instance FromJSON ErrorInfo where
     parseJSON = withObject "error" $ \o -> ErrorInfo
-        <$> o .:? "code"
-        <*> o .:  "httpStatusCode"
-        <*> o .:? "senderFault" .!= False
+        <$>  o .:? "code"
+        <*> (o .:  "httpStatusCode" <&> parseStatusCode)
+        <*>  o .:? "senderFault" .!= False
 
 data Info = Info
     { _infoDocumentation :: Maybe Help
-    , _infoMin           :: Maybe Natural
-    , _infoMax           :: Maybe Natural
+    , _infoMin           :: Maybe Scientific
+    , _infoMax           :: Maybe Scientific
     , _infoFlattened     :: !Bool
     , _infoSensitive     :: !Bool
     , _infoStreaming     :: !Bool
@@ -361,7 +365,7 @@ data Operation f a b = Operation
     { _opName          :: Id
     , _opDocumentation :: f Help
     , _opDeprecated    :: !Bool
-    , _opHTTP          :: HTTP f
+    , _opHTTP          :: !HTTP
     , _opInput         :: f a
     , _opOutput        :: f a
     , _opPager         :: Maybe b
@@ -376,7 +380,7 @@ inputName, outputName :: HasId a => Operation Identity a b -> Id
 inputName  = identifier . view (opInput  . _Identity)
 outputName = identifier . view (opOutput . _Identity)
 
-instance HasHTTP (Operation f a b) f where
+instance HasHTTP (Operation f a b) where
     hTTP = opHTTP
 
 instance FromJSON (Operation Maybe (RefF ()) ()) where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeTargetHealth
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the health of the specified targets or all of your targets.
+--
+--
 module Network.AWS.ELBv2.DescribeTargetHealth
     (
     -- * Creating a Request
@@ -36,36 +38,34 @@ module Network.AWS.ELBv2.DescribeTargetHealth
     , dthrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for DescribeTargetHealth.
---
--- /See:/ 'describeTargetHealth' smart constructor.
+-- | /See:/ 'describeTargetHealth' smart constructor.
 data DescribeTargetHealth = DescribeTargetHealth'
-    { _dthTargets        :: !(Maybe [TargetDescription])
-    , _dthTargetGroupARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dthTargets        :: !(Maybe [TargetDescription])
+  , _dthTargetGroupARN :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTargetHealth' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dthTargets'
+-- * 'dthTargets' - The targets.
 --
--- * 'dthTargetGroupARN'
+-- * 'dthTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 describeTargetHealth
     :: Text -- ^ 'dthTargetGroupARN'
     -> DescribeTargetHealth
 describeTargetHealth pTargetGroupARN_ =
-    DescribeTargetHealth'
-    { _dthTargets = Nothing
-    , _dthTargetGroupARN = pTargetGroupARN_
-    }
+  DescribeTargetHealth'
+  {_dthTargets = Nothing, _dthTargetGroupARN = pTargetGroupARN_}
+
 
 -- | The targets.
 dthTargets :: Lens' DescribeTargetHealth [TargetDescription]
@@ -87,9 +87,9 @@ instance AWSRequest DescribeTargetHealth where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeTargetHealth
+instance Hashable DescribeTargetHealth where
 
-instance NFData DescribeTargetHealth
+instance NFData DescribeTargetHealth where
 
 instance ToHeaders DescribeTargetHealth where
         toHeaders = const mempty
@@ -106,36 +106,36 @@ instance ToQuery DescribeTargetHealth where
                  toQuery (toQueryList "member" <$> _dthTargets),
                "TargetGroupArn" =: _dthTargetGroupARN]
 
--- | Contains the output of DescribeTargetHealth.
---
--- /See:/ 'describeTargetHealthResponse' smart constructor.
+-- | /See:/ 'describeTargetHealthResponse' smart constructor.
 data DescribeTargetHealthResponse = DescribeTargetHealthResponse'
-    { _dthrsTargetHealthDescriptions :: !(Maybe [TargetHealthDescription])
-    , _dthrsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dthrsTargetHealthDescriptions :: !(Maybe [TargetHealthDescription])
+  , _dthrsResponseStatus           :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTargetHealthResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dthrsTargetHealthDescriptions'
+-- * 'dthrsTargetHealthDescriptions' - Information about the health of the targets.
 --
--- * 'dthrsResponseStatus'
+-- * 'dthrsResponseStatus' - -- | The response status code.
 describeTargetHealthResponse
     :: Int -- ^ 'dthrsResponseStatus'
     -> DescribeTargetHealthResponse
 describeTargetHealthResponse pResponseStatus_ =
-    DescribeTargetHealthResponse'
-    { _dthrsTargetHealthDescriptions = Nothing
-    , _dthrsResponseStatus = pResponseStatus_
-    }
+  DescribeTargetHealthResponse'
+  { _dthrsTargetHealthDescriptions = Nothing
+  , _dthrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the health of the targets.
 dthrsTargetHealthDescriptions :: Lens' DescribeTargetHealthResponse [TargetHealthDescription]
 dthrsTargetHealthDescriptions = lens _dthrsTargetHealthDescriptions (\ s a -> s{_dthrsTargetHealthDescriptions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dthrsResponseStatus :: Lens' DescribeTargetHealthResponse Int
 dthrsResponseStatus = lens _dthrsResponseStatus (\ s a -> s{_dthrsResponseStatus = a});
 
-instance NFData DescribeTargetHealthResponse
+instance NFData DescribeTargetHealthResponse where

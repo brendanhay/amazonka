@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminRespondToAuthChallenge
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Responds to an authentication challenge, as an administrator.
+--
+--
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminRespondToAuthChallenge
     (
     -- * Creating a Request
@@ -42,56 +46,60 @@ module Network.AWS.CognitoIdentityProvider.AdminRespondToAuthChallenge
     , artacrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to respond to the authentication challenge, as an administrator.
 --
+--
+--
 -- /See:/ 'adminRespondToAuthChallenge' smart constructor.
 data AdminRespondToAuthChallenge = AdminRespondToAuthChallenge'
-    { _artacChallengeResponses :: !(Maybe (Map Text Text))
-    , _artacSession            :: !(Maybe Text)
-    , _artacUserPoolId         :: !Text
-    , _artacClientId           :: !(Sensitive Text)
-    , _artacChallengeName      :: !ChallengeNameType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _artacChallengeResponses :: !(Maybe (Map Text Text))
+  , _artacSession            :: !(Maybe Text)
+  , _artacUserPoolId         :: !Text
+  , _artacClientId           :: !(Sensitive Text)
+  , _artacChallengeName      :: !ChallengeNameType
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminRespondToAuthChallenge' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'artacChallengeResponses'
+-- * 'artacChallengeResponses' - The challenge responses. These are inputs corresponding to the value of @ChallengeName@ , for example:     * @SMS_MFA@ : @SMS_MFA_CODE@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).     * @PASSWORD_VERIFIER@ : @PASSWORD_CLAIM_SIGNATURE@ , @PASSWORD_CLAIM_SECRET_BLOCK@ , @TIMESTAMP@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).     * @ADMIN_NO_SRP_AUTH@ : @PASSWORD@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).      * @NEW_PASSWORD_REQUIRED@ : @NEW_PASSWORD@ , any other required attributes, @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).  The value of the @USERNAME@ attribute must be the user's actual username, not an alias (such as email address or phone number). To make this easier, the @AdminInitiateAuth@ response includes the actual username value in the @USERNAMEUSER_ID_FOR_SRP@ attribute, even if you specified an alias in your call to @AdminInitiateAuth@ .
 --
--- * 'artacSession'
+-- * 'artacSession' - The session which should be passed both ways in challenge-response calls to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
 --
--- * 'artacUserPoolId'
+-- * 'artacUserPoolId' - The ID of the Amazon Cognito user pool.
 --
--- * 'artacClientId'
+-- * 'artacClientId' - The app client ID.
 --
--- * 'artacChallengeName'
+-- * 'artacChallengeName' - The challenge name. For more information, see <API_AdminInitiateAuth.html AdminInitiateAuth> .
 adminRespondToAuthChallenge
     :: Text -- ^ 'artacUserPoolId'
     -> Text -- ^ 'artacClientId'
     -> ChallengeNameType -- ^ 'artacChallengeName'
     -> AdminRespondToAuthChallenge
 adminRespondToAuthChallenge pUserPoolId_ pClientId_ pChallengeName_ =
-    AdminRespondToAuthChallenge'
-    { _artacChallengeResponses = Nothing
-    , _artacSession = Nothing
-    , _artacUserPoolId = pUserPoolId_
-    , _artacClientId = _Sensitive # pClientId_
-    , _artacChallengeName = pChallengeName_
-    }
+  AdminRespondToAuthChallenge'
+  { _artacChallengeResponses = Nothing
+  , _artacSession = Nothing
+  , _artacUserPoolId = pUserPoolId_
+  , _artacClientId = _Sensitive # pClientId_
+  , _artacChallengeName = pChallengeName_
+  }
 
--- | The challenge response.
+
+-- | The challenge responses. These are inputs corresponding to the value of @ChallengeName@ , for example:     * @SMS_MFA@ : @SMS_MFA_CODE@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).     * @PASSWORD_VERIFIER@ : @PASSWORD_CLAIM_SIGNATURE@ , @PASSWORD_CLAIM_SECRET_BLOCK@ , @TIMESTAMP@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).     * @ADMIN_NO_SRP_AUTH@ : @PASSWORD@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).      * @NEW_PASSWORD_REQUIRED@ : @NEW_PASSWORD@ , any other required attributes, @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).  The value of the @USERNAME@ attribute must be the user's actual username, not an alias (such as email address or phone number). To make this easier, the @AdminInitiateAuth@ response includes the actual username value in the @USERNAMEUSER_ID_FOR_SRP@ attribute, even if you specified an alias in your call to @AdminInitiateAuth@ .
 artacChallengeResponses :: Lens' AdminRespondToAuthChallenge (HashMap Text Text)
 artacChallengeResponses = lens _artacChallengeResponses (\ s a -> s{_artacChallengeResponses = a}) . _Default . _Map;
 
--- | The session.
+-- | The session which should be passed both ways in challenge-response calls to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
 artacSession :: Lens' AdminRespondToAuthChallenge (Maybe Text)
 artacSession = lens _artacSession (\ s a -> s{_artacSession = a});
 
@@ -99,11 +107,11 @@ artacSession = lens _artacSession (\ s a -> s{_artacSession = a});
 artacUserPoolId :: Lens' AdminRespondToAuthChallenge Text
 artacUserPoolId = lens _artacUserPoolId (\ s a -> s{_artacUserPoolId = a});
 
--- | The client ID.
+-- | The app client ID.
 artacClientId :: Lens' AdminRespondToAuthChallenge Text
 artacClientId = lens _artacClientId (\ s a -> s{_artacClientId = a}) . _Sensitive;
 
--- | The name of the challenge.
+-- | The challenge name. For more information, see <API_AdminInitiateAuth.html AdminInitiateAuth> .
 artacChallengeName :: Lens' AdminRespondToAuthChallenge ChallengeNameType
 artacChallengeName = lens _artacChallengeName (\ s a -> s{_artacChallengeName = a});
 
@@ -121,9 +129,9 @@ instance AWSRequest AdminRespondToAuthChallenge where
                      <*> (x .?> "Session")
                      <*> (pure (fromEnum s)))
 
-instance Hashable AdminRespondToAuthChallenge
+instance Hashable AdminRespondToAuthChallenge where
 
-instance NFData AdminRespondToAuthChallenge
+instance NFData AdminRespondToAuthChallenge where
 
 instance ToHeaders AdminRespondToAuthChallenge where
         toHeaders
@@ -154,58 +162,63 @@ instance ToQuery AdminRespondToAuthChallenge where
 
 -- | Responds to the authentication challenge, as an administrator.
 --
+--
+--
 -- /See:/ 'adminRespondToAuthChallengeResponse' smart constructor.
 data AdminRespondToAuthChallengeResponse = AdminRespondToAuthChallengeResponse'
-    { _artacrsChallengeName        :: !(Maybe ChallengeNameType)
-    , _artacrsChallengeParameters  :: !(Maybe (Map Text Text))
-    , _artacrsAuthenticationResult :: !(Maybe AuthenticationResultType)
-    , _artacrsSession              :: !(Maybe Text)
-    , _artacrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _artacrsChallengeName        :: !(Maybe ChallengeNameType)
+  , _artacrsChallengeParameters  :: !(Maybe (Map Text Text))
+  , _artacrsAuthenticationResult :: !(Maybe AuthenticationResultType)
+  , _artacrsSession              :: !(Maybe Text)
+  , _artacrsResponseStatus       :: !Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminRespondToAuthChallengeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'artacrsChallengeName'
+-- * 'artacrsChallengeName' - The name of the challenge. For more information, see <API_AdminInitiateAuth.html AdminInitiateAuth> .
 --
--- * 'artacrsChallengeParameters'
+-- * 'artacrsChallengeParameters' - The challenge parameters. For more information, see <API_AdminInitiateAuth.html AdminInitiateAuth> .
 --
--- * 'artacrsAuthenticationResult'
+-- * 'artacrsAuthenticationResult' - The result returned by the server in response to the authentication request.
 --
--- * 'artacrsSession'
+-- * 'artacrsSession' - The session which should be passed both ways in challenge-response calls to the service. If the <API_InitiateAuth.html InitiateAuth> or <API_RespondToAuthChallenge.html RespondToAuthChallenge> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
 --
--- * 'artacrsResponseStatus'
+-- * 'artacrsResponseStatus' - -- | The response status code.
 adminRespondToAuthChallengeResponse
     :: Int -- ^ 'artacrsResponseStatus'
     -> AdminRespondToAuthChallengeResponse
 adminRespondToAuthChallengeResponse pResponseStatus_ =
-    AdminRespondToAuthChallengeResponse'
-    { _artacrsChallengeName = Nothing
-    , _artacrsChallengeParameters = Nothing
-    , _artacrsAuthenticationResult = Nothing
-    , _artacrsSession = Nothing
-    , _artacrsResponseStatus = pResponseStatus_
-    }
+  AdminRespondToAuthChallengeResponse'
+  { _artacrsChallengeName = Nothing
+  , _artacrsChallengeParameters = Nothing
+  , _artacrsAuthenticationResult = Nothing
+  , _artacrsSession = Nothing
+  , _artacrsResponseStatus = pResponseStatus_
+  }
 
--- | The name of the challenge.
+
+-- | The name of the challenge. For more information, see <API_AdminInitiateAuth.html AdminInitiateAuth> .
 artacrsChallengeName :: Lens' AdminRespondToAuthChallengeResponse (Maybe ChallengeNameType)
 artacrsChallengeName = lens _artacrsChallengeName (\ s a -> s{_artacrsChallengeName = a});
 
--- | The challenge parameters.
+-- | The challenge parameters. For more information, see <API_AdminInitiateAuth.html AdminInitiateAuth> .
 artacrsChallengeParameters :: Lens' AdminRespondToAuthChallengeResponse (HashMap Text Text)
 artacrsChallengeParameters = lens _artacrsChallengeParameters (\ s a -> s{_artacrsChallengeParameters = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The result returned by the server in response to the authentication request.
 artacrsAuthenticationResult :: Lens' AdminRespondToAuthChallengeResponse (Maybe AuthenticationResultType)
 artacrsAuthenticationResult = lens _artacrsAuthenticationResult (\ s a -> s{_artacrsAuthenticationResult = a});
 
--- | The session.
+-- | The session which should be passed both ways in challenge-response calls to the service. If the <API_InitiateAuth.html InitiateAuth> or <API_RespondToAuthChallenge.html RespondToAuthChallenge> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
 artacrsSession :: Lens' AdminRespondToAuthChallengeResponse (Maybe Text)
 artacrsSession = lens _artacrsSession (\ s a -> s{_artacrsSession = a});
 
--- | The response status code.
+-- | -- | The response status code.
 artacrsResponseStatus :: Lens' AdminRespondToAuthChallengeResponse Int
 artacrsResponseStatus = lens _artacrsResponseStatus (\ s a -> s{_artacrsResponseStatus = a});
 
 instance NFData AdminRespondToAuthChallengeResponse
+         where

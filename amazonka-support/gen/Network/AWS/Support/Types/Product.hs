@@ -9,48 +9,42 @@
 
 -- |
 -- Module      : Network.AWS.Support.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Support.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Support.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Support.Types.Sum
 
 -- | An attachment to a case communication. The attachment consists of the file name and the content of the file.
 --
+--
+--
 -- /See:/ 'attachment' smart constructor.
 data Attachment = Attachment'
-    { _aData     :: !(Maybe Base64)
-    , _aFileName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aData     :: !(Maybe Base64)
+  , _aFileName :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Attachment' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aData'
+-- * 'aData' - The content of the attachment file.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'aFileName'
+-- * 'aFileName' - The name of the attachment file.
 attachment
     :: Attachment
-attachment =
-    Attachment'
-    { _aData = Nothing
-    , _aFileName = Nothing
-    }
+attachment = Attachment' {_aData = Nothing, _aFileName = Nothing}
 
--- | The content of the attachment file.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+
+-- | The content of the attachment file.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 aData :: Lens' Attachment (Maybe ByteString)
 aData = lens _aData (\ s a -> s{_aData = a}) . mapping _Base64;
 
@@ -65,9 +59,9 @@ instance FromJSON Attachment where
                  Attachment' <$>
                    (x .:? "data") <*> (x .:? "fileName"))
 
-instance Hashable Attachment
+instance Hashable Attachment where
 
-instance NFData Attachment
+instance NFData Attachment where
 
 instance ToJSON Attachment where
         toJSON Attachment'{..}
@@ -76,28 +70,29 @@ instance ToJSON Attachment where
                  [("data" .=) <$> _aData,
                   ("fileName" .=) <$> _aFileName])
 
--- | The file name and ID of an attachment to a case communication. You can use the ID to retrieve the attachment with the < DescribeAttachment> operation.
+-- | The file name and ID of an attachment to a case communication. You can use the ID to retrieve the attachment with the 'DescribeAttachment' operation.
+--
+--
 --
 -- /See:/ 'attachmentDetails' smart constructor.
 data AttachmentDetails = AttachmentDetails'
-    { _adAttachmentId :: !(Maybe Text)
-    , _adFileName     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _adAttachmentId :: !(Maybe Text)
+  , _adFileName     :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachmentDetails' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'adAttachmentId'
+-- * 'adAttachmentId' - The ID of the attachment.
 --
--- * 'adFileName'
+-- * 'adFileName' - The file name of the attachment.
 attachmentDetails
     :: AttachmentDetails
 attachmentDetails =
-    AttachmentDetails'
-    { _adAttachmentId = Nothing
-    , _adFileName = Nothing
-    }
+  AttachmentDetails' {_adAttachmentId = Nothing, _adFileName = Nothing}
+
 
 -- | The ID of the attachment.
 adAttachmentId :: Lens' AttachmentDetails (Maybe Text)
@@ -114,97 +109,102 @@ instance FromJSON AttachmentDetails where
                  AttachmentDetails' <$>
                    (x .:? "attachmentId") <*> (x .:? "fileName"))
 
-instance Hashable AttachmentDetails
+instance Hashable AttachmentDetails where
 
-instance NFData AttachmentDetails
+instance NFData AttachmentDetails where
 
--- | A JSON-formatted object that contains the metadata for a support case. It is contained the response from a < DescribeCases> request. __CaseDetails__ contains the following fields:
+-- | A JSON-formatted object that contains the metadata for a support case. It is contained the response from a 'DescribeCases' request. __CaseDetails__ contains the following fields:
 --
--- -   __caseId.__ The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/.
 --
--- -   __categoryCode.__ The category of problem for the AWS Support case. Corresponds to the CategoryCode values returned by a call to < DescribeServices>.
+--     * __caseId.__ The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/ .
 --
--- -   __displayId.__ The identifier for the case on pages in the AWS Support Center.
+--     * __categoryCode.__ The category of problem for the AWS Support case. Corresponds to the CategoryCode values returned by a call to 'DescribeServices' .
 --
--- -   __language.__ The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
+--     * __displayId.__ The identifier for the case on pages in the AWS Support Center.
 --
--- -   __recentCommunications.__ One or more < Communication> objects. Fields of these objects are 'attachments', 'body', 'caseId', 'submittedBy', and 'timeCreated'.
+--     * __language.__ The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 --
--- -   __nextToken.__ A resumption point for pagination.
+--     * __recentCommunications.__ One or more 'Communication' objects. Fields of these objects are @attachments@ , @body@ , @caseId@ , @submittedBy@ , and @timeCreated@ .
 --
--- -   __serviceCode.__ The identifier for the AWS service that corresponds to the service code defined in the call to < DescribeServices>.
+--     * __nextToken.__ A resumption point for pagination.
 --
--- -   __severityCode.__ The severity code assigned to the case. Contains one of the values returned by the call to < DescribeSeverityLevels>.
+--     * __serviceCode.__ The identifier for the AWS service that corresponds to the service code defined in the call to 'DescribeServices' .
 --
--- -   __status.__ The status of the case in the AWS Support Center.
+--     * __severityCode. __ The severity code assigned to the case. Contains one of the values returned by the call to 'DescribeSeverityLevels' .
 --
--- -   __subject.__ The subject line of the case.
+--     * __status.__ The status of the case in the AWS Support Center.
 --
--- -   __submittedBy.__ The email address of the account that submitted the case.
+--     * __subject.__ The subject line of the case.
 --
--- -   __timeCreated.__ The time the case was created, in ISO-8601 format.
+--     * __submittedBy.__ The email address of the account that submitted the case.
+--
+--     * __timeCreated.__ The time the case was created, in ISO-8601 format.
+--
+--
 --
 --
 -- /See:/ 'caseDetails' smart constructor.
 data CaseDetails = CaseDetails'
-    { _cdSubject              :: !(Maybe Text)
-    , _cdStatus               :: !(Maybe Text)
-    , _cdRecentCommunications :: !(Maybe RecentCaseCommunications)
-    , _cdSeverityCode         :: !(Maybe Text)
-    , _cdCaseId               :: !(Maybe Text)
-    , _cdCcEmailAddresses     :: !(Maybe [Text])
-    , _cdDisplayId            :: !(Maybe Text)
-    , _cdSubmittedBy          :: !(Maybe Text)
-    , _cdLanguage             :: !(Maybe Text)
-    , _cdTimeCreated          :: !(Maybe Text)
-    , _cdCategoryCode         :: !(Maybe Text)
-    , _cdServiceCode          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdSubject              :: !(Maybe Text)
+  , _cdStatus               :: !(Maybe Text)
+  , _cdRecentCommunications :: !(Maybe RecentCaseCommunications)
+  , _cdSeverityCode         :: !(Maybe Text)
+  , _cdCaseId               :: !(Maybe Text)
+  , _cdCcEmailAddresses     :: !(Maybe [Text])
+  , _cdDisplayId            :: !(Maybe Text)
+  , _cdSubmittedBy          :: !(Maybe Text)
+  , _cdLanguage             :: !(Maybe Text)
+  , _cdTimeCreated          :: !(Maybe Text)
+  , _cdCategoryCode         :: !(Maybe Text)
+  , _cdServiceCode          :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CaseDetails' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdSubject'
+-- * 'cdSubject' - The subject line for the case in the AWS Support Center.
 --
--- * 'cdStatus'
+-- * 'cdStatus' - The status of the case.
 --
--- * 'cdRecentCommunications'
+-- * 'cdRecentCommunications' - The five most recent communications between you and AWS Support Center, including the IDs of any attachments to the communications. Also includes a @nextToken@ that you can use to retrieve earlier communications.
 --
--- * 'cdSeverityCode'
+-- * 'cdSeverityCode' - The code for the severity level returned by the call to 'DescribeSeverityLevels' .
 --
--- * 'cdCaseId'
+-- * 'cdCaseId' - The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 --
--- * 'cdCcEmailAddresses'
+-- * 'cdCcEmailAddresses' - The email addresses that receive copies of communication about the case.
 --
--- * 'cdDisplayId'
+-- * 'cdDisplayId' - The ID displayed for the case in the AWS Support Center. This is a numeric string.
 --
--- * 'cdSubmittedBy'
+-- * 'cdSubmittedBy' - The email address of the account that submitted the case.
 --
--- * 'cdLanguage'
+-- * 'cdLanguage' - The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 --
--- * 'cdTimeCreated'
+-- * 'cdTimeCreated' - The time that the case was case created in the AWS Support Center.
 --
--- * 'cdCategoryCode'
+-- * 'cdCategoryCode' - The category of problem for the AWS Support case.
 --
--- * 'cdServiceCode'
+-- * 'cdServiceCode' - The code for the AWS service returned by the call to 'DescribeServices' .
 caseDetails
     :: CaseDetails
 caseDetails =
-    CaseDetails'
-    { _cdSubject = Nothing
-    , _cdStatus = Nothing
-    , _cdRecentCommunications = Nothing
-    , _cdSeverityCode = Nothing
-    , _cdCaseId = Nothing
-    , _cdCcEmailAddresses = Nothing
-    , _cdDisplayId = Nothing
-    , _cdSubmittedBy = Nothing
-    , _cdLanguage = Nothing
-    , _cdTimeCreated = Nothing
-    , _cdCategoryCode = Nothing
-    , _cdServiceCode = Nothing
-    }
+  CaseDetails'
+  { _cdSubject = Nothing
+  , _cdStatus = Nothing
+  , _cdRecentCommunications = Nothing
+  , _cdSeverityCode = Nothing
+  , _cdCaseId = Nothing
+  , _cdCcEmailAddresses = Nothing
+  , _cdDisplayId = Nothing
+  , _cdSubmittedBy = Nothing
+  , _cdLanguage = Nothing
+  , _cdTimeCreated = Nothing
+  , _cdCategoryCode = Nothing
+  , _cdServiceCode = Nothing
+  }
+
 
 -- | The subject line for the case in the AWS Support Center.
 cdSubject :: Lens' CaseDetails (Maybe Text)
@@ -214,11 +214,11 @@ cdSubject = lens _cdSubject (\ s a -> s{_cdSubject = a});
 cdStatus :: Lens' CaseDetails (Maybe Text)
 cdStatus = lens _cdStatus (\ s a -> s{_cdStatus = a});
 
--- | The five most recent communications between you and AWS Support Center, including the IDs of any attachments to the communications. Also includes a 'nextToken' that you can use to retrieve earlier communications.
+-- | The five most recent communications between you and AWS Support Center, including the IDs of any attachments to the communications. Also includes a @nextToken@ that you can use to retrieve earlier communications.
 cdRecentCommunications :: Lens' CaseDetails (Maybe RecentCaseCommunications)
 cdRecentCommunications = lens _cdRecentCommunications (\ s a -> s{_cdRecentCommunications = a});
 
--- | The code for the severity level returned by the call to < DescribeSeverityLevels>.
+-- | The code for the severity level returned by the call to 'DescribeSeverityLevels' .
 cdSeverityCode :: Lens' CaseDetails (Maybe Text)
 cdSeverityCode = lens _cdSeverityCode (\ s a -> s{_cdSeverityCode = a});
 
@@ -238,7 +238,7 @@ cdDisplayId = lens _cdDisplayId (\ s a -> s{_cdDisplayId = a});
 cdSubmittedBy :: Lens' CaseDetails (Maybe Text)
 cdSubmittedBy = lens _cdSubmittedBy (\ s a -> s{_cdSubmittedBy = a});
 
--- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
+-- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 cdLanguage :: Lens' CaseDetails (Maybe Text)
 cdLanguage = lens _cdLanguage (\ s a -> s{_cdLanguage = a});
 
@@ -250,7 +250,7 @@ cdTimeCreated = lens _cdTimeCreated (\ s a -> s{_cdTimeCreated = a});
 cdCategoryCode :: Lens' CaseDetails (Maybe Text)
 cdCategoryCode = lens _cdCategoryCode (\ s a -> s{_cdCategoryCode = a});
 
--- | The code for the AWS service returned by the call to < DescribeServices>.
+-- | The code for the AWS service returned by the call to 'DescribeServices' .
 cdServiceCode :: Lens' CaseDetails (Maybe Text)
 cdServiceCode = lens _cdServiceCode (\ s a -> s{_cdServiceCode = a});
 
@@ -271,32 +271,32 @@ instance FromJSON CaseDetails where
                      <*> (x .:? "categoryCode")
                      <*> (x .:? "serviceCode"))
 
-instance Hashable CaseDetails
+instance Hashable CaseDetails where
 
-instance NFData CaseDetails
+instance NFData CaseDetails where
 
--- | A JSON-formatted name\/value pair that represents the category name and category code of the problem, selected from the < DescribeServices> response for each AWS service.
+-- | A JSON-formatted name/value pair that represents the category name and category code of the problem, selected from the 'DescribeServices' response for each AWS service.
+--
+--
 --
 -- /See:/ 'category' smart constructor.
 data Category = Category'
-    { _cName :: !(Maybe Text)
-    , _cCode :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cName :: !(Maybe Text)
+  , _cCode :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Category' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cName'
+-- * 'cName' - The category name for the support case.
 --
--- * 'cCode'
+-- * 'cCode' - The category code for the support case.
 category
     :: Category
-category =
-    Category'
-    { _cName = Nothing
-    , _cCode = Nothing
-    }
+category = Category' {_cName = Nothing, _cCode = Nothing}
+
 
 -- | The category name for the support case.
 cName :: Lens' Category (Maybe Text)
@@ -312,44 +312,48 @@ instance FromJSON Category where
               (\ x ->
                  Category' <$> (x .:? "name") <*> (x .:? "code"))
 
-instance Hashable Category
+instance Hashable Category where
 
-instance NFData Category
+instance NFData Category where
 
 -- | A communication associated with an AWS Support case. The communication consists of the case ID, the message body, attachment information, the account email address, and the date and time of the communication.
 --
+--
+--
 -- /See:/ 'communication' smart constructor.
 data Communication = Communication'
-    { _cBody          :: !(Maybe Text)
-    , _cCaseId        :: !(Maybe Text)
-    , _cSubmittedBy   :: !(Maybe Text)
-    , _cTimeCreated   :: !(Maybe Text)
-    , _cAttachmentSet :: !(Maybe [AttachmentDetails])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cBody          :: !(Maybe Text)
+  , _cCaseId        :: !(Maybe Text)
+  , _cSubmittedBy   :: !(Maybe Text)
+  , _cTimeCreated   :: !(Maybe Text)
+  , _cAttachmentSet :: !(Maybe [AttachmentDetails])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Communication' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cBody'
+-- * 'cBody' - The text of the communication between the customer and AWS Support.
 --
--- * 'cCaseId'
+-- * 'cCaseId' - The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 --
--- * 'cSubmittedBy'
+-- * 'cSubmittedBy' - The email address of the account that submitted the AWS Support case.
 --
--- * 'cTimeCreated'
+-- * 'cTimeCreated' - The time the communication was created.
 --
--- * 'cAttachmentSet'
+-- * 'cAttachmentSet' - Information about the attachments to the case communication.
 communication
     :: Communication
 communication =
-    Communication'
-    { _cBody = Nothing
-    , _cCaseId = Nothing
-    , _cSubmittedBy = Nothing
-    , _cTimeCreated = Nothing
-    , _cAttachmentSet = Nothing
-    }
+  Communication'
+  { _cBody = Nothing
+  , _cCaseId = Nothing
+  , _cSubmittedBy = Nothing
+  , _cTimeCreated = Nothing
+  , _cAttachmentSet = Nothing
+  }
+
 
 -- | The text of the communication between the customer and AWS Support.
 cBody :: Lens' Communication (Maybe Text)
@@ -381,32 +385,34 @@ instance FromJSON Communication where
                      <*> (x .:? "timeCreated")
                      <*> (x .:? "attachmentSet" .!= mempty))
 
-instance Hashable Communication
+instance Hashable Communication where
 
-instance NFData Communication
+instance NFData Communication where
 
 -- | The five most recent communications associated with the case.
 --
+--
+--
 -- /See:/ 'recentCaseCommunications' smart constructor.
 data RecentCaseCommunications = RecentCaseCommunications'
-    { _rccNextToken      :: !(Maybe Text)
-    , _rccCommunications :: !(Maybe [Communication])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rccNextToken      :: !(Maybe Text)
+  , _rccCommunications :: !(Maybe [Communication])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecentCaseCommunications' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rccNextToken'
+-- * 'rccNextToken' - A resumption point for pagination.
 --
--- * 'rccCommunications'
+-- * 'rccCommunications' - The five most recent communications associated with the case.
 recentCaseCommunications
     :: RecentCaseCommunications
 recentCaseCommunications =
-    RecentCaseCommunications'
-    { _rccNextToken = Nothing
-    , _rccCommunications = Nothing
-    }
+  RecentCaseCommunications'
+  {_rccNextToken = Nothing, _rccCommunications = Nothing}
+
 
 -- | A resumption point for pagination.
 rccNextToken :: Lens' RecentCaseCommunications (Maybe Text)
@@ -424,38 +430,38 @@ instance FromJSON RecentCaseCommunications where
                    (x .:? "nextToken") <*>
                      (x .:? "communications" .!= mempty))
 
-instance Hashable RecentCaseCommunications
+instance Hashable RecentCaseCommunications where
 
-instance NFData RecentCaseCommunications
+instance NFData RecentCaseCommunications where
 
 -- | A code and name pair that represent a severity level that can be applied to a support case.
 --
+--
+--
 -- /See:/ 'severityLevel' smart constructor.
 data SeverityLevel = SeverityLevel'
-    { _slName :: !(Maybe Text)
-    , _slCode :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _slName :: !(Maybe Text)
+  , _slCode :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SeverityLevel' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slName'
+-- * 'slName' - The name of the severity level that corresponds to the severity level code.
 --
--- * 'slCode'
+-- * 'slCode' - One of four values: "low," "medium," "high," and "urgent". These values correspond to response times returned to the caller in @severityLevel.name@ .
 severityLevel
     :: SeverityLevel
-severityLevel =
-    SeverityLevel'
-    { _slName = Nothing
-    , _slCode = Nothing
-    }
+severityLevel = SeverityLevel' {_slName = Nothing, _slCode = Nothing}
+
 
 -- | The name of the severity level that corresponds to the severity level code.
 slName :: Lens' SeverityLevel (Maybe Text)
 slName = lens _slName (\ s a -> s{_slName = a});
 
--- | One of four values: \"low,\" \"medium,\" \"high,\" and \"urgent\". These values correspond to response times returned to the caller in 'severityLevel.name'.
+-- | One of four values: "low," "medium," "high," and "urgent". These values correspond to response times returned to the caller in @severityLevel.name@ .
 slCode :: Lens' SeverityLevel (Maybe Text)
 slCode = lens _slCode (\ s a -> s{_slCode = a});
 
@@ -465,46 +471,47 @@ instance FromJSON SeverityLevel where
               (\ x ->
                  SeverityLevel' <$> (x .:? "name") <*> (x .:? "code"))
 
-instance Hashable SeverityLevel
+instance Hashable SeverityLevel where
 
-instance NFData SeverityLevel
+instance NFData SeverityLevel where
 
--- | Information about an AWS service returned by the < DescribeServices> operation.
+-- | Information about an AWS service returned by the 'DescribeServices' operation.
+--
+--
 --
 -- /See:/ 'supportService' smart constructor.
 data SupportService = SupportService'
-    { _ssCategories :: !(Maybe [Category])
-    , _ssName       :: !(Maybe Text)
-    , _ssCode       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssCategories :: !(Maybe [Category])
+  , _ssName       :: !(Maybe Text)
+  , _ssCode       :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SupportService' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssCategories'
+-- * 'ssCategories' - A list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call 'CreateCase' .
 --
--- * 'ssName'
+-- * 'ssName' - The friendly name for an AWS service. The @code@ element contains the corresponding code.
 --
--- * 'ssCode'
+-- * 'ssCode' - The code for an AWS service returned by the 'DescribeServices' response. The @name@ element contains the corresponding friendly name.
 supportService
     :: SupportService
 supportService =
-    SupportService'
-    { _ssCategories = Nothing
-    , _ssName = Nothing
-    , _ssCode = Nothing
-    }
+  SupportService'
+  {_ssCategories = Nothing, _ssName = Nothing, _ssCode = Nothing}
 
--- | A list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call < CreateCase>.
+
+-- | A list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call 'CreateCase' .
 ssCategories :: Lens' SupportService [Category]
 ssCategories = lens _ssCategories (\ s a -> s{_ssCategories = a}) . _Default . _Coerce;
 
--- | The friendly name for an AWS service. The 'code' element contains the corresponding code.
+-- | The friendly name for an AWS service. The @code@ element contains the corresponding code.
 ssName :: Lens' SupportService (Maybe Text)
 ssName = lens _ssName (\ s a -> s{_ssName = a});
 
--- | The code for an AWS service returned by the < DescribeServices> response. The 'name' element contains the corresponding friendly name.
+-- | The code for an AWS service returned by the 'DescribeServices' response. The @name@ element contains the corresponding friendly name.
 ssCode :: Lens' SupportService (Maybe Text)
 ssCode = lens _ssCode (\ s a -> s{_ssCode = a});
 
@@ -516,35 +523,38 @@ instance FromJSON SupportService where
                    (x .:? "categories" .!= mempty) <*> (x .:? "name")
                      <*> (x .:? "code"))
 
-instance Hashable SupportService
+instance Hashable SupportService where
 
-instance NFData SupportService
+instance NFData SupportService where
 
 -- | The container for summary information that relates to the category of the Trusted Advisor check.
 --
+--
+--
 -- /See:/ 'trustedAdvisorCategorySpecificSummary' smart constructor.
 newtype TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary'
-    { _tacssCostOptimizing :: Maybe TrustedAdvisorCostOptimizingSummary
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tacssCostOptimizing :: Maybe TrustedAdvisorCostOptimizingSummary
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TrustedAdvisorCategorySpecificSummary' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tacssCostOptimizing'
+-- * 'tacssCostOptimizing' - The summary information about cost savings for a Trusted Advisor check that is in the Cost Optimizing category.
 trustedAdvisorCategorySpecificSummary
     :: TrustedAdvisorCategorySpecificSummary
 trustedAdvisorCategorySpecificSummary =
-    TrustedAdvisorCategorySpecificSummary'
-    { _tacssCostOptimizing = Nothing
-    }
+  TrustedAdvisorCategorySpecificSummary' {_tacssCostOptimizing = Nothing}
+
 
 -- | The summary information about cost savings for a Trusted Advisor check that is in the Cost Optimizing category.
 tacssCostOptimizing :: Lens' TrustedAdvisorCategorySpecificSummary (Maybe TrustedAdvisorCostOptimizingSummary)
 tacssCostOptimizing = lens _tacssCostOptimizing (\ s a -> s{_tacssCostOptimizing = a});
 
 instance FromJSON
-         TrustedAdvisorCategorySpecificSummary where
+           TrustedAdvisorCategorySpecificSummary
+         where
         parseJSON
           = withObject "TrustedAdvisorCategorySpecificSummary"
               (\ x ->
@@ -552,34 +562,39 @@ instance FromJSON
                    (x .:? "costOptimizing"))
 
 instance Hashable
-         TrustedAdvisorCategorySpecificSummary
+           TrustedAdvisorCategorySpecificSummary
+         where
 
 instance NFData TrustedAdvisorCategorySpecificSummary
+         where
 
 -- | The description and metadata for a Trusted Advisor check.
 --
+--
+--
 -- /See:/ 'trustedAdvisorCheckDescription' smart constructor.
 data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription'
-    { _tacdId          :: !Text
-    , _tacdName        :: !Text
-    , _tacdDescription :: !Text
-    , _tacdCategory    :: !Text
-    , _tacdMetadata    :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tacdId          :: !Text
+  , _tacdName        :: !Text
+  , _tacdDescription :: !Text
+  , _tacdCategory    :: !Text
+  , _tacdMetadata    :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TrustedAdvisorCheckDescription' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tacdId'
+-- * 'tacdId' - The unique identifier for the Trusted Advisor check.
 --
--- * 'tacdName'
+-- * 'tacdName' - The display name for the Trusted Advisor check.
 --
--- * 'tacdDescription'
+-- * 'tacdDescription' - The description of the Trusted Advisor check, which includes the alert criteria and recommended actions (contains HTML markup).
 --
--- * 'tacdCategory'
+-- * 'tacdCategory' - The category of the Trusted Advisor check.
 --
--- * 'tacdMetadata'
+-- * 'tacdMetadata' - The column headings for the data returned by the Trusted Advisor check. The order of the headings corresponds to the order of the data in the __Metadata__ element of the 'TrustedAdvisorResourceDetail' for the check. __Metadata__ contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data.
 trustedAdvisorCheckDescription
     :: Text -- ^ 'tacdId'
     -> Text -- ^ 'tacdName'
@@ -587,13 +602,14 @@ trustedAdvisorCheckDescription
     -> Text -- ^ 'tacdCategory'
     -> TrustedAdvisorCheckDescription
 trustedAdvisorCheckDescription pId_ pName_ pDescription_ pCategory_ =
-    TrustedAdvisorCheckDescription'
-    { _tacdId = pId_
-    , _tacdName = pName_
-    , _tacdDescription = pDescription_
-    , _tacdCategory = pCategory_
-    , _tacdMetadata = mempty
-    }
+  TrustedAdvisorCheckDescription'
+  { _tacdId = pId_
+  , _tacdName = pName_
+  , _tacdDescription = pDescription_
+  , _tacdCategory = pCategory_
+  , _tacdMetadata = mempty
+  }
+
 
 -- | The unique identifier for the Trusted Advisor check.
 tacdId :: Lens' TrustedAdvisorCheckDescription Text
@@ -611,7 +627,7 @@ tacdDescription = lens _tacdDescription (\ s a -> s{_tacdDescription = a});
 tacdCategory :: Lens' TrustedAdvisorCheckDescription Text
 tacdCategory = lens _tacdCategory (\ s a -> s{_tacdCategory = a});
 
--- | The column headings for the data returned by the Trusted Advisor check. The order of the headings corresponds to the order of the data in the __Metadata__ element of the < TrustedAdvisorResourceDetail> for the check. __Metadata__ contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data.
+-- | The column headings for the data returned by the Trusted Advisor check. The order of the headings corresponds to the order of the data in the __Metadata__ element of the 'TrustedAdvisorResourceDetail' for the check. __Metadata__ contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data.
 tacdMetadata :: Lens' TrustedAdvisorCheckDescription [Text]
 tacdMetadata = lens _tacdMetadata (\ s a -> s{_tacdMetadata = a}) . _Coerce;
 
@@ -627,44 +643,49 @@ instance FromJSON TrustedAdvisorCheckDescription
                      <*> (x .:? "metadata" .!= mempty))
 
 instance Hashable TrustedAdvisorCheckDescription
+         where
 
-instance NFData TrustedAdvisorCheckDescription
+instance NFData TrustedAdvisorCheckDescription where
 
 -- | The refresh status of a Trusted Advisor check.
 --
+--
+--
 -- /See:/ 'trustedAdvisorCheckRefreshStatus' smart constructor.
 data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus'
-    { _tacrsCheckId                    :: !Text
-    , _tacrsStatus                     :: !Text
-    , _tacrsMillisUntilNextRefreshable :: !Integer
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tacrsCheckId                    :: !Text
+  , _tacrsStatus                     :: !Text
+  , _tacrsMillisUntilNextRefreshable :: !Integer
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TrustedAdvisorCheckRefreshStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tacrsCheckId'
+-- * 'tacrsCheckId' - The unique identifier for the Trusted Advisor check.
 --
--- * 'tacrsStatus'
+-- * 'tacrsStatus' - The status of the Trusted Advisor check for which a refresh has been requested: "none", "enqueued", "processing", "success", or "abandoned".
 --
--- * 'tacrsMillisUntilNextRefreshable'
+-- * 'tacrsMillisUntilNextRefreshable' - The amount of time, in milliseconds, until the Trusted Advisor check is eligible for refresh.
 trustedAdvisorCheckRefreshStatus
     :: Text -- ^ 'tacrsCheckId'
     -> Text -- ^ 'tacrsStatus'
     -> Integer -- ^ 'tacrsMillisUntilNextRefreshable'
     -> TrustedAdvisorCheckRefreshStatus
 trustedAdvisorCheckRefreshStatus pCheckId_ pStatus_ pMillisUntilNextRefreshable_ =
-    TrustedAdvisorCheckRefreshStatus'
-    { _tacrsCheckId = pCheckId_
-    , _tacrsStatus = pStatus_
-    , _tacrsMillisUntilNextRefreshable = pMillisUntilNextRefreshable_
-    }
+  TrustedAdvisorCheckRefreshStatus'
+  { _tacrsCheckId = pCheckId_
+  , _tacrsStatus = pStatus_
+  , _tacrsMillisUntilNextRefreshable = pMillisUntilNextRefreshable_
+  }
+
 
 -- | The unique identifier for the Trusted Advisor check.
 tacrsCheckId :: Lens' TrustedAdvisorCheckRefreshStatus Text
 tacrsCheckId = lens _tacrsCheckId (\ s a -> s{_tacrsCheckId = a});
 
--- | The status of the Trusted Advisor check for which a refresh has been requested: \"none\", \"enqueued\", \"processing\", \"success\", or \"abandoned\".
+-- | The status of the Trusted Advisor check for which a refresh has been requested: "none", "enqueued", "processing", "success", or "abandoned".
 tacrsStatus :: Lens' TrustedAdvisorCheckRefreshStatus Text
 tacrsStatus = lens _tacrsStatus (\ s a -> s{_tacrsStatus = a});
 
@@ -682,36 +703,41 @@ instance FromJSON TrustedAdvisorCheckRefreshStatus
                      (x .: "millisUntilNextRefreshable"))
 
 instance Hashable TrustedAdvisorCheckRefreshStatus
+         where
 
 instance NFData TrustedAdvisorCheckRefreshStatus
+         where
 
--- | The results of a Trusted Advisor check returned by < DescribeTrustedAdvisorCheckResult>.
+-- | The results of a Trusted Advisor check returned by 'DescribeTrustedAdvisorCheckResult' .
+--
+--
 --
 -- /See:/ 'trustedAdvisorCheckResult' smart constructor.
 data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult'
-    { _tacrCheckId                 :: !Text
-    , _tacrTimestamp               :: !Text
-    , _tacrStatus                  :: !Text
-    , _tacrResourcesSummary        :: !TrustedAdvisorResourcesSummary
-    , _tacrCategorySpecificSummary :: !TrustedAdvisorCategorySpecificSummary
-    , _tacrFlaggedResources        :: ![TrustedAdvisorResourceDetail]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tacrCheckId                 :: !Text
+  , _tacrTimestamp               :: !Text
+  , _tacrStatus                  :: !Text
+  , _tacrResourcesSummary        :: !TrustedAdvisorResourcesSummary
+  , _tacrCategorySpecificSummary :: !TrustedAdvisorCategorySpecificSummary
+  , _tacrFlaggedResources        :: ![TrustedAdvisorResourceDetail]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TrustedAdvisorCheckResult' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tacrCheckId'
+-- * 'tacrCheckId' - The unique identifier for the Trusted Advisor check.
 --
--- * 'tacrTimestamp'
+-- * 'tacrTimestamp' - The time of the last refresh of the check.
 --
--- * 'tacrStatus'
+-- * 'tacrStatus' - The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
 --
--- * 'tacrResourcesSummary'
+-- * 'tacrResourcesSummary' - Undocumented member.
 --
--- * 'tacrCategorySpecificSummary'
+-- * 'tacrCategorySpecificSummary' - Summary information that relates to the category of the check. Cost Optimizing is the only category that is currently supported.
 --
--- * 'tacrFlaggedResources'
+-- * 'tacrFlaggedResources' - The details about each resource listed in the check result.
 trustedAdvisorCheckResult
     :: Text -- ^ 'tacrCheckId'
     -> Text -- ^ 'tacrTimestamp'
@@ -720,14 +746,15 @@ trustedAdvisorCheckResult
     -> TrustedAdvisorCategorySpecificSummary -- ^ 'tacrCategorySpecificSummary'
     -> TrustedAdvisorCheckResult
 trustedAdvisorCheckResult pCheckId_ pTimestamp_ pStatus_ pResourcesSummary_ pCategorySpecificSummary_ =
-    TrustedAdvisorCheckResult'
-    { _tacrCheckId = pCheckId_
-    , _tacrTimestamp = pTimestamp_
-    , _tacrStatus = pStatus_
-    , _tacrResourcesSummary = pResourcesSummary_
-    , _tacrCategorySpecificSummary = pCategorySpecificSummary_
-    , _tacrFlaggedResources = mempty
-    }
+  TrustedAdvisorCheckResult'
+  { _tacrCheckId = pCheckId_
+  , _tacrTimestamp = pTimestamp_
+  , _tacrStatus = pStatus_
+  , _tacrResourcesSummary = pResourcesSummary_
+  , _tacrCategorySpecificSummary = pCategorySpecificSummary_
+  , _tacrFlaggedResources = mempty
+  }
+
 
 -- | The unique identifier for the Trusted Advisor check.
 tacrCheckId :: Lens' TrustedAdvisorCheckResult Text
@@ -737,7 +764,7 @@ tacrCheckId = lens _tacrCheckId (\ s a -> s{_tacrCheckId = a});
 tacrTimestamp :: Lens' TrustedAdvisorCheckResult Text
 tacrTimestamp = lens _tacrTimestamp (\ s a -> s{_tacrTimestamp = a});
 
--- | The alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or \"not_available\".
+-- | The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
 tacrStatus :: Lens' TrustedAdvisorCheckResult Text
 tacrStatus = lens _tacrStatus (\ s a -> s{_tacrStatus = a});
 
@@ -764,37 +791,40 @@ instance FromJSON TrustedAdvisorCheckResult where
                      <*> (x .: "categorySpecificSummary")
                      <*> (x .:? "flaggedResources" .!= mempty))
 
-instance Hashable TrustedAdvisorCheckResult
+instance Hashable TrustedAdvisorCheckResult where
 
-instance NFData TrustedAdvisorCheckResult
+instance NFData TrustedAdvisorCheckResult where
 
 -- | A summary of a Trusted Advisor check result, including the alert status, last refresh, and number of resources examined.
 --
+--
+--
 -- /See:/ 'trustedAdvisorCheckSummary' smart constructor.
 data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary'
-    { _tacsHasFlaggedResources     :: !(Maybe Bool)
-    , _tacsCheckId                 :: !Text
-    , _tacsTimestamp               :: !Text
-    , _tacsStatus                  :: !Text
-    , _tacsResourcesSummary        :: !TrustedAdvisorResourcesSummary
-    , _tacsCategorySpecificSummary :: !TrustedAdvisorCategorySpecificSummary
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tacsHasFlaggedResources     :: !(Maybe Bool)
+  , _tacsCheckId                 :: !Text
+  , _tacsTimestamp               :: !Text
+  , _tacsStatus                  :: !Text
+  , _tacsResourcesSummary        :: !TrustedAdvisorResourcesSummary
+  , _tacsCategorySpecificSummary :: !TrustedAdvisorCategorySpecificSummary
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TrustedAdvisorCheckSummary' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tacsHasFlaggedResources'
+-- * 'tacsHasFlaggedResources' - Specifies whether the Trusted Advisor check has flagged resources.
 --
--- * 'tacsCheckId'
+-- * 'tacsCheckId' - The unique identifier for the Trusted Advisor check.
 --
--- * 'tacsTimestamp'
+-- * 'tacsTimestamp' - The time of the last refresh of the check.
 --
--- * 'tacsStatus'
+-- * 'tacsStatus' - The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
 --
--- * 'tacsResourcesSummary'
+-- * 'tacsResourcesSummary' - Undocumented member.
 --
--- * 'tacsCategorySpecificSummary'
+-- * 'tacsCategorySpecificSummary' - Summary information that relates to the category of the check. Cost Optimizing is the only category that is currently supported.
 trustedAdvisorCheckSummary
     :: Text -- ^ 'tacsCheckId'
     -> Text -- ^ 'tacsTimestamp'
@@ -803,14 +833,15 @@ trustedAdvisorCheckSummary
     -> TrustedAdvisorCategorySpecificSummary -- ^ 'tacsCategorySpecificSummary'
     -> TrustedAdvisorCheckSummary
 trustedAdvisorCheckSummary pCheckId_ pTimestamp_ pStatus_ pResourcesSummary_ pCategorySpecificSummary_ =
-    TrustedAdvisorCheckSummary'
-    { _tacsHasFlaggedResources = Nothing
-    , _tacsCheckId = pCheckId_
-    , _tacsTimestamp = pTimestamp_
-    , _tacsStatus = pStatus_
-    , _tacsResourcesSummary = pResourcesSummary_
-    , _tacsCategorySpecificSummary = pCategorySpecificSummary_
-    }
+  TrustedAdvisorCheckSummary'
+  { _tacsHasFlaggedResources = Nothing
+  , _tacsCheckId = pCheckId_
+  , _tacsTimestamp = pTimestamp_
+  , _tacsStatus = pStatus_
+  , _tacsResourcesSummary = pResourcesSummary_
+  , _tacsCategorySpecificSummary = pCategorySpecificSummary_
+  }
+
 
 -- | Specifies whether the Trusted Advisor check has flagged resources.
 tacsHasFlaggedResources :: Lens' TrustedAdvisorCheckSummary (Maybe Bool)
@@ -824,7 +855,7 @@ tacsCheckId = lens _tacsCheckId (\ s a -> s{_tacsCheckId = a});
 tacsTimestamp :: Lens' TrustedAdvisorCheckSummary Text
 tacsTimestamp = lens _tacsTimestamp (\ s a -> s{_tacsTimestamp = a});
 
--- | The alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or \"not_available\".
+-- | The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
 tacsStatus :: Lens' TrustedAdvisorCheckSummary Text
 tacsStatus = lens _tacsStatus (\ s a -> s{_tacsStatus = a});
 
@@ -847,34 +878,38 @@ instance FromJSON TrustedAdvisorCheckSummary where
                      <*> (x .: "resourcesSummary")
                      <*> (x .: "categorySpecificSummary"))
 
-instance Hashable TrustedAdvisorCheckSummary
+instance Hashable TrustedAdvisorCheckSummary where
 
-instance NFData TrustedAdvisorCheckSummary
+instance NFData TrustedAdvisorCheckSummary where
 
 -- | The estimated cost savings that might be realized if the recommended actions are taken.
 --
+--
+--
 -- /See:/ 'trustedAdvisorCostOptimizingSummary' smart constructor.
 data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary'
-    { _tacosEstimatedMonthlySavings        :: !Double
-    , _tacosEstimatedPercentMonthlySavings :: !Double
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tacosEstimatedMonthlySavings        :: !Double
+  , _tacosEstimatedPercentMonthlySavings :: !Double
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TrustedAdvisorCostOptimizingSummary' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tacosEstimatedMonthlySavings'
+-- * 'tacosEstimatedMonthlySavings' - The estimated monthly savings that might be realized if the recommended actions are taken.
 --
--- * 'tacosEstimatedPercentMonthlySavings'
+-- * 'tacosEstimatedPercentMonthlySavings' - The estimated percentage of savings that might be realized if the recommended actions are taken.
 trustedAdvisorCostOptimizingSummary
     :: Double -- ^ 'tacosEstimatedMonthlySavings'
     -> Double -- ^ 'tacosEstimatedPercentMonthlySavings'
     -> TrustedAdvisorCostOptimizingSummary
 trustedAdvisorCostOptimizingSummary pEstimatedMonthlySavings_ pEstimatedPercentMonthlySavings_ =
-    TrustedAdvisorCostOptimizingSummary'
-    { _tacosEstimatedMonthlySavings = pEstimatedMonthlySavings_
-    , _tacosEstimatedPercentMonthlySavings = pEstimatedPercentMonthlySavings_
-    }
+  TrustedAdvisorCostOptimizingSummary'
+  { _tacosEstimatedMonthlySavings = pEstimatedMonthlySavings_
+  , _tacosEstimatedPercentMonthlySavings = pEstimatedPercentMonthlySavings_
+  }
+
 
 -- | The estimated monthly savings that might be realized if the recommended actions are taken.
 tacosEstimatedMonthlySavings :: Lens' TrustedAdvisorCostOptimizingSummary Double
@@ -894,45 +929,51 @@ instance FromJSON TrustedAdvisorCostOptimizingSummary
                      (x .: "estimatedPercentMonthlySavings"))
 
 instance Hashable TrustedAdvisorCostOptimizingSummary
+         where
 
 instance NFData TrustedAdvisorCostOptimizingSummary
+         where
 
 -- | Contains information about a resource identified by a Trusted Advisor check.
 --
+--
+--
 -- /See:/ 'trustedAdvisorResourceDetail' smart constructor.
 data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail'
-    { _tardIsSuppressed :: !(Maybe Bool)
-    , _tardRegion       :: !(Maybe Text)
-    , _tardStatus       :: !Text
-    , _tardResourceId   :: !Text
-    , _tardMetadata     :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tardIsSuppressed :: !(Maybe Bool)
+  , _tardRegion       :: !(Maybe Text)
+  , _tardStatus       :: !Text
+  , _tardResourceId   :: !Text
+  , _tardMetadata     :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TrustedAdvisorResourceDetail' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tardIsSuppressed'
+-- * 'tardIsSuppressed' - Specifies whether the AWS resource was ignored by Trusted Advisor because it was marked as suppressed by the user.
 --
--- * 'tardRegion'
+-- * 'tardRegion' - The AWS region in which the identified resource is located.
 --
--- * 'tardStatus'
+-- * 'tardStatus' - The status code for the resource identified in the Trusted Advisor check.
 --
--- * 'tardResourceId'
+-- * 'tardResourceId' - The unique identifier for the identified resource.
 --
--- * 'tardMetadata'
+-- * 'tardMetadata' - Additional information about the identified resource. The exact metadata and its order can be obtained by inspecting the 'TrustedAdvisorCheckDescription' object returned by the call to 'DescribeTrustedAdvisorChecks' . __Metadata__ contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data.
 trustedAdvisorResourceDetail
     :: Text -- ^ 'tardStatus'
     -> Text -- ^ 'tardResourceId'
     -> TrustedAdvisorResourceDetail
 trustedAdvisorResourceDetail pStatus_ pResourceId_ =
-    TrustedAdvisorResourceDetail'
-    { _tardIsSuppressed = Nothing
-    , _tardRegion = Nothing
-    , _tardStatus = pStatus_
-    , _tardResourceId = pResourceId_
-    , _tardMetadata = mempty
-    }
+  TrustedAdvisorResourceDetail'
+  { _tardIsSuppressed = Nothing
+  , _tardRegion = Nothing
+  , _tardStatus = pStatus_
+  , _tardResourceId = pResourceId_
+  , _tardMetadata = mempty
+  }
+
 
 -- | Specifies whether the AWS resource was ignored by Trusted Advisor because it was marked as suppressed by the user.
 tardIsSuppressed :: Lens' TrustedAdvisorResourceDetail (Maybe Bool)
@@ -950,7 +991,7 @@ tardStatus = lens _tardStatus (\ s a -> s{_tardStatus = a});
 tardResourceId :: Lens' TrustedAdvisorResourceDetail Text
 tardResourceId = lens _tardResourceId (\ s a -> s{_tardResourceId = a});
 
--- | Additional information about the identified resource. The exact metadata and its order can be obtained by inspecting the < TrustedAdvisorCheckDescription> object returned by the call to < DescribeTrustedAdvisorChecks>. __Metadata__ contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data.
+-- | Additional information about the identified resource. The exact metadata and its order can be obtained by inspecting the 'TrustedAdvisorCheckDescription' object returned by the call to 'DescribeTrustedAdvisorChecks' . __Metadata__ contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data.
 tardMetadata :: Lens' TrustedAdvisorResourceDetail [Text]
 tardMetadata = lens _tardMetadata (\ s a -> s{_tardMetadata = a}) . _Coerce;
 
@@ -964,31 +1005,34 @@ instance FromJSON TrustedAdvisorResourceDetail where
                      <*> (x .: "resourceId")
                      <*> (x .:? "metadata" .!= mempty))
 
-instance Hashable TrustedAdvisorResourceDetail
+instance Hashable TrustedAdvisorResourceDetail where
 
-instance NFData TrustedAdvisorResourceDetail
+instance NFData TrustedAdvisorResourceDetail where
 
--- | Details about AWS resources that were analyzed in a call to Trusted Advisor < DescribeTrustedAdvisorCheckSummaries>.
+-- | Details about AWS resources that were analyzed in a call to Trusted Advisor 'DescribeTrustedAdvisorCheckSummaries' .
+--
+--
 --
 -- /See:/ 'trustedAdvisorResourcesSummary' smart constructor.
 data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary'
-    { _tarsResourcesProcessed  :: !Integer
-    , _tarsResourcesFlagged    :: !Integer
-    , _tarsResourcesIgnored    :: !Integer
-    , _tarsResourcesSuppressed :: !Integer
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tarsResourcesProcessed  :: !Integer
+  , _tarsResourcesFlagged    :: !Integer
+  , _tarsResourcesIgnored    :: !Integer
+  , _tarsResourcesSuppressed :: !Integer
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TrustedAdvisorResourcesSummary' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tarsResourcesProcessed'
+-- * 'tarsResourcesProcessed' - The number of AWS resources that were analyzed by the Trusted Advisor check.
 --
--- * 'tarsResourcesFlagged'
+-- * 'tarsResourcesFlagged' - The number of AWS resources that were flagged (listed) by the Trusted Advisor check.
 --
--- * 'tarsResourcesIgnored'
+-- * 'tarsResourcesIgnored' - The number of AWS resources ignored by Trusted Advisor because information was unavailable.
 --
--- * 'tarsResourcesSuppressed'
+-- * 'tarsResourcesSuppressed' - The number of AWS resources ignored by Trusted Advisor because they were marked as suppressed by the user.
 trustedAdvisorResourcesSummary
     :: Integer -- ^ 'tarsResourcesProcessed'
     -> Integer -- ^ 'tarsResourcesFlagged'
@@ -996,12 +1040,13 @@ trustedAdvisorResourcesSummary
     -> Integer -- ^ 'tarsResourcesSuppressed'
     -> TrustedAdvisorResourcesSummary
 trustedAdvisorResourcesSummary pResourcesProcessed_ pResourcesFlagged_ pResourcesIgnored_ pResourcesSuppressed_ =
-    TrustedAdvisorResourcesSummary'
-    { _tarsResourcesProcessed = pResourcesProcessed_
-    , _tarsResourcesFlagged = pResourcesFlagged_
-    , _tarsResourcesIgnored = pResourcesIgnored_
-    , _tarsResourcesSuppressed = pResourcesSuppressed_
-    }
+  TrustedAdvisorResourcesSummary'
+  { _tarsResourcesProcessed = pResourcesProcessed_
+  , _tarsResourcesFlagged = pResourcesFlagged_
+  , _tarsResourcesIgnored = pResourcesIgnored_
+  , _tarsResourcesSuppressed = pResourcesSuppressed_
+  }
+
 
 -- | The number of AWS resources that were analyzed by the Trusted Advisor check.
 tarsResourcesProcessed :: Lens' TrustedAdvisorResourcesSummary Integer
@@ -1031,5 +1076,6 @@ instance FromJSON TrustedAdvisorResourcesSummary
                      <*> (x .: "resourcesSuppressed"))
 
 instance Hashable TrustedAdvisorResourcesSummary
+         where
 
-instance NFData TrustedAdvisorResourcesSummary
+instance NFData TrustedAdvisorResourcesSummary where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DisableMetricsCollection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables group metrics for the specified Auto Scaling group.
+--
+--
 module Network.AWS.AutoScaling.DisableMetricsCollection
     (
     -- * Creating a Request
@@ -33,55 +35,36 @@ module Network.AWS.AutoScaling.DisableMetricsCollection
     , DisableMetricsCollectionResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for DisableMetricsCollection.
---
--- /See:/ 'disableMetricsCollection' smart constructor.
+-- | /See:/ 'disableMetricsCollection' smart constructor.
 data DisableMetricsCollection = DisableMetricsCollection'
-    { _dmcMetrics              :: !(Maybe [Text])
-    , _dmcAutoScalingGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmcMetrics              :: !(Maybe [Text])
+  , _dmcAutoScalingGroupName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableMetricsCollection' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmcMetrics'
+-- * 'dmcMetrics' - One or more of the following metrics. If you omit this parameter, all metrics are disabled.     * @GroupMinSize@      * @GroupMaxSize@      * @GroupDesiredCapacity@      * @GroupInServiceInstances@      * @GroupPendingInstances@      * @GroupStandbyInstances@      * @GroupTerminatingInstances@      * @GroupTotalInstances@
 --
--- * 'dmcAutoScalingGroupName'
+-- * 'dmcAutoScalingGroupName' - The name or Amazon Resource Name (ARN) of the group.
 disableMetricsCollection
     :: Text -- ^ 'dmcAutoScalingGroupName'
     -> DisableMetricsCollection
 disableMetricsCollection pAutoScalingGroupName_ =
-    DisableMetricsCollection'
-    { _dmcMetrics = Nothing
-    , _dmcAutoScalingGroupName = pAutoScalingGroupName_
-    }
+  DisableMetricsCollection'
+  {_dmcMetrics = Nothing, _dmcAutoScalingGroupName = pAutoScalingGroupName_}
 
--- | One or more of the following metrics. If you omit this parameter, all metrics are disabled.
---
--- -   'GroupMinSize'
---
--- -   'GroupMaxSize'
---
--- -   'GroupDesiredCapacity'
---
--- -   'GroupInServiceInstances'
---
--- -   'GroupPendingInstances'
---
--- -   'GroupStandbyInstances'
---
--- -   'GroupTerminatingInstances'
---
--- -   'GroupTotalInstances'
---
+
+-- | One or more of the following metrics. If you omit this parameter, all metrics are disabled.     * @GroupMinSize@      * @GroupMaxSize@      * @GroupDesiredCapacity@      * @GroupInServiceInstances@      * @GroupPendingInstances@      * @GroupStandbyInstances@      * @GroupTerminatingInstances@      * @GroupTotalInstances@
 dmcMetrics :: Lens' DisableMetricsCollection [Text]
 dmcMetrics = lens _dmcMetrics (\ s a -> s{_dmcMetrics = a}) . _Default . _Coerce;
 
@@ -96,9 +79,9 @@ instance AWSRequest DisableMetricsCollection where
         response
           = receiveNull DisableMetricsCollectionResponse'
 
-instance Hashable DisableMetricsCollection
+instance Hashable DisableMetricsCollection where
 
-instance NFData DisableMetricsCollection
+instance NFData DisableMetricsCollection where
 
 instance ToHeaders DisableMetricsCollection where
         toHeaders = const mempty
@@ -118,8 +101,9 @@ instance ToQuery DisableMetricsCollection where
 
 -- | /See:/ 'disableMetricsCollectionResponse' smart constructor.
 data DisableMetricsCollectionResponse =
-    DisableMetricsCollectionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DisableMetricsCollectionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableMetricsCollectionResponse' with the minimum fields required to make a request.
 --
@@ -127,4 +111,6 @@ disableMetricsCollectionResponse
     :: DisableMetricsCollectionResponse
 disableMetricsCollectionResponse = DisableMetricsCollectionResponse'
 
+
 instance NFData DisableMetricsCollectionResponse
+         where

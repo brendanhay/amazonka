@@ -9,24 +9,25 @@
 
 -- |
 -- Module      : Network.AWS.ECS.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.ECS.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AgentUpdateStatus
-    = AUSFailed
-    | AUSPending
-    | AUSStaged
-    | AUSStaging
-    | AUSUpdated
-    | AUSUpdating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AUSFailed
+  | AUSPending
+  | AUSStaged
+  | AUSStaging
+  | AUSUpdated
+  | AUSUpdating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AgentUpdateStatus where
     parser = takeLowerText >>= \case
@@ -57,11 +58,39 @@ instance ToHeader     AgentUpdateStatus
 instance FromJSON AgentUpdateStatus where
     parseJSON = parseJSONText "AgentUpdateStatus"
 
+data ContainerInstanceStatus
+  = Active
+  | Draining
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ContainerInstanceStatus where
+    parser = takeLowerText >>= \case
+        "active" -> pure Active
+        "draining" -> pure Draining
+        e -> fromTextError $ "Failure parsing ContainerInstanceStatus from value: '" <> e
+           <> "'. Accepted values: active, draining"
+
+instance ToText ContainerInstanceStatus where
+    toText = \case
+        Active -> "ACTIVE"
+        Draining -> "DRAINING"
+
+instance Hashable     ContainerInstanceStatus
+instance NFData       ContainerInstanceStatus
+instance ToByteString ContainerInstanceStatus
+instance ToQuery      ContainerInstanceStatus
+instance ToHeader     ContainerInstanceStatus
+
+instance ToJSON ContainerInstanceStatus where
+    toJSON = toJSONText
+
 data DesiredStatus
-    = Pending
-    | Running
-    | Stopped
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Pending
+  | Running
+  | Stopped
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DesiredStatus where
     parser = takeLowerText >>= \case
@@ -86,15 +115,49 @@ instance ToHeader     DesiredStatus
 instance ToJSON DesiredStatus where
     toJSON = toJSONText
 
+data DeviceCgroupPermission
+  = Mknod
+  | Read
+  | Write
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DeviceCgroupPermission where
+    parser = takeLowerText >>= \case
+        "mknod" -> pure Mknod
+        "read" -> pure Read
+        "write" -> pure Write
+        e -> fromTextError $ "Failure parsing DeviceCgroupPermission from value: '" <> e
+           <> "'. Accepted values: mknod, read, write"
+
+instance ToText DeviceCgroupPermission where
+    toText = \case
+        Mknod -> "mknod"
+        Read -> "read"
+        Write -> "write"
+
+instance Hashable     DeviceCgroupPermission
+instance NFData       DeviceCgroupPermission
+instance ToByteString DeviceCgroupPermission
+instance ToQuery      DeviceCgroupPermission
+instance ToHeader     DeviceCgroupPermission
+
+instance ToJSON DeviceCgroupPermission where
+    toJSON = toJSONText
+
+instance FromJSON DeviceCgroupPermission where
+    parseJSON = parseJSONText "DeviceCgroupPermission"
+
 data LogDriver
-    = AWSlogs
-    | Fluentd
-    | Gelf
-    | JSONFile
-    | Journald
-    | Splunk
-    | Syslog
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AWSlogs
+  | Fluentd
+  | Gelf
+  | JSONFile
+  | Journald
+  | Splunk
+  | Syslog
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LogDriver where
     parser = takeLowerText >>= \case
@@ -131,10 +194,11 @@ instance FromJSON LogDriver where
     parseJSON = parseJSONText "LogDriver"
 
 data NetworkMode
-    = Bridge
-    | Host
-    | None
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Bridge
+  | Host
+  | None
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText NetworkMode where
     parser = takeLowerText >>= \case
@@ -162,10 +226,74 @@ instance ToJSON NetworkMode where
 instance FromJSON NetworkMode where
     parseJSON = parseJSONText "NetworkMode"
 
+data PlacementConstraintType
+  = PCTDistinctInstance
+  | PCTMemberOf
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText PlacementConstraintType where
+    parser = takeLowerText >>= \case
+        "distinctinstance" -> pure PCTDistinctInstance
+        "memberof" -> pure PCTMemberOf
+        e -> fromTextError $ "Failure parsing PlacementConstraintType from value: '" <> e
+           <> "'. Accepted values: distinctinstance, memberof"
+
+instance ToText PlacementConstraintType where
+    toText = \case
+        PCTDistinctInstance -> "distinctInstance"
+        PCTMemberOf -> "memberOf"
+
+instance Hashable     PlacementConstraintType
+instance NFData       PlacementConstraintType
+instance ToByteString PlacementConstraintType
+instance ToQuery      PlacementConstraintType
+instance ToHeader     PlacementConstraintType
+
+instance ToJSON PlacementConstraintType where
+    toJSON = toJSONText
+
+instance FromJSON PlacementConstraintType where
+    parseJSON = parseJSONText "PlacementConstraintType"
+
+data PlacementStrategyType
+  = Binpack
+  | Random
+  | Spread
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText PlacementStrategyType where
+    parser = takeLowerText >>= \case
+        "binpack" -> pure Binpack
+        "random" -> pure Random
+        "spread" -> pure Spread
+        e -> fromTextError $ "Failure parsing PlacementStrategyType from value: '" <> e
+           <> "'. Accepted values: binpack, random, spread"
+
+instance ToText PlacementStrategyType where
+    toText = \case
+        Binpack -> "binpack"
+        Random -> "random"
+        Spread -> "spread"
+
+instance Hashable     PlacementStrategyType
+instance NFData       PlacementStrategyType
+instance ToByteString PlacementStrategyType
+instance ToQuery      PlacementStrategyType
+instance ToHeader     PlacementStrategyType
+
+instance ToJSON PlacementStrategyType where
+    toJSON = toJSONText
+
+instance FromJSON PlacementStrategyType where
+    parseJSON = parseJSONText "PlacementStrategyType"
+
 data SortOrder
-    = Asc
-    | Desc
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Asc
+  | Desc
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SortOrder where
     parser = takeLowerText >>= \case
@@ -188,25 +316,53 @@ instance ToHeader     SortOrder
 instance ToJSON SortOrder where
     toJSON = toJSONText
 
+data TargetType =
+  ContainerInstance
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TargetType where
+    parser = takeLowerText >>= \case
+        "container-instance" -> pure ContainerInstance
+        e -> fromTextError $ "Failure parsing TargetType from value: '" <> e
+           <> "'. Accepted values: container-instance"
+
+instance ToText TargetType where
+    toText = \case
+        ContainerInstance -> "container-instance"
+
+instance Hashable     TargetType
+instance NFData       TargetType
+instance ToByteString TargetType
+instance ToQuery      TargetType
+instance ToHeader     TargetType
+
+instance ToJSON TargetType where
+    toJSON = toJSONText
+
+instance FromJSON TargetType where
+    parseJSON = parseJSONText "TargetType"
+
 data TaskDefinitionFamilyStatus
-    = Active
-    | All
-    | Inactive
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = TDFSActive
+  | TDFSAll
+  | TDFSInactive
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TaskDefinitionFamilyStatus where
     parser = takeLowerText >>= \case
-        "active" -> pure Active
-        "all" -> pure All
-        "inactive" -> pure Inactive
+        "active" -> pure TDFSActive
+        "all" -> pure TDFSAll
+        "inactive" -> pure TDFSInactive
         e -> fromTextError $ "Failure parsing TaskDefinitionFamilyStatus from value: '" <> e
            <> "'. Accepted values: active, all, inactive"
 
 instance ToText TaskDefinitionFamilyStatus where
     toText = \case
-        Active -> "ACTIVE"
-        All -> "ALL"
-        Inactive -> "INACTIVE"
+        TDFSActive -> "ACTIVE"
+        TDFSAll -> "ALL"
+        TDFSInactive -> "INACTIVE"
 
 instance Hashable     TaskDefinitionFamilyStatus
 instance NFData       TaskDefinitionFamilyStatus
@@ -217,10 +373,38 @@ instance ToHeader     TaskDefinitionFamilyStatus
 instance ToJSON TaskDefinitionFamilyStatus where
     toJSON = toJSONText
 
+data TaskDefinitionPlacementConstraintType =
+  MemberOf
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TaskDefinitionPlacementConstraintType where
+    parser = takeLowerText >>= \case
+        "memberof" -> pure MemberOf
+        e -> fromTextError $ "Failure parsing TaskDefinitionPlacementConstraintType from value: '" <> e
+           <> "'. Accepted values: memberof"
+
+instance ToText TaskDefinitionPlacementConstraintType where
+    toText = \case
+        MemberOf -> "memberOf"
+
+instance Hashable     TaskDefinitionPlacementConstraintType
+instance NFData       TaskDefinitionPlacementConstraintType
+instance ToByteString TaskDefinitionPlacementConstraintType
+instance ToQuery      TaskDefinitionPlacementConstraintType
+instance ToHeader     TaskDefinitionPlacementConstraintType
+
+instance ToJSON TaskDefinitionPlacementConstraintType where
+    toJSON = toJSONText
+
+instance FromJSON TaskDefinitionPlacementConstraintType where
+    parseJSON = parseJSONText "TaskDefinitionPlacementConstraintType"
+
 data TaskDefinitionStatus
-    = TDSActive
-    | TDSInactive
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = TDSActive
+  | TDSInactive
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TaskDefinitionStatus where
     parser = takeLowerText >>= \case
@@ -247,9 +431,10 @@ instance FromJSON TaskDefinitionStatus where
     parseJSON = parseJSONText "TaskDefinitionStatus"
 
 data TransportProtocol
-    = TCP
-    | Udp
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = TCP
+  | Udp
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TransportProtocol where
     parser = takeLowerText >>= \case
@@ -276,22 +461,23 @@ instance FromJSON TransportProtocol where
     parseJSON = parseJSONText "TransportProtocol"
 
 data UlimitName
-    = CPU
-    | Core
-    | Data
-    | Fsize
-    | Locks
-    | Memlock
-    | Msgqueue
-    | Nice
-    | Nofile
-    | Nproc
-    | Rss
-    | Rtprio
-    | Rttime
-    | Sigpending
-    | Stack
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CPU
+  | Core
+  | Data
+  | Fsize
+  | Locks
+  | Memlock
+  | Msgqueue
+  | Nice
+  | Nofile
+  | Nproc
+  | Rss
+  | Rtprio
+  | Rttime
+  | Sigpending
+  | Stack
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText UlimitName where
     parser = takeLowerText >>= \case

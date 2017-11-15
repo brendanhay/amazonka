@@ -12,13 +12,21 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminUpdateUserAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the specified user\'s attributes, including developer attributes, as an administrator. Works on any user.
+-- Updates the specified user's attributes, including developer attributes, as an administrator. Works on any user.
+--
+--
+-- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
+--
+-- In addition to updating user attributes, this API can also be used to mark phone and email as verified.
+--
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminUpdateUserAttributes
     (
     -- * Creating a Request
@@ -36,41 +44,45 @@ module Network.AWS.CognitoIdentityProvider.AdminUpdateUserAttributes
     , auuarsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the request to update the user\'s attributes as an administrator.
+-- | Represents the request to update the user's attributes as an administrator.
+--
+--
 --
 -- /See:/ 'adminUpdateUserAttributes' smart constructor.
 data AdminUpdateUserAttributes = AdminUpdateUserAttributes'
-    { _auuaUserPoolId     :: !Text
-    , _auuaUsername       :: !(Sensitive Text)
-    , _auuaUserAttributes :: ![AttributeType]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _auuaUserPoolId     :: !Text
+  , _auuaUsername       :: !(Sensitive Text)
+  , _auuaUserAttributes :: ![AttributeType]
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminUpdateUserAttributes' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'auuaUserPoolId'
+-- * 'auuaUserPoolId' - The user pool ID for the user pool where you want to update user attributes.
 --
--- * 'auuaUsername'
+-- * 'auuaUsername' - The user name of the user for whom you want to update user attributes.
 --
--- * 'auuaUserAttributes'
+-- * 'auuaUserAttributes' - An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 adminUpdateUserAttributes
     :: Text -- ^ 'auuaUserPoolId'
     -> Text -- ^ 'auuaUsername'
     -> AdminUpdateUserAttributes
 adminUpdateUserAttributes pUserPoolId_ pUsername_ =
-    AdminUpdateUserAttributes'
-    { _auuaUserPoolId = pUserPoolId_
-    , _auuaUsername = _Sensitive # pUsername_
-    , _auuaUserAttributes = mempty
-    }
+  AdminUpdateUserAttributes'
+  { _auuaUserPoolId = pUserPoolId_
+  , _auuaUsername = _Sensitive # pUsername_
+  , _auuaUserAttributes = mempty
+  }
+
 
 -- | The user pool ID for the user pool where you want to update user attributes.
 auuaUserPoolId :: Lens' AdminUpdateUserAttributes Text
@@ -80,7 +92,7 @@ auuaUserPoolId = lens _auuaUserPoolId (\ s a -> s{_auuaUserPoolId = a});
 auuaUsername :: Lens' AdminUpdateUserAttributes Text
 auuaUsername = lens _auuaUsername (\ s a -> s{_auuaUsername = a}) . _Sensitive;
 
--- | An array of name-value pairs representing user attributes.
+-- | An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 auuaUserAttributes :: Lens' AdminUpdateUserAttributes [AttributeType]
 auuaUserAttributes = lens _auuaUserAttributes (\ s a -> s{_auuaUserAttributes = a}) . _Coerce;
 
@@ -94,9 +106,9 @@ instance AWSRequest AdminUpdateUserAttributes where
                  AdminUpdateUserAttributesResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable AdminUpdateUserAttributes
+instance Hashable AdminUpdateUserAttributes where
 
-instance NFData AdminUpdateUserAttributes
+instance NFData AdminUpdateUserAttributes where
 
 instance ToHeaders AdminUpdateUserAttributes where
         toHeaders
@@ -124,26 +136,29 @@ instance ToQuery AdminUpdateUserAttributes where
 
 -- | Represents the response from the server for the request to update user attributes as an administrator.
 --
+--
+--
 -- /See:/ 'adminUpdateUserAttributesResponse' smart constructor.
 newtype AdminUpdateUserAttributesResponse = AdminUpdateUserAttributesResponse'
-    { _auuarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _auuarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminUpdateUserAttributesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'auuarsResponseStatus'
+-- * 'auuarsResponseStatus' - -- | The response status code.
 adminUpdateUserAttributesResponse
     :: Int -- ^ 'auuarsResponseStatus'
     -> AdminUpdateUserAttributesResponse
 adminUpdateUserAttributesResponse pResponseStatus_ =
-    AdminUpdateUserAttributesResponse'
-    { _auuarsResponseStatus = pResponseStatus_
-    }
+  AdminUpdateUserAttributesResponse' {_auuarsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 auuarsResponseStatus :: Lens' AdminUpdateUserAttributesResponse Int
 auuarsResponseStatus = lens _auuarsResponseStatus (\ s a -> s{_auuarsResponseStatus = a});
 
 instance NFData AdminUpdateUserAttributesResponse
+         where

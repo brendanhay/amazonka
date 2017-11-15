@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -20,6 +20,7 @@ module Network.AWS.Glacier.Types
     , _InvalidParameterValueException
     , _RequestTimeoutException
     , _ServiceUnavailableException
+    , _InsufficientCapacityException
     , _ResourceNotFoundException
     , _LimitExceededException
     , _MissingParameterValueException
@@ -71,6 +72,7 @@ module Network.AWS.Glacier.Types
     , gjdSNSTopic
     , gjdStatusMessage
     , gjdVaultARN
+    , gjdTier
     , gjdArchiveSHA256TreeHash
     , gjdCreationDate
     , gjdCompleted
@@ -104,6 +106,7 @@ module Network.AWS.Glacier.Types
     , jpRetrievalByteRange
     , jpInventoryRetrievalParameters
     , jpSNSTopic
+    , jpTier
     , jpType
     , jpDescription
 
@@ -112,6 +115,13 @@ module Network.AWS.Glacier.Types
     , partListElement
     , pleSHA256TreeHash
     , pleRangeInBytes
+
+    -- * ProvisionedCapacityDescription
+    , ProvisionedCapacityDescription
+    , provisionedCapacityDescription
+    , pcdCapacityId
+    , pcdStartDate
+    , pcdExpirationDate
 
     -- * UploadListElement
     , UploadListElement
@@ -139,38 +149,40 @@ module Network.AWS.Glacier.Types
     , vncEvents
     ) where
 
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Glacier.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Glacier.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
--- | API version '2012-06-01' of the Amazon Glacier SDK configuration.
+-- | API version @2012-06-01@ of the Amazon Glacier SDK configuration.
 glacier :: Service
 glacier =
-    Service
-    { _svcAbbrev = "Glacier"
-    , _svcSigner = v4
-    , _svcPrefix = "glacier"
-    , _svcVersion = "2012-06-01"
-    , _svcEndpoint = defaultEndpoint glacier
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "Glacier"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "Glacier"
+  , _svcSigner = v4
+  , _svcPrefix = "glacier"
+  , _svcVersion = "2012-06-01"
+  , _svcEndpoint = defaultEndpoint glacier
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "Glacier"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -179,37 +191,67 @@ glacier =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Returned if a retrieval job would exceed the current data policy\'s retrieval rate limit. For more information about data retrieval policies,
+
+-- | Returned if a retrieval job would exceed the current data policy's retrieval rate limit. For more information about data retrieval policies,
+--
+--
 _PolicyEnforcedException :: AsError a => Getting (First ServiceError) a ServiceError
 _PolicyEnforcedException =
-    _ServiceError . hasStatus 400 . hasCode "PolicyEnforcedException"
+  _MatchServiceError glacier "PolicyEnforcedException" . hasStatus 400
+
 
 -- | Returned if a parameter of the request is incorrectly specified.
+--
+--
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValueException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidParameterValueException"
+  _MatchServiceError glacier "InvalidParameterValueException" . hasStatus 400
+
 
 -- | Returned if, when uploading an archive, Amazon Glacier times out while receiving the upload.
+--
+--
 _RequestTimeoutException :: AsError a => Getting (First ServiceError) a ServiceError
 _RequestTimeoutException =
-    _ServiceError . hasStatus 408 . hasCode "RequestTimeoutException"
+  _MatchServiceError glacier "RequestTimeoutException" . hasStatus 408
+
 
 -- | Returned if the service cannot complete the request.
+--
+--
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
-    _ServiceError . hasStatus 500 . hasCode "ServiceUnavailableException"
+  _MatchServiceError glacier "ServiceUnavailableException" . hasStatus 500
 
--- | Returned if the specified resource, such as a vault, upload ID, or job ID, does not exist.
+
+-- | Returned if there is insufficient capacity to process this expedited request. This error only applies to expedited retrievals and not to standard or bulk retrievals.
+--
+--
+_InsufficientCapacityException :: AsError a => Getting (First ServiceError) a ServiceError
+_InsufficientCapacityException =
+  _MatchServiceError glacier "InsufficientCapacityException" . hasStatus 400
+
+
+-- | Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.
+--
+--
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
+  _MatchServiceError glacier "ResourceNotFoundException" . hasStatus 404
+
 
 -- | Returned if the request results in a vault or account limit being exceeded.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
-    _ServiceError . hasStatus 400 . hasCode "LimitExceededException"
+  _MatchServiceError glacier "LimitExceededException" . hasStatus 400
+
 
 -- | Returned if a required header or parameter is missing from the request.
+--
+--
 _MissingParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _MissingParameterValueException =
-    _ServiceError . hasStatus 400 . hasCode "MissingParameterValueException"
+  _MatchServiceError glacier "MissingParameterValueException" . hasStatus 400
+

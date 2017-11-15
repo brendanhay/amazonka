@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.ListObjectsV
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -30,6 +30,7 @@ module Network.AWS.S3.ListObjectsV
     , lFetchOwner
     , lPrefix
     , lEncodingType
+    , lRequestPayer
     , lMaxKeys
     , lDelimiter
     , lBucket
@@ -53,58 +54,64 @@ module Network.AWS.S3.ListObjectsV
     , lrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'listObjectsV' smart constructor.
 data ListObjectsV = ListObjectsV'
-    { _lStartAfter        :: !(Maybe Text)
-    , _lContinuationToken :: !(Maybe Text)
-    , _lFetchOwner        :: !(Maybe Bool)
-    , _lPrefix            :: !(Maybe Text)
-    , _lEncodingType      :: !(Maybe EncodingType)
-    , _lMaxKeys           :: !(Maybe Int)
-    , _lDelimiter         :: !(Maybe Delimiter)
-    , _lBucket            :: !BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lStartAfter        :: !(Maybe Text)
+  , _lContinuationToken :: !(Maybe Text)
+  , _lFetchOwner        :: !(Maybe Bool)
+  , _lPrefix            :: !(Maybe Text)
+  , _lEncodingType      :: !(Maybe EncodingType)
+  , _lRequestPayer      :: !(Maybe RequestPayer)
+  , _lMaxKeys           :: !(Maybe Int)
+  , _lDelimiter         :: !(Maybe Delimiter)
+  , _lBucket            :: !BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListObjectsV' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lStartAfter'
+-- * 'lStartAfter' - StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket
 --
--- * 'lContinuationToken'
+-- * 'lContinuationToken' - ContinuationToken indicates Amazon S3 that the list is being continued on this bucket with a token. ContinuationToken is obfuscated and is not a real key
 --
--- * 'lFetchOwner'
+-- * 'lFetchOwner' - The owner field is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true
 --
--- * 'lPrefix'
+-- * 'lPrefix' - Limits the response to keys that begin with the specified prefix.
 --
--- * 'lEncodingType'
+-- * 'lEncodingType' - Encoding type used by Amazon S3 to encode object keys in the response.
 --
--- * 'lMaxKeys'
+-- * 'lRequestPayer' - Confirms that the requester knows that she or he will be charged for the list objects request in V2 style. Bucket owners need not specify this parameter in their requests.
 --
--- * 'lDelimiter'
+-- * 'lMaxKeys' - Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
 --
--- * 'lBucket'
+-- * 'lDelimiter' - A delimiter is a character you use to group keys.
+--
+-- * 'lBucket' - Name of the bucket to list.
 listObjectsV
     :: BucketName -- ^ 'lBucket'
     -> ListObjectsV
 listObjectsV pBucket_ =
-    ListObjectsV'
-    { _lStartAfter = Nothing
-    , _lContinuationToken = Nothing
-    , _lFetchOwner = Nothing
-    , _lPrefix = Nothing
-    , _lEncodingType = Nothing
-    , _lMaxKeys = Nothing
-    , _lDelimiter = Nothing
-    , _lBucket = pBucket_
-    }
+  ListObjectsV'
+  { _lStartAfter = Nothing
+  , _lContinuationToken = Nothing
+  , _lFetchOwner = Nothing
+  , _lPrefix = Nothing
+  , _lEncodingType = Nothing
+  , _lRequestPayer = Nothing
+  , _lMaxKeys = Nothing
+  , _lDelimiter = Nothing
+  , _lBucket = pBucket_
+  }
+
 
 -- | StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket
 lStartAfter :: Lens' ListObjectsV (Maybe Text)
@@ -125,6 +132,10 @@ lPrefix = lens _lPrefix (\ s a -> s{_lPrefix = a});
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
 lEncodingType :: Lens' ListObjectsV (Maybe EncodingType)
 lEncodingType = lens _lEncodingType (\ s a -> s{_lEncodingType = a});
+
+-- | Confirms that the requester knows that she or he will be charged for the list objects request in V2 style. Bucket owners need not specify this parameter in their requests.
+lRequestPayer :: Lens' ListObjectsV (Maybe RequestPayer)
+lRequestPayer = lens _lRequestPayer (\ s a -> s{_lRequestPayer = a});
 
 -- | Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
 lMaxKeys :: Lens' ListObjectsV (Maybe Int)
@@ -158,12 +169,13 @@ instance AWSRequest ListObjectsV where
                      <*> (x .@? "Delimiter")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListObjectsV
+instance Hashable ListObjectsV where
 
-instance NFData ListObjectsV
+instance NFData ListObjectsV where
 
 instance ToHeaders ListObjectsV where
-        toHeaders = const mempty
+        toHeaders ListObjectsV'{..}
+          = mconcat ["x-amz-request-payer" =# _lRequestPayer]
 
 instance ToPath ListObjectsV where
         toPath ListObjectsV'{..}
@@ -181,69 +193,71 @@ instance ToQuery ListObjectsV where
 
 -- | /See:/ 'listObjectsVResponse' smart constructor.
 data ListObjectsVResponse = ListObjectsVResponse'
-    { _lrsStartAfter            :: !(Maybe Text)
-    , _lrsKeyCount              :: !(Maybe Int)
-    , _lrsContents              :: !(Maybe [Object])
-    , _lrsContinuationToken     :: !(Maybe Text)
-    , _lrsPrefix                :: !(Maybe Text)
-    , _lrsCommonPrefixes        :: !(Maybe [CommonPrefix])
-    , _lrsEncodingType          :: !(Maybe EncodingType)
-    , _lrsName                  :: !(Maybe BucketName)
-    , _lrsNextContinuationToken :: !(Maybe Text)
-    , _lrsMaxKeys               :: !(Maybe Int)
-    , _lrsIsTruncated           :: !(Maybe Bool)
-    , _lrsDelimiter             :: !(Maybe Delimiter)
-    , _lrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrsStartAfter            :: !(Maybe Text)
+  , _lrsKeyCount              :: !(Maybe Int)
+  , _lrsContents              :: !(Maybe [Object])
+  , _lrsContinuationToken     :: !(Maybe Text)
+  , _lrsPrefix                :: !(Maybe Text)
+  , _lrsCommonPrefixes        :: !(Maybe [CommonPrefix])
+  , _lrsEncodingType          :: !(Maybe EncodingType)
+  , _lrsName                  :: !(Maybe BucketName)
+  , _lrsNextContinuationToken :: !(Maybe Text)
+  , _lrsMaxKeys               :: !(Maybe Int)
+  , _lrsIsTruncated           :: !(Maybe Bool)
+  , _lrsDelimiter             :: !(Maybe Delimiter)
+  , _lrsResponseStatus        :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListObjectsVResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrsStartAfter'
+-- * 'lrsStartAfter' - StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket
 --
--- * 'lrsKeyCount'
+-- * 'lrsKeyCount' - KeyCount is the number of keys returned with this request. KeyCount will always be less than equals to MaxKeys field. Say you ask for 50 keys, your result will include less than equals 50 keys
 --
--- * 'lrsContents'
+-- * 'lrsContents' - Metadata about each object returned.
 --
--- * 'lrsContinuationToken'
+-- * 'lrsContinuationToken' - ContinuationToken indicates Amazon S3 that the list is being continued on this bucket with a token. ContinuationToken is obfuscated and is not a real key
 --
--- * 'lrsPrefix'
+-- * 'lrsPrefix' - Limits the response to keys that begin with the specified prefix.
 --
--- * 'lrsCommonPrefixes'
+-- * 'lrsCommonPrefixes' - CommonPrefixes contains all (if there are any) keys between Prefix and the next occurrence of the string specified by delimiter
 --
--- * 'lrsEncodingType'
+-- * 'lrsEncodingType' - Encoding type used by Amazon S3 to encode object keys in the response.
 --
--- * 'lrsName'
+-- * 'lrsName' - Name of the bucket to list.
 --
--- * 'lrsNextContinuationToken'
+-- * 'lrsNextContinuationToken' - NextContinuationToken is sent when isTruncated is true which means there are more keys in the bucket that can be listed. The next list requests to Amazon S3 can be continued with this NextContinuationToken. NextContinuationToken is obfuscated and is not a real key
 --
--- * 'lrsMaxKeys'
+-- * 'lrsMaxKeys' - Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
 --
--- * 'lrsIsTruncated'
+-- * 'lrsIsTruncated' - A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria.
 --
--- * 'lrsDelimiter'
+-- * 'lrsDelimiter' - A delimiter is a character you use to group keys.
 --
--- * 'lrsResponseStatus'
+-- * 'lrsResponseStatus' - -- | The response status code.
 listObjectsVResponse
     :: Int -- ^ 'lrsResponseStatus'
     -> ListObjectsVResponse
 listObjectsVResponse pResponseStatus_ =
-    ListObjectsVResponse'
-    { _lrsStartAfter = Nothing
-    , _lrsKeyCount = Nothing
-    , _lrsContents = Nothing
-    , _lrsContinuationToken = Nothing
-    , _lrsPrefix = Nothing
-    , _lrsCommonPrefixes = Nothing
-    , _lrsEncodingType = Nothing
-    , _lrsName = Nothing
-    , _lrsNextContinuationToken = Nothing
-    , _lrsMaxKeys = Nothing
-    , _lrsIsTruncated = Nothing
-    , _lrsDelimiter = Nothing
-    , _lrsResponseStatus = pResponseStatus_
-    }
+  ListObjectsVResponse'
+  { _lrsStartAfter = Nothing
+  , _lrsKeyCount = Nothing
+  , _lrsContents = Nothing
+  , _lrsContinuationToken = Nothing
+  , _lrsPrefix = Nothing
+  , _lrsCommonPrefixes = Nothing
+  , _lrsEncodingType = Nothing
+  , _lrsName = Nothing
+  , _lrsNextContinuationToken = Nothing
+  , _lrsMaxKeys = Nothing
+  , _lrsIsTruncated = Nothing
+  , _lrsDelimiter = Nothing
+  , _lrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket
 lrsStartAfter :: Lens' ListObjectsVResponse (Maybe Text)
@@ -293,8 +307,8 @@ lrsIsTruncated = lens _lrsIsTruncated (\ s a -> s{_lrsIsTruncated = a});
 lrsDelimiter :: Lens' ListObjectsVResponse (Maybe Delimiter)
 lrsDelimiter = lens _lrsDelimiter (\ s a -> s{_lrsDelimiter = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lrsResponseStatus :: Lens' ListObjectsVResponse Int
 lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
 
-instance NFData ListObjectsVResponse
+instance NFData ListObjectsVResponse where

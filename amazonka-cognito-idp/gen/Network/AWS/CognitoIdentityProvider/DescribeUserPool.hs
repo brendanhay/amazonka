@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DescribeUserPool
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the configuration information and metadata of the specified user pool.
+--
+--
 module Network.AWS.CognitoIdentityProvider.DescribeUserPool
     (
     -- * Creating a Request
@@ -35,32 +37,33 @@ module Network.AWS.CognitoIdentityProvider.DescribeUserPool
     , duprsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to describe the user pool.
 --
+--
+--
 -- /See:/ 'describeUserPool' smart constructor.
 newtype DescribeUserPool = DescribeUserPool'
-    { _dUserPoolId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dUserPoolId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeUserPool' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dUserPoolId'
+-- * 'dUserPoolId' - The user pool ID for the user pool you want to describe.
 describeUserPool
     :: Text -- ^ 'dUserPoolId'
     -> DescribeUserPool
-describeUserPool pUserPoolId_ =
-    DescribeUserPool'
-    { _dUserPoolId = pUserPoolId_
-    }
+describeUserPool pUserPoolId_ = DescribeUserPool' {_dUserPoolId = pUserPoolId_}
+
 
 -- | The user pool ID for the user pool you want to describe.
 dUserPoolId :: Lens' DescribeUserPool Text
@@ -75,9 +78,9 @@ instance AWSRequest DescribeUserPool where
                  DescribeUserPoolResponse' <$>
                    (x .?> "UserPool") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeUserPool
+instance Hashable DescribeUserPool where
 
-instance NFData DescribeUserPool
+instance NFData DescribeUserPool where
 
 instance ToHeaders DescribeUserPool where
         toHeaders
@@ -102,34 +105,36 @@ instance ToQuery DescribeUserPool where
 
 -- | Represents the response to describe the user pool.
 --
+--
+--
 -- /See:/ 'describeUserPoolResponse' smart constructor.
 data DescribeUserPoolResponse = DescribeUserPoolResponse'
-    { _duprsUserPool       :: !(Maybe UserPoolType)
-    , _duprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _duprsUserPool       :: !(Maybe UserPoolType)
+  , _duprsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeUserPoolResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duprsUserPool'
+-- * 'duprsUserPool' - The container of metadata returned by the server to describe the pool.
 --
--- * 'duprsResponseStatus'
+-- * 'duprsResponseStatus' - -- | The response status code.
 describeUserPoolResponse
     :: Int -- ^ 'duprsResponseStatus'
     -> DescribeUserPoolResponse
 describeUserPoolResponse pResponseStatus_ =
-    DescribeUserPoolResponse'
-    { _duprsUserPool = Nothing
-    , _duprsResponseStatus = pResponseStatus_
-    }
+  DescribeUserPoolResponse'
+  {_duprsUserPool = Nothing, _duprsResponseStatus = pResponseStatus_}
+
 
 -- | The container of metadata returned by the server to describe the pool.
 duprsUserPool :: Lens' DescribeUserPoolResponse (Maybe UserPoolType)
 duprsUserPool = lens _duprsUserPool (\ s a -> s{_duprsUserPool = a});
 
--- | The response status code.
+-- | -- | The response status code.
 duprsResponseStatus :: Lens' DescribeUserPoolResponse Int
 duprsResponseStatus = lens _duprsResponseStatus (\ s a -> s{_duprsResponseStatus = a});
 
-instance NFData DescribeUserPoolResponse
+instance NFData DescribeUserPoolResponse where

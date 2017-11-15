@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CloudHSM.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ClientVersion
-    = VD5_1
-    | VD5_3
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = VD5_1
+  | VD5_3
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ClientVersion where
     parser = takeLowerText >>= \case
@@ -46,10 +47,11 @@ instance ToJSON ClientVersion where
     toJSON = toJSONText
 
 data CloudHSMObjectState
-    = Degraded
-    | Ready
-    | Updating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Degraded
+  | Ready
+  | Updating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CloudHSMObjectState where
     parser = takeLowerText >>= \case
@@ -75,14 +77,15 @@ instance FromJSON CloudHSMObjectState where
     parseJSON = parseJSONText "CloudHSMObjectState"
 
 data HSMStatus
-    = HSDegraded
-    | HSPending
-    | HSRunning
-    | HSSuspended
-    | HSTerminated
-    | HSTerminating
-    | HSUpdating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = HSDegraded
+  | HSPending
+  | HSRunning
+  | HSSuspended
+  | HSTerminated
+  | HSTerminating
+  | HSUpdating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText HSMStatus where
     parser = takeLowerText >>= \case
@@ -117,11 +120,17 @@ instance FromJSON HSMStatus where
 
 -- | Specifies the type of subscription for the HSM.
 --
--- -   __PRODUCTION__ - The HSM is being used in a production environment.
--- -   __TRIAL__ - The HSM is being used in a product trial.
+--
+--     * __PRODUCTION__ - The HSM is being used in a production environment.
+--
+--     * __TRIAL__ - The HSM is being used in a product trial.
+--
+--
+--
 data SubscriptionType =
-    Production
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Production
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SubscriptionType where
     parser = takeLowerText >>= \case

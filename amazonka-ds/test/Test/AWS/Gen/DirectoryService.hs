@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.DirectoryService
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.DirectoryService where
 
 import Data.Proxy
+import Network.AWS.DirectoryService
+import Test.AWS.DirectoryService.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.DirectoryService
-import Test.AWS.DirectoryService.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -28,7 +28,10 @@ import Test.AWS.DirectoryService.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeConditionalForwarders $
+--         [ requestUpdateNumberOfDomainControllers $
+--             updateNumberOfDomainControllers
+--
+--         , requestDescribeConditionalForwarders $
 --             describeConditionalForwarders
 --
 --         , requestGetSnapshotLimits $
@@ -82,6 +85,9 @@ import Test.AWS.DirectoryService.Internal
 --         , requestEnableSSO $
 --             enableSSO
 --
+--         , requestCancelSchemaExtension $
+--             cancelSchemaExtension
+--
 --         , requestEnableRadius $
 --             enableRadius
 --
@@ -91,11 +97,17 @@ import Test.AWS.DirectoryService.Internal
 --         , requestAddTagsToResource $
 --             addTagsToResource
 --
+--         , requestListSchemaExtensions $
+--             listSchemaExtensions
+--
 --         , requestDisableRadius $
 --             disableRadius
 --
 --         , requestRestoreFromSnapshot $
 --             restoreFromSnapshot
+--
+--         , requestDescribeDomainControllers $
+--             describeDomainControllers
 --
 --         , requestDescribeSnapshots $
 --             describeSnapshots
@@ -105,6 +117,9 @@ import Test.AWS.DirectoryService.Internal
 --
 --         , requestDeleteSnapshot $
 --             deleteSnapshot
+--
+--         , requestStartSchemaExtension $
+--             startSchemaExtension
 --
 --         , requestCreateTrust $
 --             createTrust
@@ -136,7 +151,10 @@ import Test.AWS.DirectoryService.Internal
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeConditionalForwarders $
+--         [ responseUpdateNumberOfDomainControllers $
+--             updateNumberOfDomainControllersResponse
+--
+--         , responseDescribeConditionalForwarders $
 --             describeConditionalForwardersResponse
 --
 --         , responseGetSnapshotLimits $
@@ -190,6 +208,9 @@ import Test.AWS.DirectoryService.Internal
 --         , responseEnableSSO $
 --             enableSSOResponse
 --
+--         , responseCancelSchemaExtension $
+--             cancelSchemaExtensionResponse
+--
 --         , responseEnableRadius $
 --             enableRadiusResponse
 --
@@ -199,11 +220,17 @@ import Test.AWS.DirectoryService.Internal
 --         , responseAddTagsToResource $
 --             addTagsToResourceResponse
 --
+--         , responseListSchemaExtensions $
+--             listSchemaExtensionsResponse
+--
 --         , responseDisableRadius $
 --             disableRadiusResponse
 --
 --         , responseRestoreFromSnapshot $
 --             restoreFromSnapshotResponse
+--
+--         , responseDescribeDomainControllers $
+--             describeDomainControllersResponse
 --
 --         , responseDescribeSnapshots $
 --             describeSnapshotsResponse
@@ -213,6 +240,9 @@ import Test.AWS.DirectoryService.Internal
 --
 --         , responseDeleteSnapshot $
 --             deleteSnapshotResponse
+--
+--         , responseStartSchemaExtension $
+--             startSchemaExtensionResponse
 --
 --         , responseCreateTrust $
 --             createTrustResponse
@@ -245,6 +275,11 @@ import Test.AWS.DirectoryService.Internal
 --     ]
 
 -- Requests
+
+requestUpdateNumberOfDomainControllers :: UpdateNumberOfDomainControllers -> TestTree
+requestUpdateNumberOfDomainControllers = req
+    "UpdateNumberOfDomainControllers"
+    "fixture/UpdateNumberOfDomainControllers.yaml"
 
 requestDescribeConditionalForwarders :: DescribeConditionalForwarders -> TestTree
 requestDescribeConditionalForwarders = req
@@ -336,6 +371,11 @@ requestEnableSSO = req
     "EnableSSO"
     "fixture/EnableSSO.yaml"
 
+requestCancelSchemaExtension :: CancelSchemaExtension -> TestTree
+requestCancelSchemaExtension = req
+    "CancelSchemaExtension"
+    "fixture/CancelSchemaExtension.yaml"
+
 requestEnableRadius :: EnableRadius -> TestTree
 requestEnableRadius = req
     "EnableRadius"
@@ -351,6 +391,11 @@ requestAddTagsToResource = req
     "AddTagsToResource"
     "fixture/AddTagsToResource.yaml"
 
+requestListSchemaExtensions :: ListSchemaExtensions -> TestTree
+requestListSchemaExtensions = req
+    "ListSchemaExtensions"
+    "fixture/ListSchemaExtensions.yaml"
+
 requestDisableRadius :: DisableRadius -> TestTree
 requestDisableRadius = req
     "DisableRadius"
@@ -360,6 +405,11 @@ requestRestoreFromSnapshot :: RestoreFromSnapshot -> TestTree
 requestRestoreFromSnapshot = req
     "RestoreFromSnapshot"
     "fixture/RestoreFromSnapshot.yaml"
+
+requestDescribeDomainControllers :: DescribeDomainControllers -> TestTree
+requestDescribeDomainControllers = req
+    "DescribeDomainControllers"
+    "fixture/DescribeDomainControllers.yaml"
 
 requestDescribeSnapshots :: DescribeSnapshots -> TestTree
 requestDescribeSnapshots = req
@@ -375,6 +425,11 @@ requestDeleteSnapshot :: DeleteSnapshot -> TestTree
 requestDeleteSnapshot = req
     "DeleteSnapshot"
     "fixture/DeleteSnapshot.yaml"
+
+requestStartSchemaExtension :: StartSchemaExtension -> TestTree
+requestStartSchemaExtension = req
+    "StartSchemaExtension"
+    "fixture/StartSchemaExtension.yaml"
 
 requestCreateTrust :: CreateTrust -> TestTree
 requestCreateTrust = req
@@ -422,6 +477,13 @@ requestUpdateRadius = req
     "fixture/UpdateRadius.yaml"
 
 -- Responses
+
+responseUpdateNumberOfDomainControllers :: UpdateNumberOfDomainControllersResponse -> TestTree
+responseUpdateNumberOfDomainControllers = res
+    "UpdateNumberOfDomainControllersResponse"
+    "fixture/UpdateNumberOfDomainControllersResponse.proto"
+    directoryService
+    (Proxy :: Proxy UpdateNumberOfDomainControllers)
 
 responseDescribeConditionalForwarders :: DescribeConditionalForwardersResponse -> TestTree
 responseDescribeConditionalForwarders = res
@@ -549,6 +611,13 @@ responseEnableSSO = res
     directoryService
     (Proxy :: Proxy EnableSSO)
 
+responseCancelSchemaExtension :: CancelSchemaExtensionResponse -> TestTree
+responseCancelSchemaExtension = res
+    "CancelSchemaExtensionResponse"
+    "fixture/CancelSchemaExtensionResponse.proto"
+    directoryService
+    (Proxy :: Proxy CancelSchemaExtension)
+
 responseEnableRadius :: EnableRadiusResponse -> TestTree
 responseEnableRadius = res
     "EnableRadiusResponse"
@@ -570,6 +639,13 @@ responseAddTagsToResource = res
     directoryService
     (Proxy :: Proxy AddTagsToResource)
 
+responseListSchemaExtensions :: ListSchemaExtensionsResponse -> TestTree
+responseListSchemaExtensions = res
+    "ListSchemaExtensionsResponse"
+    "fixture/ListSchemaExtensionsResponse.proto"
+    directoryService
+    (Proxy :: Proxy ListSchemaExtensions)
+
 responseDisableRadius :: DisableRadiusResponse -> TestTree
 responseDisableRadius = res
     "DisableRadiusResponse"
@@ -583,6 +659,13 @@ responseRestoreFromSnapshot = res
     "fixture/RestoreFromSnapshotResponse.proto"
     directoryService
     (Proxy :: Proxy RestoreFromSnapshot)
+
+responseDescribeDomainControllers :: DescribeDomainControllersResponse -> TestTree
+responseDescribeDomainControllers = res
+    "DescribeDomainControllersResponse"
+    "fixture/DescribeDomainControllersResponse.proto"
+    directoryService
+    (Proxy :: Proxy DescribeDomainControllers)
 
 responseDescribeSnapshots :: DescribeSnapshotsResponse -> TestTree
 responseDescribeSnapshots = res
@@ -604,6 +687,13 @@ responseDeleteSnapshot = res
     "fixture/DeleteSnapshotResponse.proto"
     directoryService
     (Proxy :: Proxy DeleteSnapshot)
+
+responseStartSchemaExtension :: StartSchemaExtensionResponse -> TestTree
+responseStartSchemaExtension = res
+    "StartSchemaExtensionResponse"
+    "fixture/StartSchemaExtensionResponse.proto"
+    directoryService
+    (Proxy :: Proxy StartSchemaExtension)
 
 responseCreateTrust :: CreateTrustResponse -> TestTree
 responseCreateTrust = res

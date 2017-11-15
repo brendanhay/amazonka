@@ -1,69 +1,47 @@
 name:                  amazonka-sqs
-version:               1.4.4
+version:               1.5.0
 synopsis:              Amazon Simple Queue Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               OtherLicense
+license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2016 Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2017 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-    Welcome to the /Amazon Simple Queue Service API Reference/. This section describes who should read this guide, how the guide is organized, and other resources related to the Amazon Simple Queue Service (Amazon SQS).
-
-    Amazon SQS offers reliable and scalable hosted queues for storing messages as they travel between computers. By using Amazon SQS, you can move data between distributed components of your applications that perform different tasks without losing messages or requiring each component to be always available.
-
-    Helpful Links:
-
-    -   <http://queue.amazonaws.com/doc/2012-11-05/QueueService.wsdl Current WSDL (2012-11-05)>
-
-    -   <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/MakingRequestsArticle.html Making API Requests>
-
-    -   <http://aws.amazon.com/sqs/ Amazon SQS product page>
-
-    -   <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html Using Amazon SQS Message Attributes>
-
-    -   <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQS Dead Letter Queues>
-
-    -   <http://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region Regions and Endpoints>
-
-    We also provide SDKs that enable you to access Amazon SQS from your preferred programming language. The SDKs contain functionality that automatically takes care of tasks such as:
-
-    -   Cryptographically signing your service requests
-
-    -   Retrying requests
-
-    -   Handling error responses
-
-    For a list of available SDKs, go to <http://aws.amazon.com/tools/ Tools for Amazon Web Services>.
-    .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information and sending requests.
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
     .
-    Use of lenses is required for constructing and manipulating types.
-    This is due to the amount of nesting of AWS types and transparency regarding
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
     de/serialisation into more palatable Haskell values.
     The provided lenses should be compatible with any of the major lens libraries
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
     .
-    See "Network.AWS.SQS" or <https://aws.amazon.com/documentation/ the AWS Documentation>
+    See "Network.AWS.SQS" or <https://aws.amazon.com/documentation/ the AWS documentation>
     to get started.
 
 source-repository head
-    type:     git
-    location: git://github.com/brendanhay/amazonka.git
+    type:              git
+    location:          git://github.com/brendanhay/amazonka.git
+    subdir:            amazonka-sqs
 
 library
     default-language:  Haskell2010
     hs-source-dirs:    src gen
 
-    ghc-options:       -Wall
+    ghc-options:
+        -Wall
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updates
+        -funbox-strict-fields
 
     exposed-modules:
           Network.AWS.SQS
@@ -77,6 +55,7 @@ library
         , Network.AWS.SQS.GetQueueAttributes
         , Network.AWS.SQS.GetQueueURL
         , Network.AWS.SQS.ListDeadLetterSourceQueues
+        , Network.AWS.SQS.ListQueueTags
         , Network.AWS.SQS.ListQueues
         , Network.AWS.SQS.PurgeQueue
         , Network.AWS.SQS.ReceiveMessage
@@ -84,7 +63,9 @@ library
         , Network.AWS.SQS.SendMessage
         , Network.AWS.SQS.SendMessageBatch
         , Network.AWS.SQS.SetQueueAttributes
+        , Network.AWS.SQS.TagQueue
         , Network.AWS.SQS.Types
+        , Network.AWS.SQS.UntagQueue
         , Network.AWS.SQS.Waiters
 
     other-modules:
@@ -92,7 +73,7 @@ library
         , Network.AWS.SQS.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.4.*
+          amazonka-core == 1.5.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-sqs-test
@@ -112,9 +93,9 @@ test-suite amazonka-sqs-test
         , Test.AWS.SQS.Internal
 
     build-depends:
-          amazonka-core == 1.4.4.*
-        , amazonka-test == 1.4.4.*
-        , amazonka-sqs == 1.4.4.*
+          amazonka-core == 1.5.0.*
+        , amazonka-test == 1.5.0.*
+        , amazonka-sqs == 1.5.0.*
         , base
         , bytestring
         , tasty

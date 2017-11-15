@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeExportTasks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all the export tasks that are associated with the AWS account making the request. The export tasks can be filtered based on 'TaskId' or 'TaskStatus'.
+-- Lists the specified export tasks. You can list all your export tasks or filter the results based on task ID or task status.
 --
--- By default, this operation returns up to 50 export tasks that satisfy the specified filters. If there are more export tasks to list, the response would contain a 'nextToken' value in the response body. You can also limit the number of export tasks returned in the response by specifying the 'limit' parameter in the request.
+--
 module Network.AWS.CloudWatchLogs.DescribeExportTasks
     (
     -- * Creating a Request
@@ -41,55 +41,57 @@ module Network.AWS.CloudWatchLogs.DescribeExportTasks
     , detrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-    { _detTaskId     :: !(Maybe Text)
-    , _detNextToken  :: !(Maybe Text)
-    , _detLimit      :: !(Maybe Nat)
-    , _detStatusCode :: !(Maybe ExportTaskStatusCode)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _detTaskId     :: !(Maybe Text)
+  , _detNextToken  :: !(Maybe Text)
+  , _detLimit      :: !(Maybe Nat)
+  , _detStatusCode :: !(Maybe ExportTaskStatusCode)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeExportTasks' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'detTaskId'
+-- * 'detTaskId' - The ID of the export task. Specifying a task ID filters the results to zero or one export tasks.
 --
--- * 'detNextToken'
+-- * 'detNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'detLimit'
+-- * 'detLimit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 --
--- * 'detStatusCode'
+-- * 'detStatusCode' - The status code of the export task. Specifying a status code filters the results to zero or more export tasks.
 describeExportTasks
     :: DescribeExportTasks
 describeExportTasks =
-    DescribeExportTasks'
-    { _detTaskId = Nothing
-    , _detNextToken = Nothing
-    , _detLimit = Nothing
-    , _detStatusCode = Nothing
-    }
+  DescribeExportTasks'
+  { _detTaskId = Nothing
+  , _detNextToken = Nothing
+  , _detLimit = Nothing
+  , _detStatusCode = Nothing
+  }
 
--- | Export task that matches the specified task Id will be returned. This can result in zero or one export task.
+
+-- | The ID of the export task. Specifying a task ID filters the results to zero or one export tasks.
 detTaskId :: Lens' DescribeExportTasks (Maybe Text)
 detTaskId = lens _detTaskId (\ s a -> s{_detTaskId = a});
 
--- | A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous 'DescribeExportTasks' request.
+-- | The token for the next set of items to return. (You received this token from a previous call.)
 detNextToken :: Lens' DescribeExportTasks (Maybe Text)
 detNextToken = lens _detNextToken (\ s a -> s{_detNextToken = a});
 
--- | The maximum number of items returned in the response. If you don\'t specify a value, the request would return up to 50 items.
+-- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 detLimit :: Lens' DescribeExportTasks (Maybe Natural)
 detLimit = lens _detLimit (\ s a -> s{_detLimit = a}) . mapping _Nat;
 
--- | All export tasks that matches the specified status code will be returned. This can return zero or more export tasks.
+-- | The status code of the export task. Specifying a status code filters the results to zero or more export tasks.
 detStatusCode :: Lens' DescribeExportTasks (Maybe ExportTaskStatusCode)
 detStatusCode = lens _detStatusCode (\ s a -> s{_detStatusCode = a});
 
@@ -105,9 +107,9 @@ instance AWSRequest DescribeExportTasks where
                      (x .?> "exportTasks" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeExportTasks
+instance Hashable DescribeExportTasks where
 
-instance NFData DescribeExportTasks
+instance NFData DescribeExportTasks where
 
 instance ToHeaders DescribeExportTasks where
         toHeaders
@@ -135,40 +137,42 @@ instance ToQuery DescribeExportTasks where
 
 -- | /See:/ 'describeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
-    { _detrsNextToken      :: !(Maybe Text)
-    , _detrsExportTasks    :: !(Maybe [ExportTask])
-    , _detrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _detrsNextToken      :: !(Maybe Text)
+  , _detrsExportTasks    :: !(Maybe [ExportTask])
+  , _detrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeExportTasksResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'detrsNextToken'
+-- * 'detrsNextToken' - Undocumented member.
 --
--- * 'detrsExportTasks'
+-- * 'detrsExportTasks' - The export tasks.
 --
--- * 'detrsResponseStatus'
+-- * 'detrsResponseStatus' - -- | The response status code.
 describeExportTasksResponse
     :: Int -- ^ 'detrsResponseStatus'
     -> DescribeExportTasksResponse
 describeExportTasksResponse pResponseStatus_ =
-    DescribeExportTasksResponse'
-    { _detrsNextToken = Nothing
-    , _detrsExportTasks = Nothing
-    , _detrsResponseStatus = pResponseStatus_
-    }
+  DescribeExportTasksResponse'
+  { _detrsNextToken = Nothing
+  , _detrsExportTasks = Nothing
+  , _detrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 detrsNextToken :: Lens' DescribeExportTasksResponse (Maybe Text)
 detrsNextToken = lens _detrsNextToken (\ s a -> s{_detrsNextToken = a});
 
--- | Undocumented member.
+-- | The export tasks.
 detrsExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
 detrsExportTasks = lens _detrsExportTasks (\ s a -> s{_detrsExportTasks = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 detrsResponseStatus :: Lens' DescribeExportTasksResponse Int
 detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
 
-instance NFData DescribeExportTasksResponse
+instance NFData DescribeExportTasksResponse where

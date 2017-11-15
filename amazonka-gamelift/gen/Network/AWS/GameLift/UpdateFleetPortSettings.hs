@@ -12,13 +12,67 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.UpdateFleetPortSettings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates port settings for a fleet. To update settings, specify the fleet ID to be updated and list the permissions you want to update. List the permissions you want to add in 'InboundPermissionAuthorizations', and permissions you want to remove in 'InboundPermissionRevocations'. Permissions to be removed must match existing fleet permissions. If successful, the fleet ID for the updated fleet is returned.
+-- Updates port settings for a fleet. To update settings, specify the fleet ID to be updated and list the permissions you want to update. List the permissions you want to add in @InboundPermissionAuthorizations@ , and permissions you want to remove in @InboundPermissionRevocations@ . Permissions to be removed must match existing fleet permissions. If successful, the fleet ID for the updated fleet is returned.
+--
+--
+-- Fleet-related operations include:
+--
+--     * 'CreateFleet'
+--
+--     * 'ListFleets'
+--
+--     * Describe fleets:
+--
+--     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetPortSettings'
+--
+--     * 'DescribeFleetUtilization'
+--
+--     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeFleetEvents'
+--
+--
+--
+--     * Update fleets:
+--
+--     * 'UpdateFleetAttributes'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'UpdateFleetPortSettings'
+--
+--     * 'UpdateRuntimeConfiguration'
+--
+--
+--
+--     * Manage fleet capacity:
+--
+--     * 'DescribeFleetCapacity'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'PutScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeScalingPolicies' (automatic scaling)
+--
+--     * 'DeleteScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeEC2InstanceLimits'
+--
+--
+--
+--     * 'DeleteFleet'
+--
+--
+--
 module Network.AWS.GameLift.UpdateFleetPortSettings
     (
     -- * Creating a Request
@@ -37,40 +91,44 @@ module Network.AWS.GameLift.UpdateFleetPortSettings
     , ufpsrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'updateFleetPortSettings' smart constructor.
 data UpdateFleetPortSettings = UpdateFleetPortSettings'
-    { _ufpsInboundPermissionRevocations    :: !(Maybe [IPPermission])
-    , _ufpsInboundPermissionAuthorizations :: !(Maybe [IPPermission])
-    , _ufpsFleetId                         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ufpsInboundPermissionRevocations    :: !(Maybe [IPPermission])
+  , _ufpsInboundPermissionAuthorizations :: !(Maybe [IPPermission])
+  , _ufpsFleetId                         :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateFleetPortSettings' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufpsInboundPermissionRevocations'
+-- * 'ufpsInboundPermissionRevocations' - Collection of port settings to be removed from the fleet record.
 --
--- * 'ufpsInboundPermissionAuthorizations'
+-- * 'ufpsInboundPermissionAuthorizations' - Collection of port settings to be added to the fleet record.
 --
--- * 'ufpsFleetId'
+-- * 'ufpsFleetId' - Unique identifier for a fleet to update port settings for.
 updateFleetPortSettings
     :: Text -- ^ 'ufpsFleetId'
     -> UpdateFleetPortSettings
 updateFleetPortSettings pFleetId_ =
-    UpdateFleetPortSettings'
-    { _ufpsInboundPermissionRevocations = Nothing
-    , _ufpsInboundPermissionAuthorizations = Nothing
-    , _ufpsFleetId = pFleetId_
-    }
+  UpdateFleetPortSettings'
+  { _ufpsInboundPermissionRevocations = Nothing
+  , _ufpsInboundPermissionAuthorizations = Nothing
+  , _ufpsFleetId = pFleetId_
+  }
+
 
 -- | Collection of port settings to be removed from the fleet record.
 ufpsInboundPermissionRevocations :: Lens' UpdateFleetPortSettings [IPPermission]
@@ -80,7 +138,7 @@ ufpsInboundPermissionRevocations = lens _ufpsInboundPermissionRevocations (\ s a
 ufpsInboundPermissionAuthorizations :: Lens' UpdateFleetPortSettings [IPPermission]
 ufpsInboundPermissionAuthorizations = lens _ufpsInboundPermissionAuthorizations (\ s a -> s{_ufpsInboundPermissionAuthorizations = a}) . _Default . _Coerce;
 
--- | Unique identifier for the fleet you want to update port settings for.
+-- | Unique identifier for a fleet to update port settings for.
 ufpsFleetId :: Lens' UpdateFleetPortSettings Text
 ufpsFleetId = lens _ufpsFleetId (\ s a -> s{_ufpsFleetId = a});
 
@@ -94,9 +152,9 @@ instance AWSRequest UpdateFleetPortSettings where
                  UpdateFleetPortSettingsResponse' <$>
                    (x .?> "FleetId") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateFleetPortSettings
+instance Hashable UpdateFleetPortSettings where
 
-instance NFData UpdateFleetPortSettings
+instance NFData UpdateFleetPortSettings where
 
 instance ToHeaders UpdateFleetPortSettings where
         toHeaders
@@ -125,34 +183,36 @@ instance ToQuery UpdateFleetPortSettings where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'updateFleetPortSettingsResponse' smart constructor.
 data UpdateFleetPortSettingsResponse = UpdateFleetPortSettingsResponse'
-    { _ufpsrsFleetId        :: !(Maybe Text)
-    , _ufpsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ufpsrsFleetId        :: !(Maybe Text)
+  , _ufpsrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateFleetPortSettingsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufpsrsFleetId'
+-- * 'ufpsrsFleetId' - Unique identifier for a fleet that was updated.
 --
--- * 'ufpsrsResponseStatus'
+-- * 'ufpsrsResponseStatus' - -- | The response status code.
 updateFleetPortSettingsResponse
     :: Int -- ^ 'ufpsrsResponseStatus'
     -> UpdateFleetPortSettingsResponse
 updateFleetPortSettingsResponse pResponseStatus_ =
-    UpdateFleetPortSettingsResponse'
-    { _ufpsrsFleetId = Nothing
-    , _ufpsrsResponseStatus = pResponseStatus_
-    }
+  UpdateFleetPortSettingsResponse'
+  {_ufpsrsFleetId = Nothing, _ufpsrsResponseStatus = pResponseStatus_}
 
--- | Unique identifier for the updated fleet.
+
+-- | Unique identifier for a fleet that was updated.
 ufpsrsFleetId :: Lens' UpdateFleetPortSettingsResponse (Maybe Text)
 ufpsrsFleetId = lens _ufpsrsFleetId (\ s a -> s{_ufpsrsFleetId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ufpsrsResponseStatus :: Lens' UpdateFleetPortSettingsResponse Int
 ufpsrsResponseStatus = lens _ufpsrsResponseStatus (\ s a -> s{_ufpsrsResponseStatus = a});
 
-instance NFData UpdateFleetPortSettingsResponse
+instance NFData UpdateFleetPortSettingsResponse where

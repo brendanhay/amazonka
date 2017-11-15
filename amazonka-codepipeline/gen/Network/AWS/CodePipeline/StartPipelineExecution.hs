@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.StartPipelineExecution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts the specified pipeline. Specifically, it begins processing the latest commit to the source location specified as part of the pipeline.
+--
+--
 module Network.AWS.CodePipeline.StartPipelineExecution
     (
     -- * Creating a Request
@@ -35,32 +37,33 @@ module Network.AWS.CodePipeline.StartPipelineExecution
     , spersResponseStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a start pipeline execution action.
+-- | Represents the input of a StartPipelineExecution action.
+--
+--
 --
 -- /See:/ 'startPipelineExecution' smart constructor.
 newtype StartPipelineExecution = StartPipelineExecution'
-    { _speName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _speName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartPipelineExecution' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'speName'
+-- * 'speName' - The name of the pipeline to start.
 startPipelineExecution
     :: Text -- ^ 'speName'
     -> StartPipelineExecution
-startPipelineExecution pName_ =
-    StartPipelineExecution'
-    { _speName = pName_
-    }
+startPipelineExecution pName_ = StartPipelineExecution' {_speName = pName_}
+
 
 -- | The name of the pipeline to start.
 speName :: Lens' StartPipelineExecution Text
@@ -77,9 +80,9 @@ instance AWSRequest StartPipelineExecution where
                    (x .?> "pipelineExecutionId") <*>
                      (pure (fromEnum s)))
 
-instance Hashable StartPipelineExecution
+instance Hashable StartPipelineExecution where
 
-instance NFData StartPipelineExecution
+instance NFData StartPipelineExecution where
 
 instance ToHeaders StartPipelineExecution where
         toHeaders
@@ -101,36 +104,38 @@ instance ToPath StartPipelineExecution where
 instance ToQuery StartPipelineExecution where
         toQuery = const mempty
 
--- | Represents the output of a start pipeline execution action.
+-- | Represents the output of a StartPipelineExecution action.
+--
+--
 --
 -- /See:/ 'startPipelineExecutionResponse' smart constructor.
 data StartPipelineExecutionResponse = StartPipelineExecutionResponse'
-    { _spersPipelineExecutionId :: !(Maybe Text)
-    , _spersResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _spersPipelineExecutionId :: !(Maybe Text)
+  , _spersResponseStatus      :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartPipelineExecutionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spersPipelineExecutionId'
+-- * 'spersPipelineExecutionId' - The unique system-generated ID of the pipeline execution that was started.
 --
--- * 'spersResponseStatus'
+-- * 'spersResponseStatus' - -- | The response status code.
 startPipelineExecutionResponse
     :: Int -- ^ 'spersResponseStatus'
     -> StartPipelineExecutionResponse
 startPipelineExecutionResponse pResponseStatus_ =
-    StartPipelineExecutionResponse'
-    { _spersPipelineExecutionId = Nothing
-    , _spersResponseStatus = pResponseStatus_
-    }
+  StartPipelineExecutionResponse'
+  {_spersPipelineExecutionId = Nothing, _spersResponseStatus = pResponseStatus_}
+
 
 -- | The unique system-generated ID of the pipeline execution that was started.
 spersPipelineExecutionId :: Lens' StartPipelineExecutionResponse (Maybe Text)
 spersPipelineExecutionId = lens _spersPipelineExecutionId (\ s a -> s{_spersPipelineExecutionId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 spersResponseStatus :: Lens' StartPipelineExecutionResponse Int
 spersResponseStatus = lens _spersResponseStatus (\ s a -> s{_spersResponseStatus = a});
 
-instance NFData StartPipelineExecutionResponse
+instance NFData StartPipelineExecutionResponse where

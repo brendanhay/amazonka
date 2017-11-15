@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.CodeDeploy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.CodeDeploy where
 
 import Data.Proxy
+import Network.AWS.CodeDeploy
+import Test.AWS.CodeDeploy.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.CodeDeploy
-import Test.AWS.CodeDeploy.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -73,6 +73,9 @@ import Test.AWS.CodeDeploy.Internal
 --         , requestRegisterApplicationRevision $
 --             registerApplicationRevision
 --
+--         , requestContinueDeployment $
+--             continueDeployment
+--
 --         , requestBatchGetApplications $
 --             batchGetApplications
 --
@@ -94,8 +97,14 @@ import Test.AWS.CodeDeploy.Internal
 --         , requestStopDeployment $
 --             stopDeployment
 --
+--         , requestListGitHubAccountTokenNames $
+--             listGitHubAccountTokenNames
+--
 --         , requestBatchGetDeploymentInstances $
 --             batchGetDeploymentInstances
+--
+--         , requestSkipWaitTimeForInstanceTermination $
+--             skipWaitTimeForInstanceTermination
 --
 --         , requestGetApplication $
 --             getApplication
@@ -181,6 +190,9 @@ import Test.AWS.CodeDeploy.Internal
 --         , responseRegisterApplicationRevision $
 --             registerApplicationRevisionResponse
 --
+--         , responseContinueDeployment $
+--             continueDeploymentResponse
+--
 --         , responseBatchGetApplications $
 --             batchGetApplicationsResponse
 --
@@ -202,8 +214,14 @@ import Test.AWS.CodeDeploy.Internal
 --         , responseStopDeployment $
 --             stopDeploymentResponse
 --
+--         , responseListGitHubAccountTokenNames $
+--             listGitHubAccountTokenNamesResponse
+--
 --         , responseBatchGetDeploymentInstances $
 --             batchGetDeploymentInstancesResponse
+--
+--         , responseSkipWaitTimeForInstanceTermination $
+--             skipWaitTimeForInstanceTerminationResponse
 --
 --         , responseGetApplication $
 --             getApplicationResponse
@@ -321,6 +339,11 @@ requestRegisterApplicationRevision = req
     "RegisterApplicationRevision"
     "fixture/RegisterApplicationRevision.yaml"
 
+requestContinueDeployment :: ContinueDeployment -> TestTree
+requestContinueDeployment = req
+    "ContinueDeployment"
+    "fixture/ContinueDeployment.yaml"
+
 requestBatchGetApplications :: BatchGetApplications -> TestTree
 requestBatchGetApplications = req
     "BatchGetApplications"
@@ -356,10 +379,20 @@ requestStopDeployment = req
     "StopDeployment"
     "fixture/StopDeployment.yaml"
 
+requestListGitHubAccountTokenNames :: ListGitHubAccountTokenNames -> TestTree
+requestListGitHubAccountTokenNames = req
+    "ListGitHubAccountTokenNames"
+    "fixture/ListGitHubAccountTokenNames.yaml"
+
 requestBatchGetDeploymentInstances :: BatchGetDeploymentInstances -> TestTree
 requestBatchGetDeploymentInstances = req
     "BatchGetDeploymentInstances"
     "fixture/BatchGetDeploymentInstances.yaml"
+
+requestSkipWaitTimeForInstanceTermination :: SkipWaitTimeForInstanceTermination -> TestTree
+requestSkipWaitTimeForInstanceTermination = req
+    "SkipWaitTimeForInstanceTermination"
+    "fixture/SkipWaitTimeForInstanceTermination.yaml"
 
 requestGetApplication :: GetApplication -> TestTree
 requestGetApplication = req
@@ -528,6 +561,13 @@ responseRegisterApplicationRevision = res
     codeDeploy
     (Proxy :: Proxy RegisterApplicationRevision)
 
+responseContinueDeployment :: ContinueDeploymentResponse -> TestTree
+responseContinueDeployment = res
+    "ContinueDeploymentResponse"
+    "fixture/ContinueDeploymentResponse.proto"
+    codeDeploy
+    (Proxy :: Proxy ContinueDeployment)
+
 responseBatchGetApplications :: BatchGetApplicationsResponse -> TestTree
 responseBatchGetApplications = res
     "BatchGetApplicationsResponse"
@@ -577,12 +617,26 @@ responseStopDeployment = res
     codeDeploy
     (Proxy :: Proxy StopDeployment)
 
+responseListGitHubAccountTokenNames :: ListGitHubAccountTokenNamesResponse -> TestTree
+responseListGitHubAccountTokenNames = res
+    "ListGitHubAccountTokenNamesResponse"
+    "fixture/ListGitHubAccountTokenNamesResponse.proto"
+    codeDeploy
+    (Proxy :: Proxy ListGitHubAccountTokenNames)
+
 responseBatchGetDeploymentInstances :: BatchGetDeploymentInstancesResponse -> TestTree
 responseBatchGetDeploymentInstances = res
     "BatchGetDeploymentInstancesResponse"
     "fixture/BatchGetDeploymentInstancesResponse.proto"
     codeDeploy
     (Proxy :: Proxy BatchGetDeploymentInstances)
+
+responseSkipWaitTimeForInstanceTermination :: SkipWaitTimeForInstanceTerminationResponse -> TestTree
+responseSkipWaitTimeForInstanceTermination = res
+    "SkipWaitTimeForInstanceTerminationResponse"
+    "fixture/SkipWaitTimeForInstanceTerminationResponse.proto"
+    codeDeploy
+    (Proxy :: Proxy SkipWaitTimeForInstanceTermination)
 
 responseGetApplication :: GetApplicationResponse -> TestTree
 responseGetApplication = res

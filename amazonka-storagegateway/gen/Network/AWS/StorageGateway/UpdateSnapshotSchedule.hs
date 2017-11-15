@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateSnapshotSchedule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a snapshot schedule configured for a gateway volume.
+-- Updates a snapshot schedule configured for a gateway volume. This operation is only supported in the cached volume and stored volume gateway architectures.
+--
 --
 -- The default snapshot schedule for volume is once every 24 hours, starting at the creation time of the volume. You can use this API to change the snapshot schedule configured for the volume.
 --
 -- In the request you must identify the gateway volume whose snapshot schedule you want to update, and the schedule information, including when you want the snapshot to begin on a day and the frequency (in hours) of snapshots.
+--
 module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     (
     -- * Creating a Request
@@ -42,65 +44,70 @@ module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     , ussrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   < UpdateSnapshotScheduleInput>Description>
 --
--- -   < UpdateSnapshotScheduleInput>RecurrenceInHours>
+--     * 'UpdateSnapshotScheduleInput$Description'
 --
--- -   < UpdateSnapshotScheduleInput>StartAt>
+--     * 'UpdateSnapshotScheduleInput$RecurrenceInHours'
 --
--- -   < UpdateSnapshotScheduleInput>VolumeARN>
+--     * 'UpdateSnapshotScheduleInput$StartAt'
+--
+--     * 'UpdateSnapshotScheduleInput$VolumeARN'
+--
+--
 --
 --
 -- /See:/ 'updateSnapshotSchedule' smart constructor.
 data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
-    { _ussDescription       :: !(Maybe Text)
-    , _ussVolumeARN         :: !Text
-    , _ussStartAt           :: !Nat
-    , _ussRecurrenceInHours :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ussDescription       :: !(Maybe Text)
+  , _ussVolumeARN         :: !Text
+  , _ussStartAt           :: !Nat
+  , _ussRecurrenceInHours :: !Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSnapshotSchedule' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ussDescription'
+-- * 'ussDescription' - Optional description of the snapshot that overwrites the existing description.
 --
--- * 'ussVolumeARN'
+-- * 'ussVolumeARN' - The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
 --
--- * 'ussStartAt'
+-- * 'ussStartAt' - The hour of the day at which the snapshot schedule begins represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
 --
--- * 'ussRecurrenceInHours'
+-- * 'ussRecurrenceInHours' - Frequency of snapshots. Specify the number of hours between snapshots.
 updateSnapshotSchedule
     :: Text -- ^ 'ussVolumeARN'
     -> Natural -- ^ 'ussStartAt'
     -> Natural -- ^ 'ussRecurrenceInHours'
     -> UpdateSnapshotSchedule
 updateSnapshotSchedule pVolumeARN_ pStartAt_ pRecurrenceInHours_ =
-    UpdateSnapshotSchedule'
-    { _ussDescription = Nothing
-    , _ussVolumeARN = pVolumeARN_
-    , _ussStartAt = _Nat # pStartAt_
-    , _ussRecurrenceInHours = _Nat # pRecurrenceInHours_
-    }
+  UpdateSnapshotSchedule'
+  { _ussDescription = Nothing
+  , _ussVolumeARN = pVolumeARN_
+  , _ussStartAt = _Nat # pStartAt_
+  , _ussRecurrenceInHours = _Nat # pRecurrenceInHours_
+  }
+
 
 -- | Optional description of the snapshot that overwrites the existing description.
 ussDescription :: Lens' UpdateSnapshotSchedule (Maybe Text)
 ussDescription = lens _ussDescription (\ s a -> s{_ussDescription = a});
 
--- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes> operation to return a list of gateway volumes.
+-- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
 ussVolumeARN :: Lens' UpdateSnapshotSchedule Text
 ussVolumeARN = lens _ussVolumeARN (\ s a -> s{_ussVolumeARN = a});
 
--- | The hour of the day at which the snapshot schedule begins represented as /hh/, where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
+-- | The hour of the day at which the snapshot schedule begins represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
 ussStartAt :: Lens' UpdateSnapshotSchedule Natural
 ussStartAt = lens _ussStartAt (\ s a -> s{_ussStartAt = a}) . _Nat;
 
@@ -118,9 +125,9 @@ instance AWSRequest UpdateSnapshotSchedule where
                  UpdateSnapshotScheduleResponse' <$>
                    (x .?> "VolumeARN") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateSnapshotSchedule
+instance Hashable UpdateSnapshotSchedule where
 
-instance NFData UpdateSnapshotSchedule
+instance NFData UpdateSnapshotSchedule where
 
 instance ToHeaders UpdateSnapshotSchedule where
         toHeaders
@@ -149,34 +156,36 @@ instance ToQuery UpdateSnapshotSchedule where
 
 -- | A JSON object containing the of the updated storage volume.
 --
+--
+--
 -- /See:/ 'updateSnapshotScheduleResponse' smart constructor.
 data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'
-    { _ussrsVolumeARN      :: !(Maybe Text)
-    , _ussrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ussrsVolumeARN      :: !(Maybe Text)
+  , _ussrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSnapshotScheduleResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ussrsVolumeARN'
+-- * 'ussrsVolumeARN' -
 --
--- * 'ussrsResponseStatus'
+-- * 'ussrsResponseStatus' - -- | The response status code.
 updateSnapshotScheduleResponse
     :: Int -- ^ 'ussrsResponseStatus'
     -> UpdateSnapshotScheduleResponse
 updateSnapshotScheduleResponse pResponseStatus_ =
-    UpdateSnapshotScheduleResponse'
-    { _ussrsVolumeARN = Nothing
-    , _ussrsResponseStatus = pResponseStatus_
-    }
+  UpdateSnapshotScheduleResponse'
+  {_ussrsVolumeARN = Nothing, _ussrsResponseStatus = pResponseStatus_}
+
 
 -- |
 ussrsVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
 ussrsVolumeARN = lens _ussrsVolumeARN (\ s a -> s{_ussrsVolumeARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ussrsResponseStatus :: Lens' UpdateSnapshotScheduleResponse Int
 ussrsResponseStatus = lens _ussrsResponseStatus (\ s a -> s{_ussrsResponseStatus = a});
 
-instance NFData UpdateSnapshotScheduleResponse
+instance NFData UpdateSnapshotScheduleResponse where

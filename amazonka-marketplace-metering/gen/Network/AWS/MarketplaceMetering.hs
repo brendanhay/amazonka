@@ -5,13 +5,13 @@
 
 -- |
 -- Module      : Network.AWS.MarketplaceMetering
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS Marketplace Metering Service
+-- __AWS Marketplace Metering Service__
 --
 -- This reference provides descriptions of the low-level AWS Marketplace Metering Service API.
 --
@@ -19,7 +19,17 @@
 --
 -- __Submitting Metering Records__
 --
--- -   /MeterUsage/- Submits the metering record for a Marketplace product.
+--     * /MeterUsage/ - Submits the metering record for a Marketplace product. MeterUsage is called from an EC2 instance.
+--
+--     * /BatchMeterUsage/ - Submits the metering record for a set of customers. BatchMeterUsage is called from a software-as-a-service (SaaS) application.
+--
+--
+--
+-- __Accepting New Customers__
+--
+--     * /ResolveCustomer/ - Called by a SaaS application during the registration process. When a buyer visits your website during the registration process, the buyer submits a Registration Token through the browser. The Registration Token is resolved through this API to obtain a CustomerIdentifier and Product Code.
+--
+--
 --
 module Network.AWS.MarketplaceMetering
     (
@@ -50,21 +60,56 @@ module Network.AWS.MarketplaceMetering
     -- ** InternalServiceErrorException
     , _InternalServiceErrorException
 
+    -- ** InvalidTokenException
+    , _InvalidTokenException
+
+    -- ** ExpiredTokenException
+    , _ExpiredTokenException
+
+    -- ** InvalidCustomerIdentifierException
+    , _InvalidCustomerIdentifierException
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
 
+    -- ** BatchMeterUsage
+    , module Network.AWS.MarketplaceMetering.BatchMeterUsage
+
+    -- ** ResolveCustomer
+    , module Network.AWS.MarketplaceMetering.ResolveCustomer
+
     -- ** MeterUsage
     , module Network.AWS.MarketplaceMetering.MeterUsage
 
     -- * Types
+
+    -- ** UsageRecordResultStatus
+    , UsageRecordResultStatus (..)
+
+    -- ** UsageRecord
+    , UsageRecord
+    , usageRecord
+    , urTimestamp
+    , urCustomerIdentifier
+    , urDimension
+    , urQuantity
+
+    -- ** UsageRecordResult
+    , UsageRecordResult
+    , usageRecordResult
+    , urrStatus
+    , urrUsageRecord
+    , urrMeteringRecordId
     ) where
 
-import           Network.AWS.MarketplaceMetering.MeterUsage
-import           Network.AWS.MarketplaceMetering.Types
-import           Network.AWS.MarketplaceMetering.Waiters
+import Network.AWS.MarketplaceMetering.BatchMeterUsage
+import Network.AWS.MarketplaceMetering.MeterUsage
+import Network.AWS.MarketplaceMetering.ResolveCustomer
+import Network.AWS.MarketplaceMetering.Types
+import Network.AWS.MarketplaceMetering.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

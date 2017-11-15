@@ -12,19 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.EFS.DeleteFileSystem
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a file system, permanently severing access to its contents. Upon return, the file system no longer exists and you can\'t access any contents of the deleted file system.
+-- Deletes a file system, permanently severing access to its contents. Upon return, the file system no longer exists and you can't access any contents of the deleted file system.
 --
--- You can\'t delete a file system that is in use. That is, if the file system has any mount targets, you must first delete them. For more information, see < DescribeMountTargets> and < DeleteMountTarget>.
 --
--- The 'DeleteFileSystem' call returns while the file system state is still 'deleting'. You can check the file system deletion status by calling the < DescribeFileSystems> operation, which returns a list of file systems in your account. If you pass file system ID or creation token for the deleted file system, the < DescribeFileSystems> returns a '404 FileSystemNotFound' error.
+-- You can't delete a file system that is in use. That is, if the file system has any mount targets, you must first delete them. For more information, see 'DescribeMountTargets' and 'DeleteMountTarget' .
 --
--- This operation requires permissions for the 'elasticfilesystem:DeleteFileSystem' action.
+-- This operation requires permissions for the @elasticfilesystem:DeleteFileSystem@ action.
+--
 module Network.AWS.EFS.DeleteFileSystem
     (
     -- * Creating a Request
@@ -38,32 +38,34 @@ module Network.AWS.EFS.DeleteFileSystem
     , DeleteFileSystemResponse
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.EFS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteFileSystem' smart constructor.
 newtype DeleteFileSystem = DeleteFileSystem'
-    { _delFileSystemId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delFileSystemId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFileSystem' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delFileSystemId'
+-- * 'delFileSystemId' - ID of the file system you want to delete.
 deleteFileSystem
     :: Text -- ^ 'delFileSystemId'
     -> DeleteFileSystem
 deleteFileSystem pFileSystemId_ =
-    DeleteFileSystem'
-    { _delFileSystemId = pFileSystemId_
-    }
+  DeleteFileSystem' {_delFileSystemId = pFileSystemId_}
+
 
 -- | ID of the file system you want to delete.
 delFileSystemId :: Lens' DeleteFileSystem Text
@@ -74,9 +76,9 @@ instance AWSRequest DeleteFileSystem where
         request = delete efs
         response = receiveNull DeleteFileSystemResponse'
 
-instance Hashable DeleteFileSystem
+instance Hashable DeleteFileSystem where
 
-instance NFData DeleteFileSystem
+instance NFData DeleteFileSystem where
 
 instance ToHeaders DeleteFileSystem where
         toHeaders = const mempty
@@ -91,8 +93,9 @@ instance ToQuery DeleteFileSystem where
 
 -- | /See:/ 'deleteFileSystemResponse' smart constructor.
 data DeleteFileSystemResponse =
-    DeleteFileSystemResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteFileSystemResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFileSystemResponse' with the minimum fields required to make a request.
 --
@@ -100,4 +103,5 @@ deleteFileSystemResponse
     :: DeleteFileSystemResponse
 deleteFileSystemResponse = DeleteFileSystemResponse'
 
-instance NFData DeleteFileSystemResponse
+
+instance NFData DeleteFileSystemResponse where

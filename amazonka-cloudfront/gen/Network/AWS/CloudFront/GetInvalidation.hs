@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.GetInvalidation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Get the information about an invalidation.
+--
+--
 module Network.AWS.CloudFront.GetInvalidation
     (
     -- * Creating a Request
@@ -36,43 +38,44 @@ module Network.AWS.CloudFront.GetInvalidation
     , girsResponseStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | The request to get an invalidation\'s information.
+-- | The request to get an invalidation's information.
+--
+--
 --
 -- /See:/ 'getInvalidation' smart constructor.
 data GetInvalidation = GetInvalidation'
-    { _giDistributionId :: !Text
-    , _giId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _giDistributionId :: !Text
+  , _giId             :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInvalidation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'giDistributionId'
+-- * 'giDistributionId' - The distribution's ID.
 --
--- * 'giId'
+-- * 'giId' - The identifier for the invalidation request, for example, @IDFDVBD632BHDS5@ .
 getInvalidation
     :: Text -- ^ 'giDistributionId'
     -> Text -- ^ 'giId'
     -> GetInvalidation
 getInvalidation pDistributionId_ pId_ =
-    GetInvalidation'
-    { _giDistributionId = pDistributionId_
-    , _giId = pId_
-    }
+  GetInvalidation' {_giDistributionId = pDistributionId_, _giId = pId_}
 
--- | The distribution\'s id.
+
+-- | The distribution's ID.
 giDistributionId :: Lens' GetInvalidation Text
 giDistributionId = lens _giDistributionId (\ s a -> s{_giDistributionId = a});
 
--- | The invalidation\'s id.
+-- | The identifier for the invalidation request, for example, @IDFDVBD632BHDS5@ .
 giId :: Lens' GetInvalidation Text
 giId = lens _giId (\ s a -> s{_giId = a});
 
@@ -85,9 +88,9 @@ instance AWSRequest GetInvalidation where
                  GetInvalidationResponse' <$>
                    (parseXML x) <*> (pure (fromEnum s)))
 
-instance Hashable GetInvalidation
+instance Hashable GetInvalidation where
 
-instance NFData GetInvalidation
+instance NFData GetInvalidation where
 
 instance ToHeaders GetInvalidation where
         toHeaders = const mempty
@@ -95,7 +98,7 @@ instance ToHeaders GetInvalidation where
 instance ToPath GetInvalidation where
         toPath GetInvalidation'{..}
           = mconcat
-              ["/2016-09-07/distribution/", toBS _giDistributionId,
+              ["/2017-03-25/distribution/", toBS _giDistributionId,
                "/invalidation/", toBS _giId]
 
 instance ToQuery GetInvalidation where
@@ -103,34 +106,36 @@ instance ToQuery GetInvalidation where
 
 -- | The returned result of the corresponding request.
 --
+--
+--
 -- /See:/ 'getInvalidationResponse' smart constructor.
 data GetInvalidationResponse = GetInvalidationResponse'
-    { _girsInvalidation   :: !(Maybe Invalidation)
-    , _girsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _girsInvalidation   :: !(Maybe Invalidation)
+  , _girsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInvalidationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'girsInvalidation'
+-- * 'girsInvalidation' - The invalidation's information. For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationDatatype.html Invalidation Complex Type> .
 --
--- * 'girsResponseStatus'
+-- * 'girsResponseStatus' - -- | The response status code.
 getInvalidationResponse
     :: Int -- ^ 'girsResponseStatus'
     -> GetInvalidationResponse
 getInvalidationResponse pResponseStatus_ =
-    GetInvalidationResponse'
-    { _girsInvalidation = Nothing
-    , _girsResponseStatus = pResponseStatus_
-    }
+  GetInvalidationResponse'
+  {_girsInvalidation = Nothing, _girsResponseStatus = pResponseStatus_}
 
--- | The invalidation\'s information.
+
+-- | The invalidation's information. For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationDatatype.html Invalidation Complex Type> .
 girsInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
 girsInvalidation = lens _girsInvalidation (\ s a -> s{_girsInvalidation = a});
 
--- | The response status code.
+-- | -- | The response status code.
 girsResponseStatus :: Lens' GetInvalidationResponse Int
 girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a});
 
-instance NFData GetInvalidationResponse
+instance NFData GetInvalidationResponse where

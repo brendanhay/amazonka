@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteSnapshotCopyGrant
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified snapshot copy grant.
+--
+--
 module Network.AWS.Redshift.DeleteSnapshotCopyGrant
     (
     -- * Creating a Request
@@ -32,32 +34,35 @@ module Network.AWS.Redshift.DeleteSnapshotCopyGrant
     , DeleteSnapshotCopyGrantResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | The result of the 'DeleteSnapshotCopyGrant' action.
+-- | The result of the @DeleteSnapshotCopyGrant@ action.
+--
+--
 --
 -- /See:/ 'deleteSnapshotCopyGrant' smart constructor.
 newtype DeleteSnapshotCopyGrant = DeleteSnapshotCopyGrant'
-    { _dscgSnapshotCopyGrantName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dscgSnapshotCopyGrantName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSnapshotCopyGrant' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dscgSnapshotCopyGrantName'
+-- * 'dscgSnapshotCopyGrantName' - The name of the snapshot copy grant to delete.
 deleteSnapshotCopyGrant
     :: Text -- ^ 'dscgSnapshotCopyGrantName'
     -> DeleteSnapshotCopyGrant
 deleteSnapshotCopyGrant pSnapshotCopyGrantName_ =
-    DeleteSnapshotCopyGrant'
-    { _dscgSnapshotCopyGrantName = pSnapshotCopyGrantName_
-    }
+  DeleteSnapshotCopyGrant'
+  {_dscgSnapshotCopyGrantName = pSnapshotCopyGrantName_}
+
 
 -- | The name of the snapshot copy grant to delete.
 dscgSnapshotCopyGrantName :: Lens' DeleteSnapshotCopyGrant Text
@@ -70,9 +75,9 @@ instance AWSRequest DeleteSnapshotCopyGrant where
         response
           = receiveNull DeleteSnapshotCopyGrantResponse'
 
-instance Hashable DeleteSnapshotCopyGrant
+instance Hashable DeleteSnapshotCopyGrant where
 
-instance NFData DeleteSnapshotCopyGrant
+instance NFData DeleteSnapshotCopyGrant where
 
 instance ToHeaders DeleteSnapshotCopyGrant where
         toHeaders = const mempty
@@ -91,8 +96,9 @@ instance ToQuery DeleteSnapshotCopyGrant where
 
 -- | /See:/ 'deleteSnapshotCopyGrantResponse' smart constructor.
 data DeleteSnapshotCopyGrantResponse =
-    DeleteSnapshotCopyGrantResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteSnapshotCopyGrantResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSnapshotCopyGrantResponse' with the minimum fields required to make a request.
 --
@@ -100,4 +106,5 @@ deleteSnapshotCopyGrantResponse
     :: DeleteSnapshotCopyGrantResponse
 deleteSnapshotCopyGrantResponse = DeleteSnapshotCopyGrantResponse'
 
-instance NFData DeleteSnapshotCopyGrantResponse
+
+instance NFData DeleteSnapshotCopyGrantResponse where

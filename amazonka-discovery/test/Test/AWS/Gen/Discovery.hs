@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.Discovery
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.Discovery where
 
 import Data.Proxy
+import Network.AWS.Discovery
+import Test.AWS.Discovery.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.Discovery
-import Test.AWS.Discovery.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -31,9 +31,6 @@ import Test.AWS.Discovery.Internal
 --         [ requestDescribeTags $
 --             describeTags
 --
---         , requestExportConfigurations $
---             exportConfigurations
---
 --         , requestStopDataCollectionByAgentIds $
 --             stopDataCollectionByAgentIds
 --
@@ -43,8 +40,17 @@ import Test.AWS.Discovery.Internal
 --         , requestDeleteTags $
 --             deleteTags
 --
+--         , requestDeleteApplications $
+--             deleteApplications
+--
+--         , requestUpdateApplication $
+--             updateApplication
+--
 --         , requestDescribeConfigurations $
 --             describeConfigurations
+--
+--         , requestCreateApplication $
+--             createApplication
 --
 --         , requestListConfigurations $
 --             listConfigurations
@@ -52,20 +58,32 @@ import Test.AWS.Discovery.Internal
 --         , requestDescribeAgents $
 --             describeAgents
 --
---         , requestDescribeExportConfigurations $
---             describeExportConfigurations
+--         , requestDescribeExportTasks $
+--             describeExportTasks
 --
 --         , requestStartDataCollectionByAgentIds $
 --             startDataCollectionByAgentIds
+--
+--         , requestGetDiscoverySummary $
+--             getDiscoverySummary
+--
+--         , requestDisassociateConfigurationItemsFromApplication $
+--             disassociateConfigurationItemsFromApplication
+--
+--         , requestAssociateConfigurationItemsToApplication $
+--             associateConfigurationItemsToApplication
+--
+--         , requestListServerNeighbors $
+--             listServerNeighbors
+--
+--         , requestStartExportTask $
+--             startExportTask
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseDescribeTags $
 --             describeTagsResponse
---
---         , responseExportConfigurations $
---             exportConfigurationsResponse
 --
 --         , responseStopDataCollectionByAgentIds $
 --             stopDataCollectionByAgentIdsResponse
@@ -76,8 +94,17 @@ import Test.AWS.Discovery.Internal
 --         , responseDeleteTags $
 --             deleteTagsResponse
 --
+--         , responseDeleteApplications $
+--             deleteApplicationsResponse
+--
+--         , responseUpdateApplication $
+--             updateApplicationResponse
+--
 --         , responseDescribeConfigurations $
 --             describeConfigurationsResponse
+--
+--         , responseCreateApplication $
+--             createApplicationResponse
 --
 --         , responseListConfigurations $
 --             listConfigurationsResponse
@@ -85,11 +112,26 @@ import Test.AWS.Discovery.Internal
 --         , responseDescribeAgents $
 --             describeAgentsResponse
 --
---         , responseDescribeExportConfigurations $
---             describeExportConfigurationsResponse
+--         , responseDescribeExportTasks $
+--             describeExportTasksResponse
 --
 --         , responseStartDataCollectionByAgentIds $
 --             startDataCollectionByAgentIdsResponse
+--
+--         , responseGetDiscoverySummary $
+--             getDiscoverySummaryResponse
+--
+--         , responseDisassociateConfigurationItemsFromApplication $
+--             disassociateConfigurationItemsFromApplicationResponse
+--
+--         , responseAssociateConfigurationItemsToApplication $
+--             associateConfigurationItemsToApplicationResponse
+--
+--         , responseListServerNeighbors $
+--             listServerNeighborsResponse
+--
+--         , responseStartExportTask $
+--             startExportTaskResponse
 --
 --           ]
 --     ]
@@ -100,11 +142,6 @@ requestDescribeTags :: DescribeTags -> TestTree
 requestDescribeTags = req
     "DescribeTags"
     "fixture/DescribeTags.yaml"
-
-requestExportConfigurations :: ExportConfigurations -> TestTree
-requestExportConfigurations = req
-    "ExportConfigurations"
-    "fixture/ExportConfigurations.yaml"
 
 requestStopDataCollectionByAgentIds :: StopDataCollectionByAgentIds -> TestTree
 requestStopDataCollectionByAgentIds = req
@@ -121,10 +158,25 @@ requestDeleteTags = req
     "DeleteTags"
     "fixture/DeleteTags.yaml"
 
+requestDeleteApplications :: DeleteApplications -> TestTree
+requestDeleteApplications = req
+    "DeleteApplications"
+    "fixture/DeleteApplications.yaml"
+
+requestUpdateApplication :: UpdateApplication -> TestTree
+requestUpdateApplication = req
+    "UpdateApplication"
+    "fixture/UpdateApplication.yaml"
+
 requestDescribeConfigurations :: DescribeConfigurations -> TestTree
 requestDescribeConfigurations = req
     "DescribeConfigurations"
     "fixture/DescribeConfigurations.yaml"
+
+requestCreateApplication :: CreateApplication -> TestTree
+requestCreateApplication = req
+    "CreateApplication"
+    "fixture/CreateApplication.yaml"
 
 requestListConfigurations :: ListConfigurations -> TestTree
 requestListConfigurations = req
@@ -136,15 +188,40 @@ requestDescribeAgents = req
     "DescribeAgents"
     "fixture/DescribeAgents.yaml"
 
-requestDescribeExportConfigurations :: DescribeExportConfigurations -> TestTree
-requestDescribeExportConfigurations = req
-    "DescribeExportConfigurations"
-    "fixture/DescribeExportConfigurations.yaml"
+requestDescribeExportTasks :: DescribeExportTasks -> TestTree
+requestDescribeExportTasks = req
+    "DescribeExportTasks"
+    "fixture/DescribeExportTasks.yaml"
 
 requestStartDataCollectionByAgentIds :: StartDataCollectionByAgentIds -> TestTree
 requestStartDataCollectionByAgentIds = req
     "StartDataCollectionByAgentIds"
     "fixture/StartDataCollectionByAgentIds.yaml"
+
+requestGetDiscoverySummary :: GetDiscoverySummary -> TestTree
+requestGetDiscoverySummary = req
+    "GetDiscoverySummary"
+    "fixture/GetDiscoverySummary.yaml"
+
+requestDisassociateConfigurationItemsFromApplication :: DisassociateConfigurationItemsFromApplication -> TestTree
+requestDisassociateConfigurationItemsFromApplication = req
+    "DisassociateConfigurationItemsFromApplication"
+    "fixture/DisassociateConfigurationItemsFromApplication.yaml"
+
+requestAssociateConfigurationItemsToApplication :: AssociateConfigurationItemsToApplication -> TestTree
+requestAssociateConfigurationItemsToApplication = req
+    "AssociateConfigurationItemsToApplication"
+    "fixture/AssociateConfigurationItemsToApplication.yaml"
+
+requestListServerNeighbors :: ListServerNeighbors -> TestTree
+requestListServerNeighbors = req
+    "ListServerNeighbors"
+    "fixture/ListServerNeighbors.yaml"
+
+requestStartExportTask :: StartExportTask -> TestTree
+requestStartExportTask = req
+    "StartExportTask"
+    "fixture/StartExportTask.yaml"
 
 -- Responses
 
@@ -154,13 +231,6 @@ responseDescribeTags = res
     "fixture/DescribeTagsResponse.proto"
     discovery
     (Proxy :: Proxy DescribeTags)
-
-responseExportConfigurations :: ExportConfigurationsResponse -> TestTree
-responseExportConfigurations = res
-    "ExportConfigurationsResponse"
-    "fixture/ExportConfigurationsResponse.proto"
-    discovery
-    (Proxy :: Proxy ExportConfigurations)
 
 responseStopDataCollectionByAgentIds :: StopDataCollectionByAgentIdsResponse -> TestTree
 responseStopDataCollectionByAgentIds = res
@@ -183,12 +253,33 @@ responseDeleteTags = res
     discovery
     (Proxy :: Proxy DeleteTags)
 
+responseDeleteApplications :: DeleteApplicationsResponse -> TestTree
+responseDeleteApplications = res
+    "DeleteApplicationsResponse"
+    "fixture/DeleteApplicationsResponse.proto"
+    discovery
+    (Proxy :: Proxy DeleteApplications)
+
+responseUpdateApplication :: UpdateApplicationResponse -> TestTree
+responseUpdateApplication = res
+    "UpdateApplicationResponse"
+    "fixture/UpdateApplicationResponse.proto"
+    discovery
+    (Proxy :: Proxy UpdateApplication)
+
 responseDescribeConfigurations :: DescribeConfigurationsResponse -> TestTree
 responseDescribeConfigurations = res
     "DescribeConfigurationsResponse"
     "fixture/DescribeConfigurationsResponse.proto"
     discovery
     (Proxy :: Proxy DescribeConfigurations)
+
+responseCreateApplication :: CreateApplicationResponse -> TestTree
+responseCreateApplication = res
+    "CreateApplicationResponse"
+    "fixture/CreateApplicationResponse.proto"
+    discovery
+    (Proxy :: Proxy CreateApplication)
 
 responseListConfigurations :: ListConfigurationsResponse -> TestTree
 responseListConfigurations = res
@@ -204,12 +295,12 @@ responseDescribeAgents = res
     discovery
     (Proxy :: Proxy DescribeAgents)
 
-responseDescribeExportConfigurations :: DescribeExportConfigurationsResponse -> TestTree
-responseDescribeExportConfigurations = res
-    "DescribeExportConfigurationsResponse"
-    "fixture/DescribeExportConfigurationsResponse.proto"
+responseDescribeExportTasks :: DescribeExportTasksResponse -> TestTree
+responseDescribeExportTasks = res
+    "DescribeExportTasksResponse"
+    "fixture/DescribeExportTasksResponse.proto"
     discovery
-    (Proxy :: Proxy DescribeExportConfigurations)
+    (Proxy :: Proxy DescribeExportTasks)
 
 responseStartDataCollectionByAgentIds :: StartDataCollectionByAgentIdsResponse -> TestTree
 responseStartDataCollectionByAgentIds = res
@@ -217,3 +308,38 @@ responseStartDataCollectionByAgentIds = res
     "fixture/StartDataCollectionByAgentIdsResponse.proto"
     discovery
     (Proxy :: Proxy StartDataCollectionByAgentIds)
+
+responseGetDiscoverySummary :: GetDiscoverySummaryResponse -> TestTree
+responseGetDiscoverySummary = res
+    "GetDiscoverySummaryResponse"
+    "fixture/GetDiscoverySummaryResponse.proto"
+    discovery
+    (Proxy :: Proxy GetDiscoverySummary)
+
+responseDisassociateConfigurationItemsFromApplication :: DisassociateConfigurationItemsFromApplicationResponse -> TestTree
+responseDisassociateConfigurationItemsFromApplication = res
+    "DisassociateConfigurationItemsFromApplicationResponse"
+    "fixture/DisassociateConfigurationItemsFromApplicationResponse.proto"
+    discovery
+    (Proxy :: Proxy DisassociateConfigurationItemsFromApplication)
+
+responseAssociateConfigurationItemsToApplication :: AssociateConfigurationItemsToApplicationResponse -> TestTree
+responseAssociateConfigurationItemsToApplication = res
+    "AssociateConfigurationItemsToApplicationResponse"
+    "fixture/AssociateConfigurationItemsToApplicationResponse.proto"
+    discovery
+    (Proxy :: Proxy AssociateConfigurationItemsToApplication)
+
+responseListServerNeighbors :: ListServerNeighborsResponse -> TestTree
+responseListServerNeighbors = res
+    "ListServerNeighborsResponse"
+    "fixture/ListServerNeighborsResponse.proto"
+    discovery
+    (Proxy :: Proxy ListServerNeighbors)
+
+responseStartExportTask :: StartExportTaskResponse -> TestTree
+responseStartExportTask = res
+    "StartExportTaskResponse"
+    "fixture/StartExportTaskResponse.proto"
+    discovery
+    (Proxy :: Proxy StartExportTask)

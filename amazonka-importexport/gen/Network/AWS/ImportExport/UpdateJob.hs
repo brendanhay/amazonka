@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport.UpdateJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,37 +41,38 @@ module Network.AWS.ImportExport.UpdateJob
     , ujrsResponseStatus
     ) where
 
-import           Network.AWS.ImportExport.Types
-import           Network.AWS.ImportExport.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ImportExport.Types
+import Network.AWS.ImportExport.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input structure for the UpateJob operation.
 --
 -- /See:/ 'updateJob' smart constructor.
 data UpdateJob = UpdateJob'
-    { _ujAPIVersion   :: !(Maybe Text)
-    , _ujJobId        :: !Text
-    , _ujManifest     :: !Text
-    , _ujJobType      :: !JobType
-    , _ujValidateOnly :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ujAPIVersion   :: !(Maybe Text)
+  , _ujJobId        :: !Text
+  , _ujManifest     :: !Text
+  , _ujJobType      :: !JobType
+  , _ujValidateOnly :: !Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateJob' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ujAPIVersion'
+-- * 'ujAPIVersion' - Undocumented member.
 --
--- * 'ujJobId'
+-- * 'ujJobId' - Undocumented member.
 --
--- * 'ujManifest'
+-- * 'ujManifest' - Undocumented member.
 --
--- * 'ujJobType'
+-- * 'ujJobType' - Undocumented member.
 --
--- * 'ujValidateOnly'
+-- * 'ujValidateOnly' - Undocumented member.
 updateJob
     :: Text -- ^ 'ujJobId'
     -> Text -- ^ 'ujManifest'
@@ -79,13 +80,14 @@ updateJob
     -> Bool -- ^ 'ujValidateOnly'
     -> UpdateJob
 updateJob pJobId_ pManifest_ pJobType_ pValidateOnly_ =
-    UpdateJob'
-    { _ujAPIVersion = Nothing
-    , _ujJobId = pJobId_
-    , _ujManifest = pManifest_
-    , _ujJobType = pJobType_
-    , _ujValidateOnly = pValidateOnly_
-    }
+  UpdateJob'
+  { _ujAPIVersion = Nothing
+  , _ujJobId = pJobId_
+  , _ujManifest = pManifest_
+  , _ujJobType = pJobType_
+  , _ujValidateOnly = pValidateOnly_
+  }
+
 
 -- | Undocumented member.
 ujAPIVersion :: Lens' UpdateJob (Maybe Text)
@@ -119,9 +121,9 @@ instance AWSRequest UpdateJob where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable UpdateJob
+instance Hashable UpdateJob where
 
-instance NFData UpdateJob
+instance NFData UpdateJob where
 
 instance ToHeaders UpdateJob where
         toHeaders = const mempty
@@ -143,33 +145,35 @@ instance ToQuery UpdateJob where
 --
 -- /See:/ 'updateJobResponse' smart constructor.
 data UpdateJobResponse = UpdateJobResponse'
-    { _ujrsSuccess        :: !(Maybe Bool)
-    , _ujrsWarningMessage :: !(Maybe Text)
-    , _ujrsArtifactList   :: !(Maybe [Artifact])
-    , _ujrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ujrsSuccess        :: !(Maybe Bool)
+  , _ujrsWarningMessage :: !(Maybe Text)
+  , _ujrsArtifactList   :: !(Maybe [Artifact])
+  , _ujrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateJobResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ujrsSuccess'
+-- * 'ujrsSuccess' - Undocumented member.
 --
--- * 'ujrsWarningMessage'
+-- * 'ujrsWarningMessage' - Undocumented member.
 --
--- * 'ujrsArtifactList'
+-- * 'ujrsArtifactList' - Undocumented member.
 --
--- * 'ujrsResponseStatus'
+-- * 'ujrsResponseStatus' - -- | The response status code.
 updateJobResponse
     :: Int -- ^ 'ujrsResponseStatus'
     -> UpdateJobResponse
 updateJobResponse pResponseStatus_ =
-    UpdateJobResponse'
-    { _ujrsSuccess = Nothing
-    , _ujrsWarningMessage = Nothing
-    , _ujrsArtifactList = Nothing
-    , _ujrsResponseStatus = pResponseStatus_
-    }
+  UpdateJobResponse'
+  { _ujrsSuccess = Nothing
+  , _ujrsWarningMessage = Nothing
+  , _ujrsArtifactList = Nothing
+  , _ujrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 ujrsSuccess :: Lens' UpdateJobResponse (Maybe Bool)
@@ -183,8 +187,8 @@ ujrsWarningMessage = lens _ujrsWarningMessage (\ s a -> s{_ujrsWarningMessage = 
 ujrsArtifactList :: Lens' UpdateJobResponse [Artifact]
 ujrsArtifactList = lens _ujrsArtifactList (\ s a -> s{_ujrsArtifactList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ujrsResponseStatus :: Lens' UpdateJobResponse Int
 ujrsResponseStatus = lens _ujrsResponseStatus (\ s a -> s{_ujrsResponseStatus = a});
 
-instance NFData UpdateJobResponse
+instance NFData UpdateJobResponse where

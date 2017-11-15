@@ -12,13 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.DeleteHSM
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This is documentation for __AWS CloudHSM Classic__ . For more information, see <http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs> , the <http://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference> .
+--
+--
+-- __For information about the current version of AWS CloudHSM__ , see <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> , the <http://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference> .
+--
 -- Deletes an HSM. After completion, this operation cannot be undone and your key material cannot be recovered.
+--
 module Network.AWS.CloudHSM.DeleteHSM
     (
     -- * Creating a Request
@@ -35,32 +41,33 @@ module Network.AWS.CloudHSM.DeleteHSM
     , dhsmrsStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the inputs for the < DeleteHsm> operation.
+-- | Contains the inputs for the 'DeleteHsm' operation.
+--
+--
 --
 -- /See:/ 'deleteHSM' smart constructor.
 newtype DeleteHSM = DeleteHSM'
-    { _dhHSMARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhHSMARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteHSM' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhHSMARN'
+-- * 'dhHSMARN' - The ARN of the HSM to delete.
 deleteHSM
     :: Text -- ^ 'dhHSMARN'
     -> DeleteHSM
-deleteHSM pHSMARN_ =
-    DeleteHSM'
-    { _dhHSMARN = pHSMARN_
-    }
+deleteHSM pHSMARN_ = DeleteHSM' {_dhHSMARN = pHSMARN_}
+
 
 -- | The ARN of the HSM to delete.
 dhHSMARN :: Lens' DeleteHSM Text
@@ -75,9 +82,9 @@ instance AWSRequest DeleteHSM where
                  DeleteHSMResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Status"))
 
-instance Hashable DeleteHSM
+instance Hashable DeleteHSM where
 
-instance NFData DeleteHSM
+instance NFData DeleteHSM where
 
 instance ToHeaders DeleteHSM where
         toHeaders
@@ -98,32 +105,34 @@ instance ToPath DeleteHSM where
 instance ToQuery DeleteHSM where
         toQuery = const mempty
 
--- | Contains the output of the < DeleteHsm> operation.
+-- | Contains the output of the 'DeleteHsm' operation.
+--
+--
 --
 -- /See:/ 'deleteHSMResponse' smart constructor.
 data DeleteHSMResponse = DeleteHSMResponse'
-    { _dhsmrsResponseStatus :: !Int
-    , _dhsmrsStatus         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhsmrsResponseStatus :: !Int
+  , _dhsmrsStatus         :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteHSMResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhsmrsResponseStatus'
+-- * 'dhsmrsResponseStatus' - -- | The response status code.
 --
--- * 'dhsmrsStatus'
+-- * 'dhsmrsStatus' - The status of the operation.
 deleteHSMResponse
     :: Int -- ^ 'dhsmrsResponseStatus'
     -> Text -- ^ 'dhsmrsStatus'
     -> DeleteHSMResponse
 deleteHSMResponse pResponseStatus_ pStatus_ =
-    DeleteHSMResponse'
-    { _dhsmrsResponseStatus = pResponseStatus_
-    , _dhsmrsStatus = pStatus_
-    }
+  DeleteHSMResponse'
+  {_dhsmrsResponseStatus = pResponseStatus_, _dhsmrsStatus = pStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 dhsmrsResponseStatus :: Lens' DeleteHSMResponse Int
 dhsmrsResponseStatus = lens _dhsmrsResponseStatus (\ s a -> s{_dhsmrsResponseStatus = a});
 
@@ -131,4 +140,4 @@ dhsmrsResponseStatus = lens _dhsmrsResponseStatus (\ s a -> s{_dhsmrsResponseSta
 dhsmrsStatus :: Lens' DeleteHSMResponse Text
 dhsmrsStatus = lens _dhsmrsStatus (\ s a -> s{_dhsmrsStatus = a});
 
-instance NFData DeleteHSMResponse
+instance NFData DeleteHSMResponse where

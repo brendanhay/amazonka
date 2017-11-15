@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DefineExpression
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures an 'Expression' for the search domain. Used to create new expressions and modify existing ones. If the expression exists, the new configuration replaces the old one. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions> in the /Amazon CloudSearch Developer Guide/.
+-- Configures an @'Expression' @ for the search domain. Used to create new expressions and modify existing ones. If the expression exists, the new configuration replaces the old one. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions> in the /Amazon CloudSearch Developer Guide/ .
+--
+--
 module Network.AWS.CloudSearch.DefineExpression
     (
     -- * Creating a Request
@@ -36,37 +38,38 @@ module Network.AWS.CloudSearch.DefineExpression
     , dersExpression
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Container for the parameters to the 'DefineExpression' operation. Specifies the name of the domain you want to update and the expression you want to configure.
+-- | Container for the parameters to the @'DefineExpression' @ operation. Specifies the name of the domain you want to update and the expression you want to configure.
+--
+--
 --
 -- /See:/ 'defineExpression' smart constructor.
 data DefineExpression = DefineExpression'
-    { _dDomainName :: !Text
-    , _dExpression :: !Expression
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dDomainName :: !Text
+  , _dExpression :: !Expression
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DefineExpression' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dDomainName'
+-- * 'dDomainName' - Undocumented member.
 --
--- * 'dExpression'
+-- * 'dExpression' - Undocumented member.
 defineExpression
     :: Text -- ^ 'dDomainName'
     -> Expression -- ^ 'dExpression'
     -> DefineExpression
 defineExpression pDomainName_ pExpression_ =
-    DefineExpression'
-    { _dDomainName = pDomainName_
-    , _dExpression = pExpression_
-    }
+  DefineExpression' {_dDomainName = pDomainName_, _dExpression = pExpression_}
+
 
 -- | Undocumented member.
 dDomainName :: Lens' DefineExpression Text
@@ -85,9 +88,9 @@ instance AWSRequest DefineExpression where
                  DefineExpressionResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Expression"))
 
-instance Hashable DefineExpression
+instance Hashable DefineExpression where
 
-instance NFData DefineExpression
+instance NFData DefineExpression where
 
 instance ToHeaders DefineExpression where
         toHeaders = const mempty
@@ -103,32 +106,34 @@ instance ToQuery DefineExpression where
                "DomainName" =: _dDomainName,
                "Expression" =: _dExpression]
 
--- | The result of a 'DefineExpression' request. Contains the status of the newly-configured expression.
+-- | The result of a @DefineExpression@ request. Contains the status of the newly-configured expression.
+--
+--
 --
 -- /See:/ 'defineExpressionResponse' smart constructor.
 data DefineExpressionResponse = DefineExpressionResponse'
-    { _dersResponseStatus :: !Int
-    , _dersExpression     :: !ExpressionStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dersResponseStatus :: !Int
+  , _dersExpression     :: !ExpressionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DefineExpressionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dersResponseStatus'
+-- * 'dersResponseStatus' - -- | The response status code.
 --
--- * 'dersExpression'
+-- * 'dersExpression' - Undocumented member.
 defineExpressionResponse
     :: Int -- ^ 'dersResponseStatus'
     -> ExpressionStatus -- ^ 'dersExpression'
     -> DefineExpressionResponse
 defineExpressionResponse pResponseStatus_ pExpression_ =
-    DefineExpressionResponse'
-    { _dersResponseStatus = pResponseStatus_
-    , _dersExpression = pExpression_
-    }
+  DefineExpressionResponse'
+  {_dersResponseStatus = pResponseStatus_, _dersExpression = pExpression_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 dersResponseStatus :: Lens' DefineExpressionResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
 
@@ -136,4 +141,4 @@ dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = 
 dersExpression :: Lens' DefineExpressionResponse ExpressionStatus
 dersExpression = lens _dersExpression (\ s a -> s{_dersExpression = a});
 
-instance NFData DefineExpressionResponse
+instance NFData DefineExpressionResponse where

@@ -5,13 +5,16 @@
 
 -- |
 -- Module      : Network.AWS.EFS
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon Elastic File System
+-- __Amazon Elastic File System__
+--
+-- Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use with Amazon EC2 instances in the AWS Cloud. With Amazon EFS, storage capacity is elastic, growing and shrinking automatically as you add and remove files, so your applications have the storage they need, when they need it. For more information, see the <http://docs.aws.amazon.com/efs/latest/ug/api-reference.html User Guide> .
+--
 module Network.AWS.EFS
     (
     -- * Service Configuration
@@ -80,13 +83,13 @@ module Network.AWS.EFS
     -- * Operations
     -- $operations
 
-    -- ** DescribeTags
+    -- ** DescribeTags (Paginated)
     , module Network.AWS.EFS.DescribeTags
 
-    -- ** DescribeMountTargets
+    -- ** DescribeMountTargets (Paginated)
     , module Network.AWS.EFS.DescribeMountTargets
 
-    -- ** DescribeFileSystems
+    -- ** DescribeFileSystems (Paginated)
     , module Network.AWS.EFS.DescribeFileSystems
 
     -- ** DeleteMountTarget
@@ -124,6 +127,8 @@ module Network.AWS.EFS
     -- ** FileSystemDescription
     , FileSystemDescription
     , fileSystemDescription
+    , fsdEncrypted
+    , fsdKMSKeyId
     , fsdName
     , fsdOwnerId
     , fsdCreationToken
@@ -158,19 +163,19 @@ module Network.AWS.EFS
     , tagValue
     ) where
 
-import           Network.AWS.EFS.CreateFileSystem
-import           Network.AWS.EFS.CreateMountTarget
-import           Network.AWS.EFS.CreateTags
-import           Network.AWS.EFS.DeleteFileSystem
-import           Network.AWS.EFS.DeleteMountTarget
-import           Network.AWS.EFS.DeleteTags
-import           Network.AWS.EFS.DescribeFileSystems
-import           Network.AWS.EFS.DescribeMountTargets
-import           Network.AWS.EFS.DescribeMountTargetSecurityGroups
-import           Network.AWS.EFS.DescribeTags
-import           Network.AWS.EFS.ModifyMountTargetSecurityGroups
-import           Network.AWS.EFS.Types
-import           Network.AWS.EFS.Waiters
+import Network.AWS.EFS.CreateFileSystem
+import Network.AWS.EFS.CreateMountTarget
+import Network.AWS.EFS.CreateTags
+import Network.AWS.EFS.DeleteFileSystem
+import Network.AWS.EFS.DeleteMountTarget
+import Network.AWS.EFS.DeleteTags
+import Network.AWS.EFS.DescribeFileSystems
+import Network.AWS.EFS.DescribeMountTargets
+import Network.AWS.EFS.DescribeMountTargetSecurityGroups
+import Network.AWS.EFS.DescribeTags
+import Network.AWS.EFS.ModifyMountTargetSecurityGroups
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

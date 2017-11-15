@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.PutActionRevision
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides information to AWS CodePipeline about new revisions to a source.
+--
+--
 module Network.AWS.CodePipeline.PutActionRevision
     (
     -- * Creating a Request
@@ -39,34 +41,37 @@ module Network.AWS.CodePipeline.PutActionRevision
     , prsResponseStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a put action revision action.
+-- | Represents the input of a PutActionRevision action.
+--
+--
 --
 -- /See:/ 'putActionRevision' smart constructor.
 data PutActionRevision = PutActionRevision'
-    { _pPipelineName   :: !Text
-    , _pStageName      :: !Text
-    , _pActionName     :: !Text
-    , _pActionRevision :: !ActionRevision
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pPipelineName   :: !Text
+  , _pStageName      :: !Text
+  , _pActionName     :: !Text
+  , _pActionRevision :: !ActionRevision
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutActionRevision' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pPipelineName'
+-- * 'pPipelineName' - The name of the pipeline that will start processing the revision to the source.
 --
--- * 'pStageName'
+-- * 'pStageName' - The name of the stage that contains the action that will act upon the revision.
 --
--- * 'pActionName'
+-- * 'pActionName' - The name of the action that will process the revision.
 --
--- * 'pActionRevision'
+-- * 'pActionRevision' - Represents information about the version (or revision) of an action.
 putActionRevision
     :: Text -- ^ 'pPipelineName'
     -> Text -- ^ 'pStageName'
@@ -74,12 +79,13 @@ putActionRevision
     -> ActionRevision -- ^ 'pActionRevision'
     -> PutActionRevision
 putActionRevision pPipelineName_ pStageName_ pActionName_ pActionRevision_ =
-    PutActionRevision'
-    { _pPipelineName = pPipelineName_
-    , _pStageName = pStageName_
-    , _pActionName = pActionName_
-    , _pActionRevision = pActionRevision_
-    }
+  PutActionRevision'
+  { _pPipelineName = pPipelineName_
+  , _pStageName = pStageName_
+  , _pActionName = pActionName_
+  , _pActionRevision = pActionRevision_
+  }
+
 
 -- | The name of the pipeline that will start processing the revision to the source.
 pPipelineName :: Lens' PutActionRevision Text
@@ -93,7 +99,7 @@ pStageName = lens _pStageName (\ s a -> s{_pStageName = a});
 pActionName :: Lens' PutActionRevision Text
 pActionName = lens _pActionName (\ s a -> s{_pActionName = a});
 
--- | Undocumented member.
+-- | Represents information about the version (or revision) of an action.
 pActionRevision :: Lens' PutActionRevision ActionRevision
 pActionRevision = lens _pActionRevision (\ s a -> s{_pActionRevision = a});
 
@@ -108,9 +114,9 @@ instance AWSRequest PutActionRevision where
                      (x .?> "pipelineExecutionId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable PutActionRevision
+instance Hashable PutActionRevision where
 
-instance NFData PutActionRevision
+instance NFData PutActionRevision where
 
 instance ToHeaders PutActionRevision where
         toHeaders
@@ -137,33 +143,37 @@ instance ToPath PutActionRevision where
 instance ToQuery PutActionRevision where
         toQuery = const mempty
 
--- | Represents the output of a put action revision action.
+-- | Represents the output of a PutActionRevision action.
+--
+--
 --
 -- /See:/ 'putActionRevisionResponse' smart constructor.
 data PutActionRevisionResponse = PutActionRevisionResponse'
-    { _prsNewRevision         :: !(Maybe Bool)
-    , _prsPipelineExecutionId :: !(Maybe Text)
-    , _prsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prsNewRevision         :: !(Maybe Bool)
+  , _prsPipelineExecutionId :: !(Maybe Text)
+  , _prsResponseStatus      :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutActionRevisionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prsNewRevision'
+-- * 'prsNewRevision' - Indicates whether the artifact revision was previously used in an execution of the specified pipeline.
 --
--- * 'prsPipelineExecutionId'
+-- * 'prsPipelineExecutionId' - The ID of the current workflow state of the pipeline.
 --
--- * 'prsResponseStatus'
+-- * 'prsResponseStatus' - -- | The response status code.
 putActionRevisionResponse
     :: Int -- ^ 'prsResponseStatus'
     -> PutActionRevisionResponse
 putActionRevisionResponse pResponseStatus_ =
-    PutActionRevisionResponse'
-    { _prsNewRevision = Nothing
-    , _prsPipelineExecutionId = Nothing
-    , _prsResponseStatus = pResponseStatus_
-    }
+  PutActionRevisionResponse'
+  { _prsNewRevision = Nothing
+  , _prsPipelineExecutionId = Nothing
+  , _prsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Indicates whether the artifact revision was previously used in an execution of the specified pipeline.
 prsNewRevision :: Lens' PutActionRevisionResponse (Maybe Bool)
@@ -173,8 +183,8 @@ prsNewRevision = lens _prsNewRevision (\ s a -> s{_prsNewRevision = a});
 prsPipelineExecutionId :: Lens' PutActionRevisionResponse (Maybe Text)
 prsPipelineExecutionId = lens _prsPipelineExecutionId (\ s a -> s{_prsPipelineExecutionId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 prsResponseStatus :: Lens' PutActionRevisionResponse Int
 prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a});
 
-instance NFData PutActionRevisionResponse
+instance NFData PutActionRevisionResponse where

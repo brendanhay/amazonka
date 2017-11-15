@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -16,6 +16,7 @@ module Network.AWS.Firehose.Types
       firehose
 
     -- * Errors
+    , _InvalidStreamTypeException
     , _InvalidArgumentException
     , _ConcurrentModificationException
     , _ServiceUnavailableException
@@ -29,6 +30,9 @@ module Network.AWS.Firehose.Types
     -- * DeliveryStreamStatus
     , DeliveryStreamStatus (..)
 
+    -- * DeliveryStreamType
+    , DeliveryStreamType (..)
+
     -- * ElasticsearchIndexRotationPeriod
     , ElasticsearchIndexRotationPeriod (..)
 
@@ -37,6 +41,18 @@ module Network.AWS.Firehose.Types
 
     -- * NoEncryptionConfig
     , NoEncryptionConfig (..)
+
+    -- * ProcessorParameterName
+    , ProcessorParameterName (..)
+
+    -- * ProcessorType
+    , ProcessorType (..)
+
+    -- * RedshiftS3BackupMode
+    , RedshiftS3BackupMode (..)
+
+    -- * S3BackupMode
+    , S3BackupMode (..)
 
     -- * BufferingHints
     , BufferingHints
@@ -62,10 +78,12 @@ module Network.AWS.Firehose.Types
     , DeliveryStreamDescription
     , deliveryStreamDescription
     , dsdCreateTimestamp
+    , dsdSource
     , dsdLastUpdateTimestamp
     , dsdDeliveryStreamName
     , dsdDeliveryStreamARN
     , dsdDeliveryStreamStatus
+    , dsdDeliveryStreamType
     , dsdVersionId
     , dsdDestinations
     , dsdHasMoreDestinations
@@ -74,6 +92,7 @@ module Network.AWS.Firehose.Types
     , DestinationDescription
     , destinationDescription
     , ddS3DestinationDescription
+    , ddExtendedS3DestinationDescription
     , ddElasticsearchDestinationDescription
     , ddRedshiftDestinationDescription
     , ddDestinationId
@@ -92,6 +111,7 @@ module Network.AWS.Firehose.Types
     , edcCloudWatchLoggingOptions
     , edcBufferingHints
     , edcRetryOptions
+    , edcProcessingConfiguration
     , edcRoleARN
     , edcDomainARN
     , edcIndexName
@@ -109,6 +129,7 @@ module Network.AWS.Firehose.Types
     , eddS3DestinationDescription
     , eddBufferingHints
     , eddRetryOptions
+    , eddProcessingConfiguration
     , eddRoleARN
     , eddIndexName
 
@@ -122,6 +143,7 @@ module Network.AWS.Firehose.Types
     , eduS3Update
     , eduBufferingHints
     , eduRetryOptions
+    , eduProcessingConfiguration
     , eduRoleARN
     , eduIndexName
 
@@ -136,10 +158,83 @@ module Network.AWS.Firehose.Types
     , ecNoEncryptionConfig
     , ecKMSEncryptionConfig
 
+    -- * ExtendedS3DestinationConfiguration
+    , ExtendedS3DestinationConfiguration
+    , extendedS3DestinationConfiguration
+    , esdcS3BackupMode
+    , esdcPrefix
+    , esdcCloudWatchLoggingOptions
+    , esdcS3BackupConfiguration
+    , esdcEncryptionConfiguration
+    , esdcCompressionFormat
+    , esdcBufferingHints
+    , esdcProcessingConfiguration
+    , esdcRoleARN
+    , esdcBucketARN
+
+    -- * ExtendedS3DestinationDescription
+    , ExtendedS3DestinationDescription
+    , extendedS3DestinationDescription
+    , esddS3BackupMode
+    , esddS3BackupDescription
+    , esddPrefix
+    , esddCloudWatchLoggingOptions
+    , esddProcessingConfiguration
+    , esddRoleARN
+    , esddBucketARN
+    , esddBufferingHints
+    , esddCompressionFormat
+    , esddEncryptionConfiguration
+
+    -- * ExtendedS3DestinationUpdate
+    , ExtendedS3DestinationUpdate
+    , extendedS3DestinationUpdate
+    , esduS3BackupMode
+    , esduPrefix
+    , esduCloudWatchLoggingOptions
+    , esduS3BackupUpdate
+    , esduEncryptionConfiguration
+    , esduCompressionFormat
+    , esduBufferingHints
+    , esduBucketARN
+    , esduProcessingConfiguration
+    , esduRoleARN
+
     -- * KMSEncryptionConfig
     , KMSEncryptionConfig
     , kmsEncryptionConfig
     , kecAWSKMSKeyARN
+
+    -- * KinesisStreamSourceConfiguration
+    , KinesisStreamSourceConfiguration
+    , kinesisStreamSourceConfiguration
+    , ksscKinesisStreamARN
+    , ksscRoleARN
+
+    -- * KinesisStreamSourceDescription
+    , KinesisStreamSourceDescription
+    , kinesisStreamSourceDescription
+    , kssdDeliveryStartTimestamp
+    , kssdKinesisStreamARN
+    , kssdRoleARN
+
+    -- * ProcessingConfiguration
+    , ProcessingConfiguration
+    , processingConfiguration
+    , pcEnabled
+    , pcProcessors
+
+    -- * Processor
+    , Processor
+    , processor
+    , pParameters
+    , pType
+
+    -- * ProcessorParameter
+    , ProcessorParameter
+    , processorParameter
+    , ppParameterName
+    , ppParameterValue
 
     -- * PutRecordBatchResponseEntry
     , PutRecordBatchResponseEntry
@@ -156,8 +251,11 @@ module Network.AWS.Firehose.Types
     -- * RedshiftDestinationConfiguration
     , RedshiftDestinationConfiguration
     , redshiftDestinationConfiguration
+    , rdcS3BackupMode
     , rdcCloudWatchLoggingOptions
+    , rdcS3BackupConfiguration
     , rdcRetryOptions
+    , rdcProcessingConfiguration
     , rdcRoleARN
     , rdcClusterJDBCURL
     , rdcCopyCommand
@@ -168,8 +266,11 @@ module Network.AWS.Firehose.Types
     -- * RedshiftDestinationDescription
     , RedshiftDestinationDescription
     , redshiftDestinationDescription
+    , rddS3BackupMode
+    , rddS3BackupDescription
     , rddCloudWatchLoggingOptions
     , rddRetryOptions
+    , rddProcessingConfiguration
     , rddRoleARN
     , rddClusterJDBCURL
     , rddCopyCommand
@@ -179,12 +280,15 @@ module Network.AWS.Firehose.Types
     -- * RedshiftDestinationUpdate
     , RedshiftDestinationUpdate
     , redshiftDestinationUpdate
+    , rduS3BackupMode
     , rduCloudWatchLoggingOptions
     , rduUsername
     , rduS3Update
     , rduPassword
+    , rduS3BackupUpdate
     , rduCopyCommand
     , rduRetryOptions
+    , rduProcessingConfiguration
     , rduClusterJDBCURL
     , rduRoleARN
 
@@ -225,40 +329,55 @@ module Network.AWS.Firehose.Types
     , sduBufferingHints
     , sduBucketARN
     , sduRoleARN
+
+    -- * SessionCredentials
+    , SessionCredentials
+    , sessionCredentials
+    , scAccessKeyId
+    , scSecretAccessKey
+    , scSessionToken
+    , scExpiration
+
+    -- * SourceDescription
+    , SourceDescription
+    , sourceDescription
+    , sdKinesisStreamSourceDescription
     ) where
 
-import           Network.AWS.Firehose.Types.Product
-import           Network.AWS.Firehose.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.Firehose.Types.Product
+import Network.AWS.Firehose.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
--- | API version '2015-08-04' of the Amazon Kinesis Firehose SDK configuration.
+-- | API version @2015-08-04@ of the Amazon Kinesis Firehose SDK configuration.
 firehose :: Service
 firehose =
-    Service
-    { _svcAbbrev = "Firehose"
-    , _svcSigner = v4
-    , _svcPrefix = "firehose"
-    , _svcVersion = "2015-08-04"
-    , _svcEndpoint = defaultEndpoint firehose
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "Firehose"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "Firehose"
+  , _svcSigner = v4
+  , _svcPrefix = "firehose"
+  , _svcVersion = "2015-08-04"
+  , _svcEndpoint = defaultEndpoint firehose
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "Firehose"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -267,29 +386,55 @@ firehose =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The specified input parameter has an value that is not valid.
+
+-- | Prism for InvalidStreamTypeException' errors.
+_InvalidStreamTypeException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidStreamTypeException =
+  _MatchServiceError firehose "InvalidStreamTypeException"
+
+
+-- | The specified input parameter has a value that is not valid.
+--
+--
 _InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidArgumentException = _ServiceError . hasCode "InvalidArgumentException"
+_InvalidArgumentException =
+  _MatchServiceError firehose "InvalidArgumentException"
+
 
 -- | Another modification has already happened. Fetch __VersionId__ again and use it to update the destination.
+--
+--
 _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConcurrentModificationException =
-    _ServiceError . hasCode "ConcurrentModificationException"
+  _MatchServiceError firehose "ConcurrentModificationException"
 
--- | The service is unavailable, back off and retry the operation. If you continue to see the exception, throughput limits for the delivery stream may have been exceeded. For more information about limits and how to request an increase, see <http://docs.aws.amazon.com/firehose/latest/dev/limits.html Amazon Kinesis Firehose Limits>.
+
+-- | The service is unavailable, back off and retry the operation. If you continue to see the exception, throughput limits for the delivery stream may have been exceeded. For more information about limits and how to request an increase, see <http://docs.aws.amazon.com/firehose/latest/dev/limits.html Amazon Kinesis Firehose Limits> .
+--
+--
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
-    _ServiceError . hasCode "ServiceUnavailableException"
+  _MatchServiceError firehose "ServiceUnavailableException"
+
 
 -- | The specified resource could not be found.
+--
+--
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasCode "ResourceNotFoundException"
+  _MatchServiceError firehose "ResourceNotFoundException"
+
 
 -- | You have already reached the limit for a requested resource.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+_LimitExceededException = _MatchServiceError firehose "LimitExceededException"
+
 
 -- | The resource is already in use and not available for this operation.
+--
+--
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"
+_ResourceInUseException = _MatchServiceError firehose "ResourceInUseException"
+

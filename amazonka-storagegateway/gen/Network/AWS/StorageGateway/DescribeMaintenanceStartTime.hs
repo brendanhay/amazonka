@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeMaintenanceStartTime
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns your gateway\'s weekly maintenance start time including the day and time of the week. Note that values are in terms of the gateway\'s time zone.
+-- Returns your gateway's weekly maintenance start time including the day and time of the week. Note that values are in terms of the gateway's time zone.
+--
+--
 module Network.AWS.StorageGateway.DescribeMaintenanceStartTime
     (
     -- * Creating a Request
@@ -39,32 +41,34 @@ module Network.AWS.StorageGateway.DescribeMaintenanceStartTime
     , dmstrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the of the gateway.
 --
+--
+--
 -- /See:/ 'describeMaintenanceStartTime' smart constructor.
 newtype DescribeMaintenanceStartTime = DescribeMaintenanceStartTime'
-    { _dmstGatewayARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmstGatewayARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMaintenanceStartTime' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmstGatewayARN'
+-- * 'dmstGatewayARN' - Undocumented member.
 describeMaintenanceStartTime
     :: Text -- ^ 'dmstGatewayARN'
     -> DescribeMaintenanceStartTime
 describeMaintenanceStartTime pGatewayARN_ =
-    DescribeMaintenanceStartTime'
-    { _dmstGatewayARN = pGatewayARN_
-    }
+  DescribeMaintenanceStartTime' {_dmstGatewayARN = pGatewayARN_}
+
 
 -- | Undocumented member.
 dmstGatewayARN :: Lens' DescribeMaintenanceStartTime Text
@@ -85,9 +89,9 @@ instance AWSRequest DescribeMaintenanceStartTime
                      <*> (x .?> "DayOfWeek")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeMaintenanceStartTime
+instance Hashable DescribeMaintenanceStartTime where
 
-instance NFData DescribeMaintenanceStartTime
+instance NFData DescribeMaintenanceStartTime where
 
 instance ToHeaders DescribeMaintenanceStartTime where
         toHeaders
@@ -110,53 +114,69 @@ instance ToPath DescribeMaintenanceStartTime where
 instance ToQuery DescribeMaintenanceStartTime where
         toQuery = const mempty
 
--- | /See:/ 'describeMaintenanceStartTimeResponse' smart constructor.
+-- | A JSON object containing the following fields:
+--
+--
+--     * 'DescribeMaintenanceStartTimeOutput$DayOfWeek'
+--
+--     * 'DescribeMaintenanceStartTimeOutput$HourOfDay'
+--
+--     * 'DescribeMaintenanceStartTimeOutput$MinuteOfHour'
+--
+--     * 'DescribeMaintenanceStartTimeOutput$Timezone'
+--
+--
+--
+--
+-- /See:/ 'describeMaintenanceStartTimeResponse' smart constructor.
 data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse'
-    { _dmstrsGatewayARN     :: !(Maybe Text)
-    , _dmstrsMinuteOfHour   :: !(Maybe Nat)
-    , _dmstrsHourOfDay      :: !(Maybe Nat)
-    , _dmstrsTimezone       :: !(Maybe Text)
-    , _dmstrsDayOfWeek      :: !(Maybe Nat)
-    , _dmstrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmstrsGatewayARN     :: !(Maybe Text)
+  , _dmstrsMinuteOfHour   :: !(Maybe Nat)
+  , _dmstrsHourOfDay      :: !(Maybe Nat)
+  , _dmstrsTimezone       :: !(Maybe Text)
+  , _dmstrsDayOfWeek      :: !(Maybe Nat)
+  , _dmstrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMaintenanceStartTimeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmstrsGatewayARN'
+-- * 'dmstrsGatewayARN' - Undocumented member.
 --
--- * 'dmstrsMinuteOfHour'
+-- * 'dmstrsMinuteOfHour' - The minute component of the maintenance start time represented as /mm/ , where /mm/ is the minute (0 to 59). The minute of the hour is in the time zone of the gateway.
 --
--- * 'dmstrsHourOfDay'
+-- * 'dmstrsHourOfDay' - The hour component of the maintenance start time represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
 --
--- * 'dmstrsTimezone'
+-- * 'dmstrsTimezone' - Undocumented member.
 --
--- * 'dmstrsDayOfWeek'
+-- * 'dmstrsDayOfWeek' - An ordinal number between 0 and 6 that represents the day of the week, where 0 represents Sunday and 6 represents Saturday. The day of week is in the time zone of the gateway.
 --
--- * 'dmstrsResponseStatus'
+-- * 'dmstrsResponseStatus' - -- | The response status code.
 describeMaintenanceStartTimeResponse
     :: Int -- ^ 'dmstrsResponseStatus'
     -> DescribeMaintenanceStartTimeResponse
 describeMaintenanceStartTimeResponse pResponseStatus_ =
-    DescribeMaintenanceStartTimeResponse'
-    { _dmstrsGatewayARN = Nothing
-    , _dmstrsMinuteOfHour = Nothing
-    , _dmstrsHourOfDay = Nothing
-    , _dmstrsTimezone = Nothing
-    , _dmstrsDayOfWeek = Nothing
-    , _dmstrsResponseStatus = pResponseStatus_
-    }
+  DescribeMaintenanceStartTimeResponse'
+  { _dmstrsGatewayARN = Nothing
+  , _dmstrsMinuteOfHour = Nothing
+  , _dmstrsHourOfDay = Nothing
+  , _dmstrsTimezone = Nothing
+  , _dmstrsDayOfWeek = Nothing
+  , _dmstrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 dmstrsGatewayARN :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
 dmstrsGatewayARN = lens _dmstrsGatewayARN (\ s a -> s{_dmstrsGatewayARN = a});
 
--- | Undocumented member.
+-- | The minute component of the maintenance start time represented as /mm/ , where /mm/ is the minute (0 to 59). The minute of the hour is in the time zone of the gateway.
 dmstrsMinuteOfHour :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrsMinuteOfHour = lens _dmstrsMinuteOfHour (\ s a -> s{_dmstrsMinuteOfHour = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | The hour component of the maintenance start time represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
 dmstrsHourOfDay :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrsHourOfDay = lens _dmstrsHourOfDay (\ s a -> s{_dmstrsHourOfDay = a}) . mapping _Nat;
 
@@ -164,12 +184,13 @@ dmstrsHourOfDay = lens _dmstrsHourOfDay (\ s a -> s{_dmstrsHourOfDay = a}) . map
 dmstrsTimezone :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
 dmstrsTimezone = lens _dmstrsTimezone (\ s a -> s{_dmstrsTimezone = a});
 
--- | Undocumented member.
+-- | An ordinal number between 0 and 6 that represents the day of the week, where 0 represents Sunday and 6 represents Saturday. The day of week is in the time zone of the gateway.
 dmstrsDayOfWeek :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrsDayOfWeek = lens _dmstrsDayOfWeek (\ s a -> s{_dmstrsDayOfWeek = a}) . mapping _Nat;
 
--- | The response status code.
+-- | -- | The response status code.
 dmstrsResponseStatus :: Lens' DescribeMaintenanceStartTimeResponse Int
 dmstrsResponseStatus = lens _dmstrsResponseStatus (\ s a -> s{_dmstrsResponseStatus = a});
 
 instance NFData DescribeMaintenanceStartTimeResponse
+         where

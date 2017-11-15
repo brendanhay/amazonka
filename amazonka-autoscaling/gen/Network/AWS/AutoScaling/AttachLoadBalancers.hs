@@ -12,19 +12,21 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.AttachLoadBalancers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches one or more Classic load balancers to the specified Auto Scaling group.
+-- Attaches one or more Classic Load Balancers to the specified Auto Scaling group.
 --
--- To attach an Application load balancer instead, see < AttachLoadBalancerTargetGroups>.
 --
--- To describe the load balancers for an Auto Scaling group, use < DescribeLoadBalancers>. To detach the load balancer from the Auto Scaling group, use < DetachLoadBalancers>.
+-- To attach an Application Load Balancer instead, see 'AttachLoadBalancerTargetGroups' .
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-load-balancer-asg.html Attach a Load Balancer to Your Auto Scaling Group> in the /Auto Scaling User Guide/.
+-- To describe the load balancers for an Auto Scaling group, use 'DescribeLoadBalancers' . To detach the load balancer from the Auto Scaling group, use 'DetachLoadBalancers' .
+--
+-- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/attach-load-balancer-asg.html Attach a Load Balancer to Your Auto Scaling Group> in the /Auto Scaling User Guide/ .
+--
 module Network.AWS.AutoScaling.AttachLoadBalancers
     (
     -- * Creating a Request
@@ -41,36 +43,36 @@ module Network.AWS.AutoScaling.AttachLoadBalancers
     , albrsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for AttachLoadBalancers.
---
--- /See:/ 'attachLoadBalancers' smart constructor.
+-- | /See:/ 'attachLoadBalancers' smart constructor.
 data AttachLoadBalancers = AttachLoadBalancers'
-    { _albAutoScalingGroupName :: !Text
-    , _albLoadBalancerNames    :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _albAutoScalingGroupName :: !Text
+  , _albLoadBalancerNames    :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachLoadBalancers' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'albAutoScalingGroupName'
+-- * 'albAutoScalingGroupName' - The name of the group.
 --
--- * 'albLoadBalancerNames'
+-- * 'albLoadBalancerNames' - One or more load balancer names.
 attachLoadBalancers
     :: Text -- ^ 'albAutoScalingGroupName'
     -> AttachLoadBalancers
 attachLoadBalancers pAutoScalingGroupName_ =
-    AttachLoadBalancers'
-    { _albAutoScalingGroupName = pAutoScalingGroupName_
-    , _albLoadBalancerNames = mempty
-    }
+  AttachLoadBalancers'
+  { _albAutoScalingGroupName = pAutoScalingGroupName_
+  , _albLoadBalancerNames = mempty
+  }
+
 
 -- | The name of the group.
 albAutoScalingGroupName :: Lens' AttachLoadBalancers Text
@@ -89,9 +91,9 @@ instance AWSRequest AttachLoadBalancers where
               (\ s h x ->
                  AttachLoadBalancersResponse' <$> (pure (fromEnum s)))
 
-instance Hashable AttachLoadBalancers
+instance Hashable AttachLoadBalancers where
 
-instance NFData AttachLoadBalancers
+instance NFData AttachLoadBalancers where
 
 instance ToHeaders AttachLoadBalancers where
         toHeaders = const mempty
@@ -108,28 +110,26 @@ instance ToQuery AttachLoadBalancers where
                "LoadBalancerNames" =:
                  toQueryList "member" _albLoadBalancerNames]
 
--- | Contains the output of AttachLoadBalancers.
---
--- /See:/ 'attachLoadBalancersResponse' smart constructor.
+-- | /See:/ 'attachLoadBalancersResponse' smart constructor.
 newtype AttachLoadBalancersResponse = AttachLoadBalancersResponse'
-    { _albrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _albrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachLoadBalancersResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'albrsResponseStatus'
+-- * 'albrsResponseStatus' - -- | The response status code.
 attachLoadBalancersResponse
     :: Int -- ^ 'albrsResponseStatus'
     -> AttachLoadBalancersResponse
 attachLoadBalancersResponse pResponseStatus_ =
-    AttachLoadBalancersResponse'
-    { _albrsResponseStatus = pResponseStatus_
-    }
+  AttachLoadBalancersResponse' {_albrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 albrsResponseStatus :: Lens' AttachLoadBalancersResponse Int
 albrsResponseStatus = lens _albrsResponseStatus (\ s a -> s{_albrsResponseStatus = a});
 
-instance NFData AttachLoadBalancersResponse
+instance NFData AttachLoadBalancersResponse where

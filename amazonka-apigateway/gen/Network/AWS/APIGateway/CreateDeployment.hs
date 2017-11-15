@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateDeployment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a < Deployment> resource, which makes a specified < RestApi> callable over the internet.
+-- Creates a 'Deployment' resource, which makes a specified 'RestApi' callable over the internet.
+--
+--
 module Network.AWS.APIGateway.CreateDeployment
     (
     -- * Creating a Request
@@ -29,9 +31,9 @@ module Network.AWS.APIGateway.CreateDeployment
     , cdVariables
     , cdCacheClusterSize
     , cdCacheClusterEnabled
+    , cdStageName
     , cdDescription
     , cdRestAPIId
-    , cdStageName
 
     -- * Destructuring the Response
     , deployment
@@ -43,94 +45,97 @@ module Network.AWS.APIGateway.CreateDeployment
     , dDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Requests Amazon API Gateway to create a < Deployment> resource.
+-- | Requests Amazon API Gateway to create a 'Deployment' resource.
+--
+--
 --
 -- /See:/ 'createDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
-    { _cdStageDescription    :: !(Maybe Text)
-    , _cdVariables           :: !(Maybe (Map Text Text))
-    , _cdCacheClusterSize    :: !(Maybe CacheClusterSize)
-    , _cdCacheClusterEnabled :: !(Maybe Bool)
-    , _cdDescription         :: !(Maybe Text)
-    , _cdRestAPIId           :: !Text
-    , _cdStageName           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdStageDescription    :: !(Maybe Text)
+  , _cdVariables           :: !(Maybe (Map Text Text))
+  , _cdCacheClusterSize    :: !(Maybe CacheClusterSize)
+  , _cdCacheClusterEnabled :: !(Maybe Bool)
+  , _cdStageName           :: !(Maybe Text)
+  , _cdDescription         :: !(Maybe Text)
+  , _cdRestAPIId           :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDeployment' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdStageDescription'
+-- * 'cdStageDescription' - The description of the 'Stage' resource for the 'Deployment' resource to create.
 --
--- * 'cdVariables'
+-- * 'cdVariables' - A map that defines the stage variables for the 'Stage' resource that is associated with the new deployment. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
 --
--- * 'cdCacheClusterSize'
+-- * 'cdCacheClusterSize' - Specifies the cache cluster size for the 'Stage' resource specified in the input, if a cache cluster is enabled.
 --
--- * 'cdCacheClusterEnabled'
+-- * 'cdCacheClusterEnabled' - Enables a cache cluster for the 'Stage' resource specified in the input.
 --
--- * 'cdDescription'
+-- * 'cdStageName' - The name of the 'Stage' resource for the 'Deployment' resource to create.
 --
--- * 'cdRestAPIId'
+-- * 'cdDescription' - The description for the 'Deployment' resource to create.
 --
--- * 'cdStageName'
+-- * 'cdRestAPIId' - The string identifier of the associated 'RestApi' .
 createDeployment
     :: Text -- ^ 'cdRestAPIId'
-    -> Text -- ^ 'cdStageName'
     -> CreateDeployment
-createDeployment pRestAPIId_ pStageName_ =
-    CreateDeployment'
-    { _cdStageDescription = Nothing
-    , _cdVariables = Nothing
-    , _cdCacheClusterSize = Nothing
-    , _cdCacheClusterEnabled = Nothing
-    , _cdDescription = Nothing
-    , _cdRestAPIId = pRestAPIId_
-    , _cdStageName = pStageName_
-    }
+createDeployment pRestAPIId_ =
+  CreateDeployment'
+  { _cdStageDescription = Nothing
+  , _cdVariables = Nothing
+  , _cdCacheClusterSize = Nothing
+  , _cdCacheClusterEnabled = Nothing
+  , _cdStageName = Nothing
+  , _cdDescription = Nothing
+  , _cdRestAPIId = pRestAPIId_
+  }
 
--- | The description of the < Stage> resource for the < Deployment> resource to create.
+
+-- | The description of the 'Stage' resource for the 'Deployment' resource to create.
 cdStageDescription :: Lens' CreateDeployment (Maybe Text)
 cdStageDescription = lens _cdStageDescription (\ s a -> s{_cdStageDescription = a});
 
--- | A map that defines the stage variables for the < Stage> resource that is associated with the new deployment. Variable names can have alphanumeric and underscore characters, and the values must match '[A-Za-z0-9-._~:\/?#&=,]+'.
+-- | A map that defines the stage variables for the 'Stage' resource that is associated with the new deployment. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
 cdVariables :: Lens' CreateDeployment (HashMap Text Text)
 cdVariables = lens _cdVariables (\ s a -> s{_cdVariables = a}) . _Default . _Map;
 
--- | Specifies the cache cluster size for the < Stage> resource specified in the input, if a cache cluster is enabled.
+-- | Specifies the cache cluster size for the 'Stage' resource specified in the input, if a cache cluster is enabled.
 cdCacheClusterSize :: Lens' CreateDeployment (Maybe CacheClusterSize)
 cdCacheClusterSize = lens _cdCacheClusterSize (\ s a -> s{_cdCacheClusterSize = a});
 
--- | Enables a cache cluster for the < Stage> resource specified in the input.
+-- | Enables a cache cluster for the 'Stage' resource specified in the input.
 cdCacheClusterEnabled :: Lens' CreateDeployment (Maybe Bool)
 cdCacheClusterEnabled = lens _cdCacheClusterEnabled (\ s a -> s{_cdCacheClusterEnabled = a});
 
--- | The description for the < Deployment> resource to create.
+-- | The name of the 'Stage' resource for the 'Deployment' resource to create.
+cdStageName :: Lens' CreateDeployment (Maybe Text)
+cdStageName = lens _cdStageName (\ s a -> s{_cdStageName = a});
+
+-- | The description for the 'Deployment' resource to create.
 cdDescription :: Lens' CreateDeployment (Maybe Text)
 cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
 
--- | The < RestApi> resource identifier for the < Deployment> resource to create.
+-- | The string identifier of the associated 'RestApi' .
 cdRestAPIId :: Lens' CreateDeployment Text
 cdRestAPIId = lens _cdRestAPIId (\ s a -> s{_cdRestAPIId = a});
-
--- | The name of the < Stage> resource for the < Deployment> resource to create.
-cdStageName :: Lens' CreateDeployment Text
-cdStageName = lens _cdStageName (\ s a -> s{_cdStageName = a});
 
 instance AWSRequest CreateDeployment where
         type Rs CreateDeployment = Deployment
         request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateDeployment
+instance Hashable CreateDeployment where
 
-instance NFData CreateDeployment
+instance NFData CreateDeployment where
 
 instance ToHeaders CreateDeployment where
         toHeaders
@@ -147,8 +152,8 @@ instance ToJSON CreateDeployment where
                   ("cacheClusterSize" .=) <$> _cdCacheClusterSize,
                   ("cacheClusterEnabled" .=) <$>
                     _cdCacheClusterEnabled,
-                  ("description" .=) <$> _cdDescription,
-                  Just ("stageName" .= _cdStageName)])
+                  ("stageName" .=) <$> _cdStageName,
+                  ("description" .=) <$> _cdDescription])
 
 instance ToPath CreateDeployment where
         toPath CreateDeployment'{..}

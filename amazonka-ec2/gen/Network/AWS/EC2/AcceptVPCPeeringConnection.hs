@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AcceptVPCPeeringConnection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Accept a VPC peering connection request. To accept a request, the VPC peering connection must be in the 'pending-acceptance' state, and you must be the owner of the peer VPC. Use the 'DescribeVpcPeeringConnections' request to view your outstanding VPC peering connection requests.
+-- Accept a VPC peering connection request. To accept a request, the VPC peering connection must be in the @pending-acceptance@ state, and you must be the owner of the peer VPC. Use 'DescribeVpcPeeringConnections' to view your outstanding VPC peering connection requests.
+--
+--
 module Network.AWS.EC2.AcceptVPCPeeringConnection
     (
     -- * Creating a Request
@@ -36,41 +38,43 @@ module Network.AWS.EC2.AcceptVPCPeeringConnection
     , avpcrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AcceptVpcPeeringConnection.
 --
+--
+--
 -- /See:/ 'acceptVPCPeeringConnection' smart constructor.
 data AcceptVPCPeeringConnection = AcceptVPCPeeringConnection'
-    { _avpcVPCPeeringConnectionId :: !(Maybe Text)
-    , _avpcDryRun                 :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avpcVPCPeeringConnectionId :: !(Maybe Text)
+  , _avpcDryRun                 :: !(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AcceptVPCPeeringConnection' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'avpcVPCPeeringConnectionId'
+-- * 'avpcVPCPeeringConnectionId' - The ID of the VPC peering connection.
 --
--- * 'avpcDryRun'
+-- * 'avpcDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 acceptVPCPeeringConnection
     :: AcceptVPCPeeringConnection
 acceptVPCPeeringConnection =
-    AcceptVPCPeeringConnection'
-    { _avpcVPCPeeringConnectionId = Nothing
-    , _avpcDryRun = Nothing
-    }
+  AcceptVPCPeeringConnection'
+  {_avpcVPCPeeringConnectionId = Nothing, _avpcDryRun = Nothing}
+
 
 -- | The ID of the VPC peering connection.
 avpcVPCPeeringConnectionId :: Lens' AcceptVPCPeeringConnection (Maybe Text)
 avpcVPCPeeringConnectionId = lens _avpcVPCPeeringConnectionId (\ s a -> s{_avpcVPCPeeringConnectionId = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 avpcDryRun :: Lens' AcceptVPCPeeringConnection (Maybe Bool)
 avpcDryRun = lens _avpcDryRun (\ s a -> s{_avpcDryRun = a});
 
@@ -85,9 +89,9 @@ instance AWSRequest AcceptVPCPeeringConnection where
                    (x .@? "vpcPeeringConnection") <*>
                      (pure (fromEnum s)))
 
-instance Hashable AcceptVPCPeeringConnection
+instance Hashable AcceptVPCPeeringConnection where
 
-instance NFData AcceptVPCPeeringConnection
+instance NFData AcceptVPCPeeringConnection where
 
 instance ToHeaders AcceptVPCPeeringConnection where
         toHeaders = const mempty
@@ -100,41 +104,46 @@ instance ToQuery AcceptVPCPeeringConnection where
           = mconcat
               ["Action" =:
                  ("AcceptVpcPeeringConnection" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "VpcPeeringConnectionId" =:
                  _avpcVPCPeeringConnectionId,
                "DryRun" =: _avpcDryRun]
 
 -- | Contains the output of AcceptVpcPeeringConnection.
 --
+--
+--
 -- /See:/ 'acceptVPCPeeringConnectionResponse' smart constructor.
 data AcceptVPCPeeringConnectionResponse = AcceptVPCPeeringConnectionResponse'
-    { _avpcrsVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
-    , _avpcrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avpcrsVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
+  , _avpcrsResponseStatus       :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AcceptVPCPeeringConnectionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'avpcrsVPCPeeringConnection'
+-- * 'avpcrsVPCPeeringConnection' - Information about the VPC peering connection.
 --
--- * 'avpcrsResponseStatus'
+-- * 'avpcrsResponseStatus' - -- | The response status code.
 acceptVPCPeeringConnectionResponse
     :: Int -- ^ 'avpcrsResponseStatus'
     -> AcceptVPCPeeringConnectionResponse
 acceptVPCPeeringConnectionResponse pResponseStatus_ =
-    AcceptVPCPeeringConnectionResponse'
-    { _avpcrsVPCPeeringConnection = Nothing
-    , _avpcrsResponseStatus = pResponseStatus_
-    }
+  AcceptVPCPeeringConnectionResponse'
+  { _avpcrsVPCPeeringConnection = Nothing
+  , _avpcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the VPC peering connection.
 avpcrsVPCPeeringConnection :: Lens' AcceptVPCPeeringConnectionResponse (Maybe VPCPeeringConnection)
 avpcrsVPCPeeringConnection = lens _avpcrsVPCPeeringConnection (\ s a -> s{_avpcrsVPCPeeringConnection = a});
 
--- | The response status code.
+-- | -- | The response status code.
 avpcrsResponseStatus :: Lens' AcceptVPCPeeringConnectionResponse Int
 avpcrsResponseStatus = lens _avpcrsResponseStatus (\ s a -> s{_avpcrsResponseStatus = a});
 
 instance NFData AcceptVPCPeeringConnectionResponse
+         where

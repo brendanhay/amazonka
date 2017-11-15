@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.DeviceFarm
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.DeviceFarm where
 
 import Data.Proxy
+import Network.AWS.DeviceFarm
+import Test.AWS.DeviceFarm.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.DeviceFarm
-import Test.AWS.DeviceFarm.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -36,6 +36,12 @@ import Test.AWS.DeviceFarm.Internal
 --
 --         , requestUpdateProject $
 --             updateProject
+--
+--         , requestUpdateNetworkProfile $
+--             updateNetworkProfile
+--
+--         , requestDeleteNetworkProfile $
+--             deleteNetworkProfile
 --
 --         , requestGetDevicePoolCompatibility $
 --             getDevicePoolCompatibility
@@ -88,6 +94,9 @@ import Test.AWS.DeviceFarm.Internal
 --         , requestGetTest $
 --             getTest
 --
+--         , requestGetNetworkProfile $
+--             getNetworkProfile
+--
 --         , requestRenewOffering $
 --             renewOffering
 --
@@ -100,8 +109,14 @@ import Test.AWS.DeviceFarm.Internal
 --         , requestStopRemoteAccessSession $
 --             stopRemoteAccessSession
 --
+--         , requestCreateNetworkProfile $
+--             createNetworkProfile
+--
 --         , requestGetJob $
 --             getJob
+--
+--         , requestListNetworkProfiles $
+--             listNetworkProfiles
 --
 --         , requestScheduleRun $
 --             scheduleRun
@@ -123,6 +138,9 @@ import Test.AWS.DeviceFarm.Internal
 --
 --         , requestCreateRemoteAccessSession $
 --             createRemoteAccessSession
+--
+--         , requestListOfferingPromotions $
+--             listOfferingPromotions
 --
 --         , requestGetOfferingStatus $
 --             getOfferingStatus
@@ -168,6 +186,12 @@ import Test.AWS.DeviceFarm.Internal
 --
 --         , responseUpdateProject $
 --             updateProjectResponse
+--
+--         , responseUpdateNetworkProfile $
+--             updateNetworkProfileResponse
+--
+--         , responseDeleteNetworkProfile $
+--             deleteNetworkProfileResponse
 --
 --         , responseGetDevicePoolCompatibility $
 --             getDevicePoolCompatibilityResponse
@@ -220,6 +244,9 @@ import Test.AWS.DeviceFarm.Internal
 --         , responseGetTest $
 --             getTestResponse
 --
+--         , responseGetNetworkProfile $
+--             getNetworkProfileResponse
+--
 --         , responseRenewOffering $
 --             renewOfferingResponse
 --
@@ -232,8 +259,14 @@ import Test.AWS.DeviceFarm.Internal
 --         , responseStopRemoteAccessSession $
 --             stopRemoteAccessSessionResponse
 --
+--         , responseCreateNetworkProfile $
+--             createNetworkProfileResponse
+--
 --         , responseGetJob $
 --             getJobResponse
+--
+--         , responseListNetworkProfiles $
+--             listNetworkProfilesResponse
 --
 --         , responseScheduleRun $
 --             scheduleRunResponse
@@ -255,6 +288,9 @@ import Test.AWS.DeviceFarm.Internal
 --
 --         , responseCreateRemoteAccessSession $
 --             createRemoteAccessSessionResponse
+--
+--         , responseListOfferingPromotions $
+--             listOfferingPromotionsResponse
 --
 --         , responseGetOfferingStatus $
 --             getOfferingStatusResponse
@@ -308,6 +344,16 @@ requestUpdateProject :: UpdateProject -> TestTree
 requestUpdateProject = req
     "UpdateProject"
     "fixture/UpdateProject.yaml"
+
+requestUpdateNetworkProfile :: UpdateNetworkProfile -> TestTree
+requestUpdateNetworkProfile = req
+    "UpdateNetworkProfile"
+    "fixture/UpdateNetworkProfile.yaml"
+
+requestDeleteNetworkProfile :: DeleteNetworkProfile -> TestTree
+requestDeleteNetworkProfile = req
+    "DeleteNetworkProfile"
+    "fixture/DeleteNetworkProfile.yaml"
 
 requestGetDevicePoolCompatibility :: GetDevicePoolCompatibility -> TestTree
 requestGetDevicePoolCompatibility = req
@@ -394,6 +440,11 @@ requestGetTest = req
     "GetTest"
     "fixture/GetTest.yaml"
 
+requestGetNetworkProfile :: GetNetworkProfile -> TestTree
+requestGetNetworkProfile = req
+    "GetNetworkProfile"
+    "fixture/GetNetworkProfile.yaml"
+
 requestRenewOffering :: RenewOffering -> TestTree
 requestRenewOffering = req
     "RenewOffering"
@@ -414,10 +465,20 @@ requestStopRemoteAccessSession = req
     "StopRemoteAccessSession"
     "fixture/StopRemoteAccessSession.yaml"
 
+requestCreateNetworkProfile :: CreateNetworkProfile -> TestTree
+requestCreateNetworkProfile = req
+    "CreateNetworkProfile"
+    "fixture/CreateNetworkProfile.yaml"
+
 requestGetJob :: GetJob -> TestTree
 requestGetJob = req
     "GetJob"
     "fixture/GetJob.yaml"
+
+requestListNetworkProfiles :: ListNetworkProfiles -> TestTree
+requestListNetworkProfiles = req
+    "ListNetworkProfiles"
+    "fixture/ListNetworkProfiles.yaml"
 
 requestScheduleRun :: ScheduleRun -> TestTree
 requestScheduleRun = req
@@ -453,6 +514,11 @@ requestCreateRemoteAccessSession :: CreateRemoteAccessSession -> TestTree
 requestCreateRemoteAccessSession = req
     "CreateRemoteAccessSession"
     "fixture/CreateRemoteAccessSession.yaml"
+
+requestListOfferingPromotions :: ListOfferingPromotions -> TestTree
+requestListOfferingPromotions = req
+    "ListOfferingPromotions"
+    "fixture/ListOfferingPromotions.yaml"
 
 requestGetOfferingStatus :: GetOfferingStatus -> TestTree
 requestGetOfferingStatus = req
@@ -531,6 +597,20 @@ responseUpdateProject = res
     "fixture/UpdateProjectResponse.proto"
     deviceFarm
     (Proxy :: Proxy UpdateProject)
+
+responseUpdateNetworkProfile :: UpdateNetworkProfileResponse -> TestTree
+responseUpdateNetworkProfile = res
+    "UpdateNetworkProfileResponse"
+    "fixture/UpdateNetworkProfileResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy UpdateNetworkProfile)
+
+responseDeleteNetworkProfile :: DeleteNetworkProfileResponse -> TestTree
+responseDeleteNetworkProfile = res
+    "DeleteNetworkProfileResponse"
+    "fixture/DeleteNetworkProfileResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy DeleteNetworkProfile)
 
 responseGetDevicePoolCompatibility :: GetDevicePoolCompatibilityResponse -> TestTree
 responseGetDevicePoolCompatibility = res
@@ -651,6 +731,13 @@ responseGetTest = res
     deviceFarm
     (Proxy :: Proxy GetTest)
 
+responseGetNetworkProfile :: GetNetworkProfileResponse -> TestTree
+responseGetNetworkProfile = res
+    "GetNetworkProfileResponse"
+    "fixture/GetNetworkProfileResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy GetNetworkProfile)
+
 responseRenewOffering :: RenewOfferingResponse -> TestTree
 responseRenewOffering = res
     "RenewOfferingResponse"
@@ -679,12 +766,26 @@ responseStopRemoteAccessSession = res
     deviceFarm
     (Proxy :: Proxy StopRemoteAccessSession)
 
+responseCreateNetworkProfile :: CreateNetworkProfileResponse -> TestTree
+responseCreateNetworkProfile = res
+    "CreateNetworkProfileResponse"
+    "fixture/CreateNetworkProfileResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy CreateNetworkProfile)
+
 responseGetJob :: GetJobResponse -> TestTree
 responseGetJob = res
     "GetJobResponse"
     "fixture/GetJobResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetJob)
+
+responseListNetworkProfiles :: ListNetworkProfilesResponse -> TestTree
+responseListNetworkProfiles = res
+    "ListNetworkProfilesResponse"
+    "fixture/ListNetworkProfilesResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy ListNetworkProfiles)
 
 responseScheduleRun :: ScheduleRunResponse -> TestTree
 responseScheduleRun = res
@@ -734,6 +835,13 @@ responseCreateRemoteAccessSession = res
     "fixture/CreateRemoteAccessSessionResponse.proto"
     deviceFarm
     (Proxy :: Proxy CreateRemoteAccessSession)
+
+responseListOfferingPromotions :: ListOfferingPromotionsResponse -> TestTree
+responseListOfferingPromotions = res
+    "ListOfferingPromotionsResponse"
+    "fixture/ListOfferingPromotionsResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy ListOfferingPromotions)
 
 responseGetOfferingStatus :: GetOfferingStatusResponse -> TestTree
 responseGetOfferingStatus = res

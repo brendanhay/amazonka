@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,30 +35,29 @@ module Network.AWS.S3.GetBucketPolicy
     , gbprsPolicy
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketPolicy' smart constructor.
 newtype GetBucketPolicy = GetBucketPolicy'
-    { _gbpBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbpBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketPolicy' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbpBucket'
+-- * 'gbpBucket' - Undocumented member.
 getBucketPolicy
     :: BucketName -- ^ 'gbpBucket'
     -> GetBucketPolicy
-getBucketPolicy pBucket_ =
-    GetBucketPolicy'
-    { _gbpBucket = pBucket_
-    }
+getBucketPolicy pBucket_ = GetBucketPolicy' {_gbpBucket = pBucket_}
+
 
 -- | Undocumented member.
 gbpBucket :: Lens' GetBucketPolicy BucketName
@@ -73,9 +72,9 @@ instance AWSRequest GetBucketPolicy where
                  GetBucketPolicyResponse' <$>
                    (pure (fromEnum s)) <*> (pure x))
 
-instance Hashable GetBucketPolicy
+instance Hashable GetBucketPolicy where
 
-instance NFData GetBucketPolicy
+instance NFData GetBucketPolicy where
 
 instance ToHeaders GetBucketPolicy where
         toHeaders = const mempty
@@ -89,28 +88,28 @@ instance ToQuery GetBucketPolicy where
 
 -- | /See:/ 'getBucketPolicyResponse' smart constructor.
 data GetBucketPolicyResponse = GetBucketPolicyResponse'
-    { _gbprsResponseStatus :: !Int
-    , _gbprsPolicy         :: !(HashMap Text Value)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gbprsResponseStatus :: !Int
+  , _gbprsPolicy         :: !(HashMap Text Value)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketPolicyResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbprsResponseStatus'
+-- * 'gbprsResponseStatus' - -- | The response status code.
 --
--- * 'gbprsPolicy'
+-- * 'gbprsPolicy' - The bucket policy as a JSON document.
 getBucketPolicyResponse
     :: Int -- ^ 'gbprsResponseStatus'
     -> HashMap Text Value -- ^ 'gbprsPolicy'
     -> GetBucketPolicyResponse
 getBucketPolicyResponse pResponseStatus_ pPolicy_ =
-    GetBucketPolicyResponse'
-    { _gbprsResponseStatus = pResponseStatus_
-    , _gbprsPolicy = pPolicy_
-    }
+  GetBucketPolicyResponse'
+  {_gbprsResponseStatus = pResponseStatus_, _gbprsPolicy = pPolicy_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 gbprsResponseStatus :: Lens' GetBucketPolicyResponse Int
 gbprsResponseStatus = lens _gbprsResponseStatus (\ s a -> s{_gbprsResponseStatus = a});
 
@@ -118,4 +117,4 @@ gbprsResponseStatus = lens _gbprsResponseStatus (\ s a -> s{_gbprsResponseStatus
 gbprsPolicy :: Lens' GetBucketPolicyResponse (HashMap Text Value)
 gbprsPolicy = lens _gbprsPolicy (\ s a -> s{_gbprsPolicy = a});
 
-instance NFData GetBucketPolicyResponse
+instance NFData GetBucketPolicyResponse where

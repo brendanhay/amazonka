@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.Config.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Config.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ChronologicalOrder
-    = Forward
-    | Reverse
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Forward
+  | Reverse
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChronologicalOrder where
     parser = takeLowerText >>= \case
@@ -46,11 +47,12 @@ instance ToJSON ChronologicalOrder where
     toJSON = toJSONText
 
 data ComplianceType
-    = Compliant
-    | InsufficientData
-    | NonCompliant
-    | NotApplicable
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Compliant
+  | InsufficientData
+  | NonCompliant
+  | NotApplicable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ComplianceType where
     parser = takeLowerText >>= \case
@@ -81,11 +83,12 @@ instance FromJSON ComplianceType where
     parseJSON = parseJSONText "ComplianceType"
 
 data ConfigRuleState
-    = Active
-    | Deleting
-    | DeletingResults
-    | Evaluating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | Deleting
+  | DeletingResults
+  | Evaluating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ConfigRuleState where
     parser = takeLowerText >>= \case
@@ -116,11 +119,12 @@ instance FromJSON ConfigRuleState where
     parseJSON = parseJSONText "ConfigRuleState"
 
 data ConfigurationItemStatus
-    = Deleted
-    | Discovered
-    | Failed
-    | OK
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Deleted
+  | Discovered
+  | Failed
+  | OK
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ConfigurationItemStatus where
     parser = takeLowerText >>= \case
@@ -148,10 +152,11 @@ instance FromJSON ConfigurationItemStatus where
     parseJSON = parseJSONText "ConfigurationItemStatus"
 
 data DeliveryStatus
-    = DSFailure
-    | DSNotApplicable
-    | DSSuccess
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DSFailure
+  | DSNotApplicable
+  | DSSuccess
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeliveryStatus where
     parser = takeLowerText >>= \case
@@ -177,8 +182,9 @@ instance FromJSON DeliveryStatus where
     parseJSON = parseJSONText "DeliveryStatus"
 
 data EventSource =
-    AWS_Config
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  AWS_Config
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EventSource where
     parser = takeLowerText >>= \case
@@ -203,12 +209,13 @@ instance FromJSON EventSource where
     parseJSON = parseJSONText "EventSource"
 
 data MaximumExecutionFrequency
-    = OneHour
-    | SixHours
-    | ThreeHours
-    | TwelveHours
-    | TwentyFourHours
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = OneHour
+  | SixHours
+  | ThreeHours
+  | TwelveHours
+  | TwentyFourHours
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MaximumExecutionFrequency where
     parser = takeLowerText >>= \case
@@ -241,23 +248,27 @@ instance FromJSON MaximumExecutionFrequency where
     parseJSON = parseJSONText "MaximumExecutionFrequency"
 
 data MessageType
-    = ConfigurationItemChangeNotification
-    | ConfigurationSnapshotDeliveryCompleted
-    | ScheduledNotification
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ConfigurationItemChangeNotification
+  | ConfigurationSnapshotDeliveryCompleted
+  | OversizedConfigurationItemChangeNotification
+  | ScheduledNotification
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MessageType where
     parser = takeLowerText >>= \case
         "configurationitemchangenotification" -> pure ConfigurationItemChangeNotification
         "configurationsnapshotdeliverycompleted" -> pure ConfigurationSnapshotDeliveryCompleted
+        "oversizedconfigurationitemchangenotification" -> pure OversizedConfigurationItemChangeNotification
         "schedulednotification" -> pure ScheduledNotification
         e -> fromTextError $ "Failure parsing MessageType from value: '" <> e
-           <> "'. Accepted values: configurationitemchangenotification, configurationsnapshotdeliverycompleted, schedulednotification"
+           <> "'. Accepted values: configurationitemchangenotification, configurationsnapshotdeliverycompleted, oversizedconfigurationitemchangenotification, schedulednotification"
 
 instance ToText MessageType where
     toText = \case
         ConfigurationItemChangeNotification -> "ConfigurationItemChangeNotification"
         ConfigurationSnapshotDeliveryCompleted -> "ConfigurationSnapshotDeliveryCompleted"
+        OversizedConfigurationItemChangeNotification -> "OversizedConfigurationItemChangeNotification"
         ScheduledNotification -> "ScheduledNotification"
 
 instance Hashable     MessageType
@@ -273,9 +284,10 @@ instance FromJSON MessageType where
     parseJSON = parseJSONText "MessageType"
 
 data Owner
-    = AWS
-    | CustomLambda
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AWS
+  | CustomLambda
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Owner where
     parser = takeLowerText >>= \case
@@ -302,10 +314,11 @@ instance FromJSON Owner where
     parseJSON = parseJSONText "Owner"
 
 data RecorderStatus
-    = Failure
-    | Pending
-    | Success
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Failure
+  | Pending
+  | Success
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RecorderStatus where
     parser = takeLowerText >>= \case
@@ -331,38 +344,63 @@ instance FromJSON RecorderStatus where
     parseJSON = parseJSONText "RecorderStatus"
 
 data ResourceType
-    = AWSAcmCertificate
-    | AWSCloudTrailTrail
-    | AWSEC2CustomerGateway
-    | AWSEC2EIP
-    | AWSEC2Host
-    | AWSEC2Instance
-    | AWSEC2InternetGateway
-    | AWSEC2NetworkACL
-    | AWSEC2NetworkInterface
-    | AWSEC2RouteTable
-    | AWSEC2SecurityGroup
-    | AWSEC2Subnet
-    | AWSEC2VPC
-    | AWSEC2VPNConnection
-    | AWSEC2VPNGateway
-    | AWSEC2Volume
-    | AWSELASTICLOADBALANCINGV2LoadBalancer
-    | AWSIAMGroup
-    | AWSIAMPolicy
-    | AWSIAMRole
-    | AWSIAMUser
-    | AWSRDSDBInstance
-    | AWSRDSDBSecurityGroup
-    | AWSRDSDBSnapshot
-    | AWSRDSDBSubnetGroup
-    | AWSRDSEventSubscription
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AWSAcmCertificate
+  | AWSAutoScalingAutoScalingGroup
+  | AWSAutoScalingLaunchConfiguration
+  | AWSAutoScalingScalingPolicy
+  | AWSAutoScalingScheduledAction
+  | AWSCloudFormationStack
+  | AWSCloudTrailTrail
+  | AWSCloudWatchAlarm
+  | AWSCodeBuildProject
+  | AWSDynamoDBTable
+  | AWSEC2CustomerGateway
+  | AWSEC2EIP
+  | AWSEC2Host
+  | AWSEC2Instance
+  | AWSEC2InternetGateway
+  | AWSEC2NetworkACL
+  | AWSEC2NetworkInterface
+  | AWSEC2RouteTable
+  | AWSEC2SecurityGroup
+  | AWSEC2Subnet
+  | AWSEC2VPC
+  | AWSEC2VPNConnection
+  | AWSEC2VPNGateway
+  | AWSEC2Volume
+  | AWSELASTICLOADBALANCINGV2LoadBalancer
+  | AWSIAMGroup
+  | AWSIAMPolicy
+  | AWSIAMRole
+  | AWSIAMUser
+  | AWSRDSDBInstance
+  | AWSRDSDBSecurityGroup
+  | AWSRDSDBSnapshot
+  | AWSRDSDBSubnetGroup
+  | AWSRDSEventSubscription
+  | AWSRedshiftCluster
+  | AWSRedshiftClusterParameterGroup
+  | AWSRedshiftClusterSecurityGroup
+  | AWSRedshiftClusterSnapshot
+  | AWSRedshiftClusterSubnetGroup
+  | AWSRedshiftEventSubscription
+  | AWSS3Bucket
+  | AWSSsmManagedInstanceInventory
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ResourceType where
     parser = takeLowerText >>= \case
         "aws::acm::certificate" -> pure AWSAcmCertificate
+        "aws::autoscaling::autoscalinggroup" -> pure AWSAutoScalingAutoScalingGroup
+        "aws::autoscaling::launchconfiguration" -> pure AWSAutoScalingLaunchConfiguration
+        "aws::autoscaling::scalingpolicy" -> pure AWSAutoScalingScalingPolicy
+        "aws::autoscaling::scheduledaction" -> pure AWSAutoScalingScheduledAction
+        "aws::cloudformation::stack" -> pure AWSCloudFormationStack
         "aws::cloudtrail::trail" -> pure AWSCloudTrailTrail
+        "aws::cloudwatch::alarm" -> pure AWSCloudWatchAlarm
+        "aws::codebuild::project" -> pure AWSCodeBuildProject
+        "aws::dynamodb::table" -> pure AWSDynamoDBTable
         "aws::ec2::customergateway" -> pure AWSEC2CustomerGateway
         "aws::ec2::eip" -> pure AWSEC2EIP
         "aws::ec2::host" -> pure AWSEC2Host
@@ -387,13 +425,29 @@ instance FromText ResourceType where
         "aws::rds::dbsnapshot" -> pure AWSRDSDBSnapshot
         "aws::rds::dbsubnetgroup" -> pure AWSRDSDBSubnetGroup
         "aws::rds::eventsubscription" -> pure AWSRDSEventSubscription
+        "aws::redshift::cluster" -> pure AWSRedshiftCluster
+        "aws::redshift::clusterparametergroup" -> pure AWSRedshiftClusterParameterGroup
+        "aws::redshift::clustersecuritygroup" -> pure AWSRedshiftClusterSecurityGroup
+        "aws::redshift::clustersnapshot" -> pure AWSRedshiftClusterSnapshot
+        "aws::redshift::clustersubnetgroup" -> pure AWSRedshiftClusterSubnetGroup
+        "aws::redshift::eventsubscription" -> pure AWSRedshiftEventSubscription
+        "aws::s3::bucket" -> pure AWSS3Bucket
+        "aws::ssm::managedinstanceinventory" -> pure AWSSsmManagedInstanceInventory
         e -> fromTextError $ "Failure parsing ResourceType from value: '" <> e
-           <> "'. Accepted values: aws::acm::certificate, aws::cloudtrail::trail, aws::ec2::customergateway, aws::ec2::eip, aws::ec2::host, aws::ec2::instance, aws::ec2::internetgateway, aws::ec2::networkacl, aws::ec2::networkinterface, aws::ec2::routetable, aws::ec2::securitygroup, aws::ec2::subnet, aws::ec2::vpc, aws::ec2::vpnconnection, aws::ec2::vpngateway, aws::ec2::volume, aws::elasticloadbalancingv2::loadbalancer, aws::iam::group, aws::iam::policy, aws::iam::role, aws::iam::user, aws::rds::dbinstance, aws::rds::dbsecuritygroup, aws::rds::dbsnapshot, aws::rds::dbsubnetgroup, aws::rds::eventsubscription"
+           <> "'. Accepted values: aws::acm::certificate, aws::autoscaling::autoscalinggroup, aws::autoscaling::launchconfiguration, aws::autoscaling::scalingpolicy, aws::autoscaling::scheduledaction, aws::cloudformation::stack, aws::cloudtrail::trail, aws::cloudwatch::alarm, aws::codebuild::project, aws::dynamodb::table, aws::ec2::customergateway, aws::ec2::eip, aws::ec2::host, aws::ec2::instance, aws::ec2::internetgateway, aws::ec2::networkacl, aws::ec2::networkinterface, aws::ec2::routetable, aws::ec2::securitygroup, aws::ec2::subnet, aws::ec2::vpc, aws::ec2::vpnconnection, aws::ec2::vpngateway, aws::ec2::volume, aws::elasticloadbalancingv2::loadbalancer, aws::iam::group, aws::iam::policy, aws::iam::role, aws::iam::user, aws::rds::dbinstance, aws::rds::dbsecuritygroup, aws::rds::dbsnapshot, aws::rds::dbsubnetgroup, aws::rds::eventsubscription, aws::redshift::cluster, aws::redshift::clusterparametergroup, aws::redshift::clustersecuritygroup, aws::redshift::clustersnapshot, aws::redshift::clustersubnetgroup, aws::redshift::eventsubscription, aws::s3::bucket, aws::ssm::managedinstanceinventory"
 
 instance ToText ResourceType where
     toText = \case
         AWSAcmCertificate -> "AWS::ACM::Certificate"
+        AWSAutoScalingAutoScalingGroup -> "AWS::AutoScaling::AutoScalingGroup"
+        AWSAutoScalingLaunchConfiguration -> "AWS::AutoScaling::LaunchConfiguration"
+        AWSAutoScalingScalingPolicy -> "AWS::AutoScaling::ScalingPolicy"
+        AWSAutoScalingScheduledAction -> "AWS::AutoScaling::ScheduledAction"
+        AWSCloudFormationStack -> "AWS::CloudFormation::Stack"
         AWSCloudTrailTrail -> "AWS::CloudTrail::Trail"
+        AWSCloudWatchAlarm -> "AWS::CloudWatch::Alarm"
+        AWSCodeBuildProject -> "AWS::CodeBuild::Project"
+        AWSDynamoDBTable -> "AWS::DynamoDB::Table"
         AWSEC2CustomerGateway -> "AWS::EC2::CustomerGateway"
         AWSEC2EIP -> "AWS::EC2::EIP"
         AWSEC2Host -> "AWS::EC2::Host"
@@ -418,6 +472,14 @@ instance ToText ResourceType where
         AWSRDSDBSnapshot -> "AWS::RDS::DBSnapshot"
         AWSRDSDBSubnetGroup -> "AWS::RDS::DBSubnetGroup"
         AWSRDSEventSubscription -> "AWS::RDS::EventSubscription"
+        AWSRedshiftCluster -> "AWS::Redshift::Cluster"
+        AWSRedshiftClusterParameterGroup -> "AWS::Redshift::ClusterParameterGroup"
+        AWSRedshiftClusterSecurityGroup -> "AWS::Redshift::ClusterSecurityGroup"
+        AWSRedshiftClusterSnapshot -> "AWS::Redshift::ClusterSnapshot"
+        AWSRedshiftClusterSubnetGroup -> "AWS::Redshift::ClusterSubnetGroup"
+        AWSRedshiftEventSubscription -> "AWS::Redshift::EventSubscription"
+        AWSS3Bucket -> "AWS::S3::Bucket"
+        AWSSsmManagedInstanceInventory -> "AWS::SSM::ManagedInstanceInventory"
 
 instance Hashable     ResourceType
 instance NFData       ResourceType

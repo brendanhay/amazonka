@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -25,6 +25,7 @@ module Network.AWS.S3.PutBucketPolicy
       putBucketPolicy
     , PutBucketPolicy
     -- * Request Lenses
+    , pbpConfirmRemoveSelfBucketAccess
     , pbpContentMD5
     , pbpBucket
     , pbpPolicy
@@ -34,39 +35,49 @@ module Network.AWS.S3.PutBucketPolicy
     , PutBucketPolicyResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketPolicy' smart constructor.
 data PutBucketPolicy = PutBucketPolicy'
-    { _pbpContentMD5 :: !(Maybe Text)
-    , _pbpBucket     :: !BucketName
-    , _pbpPolicy     :: !(HashMap Text Value)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _pbpConfirmRemoveSelfBucketAccess :: !(Maybe Bool)
+  , _pbpContentMD5                    :: !(Maybe Text)
+  , _pbpBucket                        :: !BucketName
+  , _pbpPolicy                        :: !(HashMap Text Value)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketPolicy' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbpContentMD5'
+-- * 'pbpConfirmRemoveSelfBucketAccess' - Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.
 --
--- * 'pbpBucket'
+-- * 'pbpContentMD5' - Undocumented member.
 --
--- * 'pbpPolicy'
+-- * 'pbpBucket' - Undocumented member.
+--
+-- * 'pbpPolicy' - The bucket policy as a JSON document.
 putBucketPolicy
     :: BucketName -- ^ 'pbpBucket'
     -> HashMap Text Value -- ^ 'pbpPolicy'
     -> PutBucketPolicy
 putBucketPolicy pBucket_ pPolicy_ =
-    PutBucketPolicy'
-    { _pbpContentMD5 = Nothing
-    , _pbpBucket = pBucket_
-    , _pbpPolicy = pPolicy_
-    }
+  PutBucketPolicy'
+  { _pbpConfirmRemoveSelfBucketAccess = Nothing
+  , _pbpContentMD5 = Nothing
+  , _pbpBucket = pBucket_
+  , _pbpPolicy = pPolicy_
+  }
+
+
+-- | Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.
+pbpConfirmRemoveSelfBucketAccess :: Lens' PutBucketPolicy (Maybe Bool)
+pbpConfirmRemoveSelfBucketAccess = lens _pbpConfirmRemoveSelfBucketAccess (\ s a -> s{_pbpConfirmRemoveSelfBucketAccess = a});
 
 -- | Undocumented member.
 pbpContentMD5 :: Lens' PutBucketPolicy (Maybe Text)
@@ -82,19 +93,22 @@ pbpPolicy = lens _pbpPolicy (\ s a -> s{_pbpPolicy = a});
 
 instance AWSRequest PutBucketPolicy where
         type Rs PutBucketPolicy = PutBucketPolicyResponse
-        request = contentMD5 . putBody s3
+        request = contentMD5Header . putBody s3
         response = receiveNull PutBucketPolicyResponse'
 
-instance Hashable PutBucketPolicy
+instance Hashable PutBucketPolicy where
 
-instance NFData PutBucketPolicy
+instance NFData PutBucketPolicy where
 
 instance ToBody PutBucketPolicy where
         toBody = toBody . _pbpPolicy
 
 instance ToHeaders PutBucketPolicy where
         toHeaders PutBucketPolicy'{..}
-          = mconcat ["Content-MD5" =# _pbpContentMD5]
+          = mconcat
+              ["x-amz-confirm-remove-self-bucket-access" =#
+                 _pbpConfirmRemoveSelfBucketAccess,
+               "Content-MD5" =# _pbpContentMD5]
 
 instance ToPath PutBucketPolicy where
         toPath PutBucketPolicy'{..}
@@ -105,8 +119,9 @@ instance ToQuery PutBucketPolicy where
 
 -- | /See:/ 'putBucketPolicyResponse' smart constructor.
 data PutBucketPolicyResponse =
-    PutBucketPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutBucketPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketPolicyResponse' with the minimum fields required to make a request.
 --
@@ -114,4 +129,5 @@ putBucketPolicyResponse
     :: PutBucketPolicyResponse
 putBucketPolicyResponse = PutBucketPolicyResponse'
 
-instance NFData PutBucketPolicyResponse
+
+instance NFData PutBucketPolicyResponse where

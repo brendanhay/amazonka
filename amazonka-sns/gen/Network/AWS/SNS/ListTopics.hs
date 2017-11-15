@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.SNS.ListTopics
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the requester\'s topics. Each call returns a limited list of topics, up to 100. If there are more topics, a 'NextToken' is also returned. Use the 'NextToken' parameter in a new 'ListTopics' call to get further results.
+-- Returns a list of the requester's topics. Each call returns a limited list of topics, up to 100. If there are more topics, a @NextToken@ is also returned. Use the @NextToken@ parameter in a new @ListTopics@ call to get further results.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListTopics
@@ -38,32 +40,31 @@ module Network.AWS.SNS.ListTopics
     , ltrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | /See:/ 'listTopics' smart constructor.
 newtype ListTopics = ListTopics'
-    { _ltNextToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltNextToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTopics' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltNextToken'
+-- * 'ltNextToken' - Token returned by the previous @ListTopics@ request.
 listTopics
     :: ListTopics
-listTopics =
-    ListTopics'
-    { _ltNextToken = Nothing
-    }
+listTopics = ListTopics' {_ltNextToken = Nothing}
 
--- | Token returned by the previous 'ListTopics' request.
+
+-- | Token returned by the previous @ListTopics@ request.
 ltNextToken :: Lens' ListTopics (Maybe Text)
 ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
 
@@ -86,9 +87,9 @@ instance AWSRequest ListTopics where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListTopics
+instance Hashable ListTopics where
 
-instance NFData ListTopics
+instance NFData ListTopics where
 
 instance ToHeaders ListTopics where
         toHeaders = const mempty
@@ -105,42 +106,46 @@ instance ToQuery ListTopics where
 
 -- | Response for ListTopics action.
 --
+--
+--
 -- /See:/ 'listTopicsResponse' smart constructor.
 data ListTopicsResponse = ListTopicsResponse'
-    { _ltrsTopics         :: !(Maybe [Topic])
-    , _ltrsNextToken      :: !(Maybe Text)
-    , _ltrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltrsTopics         :: !(Maybe [Topic])
+  , _ltrsNextToken      :: !(Maybe Text)
+  , _ltrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTopicsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltrsTopics'
+-- * 'ltrsTopics' - A list of topic ARNs.
 --
--- * 'ltrsNextToken'
+-- * 'ltrsNextToken' - Token to pass along to the next @ListTopics@ request. This element is returned if there are additional topics to retrieve.
 --
--- * 'ltrsResponseStatus'
+-- * 'ltrsResponseStatus' - -- | The response status code.
 listTopicsResponse
     :: Int -- ^ 'ltrsResponseStatus'
     -> ListTopicsResponse
 listTopicsResponse pResponseStatus_ =
-    ListTopicsResponse'
-    { _ltrsTopics = Nothing
-    , _ltrsNextToken = Nothing
-    , _ltrsResponseStatus = pResponseStatus_
-    }
+  ListTopicsResponse'
+  { _ltrsTopics = Nothing
+  , _ltrsNextToken = Nothing
+  , _ltrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of topic ARNs.
 ltrsTopics :: Lens' ListTopicsResponse [Topic]
 ltrsTopics = lens _ltrsTopics (\ s a -> s{_ltrsTopics = a}) . _Default . _Coerce;
 
--- | Token to pass along to the next 'ListTopics' request. This element is returned if there are additional topics to retrieve.
+-- | Token to pass along to the next @ListTopics@ request. This element is returned if there are additional topics to retrieve.
 ltrsNextToken :: Lens' ListTopicsResponse (Maybe Text)
 ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ltrsResponseStatus :: Lens' ListTopicsResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
 
-instance NFData ListTopicsResponse
+instance NFData ListTopicsResponse where

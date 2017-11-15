@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DeleteAssessmentTemplate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the assessment template that is specified by the ARN of the assessment template.
+--
+--
 module Network.AWS.Inspector.DeleteAssessmentTemplate
     (
     -- * Creating a Request
@@ -32,30 +34,31 @@ module Network.AWS.Inspector.DeleteAssessmentTemplate
     , DeleteAssessmentTemplateResponse
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteAssessmentTemplate' smart constructor.
 newtype DeleteAssessmentTemplate = DeleteAssessmentTemplate'
-    { _datAssessmentTemplateARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _datAssessmentTemplateARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAssessmentTemplate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'datAssessmentTemplateARN'
+-- * 'datAssessmentTemplateARN' - The ARN that specifies the assessment template that you want to delete.
 deleteAssessmentTemplate
     :: Text -- ^ 'datAssessmentTemplateARN'
     -> DeleteAssessmentTemplate
 deleteAssessmentTemplate pAssessmentTemplateARN_ =
-    DeleteAssessmentTemplate'
-    { _datAssessmentTemplateARN = pAssessmentTemplateARN_
-    }
+  DeleteAssessmentTemplate'
+  {_datAssessmentTemplateARN = pAssessmentTemplateARN_}
+
 
 -- | The ARN that specifies the assessment template that you want to delete.
 datAssessmentTemplateARN :: Lens' DeleteAssessmentTemplate Text
@@ -68,9 +71,9 @@ instance AWSRequest DeleteAssessmentTemplate where
         response
           = receiveNull DeleteAssessmentTemplateResponse'
 
-instance Hashable DeleteAssessmentTemplate
+instance Hashable DeleteAssessmentTemplate where
 
-instance NFData DeleteAssessmentTemplate
+instance NFData DeleteAssessmentTemplate where
 
 instance ToHeaders DeleteAssessmentTemplate where
         toHeaders
@@ -98,8 +101,9 @@ instance ToQuery DeleteAssessmentTemplate where
 
 -- | /See:/ 'deleteAssessmentTemplateResponse' smart constructor.
 data DeleteAssessmentTemplateResponse =
-    DeleteAssessmentTemplateResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteAssessmentTemplateResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAssessmentTemplateResponse' with the minimum fields required to make a request.
 --
@@ -107,4 +111,6 @@ deleteAssessmentTemplateResponse
     :: DeleteAssessmentTemplateResponse
 deleteAssessmentTemplateResponse = DeleteAssessmentTemplateResponse'
 
+
 instance NFData DeleteAssessmentTemplateResponse
+         where

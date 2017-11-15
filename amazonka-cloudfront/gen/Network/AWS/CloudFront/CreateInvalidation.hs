@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.CreateInvalidation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Create a new invalidation.
+--
+--
 module Network.AWS.CloudFront.CreateInvalidation
     (
     -- * Creating a Request
@@ -37,39 +39,43 @@ module Network.AWS.CloudFront.CreateInvalidation
     , cirsResponseStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to create an invalidation.
 --
+--
+--
 -- /See:/ 'createInvalidation' smart constructor.
 data CreateInvalidation = CreateInvalidation'
-    { _ciDistributionId    :: !Text
-    , _ciInvalidationBatch :: !InvalidationBatch
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ciDistributionId    :: !Text
+  , _ciInvalidationBatch :: !InvalidationBatch
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateInvalidation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ciDistributionId'
+-- * 'ciDistributionId' - The distribution's id.
 --
--- * 'ciInvalidationBatch'
+-- * 'ciInvalidationBatch' - The batch information for the invalidation.
 createInvalidation
     :: Text -- ^ 'ciDistributionId'
     -> InvalidationBatch -- ^ 'ciInvalidationBatch'
     -> CreateInvalidation
 createInvalidation pDistributionId_ pInvalidationBatch_ =
-    CreateInvalidation'
-    { _ciDistributionId = pDistributionId_
-    , _ciInvalidationBatch = pInvalidationBatch_
-    }
+  CreateInvalidation'
+  { _ciDistributionId = pDistributionId_
+  , _ciInvalidationBatch = pInvalidationBatch_
+  }
 
--- | The distribution\'s id.
+
+-- | The distribution's id.
 ciDistributionId :: Lens' CreateInvalidation Text
 ciDistributionId = lens _ciDistributionId (\ s a -> s{_ciDistributionId = a});
 
@@ -88,14 +94,14 @@ instance AWSRequest CreateInvalidation where
                    (parseXML x) <*> (h .#? "Location") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateInvalidation
+instance Hashable CreateInvalidation where
 
-instance NFData CreateInvalidation
+instance NFData CreateInvalidation where
 
 instance ToElement CreateInvalidation where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-09-07/}InvalidationBatch"
+              "{http://cloudfront.amazonaws.com/doc/2017-03-25/}InvalidationBatch"
               .
               _ciInvalidationBatch
 
@@ -105,7 +111,7 @@ instance ToHeaders CreateInvalidation where
 instance ToPath CreateInvalidation where
         toPath CreateInvalidation'{..}
           = mconcat
-              ["/2016-09-07/distribution/", toBS _ciDistributionId,
+              ["/2017-03-25/distribution/", toBS _ciDistributionId,
                "/invalidation"]
 
 instance ToQuery CreateInvalidation where
@@ -113,42 +119,46 @@ instance ToQuery CreateInvalidation where
 
 -- | The returned result of the corresponding request.
 --
+--
+--
 -- /See:/ 'createInvalidationResponse' smart constructor.
 data CreateInvalidationResponse = CreateInvalidationResponse'
-    { _cirsInvalidation   :: !(Maybe Invalidation)
-    , _cirsLocation       :: !(Maybe Text)
-    , _cirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cirsInvalidation   :: !(Maybe Invalidation)
+  , _cirsLocation       :: !(Maybe Text)
+  , _cirsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateInvalidationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cirsInvalidation'
+-- * 'cirsInvalidation' - The invalidation's information.
 --
--- * 'cirsLocation'
+-- * 'cirsLocation' - The fully qualified URI of the distribution and invalidation batch request, including the @Invalidation ID@ .
 --
--- * 'cirsResponseStatus'
+-- * 'cirsResponseStatus' - -- | The response status code.
 createInvalidationResponse
     :: Int -- ^ 'cirsResponseStatus'
     -> CreateInvalidationResponse
 createInvalidationResponse pResponseStatus_ =
-    CreateInvalidationResponse'
-    { _cirsInvalidation = Nothing
-    , _cirsLocation = Nothing
-    , _cirsResponseStatus = pResponseStatus_
-    }
+  CreateInvalidationResponse'
+  { _cirsInvalidation = Nothing
+  , _cirsLocation = Nothing
+  , _cirsResponseStatus = pResponseStatus_
+  }
 
--- | The invalidation\'s information.
+
+-- | The invalidation's information.
 cirsInvalidation :: Lens' CreateInvalidationResponse (Maybe Invalidation)
 cirsInvalidation = lens _cirsInvalidation (\ s a -> s{_cirsInvalidation = a});
 
--- | The fully qualified URI of the distribution and invalidation batch request, including the Invalidation ID.
+-- | The fully qualified URI of the distribution and invalidation batch request, including the @Invalidation ID@ .
 cirsLocation :: Lens' CreateInvalidationResponse (Maybe Text)
 cirsLocation = lens _cirsLocation (\ s a -> s{_cirsLocation = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cirsResponseStatus :: Lens' CreateInvalidationResponse Int
 cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});
 
-instance NFData CreateInvalidationResponse
+instance NFData CreateInvalidationResponse where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetOnPremisesInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about an on-premises instance.
+--
+--
 module Network.AWS.CodeDeploy.GetOnPremisesInstance
     (
     -- * Creating a Request
@@ -35,32 +37,34 @@ module Network.AWS.CodeDeploy.GetOnPremisesInstance
     , gopirsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a get on-premises instance operation.
+-- | Represents the input of a GetOnPremisesInstance operation.
+--
+--
 --
 -- /See:/ 'getOnPremisesInstance' smart constructor.
 newtype GetOnPremisesInstance = GetOnPremisesInstance'
-    { _gopiInstanceName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gopiInstanceName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetOnPremisesInstance' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gopiInstanceName'
+-- * 'gopiInstanceName' - The name of the on-premises instance about which to get information.
 getOnPremisesInstance
     :: Text -- ^ 'gopiInstanceName'
     -> GetOnPremisesInstance
 getOnPremisesInstance pInstanceName_ =
-    GetOnPremisesInstance'
-    { _gopiInstanceName = pInstanceName_
-    }
+  GetOnPremisesInstance' {_gopiInstanceName = pInstanceName_}
+
 
 -- | The name of the on-premises instance about which to get information.
 gopiInstanceName :: Lens' GetOnPremisesInstance Text
@@ -76,9 +80,9 @@ instance AWSRequest GetOnPremisesInstance where
                  GetOnPremisesInstanceResponse' <$>
                    (x .?> "instanceInfo") <*> (pure (fromEnum s)))
 
-instance Hashable GetOnPremisesInstance
+instance Hashable GetOnPremisesInstance where
 
-instance NFData GetOnPremisesInstance
+instance NFData GetOnPremisesInstance where
 
 instance ToHeaders GetOnPremisesInstance where
         toHeaders
@@ -102,36 +106,38 @@ instance ToPath GetOnPremisesInstance where
 instance ToQuery GetOnPremisesInstance where
         toQuery = const mempty
 
--- | Represents the output of a get on-premises instance operation.
+-- | Represents the output of a GetOnPremisesInstance operation.
+--
+--
 --
 -- /See:/ 'getOnPremisesInstanceResponse' smart constructor.
 data GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse'
-    { _gopirsInstanceInfo   :: !(Maybe InstanceInfo)
-    , _gopirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gopirsInstanceInfo   :: !(Maybe InstanceInfo)
+  , _gopirsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetOnPremisesInstanceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gopirsInstanceInfo'
+-- * 'gopirsInstanceInfo' - Information about the on-premises instance.
 --
--- * 'gopirsResponseStatus'
+-- * 'gopirsResponseStatus' - -- | The response status code.
 getOnPremisesInstanceResponse
     :: Int -- ^ 'gopirsResponseStatus'
     -> GetOnPremisesInstanceResponse
 getOnPremisesInstanceResponse pResponseStatus_ =
-    GetOnPremisesInstanceResponse'
-    { _gopirsInstanceInfo = Nothing
-    , _gopirsResponseStatus = pResponseStatus_
-    }
+  GetOnPremisesInstanceResponse'
+  {_gopirsInstanceInfo = Nothing, _gopirsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the on-premises instance.
 gopirsInstanceInfo :: Lens' GetOnPremisesInstanceResponse (Maybe InstanceInfo)
 gopirsInstanceInfo = lens _gopirsInstanceInfo (\ s a -> s{_gopirsInstanceInfo = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gopirsResponseStatus :: Lens' GetOnPremisesInstanceResponse Int
 gopirsResponseStatus = lens _gopirsResponseStatus (\ s a -> s{_gopirsResponseStatus = a});
 
-instance NFData GetOnPremisesInstanceResponse
+instance NFData GetOnPremisesInstanceResponse where

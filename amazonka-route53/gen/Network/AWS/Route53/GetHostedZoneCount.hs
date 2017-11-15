@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetHostedZoneCount
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a count of all your hosted zones. Send a 'GET' request to the '\/2013-04-01\/hostedzonecount' resource.
+-- Retrieves the number of hosted zones that are associated with the current AWS account.
+--
+--
 module Network.AWS.Route53.GetHostedZoneCount
     (
     -- * Creating a Request
@@ -33,25 +35,29 @@ module Network.AWS.Route53.GetHostedZoneCount
     , ghzcrsHostedZoneCount
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
--- | To retrieve a count of all your hosted zones, send a 'GET' request to the '\/2013-04-01\/hostedzonecount' resource.
+-- | A request to retrieve a count of all the hosted zones that are associated with the current AWS account.
+--
+--
 --
 -- /See:/ 'getHostedZoneCount' smart constructor.
 data GetHostedZoneCount =
-    GetHostedZoneCount'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  GetHostedZoneCount'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetHostedZoneCount' with the minimum fields required to make a request.
 --
 getHostedZoneCount
     :: GetHostedZoneCount
 getHostedZoneCount = GetHostedZoneCount'
+
 
 instance AWSRequest GetHostedZoneCount where
         type Rs GetHostedZoneCount =
@@ -63,9 +69,9 @@ instance AWSRequest GetHostedZoneCount where
                  GetHostedZoneCountResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "HostedZoneCount"))
 
-instance Hashable GetHostedZoneCount
+instance Hashable GetHostedZoneCount where
 
-instance NFData GetHostedZoneCount
+instance NFData GetHostedZoneCount where
 
 instance ToHeaders GetHostedZoneCount where
         toHeaders = const mempty
@@ -76,37 +82,41 @@ instance ToPath GetHostedZoneCount where
 instance ToQuery GetHostedZoneCount where
         toQuery = const mempty
 
--- | A complex type that contains the response to a 'hostedzonecount' request.
+-- | A complex type that contains the response to a @GetHostedZoneCount@ request.
+--
+--
 --
 -- /See:/ 'getHostedZoneCountResponse' smart constructor.
 data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
-    { _ghzcrsResponseStatus  :: !Int
-    , _ghzcrsHostedZoneCount :: !Integer
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ghzcrsResponseStatus  :: !Int
+  , _ghzcrsHostedZoneCount :: !Integer
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetHostedZoneCountResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ghzcrsResponseStatus'
+-- * 'ghzcrsResponseStatus' - -- | The response status code.
 --
--- * 'ghzcrsHostedZoneCount'
+-- * 'ghzcrsHostedZoneCount' - The total number of public and private hosted zones that are associated with the current AWS account.
 getHostedZoneCountResponse
     :: Int -- ^ 'ghzcrsResponseStatus'
     -> Integer -- ^ 'ghzcrsHostedZoneCount'
     -> GetHostedZoneCountResponse
 getHostedZoneCountResponse pResponseStatus_ pHostedZoneCount_ =
-    GetHostedZoneCountResponse'
-    { _ghzcrsResponseStatus = pResponseStatus_
-    , _ghzcrsHostedZoneCount = pHostedZoneCount_
-    }
+  GetHostedZoneCountResponse'
+  { _ghzcrsResponseStatus = pResponseStatus_
+  , _ghzcrsHostedZoneCount = pHostedZoneCount_
+  }
 
--- | The response status code.
+
+-- | -- | The response status code.
 ghzcrsResponseStatus :: Lens' GetHostedZoneCountResponse Int
 ghzcrsResponseStatus = lens _ghzcrsResponseStatus (\ s a -> s{_ghzcrsResponseStatus = a});
 
--- | The total number of public and private hosted zones associated with the current AWS account.
+-- | The total number of public and private hosted zones that are associated with the current AWS account.
 ghzcrsHostedZoneCount :: Lens' GetHostedZoneCountResponse Integer
 ghzcrsHostedZoneCount = lens _ghzcrsHostedZoneCount (\ s a -> s{_ghzcrsHostedZoneCount = a});
 
-instance NFData GetHostedZoneCountResponse
+instance NFData GetHostedZoneCountResponse where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DetachThingPrincipal
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Detaches the specified principal from the specified thing.
+--
+--
 module Network.AWS.IoT.DetachThingPrincipal
     (
     -- * Creating a Request
@@ -35,37 +37,39 @@ module Network.AWS.IoT.DetachThingPrincipal
     , dtprsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DetachThingPrincipal operation.
 --
+--
+--
 -- /See:/ 'detachThingPrincipal' smart constructor.
 data DetachThingPrincipal = DetachThingPrincipal'
-    { _dtpThingName :: !Text
-    , _dtpPrincipal :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtpThingName :: !Text
+  , _dtpPrincipal :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachThingPrincipal' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtpThingName'
+-- * 'dtpThingName' - The name of the thing.
 --
--- * 'dtpPrincipal'
+-- * 'dtpPrincipal' - If the principal is a certificate, this value must be ARN of the certificate. If the principal is an Amazon Cognito identity, this value must be the ID of the Amazon Cognito identity.
 detachThingPrincipal
     :: Text -- ^ 'dtpThingName'
     -> Text -- ^ 'dtpPrincipal'
     -> DetachThingPrincipal
 detachThingPrincipal pThingName_ pPrincipal_ =
-    DetachThingPrincipal'
-    { _dtpThingName = pThingName_
-    , _dtpPrincipal = pPrincipal_
-    }
+  DetachThingPrincipal'
+  {_dtpThingName = pThingName_, _dtpPrincipal = pPrincipal_}
+
 
 -- | The name of the thing.
 dtpThingName :: Lens' DetachThingPrincipal Text
@@ -85,9 +89,9 @@ instance AWSRequest DetachThingPrincipal where
                  DetachThingPrincipalResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DetachThingPrincipal
+instance Hashable DetachThingPrincipal where
 
-instance NFData DetachThingPrincipal
+instance NFData DetachThingPrincipal where
 
 instance ToHeaders DetachThingPrincipal where
         toHeaders DetachThingPrincipal'{..}
@@ -103,26 +107,28 @@ instance ToQuery DetachThingPrincipal where
 
 -- | The output from the DetachThingPrincipal operation.
 --
+--
+--
 -- /See:/ 'detachThingPrincipalResponse' smart constructor.
 newtype DetachThingPrincipalResponse = DetachThingPrincipalResponse'
-    { _dtprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachThingPrincipalResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtprsResponseStatus'
+-- * 'dtprsResponseStatus' - -- | The response status code.
 detachThingPrincipalResponse
     :: Int -- ^ 'dtprsResponseStatus'
     -> DetachThingPrincipalResponse
 detachThingPrincipalResponse pResponseStatus_ =
-    DetachThingPrincipalResponse'
-    { _dtprsResponseStatus = pResponseStatus_
-    }
+  DetachThingPrincipalResponse' {_dtprsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 dtprsResponseStatus :: Lens' DetachThingPrincipalResponse Int
 dtprsResponseStatus = lens _dtprsResponseStatus (\ s a -> s{_dtprsResponseStatus = a});
 
-instance NFData DetachThingPrincipalResponse
+instance NFData DetachThingPrincipalResponse where

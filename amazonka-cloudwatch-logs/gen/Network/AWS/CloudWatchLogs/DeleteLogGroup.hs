@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DeleteLogGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the log group with the specified name and permanently deletes all the archived log events associated with it.
+-- Deletes the specified log group and permanently deletes all the archived log events associated with the log group.
+--
+--
 module Network.AWS.CloudWatchLogs.DeleteLogGroup
     (
     -- * Creating a Request
@@ -32,32 +34,32 @@ module Network.AWS.CloudWatchLogs.DeleteLogGroup
     , DeleteLogGroupResponse
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteLogGroup' smart constructor.
 newtype DeleteLogGroup = DeleteLogGroup'
-    { _dlgLogGroupName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlgLogGroupName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLogGroup' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlgLogGroupName'
+-- * 'dlgLogGroupName' - The name of the log group.
 deleteLogGroup
     :: Text -- ^ 'dlgLogGroupName'
     -> DeleteLogGroup
 deleteLogGroup pLogGroupName_ =
-    DeleteLogGroup'
-    { _dlgLogGroupName = pLogGroupName_
-    }
+  DeleteLogGroup' {_dlgLogGroupName = pLogGroupName_}
 
--- | The name of the log group to delete.
+
+-- | The name of the log group.
 dlgLogGroupName :: Lens' DeleteLogGroup Text
 dlgLogGroupName = lens _dlgLogGroupName (\ s a -> s{_dlgLogGroupName = a});
 
@@ -66,9 +68,9 @@ instance AWSRequest DeleteLogGroup where
         request = postJSON cloudWatchLogs
         response = receiveNull DeleteLogGroupResponse'
 
-instance Hashable DeleteLogGroup
+instance Hashable DeleteLogGroup where
 
-instance NFData DeleteLogGroup
+instance NFData DeleteLogGroup where
 
 instance ToHeaders DeleteLogGroup where
         toHeaders
@@ -93,8 +95,9 @@ instance ToQuery DeleteLogGroup where
 
 -- | /See:/ 'deleteLogGroupResponse' smart constructor.
 data DeleteLogGroupResponse =
-    DeleteLogGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteLogGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLogGroupResponse' with the minimum fields required to make a request.
 --
@@ -102,4 +105,5 @@ deleteLogGroupResponse
     :: DeleteLogGroupResponse
 deleteLogGroupResponse = DeleteLogGroupResponse'
 
-instance NFData DeleteLogGroupResponse
+
+instance NFData DeleteLogGroupResponse where

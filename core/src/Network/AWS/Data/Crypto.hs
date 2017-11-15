@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.Data.Crypto
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
@@ -18,6 +18,7 @@ module Network.AWS.Data.Crypto
     , digestToBase
 
     -- * Algorithms
+    , hmacSHA1
     , hmacSHA256
     , hashSHA256
     , hashMD5
@@ -49,6 +50,11 @@ digestToBS = convert
 
 digestToBase :: ByteArrayAccess a => Base -> a -> ByteString
 digestToBase = convertToBase
+
+
+-- | Apply an HMAC sha1 with the given secret to the given value.
+hmacSHA1 :: (ByteArrayAccess a, ByteArray b) => a -> b -> HMAC SHA1
+hmacSHA1 = hmac
 
 hmacSHA256 :: (ByteArrayAccess a, ByteArray b) => a -> b -> HMAC SHA256
 hmacSHA256 = hmac

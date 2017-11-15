@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.CloudFront
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.CloudFront where
 
 import Data.Proxy
+import Network.AWS.CloudFront
+import Test.AWS.CloudFront.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.CloudFront
-import Test.AWS.CloudFront.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -48,6 +48,9 @@ import Test.AWS.CloudFront.Internal
 --
 --         , requestCreateStreamingDistributionWithTags $
 --             createStreamingDistributionWithTags
+--
+--         , requestDeleteServiceLinkedRole $
+--             deleteServiceLinkedRole
 --
 --         , requestGetDistribution $
 --             getDistribution
@@ -132,6 +135,9 @@ import Test.AWS.CloudFront.Internal
 --
 --         , responseCreateStreamingDistributionWithTags $
 --             createStreamingDistributionWithTagsResponse
+--
+--         , responseDeleteServiceLinkedRole $
+--             deleteServiceLinkedRoleResponse
 --
 --         , responseGetDistribution $
 --             getDistributionResponse
@@ -232,6 +238,11 @@ requestCreateStreamingDistributionWithTags :: CreateStreamingDistributionWithTag
 requestCreateStreamingDistributionWithTags = req
     "CreateStreamingDistributionWithTags"
     "fixture/CreateStreamingDistributionWithTags.yaml"
+
+requestDeleteServiceLinkedRole :: DeleteServiceLinkedRole -> TestTree
+requestDeleteServiceLinkedRole = req
+    "DeleteServiceLinkedRole"
+    "fixture/DeleteServiceLinkedRole.yaml"
 
 requestGetDistribution :: GetDistribution -> TestTree
 requestGetDistribution = req
@@ -383,6 +394,13 @@ responseCreateStreamingDistributionWithTags = res
     "fixture/CreateStreamingDistributionWithTagsResponse.proto"
     cloudFront
     (Proxy :: Proxy CreateStreamingDistributionWithTags)
+
+responseDeleteServiceLinkedRole :: DeleteServiceLinkedRoleResponse -> TestTree
+responseDeleteServiceLinkedRole = res
+    "DeleteServiceLinkedRoleResponse"
+    "fixture/DeleteServiceLinkedRoleResponse.proto"
+    cloudFront
+    (Proxy :: Proxy DeleteServiceLinkedRole)
 
 responseGetDistribution :: GetDistributionResponse -> TestTree
 responseGetDistribution = res

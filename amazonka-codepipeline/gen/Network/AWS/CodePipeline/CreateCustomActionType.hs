@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.CreateCustomActionType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new custom action that can be used in all pipelines associated with the AWS account. Only used for custom actions.
+--
+--
 module Network.AWS.CodePipeline.CreateCustomActionType
     (
     -- * Creating a Request
@@ -41,43 +43,46 @@ module Network.AWS.CodePipeline.CreateCustomActionType
     , ccatrsActionType
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a create custom action operation.
+-- | Represents the input of a CreateCustomActionType operation.
+--
+--
 --
 -- /See:/ 'createCustomActionType' smart constructor.
 data CreateCustomActionType = CreateCustomActionType'
-    { _ccatSettings                :: !(Maybe ActionTypeSettings)
-    , _ccatConfigurationProperties :: !(Maybe [ActionConfigurationProperty])
-    , _ccatCategory                :: !ActionCategory
-    , _ccatProvider                :: !Text
-    , _ccatVersion                 :: !Text
-    , _ccatInputArtifactDetails    :: !ArtifactDetails
-    , _ccatOutputArtifactDetails   :: !ArtifactDetails
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccatSettings                :: !(Maybe ActionTypeSettings)
+  , _ccatConfigurationProperties :: !(Maybe [ActionConfigurationProperty])
+  , _ccatCategory                :: !ActionCategory
+  , _ccatProvider                :: !Text
+  , _ccatVersion                 :: !Text
+  , _ccatInputArtifactDetails    :: !ArtifactDetails
+  , _ccatOutputArtifactDetails   :: !ArtifactDetails
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCustomActionType' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccatSettings'
+-- * 'ccatSettings' - Returns information about the settings for an action type.
 --
--- * 'ccatConfigurationProperties'
+-- * 'ccatConfigurationProperties' - The configuration properties for the custom action.
 --
--- * 'ccatCategory'
+-- * 'ccatCategory' - The category of the custom action, such as a build action or a test action.
 --
--- * 'ccatProvider'
+-- * 'ccatProvider' - The provider of the service used in the custom action, such as AWS CodeDeploy.
 --
--- * 'ccatVersion'
+-- * 'ccatVersion' - The version identifier of the custom action.
 --
--- * 'ccatInputArtifactDetails'
+-- * 'ccatInputArtifactDetails' - The details of the input artifact for the action, such as its commit ID.
 --
--- * 'ccatOutputArtifactDetails'
+-- * 'ccatOutputArtifactDetails' - The details of the output artifact of the action, such as its commit ID.
 createCustomActionType
     :: ActionCategory -- ^ 'ccatCategory'
     -> Text -- ^ 'ccatProvider'
@@ -86,29 +91,26 @@ createCustomActionType
     -> ArtifactDetails -- ^ 'ccatOutputArtifactDetails'
     -> CreateCustomActionType
 createCustomActionType pCategory_ pProvider_ pVersion_ pInputArtifactDetails_ pOutputArtifactDetails_ =
-    CreateCustomActionType'
-    { _ccatSettings = Nothing
-    , _ccatConfigurationProperties = Nothing
-    , _ccatCategory = pCategory_
-    , _ccatProvider = pProvider_
-    , _ccatVersion = pVersion_
-    , _ccatInputArtifactDetails = pInputArtifactDetails_
-    , _ccatOutputArtifactDetails = pOutputArtifactDetails_
-    }
+  CreateCustomActionType'
+  { _ccatSettings = Nothing
+  , _ccatConfigurationProperties = Nothing
+  , _ccatCategory = pCategory_
+  , _ccatProvider = pProvider_
+  , _ccatVersion = pVersion_
+  , _ccatInputArtifactDetails = pInputArtifactDetails_
+  , _ccatOutputArtifactDetails = pOutputArtifactDetails_
+  }
 
--- | Undocumented member.
+
+-- | Returns information about the settings for an action type.
 ccatSettings :: Lens' CreateCustomActionType (Maybe ActionTypeSettings)
 ccatSettings = lens _ccatSettings (\ s a -> s{_ccatSettings = a});
 
 -- | The configuration properties for the custom action.
---
--- You can refer to a name in the configuration properties of the custom action within the URL templates by following the format of {Config:name}, as long as the configuration property is both required and not secret. For more information, see <http://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html Create a Custom Action for a Pipeline>.
 ccatConfigurationProperties :: Lens' CreateCustomActionType [ActionConfigurationProperty]
 ccatConfigurationProperties = lens _ccatConfigurationProperties (\ s a -> s{_ccatConfigurationProperties = a}) . _Default . _Coerce;
 
--- | The category of the custom action, such as a source action or a build action.
---
--- Although Source is listed as a valid value, it is not currently functional. This value is reserved for future use.
+-- | The category of the custom action, such as a build action or a test action.
 ccatCategory :: Lens' CreateCustomActionType ActionCategory
 ccatCategory = lens _ccatCategory (\ s a -> s{_ccatCategory = a});
 
@@ -116,15 +118,15 @@ ccatCategory = lens _ccatCategory (\ s a -> s{_ccatCategory = a});
 ccatProvider :: Lens' CreateCustomActionType Text
 ccatProvider = lens _ccatProvider (\ s a -> s{_ccatProvider = a});
 
--- | The version number of the custom action.
+-- | The version identifier of the custom action.
 ccatVersion :: Lens' CreateCustomActionType Text
 ccatVersion = lens _ccatVersion (\ s a -> s{_ccatVersion = a});
 
--- | Undocumented member.
+-- | The details of the input artifact for the action, such as its commit ID.
 ccatInputArtifactDetails :: Lens' CreateCustomActionType ArtifactDetails
 ccatInputArtifactDetails = lens _ccatInputArtifactDetails (\ s a -> s{_ccatInputArtifactDetails = a});
 
--- | Undocumented member.
+-- | The details of the output artifact of the action, such as its commit ID.
 ccatOutputArtifactDetails :: Lens' CreateCustomActionType ArtifactDetails
 ccatOutputArtifactDetails = lens _ccatOutputArtifactDetails (\ s a -> s{_ccatOutputArtifactDetails = a});
 
@@ -138,9 +140,9 @@ instance AWSRequest CreateCustomActionType where
                  CreateCustomActionTypeResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "actionType"))
 
-instance Hashable CreateCustomActionType
+instance Hashable CreateCustomActionType where
 
-instance NFData CreateCustomActionType
+instance NFData CreateCustomActionType where
 
 instance ToHeaders CreateCustomActionType where
         toHeaders
@@ -175,37 +177,39 @@ instance ToPath CreateCustomActionType where
 instance ToQuery CreateCustomActionType where
         toQuery = const mempty
 
--- | Represents the output of a create custom action operation.
+-- | Represents the output of a CreateCustomActionType operation.
+--
+--
 --
 -- /See:/ 'createCustomActionTypeResponse' smart constructor.
 data CreateCustomActionTypeResponse = CreateCustomActionTypeResponse'
-    { _ccatrsResponseStatus :: !Int
-    , _ccatrsActionType     :: !ActionType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccatrsResponseStatus :: !Int
+  , _ccatrsActionType     :: !ActionType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCustomActionTypeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccatrsResponseStatus'
+-- * 'ccatrsResponseStatus' - -- | The response status code.
 --
--- * 'ccatrsActionType'
+-- * 'ccatrsActionType' - Returns information about the details of an action type.
 createCustomActionTypeResponse
     :: Int -- ^ 'ccatrsResponseStatus'
     -> ActionType -- ^ 'ccatrsActionType'
     -> CreateCustomActionTypeResponse
 createCustomActionTypeResponse pResponseStatus_ pActionType_ =
-    CreateCustomActionTypeResponse'
-    { _ccatrsResponseStatus = pResponseStatus_
-    , _ccatrsActionType = pActionType_
-    }
+  CreateCustomActionTypeResponse'
+  {_ccatrsResponseStatus = pResponseStatus_, _ccatrsActionType = pActionType_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 ccatrsResponseStatus :: Lens' CreateCustomActionTypeResponse Int
 ccatrsResponseStatus = lens _ccatrsResponseStatus (\ s a -> s{_ccatrsResponseStatus = a});
 
--- | Undocumented member.
+-- | Returns information about the details of an action type.
 ccatrsActionType :: Lens' CreateCustomActionTypeResponse ActionType
 ccatrsActionType = lens _ccatrsActionType (\ s a -> s{_ccatrsActionType = a});
 
-instance NFData CreateCustomActionTypeResponse
+instance NFData CreateCustomActionTypeResponse where

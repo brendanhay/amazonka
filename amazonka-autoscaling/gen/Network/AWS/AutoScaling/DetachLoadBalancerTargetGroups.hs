@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DetachLoadBalancerTargetGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Detaches one or more target groups from the specified Auto Scaling group.
+--
+--
 module Network.AWS.AutoScaling.DetachLoadBalancerTargetGroups
     (
     -- * Creating a Request
@@ -35,34 +37,36 @@ module Network.AWS.AutoScaling.DetachLoadBalancerTargetGroups
     , dlbtgrsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'detachLoadBalancerTargetGroups' smart constructor.
 data DetachLoadBalancerTargetGroups = DetachLoadBalancerTargetGroups'
-    { _dlbtgAutoScalingGroupName :: !Text
-    , _dlbtgTargetGroupARNs      :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbtgAutoScalingGroupName :: !Text
+  , _dlbtgTargetGroupARNs      :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachLoadBalancerTargetGroups' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbtgAutoScalingGroupName'
+-- * 'dlbtgAutoScalingGroupName' - The name of the Auto Scaling group.
 --
--- * 'dlbtgTargetGroupARNs'
+-- * 'dlbtgTargetGroupARNs' - The Amazon Resource Names (ARN) of the target groups.
 detachLoadBalancerTargetGroups
     :: Text -- ^ 'dlbtgAutoScalingGroupName'
     -> DetachLoadBalancerTargetGroups
 detachLoadBalancerTargetGroups pAutoScalingGroupName_ =
-    DetachLoadBalancerTargetGroups'
-    { _dlbtgAutoScalingGroupName = pAutoScalingGroupName_
-    , _dlbtgTargetGroupARNs = mempty
-    }
+  DetachLoadBalancerTargetGroups'
+  { _dlbtgAutoScalingGroupName = pAutoScalingGroupName_
+  , _dlbtgTargetGroupARNs = mempty
+  }
+
 
 -- | The name of the Auto Scaling group.
 dlbtgAutoScalingGroupName :: Lens' DetachLoadBalancerTargetGroups Text
@@ -85,8 +89,9 @@ instance AWSRequest DetachLoadBalancerTargetGroups
                    (pure (fromEnum s)))
 
 instance Hashable DetachLoadBalancerTargetGroups
+         where
 
-instance NFData DetachLoadBalancerTargetGroups
+instance NFData DetachLoadBalancerTargetGroups where
 
 instance ToHeaders DetachLoadBalancerTargetGroups
          where
@@ -107,25 +112,27 @@ instance ToQuery DetachLoadBalancerTargetGroups where
 
 -- | /See:/ 'detachLoadBalancerTargetGroupsResponse' smart constructor.
 newtype DetachLoadBalancerTargetGroupsResponse = DetachLoadBalancerTargetGroupsResponse'
-    { _dlbtgrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbtgrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachLoadBalancerTargetGroupsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbtgrsResponseStatus'
+-- * 'dlbtgrsResponseStatus' - -- | The response status code.
 detachLoadBalancerTargetGroupsResponse
     :: Int -- ^ 'dlbtgrsResponseStatus'
     -> DetachLoadBalancerTargetGroupsResponse
 detachLoadBalancerTargetGroupsResponse pResponseStatus_ =
-    DetachLoadBalancerTargetGroupsResponse'
-    { _dlbtgrsResponseStatus = pResponseStatus_
-    }
+  DetachLoadBalancerTargetGroupsResponse'
+  {_dlbtgrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 dlbtgrsResponseStatus :: Lens' DetachLoadBalancerTargetGroupsResponse Int
 dlbtgrsResponseStatus = lens _dlbtgrsResponseStatus (\ s a -> s{_dlbtgrsResponseStatus = a});
 
 instance NFData
-         DetachLoadBalancerTargetGroupsResponse
+           DetachLoadBalancerTargetGroupsResponse
+         where

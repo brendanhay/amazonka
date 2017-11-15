@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketAccelerateConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -31,34 +31,34 @@ module Network.AWS.S3.GetBucketAccelerateConfiguration
     , getBucketAccelerateConfigurationResponse
     , GetBucketAccelerateConfigurationResponse
     -- * Response Lenses
-    , gbacrsStatus
-    , gbacrsResponseStatus
+    , grsStatus
+    , grsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketAccelerateConfiguration' smart constructor.
 newtype GetBucketAccelerateConfiguration = GetBucketAccelerateConfiguration'
-    { _gbacBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbacBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketAccelerateConfiguration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbacBucket'
+-- * 'gbacBucket' - Name of the bucket for which the accelerate configuration is retrieved.
 getBucketAccelerateConfiguration
     :: BucketName -- ^ 'gbacBucket'
     -> GetBucketAccelerateConfiguration
 getBucketAccelerateConfiguration pBucket_ =
-    GetBucketAccelerateConfiguration'
-    { _gbacBucket = pBucket_
-    }
+  GetBucketAccelerateConfiguration' {_gbacBucket = pBucket_}
+
 
 -- | Name of the bucket for which the accelerate configuration is retrieved.
 gbacBucket :: Lens' GetBucketAccelerateConfiguration BucketName
@@ -76,8 +76,10 @@ instance AWSRequest GetBucketAccelerateConfiguration
                    (x .@? "Status") <*> (pure (fromEnum s)))
 
 instance Hashable GetBucketAccelerateConfiguration
+         where
 
 instance NFData GetBucketAccelerateConfiguration
+         where
 
 instance ToHeaders GetBucketAccelerateConfiguration
          where
@@ -94,33 +96,34 @@ instance ToQuery GetBucketAccelerateConfiguration
 
 -- | /See:/ 'getBucketAccelerateConfigurationResponse' smart constructor.
 data GetBucketAccelerateConfigurationResponse = GetBucketAccelerateConfigurationResponse'
-    { _gbacrsStatus         :: !(Maybe BucketAccelerateStatus)
-    , _gbacrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grsStatus         :: !(Maybe BucketAccelerateStatus)
+  , _grsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketAccelerateConfigurationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbacrsStatus'
+-- * 'grsStatus' - The accelerate configuration of the bucket.
 --
--- * 'gbacrsResponseStatus'
+-- * 'grsResponseStatus' - -- | The response status code.
 getBucketAccelerateConfigurationResponse
-    :: Int -- ^ 'gbacrsResponseStatus'
+    :: Int -- ^ 'grsResponseStatus'
     -> GetBucketAccelerateConfigurationResponse
 getBucketAccelerateConfigurationResponse pResponseStatus_ =
-    GetBucketAccelerateConfigurationResponse'
-    { _gbacrsStatus = Nothing
-    , _gbacrsResponseStatus = pResponseStatus_
-    }
+  GetBucketAccelerateConfigurationResponse'
+  {_grsStatus = Nothing, _grsResponseStatus = pResponseStatus_}
+
 
 -- | The accelerate configuration of the bucket.
-gbacrsStatus :: Lens' GetBucketAccelerateConfigurationResponse (Maybe BucketAccelerateStatus)
-gbacrsStatus = lens _gbacrsStatus (\ s a -> s{_gbacrsStatus = a});
+grsStatus :: Lens' GetBucketAccelerateConfigurationResponse (Maybe BucketAccelerateStatus)
+grsStatus = lens _grsStatus (\ s a -> s{_grsStatus = a});
 
--- | The response status code.
-gbacrsResponseStatus :: Lens' GetBucketAccelerateConfigurationResponse Int
-gbacrsResponseStatus = lens _gbacrsResponseStatus (\ s a -> s{_gbacrsResponseStatus = a});
+-- | -- | The response status code.
+grsResponseStatus :: Lens' GetBucketAccelerateConfigurationResponse Int
+grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
 
 instance NFData
-         GetBucketAccelerateConfigurationResponse
+           GetBucketAccelerateConfigurationResponse
+         where

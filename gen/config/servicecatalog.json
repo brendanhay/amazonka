@@ -1,3 +1,8 @@
 {
-    "libraryName": "amazonka-servicecatalog"
+    "libraryName": "amazonka-servicecatalog",
+    "typeOverrides": {
+        "Status": {
+            "renamedTo": "RequestStatus"
+        }
+    }
 }

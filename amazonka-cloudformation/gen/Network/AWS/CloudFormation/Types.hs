@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -16,11 +16,25 @@ module Network.AWS.CloudFormation.Types
       cloudFormation
 
     -- * Errors
+    , _CreatedButModifiedException
     , _ChangeSetNotFoundException
+    , _OperationInProgressException
     , _InvalidChangeSetStatusException
+    , _OperationNotFoundException
+    , _OperationIdAlreadyExistsException
     , _InsufficientCapabilitiesException
+    , _TokenAlreadyExistsException
+    , _StackSetNotFoundException
+    , _StackInstanceNotFoundException
+    , _StackSetNotEmptyException
+    , _InvalidOperationException
+    , _NameAlreadyExistsException
+    , _StaleRequestException
     , _AlreadyExistsException
     , _LimitExceededException
+
+    -- * AccountGateStatus
+    , AccountGateStatus (..)
 
     -- * Capability
     , Capability (..)
@@ -30,6 +44,9 @@ module Network.AWS.CloudFormation.Types
 
     -- * ChangeSetStatus
     , ChangeSetStatus (..)
+
+    -- * ChangeSetType
+    , ChangeSetType (..)
 
     -- * ChangeSource
     , ChangeSource (..)
@@ -61,8 +78,32 @@ module Network.AWS.CloudFormation.Types
     -- * ResourceStatus
     , ResourceStatus (..)
 
+    -- * StackInstanceStatus
+    , StackInstanceStatus (..)
+
+    -- * StackSetOperationAction
+    , StackSetOperationAction (..)
+
+    -- * StackSetOperationResultStatus
+    , StackSetOperationResultStatus (..)
+
+    -- * StackSetOperationStatus
+    , StackSetOperationStatus (..)
+
+    -- * StackSetStatus
+    , StackSetStatus (..)
+
     -- * StackStatus
     , StackStatus (..)
+
+    -- * TemplateStage
+    , TemplateStage (..)
+
+    -- * AccountGateResult
+    , AccountGateResult
+    , accountGateResult
+    , agrStatus
+    , agrStatusReason
 
     -- * AccountLimit
     , AccountLimit
@@ -79,21 +120,29 @@ module Network.AWS.CloudFormation.Types
     -- * ChangeSetSummary
     , ChangeSetSummary
     , changeSetSummary
-    , cssCreationTime
-    , cssStatus
-    , cssChangeSetName
-    , cssExecutionStatus
-    , cssChangeSetId
-    , cssStatusReason
-    , cssStackId
-    , cssDescription
-    , cssStackName
+    , cCreationTime
+    , cStatus
+    , cChangeSetName
+    , cExecutionStatus
+    , cChangeSetId
+    , cStatusReason
+    , cStackId
+    , cDescription
+    , cStackName
+
+    -- * Export
+    , Export
+    , export'
+    , eValue
+    , eExportingStackId
+    , eName
 
     -- * Output
     , Output
     , output
     , oOutputValue
     , oOutputKey
+    , oExportName
     , oDescription
 
     -- * Parameter
@@ -144,20 +193,39 @@ module Network.AWS.CloudFormation.Types
     , rtdRequiresRecreation
     , rtdName
 
+    -- * RollbackConfiguration
+    , RollbackConfiguration
+    , rollbackConfiguration
+    , rcRollbackTriggers
+    , rcMonitoringTimeInMinutes
+
+    -- * RollbackTrigger
+    , RollbackTrigger
+    , rollbackTrigger
+    , rtARN
+    , rtType
+
     -- * Stack
     , Stack
     , stack
     , sDisableRollback
     , sLastUpdatedTime
+    , sRootId
     , sNotificationARNs
     , sStackStatusReason
+    , sEnableTerminationProtection
+    , sChangeSetId
+    , sDeletionTime
     , sOutputs
     , sParameters
     , sStackId
     , sDescription
     , sCapabilities
+    , sRollbackConfiguration
     , sTags
     , sTimeoutInMinutes
+    , sParentId
+    , sRoleARN
     , sStackName
     , sCreationTime
     , sStackStatus
@@ -171,10 +239,31 @@ module Network.AWS.CloudFormation.Types
     , seResourceStatusReason
     , seResourceProperties
     , seResourceStatus
+    , seClientRequestToken
     , seStackId
     , seEventId
     , seStackName
     , seTimestamp
+
+    -- * StackInstance
+    , StackInstance
+    , stackInstance
+    , siStatus
+    , siAccount
+    , siRegion
+    , siStatusReason
+    , siStackId
+    , siStackSetId
+
+    -- * StackInstanceSummary
+    , StackInstanceSummary
+    , stackInstanceSummary
+    , sisStatus
+    , sisAccount
+    , sisRegion
+    , sisStatusReason
+    , sisStackId
+    , sisStackSetId
 
     -- * StackResource
     , StackResource
@@ -213,14 +302,75 @@ module Network.AWS.CloudFormation.Types
     , srsLastUpdatedTimestamp
     , srsResourceStatus
 
+    -- * StackSet
+    , StackSet
+    , stackSet
+    , ssStatus
+    , ssParameters
+    , ssTemplateBody
+    , ssStackSetName
+    , ssDescription
+    , ssCapabilities
+    , ssTags
+    , ssStackSetId
+
+    -- * StackSetOperation
+    , StackSetOperation
+    , stackSetOperation
+    , ssoStatus
+    , ssoAction
+    , ssoEndTimestamp
+    , ssoCreationTimestamp
+    , ssoOperationPreferences
+    , ssoOperationId
+    , ssoRetainStacks
+    , ssoStackSetId
+
+    -- * StackSetOperationPreferences
+    , StackSetOperationPreferences
+    , stackSetOperationPreferences
+    , ssopRegionOrder
+    , ssopMaxConcurrentCount
+    , ssopMaxConcurrentPercentage
+    , ssopFailureToleranceCount
+    , ssopFailureTolerancePercentage
+
+    -- * StackSetOperationResultSummary
+    , StackSetOperationResultSummary
+    , stackSetOperationResultSummary
+    , ssorsStatus
+    , ssorsAccount
+    , ssorsAccountGateResult
+    , ssorsRegion
+    , ssorsStatusReason
+
+    -- * StackSetOperationSummary
+    , StackSetOperationSummary
+    , stackSetOperationSummary
+    , ssosStatus
+    , ssosAction
+    , ssosEndTimestamp
+    , ssosCreationTimestamp
+    , ssosOperationId
+
+    -- * StackSetSummary
+    , StackSetSummary
+    , stackSetSummary
+    , sssStatus
+    , sssStackSetName
+    , sssDescription
+    , sssStackSetId
+
     -- * StackSummary
     , StackSummary
     , stackSummary
     , ssLastUpdatedTime
+    , ssRootId
     , ssStackStatusReason
     , ssTemplateDescription
     , ssDeletionTime
     , ssStackId
+    , ssParentId
     , ssStackName
     , ssCreationTime
     , ssStackStatus
@@ -228,8 +378,8 @@ module Network.AWS.CloudFormation.Types
     -- * Tag
     , Tag
     , tag
-    , tagValue
     , tagKey
+    , tagValue
 
     -- * TemplateParameter
     , TemplateParameter
@@ -240,38 +390,40 @@ module Network.AWS.CloudFormation.Types
     , tpDescription
     ) where
 
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.CloudFormation.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.CloudFormation.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
--- | API version '2010-05-15' of the Amazon CloudFormation SDK configuration.
+-- | API version @2010-05-15@ of the Amazon CloudFormation SDK configuration.
 cloudFormation :: Service
 cloudFormation =
-    Service
-    { _svcAbbrev = "CloudFormation"
-    , _svcSigner = v4
-    , _svcPrefix = "cloudformation"
-    , _svcVersion = "2010-05-15"
-    , _svcEndpoint = defaultEndpoint cloudFormation
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseXMLError "CloudFormation"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "CloudFormation"
+  , _svcSigner = v4
+  , _svcPrefix = "cloudformation"
+  , _svcVersion = "2010-05-15"
+  , _svcEndpoint = defaultEndpoint cloudFormation
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseXMLError "CloudFormation"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -280,27 +432,139 @@ cloudFormation =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The specified change set name or ID doesn\'t exit. To view valid change sets for a stack, use the 'ListChangeSets' action.
+
+-- | The specified resource exists, but has been changed.
+--
+--
+_CreatedButModifiedException :: AsError a => Getting (First ServiceError) a ServiceError
+_CreatedButModifiedException =
+  _MatchServiceError cloudFormation "CreatedButModifiedException" .
+  hasStatus 409
+
+
+-- | The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the @ListChangeSets@ action.
+--
+--
 _ChangeSetNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ChangeSetNotFoundException =
-    _ServiceError . hasStatus 404 . hasCode "ChangeSetNotFound"
+  _MatchServiceError cloudFormation "ChangeSetNotFound" . hasStatus 404
 
--- | The specified change set cannot be used to update the stack. For example, the change set status might be 'CREATE_IN_PROGRESS' or the stack status might be 'UPDATE_IN_PROGRESS'.
+
+-- | Another operation is currently in progress for this stack set. Only one operation can be performed for a stack set at a given time.
+--
+--
+_OperationInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
+_OperationInProgressException =
+  _MatchServiceError cloudFormation "OperationInProgressException" .
+  hasStatus 409
+
+
+-- | The specified change set can't be used to update the stack. For example, the change set status might be @CREATE_IN_PROGRESS@ , or the stack status might be @UPDATE_IN_PROGRESS@ .
+--
+--
 _InvalidChangeSetStatusException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidChangeSetStatusException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidChangeSetStatus"
+  _MatchServiceError cloudFormation "InvalidChangeSetStatus" . hasStatus 400
 
--- | The template contains resources with capabilities that were not specified in the Capabilities parameter.
+
+-- | The specified ID refers to an operation that doesn't exist.
+--
+--
+_OperationNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_OperationNotFoundException =
+  _MatchServiceError cloudFormation "OperationNotFoundException" . hasStatus 404
+
+
+-- | The specified operation ID already exists.
+--
+--
+_OperationIdAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+_OperationIdAlreadyExistsException =
+  _MatchServiceError cloudFormation "OperationIdAlreadyExistsException" .
+  hasStatus 409
+
+
+-- | The template contains resources with capabilities that weren't specified in the Capabilities parameter.
+--
+--
 _InsufficientCapabilitiesException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientCapabilitiesException =
-    _ServiceError . hasStatus 400 . hasCode "InsufficientCapabilitiesException"
+  _MatchServiceError cloudFormation "InsufficientCapabilitiesException" .
+  hasStatus 400
 
--- | Resource with the name requested already exists.
+
+-- | A client request token already exists.
+--
+--
+_TokenAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+_TokenAlreadyExistsException =
+  _MatchServiceError cloudFormation "TokenAlreadyExistsException" .
+  hasStatus 400
+
+
+-- | The specified stack set doesn't exist.
+--
+--
+_StackSetNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_StackSetNotFoundException =
+  _MatchServiceError cloudFormation "StackSetNotFoundException" . hasStatus 404
+
+
+-- | The specified stack instance doesn't exist.
+--
+--
+_StackInstanceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_StackInstanceNotFoundException =
+  _MatchServiceError cloudFormation "StackInstanceNotFoundException" .
+  hasStatus 404
+
+
+-- | You can't yet delete this stack set, because it still contains one or more stack instances. Delete all stack instances from the stack set before deleting the stack set.
+--
+--
+_StackSetNotEmptyException :: AsError a => Getting (First ServiceError) a ServiceError
+_StackSetNotEmptyException =
+  _MatchServiceError cloudFormation "StackSetNotEmptyException" . hasStatus 409
+
+
+-- | The specified operation isn't valid.
+--
+--
+_InvalidOperationException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidOperationException =
+  _MatchServiceError cloudFormation "InvalidOperationException" . hasStatus 400
+
+
+-- | The specified name is already in use.
+--
+--
+_NameAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+_NameAlreadyExistsException =
+  _MatchServiceError cloudFormation "NameAlreadyExistsException" . hasStatus 409
+
+
+-- | Another operation has been performed on this stack set since the specified operation was performed.
+--
+--
+_StaleRequestException :: AsError a => Getting (First ServiceError) a ServiceError
+_StaleRequestException =
+  _MatchServiceError cloudFormation "StaleRequestException" . hasStatus 409
+
+
+-- | The resource with the name requested already exists.
+--
+--
 _AlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _AlreadyExistsException =
-    _ServiceError . hasStatus 400 . hasCode "AlreadyExistsException"
+  _MatchServiceError cloudFormation "AlreadyExistsException" . hasStatus 400
 
--- | Quota for the resource has already been reached.
+
+-- | The quota for the resource has already been reached.
+--
+--
+-- For information on stack set limitations, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-limitations.html Limitations of StackSets> .
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
-    _ServiceError . hasStatus 400 . hasCode "LimitExceededException"
+  _MatchServiceError cloudFormation "LimitExceededException" . hasStatus 400
+

@@ -12,17 +12,20 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetChange
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the current status of a change batch request. The status is one of the following values:
 --
--- -   'PENDING' indicates that the changes in this request have not replicated to all Amazon Route 53 DNS servers. This is the initial status of all change batch requests.
 --
--- -   'INSYNC' indicates that the changes have replicated to all Amazon Route 53 DNS servers.
+--     * @PENDING@ indicates that the changes in this request have not propagated to all Amazon Route 53 DNS servers. This is the initial status of all change batch requests.
+--
+--     * @INSYNC@ indicates that the changes have propagated to all Amazon Route 53 DNS servers.
+--
+--
 --
 module Network.AWS.Route53.GetChange
     (
@@ -40,35 +43,36 @@ module Network.AWS.Route53.GetChange
     , gcrsChangeInfo
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | The input for a GetChange request.
 --
+--
+--
 -- /See:/ 'getChange' smart constructor.
 newtype GetChange = GetChange'
-    { _gcId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcId :: ResourceId
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetChange' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcId'
+-- * 'gcId' - The ID of the change batch request. The value that you specify here is the value that @ChangeResourceRecordSets@ returned in the @Id@ element when you submitted the request.
 getChange
-    :: Text -- ^ 'gcId'
+    :: ResourceId -- ^ 'gcId'
     -> GetChange
-getChange pId_ =
-    GetChange'
-    { _gcId = pId_
-    }
+getChange pId_ = GetChange' {_gcId = pId_}
 
--- | The ID of the change batch request. The value that you specify here is the value that 'ChangeResourceRecordSets' returned in the Id element when you submitted the request.
-gcId :: Lens' GetChange Text
+
+-- | The ID of the change batch request. The value that you specify here is the value that @ChangeResourceRecordSets@ returned in the @Id@ element when you submitted the request.
+gcId :: Lens' GetChange ResourceId
 gcId = lens _gcId (\ s a -> s{_gcId = a});
 
 instance AWSRequest GetChange where
@@ -80,9 +84,9 @@ instance AWSRequest GetChange where
                  GetChangeResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
 
-instance Hashable GetChange
+instance Hashable GetChange where
 
-instance NFData GetChange
+instance NFData GetChange where
 
 instance ToHeaders GetChange where
         toHeaders = const mempty
@@ -94,32 +98,34 @@ instance ToPath GetChange where
 instance ToQuery GetChange where
         toQuery = const mempty
 
--- | A complex type that contains the 'ChangeInfo' element.
+-- | A complex type that contains the @ChangeInfo@ element.
+--
+--
 --
 -- /See:/ 'getChangeResponse' smart constructor.
 data GetChangeResponse = GetChangeResponse'
-    { _gcrsResponseStatus :: !Int
-    , _gcrsChangeInfo     :: !ChangeInfo
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcrsResponseStatus :: !Int
+  , _gcrsChangeInfo     :: !ChangeInfo
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetChangeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcrsResponseStatus'
+-- * 'gcrsResponseStatus' - -- | The response status code.
 --
--- * 'gcrsChangeInfo'
+-- * 'gcrsChangeInfo' - A complex type that contains information about the specified change batch.
 getChangeResponse
     :: Int -- ^ 'gcrsResponseStatus'
     -> ChangeInfo -- ^ 'gcrsChangeInfo'
     -> GetChangeResponse
 getChangeResponse pResponseStatus_ pChangeInfo_ =
-    GetChangeResponse'
-    { _gcrsResponseStatus = pResponseStatus_
-    , _gcrsChangeInfo = pChangeInfo_
-    }
+  GetChangeResponse'
+  {_gcrsResponseStatus = pResponseStatus_, _gcrsChangeInfo = pChangeInfo_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 gcrsResponseStatus :: Lens' GetChangeResponse Int
 gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
 
@@ -127,4 +133,4 @@ gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = 
 gcrsChangeInfo :: Lens' GetChangeResponse ChangeInfo
 gcrsChangeInfo = lens _gcrsChangeInfo (\ s a -> s{_gcrsChangeInfo = a});
 
-instance NFData GetChangeResponse
+instance NFData GetChangeResponse where

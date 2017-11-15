@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ImportInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an import instance task using metadata from the specified disk image. 'ImportInstance' only supports single-volume VMs. To import multi-volume VMs, use < ImportImage>. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html Importing a Virtual Machine Using the Amazon EC2 CLI>.
+-- Creates an import instance task using metadata from the specified disk image. @ImportInstance@ only supports single-volume VMs. To import multi-volume VMs, use 'ImportImage' . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html Importing a Virtual Machine Using the Amazon EC2 CLI> .
 --
--- For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
+--
+-- For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
+--
 module Network.AWS.EC2.ImportInstance
     (
     -- * Creating a Request
@@ -41,48 +43,52 @@ module Network.AWS.EC2.ImportInstance
     , iirsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ImportInstance.
 --
+--
+--
 -- /See:/ 'importInstance' smart constructor.
 data ImportInstance = ImportInstance'
-    { _iiLaunchSpecification :: !(Maybe ImportInstanceLaunchSpecification)
-    , _iiDiskImages          :: !(Maybe [DiskImage])
-    , _iiDescription         :: !(Maybe Text)
-    , _iiDryRun              :: !(Maybe Bool)
-    , _iiPlatform            :: !PlatformValues
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iiLaunchSpecification :: !(Maybe ImportInstanceLaunchSpecification)
+  , _iiDiskImages          :: !(Maybe [DiskImage])
+  , _iiDescription         :: !(Maybe Text)
+  , _iiDryRun              :: !(Maybe Bool)
+  , _iiPlatform            :: !PlatformValues
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportInstance' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iiLaunchSpecification'
+-- * 'iiLaunchSpecification' - The launch specification.
 --
--- * 'iiDiskImages'
+-- * 'iiDiskImages' - The disk image.
 --
--- * 'iiDescription'
+-- * 'iiDescription' - A description for the instance being imported.
 --
--- * 'iiDryRun'
+-- * 'iiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'iiPlatform'
+-- * 'iiPlatform' - The instance operating system.
 importInstance
     :: PlatformValues -- ^ 'iiPlatform'
     -> ImportInstance
 importInstance pPlatform_ =
-    ImportInstance'
-    { _iiLaunchSpecification = Nothing
-    , _iiDiskImages = Nothing
-    , _iiDescription = Nothing
-    , _iiDryRun = Nothing
-    , _iiPlatform = pPlatform_
-    }
+  ImportInstance'
+  { _iiLaunchSpecification = Nothing
+  , _iiDiskImages = Nothing
+  , _iiDescription = Nothing
+  , _iiDryRun = Nothing
+  , _iiPlatform = pPlatform_
+  }
+
 
 -- | The launch specification.
 iiLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecification)
@@ -96,7 +102,7 @@ iiDiskImages = lens _iiDiskImages (\ s a -> s{_iiDiskImages = a}) . _Default . _
 iiDescription :: Lens' ImportInstance (Maybe Text)
 iiDescription = lens _iiDescription (\ s a -> s{_iiDescription = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 iiDryRun :: Lens' ImportInstance (Maybe Bool)
 iiDryRun = lens _iiDryRun (\ s a -> s{_iiDryRun = a});
 
@@ -113,9 +119,9 @@ instance AWSRequest ImportInstance where
                  ImportInstanceResponse' <$>
                    (x .@? "conversionTask") <*> (pure (fromEnum s)))
 
-instance Hashable ImportInstance
+instance Hashable ImportInstance where
 
-instance NFData ImportInstance
+instance NFData ImportInstance where
 
 instance ToHeaders ImportInstance where
         toHeaders = const mempty
@@ -127,7 +133,7 @@ instance ToQuery ImportInstance where
         toQuery ImportInstance'{..}
           = mconcat
               ["Action" =: ("ImportInstance" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "LaunchSpecification" =: _iiLaunchSpecification,
                toQuery (toQueryList "DiskImage" <$> _iiDiskImages),
                "Description" =: _iiDescription,
@@ -135,34 +141,36 @@ instance ToQuery ImportInstance where
 
 -- | Contains the output for ImportInstance.
 --
+--
+--
 -- /See:/ 'importInstanceResponse' smart constructor.
 data ImportInstanceResponse = ImportInstanceResponse'
-    { _iirsConversionTask :: !(Maybe ConversionTask)
-    , _iirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iirsConversionTask :: !(Maybe ConversionTask)
+  , _iirsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportInstanceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iirsConversionTask'
+-- * 'iirsConversionTask' - Information about the conversion task.
 --
--- * 'iirsResponseStatus'
+-- * 'iirsResponseStatus' - -- | The response status code.
 importInstanceResponse
     :: Int -- ^ 'iirsResponseStatus'
     -> ImportInstanceResponse
 importInstanceResponse pResponseStatus_ =
-    ImportInstanceResponse'
-    { _iirsConversionTask = Nothing
-    , _iirsResponseStatus = pResponseStatus_
-    }
+  ImportInstanceResponse'
+  {_iirsConversionTask = Nothing, _iirsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the conversion task.
 iirsConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
 iirsConversionTask = lens _iirsConversionTask (\ s a -> s{_iirsConversionTask = a});
 
--- | The response status code.
+-- | -- | The response status code.
 iirsResponseStatus :: Lens' ImportInstanceResponse Int
 iirsResponseStatus = lens _iirsResponseStatus (\ s a -> s{_iirsResponseStatus = a});
 
-instance NFData ImportInstanceResponse
+instance NFData ImportInstanceResponse where

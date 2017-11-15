@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetModels
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes existing < Models> defined for a < RestApi> resource.
+-- Describes existing 'Models' defined for a 'RestApi' resource.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetModels
@@ -40,51 +42,52 @@ module Network.AWS.APIGateway.GetModels
     , gmrsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Request to list existing < Models> defined for a < RestApi> resource.
+-- | Request to list existing 'Models' defined for a 'RestApi' resource.
+--
+--
 --
 -- /See:/ 'getModels' smart constructor.
 data GetModels = GetModels'
-    { _gmsLimit     :: !(Maybe Int)
-    , _gmsPosition  :: !(Maybe Text)
-    , _gmsRestAPIId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmsLimit     :: !(Maybe Int)
+  , _gmsPosition  :: !(Maybe Text)
+  , _gmsRestAPIId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetModels' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmsLimit'
+-- * 'gmsLimit' - The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 --
--- * 'gmsPosition'
+-- * 'gmsPosition' - The current pagination position in the paged result set.
 --
--- * 'gmsRestAPIId'
+-- * 'gmsRestAPIId' - The string identifier of the associated 'RestApi' .
 getModels
     :: Text -- ^ 'gmsRestAPIId'
     -> GetModels
 getModels pRestAPIId_ =
-    GetModels'
-    { _gmsLimit = Nothing
-    , _gmsPosition = Nothing
-    , _gmsRestAPIId = pRestAPIId_
-    }
+  GetModels'
+  {_gmsLimit = Nothing, _gmsPosition = Nothing, _gmsRestAPIId = pRestAPIId_}
 
--- | The maximum number of models in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
+
+-- | The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 gmsLimit :: Lens' GetModels (Maybe Int)
 gmsLimit = lens _gmsLimit (\ s a -> s{_gmsLimit = a});
 
--- | The position of the next set of results in the < Models> resource to get information about.
+-- | The current pagination position in the paged result set.
 gmsPosition :: Lens' GetModels (Maybe Text)
 gmsPosition = lens _gmsPosition (\ s a -> s{_gmsPosition = a});
 
--- | The < RestApi> identifier.
+-- | The string identifier of the associated 'RestApi' .
 gmsRestAPIId :: Lens' GetModels Text
 gmsRestAPIId = lens _gmsRestAPIId (\ s a -> s{_gmsRestAPIId = a});
 
@@ -105,9 +108,9 @@ instance AWSRequest GetModels where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetModels
+instance Hashable GetModels where
 
-instance NFData GetModels
+instance NFData GetModels where
 
 instance ToHeaders GetModels where
         toHeaders
@@ -125,37 +128,40 @@ instance ToQuery GetModels where
           = mconcat
               ["limit" =: _gmsLimit, "position" =: _gmsPosition]
 
--- | Represents a collection of < Model> resources.
+-- | Represents a collection of 'Model' resources.
 --
--- < Method>, < MethodResponse>, <http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html Models and Mappings>
+--
+-- 'Method' , 'MethodResponse' , <http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html Models and Mappings>
 --
 -- /See:/ 'getModelsResponse' smart constructor.
 data GetModelsResponse = GetModelsResponse'
-    { _gmrsItems          :: !(Maybe [Model])
-    , _gmrsPosition       :: !(Maybe Text)
-    , _gmrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmrsItems          :: !(Maybe [Model])
+  , _gmrsPosition       :: !(Maybe Text)
+  , _gmrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetModelsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmrsItems'
+-- * 'gmrsItems' - The current page of elements from this collection.
 --
--- * 'gmrsPosition'
+-- * 'gmrsPosition' - Undocumented member.
 --
--- * 'gmrsResponseStatus'
+-- * 'gmrsResponseStatus' - -- | The response status code.
 getModelsResponse
     :: Int -- ^ 'gmrsResponseStatus'
     -> GetModelsResponse
 getModelsResponse pResponseStatus_ =
-    GetModelsResponse'
-    { _gmrsItems = Nothing
-    , _gmrsPosition = Nothing
-    , _gmrsResponseStatus = pResponseStatus_
-    }
+  GetModelsResponse'
+  { _gmrsItems = Nothing
+  , _gmrsPosition = Nothing
+  , _gmrsResponseStatus = pResponseStatus_
+  }
 
--- | Gets the current < Model> resource in the collection.
+
+-- | The current page of elements from this collection.
 gmrsItems :: Lens' GetModelsResponse [Model]
 gmrsItems = lens _gmrsItems (\ s a -> s{_gmrsItems = a}) . _Default . _Coerce;
 
@@ -163,8 +169,8 @@ gmrsItems = lens _gmrsItems (\ s a -> s{_gmrsItems = a}) . _Default . _Coerce;
 gmrsPosition :: Lens' GetModelsResponse (Maybe Text)
 gmrsPosition = lens _gmrsPosition (\ s a -> s{_gmrsPosition = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gmrsResponseStatus :: Lens' GetModelsResponse Int
 gmrsResponseStatus = lens _gmrsResponseStatus (\ s a -> s{_gmrsResponseStatus = a});
 
-instance NFData GetModelsResponse
+instance NFData GetModelsResponse where

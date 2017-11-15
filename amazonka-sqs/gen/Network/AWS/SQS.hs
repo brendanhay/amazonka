@@ -5,39 +5,49 @@
 
 -- |
 -- Module      : Network.AWS.SQS
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Welcome to the /Amazon Simple Queue Service API Reference/. This section describes who should read this guide, how the guide is organized, and other resources related to the Amazon Simple Queue Service (Amazon SQS).
+-- Welcome to the /Amazon Simple Queue Service API Reference/ .
 --
--- Amazon SQS offers reliable and scalable hosted queues for storing messages as they travel between computers. By using Amazon SQS, you can move data between distributed components of your applications that perform different tasks without losing messages or requiring each component to be always available.
 --
--- Helpful Links:
+-- Amazon Simple Queue Service (Amazon SQS) is a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. Amazon SQS moves data between distributed application components and helps you decouple these components.
 --
--- -   <http://queue.amazonaws.com/doc/2012-11-05/QueueService.wsdl Current WSDL (2012-11-05)>
+-- You can use <http://aws.amazon.com/tools/#sdk AWS SDKs> to access Amazon SQS using your favorite programming language. The SDKs perform tasks such as the following automatically:
 --
--- -   <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/MakingRequestsArticle.html Making API Requests>
+--     * Cryptographically sign your service requests
 --
--- -   <http://aws.amazon.com/sqs/ Amazon SQS product page>
+--     * Retry requests
 --
--- -   <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html Using Amazon SQS Message Attributes>
+--     * Handle error responses
 --
--- -   <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQS Dead Letter Queues>
 --
--- -   <http://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region Regions and Endpoints>
 --
--- We also provide SDKs that enable you to access Amazon SQS from your preferred programming language. The SDKs contain functionality that automatically takes care of tasks such as:
+-- __Additional Information__
 --
--- -   Cryptographically signing your service requests
+--     * <http://aws.amazon.com/sqs/ Amazon SQS Product Page>
 --
--- -   Retrying requests
+--     * /Amazon Simple Queue Service Developer Guide/
 --
--- -   Handling error responses
+--     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/MakingRequestsArticle.html Making API Requests>
 --
--- For a list of available SDKs, go to <http://aws.amazon.com/tools/ Tools for Amazon Web Services>.
+--     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html Using Amazon SQS Message Attributes>
+--
+--     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html Using Amazon SQS Dead-Letter Queues>
+--
+--
+--
+--     * /Amazon Web Services General Reference/
+--
+--     * <http://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region Regions and Endpoints>
+--
+--
+--
+--
+--
 module Network.AWS.SQS
     (
     -- * Service Configuration
@@ -127,6 +137,9 @@ module Network.AWS.SQS
     -- ** DeleteQueue
     , module Network.AWS.SQS.DeleteQueue
 
+    -- ** TagQueue
+    , module Network.AWS.SQS.TagQueue
+
     -- ** DeleteMessageBatch
     , module Network.AWS.SQS.DeleteMessageBatch
 
@@ -142,8 +155,14 @@ module Network.AWS.SQS
     -- ** DeleteMessage
     , module Network.AWS.SQS.DeleteMessage
 
+    -- ** ListQueueTags
+    , module Network.AWS.SQS.ListQueueTags
+
     -- ** CreateQueue
     , module Network.AWS.SQS.CreateQueue
+
+    -- ** UntagQueue
+    , module Network.AWS.SQS.UntagQueue
 
     -- ** SendMessageBatch
     , module Network.AWS.SQS.SendMessageBatch
@@ -215,37 +234,43 @@ module Network.AWS.SQS
     , sendMessageBatchRequestEntry
     , sMessageAttributes
     , sDelaySeconds
+    , sMessageDeduplicationId
+    , sMessageGroupId
     , sId
     , sMessageBody
 
     -- ** SendMessageBatchResultEntry
     , SendMessageBatchResultEntry
     , sendMessageBatchResultEntry
+    , smbreSequenceNumber
     , smbreMD5OfMessageAttributes
     , smbreId
     , smbreMessageId
     , smbreMD5OfMessageBody
     ) where
 
-import           Network.AWS.SQS.AddPermission
-import           Network.AWS.SQS.ChangeMessageVisibility
-import           Network.AWS.SQS.ChangeMessageVisibilityBatch
-import           Network.AWS.SQS.CreateQueue
-import           Network.AWS.SQS.DeleteMessage
-import           Network.AWS.SQS.DeleteMessageBatch
-import           Network.AWS.SQS.DeleteQueue
-import           Network.AWS.SQS.GetQueueAttributes
-import           Network.AWS.SQS.GetQueueURL
-import           Network.AWS.SQS.ListDeadLetterSourceQueues
-import           Network.AWS.SQS.ListQueues
-import           Network.AWS.SQS.PurgeQueue
-import           Network.AWS.SQS.ReceiveMessage
-import           Network.AWS.SQS.RemovePermission
-import           Network.AWS.SQS.SendMessage
-import           Network.AWS.SQS.SendMessageBatch
-import           Network.AWS.SQS.SetQueueAttributes
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Waiters
+import Network.AWS.SQS.AddPermission
+import Network.AWS.SQS.ChangeMessageVisibility
+import Network.AWS.SQS.ChangeMessageVisibilityBatch
+import Network.AWS.SQS.CreateQueue
+import Network.AWS.SQS.DeleteMessage
+import Network.AWS.SQS.DeleteMessageBatch
+import Network.AWS.SQS.DeleteQueue
+import Network.AWS.SQS.GetQueueAttributes
+import Network.AWS.SQS.GetQueueURL
+import Network.AWS.SQS.ListDeadLetterSourceQueues
+import Network.AWS.SQS.ListQueues
+import Network.AWS.SQS.ListQueueTags
+import Network.AWS.SQS.PurgeQueue
+import Network.AWS.SQS.ReceiveMessage
+import Network.AWS.SQS.RemovePermission
+import Network.AWS.SQS.SendMessage
+import Network.AWS.SQS.SendMessageBatch
+import Network.AWS.SQS.SetQueueAttributes
+import Network.AWS.SQS.TagQueue
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.UntagQueue
+import Network.AWS.SQS.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

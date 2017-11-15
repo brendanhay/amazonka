@@ -4,12 +4,13 @@
 {-# LANGUAGE LambdaCase          #-}
 {-# LANGUAGE OverloadedStrings   #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE ViewPatterns        #-}
 
 -- |
 -- Module      : Network.AWS.Data.XML
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
@@ -17,23 +18,30 @@ module Network.AWS.Data.XML where
 
 import           Control.Applicative
 import           Control.Monad
+
 import           Data.Bifunctor
-import qualified Data.ByteString.Lazy        as LBS
 import           Data.Conduit
 import           Data.Conduit.Lazy           (lazyConsume)
-import qualified Data.Conduit.List           as Conduit
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Traversable            (traverse)
 import           Data.XML.Types              (Event (..))
+
 import           GHC.Exts
+
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Text
+
 import           Numeric.Natural
+
 import           System.IO.Unsafe            (unsafePerformIO)
+
 import           Text.XML
-import qualified Text.XML.Stream.Render      as Stream
 import           Text.XML.Unresolved         (toEvents)
+
+import qualified Data.ByteString.Lazy        as LBS
+import qualified Data.Conduit.List           as Conduit
+import qualified Text.XML.Stream.Render      as Stream
 
 infixl 7 .@, .@?
 
@@ -46,7 +54,7 @@ ns .@? n =
         Left _   -> Right Nothing
         Right xs -> parseXML xs
 
-infixr 7 @=
+infixr 7 @=, @@=
 
 (@=) :: ToXML a => Name -> a -> XML
 n @= x =
@@ -54,8 +62,13 @@ n @= x =
         XNull -> XNull
         xs    -> XOne . NodeElement $ mkElement n xs
 
+(@@=) :: ToText a => Name -> a -> XML
+n @@= x = XAttr n (toText x)
+
 decodeXML :: FromXML a => LazyByteString -> Either String a
-decodeXML = first show . parseLBS def >=> parseXML . elementNodes . documentRoot
+decodeXML lbs =
+    bimap show documentRoot (parseLBS def lbs)
+        >>= parseXML . childrenOf
 
 -- The following is taken from xml-conduit.Text.XML which uses
 -- unsafePerformIO anyway, with the following caveat:
@@ -129,26 +142,36 @@ maybeElement x =
 -- declaration be consistent WRT to single nodes or lists of nodes.
 data XML
     = XNull
+    | XAttr Name Text
     | XOne  Node
-    | XMany [Node]
+    | XMany [(Name, Text)] [Node]
       deriving (Show)
 
 instance Monoid XML where
     mempty              = XNull
     mappend XNull XNull = XNull
-    mappend a     b     = XMany (listXMLNodes a <> listXMLNodes b)
+    mappend a     XNull = a
+    mappend XNull b     = b
+    mappend a     b     =
+        XMany (listXMLAttributes a <> listXMLAttributes b)
+              (listXMLNodes      a <> listXMLNodes      b)
 
 listXMLNodes :: XML -> [Node]
 listXMLNodes = \case
-    XNull    -> []
-    XOne  n  -> [n]
-    XMany ns -> ns
+    XNull      -> []
+    XAttr {}   -> []
+    XOne  n    -> [n]
+    XMany _ ns -> ns
+
+listXMLAttributes :: XML -> [(Name, Text)]
+listXMLAttributes = \case
+    XNull      -> []
+    XAttr n t  -> [(n, t)]
+    XOne  {}   -> []
+    XMany as _ -> as
 
 class ToXML a where
     toXML :: a -> XML
-
-toXMLNodes :: ToXML a => a -> [Node]
-toXMLNodes = listXMLNodes . toXML
 
 instance ToXML XML where
     toXML = id
@@ -177,13 +200,14 @@ parseXMLText n = withContent n >=>
         fromText
 
 toXMLList :: (IsList a, ToXML (Item a)) => Name -> a -> XML
-toXMLList n = XMany . map (NodeElement . mkElement n) . toList
+toXMLList n = XMany [] . map (NodeElement . mkElement n) . toList
 
 toXMLText :: ToText a => a -> XML
 toXMLText = XOne . NodeContent . toText
 
 mkElement :: ToXML a => Name -> a -> Element
-mkElement n = Element n mempty . listXMLNodes . toXML
+mkElement n (toXML -> x) =
+    Element n (fromList (listXMLAttributes x)) (listXMLNodes x)
 
 withContent :: String -> [Node] -> Either String (Maybe Text)
 withContent k = \case
@@ -191,14 +215,12 @@ withContent k = \case
     [NodeContent x] -> Right (Just x)
     _               -> Left $ "encountered many nodes, when expecting text: " ++ k
 
-withElement :: Text -> ([Node] -> Either String a) -> [Node] -> Either String a
-withElement n f = findElement n >=> f
-
 -- | Find a specific named NodeElement, at the current depth in the node tree.
 --
 -- Fails if absent.
 findElement :: Text -> [Node] -> Either String [Node]
-findElement n ns = missingElement n ns
+findElement n ns =
+     missingElement n ns
    . listToMaybe
    $ mapMaybe (childNodesOf n) ns
 
@@ -206,22 +228,34 @@ findElement n ns = missingElement n ns
 --
 -- Fails if absent.
 firstElement :: Text -> [Node] -> Either String [Node]
-firstElement n ns = missingElement n ns
+firstElement n ns =
+      missingElement n ns
     . listToMaybe
     $ mapMaybe go ns
   where
-    go (NodeElement e)
-        | n == nameLocalName (elementName e)
-                    = Just (elementNodes e)
-        | otherwise = listToMaybe $ mapMaybe go (elementNodes e)
-    go _            = Nothing
+    go x = case x of
+        NodeElement e
+            | Just n == localName x -> Just (childrenOf e)
+            | otherwise             -> listToMaybe (mapMaybe go (elementNodes e))
+        _                           -> Nothing
 
 childNodesOf :: Text -> Node -> Maybe [Node]
 childNodesOf n x = case x of
     NodeElement e
         | Just n == localName x
-              -> Just (elementNodes e)
+              -> Just (childrenOf e)
     _         -> Nothing
+
+childrenOf :: Element -> [Node]
+childrenOf e = elementNodes e <> map node (toList (elementAttributes e))
+  where
+    node (k, v) = NodeElement (Element (name k) mempty [NodeContent v])
+
+    name k = Name
+        { nameLocalName = fromMaybe "" (namePrefix k) <> ":" <> nameLocalName k
+        , nameNamespace = mempty
+        , namePrefix    = mempty
+        }
 
 localName :: Node -> Maybe Text
 localName = \case

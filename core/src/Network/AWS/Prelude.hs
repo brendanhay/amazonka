@@ -1,8 +1,8 @@
 -- |
 -- Module      : Network.AWS.Prelude
--- Copyright   : (c) 2013-2016 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2017 Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,10 +44,9 @@ import           Network.AWS.Data.Time       as Export
 import           Network.AWS.Data.XML        as Export
 import           Network.AWS.Endpoint        as Export
 import           Network.AWS.Error           as Export
-import           Network.AWS.Types           as Export hiding (AccessKey,
-                                                        Algorithm, Endpoint,
-                                                        LogLevel (..), Seconds,
-                                                        SecretKey, Signer,
+import           Network.AWS.Types           as Export hiding (Algorithm,
+                                                        Endpoint, LogLevel (..),
+                                                        Seconds, Signer,
                                                         serviceEndpoint)
 
 infixl 7 .!@

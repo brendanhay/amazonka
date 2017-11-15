@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CreateThing
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a thing record in the thing registry.
+--
+--
 module Network.AWS.IoT.CreateThing
     (
     -- * Creating a Request
@@ -38,48 +40,50 @@ module Network.AWS.IoT.CreateThing
     , ctrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the CreateThing operation.
 --
+--
+--
 -- /See:/ 'createThing' smart constructor.
 data CreateThing = CreateThing'
-    { _ctThingTypeName    :: !(Maybe Text)
-    , _ctAttributePayload :: !(Maybe AttributePayload)
-    , _ctThingName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctThingTypeName    :: !(Maybe Text)
+  , _ctAttributePayload :: !(Maybe AttributePayload)
+  , _ctThingName        :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateThing' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctThingTypeName'
+-- * 'ctThingTypeName' - The name of the thing type associated with the new thing.
 --
--- * 'ctAttributePayload'
+-- * 'ctAttributePayload' - The attribute payload, which consists of up to three name/value pairs in a JSON document. For example: @{\"attributes\":{\"string1\":\"string2\"}}@
 --
--- * 'ctThingName'
+-- * 'ctThingName' - The name of the thing to create.
 createThing
     :: Text -- ^ 'ctThingName'
     -> CreateThing
 createThing pThingName_ =
-    CreateThing'
-    { _ctThingTypeName = Nothing
-    , _ctAttributePayload = Nothing
-    , _ctThingName = pThingName_
-    }
+  CreateThing'
+  { _ctThingTypeName = Nothing
+  , _ctAttributePayload = Nothing
+  , _ctThingName = pThingName_
+  }
+
 
 -- | The name of the thing type associated with the new thing.
 ctThingTypeName :: Lens' CreateThing (Maybe Text)
 ctThingTypeName = lens _ctThingTypeName (\ s a -> s{_ctThingTypeName = a});
 
--- | The attribute payload, which consists of up to three name\/value pairs in a JSON document. For example:
---
--- '{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}})'
+-- | The attribute payload, which consists of up to three name/value pairs in a JSON document. For example: @{\"attributes\":{\"string1\":\"string2\"}}@
 ctAttributePayload :: Lens' CreateThing (Maybe AttributePayload)
 ctAttributePayload = lens _ctAttributePayload (\ s a -> s{_ctAttributePayload = a});
 
@@ -97,9 +101,9 @@ instance AWSRequest CreateThing where
                    (x .?> "thingArn") <*> (x .?> "thingName") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateThing
+instance Hashable CreateThing where
 
-instance NFData CreateThing
+instance NFData CreateThing where
 
 instance ToHeaders CreateThing where
         toHeaders = const mempty
@@ -120,31 +124,35 @@ instance ToQuery CreateThing where
 
 -- | The output of the CreateThing operation.
 --
+--
+--
 -- /See:/ 'createThingResponse' smart constructor.
 data CreateThingResponse = CreateThingResponse'
-    { _ctrsThingARN       :: !(Maybe Text)
-    , _ctrsThingName      :: !(Maybe Text)
-    , _ctrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctrsThingARN       :: !(Maybe Text)
+  , _ctrsThingName      :: !(Maybe Text)
+  , _ctrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateThingResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctrsThingARN'
+-- * 'ctrsThingARN' - The ARN of the new thing.
 --
--- * 'ctrsThingName'
+-- * 'ctrsThingName' - The name of the new thing.
 --
--- * 'ctrsResponseStatus'
+-- * 'ctrsResponseStatus' - -- | The response status code.
 createThingResponse
     :: Int -- ^ 'ctrsResponseStatus'
     -> CreateThingResponse
 createThingResponse pResponseStatus_ =
-    CreateThingResponse'
-    { _ctrsThingARN = Nothing
-    , _ctrsThingName = Nothing
-    , _ctrsResponseStatus = pResponseStatus_
-    }
+  CreateThingResponse'
+  { _ctrsThingARN = Nothing
+  , _ctrsThingName = Nothing
+  , _ctrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ARN of the new thing.
 ctrsThingARN :: Lens' CreateThingResponse (Maybe Text)
@@ -154,8 +162,8 @@ ctrsThingARN = lens _ctrsThingARN (\ s a -> s{_ctrsThingARN = a});
 ctrsThingName :: Lens' CreateThingResponse (Maybe Text)
 ctrsThingName = lens _ctrsThingName (\ s a -> s{_ctrsThingName = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ctrsResponseStatus :: Lens' CreateThingResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
 
-instance NFData CreateThingResponse
+instance NFData CreateThingResponse where

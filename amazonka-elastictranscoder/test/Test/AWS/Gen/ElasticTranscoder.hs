@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.ElasticTranscoder
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.ElasticTranscoder where
 
 import Data.Proxy
+import Network.AWS.ElasticTranscoder
+import Test.AWS.ElasticTranscoder.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.ElasticTranscoder
-import Test.AWS.ElasticTranscoder.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -36,9 +36,6 @@ import Test.AWS.ElasticTranscoder.Internal
 --
 --         , requestListJobsByPipeline $
 --             listJobsByPipeline
---
---         , requestTestRole $
---             testRole
 --
 --         , requestUpdatePipeline $
 --             updatePipeline
@@ -90,9 +87,6 @@ import Test.AWS.ElasticTranscoder.Internal
 --
 --         , responseListJobsByPipeline $
 --             listJobsByPipelineResponse
---
---         , responseTestRole $
---             testRoleResponse
 --
 --         , responseUpdatePipeline $
 --             updatePipelineResponse
@@ -152,11 +146,6 @@ requestListJobsByPipeline :: ListJobsByPipeline -> TestTree
 requestListJobsByPipeline = req
     "ListJobsByPipeline"
     "fixture/ListJobsByPipeline.yaml"
-
-requestTestRole :: TestRole -> TestTree
-requestTestRole = req
-    "TestRole"
-    "fixture/TestRole.yaml"
 
 requestUpdatePipeline :: UpdatePipeline -> TestTree
 requestUpdatePipeline = req
@@ -245,13 +234,6 @@ responseListJobsByPipeline = res
     "fixture/ListJobsByPipelineResponse.proto"
     elasticTranscoder
     (Proxy :: Proxy ListJobsByPipeline)
-
-responseTestRole :: TestRoleResponse -> TestTree
-responseTestRole = res
-    "TestRoleResponse"
-    "fixture/TestRoleResponse.proto"
-    elasticTranscoder
-    (Proxy :: Proxy TestRole)
 
 responseUpdatePipeline :: UpdatePipelineResponse -> TestTree
 responseUpdatePipeline = res

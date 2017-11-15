@@ -14,9 +14,9 @@
 
 -- |
 -- Module      : Control.Monad.Trans.AWS
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
@@ -127,6 +127,12 @@ module Control.Monad.Trans.AWS
     , trying
     , catching
 
+    -- ** Building Error Prisms
+    , Error._MatchServiceError
+    , Error.hasService
+    , Error.hasStatus
+    , Error.hasCode
+
     -- * Logging
     -- $logging
 
@@ -150,34 +156,37 @@ module Control.Monad.Trans.AWS
     , RsBody
     ) where
 
-import           Control.Applicative
-import           Control.Monad.Base
-import           Control.Monad.Catch
-import           Control.Monad.Error.Class    (MonadError (..))
-import           Control.Monad.Morph
-import           Control.Monad.Reader
-import           Control.Monad.State.Class
-import           Control.Monad.Trans.Control
-import           Control.Monad.Trans.Resource
-import           Control.Monad.Writer.Class
-import           Data.Conduit                 hiding (await)
-import           Data.Conduit.Lazy            (MonadActive (..))
-import           Data.IORef
-import           Data.Monoid
-import           Network.AWS.Auth
-import qualified Network.AWS.EC2.Metadata     as EC2
-import           Network.AWS.Env
-import           Network.AWS.Internal.Body
-import           Network.AWS.Internal.HTTP
-import           Network.AWS.Internal.Logger
-import           Network.AWS.Lens             (catching, throwingM, trying,
-                                               view)
-import           Network.AWS.Pager            (AWSPager (..))
-import           Network.AWS.Prelude          as AWS
-import qualified Network.AWS.Presign          as Sign
-import           Network.AWS.Request          (requestURL)
-import           Network.AWS.Types            hiding (LogLevel (..))
-import           Network.AWS.Waiter           (Accept, Wait)
+import Control.Applicative
+import Control.Monad.Base
+import Control.Monad.Catch
+import Control.Monad.Error.Class    (MonadError (..))
+import Control.Monad.Morph
+import Control.Monad.Reader
+import Control.Monad.State.Class
+import Control.Monad.Trans.Control
+import Control.Monad.Trans.Resource
+import Control.Monad.Writer.Class
+
+import Data.Conduit      hiding (await)
+import Data.Conduit.Lazy (MonadActive (..))
+import Data.IORef
+import Data.Monoid
+
+import Network.AWS.Auth
+import Network.AWS.Env
+import Network.AWS.Internal.Body
+import Network.AWS.Internal.HTTP
+import Network.AWS.Internal.Logger
+import Network.AWS.Lens            (catching, throwingM, trying, view)
+import Network.AWS.Pager           (AWSPager (..))
+import Network.AWS.Prelude         as AWS
+import Network.AWS.Request         (requestURL)
+import Network.AWS.Types           hiding (LogLevel (..))
+import Network.AWS.Waiter          (Accept, Wait)
+
+import qualified Network.AWS.EC2.Metadata as EC2
+import qualified Network.AWS.Error        as Error
+import qualified Network.AWS.Presign      as Sign
 
 type AWST = AWST' Env
 

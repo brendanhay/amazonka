@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.ModifyRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the specified rule.
 --
+--
 -- Any existing properties that you do not modify retain their current values.
 --
--- To modify the default action, use < ModifyListener>.
+-- To modify the default action, use 'ModifyListener' .
+--
 module Network.AWS.ELBv2.ModifyRule
     (
     -- * Creating a Request
@@ -41,42 +43,39 @@ module Network.AWS.ELBv2.ModifyRule
     , mrrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for ModifyRules.
---
--- /See:/ 'modifyRule' smart constructor.
+-- | /See:/ 'modifyRule' smart constructor.
 data ModifyRule = ModifyRule'
-    { _mrActions    :: !(Maybe [Action])
-    , _mrConditions :: !(Maybe [RuleCondition])
-    , _mrRuleARN    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mrActions    :: !(Maybe [Action])
+  , _mrConditions :: !(Maybe [RuleCondition])
+  , _mrRuleARN    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyRule' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mrActions'
+-- * 'mrActions' - The actions. The target group must use the HTTP or HTTPS protocol.
 --
--- * 'mrConditions'
+-- * 'mrConditions' - The conditions.
 --
--- * 'mrRuleARN'
+-- * 'mrRuleARN' - The Amazon Resource Name (ARN) of the rule.
 modifyRule
     :: Text -- ^ 'mrRuleARN'
     -> ModifyRule
 modifyRule pRuleARN_ =
-    ModifyRule'
-    { _mrActions = Nothing
-    , _mrConditions = Nothing
-    , _mrRuleARN = pRuleARN_
-    }
+  ModifyRule'
+  {_mrActions = Nothing, _mrConditions = Nothing, _mrRuleARN = pRuleARN_}
 
--- | The actions.
+
+-- | The actions. The target group must use the HTTP or HTTPS protocol.
 mrActions :: Lens' ModifyRule [Action]
 mrActions = lens _mrActions (\ s a -> s{_mrActions = a}) . _Default . _Coerce;
 
@@ -99,9 +98,9 @@ instance AWSRequest ModifyRule where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ModifyRule
+instance Hashable ModifyRule where
 
-instance NFData ModifyRule
+instance NFData ModifyRule where
 
 instance ToHeaders ModifyRule where
         toHeaders = const mempty
@@ -120,36 +119,34 @@ instance ToQuery ModifyRule where
                  toQuery (toQueryList "member" <$> _mrConditions),
                "RuleArn" =: _mrRuleARN]
 
--- | Contains the output of ModifyRules.
---
--- /See:/ 'modifyRuleResponse' smart constructor.
+-- | /See:/ 'modifyRuleResponse' smart constructor.
 data ModifyRuleResponse = ModifyRuleResponse'
-    { _mrrsRules          :: !(Maybe [Rule])
-    , _mrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mrrsRules          :: !(Maybe [Rule])
+  , _mrrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyRuleResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mrrsRules'
+-- * 'mrrsRules' - Information about the rule.
 --
--- * 'mrrsResponseStatus'
+-- * 'mrrsResponseStatus' - -- | The response status code.
 modifyRuleResponse
     :: Int -- ^ 'mrrsResponseStatus'
     -> ModifyRuleResponse
 modifyRuleResponse pResponseStatus_ =
-    ModifyRuleResponse'
-    { _mrrsRules = Nothing
-    , _mrrsResponseStatus = pResponseStatus_
-    }
+  ModifyRuleResponse'
+  {_mrrsRules = Nothing, _mrrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the rule.
 mrrsRules :: Lens' ModifyRuleResponse [Rule]
 mrrsRules = lens _mrrsRules (\ s a -> s{_mrrsRules = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 mrrsResponseStatus :: Lens' ModifyRuleResponse Int
 mrrsResponseStatus = lens _mrrsResponseStatus (\ s a -> s{_mrrsResponseStatus = a});
 
-instance NFData ModifyRuleResponse
+instance NFData ModifyRuleResponse where

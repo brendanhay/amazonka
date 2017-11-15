@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetApplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about an application.
+--
+--
 module Network.AWS.CodeDeploy.GetApplication
     (
     -- * Creating a Request
@@ -35,32 +37,34 @@ module Network.AWS.CodeDeploy.GetApplication
     , garsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a get application operation.
+-- | Represents the input of a GetApplication operation.
+--
+--
 --
 -- /See:/ 'getApplication' smart constructor.
 newtype GetApplication = GetApplication'
-    { _gaApplicationName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gaApplicationName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetApplication' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaApplicationName'
+-- * 'gaApplicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 getApplication
     :: Text -- ^ 'gaApplicationName'
     -> GetApplication
 getApplication pApplicationName_ =
-    GetApplication'
-    { _gaApplicationName = pApplicationName_
-    }
+  GetApplication' {_gaApplicationName = pApplicationName_}
+
 
 -- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 gaApplicationName :: Lens' GetApplication Text
@@ -75,9 +79,9 @@ instance AWSRequest GetApplication where
                  GetApplicationResponse' <$>
                    (x .?> "application") <*> (pure (fromEnum s)))
 
-instance Hashable GetApplication
+instance Hashable GetApplication where
 
-instance NFData GetApplication
+instance NFData GetApplication where
 
 instance ToHeaders GetApplication where
         toHeaders
@@ -100,36 +104,38 @@ instance ToPath GetApplication where
 instance ToQuery GetApplication where
         toQuery = const mempty
 
--- | Represents the output of a get application operation.
+-- | Represents the output of a GetApplication operation.
+--
+--
 --
 -- /See:/ 'getApplicationResponse' smart constructor.
 data GetApplicationResponse = GetApplicationResponse'
-    { _garsApplication    :: !(Maybe ApplicationInfo)
-    , _garsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _garsApplication    :: !(Maybe ApplicationInfo)
+  , _garsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetApplicationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'garsApplication'
+-- * 'garsApplication' - Information about the application.
 --
--- * 'garsResponseStatus'
+-- * 'garsResponseStatus' - -- | The response status code.
 getApplicationResponse
     :: Int -- ^ 'garsResponseStatus'
     -> GetApplicationResponse
 getApplicationResponse pResponseStatus_ =
-    GetApplicationResponse'
-    { _garsApplication = Nothing
-    , _garsResponseStatus = pResponseStatus_
-    }
+  GetApplicationResponse'
+  {_garsApplication = Nothing, _garsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the application.
 garsApplication :: Lens' GetApplicationResponse (Maybe ApplicationInfo)
 garsApplication = lens _garsApplication (\ s a -> s{_garsApplication = a});
 
--- | The response status code.
+-- | -- | The response status code.
 garsResponseStatus :: Lens' GetApplicationResponse Int
 garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
 
-instance NFData GetApplicationResponse
+instance NFData GetApplicationResponse where

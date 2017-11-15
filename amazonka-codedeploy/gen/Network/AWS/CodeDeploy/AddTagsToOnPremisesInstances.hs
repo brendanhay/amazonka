@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds tags to on-premises instances.
+--
+--
 module Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
     (
     -- * Creating a Request
@@ -33,39 +35,39 @@ module Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
     , AddTagsToOnPremisesInstancesResponse
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of, and adds tags to, an on-premises instance operation.
 --
+--
+--
 -- /See:/ 'addTagsToOnPremisesInstances' smart constructor.
 data AddTagsToOnPremisesInstances = AddTagsToOnPremisesInstances'
-    { _attopiTags          :: ![Tag]
-    , _attopiInstanceNames :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _attopiTags          :: ![Tag]
+  , _attopiInstanceNames :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTagsToOnPremisesInstances' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'attopiTags'
+-- * 'attopiTags' - The tag key-value pairs to add to the on-premises instances. Keys and values are both required. Keys cannot be null or empty strings. Value-only tags are not allowed.
 --
--- * 'attopiInstanceNames'
+-- * 'attopiInstanceNames' - The names of the on-premises instances to which to add tags.
 addTagsToOnPremisesInstances
     :: AddTagsToOnPremisesInstances
 addTagsToOnPremisesInstances =
-    AddTagsToOnPremisesInstances'
-    { _attopiTags = mempty
-    , _attopiInstanceNames = mempty
-    }
+  AddTagsToOnPremisesInstances'
+  {_attopiTags = mempty, _attopiInstanceNames = mempty}
 
--- | The tag key-value pairs to add to the on-premises instances.
---
--- Keys and values are both required. Keys cannot be null or empty strings. Value-only tags are not allowed.
+
+-- | The tag key-value pairs to add to the on-premises instances. Keys and values are both required. Keys cannot be null or empty strings. Value-only tags are not allowed.
 attopiTags :: Lens' AddTagsToOnPremisesInstances [Tag]
 attopiTags = lens _attopiTags (\ s a -> s{_attopiTags = a}) . _Coerce;
 
@@ -81,9 +83,9 @@ instance AWSRequest AddTagsToOnPremisesInstances
         response
           = receiveNull AddTagsToOnPremisesInstancesResponse'
 
-instance Hashable AddTagsToOnPremisesInstances
+instance Hashable AddTagsToOnPremisesInstances where
 
-instance NFData AddTagsToOnPremisesInstances
+instance NFData AddTagsToOnPremisesInstances where
 
 instance ToHeaders AddTagsToOnPremisesInstances where
         toHeaders
@@ -110,8 +112,9 @@ instance ToQuery AddTagsToOnPremisesInstances where
 
 -- | /See:/ 'addTagsToOnPremisesInstancesResponse' smart constructor.
 data AddTagsToOnPremisesInstancesResponse =
-    AddTagsToOnPremisesInstancesResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AddTagsToOnPremisesInstancesResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTagsToOnPremisesInstancesResponse' with the minimum fields required to make a request.
 --
@@ -119,4 +122,6 @@ addTagsToOnPremisesInstancesResponse
     :: AddTagsToOnPremisesInstancesResponse
 addTagsToOnPremisesInstancesResponse = AddTagsToOnPremisesInstancesResponse'
 
+
 instance NFData AddTagsToOnPremisesInstancesResponse
+         where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateDeployment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about a < Deployment> resource.
+-- Changes information about a 'Deployment' resource.
+--
+--
 module Network.AWS.APIGateway.UpdateDeployment
     (
     -- * Creating a Request
@@ -39,51 +41,55 @@ module Network.AWS.APIGateway.UpdateDeployment
     , dDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Requests Amazon API Gateway to change information about a < Deployment> resource.
+-- | Requests Amazon API Gateway to change information about a 'Deployment' resource.
+--
+--
 --
 -- /See:/ 'updateDeployment' smart constructor.
 data UpdateDeployment = UpdateDeployment'
-    { _udPatchOperations :: !(Maybe [PatchOperation])
-    , _udRestAPIId       :: !Text
-    , _udDeploymentId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udPatchOperations :: !(Maybe [PatchOperation])
+  , _udRestAPIId       :: !Text
+  , _udDeploymentId    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDeployment' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udPatchOperations'
+-- * 'udPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'udRestAPIId'
+-- * 'udRestAPIId' - The string identifier of the associated 'RestApi' .
 --
--- * 'udDeploymentId'
+-- * 'udDeploymentId' - The replacement identifier for the 'Deployment' resource to change information about.
 updateDeployment
     :: Text -- ^ 'udRestAPIId'
     -> Text -- ^ 'udDeploymentId'
     -> UpdateDeployment
 updateDeployment pRestAPIId_ pDeploymentId_ =
-    UpdateDeployment'
-    { _udPatchOperations = Nothing
-    , _udRestAPIId = pRestAPIId_
-    , _udDeploymentId = pDeploymentId_
-    }
+  UpdateDeployment'
+  { _udPatchOperations = Nothing
+  , _udRestAPIId = pRestAPIId_
+  , _udDeploymentId = pDeploymentId_
+  }
+
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 udPatchOperations :: Lens' UpdateDeployment [PatchOperation]
 udPatchOperations = lens _udPatchOperations (\ s a -> s{_udPatchOperations = a}) . _Default . _Coerce;
 
--- | The replacement identifier of the < RestApi> resource for the < Deployment> resource to change information about.
+-- | The string identifier of the associated 'RestApi' .
 udRestAPIId :: Lens' UpdateDeployment Text
 udRestAPIId = lens _udRestAPIId (\ s a -> s{_udRestAPIId = a});
 
--- | The replacement identifier for the < Deployment> resource to change information about.
+-- | The replacement identifier for the 'Deployment' resource to change information about.
 udDeploymentId :: Lens' UpdateDeployment Text
 udDeploymentId = lens _udDeploymentId (\ s a -> s{_udDeploymentId = a});
 
@@ -92,9 +98,9 @@ instance AWSRequest UpdateDeployment where
         request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateDeployment
+instance Hashable UpdateDeployment where
 
-instance NFData UpdateDeployment
+instance NFData UpdateDeployment where
 
 instance ToHeaders UpdateDeployment where
         toHeaders

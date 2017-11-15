@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.RegisterDevice
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers a device to receive push sync notifications.
 --
+--
 -- This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.
+--
 module Network.AWS.CognitoSync.RegisterDevice
     (
     -- * Creating a Request
@@ -40,34 +42,37 @@ module Network.AWS.CognitoSync.RegisterDevice
     , rdrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.CognitoSync.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request to RegisterDevice.
 --
+--
+--
 -- /See:/ 'registerDevice' smart constructor.
 data RegisterDevice = RegisterDevice'
-    { _rdIdentityPoolId :: !Text
-    , _rdIdentityId     :: !Text
-    , _rdPlatform       :: !Platform
-    , _rdToken          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdIdentityPoolId :: !Text
+  , _rdIdentityId     :: !Text
+  , _rdPlatform       :: !Platform
+  , _rdToken          :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterDevice' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdIdentityPoolId'
+-- * 'rdIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.
 --
--- * 'rdIdentityId'
+-- * 'rdIdentityId' - The unique ID for this identity.
 --
--- * 'rdPlatform'
+-- * 'rdPlatform' - The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).
 --
--- * 'rdToken'
+-- * 'rdToken' - The push token.
 registerDevice
     :: Text -- ^ 'rdIdentityPoolId'
     -> Text -- ^ 'rdIdentityId'
@@ -75,12 +80,13 @@ registerDevice
     -> Text -- ^ 'rdToken'
     -> RegisterDevice
 registerDevice pIdentityPoolId_ pIdentityId_ pPlatform_ pToken_ =
-    RegisterDevice'
-    { _rdIdentityPoolId = pIdentityPoolId_
-    , _rdIdentityId = pIdentityId_
-    , _rdPlatform = pPlatform_
-    , _rdToken = pToken_
-    }
+  RegisterDevice'
+  { _rdIdentityPoolId = pIdentityPoolId_
+  , _rdIdentityId = pIdentityId_
+  , _rdPlatform = pPlatform_
+  , _rdToken = pToken_
+  }
+
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.
 rdIdentityPoolId :: Lens' RegisterDevice Text
@@ -107,9 +113,9 @@ instance AWSRequest RegisterDevice where
                  RegisterDeviceResponse' <$>
                    (x .?> "DeviceId") <*> (pure (fromEnum s)))
 
-instance Hashable RegisterDevice
+instance Hashable RegisterDevice where
 
-instance NFData RegisterDevice
+instance NFData RegisterDevice where
 
 instance ToHeaders RegisterDevice where
         toHeaders
@@ -136,34 +142,36 @@ instance ToQuery RegisterDevice where
 
 -- | Response to a RegisterDevice request.
 --
+--
+--
 -- /See:/ 'registerDeviceResponse' smart constructor.
 data RegisterDeviceResponse = RegisterDeviceResponse'
-    { _rdrsDeviceId       :: !(Maybe Text)
-    , _rdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdrsDeviceId       :: !(Maybe Text)
+  , _rdrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterDeviceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdrsDeviceId'
+-- * 'rdrsDeviceId' - The unique ID generated for this device by Cognito.
 --
--- * 'rdrsResponseStatus'
+-- * 'rdrsResponseStatus' - -- | The response status code.
 registerDeviceResponse
     :: Int -- ^ 'rdrsResponseStatus'
     -> RegisterDeviceResponse
 registerDeviceResponse pResponseStatus_ =
-    RegisterDeviceResponse'
-    { _rdrsDeviceId = Nothing
-    , _rdrsResponseStatus = pResponseStatus_
-    }
+  RegisterDeviceResponse'
+  {_rdrsDeviceId = Nothing, _rdrsResponseStatus = pResponseStatus_}
+
 
 -- | The unique ID generated for this device by Cognito.
 rdrsDeviceId :: Lens' RegisterDeviceResponse (Maybe Text)
 rdrsDeviceId = lens _rdrsDeviceId (\ s a -> s{_rdrsDeviceId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rdrsResponseStatus :: Lens' RegisterDeviceResponse Int
 rdrsResponseStatus = lens _rdrsResponseStatus (\ s a -> s{_rdrsResponseStatus = a});
 
-instance NFData RegisterDeviceResponse
+instance NFData RegisterDeviceResponse where

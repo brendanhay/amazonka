@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.GetDevice
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the device.
+--
+--
 module Network.AWS.CognitoIdentityProvider.GetDevice
     (
     -- * Creating a Request
@@ -36,36 +38,37 @@ module Network.AWS.CognitoIdentityProvider.GetDevice
     , gdrsDevice
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to get the device.
 --
+--
+--
 -- /See:/ 'getDevice' smart constructor.
 data GetDevice = GetDevice'
-    { _gdAccessToken :: !(Maybe (Sensitive Text))
-    , _gdDeviceKey   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdAccessToken :: !(Maybe (Sensitive Text))
+  , _gdDeviceKey   :: !Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDevice' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdAccessToken'
+-- * 'gdAccessToken' - The access token.
 --
--- * 'gdDeviceKey'
+-- * 'gdDeviceKey' - The device key.
 getDevice
     :: Text -- ^ 'gdDeviceKey'
     -> GetDevice
 getDevice pDeviceKey_ =
-    GetDevice'
-    { _gdAccessToken = Nothing
-    , _gdDeviceKey = pDeviceKey_
-    }
+  GetDevice' {_gdAccessToken = Nothing, _gdDeviceKey = pDeviceKey_}
+
 
 -- | The access token.
 gdAccessToken :: Lens' GetDevice (Maybe Text)
@@ -84,9 +87,9 @@ instance AWSRequest GetDevice where
                  GetDeviceResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Device"))
 
-instance Hashable GetDevice
+instance Hashable GetDevice where
 
-instance NFData GetDevice
+instance NFData GetDevice where
 
 instance ToHeaders GetDevice where
         toHeaders
@@ -113,30 +116,32 @@ instance ToQuery GetDevice where
 
 -- | Gets the device response.
 --
+--
+--
 -- /See:/ 'getDeviceResponse' smart constructor.
 data GetDeviceResponse = GetDeviceResponse'
-    { _gdrsResponseStatus :: !Int
-    , _gdrsDevice         :: !DeviceType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdrsResponseStatus :: !Int
+  , _gdrsDevice         :: !DeviceType
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDeviceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdrsResponseStatus'
+-- * 'gdrsResponseStatus' - -- | The response status code.
 --
--- * 'gdrsDevice'
+-- * 'gdrsDevice' - The device.
 getDeviceResponse
     :: Int -- ^ 'gdrsResponseStatus'
     -> DeviceType -- ^ 'gdrsDevice'
     -> GetDeviceResponse
 getDeviceResponse pResponseStatus_ pDevice_ =
-    GetDeviceResponse'
-    { _gdrsResponseStatus = pResponseStatus_
-    , _gdrsDevice = pDevice_
-    }
+  GetDeviceResponse'
+  {_gdrsResponseStatus = pResponseStatus_, _gdrsDevice = pDevice_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 gdrsResponseStatus :: Lens' GetDeviceResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
 
@@ -144,4 +149,4 @@ gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = 
 gdrsDevice :: Lens' GetDeviceResponse DeviceType
 gdrsDevice = lens _gdrsDevice (\ s a -> s{_gdrsDevice = a});
 
-instance NFData GetDeviceResponse
+instance NFData GetDeviceResponse where

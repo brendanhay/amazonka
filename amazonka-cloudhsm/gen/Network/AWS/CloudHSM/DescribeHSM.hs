@@ -12,13 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.DescribeHSM
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This is documentation for __AWS CloudHSM Classic__ . For more information, see <http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs> , the <http://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference> .
+--
+--
+-- __For information about the current version of AWS CloudHSM__ , see <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> , the <http://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference> .
+--
 -- Retrieves information about an HSM. You can identify the HSM by its ARN or its serial number.
+--
 module Network.AWS.CloudHSM.DescribeHSM
     (
     -- * Creating a Request
@@ -56,41 +62,42 @@ module Network.AWS.CloudHSM.DescribeHSM
     , desrsResponseStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the inputs for the < DescribeHsm> operation.
+-- | Contains the inputs for the 'DescribeHsm' operation.
+--
+--
 --
 -- /See:/ 'describeHSM' smart constructor.
 data DescribeHSM = DescribeHSM'
-    { _dhsmHSMSerialNumber :: !(Maybe Text)
-    , _dhsmHSMARN          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhsmHSMSerialNumber :: !(Maybe Text)
+  , _dhsmHSMARN          :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHSM' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhsmHSMSerialNumber'
+-- * 'dhsmHSMSerialNumber' - The serial number of the HSM. Either the @HsmArn@ or the @HsmSerialNumber@ parameter must be specified.
 --
--- * 'dhsmHSMARN'
+-- * 'dhsmHSMARN' - The ARN of the HSM. Either the @HsmArn@ or the @SerialNumber@ parameter must be specified.
 describeHSM
     :: DescribeHSM
 describeHSM =
-    DescribeHSM'
-    { _dhsmHSMSerialNumber = Nothing
-    , _dhsmHSMARN = Nothing
-    }
+  DescribeHSM' {_dhsmHSMSerialNumber = Nothing, _dhsmHSMARN = Nothing}
 
--- | The serial number of the HSM. Either the /HsmArn/ or the /HsmSerialNumber/ parameter must be specified.
+
+-- | The serial number of the HSM. Either the @HsmArn@ or the @HsmSerialNumber@ parameter must be specified.
 dhsmHSMSerialNumber :: Lens' DescribeHSM (Maybe Text)
 dhsmHSMSerialNumber = lens _dhsmHSMSerialNumber (\ s a -> s{_dhsmHSMSerialNumber = a});
 
--- | The ARN of the HSM. Either the /HsmArn/ or the /SerialNumber/ parameter must be specified.
+-- | The ARN of the HSM. Either the @HsmArn@ or the @SerialNumber@ parameter must be specified.
 dhsmHSMARN :: Lens' DescribeHSM (Maybe Text)
 dhsmHSMARN = lens _dhsmHSMARN (\ s a -> s{_dhsmHSMARN = a});
 
@@ -123,9 +130,9 @@ instance AWSRequest DescribeHSM where
                      <*> (x .?> "HsmType")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeHSM
+instance Hashable DescribeHSM where
 
-instance NFData DescribeHSM
+instance NFData DescribeHSM where
 
 instance ToHeaders DescribeHSM where
         toHeaders
@@ -150,109 +157,113 @@ instance ToPath DescribeHSM where
 instance ToQuery DescribeHSM where
         toQuery = const mempty
 
--- | Contains the output of the < DescribeHsm> operation.
+-- | Contains the output of the 'DescribeHsm' operation.
+--
+--
 --
 -- /See:/ 'describeHSMResponse' smart constructor.
 data DescribeHSMResponse = DescribeHSMResponse'
-    { _desrsStatus                :: !(Maybe HSMStatus)
-    , _desrsIAMRoleARN            :: !(Maybe Text)
-    , _desrsEniId                 :: !(Maybe Text)
-    , _desrsVPCId                 :: !(Maybe Text)
-    , _desrsSSHKeyLastUpdated     :: !(Maybe Text)
-    , _desrsSubscriptionEndDate   :: !(Maybe Text)
-    , _desrsServerCertURI         :: !(Maybe Text)
-    , _desrsSubscriptionType      :: !(Maybe SubscriptionType)
-    , _desrsSSHPublicKey          :: !(Maybe Text)
-    , _desrsSubnetId              :: !(Maybe Text)
-    , _desrsStatusDetails         :: !(Maybe Text)
-    , _desrsPartitions            :: !(Maybe [Text])
-    , _desrsSubscriptionStartDate :: !(Maybe Text)
-    , _desrsAvailabilityZone      :: !(Maybe Text)
-    , _desrsServerCertLastUpdated :: !(Maybe Text)
-    , _desrsSoftwareVersion       :: !(Maybe Text)
-    , _desrsVendorName            :: !(Maybe Text)
-    , _desrsSerialNumber          :: !(Maybe Text)
-    , _desrsHSMARN                :: !(Maybe Text)
-    , _desrsEniIP                 :: !(Maybe Text)
-    , _desrsHSMType               :: !(Maybe Text)
-    , _desrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desrsStatus                :: !(Maybe HSMStatus)
+  , _desrsIAMRoleARN            :: !(Maybe Text)
+  , _desrsEniId                 :: !(Maybe Text)
+  , _desrsVPCId                 :: !(Maybe Text)
+  , _desrsSSHKeyLastUpdated     :: !(Maybe Text)
+  , _desrsSubscriptionEndDate   :: !(Maybe Text)
+  , _desrsServerCertURI         :: !(Maybe Text)
+  , _desrsSubscriptionType      :: !(Maybe SubscriptionType)
+  , _desrsSSHPublicKey          :: !(Maybe Text)
+  , _desrsSubnetId              :: !(Maybe Text)
+  , _desrsStatusDetails         :: !(Maybe Text)
+  , _desrsPartitions            :: !(Maybe [Text])
+  , _desrsSubscriptionStartDate :: !(Maybe Text)
+  , _desrsAvailabilityZone      :: !(Maybe Text)
+  , _desrsServerCertLastUpdated :: !(Maybe Text)
+  , _desrsSoftwareVersion       :: !(Maybe Text)
+  , _desrsVendorName            :: !(Maybe Text)
+  , _desrsSerialNumber          :: !(Maybe Text)
+  , _desrsHSMARN                :: !(Maybe Text)
+  , _desrsEniIP                 :: !(Maybe Text)
+  , _desrsHSMType               :: !(Maybe Text)
+  , _desrsResponseStatus        :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHSMResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desrsStatus'
+-- * 'desrsStatus' - The status of the HSM.
 --
--- * 'desrsIAMRoleARN'
+-- * 'desrsIAMRoleARN' - The ARN of the IAM role assigned to the HSM.
 --
--- * 'desrsEniId'
+-- * 'desrsEniId' - The identifier of the elastic network interface (ENI) attached to the HSM.
 --
--- * 'desrsVPCId'
+-- * 'desrsVPCId' - The identifier of the VPC that the HSM is in.
 --
--- * 'desrsSSHKeyLastUpdated'
+-- * 'desrsSSHKeyLastUpdated' - The date and time that the SSH key was last updated.
 --
--- * 'desrsSubscriptionEndDate'
+-- * 'desrsSubscriptionEndDate' - The subscription end date.
 --
--- * 'desrsServerCertURI'
+-- * 'desrsServerCertURI' - The URI of the certificate server.
 --
--- * 'desrsSubscriptionType'
+-- * 'desrsSubscriptionType' - Undocumented member.
 --
--- * 'desrsSSHPublicKey'
+-- * 'desrsSSHPublicKey' - The public SSH key.
 --
--- * 'desrsSubnetId'
+-- * 'desrsSubnetId' - The identifier of the subnet that the HSM is in.
 --
--- * 'desrsStatusDetails'
+-- * 'desrsStatusDetails' - Contains additional information about the status of the HSM.
 --
--- * 'desrsPartitions'
+-- * 'desrsPartitions' - The list of partitions on the HSM.
 --
--- * 'desrsSubscriptionStartDate'
+-- * 'desrsSubscriptionStartDate' - The subscription start date.
 --
--- * 'desrsAvailabilityZone'
+-- * 'desrsAvailabilityZone' - The Availability Zone that the HSM is in.
 --
--- * 'desrsServerCertLastUpdated'
+-- * 'desrsServerCertLastUpdated' - The date and time that the server certificate was last updated.
 --
--- * 'desrsSoftwareVersion'
+-- * 'desrsSoftwareVersion' - The HSM software version.
 --
--- * 'desrsVendorName'
+-- * 'desrsVendorName' - The name of the HSM vendor.
 --
--- * 'desrsSerialNumber'
+-- * 'desrsSerialNumber' - The serial number of the HSM.
 --
--- * 'desrsHSMARN'
+-- * 'desrsHSMARN' - The ARN of the HSM.
 --
--- * 'desrsEniIP'
+-- * 'desrsEniIP' - The IP address assigned to the HSM's ENI.
 --
--- * 'desrsHSMType'
+-- * 'desrsHSMType' - The HSM model type.
 --
--- * 'desrsResponseStatus'
+-- * 'desrsResponseStatus' - -- | The response status code.
 describeHSMResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeHSMResponse
 describeHSMResponse pResponseStatus_ =
-    DescribeHSMResponse'
-    { _desrsStatus = Nothing
-    , _desrsIAMRoleARN = Nothing
-    , _desrsEniId = Nothing
-    , _desrsVPCId = Nothing
-    , _desrsSSHKeyLastUpdated = Nothing
-    , _desrsSubscriptionEndDate = Nothing
-    , _desrsServerCertURI = Nothing
-    , _desrsSubscriptionType = Nothing
-    , _desrsSSHPublicKey = Nothing
-    , _desrsSubnetId = Nothing
-    , _desrsStatusDetails = Nothing
-    , _desrsPartitions = Nothing
-    , _desrsSubscriptionStartDate = Nothing
-    , _desrsAvailabilityZone = Nothing
-    , _desrsServerCertLastUpdated = Nothing
-    , _desrsSoftwareVersion = Nothing
-    , _desrsVendorName = Nothing
-    , _desrsSerialNumber = Nothing
-    , _desrsHSMARN = Nothing
-    , _desrsEniIP = Nothing
-    , _desrsHSMType = Nothing
-    , _desrsResponseStatus = pResponseStatus_
-    }
+  DescribeHSMResponse'
+  { _desrsStatus = Nothing
+  , _desrsIAMRoleARN = Nothing
+  , _desrsEniId = Nothing
+  , _desrsVPCId = Nothing
+  , _desrsSSHKeyLastUpdated = Nothing
+  , _desrsSubscriptionEndDate = Nothing
+  , _desrsServerCertURI = Nothing
+  , _desrsSubscriptionType = Nothing
+  , _desrsSSHPublicKey = Nothing
+  , _desrsSubnetId = Nothing
+  , _desrsStatusDetails = Nothing
+  , _desrsPartitions = Nothing
+  , _desrsSubscriptionStartDate = Nothing
+  , _desrsAvailabilityZone = Nothing
+  , _desrsServerCertLastUpdated = Nothing
+  , _desrsSoftwareVersion = Nothing
+  , _desrsVendorName = Nothing
+  , _desrsSerialNumber = Nothing
+  , _desrsHSMARN = Nothing
+  , _desrsEniIP = Nothing
+  , _desrsHSMType = Nothing
+  , _desrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The status of the HSM.
 desrsStatus :: Lens' DescribeHSMResponse (Maybe HSMStatus)
@@ -330,7 +341,7 @@ desrsSerialNumber = lens _desrsSerialNumber (\ s a -> s{_desrsSerialNumber = a})
 desrsHSMARN :: Lens' DescribeHSMResponse (Maybe Text)
 desrsHSMARN = lens _desrsHSMARN (\ s a -> s{_desrsHSMARN = a});
 
--- | The IP address assigned to the HSM\'s ENI.
+-- | The IP address assigned to the HSM's ENI.
 desrsEniIP :: Lens' DescribeHSMResponse (Maybe Text)
 desrsEniIP = lens _desrsEniIP (\ s a -> s{_desrsEniIP = a});
 
@@ -338,8 +349,8 @@ desrsEniIP = lens _desrsEniIP (\ s a -> s{_desrsEniIP = a});
 desrsHSMType :: Lens' DescribeHSMResponse (Maybe Text)
 desrsHSMType = lens _desrsHSMType (\ s a -> s{_desrsHSMType = a});
 
--- | The response status code.
+-- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeHSMResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 
-instance NFData DescribeHSMResponse
+instance NFData DescribeHSMResponse where

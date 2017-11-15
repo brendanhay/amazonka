@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DescribeLoadBalancers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the specified the load balancers. If no load balancers are specified, the call describes all of your load balancers.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.ELB.DescribeLoadBalancers
@@ -40,40 +42,44 @@ module Network.AWS.ELB.DescribeLoadBalancers
     , dlbrsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeLoadBalancers.
 --
+--
+--
 -- /See:/ 'describeLoadBalancers' smart constructor.
 data DescribeLoadBalancers = DescribeLoadBalancers'
-    { _dlbMarker            :: !(Maybe Text)
-    , _dlbPageSize          :: !(Maybe Nat)
-    , _dlbLoadBalancerNames :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbMarker            :: !(Maybe Text)
+  , _dlbPageSize          :: !(Maybe Nat)
+  , _dlbLoadBalancerNames :: !(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLoadBalancers' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbMarker'
+-- * 'dlbMarker' - The marker for the next set of results. (You received this marker from a previous call.)
 --
--- * 'dlbPageSize'
+-- * 'dlbPageSize' - The maximum number of results to return with this call (a number from 1 to 400). The default is 400.
 --
--- * 'dlbLoadBalancerNames'
+-- * 'dlbLoadBalancerNames' - The names of the load balancers.
 describeLoadBalancers
     :: DescribeLoadBalancers
 describeLoadBalancers =
-    DescribeLoadBalancers'
-    { _dlbMarker = Nothing
-    , _dlbPageSize = Nothing
-    , _dlbLoadBalancerNames = Nothing
-    }
+  DescribeLoadBalancers'
+  { _dlbMarker = Nothing
+  , _dlbPageSize = Nothing
+  , _dlbLoadBalancerNames = Nothing
+  }
+
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 dlbMarker :: Lens' DescribeLoadBalancers (Maybe Text)
@@ -108,9 +114,9 @@ instance AWSRequest DescribeLoadBalancers where
                      <*> (x .@? "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeLoadBalancers
+instance Hashable DescribeLoadBalancers where
 
-instance NFData DescribeLoadBalancers
+instance NFData DescribeLoadBalancers where
 
 instance ToHeaders DescribeLoadBalancers where
         toHeaders = const mempty
@@ -130,31 +136,35 @@ instance ToQuery DescribeLoadBalancers where
 
 -- | Contains the parameters for DescribeLoadBalancers.
 --
+--
+--
 -- /See:/ 'describeLoadBalancersResponse' smart constructor.
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
-    { _dlbrsLoadBalancerDescriptions :: !(Maybe [LoadBalancerDescription])
-    , _dlbrsNextMarker               :: !(Maybe Text)
-    , _dlbrsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbrsLoadBalancerDescriptions :: !(Maybe [LoadBalancerDescription])
+  , _dlbrsNextMarker               :: !(Maybe Text)
+  , _dlbrsResponseStatus           :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLoadBalancersResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbrsLoadBalancerDescriptions'
+-- * 'dlbrsLoadBalancerDescriptions' - Information about the load balancers.
 --
--- * 'dlbrsNextMarker'
+-- * 'dlbrsNextMarker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 --
--- * 'dlbrsResponseStatus'
+-- * 'dlbrsResponseStatus' - -- | The response status code.
 describeLoadBalancersResponse
     :: Int -- ^ 'dlbrsResponseStatus'
     -> DescribeLoadBalancersResponse
 describeLoadBalancersResponse pResponseStatus_ =
-    DescribeLoadBalancersResponse'
-    { _dlbrsLoadBalancerDescriptions = Nothing
-    , _dlbrsNextMarker = Nothing
-    , _dlbrsResponseStatus = pResponseStatus_
-    }
+  DescribeLoadBalancersResponse'
+  { _dlbrsLoadBalancerDescriptions = Nothing
+  , _dlbrsNextMarker = Nothing
+  , _dlbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the load balancers.
 dlbrsLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse [LoadBalancerDescription]
@@ -164,8 +174,8 @@ dlbrsLoadBalancerDescriptions = lens _dlbrsLoadBalancerDescriptions (\ s a -> s{
 dlbrsNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrsNextMarker = lens _dlbrsNextMarker (\ s a -> s{_dlbrsNextMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dlbrsResponseStatus :: Lens' DescribeLoadBalancersResponse Int
 dlbrsResponseStatus = lens _dlbrsResponseStatus (\ s a -> s{_dlbrsResponseStatus = a});
 
-instance NFData DescribeLoadBalancersResponse
+instance NFData DescribeLoadBalancersResponse where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutDestinationPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates an access policy associated with an existing 'Destination'. An access policy is an <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html IAM policy document> that is used to authorize claims to register a subscription filter against a given destination.
+-- Creates or updates an access policy associated with an existing destination. An access policy is an <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html IAM policy document> that is used to authorize claims to register a subscription filter against a given destination.
+--
+--
 module Network.AWS.CloudWatchLogs.PutDestinationPolicy
     (
     -- * Creating a Request
@@ -33,41 +35,41 @@ module Network.AWS.CloudWatchLogs.PutDestinationPolicy
     , PutDestinationPolicyResponse
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putDestinationPolicy' smart constructor.
 data PutDestinationPolicy = PutDestinationPolicy'
-    { _pdpDestinationName :: !Text
-    , _pdpAccessPolicy    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pdpDestinationName :: !Text
+  , _pdpAccessPolicy    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutDestinationPolicy' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pdpDestinationName'
+-- * 'pdpDestinationName' - A name for an existing destination.
 --
--- * 'pdpAccessPolicy'
+-- * 'pdpAccessPolicy' - An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination.
 putDestinationPolicy
     :: Text -- ^ 'pdpDestinationName'
     -> Text -- ^ 'pdpAccessPolicy'
     -> PutDestinationPolicy
 putDestinationPolicy pDestinationName_ pAccessPolicy_ =
-    PutDestinationPolicy'
-    { _pdpDestinationName = pDestinationName_
-    , _pdpAccessPolicy = pAccessPolicy_
-    }
+  PutDestinationPolicy'
+  {_pdpDestinationName = pDestinationName_, _pdpAccessPolicy = pAccessPolicy_}
+
 
 -- | A name for an existing destination.
 pdpDestinationName :: Lens' PutDestinationPolicy Text
 pdpDestinationName = lens _pdpDestinationName (\ s a -> s{_pdpDestinationName = a});
 
--- | An IAM policy document that authorizes cross-account users to deliver their log events to associated destination.
+-- | An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination.
 pdpAccessPolicy :: Lens' PutDestinationPolicy Text
 pdpAccessPolicy = lens _pdpAccessPolicy (\ s a -> s{_pdpAccessPolicy = a});
 
@@ -77,9 +79,9 @@ instance AWSRequest PutDestinationPolicy where
         request = postJSON cloudWatchLogs
         response = receiveNull PutDestinationPolicyResponse'
 
-instance Hashable PutDestinationPolicy
+instance Hashable PutDestinationPolicy where
 
-instance NFData PutDestinationPolicy
+instance NFData PutDestinationPolicy where
 
 instance ToHeaders PutDestinationPolicy where
         toHeaders
@@ -105,8 +107,9 @@ instance ToQuery PutDestinationPolicy where
 
 -- | /See:/ 'putDestinationPolicyResponse' smart constructor.
 data PutDestinationPolicyResponse =
-    PutDestinationPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutDestinationPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutDestinationPolicyResponse' with the minimum fields required to make a request.
 --
@@ -114,4 +117,5 @@ putDestinationPolicyResponse
     :: PutDestinationPolicyResponse
 putDestinationPolicyResponse = PutDestinationPolicyResponse'
 
-instance NFData PutDestinationPolicyResponse
+
+instance NFData PutDestinationPolicyResponse where

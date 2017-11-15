@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DeleteLifecycleHook
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified lifecycle hook.
 --
--- If there are any outstanding lifecycle actions, they are completed first ('ABANDON' for launching instances, 'CONTINUE' for terminating instances).
+--
+-- If there are any outstanding lifecycle actions, they are completed first (@ABANDON@ for launching instances, @CONTINUE@ for terminating instances).
+--
 module Network.AWS.AutoScaling.DeleteLifecycleHook
     (
     -- * Creating a Request
@@ -37,37 +39,37 @@ module Network.AWS.AutoScaling.DeleteLifecycleHook
     , drsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for DeleteLifecycleHook.
---
--- /See:/ 'deleteLifecycleHook' smart constructor.
+-- | /See:/ 'deleteLifecycleHook' smart constructor.
 data DeleteLifecycleHook = DeleteLifecycleHook'
-    { _delLifecycleHookName    :: !Text
-    , _delAutoScalingGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delLifecycleHookName    :: !Text
+  , _delAutoScalingGroupName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLifecycleHook' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delLifecycleHookName'
+-- * 'delLifecycleHookName' - The name of the lifecycle hook.
 --
--- * 'delAutoScalingGroupName'
+-- * 'delAutoScalingGroupName' - The name of the Auto Scaling group for the lifecycle hook.
 deleteLifecycleHook
     :: Text -- ^ 'delLifecycleHookName'
     -> Text -- ^ 'delAutoScalingGroupName'
     -> DeleteLifecycleHook
 deleteLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ =
-    DeleteLifecycleHook'
-    { _delLifecycleHookName = pLifecycleHookName_
-    , _delAutoScalingGroupName = pAutoScalingGroupName_
-    }
+  DeleteLifecycleHook'
+  { _delLifecycleHookName = pLifecycleHookName_
+  , _delAutoScalingGroupName = pAutoScalingGroupName_
+  }
+
 
 -- | The name of the lifecycle hook.
 delLifecycleHookName :: Lens' DeleteLifecycleHook Text
@@ -86,9 +88,9 @@ instance AWSRequest DeleteLifecycleHook where
               (\ s h x ->
                  DeleteLifecycleHookResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteLifecycleHook
+instance Hashable DeleteLifecycleHook where
 
-instance NFData DeleteLifecycleHook
+instance NFData DeleteLifecycleHook where
 
 instance ToHeaders DeleteLifecycleHook where
         toHeaders = const mempty
@@ -104,28 +106,26 @@ instance ToQuery DeleteLifecycleHook where
                "LifecycleHookName" =: _delLifecycleHookName,
                "AutoScalingGroupName" =: _delAutoScalingGroupName]
 
--- | Contains the output of DeleteLifecycleHook.
---
--- /See:/ 'deleteLifecycleHookResponse' smart constructor.
+-- | /See:/ 'deleteLifecycleHookResponse' smart constructor.
 newtype DeleteLifecycleHookResponse = DeleteLifecycleHookResponse'
-    { _drsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLifecycleHookResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteLifecycleHookResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteLifecycleHookResponse
 deleteLifecycleHookResponse pResponseStatus_ =
-    DeleteLifecycleHookResponse'
-    { _drsResponseStatus = pResponseStatus_
-    }
+  DeleteLifecycleHookResponse' {_drsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteLifecycleHookResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteLifecycleHookResponse
+instance NFData DeleteLifecycleHookResponse where

@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.DeleteDeploymentConfig
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a deployment configuration.
 --
--- A deployment configuration cannot be deleted if it is currently in use. Predefined configurations cannot be deleted.
+--
 module Network.AWS.CodeDeploy.DeleteDeploymentConfig
     (
     -- * Creating a Request
@@ -34,32 +34,34 @@ module Network.AWS.CodeDeploy.DeleteDeploymentConfig
     , DeleteDeploymentConfigResponse
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a delete deployment configuration operation.
+-- | Represents the input of a DeleteDeploymentConfig operation.
+--
+--
 --
 -- /See:/ 'deleteDeploymentConfig' smart constructor.
 newtype DeleteDeploymentConfig = DeleteDeploymentConfig'
-    { _ddcDeploymentConfigName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddcDeploymentConfigName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDeploymentConfig' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcDeploymentConfigName'
+-- * 'ddcDeploymentConfigName' - The name of a deployment configuration associated with the applicable IAM user or AWS account.
 deleteDeploymentConfig
     :: Text -- ^ 'ddcDeploymentConfigName'
     -> DeleteDeploymentConfig
 deleteDeploymentConfig pDeploymentConfigName_ =
-    DeleteDeploymentConfig'
-    { _ddcDeploymentConfigName = pDeploymentConfigName_
-    }
+  DeleteDeploymentConfig' {_ddcDeploymentConfigName = pDeploymentConfigName_}
+
 
 -- | The name of a deployment configuration associated with the applicable IAM user or AWS account.
 ddcDeploymentConfigName :: Lens' DeleteDeploymentConfig Text
@@ -72,9 +74,9 @@ instance AWSRequest DeleteDeploymentConfig where
         response
           = receiveNull DeleteDeploymentConfigResponse'
 
-instance Hashable DeleteDeploymentConfig
+instance Hashable DeleteDeploymentConfig where
 
-instance NFData DeleteDeploymentConfig
+instance NFData DeleteDeploymentConfig where
 
 instance ToHeaders DeleteDeploymentConfig where
         toHeaders
@@ -102,8 +104,9 @@ instance ToQuery DeleteDeploymentConfig where
 
 -- | /See:/ 'deleteDeploymentConfigResponse' smart constructor.
 data DeleteDeploymentConfigResponse =
-    DeleteDeploymentConfigResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteDeploymentConfigResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDeploymentConfigResponse' with the minimum fields required to make a request.
 --
@@ -111,4 +114,5 @@ deleteDeploymentConfigResponse
     :: DeleteDeploymentConfigResponse
 deleteDeploymentConfigResponse = DeleteDeploymentConfigResponse'
 
-instance NFData DeleteDeploymentConfigResponse
+
+instance NFData DeleteDeploymentConfigResponse where

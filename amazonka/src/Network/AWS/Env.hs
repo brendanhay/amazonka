@@ -1,15 +1,15 @@
 {-# LANGUAGE FlexibleContexts  #-}
-{-# LANGUAGE ViewPatterns  #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RankNTypes        #-}
 {-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- |
 -- Module      : Network.AWS.Env
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,21 +38,23 @@ module Network.AWS.Env
     , retryConnectionFailure
     ) where
 
-import Data.Maybe (fromMaybe)
-import           Control.Applicative
-import           Control.Monad.Catch
-import           Control.Monad.IO.Class
-import           Control.Monad.Reader
-import           Data.Function               (on)
-import           Data.IORef
-import           Data.Monoid
-import           Network.AWS.Auth
-import           Network.AWS.Internal.Logger
-import           Network.AWS.Lens            (Getter, Lens')
-import           Network.AWS.Lens            (lens, to)
-import           Network.AWS.Lens            ((.~), (<>~), (?~))
-import           Network.AWS.Types
-import           Network.HTTP.Conduit
+import Control.Applicative
+import Control.Monad.Catch
+import Control.Monad.IO.Class
+import Control.Monad.Reader
+
+import Data.Function (on)
+import Data.IORef
+import Data.Maybe    (fromMaybe)
+import Data.Monoid
+
+import Network.AWS.Auth
+import Network.AWS.Internal.Logger
+import Network.AWS.Lens            (Getter, Lens')
+import Network.AWS.Lens            (lens, to)
+import Network.AWS.Lens            ((.~), (<>~), (?~))
+import Network.AWS.Types
+import Network.HTTP.Conduit
 
 -- | The environment containing the parameters required to make AWS requests.
 data Env = Env

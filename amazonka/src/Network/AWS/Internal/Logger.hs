@@ -2,9 +2,9 @@
 
 -- |
 -- Module      : Network.AWS.Internal.Logger
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,7 +43,6 @@ import           System.IO
 -- should be used in production code.
 newLogger :: MonadIO m => LogLevel -> Handle -> m Logger
 newLogger x hd = liftIO $ do
-    hSetBinaryMode hd True
     hSetBuffering  hd LineBuffering
     return $ \y b ->
         when (x >= y) $

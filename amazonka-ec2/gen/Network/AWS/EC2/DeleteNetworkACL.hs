@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteNetworkACL
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified network ACL. You can\'t delete the ACL if it\'s associated with any subnets. You can\'t delete the default network ACL.
+-- Deletes the specified network ACL. You can't delete the ACL if it's associated with any subnets. You can't delete the default network ACL.
+--
+--
 module Network.AWS.EC2.DeleteNetworkACL
     (
     -- * Creating a Request
@@ -33,38 +35,39 @@ module Network.AWS.EC2.DeleteNetworkACL
     , DeleteNetworkACLResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteNetworkAcl.
 --
+--
+--
 -- /See:/ 'deleteNetworkACL' smart constructor.
 data DeleteNetworkACL = DeleteNetworkACL'
-    { _dnaDryRun       :: !(Maybe Bool)
-    , _dnaNetworkACLId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnaDryRun       :: !(Maybe Bool)
+  , _dnaNetworkACLId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteNetworkACL' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dnaDryRun'
+-- * 'dnaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dnaNetworkACLId'
+-- * 'dnaNetworkACLId' - The ID of the network ACL.
 deleteNetworkACL
     :: Text -- ^ 'dnaNetworkACLId'
     -> DeleteNetworkACL
 deleteNetworkACL pNetworkACLId_ =
-    DeleteNetworkACL'
-    { _dnaDryRun = Nothing
-    , _dnaNetworkACLId = pNetworkACLId_
-    }
+  DeleteNetworkACL' {_dnaDryRun = Nothing, _dnaNetworkACLId = pNetworkACLId_}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dnaDryRun :: Lens' DeleteNetworkACL (Maybe Bool)
 dnaDryRun = lens _dnaDryRun (\ s a -> s{_dnaDryRun = a});
 
@@ -77,9 +80,9 @@ instance AWSRequest DeleteNetworkACL where
         request = postQuery ec2
         response = receiveNull DeleteNetworkACLResponse'
 
-instance Hashable DeleteNetworkACL
+instance Hashable DeleteNetworkACL where
 
-instance NFData DeleteNetworkACL
+instance NFData DeleteNetworkACL where
 
 instance ToHeaders DeleteNetworkACL where
         toHeaders = const mempty
@@ -91,14 +94,15 @@ instance ToQuery DeleteNetworkACL where
         toQuery DeleteNetworkACL'{..}
           = mconcat
               ["Action" =: ("DeleteNetworkAcl" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _dnaDryRun,
                "NetworkAclId" =: _dnaNetworkACLId]
 
 -- | /See:/ 'deleteNetworkACLResponse' smart constructor.
 data DeleteNetworkACLResponse =
-    DeleteNetworkACLResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteNetworkACLResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteNetworkACLResponse' with the minimum fields required to make a request.
 --
@@ -106,4 +110,5 @@ deleteNetworkACLResponse
     :: DeleteNetworkACLResponse
 deleteNetworkACLResponse = DeleteNetworkACLResponse'
 
-instance NFData DeleteNetworkACLResponse
+
+instance NFData DeleteNetworkACLResponse where

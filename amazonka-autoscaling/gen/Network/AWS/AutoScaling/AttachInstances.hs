@@ -12,19 +12,21 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.AttachInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Attaches one or more EC2 instances to the specified Auto Scaling group.
 --
+--
 -- When you attach instances, Auto Scaling increases the desired capacity of the group by the number of instances being attached. If the number of instances being attached plus the desired capacity of the group exceeds the maximum size of the group, the operation fails.
 --
--- If there is a Classic load balancer attached to your Auto Scaling group, the instances are also registered with the load balancer. If there are target groups attached to your Auto Scaling group, the instances are also registered with the target groups.
+-- If there is a Classic Load Balancer attached to your Auto Scaling group, the instances are also registered with the load balancer. If there are target groups attached to your Auto Scaling group, the instances are also registered with the target groups.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html Attach EC2 Instances to Your Auto Scaling Group> in the /Auto Scaling User Guide/.
+-- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/attach-instance-asg.html Attach EC2 Instances to Your Auto Scaling Group> in the /Auto Scaling User Guide/ .
+--
 module Network.AWS.AutoScaling.AttachInstances
     (
     -- * Creating a Request
@@ -39,36 +41,34 @@ module Network.AWS.AutoScaling.AttachInstances
     , AttachInstancesResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for AttachInstances.
---
--- /See:/ 'attachInstances' smart constructor.
+-- | /See:/ 'attachInstances' smart constructor.
 data AttachInstances = AttachInstances'
-    { _aiInstanceIds          :: !(Maybe [Text])
-    , _aiAutoScalingGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aiInstanceIds          :: !(Maybe [Text])
+  , _aiAutoScalingGroupName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachInstances' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aiInstanceIds'
+-- * 'aiInstanceIds' - One or more instance IDs.
 --
--- * 'aiAutoScalingGroupName'
+-- * 'aiAutoScalingGroupName' - The name of the group.
 attachInstances
     :: Text -- ^ 'aiAutoScalingGroupName'
     -> AttachInstances
 attachInstances pAutoScalingGroupName_ =
-    AttachInstances'
-    { _aiInstanceIds = Nothing
-    , _aiAutoScalingGroupName = pAutoScalingGroupName_
-    }
+  AttachInstances'
+  {_aiInstanceIds = Nothing, _aiAutoScalingGroupName = pAutoScalingGroupName_}
+
 
 -- | One or more instance IDs.
 aiInstanceIds :: Lens' AttachInstances [Text]
@@ -83,9 +83,9 @@ instance AWSRequest AttachInstances where
         request = postQuery autoScaling
         response = receiveNull AttachInstancesResponse'
 
-instance Hashable AttachInstances
+instance Hashable AttachInstances where
 
-instance NFData AttachInstances
+instance NFData AttachInstances where
 
 instance ToHeaders AttachInstances where
         toHeaders = const mempty
@@ -104,8 +104,9 @@ instance ToQuery AttachInstances where
 
 -- | /See:/ 'attachInstancesResponse' smart constructor.
 data AttachInstancesResponse =
-    AttachInstancesResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AttachInstancesResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachInstancesResponse' with the minimum fields required to make a request.
 --
@@ -113,4 +114,5 @@ attachInstancesResponse
     :: AttachInstancesResponse
 attachInstancesResponse = AttachInstancesResponse'
 
-instance NFData AttachInstancesResponse
+
+instance NFData AttachInstancesResponse where

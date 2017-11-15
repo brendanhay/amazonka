@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.PutEvents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Sends custom events to Amazon CloudWatch Events so that they can be matched to rules.
+--
+--
 module Network.AWS.CloudWatchEvents.PutEvents
     (
     -- * Creating a Request
@@ -36,32 +38,29 @@ module Network.AWS.CloudWatchEvents.PutEvents
     , persResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchEvents.Types
-import           Network.AWS.CloudWatchEvents.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchEvents.Types
+import Network.AWS.CloudWatchEvents.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Container for the parameters to the < PutEvents> operation.
---
--- /See:/ 'putEvents' smart constructor.
+-- | /See:/ 'putEvents' smart constructor.
 newtype PutEvents = PutEvents'
-    { _peEntries :: List1 PutEventsRequestEntry
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _peEntries :: List1 PutEventsRequestEntry
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutEvents' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'peEntries'
+-- * 'peEntries' - The entry that defines an event in your system. You can specify several parameters for the entry such as the source and type of the event, resources associated with the event, and so on.
 putEvents
     :: NonEmpty PutEventsRequestEntry -- ^ 'peEntries'
     -> PutEvents
-putEvents pEntries_ =
-    PutEvents'
-    { _peEntries = _List1 # pEntries_
-    }
+putEvents pEntries_ = PutEvents' {_peEntries = _List1 # pEntries_}
+
 
 -- | The entry that defines an event in your system. You can specify several parameters for the entry such as the source and type of the event, resources associated with the event, and so on.
 peEntries :: Lens' PutEvents (NonEmpty PutEventsRequestEntry)
@@ -78,9 +77,9 @@ instance AWSRequest PutEvents where
                      (x .?> "Entries" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable PutEvents
+instance Hashable PutEvents where
 
-instance NFData PutEvents
+instance NFData PutEvents where
 
 instance ToHeaders PutEvents where
         toHeaders
@@ -101,44 +100,44 @@ instance ToPath PutEvents where
 instance ToQuery PutEvents where
         toQuery = const mempty
 
--- | The result of the < PutEvents> operation.
---
--- /See:/ 'putEventsResponse' smart constructor.
+-- | /See:/ 'putEventsResponse' smart constructor.
 data PutEventsResponse = PutEventsResponse'
-    { _persFailedEntryCount :: !(Maybe Int)
-    , _persEntries          :: !(Maybe [PutEventsResultEntry])
-    , _persResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _persFailedEntryCount :: !(Maybe Int)
+  , _persEntries          :: !(Maybe [PutEventsResultEntry])
+  , _persResponseStatus   :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutEventsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'persFailedEntryCount'
+-- * 'persFailedEntryCount' - The number of failed entries.
 --
--- * 'persEntries'
+-- * 'persEntries' - The successfully and unsuccessfully ingested events results. If the ingestion was successful, the entry has the event ID in it. Otherwise, you can use the error code and error message to identify the problem with the entry.
 --
--- * 'persResponseStatus'
+-- * 'persResponseStatus' - -- | The response status code.
 putEventsResponse
     :: Int -- ^ 'persResponseStatus'
     -> PutEventsResponse
 putEventsResponse pResponseStatus_ =
-    PutEventsResponse'
-    { _persFailedEntryCount = Nothing
-    , _persEntries = Nothing
-    , _persResponseStatus = pResponseStatus_
-    }
+  PutEventsResponse'
+  { _persFailedEntryCount = Nothing
+  , _persEntries = Nothing
+  , _persResponseStatus = pResponseStatus_
+  }
+
 
 -- | The number of failed entries.
 persFailedEntryCount :: Lens' PutEventsResponse (Maybe Int)
 persFailedEntryCount = lens _persFailedEntryCount (\ s a -> s{_persFailedEntryCount = a});
 
--- | A list of successfully and unsuccessfully ingested events results. If the ingestion was successful, the entry will have the event ID in it. If not, then the ErrorCode and ErrorMessage can be used to identify the problem with the entry.
+-- | The successfully and unsuccessfully ingested events results. If the ingestion was successful, the entry has the event ID in it. Otherwise, you can use the error code and error message to identify the problem with the entry.
 persEntries :: Lens' PutEventsResponse [PutEventsResultEntry]
 persEntries = lens _persEntries (\ s a -> s{_persEntries = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 persResponseStatus :: Lens' PutEventsResponse Int
 persResponseStatus = lens _persResponseStatus (\ s a -> s{_persResponseStatus = a});
 
-instance NFData PutEventsResponse
+instance NFData PutEventsResponse where

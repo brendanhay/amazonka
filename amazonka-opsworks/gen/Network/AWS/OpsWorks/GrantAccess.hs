@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.GrantAccess
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This action can be used only with Windows stacks.
---
 -- Grants RDP access to a Windows instance for a specified time period.
+--
+--
 module Network.AWS.OpsWorks.GrantAccess
     (
     -- * Creating a Request
@@ -38,40 +38,39 @@ module Network.AWS.OpsWorks.GrantAccess
     , garsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'grantAccess' smart constructor.
 data GrantAccess = GrantAccess'
-    { _gaValidForInMinutes :: !(Maybe Nat)
-    , _gaInstanceId        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gaValidForInMinutes :: !(Maybe Nat)
+  , _gaInstanceId        :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GrantAccess' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaValidForInMinutes'
+-- * 'gaValidForInMinutes' - The length of time (in minutes) that the grant is valid. When the grant expires at the end of this period, the user will no longer be able to use the credentials to log in. If the user is logged in at the time, he or she automatically will be logged out.
 --
--- * 'gaInstanceId'
+-- * 'gaInstanceId' - The instance's AWS OpsWorks Stacks ID.
 grantAccess
     :: Text -- ^ 'gaInstanceId'
     -> GrantAccess
 grantAccess pInstanceId_ =
-    GrantAccess'
-    { _gaValidForInMinutes = Nothing
-    , _gaInstanceId = pInstanceId_
-    }
+  GrantAccess' {_gaValidForInMinutes = Nothing, _gaInstanceId = pInstanceId_}
+
 
 -- | The length of time (in minutes) that the grant is valid. When the grant expires at the end of this period, the user will no longer be able to use the credentials to log in. If the user is logged in at the time, he or she automatically will be logged out.
 gaValidForInMinutes :: Lens' GrantAccess (Maybe Natural)
 gaValidForInMinutes = lens _gaValidForInMinutes (\ s a -> s{_gaValidForInMinutes = a}) . mapping _Nat;
 
--- | The instance\'s AWS OpsWorks ID.
+-- | The instance's AWS OpsWorks Stacks ID.
 gaInstanceId :: Lens' GrantAccess Text
 gaInstanceId = lens _gaInstanceId (\ s a -> s{_gaInstanceId = a});
 
@@ -85,9 +84,9 @@ instance AWSRequest GrantAccess where
                    (x .?> "TemporaryCredential") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GrantAccess
+instance Hashable GrantAccess where
 
-instance NFData GrantAccess
+instance NFData GrantAccess where
 
 instance ToHeaders GrantAccess where
         toHeaders
@@ -111,36 +110,38 @@ instance ToPath GrantAccess where
 instance ToQuery GrantAccess where
         toQuery = const mempty
 
--- | Contains the response to a 'GrantAccess' request.
+-- | Contains the response to a @GrantAccess@ request.
+--
+--
 --
 -- /See:/ 'grantAccessResponse' smart constructor.
 data GrantAccessResponse = GrantAccessResponse'
-    { _garsTemporaryCredential :: !(Maybe TemporaryCredential)
-    , _garsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _garsTemporaryCredential :: !(Maybe TemporaryCredential)
+  , _garsResponseStatus      :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GrantAccessResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'garsTemporaryCredential'
+-- * 'garsTemporaryCredential' - A @TemporaryCredential@ object that contains the data needed to log in to the instance by RDP clients, such as the Microsoft Remote Desktop Connection.
 --
--- * 'garsResponseStatus'
+-- * 'garsResponseStatus' - -- | The response status code.
 grantAccessResponse
     :: Int -- ^ 'garsResponseStatus'
     -> GrantAccessResponse
 grantAccessResponse pResponseStatus_ =
-    GrantAccessResponse'
-    { _garsTemporaryCredential = Nothing
-    , _garsResponseStatus = pResponseStatus_
-    }
+  GrantAccessResponse'
+  {_garsTemporaryCredential = Nothing, _garsResponseStatus = pResponseStatus_}
 
--- | A 'TemporaryCredential' object that contains the data needed to log in to the instance by RDP clients, such as the Microsoft Remote Desktop Connection.
+
+-- | A @TemporaryCredential@ object that contains the data needed to log in to the instance by RDP clients, such as the Microsoft Remote Desktop Connection.
 garsTemporaryCredential :: Lens' GrantAccessResponse (Maybe TemporaryCredential)
 garsTemporaryCredential = lens _garsTemporaryCredential (\ s a -> s{_garsTemporaryCredential = a});
 
--- | The response status code.
+-- | -- | The response status code.
 garsResponseStatus :: Lens' GrantAccessResponse Int
 garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
 
-instance NFData GrantAccessResponse
+instance NFData GrantAccessResponse where

@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,6 +49,9 @@ module Network.AWS.Route53Domains
 
     -- ** GetDomainDetail
     , module Network.AWS.Route53Domains.GetDomainDetail
+
+    -- ** CheckDomainTransferability
+    , module Network.AWS.Route53Domains.CheckDomainTransferability
 
     -- ** UpdateDomainContactPrivacy
     , module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
@@ -136,6 +139,9 @@ module Network.AWS.Route53Domains
     -- ** ReachabilityStatus
     , ReachabilityStatus (..)
 
+    -- ** Transferable
+    , Transferable (..)
+
     -- ** BillingRecord
     , BillingRecord
     , billingRecord
@@ -177,6 +183,11 @@ module Network.AWS.Route53Domains
     , dsAutoRenew
     , dsDomainName
 
+    -- ** DomainTransferability
+    , DomainTransferability
+    , domainTransferability
+    , dtTransferable
+
     -- ** ExtraParam
     , ExtraParam
     , extraParam
@@ -204,31 +215,32 @@ module Network.AWS.Route53Domains
     , tagKey
     ) where
 
-import           Network.AWS.Route53Domains.CheckDomainAvailability
-import           Network.AWS.Route53Domains.DeleteTagsForDomain
-import           Network.AWS.Route53Domains.DisableDomainAutoRenew
-import           Network.AWS.Route53Domains.DisableDomainTransferLock
-import           Network.AWS.Route53Domains.EnableDomainAutoRenew
-import           Network.AWS.Route53Domains.EnableDomainTransferLock
-import           Network.AWS.Route53Domains.GetContactReachabilityStatus
-import           Network.AWS.Route53Domains.GetDomainDetail
-import           Network.AWS.Route53Domains.GetDomainSuggestions
-import           Network.AWS.Route53Domains.GetOperationDetail
-import           Network.AWS.Route53Domains.ListDomains
-import           Network.AWS.Route53Domains.ListOperations
-import           Network.AWS.Route53Domains.ListTagsForDomain
-import           Network.AWS.Route53Domains.RegisterDomain
-import           Network.AWS.Route53Domains.RenewDomain
-import           Network.AWS.Route53Domains.ResendContactReachabilityEmail
-import           Network.AWS.Route53Domains.RetrieveDomainAuthCode
-import           Network.AWS.Route53Domains.TransferDomain
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.UpdateDomainContact
-import           Network.AWS.Route53Domains.UpdateDomainContactPrivacy
-import           Network.AWS.Route53Domains.UpdateDomainNameservers
-import           Network.AWS.Route53Domains.UpdateTagsForDomain
-import           Network.AWS.Route53Domains.ViewBilling
-import           Network.AWS.Route53Domains.Waiters
+import Network.AWS.Route53Domains.CheckDomainAvailability
+import Network.AWS.Route53Domains.CheckDomainTransferability
+import Network.AWS.Route53Domains.DeleteTagsForDomain
+import Network.AWS.Route53Domains.DisableDomainAutoRenew
+import Network.AWS.Route53Domains.DisableDomainTransferLock
+import Network.AWS.Route53Domains.EnableDomainAutoRenew
+import Network.AWS.Route53Domains.EnableDomainTransferLock
+import Network.AWS.Route53Domains.GetContactReachabilityStatus
+import Network.AWS.Route53Domains.GetDomainDetail
+import Network.AWS.Route53Domains.GetDomainSuggestions
+import Network.AWS.Route53Domains.GetOperationDetail
+import Network.AWS.Route53Domains.ListDomains
+import Network.AWS.Route53Domains.ListOperations
+import Network.AWS.Route53Domains.ListTagsForDomain
+import Network.AWS.Route53Domains.RegisterDomain
+import Network.AWS.Route53Domains.RenewDomain
+import Network.AWS.Route53Domains.ResendContactReachabilityEmail
+import Network.AWS.Route53Domains.RetrieveDomainAuthCode
+import Network.AWS.Route53Domains.TransferDomain
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.UpdateDomainContact
+import Network.AWS.Route53Domains.UpdateDomainContactPrivacy
+import Network.AWS.Route53Domains.UpdateDomainNameservers
+import Network.AWS.Route53Domains.UpdateTagsForDomain
+import Network.AWS.Route53Domains.ViewBilling
+import Network.AWS.Route53Domains.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

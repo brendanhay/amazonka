@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.ECS
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.ECS where
 
 import Data.Proxy
+import Network.AWS.ECS
+import Test.AWS.ECS.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.ECS
-import Test.AWS.ECS.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -58,6 +58,9 @@ import Test.AWS.ECS.Internal
 --         , requestDescribeContainerInstances $
 --             describeContainerInstances
 --
+--         , requestUpdateContainerInstancesState $
+--             updateContainerInstancesState
+--
 --         , requestDeleteCluster $
 --             deleteCluster
 --
@@ -88,6 +91,9 @@ import Test.AWS.ECS.Internal
 --         , requestStartTask $
 --             startTask
 --
+--         , requestListAttributes $
+--             listAttributes
+--
 --         , requestDeregisterTaskDefinition $
 --             deregisterTaskDefinition
 --
@@ -102,6 +108,12 @@ import Test.AWS.ECS.Internal
 --
 --         , requestDeregisterContainerInstance $
 --             deregisterContainerInstance
+--
+--         , requestDeleteAttributes $
+--             deleteAttributes
+--
+--         , requestPutAttributes $
+--             putAttributes
 --
 --         , requestRegisterTaskDefinition $
 --             registerTaskDefinition
@@ -142,6 +154,9 @@ import Test.AWS.ECS.Internal
 --         , responseDescribeContainerInstances $
 --             describeContainerInstancesResponse
 --
+--         , responseUpdateContainerInstancesState $
+--             updateContainerInstancesStateResponse
+--
 --         , responseDeleteCluster $
 --             deleteClusterResponse
 --
@@ -172,6 +187,9 @@ import Test.AWS.ECS.Internal
 --         , responseStartTask $
 --             startTaskResponse
 --
+--         , responseListAttributes $
+--             listAttributesResponse
+--
 --         , responseDeregisterTaskDefinition $
 --             deregisterTaskDefinitionResponse
 --
@@ -186,6 +204,12 @@ import Test.AWS.ECS.Internal
 --
 --         , responseDeregisterContainerInstance $
 --             deregisterContainerInstanceResponse
+--
+--         , responseDeleteAttributes $
+--             deleteAttributesResponse
+--
+--         , responsePutAttributes $
+--             putAttributesResponse
 --
 --         , responseRegisterTaskDefinition $
 --             registerTaskDefinitionResponse
@@ -248,6 +272,11 @@ requestDescribeContainerInstances = req
     "DescribeContainerInstances"
     "fixture/DescribeContainerInstances.yaml"
 
+requestUpdateContainerInstancesState :: UpdateContainerInstancesState -> TestTree
+requestUpdateContainerInstancesState = req
+    "UpdateContainerInstancesState"
+    "fixture/UpdateContainerInstancesState.yaml"
+
 requestDeleteCluster :: DeleteCluster -> TestTree
 requestDeleteCluster = req
     "DeleteCluster"
@@ -298,6 +327,11 @@ requestStartTask = req
     "StartTask"
     "fixture/StartTask.yaml"
 
+requestListAttributes :: ListAttributes -> TestTree
+requestListAttributes = req
+    "ListAttributes"
+    "fixture/ListAttributes.yaml"
+
 requestDeregisterTaskDefinition :: DeregisterTaskDefinition -> TestTree
 requestDeregisterTaskDefinition = req
     "DeregisterTaskDefinition"
@@ -322,6 +356,16 @@ requestDeregisterContainerInstance :: DeregisterContainerInstance -> TestTree
 requestDeregisterContainerInstance = req
     "DeregisterContainerInstance"
     "fixture/DeregisterContainerInstance.yaml"
+
+requestDeleteAttributes :: DeleteAttributes -> TestTree
+requestDeleteAttributes = req
+    "DeleteAttributes"
+    "fixture/DeleteAttributes.yaml"
+
+requestPutAttributes :: PutAttributes -> TestTree
+requestPutAttributes = req
+    "PutAttributes"
+    "fixture/PutAttributes.yaml"
 
 requestRegisterTaskDefinition :: RegisterTaskDefinition -> TestTree
 requestRegisterTaskDefinition = req
@@ -405,6 +449,13 @@ responseDescribeContainerInstances = res
     ecs
     (Proxy :: Proxy DescribeContainerInstances)
 
+responseUpdateContainerInstancesState :: UpdateContainerInstancesStateResponse -> TestTree
+responseUpdateContainerInstancesState = res
+    "UpdateContainerInstancesStateResponse"
+    "fixture/UpdateContainerInstancesStateResponse.proto"
+    ecs
+    (Proxy :: Proxy UpdateContainerInstancesState)
+
 responseDeleteCluster :: DeleteClusterResponse -> TestTree
 responseDeleteCluster = res
     "DeleteClusterResponse"
@@ -475,6 +526,13 @@ responseStartTask = res
     ecs
     (Proxy :: Proxy StartTask)
 
+responseListAttributes :: ListAttributesResponse -> TestTree
+responseListAttributes = res
+    "ListAttributesResponse"
+    "fixture/ListAttributesResponse.proto"
+    ecs
+    (Proxy :: Proxy ListAttributes)
+
 responseDeregisterTaskDefinition :: DeregisterTaskDefinitionResponse -> TestTree
 responseDeregisterTaskDefinition = res
     "DeregisterTaskDefinitionResponse"
@@ -509,6 +567,20 @@ responseDeregisterContainerInstance = res
     "fixture/DeregisterContainerInstanceResponse.proto"
     ecs
     (Proxy :: Proxy DeregisterContainerInstance)
+
+responseDeleteAttributes :: DeleteAttributesResponse -> TestTree
+responseDeleteAttributes = res
+    "DeleteAttributesResponse"
+    "fixture/DeleteAttributesResponse.proto"
+    ecs
+    (Proxy :: Proxy DeleteAttributes)
+
+responsePutAttributes :: PutAttributesResponse -> TestTree
+responsePutAttributes = res
+    "PutAttributesResponse"
+    "fixture/PutAttributesResponse.proto"
+    ecs
+    (Proxy :: Proxy PutAttributes)
 
 responseRegisterTaskDefinition :: RegisterTaskDefinitionResponse -> TestTree
 responseRegisterTaskDefinition = res

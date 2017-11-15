@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.PurchaseOffering
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Immediately purchases offerings for an AWS account. Offerings renew with the latest total purchased quantity for an offering, unless the renewal was overridden. The API returns a 'NotEligible' error if the user is not permitted to invoke the operation. Please contact <mailto:aws-devicefarm-support'amazon.com aws-devicefarm-support\'amazon.com> if you believe that you should be able to invoke this operation.
+-- Immediately purchases offerings for an AWS account. Offerings renew with the latest total purchased quantity for an offering, unless the renewal was overridden. The API returns a @NotEligible@ error if the user is not permitted to invoke the operation. Please contact <mailto:aws-devicefarm-support@amazon.com aws-devicefarm-support@amazon.com> if you believe that you should be able to invoke this operation.
+--
+--
 module Network.AWS.DeviceFarm.PurchaseOffering
     (
     -- * Creating a Request
@@ -27,6 +29,7 @@ module Network.AWS.DeviceFarm.PurchaseOffering
     -- * Request Lenses
     , poQuantity
     , poOfferingId
+    , poOfferingPromotionId
 
     -- * Destructuring the Response
     , purchaseOfferingResponse
@@ -36,35 +39,43 @@ module Network.AWS.DeviceFarm.PurchaseOffering
     , porsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request for a purchase offering.
 --
+--
+--
 -- /See:/ 'purchaseOffering' smart constructor.
 data PurchaseOffering = PurchaseOffering'
-    { _poQuantity   :: !(Maybe Int)
-    , _poOfferingId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _poQuantity            :: !(Maybe Int)
+  , _poOfferingId          :: !(Maybe Text)
+  , _poOfferingPromotionId :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurchaseOffering' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'poQuantity'
+-- * 'poQuantity' - The number of device slots you wish to purchase in an offering request.
 --
--- * 'poOfferingId'
+-- * 'poOfferingId' - The ID of the offering.
+--
+-- * 'poOfferingPromotionId' - The ID of the offering promotion to be applied to the purchase.
 purchaseOffering
     :: PurchaseOffering
 purchaseOffering =
-    PurchaseOffering'
-    { _poQuantity = Nothing
-    , _poOfferingId = Nothing
-    }
+  PurchaseOffering'
+  { _poQuantity = Nothing
+  , _poOfferingId = Nothing
+  , _poOfferingPromotionId = Nothing
+  }
+
 
 -- | The number of device slots you wish to purchase in an offering request.
 poQuantity :: Lens' PurchaseOffering (Maybe Int)
@@ -73,6 +84,10 @@ poQuantity = lens _poQuantity (\ s a -> s{_poQuantity = a});
 -- | The ID of the offering.
 poOfferingId :: Lens' PurchaseOffering (Maybe Text)
 poOfferingId = lens _poOfferingId (\ s a -> s{_poOfferingId = a});
+
+-- | The ID of the offering promotion to be applied to the purchase.
+poOfferingPromotionId :: Lens' PurchaseOffering (Maybe Text)
+poOfferingPromotionId = lens _poOfferingPromotionId (\ s a -> s{_poOfferingPromotionId = a});
 
 instance AWSRequest PurchaseOffering where
         type Rs PurchaseOffering = PurchaseOfferingResponse
@@ -84,9 +99,9 @@ instance AWSRequest PurchaseOffering where
                    (x .?> "offeringTransaction") <*>
                      (pure (fromEnum s)))
 
-instance Hashable PurchaseOffering
+instance Hashable PurchaseOffering where
 
-instance NFData PurchaseOffering
+instance NFData PurchaseOffering where
 
 instance ToHeaders PurchaseOffering where
         toHeaders
@@ -103,7 +118,9 @@ instance ToJSON PurchaseOffering where
           = object
               (catMaybes
                  [("quantity" .=) <$> _poQuantity,
-                  ("offeringId" .=) <$> _poOfferingId])
+                  ("offeringId" .=) <$> _poOfferingId,
+                  ("offeringPromotionId" .=) <$>
+                    _poOfferingPromotionId])
 
 instance ToPath PurchaseOffering where
         toPath = const "/"
@@ -113,34 +130,36 @@ instance ToQuery PurchaseOffering where
 
 -- | The result of the purchase offering (e.g., success or failure).
 --
+--
+--
 -- /See:/ 'purchaseOfferingResponse' smart constructor.
 data PurchaseOfferingResponse = PurchaseOfferingResponse'
-    { _porsOfferingTransaction :: !(Maybe OfferingTransaction)
-    , _porsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _porsOfferingTransaction :: !(Maybe OfferingTransaction)
+  , _porsResponseStatus      :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurchaseOfferingResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'porsOfferingTransaction'
+-- * 'porsOfferingTransaction' - Represents the offering transaction for the purchase result.
 --
--- * 'porsResponseStatus'
+-- * 'porsResponseStatus' - -- | The response status code.
 purchaseOfferingResponse
     :: Int -- ^ 'porsResponseStatus'
     -> PurchaseOfferingResponse
 purchaseOfferingResponse pResponseStatus_ =
-    PurchaseOfferingResponse'
-    { _porsOfferingTransaction = Nothing
-    , _porsResponseStatus = pResponseStatus_
-    }
+  PurchaseOfferingResponse'
+  {_porsOfferingTransaction = Nothing, _porsResponseStatus = pResponseStatus_}
+
 
 -- | Represents the offering transaction for the purchase result.
 porsOfferingTransaction :: Lens' PurchaseOfferingResponse (Maybe OfferingTransaction)
 porsOfferingTransaction = lens _porsOfferingTransaction (\ s a -> s{_porsOfferingTransaction = a});
 
--- | The response status code.
+-- | -- | The response status code.
 porsResponseStatus :: Lens' PurchaseOfferingResponse Int
 porsResponseStatus = lens _porsResponseStatus (\ s a -> s{_porsResponseStatus = a});
 
-instance NFData PurchaseOfferingResponse
+instance NFData PurchaseOfferingResponse where

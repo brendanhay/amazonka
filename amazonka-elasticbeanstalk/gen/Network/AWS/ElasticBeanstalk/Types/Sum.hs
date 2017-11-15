@@ -9,35 +9,36 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.ElasticBeanstalk.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ActionHistoryStatus
-    = Completed
-    | Failed
-    | Unknown
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AHSCompleted
+  | AHSFailed
+  | AHSUnknown
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ActionHistoryStatus where
     parser = takeLowerText >>= \case
-        "completed" -> pure Completed
-        "failed" -> pure Failed
-        "unknown" -> pure Unknown
+        "completed" -> pure AHSCompleted
+        "failed" -> pure AHSFailed
+        "unknown" -> pure AHSUnknown
         e -> fromTextError $ "Failure parsing ActionHistoryStatus from value: '" <> e
            <> "'. Accepted values: completed, failed, unknown"
 
 instance ToText ActionHistoryStatus where
     toText = \case
-        Completed -> "Completed"
-        Failed -> "Failed"
-        Unknown -> "Unknown"
+        AHSCompleted -> "Completed"
+        AHSFailed -> "Failed"
+        AHSUnknown -> "Unknown"
 
 instance Hashable     ActionHistoryStatus
 instance NFData       ActionHistoryStatus
@@ -49,11 +50,12 @@ instance FromXML ActionHistoryStatus where
     parseXML = parseXMLText "ActionHistoryStatus"
 
 data ActionStatus
-    = ASPending
-    | ASRunning
-    | ASScheduled
-    | ASUnknown
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ASPending
+  | ASRunning
+  | ASScheduled
+  | ASUnknown
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ActionStatus where
     parser = takeLowerText >>= \case
@@ -81,24 +83,25 @@ instance FromXML ActionStatus where
     parseXML = parseXMLText "ActionStatus"
 
 data ActionType
-    = ATInstanceRefresh
-    | ATPlatformUpdate
-    | ATUnknown
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = InstanceRefresh
+  | PlatformUpdate
+  | Unknown
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ActionType where
     parser = takeLowerText >>= \case
-        "instancerefresh" -> pure ATInstanceRefresh
-        "platformupdate" -> pure ATPlatformUpdate
-        "unknown" -> pure ATUnknown
+        "instancerefresh" -> pure InstanceRefresh
+        "platformupdate" -> pure PlatformUpdate
+        "unknown" -> pure Unknown
         e -> fromTextError $ "Failure parsing ActionType from value: '" <> e
            <> "'. Accepted values: instancerefresh, platformupdate, unknown"
 
 instance ToText ActionType where
     toText = \case
-        ATInstanceRefresh -> "InstanceRefresh"
-        ATPlatformUpdate -> "PlatformUpdate"
-        ATUnknown -> "Unknown"
+        InstanceRefresh -> "InstanceRefresh"
+        PlatformUpdate -> "PlatformUpdate"
+        Unknown -> "Unknown"
 
 instance Hashable     ActionType
 instance NFData       ActionType
@@ -110,23 +113,27 @@ instance FromXML ActionType where
     parseXML = parseXMLText "ActionType"
 
 data ApplicationVersionStatus
-    = AVSFailed
-    | AVSProcessed
-    | AVSProcessing
-    | AVSUnprocessed
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AVSBuilding
+  | AVSFailed
+  | AVSProcessed
+  | AVSProcessing
+  | AVSUnprocessed
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ApplicationVersionStatus where
     parser = takeLowerText >>= \case
+        "building" -> pure AVSBuilding
         "failed" -> pure AVSFailed
         "processed" -> pure AVSProcessed
         "processing" -> pure AVSProcessing
         "unprocessed" -> pure AVSUnprocessed
         e -> fromTextError $ "Failure parsing ApplicationVersionStatus from value: '" <> e
-           <> "'. Accepted values: failed, processed, processing, unprocessed"
+           <> "'. Accepted values: building, failed, processed, processing, unprocessed"
 
 instance ToText ApplicationVersionStatus where
     toText = \case
+        AVSBuilding -> "Building"
         AVSFailed -> "Failed"
         AVSProcessed -> "Processed"
         AVSProcessing -> "Processing"
@@ -141,11 +148,39 @@ instance ToHeader     ApplicationVersionStatus
 instance FromXML ApplicationVersionStatus where
     parseXML = parseXMLText "ApplicationVersionStatus"
 
+data ComputeType
+  = BuildGENERAL1Large
+  | BuildGENERAL1Medium
+  | BuildGENERAL1Small
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ComputeType where
+    parser = takeLowerText >>= \case
+        "build_general1_large" -> pure BuildGENERAL1Large
+        "build_general1_medium" -> pure BuildGENERAL1Medium
+        "build_general1_small" -> pure BuildGENERAL1Small
+        e -> fromTextError $ "Failure parsing ComputeType from value: '" <> e
+           <> "'. Accepted values: build_general1_large, build_general1_medium, build_general1_small"
+
+instance ToText ComputeType where
+    toText = \case
+        BuildGENERAL1Large -> "BUILD_GENERAL1_LARGE"
+        BuildGENERAL1Medium -> "BUILD_GENERAL1_MEDIUM"
+        BuildGENERAL1Small -> "BUILD_GENERAL1_SMALL"
+
+instance Hashable     ComputeType
+instance NFData       ComputeType
+instance ToByteString ComputeType
+instance ToQuery      ComputeType
+instance ToHeader     ComputeType
+
 data ConfigurationDeploymentStatus
-    = CDSDeployed
-    | CDSFailed
-    | CDSPending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CDSDeployed
+  | CDSFailed
+  | CDSPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ConfigurationDeploymentStatus where
     parser = takeLowerText >>= \case
@@ -171,9 +206,10 @@ instance FromXML ConfigurationDeploymentStatus where
     parseXML = parseXMLText "ConfigurationDeploymentStatus"
 
 data ConfigurationOptionValueType
-    = List
-    | Scalar
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = List
+  | Scalar
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ConfigurationOptionValueType where
     parser = takeLowerText >>= \case
@@ -197,11 +233,12 @@ instance FromXML ConfigurationOptionValueType where
     parseXML = parseXMLText "ConfigurationOptionValueType"
 
 data EnvironmentHealth
-    = Green
-    | Grey
-    | Red
-    | Yellow
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Green
+  | Grey
+  | Red
+  | Yellow
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EnvironmentHealth where
     parser = takeLowerText >>= \case
@@ -229,15 +266,16 @@ instance FromXML EnvironmentHealth where
     parseXML = parseXMLText "EnvironmentHealth"
 
 data EnvironmentHealthAttribute
-    = EHAAll
-    | EHAApplicationMetrics
-    | EHACauses
-    | EHAColor
-    | EHAHealthStatus
-    | EHAInstancesHealth
-    | EHARefreshedAt
-    | EHAStatus
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = EHAAll
+  | EHAApplicationMetrics
+  | EHACauses
+  | EHAColor
+  | EHAHealthStatus
+  | EHAInstancesHealth
+  | EHARefreshedAt
+  | EHAStatus
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EnvironmentHealthAttribute where
     parser = takeLowerText >>= \case
@@ -270,15 +308,16 @@ instance ToQuery      EnvironmentHealthAttribute
 instance ToHeader     EnvironmentHealthAttribute
 
 data EnvironmentHealthStatus
-    = EHSDegraded
-    | EHSInfo
-    | EHSNoData
-    | EHSOK
-    | EHSPending
-    | EHSSevere
-    | EHSUnknown
-    | EHSWarning
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = EHSDegraded
+  | EHSInfo
+  | EHSNoData
+  | EHSOK
+  | EHSPending
+  | EHSSevere
+  | EHSUnknown
+  | EHSWarning
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EnvironmentHealthStatus where
     parser = takeLowerText >>= \case
@@ -314,9 +353,10 @@ instance FromXML EnvironmentHealthStatus where
     parseXML = parseXMLText "EnvironmentHealthStatus"
 
 data EnvironmentInfoType
-    = Bundle
-    | Tail
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Bundle
+  | Tail
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EnvironmentInfoType where
     parser = takeLowerText >>= \case
@@ -340,30 +380,31 @@ instance FromXML EnvironmentInfoType where
     parseXML = parseXMLText "EnvironmentInfoType"
 
 data EnvironmentStatus
-    = Launching
-    | Ready
-    | Terminated
-    | Terminating
-    | Updating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ESLaunching
+  | ESReady
+  | ESTerminated
+  | ESTerminating
+  | ESUpdating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EnvironmentStatus where
     parser = takeLowerText >>= \case
-        "launching" -> pure Launching
-        "ready" -> pure Ready
-        "terminated" -> pure Terminated
-        "terminating" -> pure Terminating
-        "updating" -> pure Updating
+        "launching" -> pure ESLaunching
+        "ready" -> pure ESReady
+        "terminated" -> pure ESTerminated
+        "terminating" -> pure ESTerminating
+        "updating" -> pure ESUpdating
         e -> fromTextError $ "Failure parsing EnvironmentStatus from value: '" <> e
            <> "'. Accepted values: launching, ready, terminated, terminating, updating"
 
 instance ToText EnvironmentStatus where
     toText = \case
-        Launching -> "Launching"
-        Ready -> "Ready"
-        Terminated -> "Terminated"
-        Terminating -> "Terminating"
-        Updating -> "Updating"
+        ESLaunching -> "Launching"
+        ESReady -> "Ready"
+        ESTerminated -> "Terminated"
+        ESTerminating -> "Terminating"
+        ESUpdating -> "Updating"
 
 instance Hashable     EnvironmentStatus
 instance NFData       EnvironmentStatus
@@ -375,13 +416,14 @@ instance FromXML EnvironmentStatus where
     parseXML = parseXMLText "EnvironmentStatus"
 
 data EventSeverity
-    = LevelDebug
-    | LevelError'
-    | LevelFatal
-    | LevelInfo
-    | LevelTrace
-    | LevelWarn
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = LevelDebug
+  | LevelError'
+  | LevelFatal
+  | LevelInfo
+  | LevelTrace
+  | LevelWarn
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EventSeverity where
     parser = takeLowerText >>= \case
@@ -413,14 +455,15 @@ instance FromXML EventSeverity where
     parseXML = parseXMLText "EventSeverity"
 
 data FailureType
-    = CancellationFailed
-    | InternalFailure
-    | InvalidEnvironmentState
-    | PermissionsError
-    | RollbackFailed
-    | RollbackSuccessful
-    | UpdateCancelled
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CancellationFailed
+  | InternalFailure
+  | InvalidEnvironmentState
+  | PermissionsError
+  | RollbackFailed
+  | RollbackSuccessful
+  | UpdateCancelled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText FailureType where
     parser = takeLowerText >>= \case
@@ -454,18 +497,19 @@ instance FromXML FailureType where
     parseXML = parseXMLText "FailureType"
 
 data InstancesHealthAttribute
-    = All
-    | ApplicationMetrics
-    | AvailabilityZone
-    | Causes
-    | Color
-    | Deployment
-    | HealthStatus
-    | InstanceType
-    | LaunchedAt
-    | RefreshedAt
-    | System
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = All
+  | ApplicationMetrics
+  | AvailabilityZone
+  | Causes
+  | Color
+  | Deployment
+  | HealthStatus
+  | InstanceType
+  | LaunchedAt
+  | RefreshedAt
+  | System
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstancesHealthAttribute where
     parser = takeLowerText >>= \case
@@ -503,10 +547,101 @@ instance ToByteString InstancesHealthAttribute
 instance ToQuery      InstancesHealthAttribute
 instance ToHeader     InstancesHealthAttribute
 
+data PlatformStatus
+  = Creating
+  | Deleted
+  | Deleting
+  | Failed
+  | Ready
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText PlatformStatus where
+    parser = takeLowerText >>= \case
+        "creating" -> pure Creating
+        "deleted" -> pure Deleted
+        "deleting" -> pure Deleting
+        "failed" -> pure Failed
+        "ready" -> pure Ready
+        e -> fromTextError $ "Failure parsing PlatformStatus from value: '" <> e
+           <> "'. Accepted values: creating, deleted, deleting, failed, ready"
+
+instance ToText PlatformStatus where
+    toText = \case
+        Creating -> "Creating"
+        Deleted -> "Deleted"
+        Deleting -> "Deleting"
+        Failed -> "Failed"
+        Ready -> "Ready"
+
+instance Hashable     PlatformStatus
+instance NFData       PlatformStatus
+instance ToByteString PlatformStatus
+instance ToQuery      PlatformStatus
+instance ToHeader     PlatformStatus
+
+instance FromXML PlatformStatus where
+    parseXML = parseXMLText "PlatformStatus"
+
+data SourceRepository
+  = CodeCommit
+  | S3
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText SourceRepository where
+    parser = takeLowerText >>= \case
+        "codecommit" -> pure CodeCommit
+        "s3" -> pure S3
+        e -> fromTextError $ "Failure parsing SourceRepository from value: '" <> e
+           <> "'. Accepted values: codecommit, s3"
+
+instance ToText SourceRepository where
+    toText = \case
+        CodeCommit -> "CodeCommit"
+        S3 -> "S3"
+
+instance Hashable     SourceRepository
+instance NFData       SourceRepository
+instance ToByteString SourceRepository
+instance ToQuery      SourceRepository
+instance ToHeader     SourceRepository
+
+instance FromXML SourceRepository where
+    parseXML = parseXMLText "SourceRepository"
+
+data SourceType
+  = Git
+  | Zip
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText SourceType where
+    parser = takeLowerText >>= \case
+        "git" -> pure Git
+        "zip" -> pure Zip
+        e -> fromTextError $ "Failure parsing SourceType from value: '" <> e
+           <> "'. Accepted values: git, zip"
+
+instance ToText SourceType where
+    toText = \case
+        Git -> "Git"
+        Zip -> "Zip"
+
+instance Hashable     SourceType
+instance NFData       SourceType
+instance ToByteString SourceType
+instance ToQuery      SourceType
+instance ToHeader     SourceType
+
+instance FromXML SourceType where
+    parseXML = parseXMLText "SourceType"
+
 data ValidationSeverity
-    = Error'
-    | Warning
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Error'
+  | Warning
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ValidationSeverity where
     parser = takeLowerText >>= \case

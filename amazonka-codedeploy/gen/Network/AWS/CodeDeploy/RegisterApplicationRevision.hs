@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.RegisterApplicationRevision
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers with AWS CodeDeploy a revision for the specified application.
+--
+--
 module Network.AWS.CodeDeploy.RegisterApplicationRevision
     (
     -- * Creating a Request
@@ -34,41 +36,45 @@ module Network.AWS.CodeDeploy.RegisterApplicationRevision
     , RegisterApplicationRevisionResponse
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a register application revision operation.
+-- | Represents the input of a RegisterApplicationRevision operation.
+--
+--
 --
 -- /See:/ 'registerApplicationRevision' smart constructor.
 data RegisterApplicationRevision = RegisterApplicationRevision'
-    { _rarDescription     :: !(Maybe Text)
-    , _rarApplicationName :: !Text
-    , _rarRevision        :: !RevisionLocation
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rarDescription     :: !(Maybe Text)
+  , _rarApplicationName :: !Text
+  , _rarRevision        :: !RevisionLocation
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterApplicationRevision' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rarDescription'
+-- * 'rarDescription' - A comment about the revision.
 --
--- * 'rarApplicationName'
+-- * 'rarApplicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 --
--- * 'rarRevision'
+-- * 'rarRevision' - Information about the application revision to register, including type and location.
 registerApplicationRevision
     :: Text -- ^ 'rarApplicationName'
     -> RevisionLocation -- ^ 'rarRevision'
     -> RegisterApplicationRevision
 registerApplicationRevision pApplicationName_ pRevision_ =
-    RegisterApplicationRevision'
-    { _rarDescription = Nothing
-    , _rarApplicationName = pApplicationName_
-    , _rarRevision = pRevision_
-    }
+  RegisterApplicationRevision'
+  { _rarDescription = Nothing
+  , _rarApplicationName = pApplicationName_
+  , _rarRevision = pRevision_
+  }
+
 
 -- | A comment about the revision.
 rarDescription :: Lens' RegisterApplicationRevision (Maybe Text)
@@ -89,9 +95,9 @@ instance AWSRequest RegisterApplicationRevision where
         response
           = receiveNull RegisterApplicationRevisionResponse'
 
-instance Hashable RegisterApplicationRevision
+instance Hashable RegisterApplicationRevision where
 
-instance NFData RegisterApplicationRevision
+instance NFData RegisterApplicationRevision where
 
 instance ToHeaders RegisterApplicationRevision where
         toHeaders
@@ -119,8 +125,9 @@ instance ToQuery RegisterApplicationRevision where
 
 -- | /See:/ 'registerApplicationRevisionResponse' smart constructor.
 data RegisterApplicationRevisionResponse =
-    RegisterApplicationRevisionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RegisterApplicationRevisionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterApplicationRevisionResponse' with the minimum fields required to make a request.
 --
@@ -128,4 +135,6 @@ registerApplicationRevisionResponse
     :: RegisterApplicationRevisionResponse
 registerApplicationRevisionResponse = RegisterApplicationRevisionResponse'
 
+
 instance NFData RegisterApplicationRevisionResponse
+         where

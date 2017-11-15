@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes one or more tags from one or more on-premises instances.
+--
+--
 module Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
     (
     -- * Creating a Request
@@ -33,35 +35,37 @@ module Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
     , RemoveTagsFromOnPremisesInstancesResponse
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a remove tags from on-premises instances operation.
+-- | Represents the input of a RemoveTagsFromOnPremisesInstances operation.
+--
+--
 --
 -- /See:/ 'removeTagsFromOnPremisesInstances' smart constructor.
 data RemoveTagsFromOnPremisesInstances = RemoveTagsFromOnPremisesInstances'
-    { _rtfopiTags          :: ![Tag]
-    , _rtfopiInstanceNames :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtfopiTags          :: ![Tag]
+  , _rtfopiInstanceNames :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTagsFromOnPremisesInstances' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfopiTags'
+-- * 'rtfopiTags' - The tag key-value pairs to remove from the on-premises instances.
 --
--- * 'rtfopiInstanceNames'
+-- * 'rtfopiInstanceNames' - The names of the on-premises instances from which to remove tags.
 removeTagsFromOnPremisesInstances
     :: RemoveTagsFromOnPremisesInstances
 removeTagsFromOnPremisesInstances =
-    RemoveTagsFromOnPremisesInstances'
-    { _rtfopiTags = mempty
-    , _rtfopiInstanceNames = mempty
-    }
+  RemoveTagsFromOnPremisesInstances'
+  {_rtfopiTags = mempty, _rtfopiInstanceNames = mempty}
+
 
 -- | The tag key-value pairs to remove from the on-premises instances.
 rtfopiTags :: Lens' RemoveTagsFromOnPremisesInstances [Tag]
@@ -81,8 +85,10 @@ instance AWSRequest RemoveTagsFromOnPremisesInstances
               RemoveTagsFromOnPremisesInstancesResponse'
 
 instance Hashable RemoveTagsFromOnPremisesInstances
+         where
 
 instance NFData RemoveTagsFromOnPremisesInstances
+         where
 
 instance ToHeaders RemoveTagsFromOnPremisesInstances
          where
@@ -113,15 +119,18 @@ instance ToQuery RemoveTagsFromOnPremisesInstances
 
 -- | /See:/ 'removeTagsFromOnPremisesInstancesResponse' smart constructor.
 data RemoveTagsFromOnPremisesInstancesResponse =
-    RemoveTagsFromOnPremisesInstancesResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RemoveTagsFromOnPremisesInstancesResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTagsFromOnPremisesInstancesResponse' with the minimum fields required to make a request.
 --
 removeTagsFromOnPremisesInstancesResponse
     :: RemoveTagsFromOnPremisesInstancesResponse
 removeTagsFromOnPremisesInstancesResponse =
-    RemoveTagsFromOnPremisesInstancesResponse'
+  RemoveTagsFromOnPremisesInstancesResponse'
+
 
 instance NFData
-         RemoveTagsFromOnPremisesInstancesResponse
+           RemoveTagsFromOnPremisesInstancesResponse
+         where

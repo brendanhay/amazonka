@@ -12,23 +12,25 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeCacheClusters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DescribeCacheClusters/ action returns information about all provisioned cache clusters if no cache cluster identifier is specified, or about a specific cache cluster if a cache cluster identifier is supplied.
+-- Returns information about all provisioned clusters if no cluster identifier is specified, or about a specific cache cluster if a cluster identifier is supplied.
 --
--- By default, abbreviated information about the cache clusters(s) will be returned. You can use the optional /ShowDetails/ flag to retrieve detailed information about the cache nodes associated with the cache clusters. These details include the DNS address and port for the cache node endpoint.
 --
--- If the cluster is in the CREATING state, only cluster level information will be displayed until all of the nodes are successfully provisioned.
+-- By default, abbreviated information about the clusters is returned. You can use the optional /ShowCacheNodeInfo/ flag to retrieve detailed information about the cache nodes associated with the clusters. These details include the DNS address and port for the cache node endpoint.
 --
--- If the cluster is in the DELETING state, only cluster level information will be displayed.
+-- If the cluster is in the /creating/ state, only cluster-level information is displayed until all of the nodes are successfully provisioned.
 --
--- If cache nodes are currently being added to the cache cluster, node endpoint information and creation time for the additional nodes will not be displayed until they are completely provisioned. When the cache cluster state is /available/, the cluster is ready for use.
+-- If the cluster is in the /deleting/ state, only cluster-level information is displayed.
 --
--- If cache nodes are currently being removed from the cache cluster, no endpoint information for the removed nodes is displayed.
+-- If cache nodes are currently being added to the cluster, node endpoint information and creation time for the additional nodes are not displayed until they are completely provisioned. When the cluster state is /available/ , the cluster is ready for use.
+--
+-- If cache nodes are currently being removed from the cluster, no endpoint information for the removed nodes is displayed.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheClusters
@@ -37,6 +39,7 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
       describeCacheClusters
     , DescribeCacheClusters
     -- * Request Lenses
+    , dShowCacheClustersNotInReplicationGroups
     , dCacheClusterId
     , dMarker
     , dMaxRecords
@@ -51,62 +54,70 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
     , drsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a /DescribeCacheClusters/ action.
+-- | Represents the input of a @DescribeCacheClusters@ operation.
+--
+--
 --
 -- /See:/ 'describeCacheClusters' smart constructor.
 data DescribeCacheClusters = DescribeCacheClusters'
-    { _dCacheClusterId    :: !(Maybe Text)
-    , _dMarker            :: !(Maybe Text)
-    , _dMaxRecords        :: !(Maybe Int)
-    , _dShowCacheNodeInfo :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dShowCacheClustersNotInReplicationGroups :: !(Maybe Bool)
+  , _dCacheClusterId                          :: !(Maybe Text)
+  , _dMarker                                  :: !(Maybe Text)
+  , _dMaxRecords                              :: !(Maybe Int)
+  , _dShowCacheNodeInfo                       :: !(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCacheClusters' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dCacheClusterId'
+-- * 'dShowCacheClustersNotInReplicationGroups' - An optional flag that can be included in the @DescribeCacheCluster@ request to show only nodes (API/CLI: clusters) that are not members of a replication group. In practice, this mean Memcached and single node Redis clusters.
 --
--- * 'dMarker'
+-- * 'dCacheClusterId' - The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn't case sensitive.
 --
--- * 'dMaxRecords'
+-- * 'dMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dShowCacheNodeInfo'
+-- * 'dMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
+--
+-- * 'dShowCacheNodeInfo' - An optional flag that can be included in the @DescribeCacheCluster@ request to retrieve information about the individual cache nodes.
 describeCacheClusters
     :: DescribeCacheClusters
 describeCacheClusters =
-    DescribeCacheClusters'
-    { _dCacheClusterId = Nothing
-    , _dMarker = Nothing
-    , _dMaxRecords = Nothing
-    , _dShowCacheNodeInfo = Nothing
-    }
+  DescribeCacheClusters'
+  { _dShowCacheClustersNotInReplicationGroups = Nothing
+  , _dCacheClusterId = Nothing
+  , _dMarker = Nothing
+  , _dMaxRecords = Nothing
+  , _dShowCacheNodeInfo = Nothing
+  }
 
--- | The user-supplied cluster identifier. If this parameter is specified, only information about that specific cache cluster is returned. This parameter isn\'t case sensitive.
+
+-- | An optional flag that can be included in the @DescribeCacheCluster@ request to show only nodes (API/CLI: clusters) that are not members of a replication group. In practice, this mean Memcached and single node Redis clusters.
+dShowCacheClustersNotInReplicationGroups :: Lens' DescribeCacheClusters (Maybe Bool)
+dShowCacheClustersNotInReplicationGroups = lens _dShowCacheClustersNotInReplicationGroups (\ s a -> s{_dShowCacheClustersNotInReplicationGroups = a});
+
+-- | The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn't case sensitive.
 dCacheClusterId :: Lens' DescribeCacheClusters (Maybe Text)
 dCacheClusterId = lens _dCacheClusterId (\ s a -> s{_dCacheClusterId = a});
 
--- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/.
+-- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dMarker :: Lens' DescribeCacheClusters (Maybe Text)
 dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: minimum 20; maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
 dMaxRecords :: Lens' DescribeCacheClusters (Maybe Int)
 dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
 
--- | An optional flag that can be included in the DescribeCacheCluster request to retrieve information about the individual cache nodes.
+-- | An optional flag that can be included in the @DescribeCacheCluster@ request to retrieve information about the individual cache nodes.
 dShowCacheNodeInfo :: Lens' DescribeCacheClusters (Maybe Bool)
 dShowCacheNodeInfo = lens _dShowCacheNodeInfo (\ s a -> s{_dShowCacheNodeInfo = a});
 
@@ -129,9 +140,9 @@ instance AWSRequest DescribeCacheClusters where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeCacheClusters
+instance Hashable DescribeCacheClusters where
 
-instance NFData DescribeCacheClusters
+instance NFData DescribeCacheClusters where
 
 instance ToHeaders DescribeCacheClusters where
         toHeaders = const mempty
@@ -144,39 +155,45 @@ instance ToQuery DescribeCacheClusters where
           = mconcat
               ["Action" =: ("DescribeCacheClusters" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
+               "ShowCacheClustersNotInReplicationGroups" =:
+                 _dShowCacheClustersNotInReplicationGroups,
                "CacheClusterId" =: _dCacheClusterId,
                "Marker" =: _dMarker, "MaxRecords" =: _dMaxRecords,
                "ShowCacheNodeInfo" =: _dShowCacheNodeInfo]
 
--- | Represents the output of a /DescribeCacheClusters/ action.
+-- | Represents the output of a @DescribeCacheClusters@ operation.
+--
+--
 --
 -- /See:/ 'describeCacheClustersResponse' smart constructor.
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse'
-    { _drsCacheClusters  :: !(Maybe [CacheCluster])
-    , _drsMarker         :: !(Maybe Text)
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsCacheClusters  :: !(Maybe [CacheCluster])
+  , _drsMarker         :: !(Maybe Text)
+  , _drsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCacheClustersResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsCacheClusters'
+-- * 'drsCacheClusters' - A list of clusters. Each item in the list contains detailed information about one cluster.
 --
--- * 'drsMarker'
+-- * 'drsMarker' - Provides an identifier to allow retrieval of paginated results.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 describeCacheClustersResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeCacheClustersResponse
 describeCacheClustersResponse pResponseStatus_ =
-    DescribeCacheClustersResponse'
-    { _drsCacheClusters = Nothing
-    , _drsMarker = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeCacheClustersResponse'
+  { _drsCacheClusters = Nothing
+  , _drsMarker = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
 
--- | A list of cache clusters. Each item in the list contains detailed information about one cache cluster.
+
+-- | A list of clusters. Each item in the list contains detailed information about one cluster.
 drsCacheClusters :: Lens' DescribeCacheClustersResponse [CacheCluster]
 drsCacheClusters = lens _drsCacheClusters (\ s a -> s{_drsCacheClusters = a}) . _Default . _Coerce;
 
@@ -184,8 +201,8 @@ drsCacheClusters = lens _drsCacheClusters (\ s a -> s{_drsCacheClusters = a}) . 
 drsMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
 drsMarker = lens _drsMarker (\ s a -> s{_drsMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeCacheClustersResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DescribeCacheClustersResponse
+instance NFData DescribeCacheClustersResponse where

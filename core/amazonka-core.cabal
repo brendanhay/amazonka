@@ -1,13 +1,13 @@
 name:                  amazonka-core
-version:               1.4.4
+version:               1.5.0
 synopsis:              Core data types and functionality for Amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               OtherLicense
+license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2016 Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2017 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
@@ -24,6 +24,7 @@ description:
 source-repository head
     type:              git
     location:          git://github.com/brendanhay/amazonka.git
+    subdir:            core
 
 flag old-locale
     description:       Use old-locale and time < 1.5
@@ -33,7 +34,11 @@ library
     default-language:  Haskell2010
     hs-source-dirs:    src
 
-    ghc-options:       -Wall
+    ghc-options:
+        -Wall
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updates
+        -funbox-strict-fields
 
     exposed-modules:
           Network.AWS.Compat.Locale
@@ -61,6 +66,8 @@ library
         , Network.AWS.Prelude
         , Network.AWS.Request
         , Network.AWS.Response
+        , Network.AWS.Sign.V2Header
+        , Network.AWS.Sign.V2Header.Base
         , Network.AWS.Sign.V2
         , Network.AWS.Sign.V4
         , Network.AWS.Types
@@ -126,9 +133,12 @@ test-suite tests
         , Test.AWS.Data.Maybe
         , Test.AWS.Data.Numeric
         , Test.AWS.Data.Path
+        , Test.AWS.Data.Query
         , Test.AWS.Data.Time
         , Test.AWS.Error
+        , Test.AWS.Sign.V2Header.BaseSpec
         , Test.AWS.Sign.V4
+        , Test.AWS.Sign.V4.Chunked
         , Test.AWS.Util
 
     build-depends:
@@ -137,12 +147,16 @@ test-suite tests
         , base
         , bytestring
         , case-insensitive
+        , conduit
+        , data-ordlist
+        , http-conduit
         , http-types
+        , lens
+        , QuickCheck
+        , quickcheck-unicode
         , tasty
         , tasty-hunit
         , tasty-quickcheck
         , template-haskell
         , text
         , time
-        , QuickCheck
-        , quickcheck-unicode

@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ECR.GetDownloadURLForLayer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the pre-signed Amazon S3 download URL corresponding to an image layer. You can only get URLs for image layers that are referenced in an image.
 --
--- This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers. Use the 'docker' CLI to pull, tag, and push images.
+--
 module Network.AWS.ECR.GetDownloadURLForLayer
     (
     -- * Creating a Request
@@ -40,39 +40,41 @@ module Network.AWS.ECR.GetDownloadURLForLayer
     , gduflrsResponseStatus
     ) where
 
-import           Network.AWS.ECR.Types
-import           Network.AWS.ECR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECR.Types
+import Network.AWS.ECR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getDownloadURLForLayer' smart constructor.
 data GetDownloadURLForLayer = GetDownloadURLForLayer'
-    { _gduflRegistryId     :: !(Maybe Text)
-    , _gduflRepositoryName :: !Text
-    , _gduflLayerDigest    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gduflRegistryId     :: !(Maybe Text)
+  , _gduflRepositoryName :: !Text
+  , _gduflLayerDigest    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDownloadURLForLayer' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gduflRegistryId'
+-- * 'gduflRegistryId' - The AWS account ID associated with the registry that contains the image layer to download. If you do not specify a registry, the default registry is assumed.
 --
--- * 'gduflRepositoryName'
+-- * 'gduflRepositoryName' - The name of the repository that is associated with the image layer to download.
 --
--- * 'gduflLayerDigest'
+-- * 'gduflLayerDigest' - The digest of the image layer to download.
 getDownloadURLForLayer
     :: Text -- ^ 'gduflRepositoryName'
     -> Text -- ^ 'gduflLayerDigest'
     -> GetDownloadURLForLayer
 getDownloadURLForLayer pRepositoryName_ pLayerDigest_ =
-    GetDownloadURLForLayer'
-    { _gduflRegistryId = Nothing
-    , _gduflRepositoryName = pRepositoryName_
-    , _gduflLayerDigest = pLayerDigest_
-    }
+  GetDownloadURLForLayer'
+  { _gduflRegistryId = Nothing
+  , _gduflRepositoryName = pRepositoryName_
+  , _gduflLayerDigest = pLayerDigest_
+  }
+
 
 -- | The AWS account ID associated with the registry that contains the image layer to download. If you do not specify a registry, the default registry is assumed.
 gduflRegistryId :: Lens' GetDownloadURLForLayer (Maybe Text)
@@ -97,9 +99,9 @@ instance AWSRequest GetDownloadURLForLayer where
                    (x .?> "layerDigest") <*> (x .?> "downloadUrl") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetDownloadURLForLayer
+instance Hashable GetDownloadURLForLayer where
 
-instance NFData GetDownloadURLForLayer
+instance NFData GetDownloadURLForLayer where
 
 instance ToHeaders GetDownloadURLForLayer where
         toHeaders
@@ -127,29 +129,31 @@ instance ToQuery GetDownloadURLForLayer where
 
 -- | /See:/ 'getDownloadURLForLayerResponse' smart constructor.
 data GetDownloadURLForLayerResponse = GetDownloadURLForLayerResponse'
-    { _gduflrsLayerDigest    :: !(Maybe Text)
-    , _gduflrsDownloadURL    :: !(Maybe Text)
-    , _gduflrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gduflrsLayerDigest    :: !(Maybe Text)
+  , _gduflrsDownloadURL    :: !(Maybe Text)
+  , _gduflrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDownloadURLForLayerResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gduflrsLayerDigest'
+-- * 'gduflrsLayerDigest' - The digest of the image layer to download.
 --
--- * 'gduflrsDownloadURL'
+-- * 'gduflrsDownloadURL' - The pre-signed Amazon S3 download URL for the requested layer.
 --
--- * 'gduflrsResponseStatus'
+-- * 'gduflrsResponseStatus' - -- | The response status code.
 getDownloadURLForLayerResponse
     :: Int -- ^ 'gduflrsResponseStatus'
     -> GetDownloadURLForLayerResponse
 getDownloadURLForLayerResponse pResponseStatus_ =
-    GetDownloadURLForLayerResponse'
-    { _gduflrsLayerDigest = Nothing
-    , _gduflrsDownloadURL = Nothing
-    , _gduflrsResponseStatus = pResponseStatus_
-    }
+  GetDownloadURLForLayerResponse'
+  { _gduflrsLayerDigest = Nothing
+  , _gduflrsDownloadURL = Nothing
+  , _gduflrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The digest of the image layer to download.
 gduflrsLayerDigest :: Lens' GetDownloadURLForLayerResponse (Maybe Text)
@@ -159,8 +163,8 @@ gduflrsLayerDigest = lens _gduflrsLayerDigest (\ s a -> s{_gduflrsLayerDigest = 
 gduflrsDownloadURL :: Lens' GetDownloadURLForLayerResponse (Maybe Text)
 gduflrsDownloadURL = lens _gduflrsDownloadURL (\ s a -> s{_gduflrsDownloadURL = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gduflrsResponseStatus :: Lens' GetDownloadURLForLayerResponse Int
 gduflrsResponseStatus = lens _gduflrsResponseStatus (\ s a -> s{_gduflrsResponseStatus = a});
 
-instance NFData GetDownloadURLForLayerResponse
+instance NFData GetDownloadURLForLayerResponse where

@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ResetCache
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Resets all cache disks that have encountered a error and makes the disks available for reconfiguration as cache storage. If your cache disk encounters a error, the gateway prevents read and write operations on virtual tapes in the gateway. For example, an error can occur when a disk is corrupted or removed from the gateway. When a cache is reset, the gateway loses its cache storage. At this point you can reconfigure the disks as cache disks.
+-- Resets all cache disks that have encountered a error and makes the disks available for reconfiguration as cache storage. If your cache disk encounters a error, the gateway prevents read and write operations on virtual tapes in the gateway. For example, an error can occur when a disk is corrupted or removed from the gateway. When a cache is reset, the gateway loses its cache storage. At this point you can reconfigure the disks as cache disks. This operation is only supported in the cached volume,tape and file gateway architectures.
 --
--- If the cache disk you are resetting contains data that has not been uploaded to Amazon S3 yet, that data can be lost. After you reset cache disks, there will be no configured cache disks left in the gateway, so you must configure at least one new cache disk for your gateway to function properly.
+--
+-- /Important:/ If the cache disk you are resetting contains data that has not been uploaded to Amazon S3 yet, that data can be lost. After you reset cache disks, there will be no configured cache disks left in the gateway, so you must configure at least one new cache disk for your gateway to function properly.
+--
 module Network.AWS.StorageGateway.ResetCache
     (
     -- * Creating a Request
@@ -33,34 +35,33 @@ module Network.AWS.StorageGateway.ResetCache
     , resetCacheResponse
     , ResetCacheResponse
     -- * Response Lenses
-    , rcrsGatewayARN
-    , rcrsResponseStatus
+    , rrsGatewayARN
+    , rrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'resetCache' smart constructor.
 newtype ResetCache = ResetCache'
-    { _rcGatewayARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcGatewayARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResetCache' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcGatewayARN'
+-- * 'rcGatewayARN' - Undocumented member.
 resetCache
     :: Text -- ^ 'rcGatewayARN'
     -> ResetCache
-resetCache pGatewayARN_ =
-    ResetCache'
-    { _rcGatewayARN = pGatewayARN_
-    }
+resetCache pGatewayARN_ = ResetCache' {_rcGatewayARN = pGatewayARN_}
+
 
 -- | Undocumented member.
 rcGatewayARN :: Lens' ResetCache Text
@@ -75,9 +76,9 @@ instance AWSRequest ResetCache where
                  ResetCacheResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-instance Hashable ResetCache
+instance Hashable ResetCache where
 
-instance NFData ResetCache
+instance NFData ResetCache where
 
 instance ToHeaders ResetCache where
         toHeaders
@@ -101,32 +102,32 @@ instance ToQuery ResetCache where
 
 -- | /See:/ 'resetCacheResponse' smart constructor.
 data ResetCacheResponse = ResetCacheResponse'
-    { _rcrsGatewayARN     :: !(Maybe Text)
-    , _rcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrsGatewayARN     :: !(Maybe Text)
+  , _rrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResetCacheResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcrsGatewayARN'
+-- * 'rrsGatewayARN' - Undocumented member.
 --
--- * 'rcrsResponseStatus'
+-- * 'rrsResponseStatus' - -- | The response status code.
 resetCacheResponse
-    :: Int -- ^ 'rcrsResponseStatus'
+    :: Int -- ^ 'rrsResponseStatus'
     -> ResetCacheResponse
 resetCacheResponse pResponseStatus_ =
-    ResetCacheResponse'
-    { _rcrsGatewayARN = Nothing
-    , _rcrsResponseStatus = pResponseStatus_
-    }
+  ResetCacheResponse'
+  {_rrsGatewayARN = Nothing, _rrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
-rcrsGatewayARN :: Lens' ResetCacheResponse (Maybe Text)
-rcrsGatewayARN = lens _rcrsGatewayARN (\ s a -> s{_rcrsGatewayARN = a});
+rrsGatewayARN :: Lens' ResetCacheResponse (Maybe Text)
+rrsGatewayARN = lens _rrsGatewayARN (\ s a -> s{_rrsGatewayARN = a});
 
--- | The response status code.
-rcrsResponseStatus :: Lens' ResetCacheResponse Int
-rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
+-- | -- | The response status code.
+rrsResponseStatus :: Lens' ResetCacheResponse Int
+rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
 
-instance NFData ResetCacheResponse
+instance NFData ResetCacheResponse where

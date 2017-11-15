@@ -9,24 +9,25 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CodePipeline.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ActionCategory
-    = Approval
-    | Build
-    | Deploy
-    | Invoke
-    | Source
-    | Test
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Approval
+  | Build
+  | Deploy
+  | Invoke
+  | Source
+  | Test
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ActionCategory where
     parser = takeLowerText >>= \case
@@ -61,10 +62,11 @@ instance FromJSON ActionCategory where
     parseJSON = parseJSONText "ActionCategory"
 
 data ActionConfigurationPropertyType
-    = Boolean
-    | Number
-    | String
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Boolean
+  | Number
+  | String
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ActionConfigurationPropertyType where
     parser = takeLowerText >>= \case
@@ -93,10 +95,11 @@ instance FromJSON ActionConfigurationPropertyType where
     parseJSON = parseJSONText "ActionConfigurationPropertyType"
 
 data ActionExecutionStatus
-    = AESFailed
-    | AESInProgress
-    | AESSucceeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AESFailed
+  | AESInProgress
+  | AESSucceeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ActionExecutionStatus where
     parser = takeLowerText >>= \case
@@ -122,10 +125,11 @@ instance FromJSON ActionExecutionStatus where
     parseJSON = parseJSONText "ActionExecutionStatus"
 
 data ActionOwner
-    = AWS
-    | Custom
-    | ThirdParty
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AWS
+  | Custom
+  | ThirdParty
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ActionOwner where
     parser = takeLowerText >>= \case
@@ -154,9 +158,10 @@ instance FromJSON ActionOwner where
     parseJSON = parseJSONText "ActionOwner"
 
 data ApprovalStatus
-    = Approved
-    | Rejected
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Approved
+  | Rejected
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ApprovalStatus where
     parser = takeLowerText >>= \case
@@ -180,8 +185,9 @@ instance ToJSON ApprovalStatus where
     toJSON = toJSONText
 
 data ArtifactLocationType =
-    ALTS3
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  ALTS3
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ArtifactLocationType where
     parser = takeLowerText >>= \case
@@ -203,8 +209,9 @@ instance FromJSON ArtifactLocationType where
     parseJSON = parseJSONText "ArtifactLocationType"
 
 data ArtifactStoreType =
-    S3
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  S3
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ArtifactStoreType where
     parser = takeLowerText >>= \case
@@ -229,8 +236,9 @@ instance FromJSON ArtifactStoreType where
     parseJSON = parseJSONText "ArtifactStoreType"
 
 data BlockerType =
-    Schedule
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Schedule
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BlockerType where
     parser = takeLowerText >>= \case
@@ -255,8 +263,9 @@ instance FromJSON BlockerType where
     parseJSON = parseJSONText "BlockerType"
 
 data EncryptionKeyType =
-    KMS
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  KMS
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EncryptionKeyType where
     parser = takeLowerText >>= \case
@@ -281,13 +290,14 @@ instance FromJSON EncryptionKeyType where
     parseJSON = parseJSONText "EncryptionKeyType"
 
 data FailureType
-    = ConfigurationError
-    | JobFailed
-    | PermissionError
-    | RevisionOutOfSync
-    | RevisionUnavailable
-    | SystemUnavailable
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ConfigurationError
+  | JobFailed
+  | PermissionError
+  | RevisionOutOfSync
+  | RevisionUnavailable
+  | SystemUnavailable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText FailureType where
     parser = takeLowerText >>= \case
@@ -319,14 +329,15 @@ instance ToJSON FailureType where
     toJSON = toJSONText
 
 data JobStatus
-    = JSCreated
-    | JSDispatched
-    | JSFailed
-    | JSInProgress
-    | JSQueued
-    | JSSucceeded
-    | JSTimedOut
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = JSCreated
+  | JSDispatched
+  | JSFailed
+  | JSInProgress
+  | JSQueued
+  | JSSucceeded
+  | JSTimedOut
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText JobStatus where
     parser = takeLowerText >>= \case
@@ -360,11 +371,12 @@ instance FromJSON JobStatus where
     parseJSON = parseJSONText "JobStatus"
 
 data PipelineExecutionStatus
-    = Failed
-    | InProgress
-    | Succeeded
-    | Superseded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Failed
+  | InProgress
+  | Succeeded
+  | Superseded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PipelineExecutionStatus where
     parser = takeLowerText >>= \case
@@ -392,10 +404,11 @@ instance FromJSON PipelineExecutionStatus where
     parseJSON = parseJSONText "PipelineExecutionStatus"
 
 data StageExecutionStatus
-    = SESFailed
-    | SESInProgress
-    | SESSucceeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SESFailed
+  | SESInProgress
+  | SESSucceeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StageExecutionStatus where
     parser = takeLowerText >>= \case
@@ -421,8 +434,9 @@ instance FromJSON StageExecutionStatus where
     parseJSON = parseJSONText "StageExecutionStatus"
 
 data StageRetryMode =
-    FailedActions
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  FailedActions
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StageRetryMode where
     parser = takeLowerText >>= \case
@@ -444,9 +458,10 @@ instance ToJSON StageRetryMode where
     toJSON = toJSONText
 
 data StageTransitionType
-    = Inbound
-    | Outbound
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Inbound
+  | Outbound
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StageTransitionType where
     parser = takeLowerText >>= \case

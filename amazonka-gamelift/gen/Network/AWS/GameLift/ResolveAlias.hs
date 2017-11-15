@@ -12,13 +12,31 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.ResolveAlias
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the fleet ID that a specified alias is currently pointing to.
+--
+--
+-- Alias-related operations include:
+--
+--     * 'CreateAlias'
+--
+--     * 'ListAliases'
+--
+--     * 'DescribeAlias'
+--
+--     * 'UpdateAlias'
+--
+--     * 'DeleteAlias'
+--
+--     * 'ResolveAlias'
+--
+--
+--
 module Network.AWS.GameLift.ResolveAlias
     (
     -- * Creating a Request
@@ -35,32 +53,33 @@ module Network.AWS.GameLift.ResolveAlias
     , rarsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'resolveAlias' smart constructor.
 newtype ResolveAlias = ResolveAlias'
-    { _raAliasId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _raAliasId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResolveAlias' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'raAliasId'
+-- * 'raAliasId' - Unique identifier for the alias you want to resolve.
 resolveAlias
     :: Text -- ^ 'raAliasId'
     -> ResolveAlias
-resolveAlias pAliasId_ =
-    ResolveAlias'
-    { _raAliasId = pAliasId_
-    }
+resolveAlias pAliasId_ = ResolveAlias' {_raAliasId = pAliasId_}
+
 
 -- | Unique identifier for the alias you want to resolve.
 raAliasId :: Lens' ResolveAlias Text
@@ -75,9 +94,9 @@ instance AWSRequest ResolveAlias where
                  ResolveAliasResponse' <$>
                    (x .?> "FleetId") <*> (pure (fromEnum s)))
 
-instance Hashable ResolveAlias
+instance Hashable ResolveAlias where
 
-instance NFData ResolveAlias
+instance NFData ResolveAlias where
 
 instance ToHeaders ResolveAlias where
         toHeaders
@@ -100,34 +119,36 @@ instance ToQuery ResolveAlias where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'resolveAliasResponse' smart constructor.
 data ResolveAliasResponse = ResolveAliasResponse'
-    { _rarsFleetId        :: !(Maybe Text)
-    , _rarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rarsFleetId        :: !(Maybe Text)
+  , _rarsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResolveAliasResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rarsFleetId'
+-- * 'rarsFleetId' - Fleet identifier that is associated with the requested alias.
 --
--- * 'rarsResponseStatus'
+-- * 'rarsResponseStatus' - -- | The response status code.
 resolveAliasResponse
     :: Int -- ^ 'rarsResponseStatus'
     -> ResolveAliasResponse
 resolveAliasResponse pResponseStatus_ =
-    ResolveAliasResponse'
-    { _rarsFleetId = Nothing
-    , _rarsResponseStatus = pResponseStatus_
-    }
+  ResolveAliasResponse'
+  {_rarsFleetId = Nothing, _rarsResponseStatus = pResponseStatus_}
 
--- | Fleet ID associated with the requested alias.
+
+-- | Fleet identifier that is associated with the requested alias.
 rarsFleetId :: Lens' ResolveAliasResponse (Maybe Text)
 rarsFleetId = lens _rarsFleetId (\ s a -> s{_rarsFleetId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rarsResponseStatus :: Lens' ResolveAliasResponse Int
 rarsResponseStatus = lens _rarsResponseStatus (\ s a -> s{_rarsResponseStatus = a});
 
-instance NFData ResolveAliasResponse
+instance NFData ResolveAliasResponse where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListUserImportJobs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the user import jobs.
+--
+--
 module Network.AWS.CognitoIdentityProvider.ListUserImportJobs
     (
     -- * Creating a Request
@@ -38,43 +40,47 @@ module Network.AWS.CognitoIdentityProvider.ListUserImportJobs
     , luijrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to list the user import jobs.
 --
+--
+--
 -- /See:/ 'listUserImportJobs' smart constructor.
 data ListUserImportJobs = ListUserImportJobs'
-    { _luijPaginationToken :: !(Maybe Text)
-    , _luijUserPoolId      :: !Text
-    , _luijMaxResults      :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _luijPaginationToken :: !(Maybe Text)
+  , _luijUserPoolId      :: !Text
+  , _luijMaxResults      :: !Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListUserImportJobs' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'luijPaginationToken'
+-- * 'luijPaginationToken' - An identifier that was returned from the previous call to @ListUserImportJobs@ , which can be used to return the next set of import jobs in the list.
 --
--- * 'luijUserPoolId'
+-- * 'luijUserPoolId' - The user pool ID for the user pool that the users are being imported into.
 --
--- * 'luijMaxResults'
+-- * 'luijMaxResults' - The maximum number of import jobs you want the request to return.
 listUserImportJobs
     :: Text -- ^ 'luijUserPoolId'
     -> Natural -- ^ 'luijMaxResults'
     -> ListUserImportJobs
 listUserImportJobs pUserPoolId_ pMaxResults_ =
-    ListUserImportJobs'
-    { _luijPaginationToken = Nothing
-    , _luijUserPoolId = pUserPoolId_
-    , _luijMaxResults = _Nat # pMaxResults_
-    }
+  ListUserImportJobs'
+  { _luijPaginationToken = Nothing
+  , _luijUserPoolId = pUserPoolId_
+  , _luijMaxResults = _Nat # pMaxResults_
+  }
 
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of import jobs in the list.
+
+-- | An identifier that was returned from the previous call to @ListUserImportJobs@ , which can be used to return the next set of import jobs in the list.
 luijPaginationToken :: Lens' ListUserImportJobs (Maybe Text)
 luijPaginationToken = lens _luijPaginationToken (\ s a -> s{_luijPaginationToken = a});
 
@@ -98,9 +104,9 @@ instance AWSRequest ListUserImportJobs where
                      (x .?> "UserImportJobs")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListUserImportJobs
+instance Hashable ListUserImportJobs where
 
-instance NFData ListUserImportJobs
+instance NFData ListUserImportJobs where
 
 instance ToHeaders ListUserImportJobs where
         toHeaders
@@ -128,31 +134,35 @@ instance ToQuery ListUserImportJobs where
 
 -- | Represents the response from the server to the request to list the user import jobs.
 --
+--
+--
 -- /See:/ 'listUserImportJobsResponse' smart constructor.
 data ListUserImportJobsResponse = ListUserImportJobsResponse'
-    { _luijrsPaginationToken :: !(Maybe Text)
-    , _luijrsUserImportJobs  :: !(Maybe (List1 UserImportJobType))
-    , _luijrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _luijrsPaginationToken :: !(Maybe Text)
+  , _luijrsUserImportJobs  :: !(Maybe (List1 UserImportJobType))
+  , _luijrsResponseStatus  :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListUserImportJobsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'luijrsPaginationToken'
+-- * 'luijrsPaginationToken' - An identifier that can be used to return the next set of user import jobs in the list.
 --
--- * 'luijrsUserImportJobs'
+-- * 'luijrsUserImportJobs' - The user import jobs.
 --
--- * 'luijrsResponseStatus'
+-- * 'luijrsResponseStatus' - -- | The response status code.
 listUserImportJobsResponse
     :: Int -- ^ 'luijrsResponseStatus'
     -> ListUserImportJobsResponse
 listUserImportJobsResponse pResponseStatus_ =
-    ListUserImportJobsResponse'
-    { _luijrsPaginationToken = Nothing
-    , _luijrsUserImportJobs = Nothing
-    , _luijrsResponseStatus = pResponseStatus_
-    }
+  ListUserImportJobsResponse'
+  { _luijrsPaginationToken = Nothing
+  , _luijrsUserImportJobs = Nothing
+  , _luijrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An identifier that can be used to return the next set of user import jobs in the list.
 luijrsPaginationToken :: Lens' ListUserImportJobsResponse (Maybe Text)
@@ -162,8 +172,8 @@ luijrsPaginationToken = lens _luijrsPaginationToken (\ s a -> s{_luijrsPaginatio
 luijrsUserImportJobs :: Lens' ListUserImportJobsResponse (Maybe (NonEmpty UserImportJobType))
 luijrsUserImportJobs = lens _luijrsUserImportJobs (\ s a -> s{_luijrsUserImportJobs = a}) . mapping _List1;
 
--- | The response status code.
+-- | -- | The response status code.
 luijrsResponseStatus :: Lens' ListUserImportJobsResponse Int
 luijrsResponseStatus = lens _luijrsResponseStatus (\ s a -> s{_luijrsResponseStatus = a});
 
-instance NFData ListUserImportJobsResponse
+instance NFData ListUserImportJobsResponse where

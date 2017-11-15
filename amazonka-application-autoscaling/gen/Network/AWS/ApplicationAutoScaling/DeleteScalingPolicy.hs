@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an Application Auto Scaling scaling policy that was previously created. If you are no longer using a scaling policy, you can delete it with this operation.
+-- Deletes the specified Application Auto Scaling scaling policy.
+--
 --
 -- Deleting a policy deletes the underlying alarm action, but does not delete the CloudWatch alarm associated with the scaling policy, even if it no longer has an associated action.
 --
--- To create a new scaling policy or update an existing one, see < PutScalingPolicy>.
+-- To create a scaling policy or update an existing one, see 'PutScalingPolicy' .
+--
 module Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
     (
     -- * Creating a Request
@@ -41,32 +43,33 @@ module Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
     , dsprsResponseStatus
     ) where
 
-import           Network.AWS.ApplicationAutoScaling.Types
-import           Network.AWS.ApplicationAutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ApplicationAutoScaling.Types
+import Network.AWS.ApplicationAutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteScalingPolicy' smart constructor.
 data DeleteScalingPolicy = DeleteScalingPolicy'
-    { _dspPolicyName        :: !Text
-    , _dspServiceNamespace  :: !ServiceNamespace
-    , _dspResourceId        :: !Text
-    , _dspScalableDimension :: !ScalableDimension
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dspPolicyName        :: !Text
+  , _dspServiceNamespace  :: !ServiceNamespace
+  , _dspResourceId        :: !Text
+  , _dspScalableDimension :: !ScalableDimension
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteScalingPolicy' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dspPolicyName'
+-- * 'dspPolicyName' - The name of the scaling policy.
 --
--- * 'dspServiceNamespace'
+-- * 'dspServiceNamespace' - The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 --
--- * 'dspResourceId'
+-- * 'dspResourceId' - The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
 --
--- * 'dspScalableDimension'
+-- * 'dspScalableDimension' - The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
 deleteScalingPolicy
     :: Text -- ^ 'dspPolicyName'
     -> ServiceNamespace -- ^ 'dspServiceNamespace'
@@ -74,26 +77,27 @@ deleteScalingPolicy
     -> ScalableDimension -- ^ 'dspScalableDimension'
     -> DeleteScalingPolicy
 deleteScalingPolicy pPolicyName_ pServiceNamespace_ pResourceId_ pScalableDimension_ =
-    DeleteScalingPolicy'
-    { _dspPolicyName = pPolicyName_
-    , _dspServiceNamespace = pServiceNamespace_
-    , _dspResourceId = pResourceId_
-    , _dspScalableDimension = pScalableDimension_
-    }
+  DeleteScalingPolicy'
+  { _dspPolicyName = pPolicyName_
+  , _dspServiceNamespace = pServiceNamespace_
+  , _dspResourceId = pResourceId_
+  , _dspScalableDimension = pScalableDimension_
+  }
 
--- | The name of the scaling policy to delete.
+
+-- | The name of the scaling policy.
 dspPolicyName :: Lens' DeleteScalingPolicy Text
 dspPolicyName = lens _dspPolicyName (\ s a -> s{_dspPolicyName = a});
 
--- | The namespace for the AWS service that the scaling policy is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
+-- | The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 dspServiceNamespace :: Lens' DeleteScalingPolicy ServiceNamespace
 dspServiceNamespace = lens _dspServiceNamespace (\ s a -> s{_dspServiceNamespace = a});
 
--- | The resource type and unique identifier string for the resource associated with the scaling policy. For Amazon ECS services, the resource type is 'services', and the identifier is the cluster name and service name; for example, 'service\/default\/sample-webapp'. For Amazon EC2 Spot fleet requests, the resource type is 'spot-fleet-request', and the identifier is the Spot fleet request ID; for example, 'spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE'.
+-- | The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
 dspResourceId :: Lens' DeleteScalingPolicy Text
 dspResourceId = lens _dspResourceId (\ s a -> s{_dspResourceId = a});
 
--- | The scalable dimension associated with the scaling policy. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service, or 'ec2:spot-fleet-request:TargetCapacity' for the target capacity of an Amazon EC2 Spot fleet request.
+-- | The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
 dspScalableDimension :: Lens' DeleteScalingPolicy ScalableDimension
 dspScalableDimension = lens _dspScalableDimension (\ s a -> s{_dspScalableDimension = a});
 
@@ -106,9 +110,9 @@ instance AWSRequest DeleteScalingPolicy where
               (\ s h x ->
                  DeleteScalingPolicyResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteScalingPolicy
+instance Hashable DeleteScalingPolicy where
 
-instance NFData DeleteScalingPolicy
+instance NFData DeleteScalingPolicy where
 
 instance ToHeaders DeleteScalingPolicy where
         toHeaders
@@ -137,24 +141,24 @@ instance ToQuery DeleteScalingPolicy where
 
 -- | /See:/ 'deleteScalingPolicyResponse' smart constructor.
 newtype DeleteScalingPolicyResponse = DeleteScalingPolicyResponse'
-    { _dsprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteScalingPolicyResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsprsResponseStatus'
+-- * 'dsprsResponseStatus' - -- | The response status code.
 deleteScalingPolicyResponse
     :: Int -- ^ 'dsprsResponseStatus'
     -> DeleteScalingPolicyResponse
 deleteScalingPolicyResponse pResponseStatus_ =
-    DeleteScalingPolicyResponse'
-    { _dsprsResponseStatus = pResponseStatus_
-    }
+  DeleteScalingPolicyResponse' {_dsprsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 dsprsResponseStatus :: Lens' DeleteScalingPolicyResponse Int
 dsprsResponseStatus = lens _dsprsResponseStatus (\ s a -> s{_dsprsResponseStatus = a});
 
-instance NFData DeleteScalingPolicyResponse
+instance NFData DeleteScalingPolicyResponse where

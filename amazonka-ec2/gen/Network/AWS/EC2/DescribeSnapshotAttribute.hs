@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSnapshotAttribute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the specified attribute of the specified snapshot. You can specify only one attribute at a time.
 --
--- For more information about EBS snapshots, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots> in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- For more information about EBS snapshots, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.DescribeSnapshotAttribute
     (
     -- * Creating a Request
@@ -28,8 +30,8 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
     , DescribeSnapshotAttribute
     -- * Request Lenses
     , dsaDryRun
-    , dsaSnapshotId
     , dsaAttribute
+    , dsaSnapshotId
 
     -- * Destructuring the Response
     , describeSnapshotAttributeResponse
@@ -41,53 +43,57 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
     , dsarsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeSnapshotAttribute.
 --
+--
+--
 -- /See:/ 'describeSnapshotAttribute' smart constructor.
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute'
-    { _dsaDryRun     :: !(Maybe Bool)
-    , _dsaSnapshotId :: !Text
-    , _dsaAttribute  :: !SnapshotAttributeName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsaDryRun     :: !(Maybe Bool)
+  , _dsaAttribute  :: !SnapshotAttributeName
+  , _dsaSnapshotId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSnapshotAttribute' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsaDryRun'
+-- * 'dsaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dsaSnapshotId'
+-- * 'dsaAttribute' - The snapshot attribute you would like to view.
 --
--- * 'dsaAttribute'
+-- * 'dsaSnapshotId' - The ID of the EBS snapshot.
 describeSnapshotAttribute
-    :: Text -- ^ 'dsaSnapshotId'
-    -> SnapshotAttributeName -- ^ 'dsaAttribute'
+    :: SnapshotAttributeName -- ^ 'dsaAttribute'
+    -> Text -- ^ 'dsaSnapshotId'
     -> DescribeSnapshotAttribute
-describeSnapshotAttribute pSnapshotId_ pAttribute_ =
-    DescribeSnapshotAttribute'
-    { _dsaDryRun = Nothing
-    , _dsaSnapshotId = pSnapshotId_
-    , _dsaAttribute = pAttribute_
-    }
+describeSnapshotAttribute pAttribute_ pSnapshotId_ =
+  DescribeSnapshotAttribute'
+  { _dsaDryRun = Nothing
+  , _dsaAttribute = pAttribute_
+  , _dsaSnapshotId = pSnapshotId_
+  }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dsaDryRun :: Lens' DescribeSnapshotAttribute (Maybe Bool)
 dsaDryRun = lens _dsaDryRun (\ s a -> s{_dsaDryRun = a});
-
--- | The ID of the EBS snapshot.
-dsaSnapshotId :: Lens' DescribeSnapshotAttribute Text
-dsaSnapshotId = lens _dsaSnapshotId (\ s a -> s{_dsaSnapshotId = a});
 
 -- | The snapshot attribute you would like to view.
 dsaAttribute :: Lens' DescribeSnapshotAttribute SnapshotAttributeName
 dsaAttribute = lens _dsaAttribute (\ s a -> s{_dsaAttribute = a});
+
+-- | The ID of the EBS snapshot.
+dsaSnapshotId :: Lens' DescribeSnapshotAttribute Text
+dsaSnapshotId = lens _dsaSnapshotId (\ s a -> s{_dsaSnapshotId = a});
 
 instance AWSRequest DescribeSnapshotAttribute where
         type Rs DescribeSnapshotAttribute =
@@ -105,9 +111,9 @@ instance AWSRequest DescribeSnapshotAttribute where
                      <*> (x .@? "snapshotId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeSnapshotAttribute
+instance Hashable DescribeSnapshotAttribute where
 
-instance NFData DescribeSnapshotAttribute
+instance NFData DescribeSnapshotAttribute where
 
 instance ToHeaders DescribeSnapshotAttribute where
         toHeaders = const mempty
@@ -120,42 +126,45 @@ instance ToQuery DescribeSnapshotAttribute where
           = mconcat
               ["Action" =:
                  ("DescribeSnapshotAttribute" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
-               "DryRun" =: _dsaDryRun,
-               "SnapshotId" =: _dsaSnapshotId,
-               "Attribute" =: _dsaAttribute]
+               "Version" =: ("2016-11-15" :: ByteString),
+               "DryRun" =: _dsaDryRun, "Attribute" =: _dsaAttribute,
+               "SnapshotId" =: _dsaSnapshotId]
 
 -- | Contains the output of DescribeSnapshotAttribute.
 --
+--
+--
 -- /See:/ 'describeSnapshotAttributeResponse' smart constructor.
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
-    { _dsarsCreateVolumePermissions :: !(Maybe [CreateVolumePermission])
-    , _dsarsProductCodes            :: !(Maybe [ProductCode])
-    , _dsarsSnapshotId              :: !(Maybe Text)
-    , _dsarsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsarsCreateVolumePermissions :: !(Maybe [CreateVolumePermission])
+  , _dsarsProductCodes            :: !(Maybe [ProductCode])
+  , _dsarsSnapshotId              :: !(Maybe Text)
+  , _dsarsResponseStatus          :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSnapshotAttributeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsarsCreateVolumePermissions'
+-- * 'dsarsCreateVolumePermissions' - A list of permissions for creating volumes from the snapshot.
 --
--- * 'dsarsProductCodes'
+-- * 'dsarsProductCodes' - A list of product codes.
 --
--- * 'dsarsSnapshotId'
+-- * 'dsarsSnapshotId' - The ID of the EBS snapshot.
 --
--- * 'dsarsResponseStatus'
+-- * 'dsarsResponseStatus' - -- | The response status code.
 describeSnapshotAttributeResponse
     :: Int -- ^ 'dsarsResponseStatus'
     -> DescribeSnapshotAttributeResponse
 describeSnapshotAttributeResponse pResponseStatus_ =
-    DescribeSnapshotAttributeResponse'
-    { _dsarsCreateVolumePermissions = Nothing
-    , _dsarsProductCodes = Nothing
-    , _dsarsSnapshotId = Nothing
-    , _dsarsResponseStatus = pResponseStatus_
-    }
+  DescribeSnapshotAttributeResponse'
+  { _dsarsCreateVolumePermissions = Nothing
+  , _dsarsProductCodes = Nothing
+  , _dsarsSnapshotId = Nothing
+  , _dsarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of permissions for creating volumes from the snapshot.
 dsarsCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
@@ -169,8 +178,9 @@ dsarsProductCodes = lens _dsarsProductCodes (\ s a -> s{_dsarsProductCodes = a})
 dsarsSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
 dsarsSnapshotId = lens _dsarsSnapshotId (\ s a -> s{_dsarsSnapshotId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dsarsResponseStatus :: Lens' DescribeSnapshotAttributeResponse Int
 dsarsResponseStatus = lens _dsarsResponseStatus (\ s a -> s{_dsarsResponseStatus = a});
 
 instance NFData DescribeSnapshotAttributeResponse
+         where

@@ -3,22 +3,24 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Gen.Import
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
 module Gen.Import where
 
-import           Control.Lens
-import           Data.List    (sort)
-import           Data.Maybe
-import           Data.Monoid
-import           Gen.Types
+import Control.Lens
+
+import Data.List   (sort)
+import Data.Maybe
+import Data.Monoid
+
+import Gen.Types
 
 operationImports :: Library -> Operation Identity SData a -> [NS]
 operationImports l o = sort $

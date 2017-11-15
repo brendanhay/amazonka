@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteStage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a < Stage> resource.
+-- Deletes a 'Stage' resource.
+--
+--
 module Network.AWS.APIGateway.DeleteStage
     (
     -- * Creating a Request
@@ -33,43 +35,44 @@ module Network.AWS.APIGateway.DeleteStage
     , DeleteStageResponse
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Requests Amazon API Gateway to delete a < Stage> resource.
+-- | Requests Amazon API Gateway to delete a 'Stage' resource.
+--
+--
 --
 -- /See:/ 'deleteStage' smart constructor.
 data DeleteStage = DeleteStage'
-    { _dsRestAPIId :: !Text
-    , _dsStageName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsRestAPIId :: !Text
+  , _dsStageName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteStage' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsRestAPIId'
+-- * 'dsRestAPIId' - The string identifier of the associated 'RestApi' .
 --
--- * 'dsStageName'
+-- * 'dsStageName' - The name of the 'Stage' resource to delete.
 deleteStage
     :: Text -- ^ 'dsRestAPIId'
     -> Text -- ^ 'dsStageName'
     -> DeleteStage
 deleteStage pRestAPIId_ pStageName_ =
-    DeleteStage'
-    { _dsRestAPIId = pRestAPIId_
-    , _dsStageName = pStageName_
-    }
+  DeleteStage' {_dsRestAPIId = pRestAPIId_, _dsStageName = pStageName_}
 
--- | The identifier of the < RestApi> resource for the < Stage> resource to delete.
+
+-- | The string identifier of the associated 'RestApi' .
 dsRestAPIId :: Lens' DeleteStage Text
 dsRestAPIId = lens _dsRestAPIId (\ s a -> s{_dsRestAPIId = a});
 
--- | The name of the < Stage> resource to delete.
+-- | The name of the 'Stage' resource to delete.
 dsStageName :: Lens' DeleteStage Text
 dsStageName = lens _dsStageName (\ s a -> s{_dsStageName = a});
 
@@ -78,9 +81,9 @@ instance AWSRequest DeleteStage where
         request = delete apiGateway
         response = receiveNull DeleteStageResponse'
 
-instance Hashable DeleteStage
+instance Hashable DeleteStage where
 
-instance NFData DeleteStage
+instance NFData DeleteStage where
 
 instance ToHeaders DeleteStage where
         toHeaders
@@ -99,8 +102,9 @@ instance ToQuery DeleteStage where
 
 -- | /See:/ 'deleteStageResponse' smart constructor.
 data DeleteStageResponse =
-    DeleteStageResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteStageResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteStageResponse' with the minimum fields required to make a request.
 --
@@ -108,4 +112,5 @@ deleteStageResponse
     :: DeleteStageResponse
 deleteStageResponse = DeleteStageResponse'
 
-instance NFData DeleteStageResponse
+
+instance NFData DeleteStageResponse where

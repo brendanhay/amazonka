@@ -12,17 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.RequestUploadCredentials
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a fresh set of upload credentials and the assigned Amazon S3 storage location for a specific build. Valid credentials are required to upload your game build files to Amazon S3.
+-- /This API call is not currently in use. / Retrieves a fresh set of upload credentials and the assigned Amazon S3 storage location for a specific build. Valid credentials are required to upload your game build files to Amazon S3.
 --
--- Call this action only if you need credentials for a build created with 'CreateBuild'. This is a rare situation; in most cases, builds are created using the CLI command 'upload-build', which creates a build record and also uploads build files.
 --
--- Upload credentials are returned when you create the build, but they have a limited lifespan. You can get fresh credentials and use them to re-upload game files until the status of that build changes to 'READY'. Once this happens, you must create a brand new build.
 module Network.AWS.GameLift.RequestUploadCredentials
     (
     -- * Creating a Request
@@ -40,34 +38,36 @@ module Network.AWS.GameLift.RequestUploadCredentials
     , rucrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'requestUploadCredentials' smart constructor.
 newtype RequestUploadCredentials = RequestUploadCredentials'
-    { _rucBuildId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rucBuildId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RequestUploadCredentials' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rucBuildId'
+-- * 'rucBuildId' - Unique identifier for a build to get credentials for.
 requestUploadCredentials
     :: Text -- ^ 'rucBuildId'
     -> RequestUploadCredentials
 requestUploadCredentials pBuildId_ =
-    RequestUploadCredentials'
-    { _rucBuildId = pBuildId_
-    }
+  RequestUploadCredentials' {_rucBuildId = pBuildId_}
 
--- | Unique identifier for the build you want to get credentials for.
+
+-- | Unique identifier for a build to get credentials for.
 rucBuildId :: Lens' RequestUploadCredentials Text
 rucBuildId = lens _rucBuildId (\ s a -> s{_rucBuildId = a});
 
@@ -83,9 +83,9 @@ instance AWSRequest RequestUploadCredentials where
                      (x .?> "UploadCredentials")
                      <*> (pure (fromEnum s)))
 
-instance Hashable RequestUploadCredentials
+instance Hashable RequestUploadCredentials where
 
-instance NFData RequestUploadCredentials
+instance NFData RequestUploadCredentials where
 
 instance ToHeaders RequestUploadCredentials where
         toHeaders
@@ -109,31 +109,35 @@ instance ToQuery RequestUploadCredentials where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'requestUploadCredentialsResponse' smart constructor.
 data RequestUploadCredentialsResponse = RequestUploadCredentialsResponse'
-    { _rucrsStorageLocation   :: !(Maybe S3Location)
-    , _rucrsUploadCredentials :: !(Maybe (Sensitive AWSCredentials))
-    , _rucrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rucrsStorageLocation   :: !(Maybe S3Location)
+  , _rucrsUploadCredentials :: !(Maybe (Sensitive AWSCredentials))
+  , _rucrsResponseStatus    :: !Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RequestUploadCredentialsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rucrsStorageLocation'
+-- * 'rucrsStorageLocation' - Amazon S3 path and key, identifying where the game build files are stored.
 --
--- * 'rucrsUploadCredentials'
+-- * 'rucrsUploadCredentials' - AWS credentials required when uploading a game build to the storage location. These credentials have a limited lifespan and are valid only for the build they were issued for.
 --
--- * 'rucrsResponseStatus'
+-- * 'rucrsResponseStatus' - -- | The response status code.
 requestUploadCredentialsResponse
     :: Int -- ^ 'rucrsResponseStatus'
     -> RequestUploadCredentialsResponse
 requestUploadCredentialsResponse pResponseStatus_ =
-    RequestUploadCredentialsResponse'
-    { _rucrsStorageLocation = Nothing
-    , _rucrsUploadCredentials = Nothing
-    , _rucrsResponseStatus = pResponseStatus_
-    }
+  RequestUploadCredentialsResponse'
+  { _rucrsStorageLocation = Nothing
+  , _rucrsUploadCredentials = Nothing
+  , _rucrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Amazon S3 path and key, identifying where the game build files are stored.
 rucrsStorageLocation :: Lens' RequestUploadCredentialsResponse (Maybe S3Location)
@@ -143,8 +147,9 @@ rucrsStorageLocation = lens _rucrsStorageLocation (\ s a -> s{_rucrsStorageLocat
 rucrsUploadCredentials :: Lens' RequestUploadCredentialsResponse (Maybe AWSCredentials)
 rucrsUploadCredentials = lens _rucrsUploadCredentials (\ s a -> s{_rucrsUploadCredentials = a}) . mapping _Sensitive;
 
--- | The response status code.
+-- | -- | The response status code.
 rucrsResponseStatus :: Lens' RequestUploadCredentialsResponse Int
 rucrsResponseStatus = lens _rucrsResponseStatus (\ s a -> s{_rucrsResponseStatus = a});
 
 instance NFData RequestUploadCredentialsResponse
+         where

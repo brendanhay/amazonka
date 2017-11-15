@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.EnableStageTransition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables artifacts in a pipeline to transition to a stage in a pipeline.
+--
+--
 module Network.AWS.CodePipeline.EnableStageTransition
     (
     -- * Creating a Request
@@ -34,42 +36,46 @@ module Network.AWS.CodePipeline.EnableStageTransition
     , EnableStageTransitionResponse
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of an enable stage transition action.
+-- | Represents the input of an EnableStageTransition action.
+--
+--
 --
 -- /See:/ 'enableStageTransition' smart constructor.
 data EnableStageTransition = EnableStageTransition'
-    { _estPipelineName   :: !Text
-    , _estStageName      :: !Text
-    , _estTransitionType :: !StageTransitionType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _estPipelineName   :: !Text
+  , _estStageName      :: !Text
+  , _estTransitionType :: !StageTransitionType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableStageTransition' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'estPipelineName'
+-- * 'estPipelineName' - The name of the pipeline in which you want to enable the flow of artifacts from one stage to another.
 --
--- * 'estStageName'
+-- * 'estStageName' - The name of the stage where you want to enable the transition of artifacts, either into the stage (inbound) or from that stage to the next stage (outbound).
 --
--- * 'estTransitionType'
+-- * 'estTransitionType' - Specifies whether artifacts will be allowed to enter the stage and be processed by the actions in that stage (inbound) or whether already-processed artifacts will be allowed to transition to the next stage (outbound).
 enableStageTransition
     :: Text -- ^ 'estPipelineName'
     -> Text -- ^ 'estStageName'
     -> StageTransitionType -- ^ 'estTransitionType'
     -> EnableStageTransition
 enableStageTransition pPipelineName_ pStageName_ pTransitionType_ =
-    EnableStageTransition'
-    { _estPipelineName = pPipelineName_
-    , _estStageName = pStageName_
-    , _estTransitionType = pTransitionType_
-    }
+  EnableStageTransition'
+  { _estPipelineName = pPipelineName_
+  , _estStageName = pStageName_
+  , _estTransitionType = pTransitionType_
+  }
+
 
 -- | The name of the pipeline in which you want to enable the flow of artifacts from one stage to another.
 estPipelineName :: Lens' EnableStageTransition Text
@@ -89,9 +95,9 @@ instance AWSRequest EnableStageTransition where
         request = postJSON codePipeline
         response = receiveNull EnableStageTransitionResponse'
 
-instance Hashable EnableStageTransition
+instance Hashable EnableStageTransition where
 
-instance NFData EnableStageTransition
+instance NFData EnableStageTransition where
 
 instance ToHeaders EnableStageTransition where
         toHeaders
@@ -119,8 +125,9 @@ instance ToQuery EnableStageTransition where
 
 -- | /See:/ 'enableStageTransitionResponse' smart constructor.
 data EnableStageTransitionResponse =
-    EnableStageTransitionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  EnableStageTransitionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableStageTransitionResponse' with the minimum fields required to make a request.
 --
@@ -128,4 +135,5 @@ enableStageTransitionResponse
     :: EnableStageTransitionResponse
 enableStageTransitionResponse = EnableStageTransitionResponse'
 
-instance NFData EnableStageTransitionResponse
+
+instance NFData EnableStageTransitionResponse where

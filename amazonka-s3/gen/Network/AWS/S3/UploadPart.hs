@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.S3.UploadPart
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Uploads a part in a multipart upload.
 --
+--
 -- __Note:__ After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.
+--
 module Network.AWS.S3.UploadPart
     (
     -- * Creating a Request
@@ -52,53 +54,54 @@ module Network.AWS.S3.UploadPart
     , uprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'uploadPart' smart constructor.
 data UploadPart = UploadPart'
-    { _upContentLength        :: !(Maybe Integer)
-    , _upSSECustomerAlgorithm :: !(Maybe Text)
-    , _upSSECustomerKey       :: !(Maybe (Sensitive Text))
-    , _upRequestPayer         :: !(Maybe RequestPayer)
-    , _upSSECustomerKeyMD5    :: !(Maybe Text)
-    , _upContentMD5           :: !(Maybe Text)
-    , _upBucket               :: !BucketName
-    , _upKey                  :: !ObjectKey
-    , _upPartNumber           :: !Int
-    , _upUploadId             :: !Text
-    , _upBody                 :: !RqBody
-    } deriving (Show,Generic)
+  { _upContentLength        :: !(Maybe Integer)
+  , _upSSECustomerAlgorithm :: !(Maybe Text)
+  , _upSSECustomerKey       :: !(Maybe (Sensitive Text))
+  , _upRequestPayer         :: !(Maybe RequestPayer)
+  , _upSSECustomerKeyMD5    :: !(Maybe Text)
+  , _upContentMD5           :: !(Maybe Text)
+  , _upBucket               :: !BucketName
+  , _upKey                  :: !ObjectKey
+  , _upPartNumber           :: !Int
+  , _upUploadId             :: !Text
+  , _upBody                 :: !RqBody
+  } deriving (Show, Generic)
+
 
 -- | Creates a value of 'UploadPart' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upContentLength'
+-- * 'upContentLength' - Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
 --
--- * 'upSSECustomerAlgorithm'
+-- * 'upSSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (e.g., AES256).
 --
--- * 'upSSECustomerKey'
+-- * 'upSSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.
 --
--- * 'upRequestPayer'
+-- * 'upRequestPayer' - Undocumented member.
 --
--- * 'upSSECustomerKeyMD5'
+-- * 'upSSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
 --
--- * 'upContentMD5'
+-- * 'upContentMD5' - The base64-encoded 128-bit MD5 digest of the part data.
 --
--- * 'upBucket'
+-- * 'upBucket' - Name of the bucket to which the multipart upload was initiated.
 --
--- * 'upKey'
+-- * 'upKey' - Object key for which the multipart upload was initiated.
 --
--- * 'upPartNumber'
+-- * 'upPartNumber' - Part number of part being uploaded. This is a positive integer between 1 and 10,000.
 --
--- * 'upUploadId'
+-- * 'upUploadId' - Upload ID identifying the multipart upload whose part is being uploaded.
 --
--- * 'upBody'
+-- * 'upBody' - Object data.
 uploadPart
     :: BucketName -- ^ 'upBucket'
     -> ObjectKey -- ^ 'upKey'
@@ -107,19 +110,20 @@ uploadPart
     -> RqBody -- ^ 'upBody'
     -> UploadPart
 uploadPart pBucket_ pKey_ pPartNumber_ pUploadId_ pBody_ =
-    UploadPart'
-    { _upContentLength = Nothing
-    , _upSSECustomerAlgorithm = Nothing
-    , _upSSECustomerKey = Nothing
-    , _upRequestPayer = Nothing
-    , _upSSECustomerKeyMD5 = Nothing
-    , _upContentMD5 = Nothing
-    , _upBucket = pBucket_
-    , _upKey = pKey_
-    , _upPartNumber = pPartNumber_
-    , _upUploadId = pUploadId_
-    , _upBody = pBody_
-    }
+  UploadPart'
+  { _upContentLength = Nothing
+  , _upSSECustomerAlgorithm = Nothing
+  , _upSSECustomerKey = Nothing
+  , _upRequestPayer = Nothing
+  , _upSSECustomerKeyMD5 = Nothing
+  , _upContentMD5 = Nothing
+  , _upBucket = pBucket_
+  , _upKey = pKey_
+  , _upPartNumber = pPartNumber_
+  , _upUploadId = pUploadId_
+  , _upBody = pBody_
+  }
+
 
 -- | Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
 upContentLength :: Lens' UploadPart (Maybe Integer)
@@ -212,45 +216,47 @@ instance ToQuery UploadPart where
 
 -- | /See:/ 'uploadPartResponse' smart constructor.
 data UploadPartResponse = UploadPartResponse'
-    { _uprsRequestCharged       :: !(Maybe RequestCharged)
-    , _uprsETag                 :: !(Maybe ETag)
-    , _uprsSSECustomerAlgorithm :: !(Maybe Text)
-    , _uprsSSECustomerKeyMD5    :: !(Maybe Text)
-    , _uprsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
-    , _uprsServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _uprsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uprsRequestCharged       :: !(Maybe RequestCharged)
+  , _uprsETag                 :: !(Maybe ETag)
+  , _uprsSSECustomerAlgorithm :: !(Maybe Text)
+  , _uprsSSECustomerKeyMD5    :: !(Maybe Text)
+  , _uprsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+  , _uprsServerSideEncryption :: !(Maybe ServerSideEncryption)
+  , _uprsResponseStatus       :: !Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UploadPartResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uprsRequestCharged'
+-- * 'uprsRequestCharged' - Undocumented member.
 --
--- * 'uprsETag'
+-- * 'uprsETag' - Entity tag for the uploaded object.
 --
--- * 'uprsSSECustomerAlgorithm'
+-- * 'uprsSSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
 --
--- * 'uprsSSECustomerKeyMD5'
+-- * 'uprsSSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
 --
--- * 'uprsSSEKMSKeyId'
+-- * 'uprsSSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
 --
--- * 'uprsServerSideEncryption'
+-- * 'uprsServerSideEncryption' - The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 --
--- * 'uprsResponseStatus'
+-- * 'uprsResponseStatus' - -- | The response status code.
 uploadPartResponse
     :: Int -- ^ 'uprsResponseStatus'
     -> UploadPartResponse
 uploadPartResponse pResponseStatus_ =
-    UploadPartResponse'
-    { _uprsRequestCharged = Nothing
-    , _uprsETag = Nothing
-    , _uprsSSECustomerAlgorithm = Nothing
-    , _uprsSSECustomerKeyMD5 = Nothing
-    , _uprsSSEKMSKeyId = Nothing
-    , _uprsServerSideEncryption = Nothing
-    , _uprsResponseStatus = pResponseStatus_
-    }
+  UploadPartResponse'
+  { _uprsRequestCharged = Nothing
+  , _uprsETag = Nothing
+  , _uprsSSECustomerAlgorithm = Nothing
+  , _uprsSSECustomerKeyMD5 = Nothing
+  , _uprsSSEKMSKeyId = Nothing
+  , _uprsServerSideEncryption = Nothing
+  , _uprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 uprsRequestCharged :: Lens' UploadPartResponse (Maybe RequestCharged)
@@ -276,8 +282,8 @@ uprsSSEKMSKeyId = lens _uprsSSEKMSKeyId (\ s a -> s{_uprsSSEKMSKeyId = a}) . map
 uprsServerSideEncryption :: Lens' UploadPartResponse (Maybe ServerSideEncryption)
 uprsServerSideEncryption = lens _uprsServerSideEncryption (\ s a -> s{_uprsServerSideEncryption = a});
 
--- | The response status code.
+-- | -- | The response status code.
 uprsResponseStatus :: Lens' UploadPartResponse Int
 uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
 
-instance NFData UploadPartResponse
+instance NFData UploadPartResponse where

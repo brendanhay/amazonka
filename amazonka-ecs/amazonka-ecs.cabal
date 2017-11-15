@@ -1,50 +1,53 @@
 name:                  amazonka-ecs
-version:               1.4.4
+version:               1.5.0
 synopsis:              Amazon EC2 Container Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               OtherLicense
+license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2016 Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2017 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-    Amazon EC2 Container Service (Amazon ECS) is a highly scalable, fast, container management service that makes it easy to run, stop, and manage Docker containers on a cluster of EC2 instances. Amazon ECS lets you launch and stop container-enabled applications with simple API calls, allows you to get the state of your cluster from a centralized service, and gives you access to many familiar Amazon EC2 features like security groups, Amazon EBS volumes, and IAM roles.
-
-    You can use Amazon ECS to schedule the placement of containers across your cluster based on your resource needs, isolation policies, and availability requirements. Amazon EC2 Container Service eliminates the need for you to operate your own cluster management and configuration management systems or worry about scaling your management infrastructure.
-    .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information and sending requests.
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
     .
-    Use of lenses is required for constructing and manipulating types.
-    This is due to the amount of nesting of AWS types and transparency regarding
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
     de/serialisation into more palatable Haskell values.
     The provided lenses should be compatible with any of the major lens libraries
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
     .
-    See "Network.AWS.ECS" or <https://aws.amazon.com/documentation/ the AWS Documentation>
+    See "Network.AWS.ECS" or <https://aws.amazon.com/documentation/ the AWS documentation>
     to get started.
 
 source-repository head
-    type:     git
-    location: git://github.com/brendanhay/amazonka.git
+    type:              git
+    location:          git://github.com/brendanhay/amazonka.git
+    subdir:            amazonka-ecs
 
 library
     default-language:  Haskell2010
     hs-source-dirs:    src gen
 
-    ghc-options:       -Wall
+    ghc-options:
+        -Wall
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updates
+        -funbox-strict-fields
 
     exposed-modules:
           Network.AWS.ECS
         , Network.AWS.ECS.CreateCluster
         , Network.AWS.ECS.CreateService
+        , Network.AWS.ECS.DeleteAttributes
         , Network.AWS.ECS.DeleteCluster
         , Network.AWS.ECS.DeleteService
         , Network.AWS.ECS.DeregisterContainerInstance
@@ -55,12 +58,14 @@ library
         , Network.AWS.ECS.DescribeTaskDefinition
         , Network.AWS.ECS.DescribeTasks
         , Network.AWS.ECS.DiscoverPollEndpoint
+        , Network.AWS.ECS.ListAttributes
         , Network.AWS.ECS.ListClusters
         , Network.AWS.ECS.ListContainerInstances
         , Network.AWS.ECS.ListServices
         , Network.AWS.ECS.ListTaskDefinitionFamilies
         , Network.AWS.ECS.ListTaskDefinitions
         , Network.AWS.ECS.ListTasks
+        , Network.AWS.ECS.PutAttributes
         , Network.AWS.ECS.RegisterContainerInstance
         , Network.AWS.ECS.RegisterTaskDefinition
         , Network.AWS.ECS.RunTask
@@ -70,6 +75,7 @@ library
         , Network.AWS.ECS.SubmitTaskStateChange
         , Network.AWS.ECS.Types
         , Network.AWS.ECS.UpdateContainerAgent
+        , Network.AWS.ECS.UpdateContainerInstancesState
         , Network.AWS.ECS.UpdateService
         , Network.AWS.ECS.Waiters
 
@@ -78,7 +84,7 @@ library
         , Network.AWS.ECS.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.4.*
+          amazonka-core == 1.5.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-ecs-test
@@ -98,9 +104,9 @@ test-suite amazonka-ecs-test
         , Test.AWS.ECS.Internal
 
     build-depends:
-          amazonka-core == 1.4.4.*
-        , amazonka-test == 1.4.4.*
-        , amazonka-ecs == 1.4.4.*
+          amazonka-core == 1.5.0.*
+        , amazonka-test == 1.5.0.*
+        , amazonka-ecs == 1.5.0.*
         , base
         , bytestring
         , tasty

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketNotificationConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -33,35 +33,37 @@ module Network.AWS.S3.PutBucketNotificationConfiguration
     , PutBucketNotificationConfigurationResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketNotificationConfiguration' smart constructor.
 data PutBucketNotificationConfiguration = PutBucketNotificationConfiguration'
-    { _pbncBucket                    :: !BucketName
-    , _pbncNotificationConfiguration :: !NotificationConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pbncBucket                    :: !BucketName
+  , _pbncNotificationConfiguration :: !NotificationConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketNotificationConfiguration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbncBucket'
+-- * 'pbncBucket' - Undocumented member.
 --
--- * 'pbncNotificationConfiguration'
+-- * 'pbncNotificationConfiguration' - Undocumented member.
 putBucketNotificationConfiguration
     :: BucketName -- ^ 'pbncBucket'
     -> NotificationConfiguration -- ^ 'pbncNotificationConfiguration'
     -> PutBucketNotificationConfiguration
 putBucketNotificationConfiguration pBucket_ pNotificationConfiguration_ =
-    PutBucketNotificationConfiguration'
-    { _pbncBucket = pBucket_
-    , _pbncNotificationConfiguration = pNotificationConfiguration_
-    }
+  PutBucketNotificationConfiguration'
+  { _pbncBucket = pBucket_
+  , _pbncNotificationConfiguration = pNotificationConfiguration_
+  }
+
 
 -- | Undocumented member.
 pbncBucket :: Lens' PutBucketNotificationConfiguration BucketName
@@ -72,7 +74,8 @@ pbncNotificationConfiguration :: Lens' PutBucketNotificationConfiguration Notifi
 pbncNotificationConfiguration = lens _pbncNotificationConfiguration (\ s a -> s{_pbncNotificationConfiguration = a});
 
 instance AWSRequest
-         PutBucketNotificationConfiguration where
+           PutBucketNotificationConfiguration
+         where
         type Rs PutBucketNotificationConfiguration =
              PutBucketNotificationConfigurationResponse
         request = putXML s3
@@ -81,8 +84,10 @@ instance AWSRequest
               PutBucketNotificationConfigurationResponse'
 
 instance Hashable PutBucketNotificationConfiguration
+         where
 
 instance NFData PutBucketNotificationConfiguration
+         where
 
 instance ToElement PutBucketNotificationConfiguration
          where
@@ -107,15 +112,18 @@ instance ToQuery PutBucketNotificationConfiguration
 
 -- | /See:/ 'putBucketNotificationConfigurationResponse' smart constructor.
 data PutBucketNotificationConfigurationResponse =
-    PutBucketNotificationConfigurationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutBucketNotificationConfigurationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketNotificationConfigurationResponse' with the minimum fields required to make a request.
 --
 putBucketNotificationConfigurationResponse
     :: PutBucketNotificationConfigurationResponse
 putBucketNotificationConfigurationResponse =
-    PutBucketNotificationConfigurationResponse'
+  PutBucketNotificationConfigurationResponse'
+
 
 instance NFData
-         PutBucketNotificationConfigurationResponse
+           PutBucketNotificationConfigurationResponse
+         where

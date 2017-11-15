@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.IoTDataPlane.DeleteThingShadow
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the thing shadow for the specified thing.
 --
--- For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html DeleteThingShadow> in the /AWS IoT Developer Guide/.
+--
+-- For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html DeleteThingShadow> in the /AWS IoT Developer Guide/ .
+--
 module Network.AWS.IoTDataPlane.DeleteThingShadow
     (
     -- * Creating a Request
@@ -37,32 +39,33 @@ module Network.AWS.IoTDataPlane.DeleteThingShadow
     , dtsrsPayload
     ) where
 
-import           Network.AWS.IoTDataPlane.Types
-import           Network.AWS.IoTDataPlane.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoTDataPlane.Types
+import Network.AWS.IoTDataPlane.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DeleteThingShadow operation.
 --
+--
+--
 -- /See:/ 'deleteThingShadow' smart constructor.
 newtype DeleteThingShadow = DeleteThingShadow'
-    { _dtsThingName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtsThingName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteThingShadow' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtsThingName'
+-- * 'dtsThingName' - The name of the thing.
 deleteThingShadow
     :: Text -- ^ 'dtsThingName'
     -> DeleteThingShadow
-deleteThingShadow pThingName_ =
-    DeleteThingShadow'
-    { _dtsThingName = pThingName_
-    }
+deleteThingShadow pThingName_ = DeleteThingShadow' {_dtsThingName = pThingName_}
+
 
 -- | The name of the thing.
 dtsThingName :: Lens' DeleteThingShadow Text
@@ -77,9 +80,9 @@ instance AWSRequest DeleteThingShadow where
                  DeleteThingShadowResponse' <$>
                    (pure (fromEnum s)) <*> (pure x))
 
-instance Hashable DeleteThingShadow
+instance Hashable DeleteThingShadow where
 
-instance NFData DeleteThingShadow
+instance NFData DeleteThingShadow where
 
 instance ToHeaders DeleteThingShadow where
         toHeaders = const mempty
@@ -93,30 +96,32 @@ instance ToQuery DeleteThingShadow where
 
 -- | The output from the DeleteThingShadow operation.
 --
+--
+--
 -- /See:/ 'deleteThingShadowResponse' smart constructor.
 data DeleteThingShadowResponse = DeleteThingShadowResponse'
-    { _dtsrsResponseStatus :: !Int
-    , _dtsrsPayload        :: !(HashMap Text Value)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dtsrsResponseStatus :: !Int
+  , _dtsrsPayload        :: !(HashMap Text Value)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteThingShadowResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtsrsResponseStatus'
+-- * 'dtsrsResponseStatus' - -- | The response status code.
 --
--- * 'dtsrsPayload'
+-- * 'dtsrsPayload' - The state information, in JSON format.
 deleteThingShadowResponse
     :: Int -- ^ 'dtsrsResponseStatus'
     -> HashMap Text Value -- ^ 'dtsrsPayload'
     -> DeleteThingShadowResponse
 deleteThingShadowResponse pResponseStatus_ pPayload_ =
-    DeleteThingShadowResponse'
-    { _dtsrsResponseStatus = pResponseStatus_
-    , _dtsrsPayload = pPayload_
-    }
+  DeleteThingShadowResponse'
+  {_dtsrsResponseStatus = pResponseStatus_, _dtsrsPayload = pPayload_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 dtsrsResponseStatus :: Lens' DeleteThingShadowResponse Int
 dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus = a});
 
@@ -124,4 +129,4 @@ dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus
 dtsrsPayload :: Lens' DeleteThingShadowResponse (HashMap Text Value)
 dtsrsPayload = lens _dtsrsPayload (\ s a -> s{_dtsrsPayload = a});
 
-instance NFData DeleteThingShadowResponse
+instance NFData DeleteThingShadowResponse where

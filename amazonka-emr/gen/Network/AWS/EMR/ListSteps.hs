@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ListSteps
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides a list of steps for the cluster.
+-- Provides a list of steps for the cluster in reverse order unless you specify stepIds with the request.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListSteps
@@ -41,45 +43,49 @@ module Network.AWS.EMR.ListSteps
     , lsrsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This input determines which steps to list.
 --
+--
+--
 -- /See:/ 'listSteps' smart constructor.
 data ListSteps = ListSteps'
-    { _lsStepIds    :: !(Maybe [Text])
-    , _lsStepStates :: !(Maybe [StepState])
-    , _lsMarker     :: !(Maybe Text)
-    , _lsClusterId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsStepIds    :: !(Maybe [Text])
+  , _lsStepStates :: !(Maybe [StepState])
+  , _lsMarker     :: !(Maybe Text)
+  , _lsClusterId  :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSteps' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsStepIds'
+-- * 'lsStepIds' - The filter to limit the step list based on the identifier of the steps.
 --
--- * 'lsStepStates'
+-- * 'lsStepStates' - The filter to limit the step list based on certain states.
 --
--- * 'lsMarker'
+-- * 'lsMarker' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'lsClusterId'
+-- * 'lsClusterId' - The identifier of the cluster for which to list the steps.
 listSteps
     :: Text -- ^ 'lsClusterId'
     -> ListSteps
 listSteps pClusterId_ =
-    ListSteps'
-    { _lsStepIds = Nothing
-    , _lsStepStates = Nothing
-    , _lsMarker = Nothing
-    , _lsClusterId = pClusterId_
-    }
+  ListSteps'
+  { _lsStepIds = Nothing
+  , _lsStepStates = Nothing
+  , _lsMarker = Nothing
+  , _lsClusterId = pClusterId_
+  }
+
 
 -- | The filter to limit the step list based on the identifier of the steps.
 lsStepIds :: Lens' ListSteps [Text]
@@ -114,9 +120,9 @@ instance AWSRequest ListSteps where
                    (x .?> "Steps" .!@ mempty) <*> (x .?> "Marker") <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListSteps
+instance Hashable ListSteps where
 
-instance NFData ListSteps
+instance NFData ListSteps where
 
 instance ToHeaders ListSteps where
         toHeaders
@@ -144,31 +150,35 @@ instance ToQuery ListSteps where
 
 -- | This output contains the list of steps returned in reverse order. This means that the last step is the first element in the list.
 --
+--
+--
 -- /See:/ 'listStepsResponse' smart constructor.
 data ListStepsResponse = ListStepsResponse'
-    { _lsrsSteps          :: !(Maybe [StepSummary])
-    , _lsrsMarker         :: !(Maybe Text)
-    , _lsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsrsSteps          :: !(Maybe [StepSummary])
+  , _lsrsMarker         :: !(Maybe Text)
+  , _lsrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStepsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsrsSteps'
+-- * 'lsrsSteps' - The filtered list of steps for the cluster.
 --
--- * 'lsrsMarker'
+-- * 'lsrsMarker' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'lsrsResponseStatus'
+-- * 'lsrsResponseStatus' - -- | The response status code.
 listStepsResponse
     :: Int -- ^ 'lsrsResponseStatus'
     -> ListStepsResponse
 listStepsResponse pResponseStatus_ =
-    ListStepsResponse'
-    { _lsrsSteps = Nothing
-    , _lsrsMarker = Nothing
-    , _lsrsResponseStatus = pResponseStatus_
-    }
+  ListStepsResponse'
+  { _lsrsSteps = Nothing
+  , _lsrsMarker = Nothing
+  , _lsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The filtered list of steps for the cluster.
 lsrsSteps :: Lens' ListStepsResponse [StepSummary]
@@ -178,8 +188,8 @@ lsrsSteps = lens _lsrsSteps (\ s a -> s{_lsrsSteps = a}) . _Default . _Coerce;
 lsrsMarker :: Lens' ListStepsResponse (Maybe Text)
 lsrsMarker = lens _lsrsMarker (\ s a -> s{_lsrsMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lsrsResponseStatus :: Lens' ListStepsResponse Int
 lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});
 
-instance NFData ListStepsResponse
+instance NFData ListStepsResponse where

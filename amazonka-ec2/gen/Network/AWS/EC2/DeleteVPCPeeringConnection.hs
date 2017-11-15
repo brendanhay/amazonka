@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteVPCPeeringConnection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a VPC peering connection. Either the owner of the requester VPC or the owner of the peer VPC can delete the VPC peering connection if it\'s in the 'active' state. The owner of the requester VPC can delete a VPC peering connection in the 'pending-acceptance' state.
+-- Deletes a VPC peering connection. Either the owner of the requester VPC or the owner of the peer VPC can delete the VPC peering connection if it's in the @active@ state. The owner of the requester VPC can delete a VPC peering connection in the @pending-acceptance@ state.
+--
+--
 module Network.AWS.EC2.DeleteVPCPeeringConnection
     (
     -- * Creating a Request
@@ -36,38 +38,42 @@ module Network.AWS.EC2.DeleteVPCPeeringConnection
     , dvpcrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteVpcPeeringConnection.
 --
+--
+--
 -- /See:/ 'deleteVPCPeeringConnection' smart constructor.
 data DeleteVPCPeeringConnection = DeleteVPCPeeringConnection'
-    { _dvpcDryRun                 :: !(Maybe Bool)
-    , _dvpcVPCPeeringConnectionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvpcDryRun                 :: !(Maybe Bool)
+  , _dvpcVPCPeeringConnectionId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVPCPeeringConnection' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvpcDryRun'
+-- * 'dvpcDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dvpcVPCPeeringConnectionId'
+-- * 'dvpcVPCPeeringConnectionId' - The ID of the VPC peering connection.
 deleteVPCPeeringConnection
     :: Text -- ^ 'dvpcVPCPeeringConnectionId'
     -> DeleteVPCPeeringConnection
 deleteVPCPeeringConnection pVPCPeeringConnectionId_ =
-    DeleteVPCPeeringConnection'
-    { _dvpcDryRun = Nothing
-    , _dvpcVPCPeeringConnectionId = pVPCPeeringConnectionId_
-    }
+  DeleteVPCPeeringConnection'
+  { _dvpcDryRun = Nothing
+  , _dvpcVPCPeeringConnectionId = pVPCPeeringConnectionId_
+  }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvpcDryRun :: Lens' DeleteVPCPeeringConnection (Maybe Bool)
 dvpcDryRun = lens _dvpcDryRun (\ s a -> s{_dvpcDryRun = a});
 
@@ -85,9 +91,9 @@ instance AWSRequest DeleteVPCPeeringConnection where
                  DeleteVPCPeeringConnectionResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteVPCPeeringConnection
+instance Hashable DeleteVPCPeeringConnection where
 
-instance NFData DeleteVPCPeeringConnection
+instance NFData DeleteVPCPeeringConnection where
 
 instance ToHeaders DeleteVPCPeeringConnection where
         toHeaders = const mempty
@@ -100,41 +106,44 @@ instance ToQuery DeleteVPCPeeringConnection where
           = mconcat
               ["Action" =:
                  ("DeleteVpcPeeringConnection" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _dvpcDryRun,
                "VpcPeeringConnectionId" =:
                  _dvpcVPCPeeringConnectionId]
 
 -- | Contains the output of DeleteVpcPeeringConnection.
 --
+--
+--
 -- /See:/ 'deleteVPCPeeringConnectionResponse' smart constructor.
 data DeleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'
-    { _dvpcrsReturn         :: !(Maybe Bool)
-    , _dvpcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvpcrsReturn         :: !(Maybe Bool)
+  , _dvpcrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVPCPeeringConnectionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvpcrsReturn'
+-- * 'dvpcrsReturn' - Returns @true@ if the request succeeds; otherwise, it returns an error.
 --
--- * 'dvpcrsResponseStatus'
+-- * 'dvpcrsResponseStatus' - -- | The response status code.
 deleteVPCPeeringConnectionResponse
     :: Int -- ^ 'dvpcrsResponseStatus'
     -> DeleteVPCPeeringConnectionResponse
 deleteVPCPeeringConnectionResponse pResponseStatus_ =
-    DeleteVPCPeeringConnectionResponse'
-    { _dvpcrsReturn = Nothing
-    , _dvpcrsResponseStatus = pResponseStatus_
-    }
+  DeleteVPCPeeringConnectionResponse'
+  {_dvpcrsReturn = Nothing, _dvpcrsResponseStatus = pResponseStatus_}
 
--- | Returns 'true' if the request succeeds; otherwise, it returns an error.
+
+-- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 dvpcrsReturn :: Lens' DeleteVPCPeeringConnectionResponse (Maybe Bool)
 dvpcrsReturn = lens _dvpcrsReturn (\ s a -> s{_dvpcrsReturn = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dvpcrsResponseStatus :: Lens' DeleteVPCPeeringConnectionResponse Int
 dvpcrsResponseStatus = lens _dvpcrsResponseStatus (\ s a -> s{_dvpcrsResponseStatus = a});
 
 instance NFData DeleteVPCPeeringConnectionResponse
+         where

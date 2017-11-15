@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DescribeServices
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the specified services running in your cluster.
+--
+--
 module Network.AWS.ECS.DescribeServices
     (
     -- * Creating a Request
@@ -37,39 +39,37 @@ module Network.AWS.ECS.DescribeServices
     , dssrsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeServices' smart constructor.
 data DescribeServices = DescribeServices'
-    { _dCluster  :: !(Maybe Text)
-    , _dServices :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dCluster  :: !(Maybe Text)
+  , _dServices :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeServices' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dCluster'
+-- * 'dCluster' - The short name or full Amazon Resource Name (ARN)the cluster that hosts the service to describe. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'dServices'
+-- * 'dServices' - A list of services to describe. You may specify up to 10 services to describe in a single operation.
 describeServices
     :: DescribeServices
-describeServices =
-    DescribeServices'
-    { _dCluster = Nothing
-    , _dServices = mempty
-    }
+describeServices = DescribeServices' {_dCluster = Nothing, _dServices = mempty}
 
--- | The name of the cluster that hosts the service to describe. If you do not specify a cluster, the default cluster is assumed.
+
+-- | The short name or full Amazon Resource Name (ARN)the cluster that hosts the service to describe. If you do not specify a cluster, the default cluster is assumed.
 dCluster :: Lens' DescribeServices (Maybe Text)
 dCluster = lens _dCluster (\ s a -> s{_dCluster = a});
 
--- | A list of services to describe.
+-- | A list of services to describe. You may specify up to 10 services to describe in a single operation.
 dServices :: Lens' DescribeServices [Text]
 dServices = lens _dServices (\ s a -> s{_dServices = a}) . _Coerce;
 
@@ -84,9 +84,9 @@ instance AWSRequest DescribeServices where
                      (x .?> "services" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeServices
+instance Hashable DescribeServices where
 
-instance NFData DescribeServices
+instance NFData DescribeServices where
 
 instance ToHeaders DescribeServices where
         toHeaders
@@ -113,29 +113,31 @@ instance ToQuery DescribeServices where
 
 -- | /See:/ 'describeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
-    { _dssrsFailures       :: !(Maybe [Failure])
-    , _dssrsServices       :: !(Maybe [ContainerService])
-    , _dssrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dssrsFailures       :: !(Maybe [Failure])
+  , _dssrsServices       :: !(Maybe [ContainerService])
+  , _dssrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeServicesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssrsFailures'
+-- * 'dssrsFailures' - Any failures associated with the call.
 --
--- * 'dssrsServices'
+-- * 'dssrsServices' - The list of services described.
 --
--- * 'dssrsResponseStatus'
+-- * 'dssrsResponseStatus' - -- | The response status code.
 describeServicesResponse
     :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeServicesResponse
 describeServicesResponse pResponseStatus_ =
-    DescribeServicesResponse'
-    { _dssrsFailures = Nothing
-    , _dssrsServices = Nothing
-    , _dssrsResponseStatus = pResponseStatus_
-    }
+  DescribeServicesResponse'
+  { _dssrsFailures = Nothing
+  , _dssrsServices = Nothing
+  , _dssrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Any failures associated with the call.
 dssrsFailures :: Lens' DescribeServicesResponse [Failure]
@@ -145,8 +147,8 @@ dssrsFailures = lens _dssrsFailures (\ s a -> s{_dssrsFailures = a}) . _Default 
 dssrsServices :: Lens' DescribeServicesResponse [ContainerService]
 dssrsServices = lens _dssrsServices (\ s a -> s{_dssrsServices = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeServicesResponse Int
 dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
 
-instance NFData DescribeServicesResponse
+instance NFData DescribeServicesResponse where

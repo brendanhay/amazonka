@@ -12,21 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.SQS.DeleteMessageBatch
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes up to ten messages from the specified queue. This is a batch version of < DeleteMessage>. The result of the delete action on each message is reported individually in the response.
+-- Deletes up to ten messages from the specified queue. This is a batch version of @'DeleteMessage' .@ The result of the action on each message is reported individually in the response.
 --
--- Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.
 --
--- Some API actions take lists of parameters. These lists are specified using the 'param.n' notation. Values of 'n' are integers starting from 1. For example, a parameter list with two elements looks like this:
+-- /Important:/ Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of @200@ .
 --
--- '&amp;Attribute.1=this'
---
--- '&amp;Attribute.2=that'
 module Network.AWS.SQS.DeleteMessageBatch
     (
     -- * Creating a Request
@@ -45,40 +41,39 @@ module Network.AWS.SQS.DeleteMessageBatch
     , dmbrsFailed
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.Types.Product
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteMessageBatch' smart constructor.
 data DeleteMessageBatch = DeleteMessageBatch'
-    { _dmbQueueURL :: !Text
-    , _dmbEntries  :: ![DeleteMessageBatchRequestEntry]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmbQueueURL :: !Text
+  , _dmbEntries  :: ![DeleteMessageBatchRequestEntry]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMessageBatch' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmbQueueURL'
+-- * 'dmbQueueURL' - The URL of the Amazon SQS queue from which messages are deleted. Queue URLs are case-sensitive.
 --
--- * 'dmbEntries'
+-- * 'dmbEntries' - A list of receipt handles for the messages to be deleted.
 deleteMessageBatch
     :: Text -- ^ 'dmbQueueURL'
     -> DeleteMessageBatch
 deleteMessageBatch pQueueURL_ =
-    DeleteMessageBatch'
-    { _dmbQueueURL = pQueueURL_
-    , _dmbEntries = mempty
-    }
+  DeleteMessageBatch' {_dmbQueueURL = pQueueURL_, _dmbEntries = mempty}
 
--- | The URL of the Amazon SQS queue to take action on.
---
--- Queue URLs are case-sensitive.
+
+-- | The URL of the Amazon SQS queue from which messages are deleted. Queue URLs are case-sensitive.
 dmbQueueURL :: Lens' DeleteMessageBatch Text
 dmbQueueURL = lens _dmbQueueURL (\ s a -> s{_dmbQueueURL = a});
 
@@ -98,9 +93,9 @@ instance AWSRequest DeleteMessageBatch where
                      (parseXMLList "DeleteMessageBatchResultEntry" x)
                      <*> (parseXMLList "BatchResultErrorEntry" x))
 
-instance Hashable DeleteMessageBatch
+instance Hashable DeleteMessageBatch where
 
-instance NFData DeleteMessageBatch
+instance NFData DeleteMessageBatch where
 
 instance ToHeaders DeleteMessageBatch where
         toHeaders = const mempty
@@ -117,44 +112,48 @@ instance ToQuery DeleteMessageBatch where
                toQueryList "DeleteMessageBatchRequestEntry"
                  _dmbEntries]
 
--- | For each message in the batch, the response contains a < DeleteMessageBatchResultEntry> tag if the message is deleted or a < BatchResultErrorEntry> tag if the message cannot be deleted.
+-- | For each message in the batch, the response contains a @'DeleteMessageBatchResultEntry' @ tag if the message is deleted or a @'BatchResultErrorEntry' @ tag if the message can't be deleted.
+--
+--
 --
 -- /See:/ 'deleteMessageBatchResponse' smart constructor.
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse'
-    { _dmbrsResponseStatus :: !Int
-    , _dmbrsSuccessful     :: ![DeleteMessageBatchResultEntry]
-    , _dmbrsFailed         :: ![BatchResultErrorEntry]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmbrsResponseStatus :: !Int
+  , _dmbrsSuccessful     :: ![DeleteMessageBatchResultEntry]
+  , _dmbrsFailed         :: ![BatchResultErrorEntry]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMessageBatchResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmbrsResponseStatus'
+-- * 'dmbrsResponseStatus' - -- | The response status code.
 --
--- * 'dmbrsSuccessful'
+-- * 'dmbrsSuccessful' - A list of @'DeleteMessageBatchResultEntry' @ items.
 --
--- * 'dmbrsFailed'
+-- * 'dmbrsFailed' - A list of @'BatchResultErrorEntry' @ items.
 deleteMessageBatchResponse
     :: Int -- ^ 'dmbrsResponseStatus'
     -> DeleteMessageBatchResponse
 deleteMessageBatchResponse pResponseStatus_ =
-    DeleteMessageBatchResponse'
-    { _dmbrsResponseStatus = pResponseStatus_
-    , _dmbrsSuccessful = mempty
-    , _dmbrsFailed = mempty
-    }
+  DeleteMessageBatchResponse'
+  { _dmbrsResponseStatus = pResponseStatus_
+  , _dmbrsSuccessful = mempty
+  , _dmbrsFailed = mempty
+  }
 
--- | The response status code.
+
+-- | -- | The response status code.
 dmbrsResponseStatus :: Lens' DeleteMessageBatchResponse Int
 dmbrsResponseStatus = lens _dmbrsResponseStatus (\ s a -> s{_dmbrsResponseStatus = a});
 
--- | A list of < DeleteMessageBatchResultEntry> items.
+-- | A list of @'DeleteMessageBatchResultEntry' @ items.
 dmbrsSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
 dmbrsSuccessful = lens _dmbrsSuccessful (\ s a -> s{_dmbrsSuccessful = a}) . _Coerce;
 
--- | A list of < BatchResultErrorEntry> items.
+-- | A list of @'BatchResultErrorEntry' @ items.
 dmbrsFailed :: Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
 dmbrsFailed = lens _dmbrsFailed (\ s a -> s{_dmbrsFailed = a}) . _Coerce;
 
-instance NFData DeleteMessageBatchResponse
+instance NFData DeleteMessageBatchResponse where

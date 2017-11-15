@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketAccelerateConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -33,35 +33,37 @@ module Network.AWS.S3.PutBucketAccelerateConfiguration
     , PutBucketAccelerateConfigurationResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketAccelerateConfiguration' smart constructor.
 data PutBucketAccelerateConfiguration = PutBucketAccelerateConfiguration'
-    { _pbacBucket                  :: !BucketName
-    , _pbacAccelerateConfiguration :: !AccelerateConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pbacBucket                  :: !BucketName
+  , _pbacAccelerateConfiguration :: !AccelerateConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketAccelerateConfiguration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbacBucket'
+-- * 'pbacBucket' - Name of the bucket for which the accelerate configuration is set.
 --
--- * 'pbacAccelerateConfiguration'
+-- * 'pbacAccelerateConfiguration' - Specifies the Accelerate Configuration you want to set for the bucket.
 putBucketAccelerateConfiguration
     :: BucketName -- ^ 'pbacBucket'
     -> AccelerateConfiguration -- ^ 'pbacAccelerateConfiguration'
     -> PutBucketAccelerateConfiguration
 putBucketAccelerateConfiguration pBucket_ pAccelerateConfiguration_ =
-    PutBucketAccelerateConfiguration'
-    { _pbacBucket = pBucket_
-    , _pbacAccelerateConfiguration = pAccelerateConfiguration_
-    }
+  PutBucketAccelerateConfiguration'
+  { _pbacBucket = pBucket_
+  , _pbacAccelerateConfiguration = pAccelerateConfiguration_
+  }
+
 
 -- | Name of the bucket for which the accelerate configuration is set.
 pbacBucket :: Lens' PutBucketAccelerateConfiguration BucketName
@@ -81,8 +83,10 @@ instance AWSRequest PutBucketAccelerateConfiguration
               PutBucketAccelerateConfigurationResponse'
 
 instance Hashable PutBucketAccelerateConfiguration
+         where
 
 instance NFData PutBucketAccelerateConfiguration
+         where
 
 instance ToElement PutBucketAccelerateConfiguration
          where
@@ -107,15 +111,18 @@ instance ToQuery PutBucketAccelerateConfiguration
 
 -- | /See:/ 'putBucketAccelerateConfigurationResponse' smart constructor.
 data PutBucketAccelerateConfigurationResponse =
-    PutBucketAccelerateConfigurationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutBucketAccelerateConfigurationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketAccelerateConfigurationResponse' with the minimum fields required to make a request.
 --
 putBucketAccelerateConfigurationResponse
     :: PutBucketAccelerateConfigurationResponse
 putBucketAccelerateConfigurationResponse =
-    PutBucketAccelerateConfigurationResponse'
+  PutBucketAccelerateConfigurationResponse'
+
 
 instance NFData
-         PutBucketAccelerateConfigurationResponse
+           PutBucketAccelerateConfigurationResponse
+         where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeCertificates
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides a description of the certificate.
+--
+--
 module Network.AWS.DMS.DescribeCertificates
     (
     -- * Creating a Request
@@ -38,49 +40,46 @@ module Network.AWS.DMS.DescribeCertificates
     , dcrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeCertificates' smart constructor.
 data DescribeCertificates = DescribeCertificates'
-    { _dFilters    :: !(Maybe [Filter])
-    , _dMarker     :: !(Maybe Text)
-    , _dMaxRecords :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dFilters    :: !(Maybe [Filter])
+  , _dMarker     :: !(Maybe Text)
+  , _dMaxRecords :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCertificates' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dFilters'
+-- * 'dFilters' - Filters applied to the certificate described in the form of key-value pairs.
 --
--- * 'dMarker'
+-- * 'dMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dMaxRecords'
+-- * 'dMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 10
 describeCertificates
     :: DescribeCertificates
 describeCertificates =
-    DescribeCertificates'
-    { _dFilters = Nothing
-    , _dMarker = Nothing
-    , _dMaxRecords = Nothing
-    }
+  DescribeCertificates'
+  {_dFilters = Nothing, _dMarker = Nothing, _dMaxRecords = Nothing}
+
 
 -- | Filters applied to the certificate described in the form of key-value pairs.
 dFilters :: Lens' DescribeCertificates [Filter]
 dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dMarker :: Lens' DescribeCertificates (Maybe Text)
 dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 10
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 10
 dMaxRecords :: Lens' DescribeCertificates (Maybe Int)
 dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
 
@@ -96,9 +95,9 @@ instance AWSRequest DescribeCertificates where
                      (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeCertificates
+instance Hashable DescribeCertificates where
 
-instance NFData DescribeCertificates
+instance NFData DescribeCertificates where
 
 instance ToHeaders DescribeCertificates where
         toHeaders
@@ -126,31 +125,33 @@ instance ToQuery DescribeCertificates where
 
 -- | /See:/ 'describeCertificatesResponse' smart constructor.
 data DescribeCertificatesResponse = DescribeCertificatesResponse'
-    { _dcrsCertificates   :: !(Maybe [Certificate])
-    , _dcrsMarker         :: !(Maybe Text)
-    , _dcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrsCertificates   :: !(Maybe [Certificate])
+  , _dcrsMarker         :: !(Maybe Text)
+  , _dcrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCertificatesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrsCertificates'
+-- * 'dcrsCertificates' - The Secure Sockets Layer (SSL) certificates associated with the replication instance.
 --
--- * 'dcrsMarker'
+-- * 'dcrsMarker' - The pagination token.
 --
--- * 'dcrsResponseStatus'
+-- * 'dcrsResponseStatus' - -- | The response status code.
 describeCertificatesResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeCertificatesResponse
 describeCertificatesResponse pResponseStatus_ =
-    DescribeCertificatesResponse'
-    { _dcrsCertificates = Nothing
-    , _dcrsMarker = Nothing
-    , _dcrsResponseStatus = pResponseStatus_
-    }
+  DescribeCertificatesResponse'
+  { _dcrsCertificates = Nothing
+  , _dcrsMarker = Nothing
+  , _dcrsResponseStatus = pResponseStatus_
+  }
 
--- | The SSL certificates associated with the replication instance.
+
+-- | The Secure Sockets Layer (SSL) certificates associated with the replication instance.
 dcrsCertificates :: Lens' DescribeCertificatesResponse [Certificate]
 dcrsCertificates = lens _dcrsCertificates (\ s a -> s{_dcrsCertificates = a}) . _Default . _Coerce;
 
@@ -158,8 +159,8 @@ dcrsCertificates = lens _dcrsCertificates (\ s a -> s{_dcrsCertificates = a}) . 
 dcrsMarker :: Lens' DescribeCertificatesResponse (Maybe Text)
 dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeCertificatesResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 
-instance NFData DescribeCertificatesResponse
+instance NFData DescribeCertificatesResponse where

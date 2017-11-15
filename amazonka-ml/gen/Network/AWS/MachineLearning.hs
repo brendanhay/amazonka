@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -367,36 +367,36 @@ module Network.AWS.MachineLearning
     , tagKey
     ) where
 
-import           Network.AWS.MachineLearning.AddTags
-import           Network.AWS.MachineLearning.CreateBatchPrediction
-import           Network.AWS.MachineLearning.CreateDataSourceFromRDS
-import           Network.AWS.MachineLearning.CreateDataSourceFromRedshift
-import           Network.AWS.MachineLearning.CreateDataSourceFromS3
-import           Network.AWS.MachineLearning.CreateEvaluation
-import           Network.AWS.MachineLearning.CreateMLModel
-import           Network.AWS.MachineLearning.CreateRealtimeEndpoint
-import           Network.AWS.MachineLearning.DeleteBatchPrediction
-import           Network.AWS.MachineLearning.DeleteDataSource
-import           Network.AWS.MachineLearning.DeleteEvaluation
-import           Network.AWS.MachineLearning.DeleteMLModel
-import           Network.AWS.MachineLearning.DeleteRealtimeEndpoint
-import           Network.AWS.MachineLearning.DeleteTags
-import           Network.AWS.MachineLearning.DescribeBatchPredictions
-import           Network.AWS.MachineLearning.DescribeDataSources
-import           Network.AWS.MachineLearning.DescribeEvaluations
-import           Network.AWS.MachineLearning.DescribeMLModels
-import           Network.AWS.MachineLearning.DescribeTags
-import           Network.AWS.MachineLearning.GetBatchPrediction
-import           Network.AWS.MachineLearning.GetDataSource
-import           Network.AWS.MachineLearning.GetEvaluation
-import           Network.AWS.MachineLearning.GetMLModel
-import           Network.AWS.MachineLearning.Predict
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.UpdateBatchPrediction
-import           Network.AWS.MachineLearning.UpdateDataSource
-import           Network.AWS.MachineLearning.UpdateEvaluation
-import           Network.AWS.MachineLearning.UpdateMLModel
-import           Network.AWS.MachineLearning.Waiters
+import Network.AWS.MachineLearning.AddTags
+import Network.AWS.MachineLearning.CreateBatchPrediction
+import Network.AWS.MachineLearning.CreateDataSourceFromRDS
+import Network.AWS.MachineLearning.CreateDataSourceFromRedshift
+import Network.AWS.MachineLearning.CreateDataSourceFromS3
+import Network.AWS.MachineLearning.CreateEvaluation
+import Network.AWS.MachineLearning.CreateMLModel
+import Network.AWS.MachineLearning.CreateRealtimeEndpoint
+import Network.AWS.MachineLearning.DeleteBatchPrediction
+import Network.AWS.MachineLearning.DeleteDataSource
+import Network.AWS.MachineLearning.DeleteEvaluation
+import Network.AWS.MachineLearning.DeleteMLModel
+import Network.AWS.MachineLearning.DeleteRealtimeEndpoint
+import Network.AWS.MachineLearning.DeleteTags
+import Network.AWS.MachineLearning.DescribeBatchPredictions
+import Network.AWS.MachineLearning.DescribeDataSources
+import Network.AWS.MachineLearning.DescribeEvaluations
+import Network.AWS.MachineLearning.DescribeMLModels
+import Network.AWS.MachineLearning.DescribeTags
+import Network.AWS.MachineLearning.GetBatchPrediction
+import Network.AWS.MachineLearning.GetDataSource
+import Network.AWS.MachineLearning.GetEvaluation
+import Network.AWS.MachineLearning.GetMLModel
+import Network.AWS.MachineLearning.Predict
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.UpdateBatchPrediction
+import Network.AWS.MachineLearning.UpdateDataSource
+import Network.AWS.MachineLearning.UpdateEvaluation
+import Network.AWS.MachineLearning.UpdateMLModel
+import Network.AWS.MachineLearning.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

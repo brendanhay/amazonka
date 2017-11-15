@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListThingPrincipals
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the principals associated with the specified thing.
+--
+--
 module Network.AWS.IoT.ListThingPrincipals
     (
     -- * Creating a Request
@@ -35,32 +37,34 @@ module Network.AWS.IoT.ListThingPrincipals
     , ltprsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the ListThingPrincipal operation.
 --
+--
+--
 -- /See:/ 'listThingPrincipals' smart constructor.
 newtype ListThingPrincipals = ListThingPrincipals'
-    { _ltpThingName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltpThingName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListThingPrincipals' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltpThingName'
+-- * 'ltpThingName' - The name of the thing.
 listThingPrincipals
     :: Text -- ^ 'ltpThingName'
     -> ListThingPrincipals
 listThingPrincipals pThingName_ =
-    ListThingPrincipals'
-    { _ltpThingName = pThingName_
-    }
+  ListThingPrincipals' {_ltpThingName = pThingName_}
+
 
 -- | The name of the thing.
 ltpThingName :: Lens' ListThingPrincipals Text
@@ -77,9 +81,9 @@ instance AWSRequest ListThingPrincipals where
                    (x .?> "principals" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListThingPrincipals
+instance Hashable ListThingPrincipals where
 
-instance NFData ListThingPrincipals
+instance NFData ListThingPrincipals where
 
 instance ToHeaders ListThingPrincipals where
         toHeaders = const mempty
@@ -94,34 +98,36 @@ instance ToQuery ListThingPrincipals where
 
 -- | The output from the ListThingPrincipals operation.
 --
+--
+--
 -- /See:/ 'listThingPrincipalsResponse' smart constructor.
 data ListThingPrincipalsResponse = ListThingPrincipalsResponse'
-    { _ltprsPrincipals     :: !(Maybe [Text])
-    , _ltprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltprsPrincipals     :: !(Maybe [Text])
+  , _ltprsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListThingPrincipalsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltprsPrincipals'
+-- * 'ltprsPrincipals' - The principals associated with the thing.
 --
--- * 'ltprsResponseStatus'
+-- * 'ltprsResponseStatus' - -- | The response status code.
 listThingPrincipalsResponse
     :: Int -- ^ 'ltprsResponseStatus'
     -> ListThingPrincipalsResponse
 listThingPrincipalsResponse pResponseStatus_ =
-    ListThingPrincipalsResponse'
-    { _ltprsPrincipals = Nothing
-    , _ltprsResponseStatus = pResponseStatus_
-    }
+  ListThingPrincipalsResponse'
+  {_ltprsPrincipals = Nothing, _ltprsResponseStatus = pResponseStatus_}
+
 
 -- | The principals associated with the thing.
 ltprsPrincipals :: Lens' ListThingPrincipalsResponse [Text]
 ltprsPrincipals = lens _ltprsPrincipals (\ s a -> s{_ltprsPrincipals = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ltprsResponseStatus :: Lens' ListThingPrincipalsResponse Int
 ltprsResponseStatus = lens _ltprsResponseStatus (\ s a -> s{_ltprsResponseStatus = a});
 
-instance NFData ListThingPrincipalsResponse
+instance NFData ListThingPrincipalsResponse where

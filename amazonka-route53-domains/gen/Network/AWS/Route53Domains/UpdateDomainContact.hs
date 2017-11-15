@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.UpdateDomainContact
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation updates the contact information for a particular domain. Information for at least one contact (registrant, administrator, or technical) must be supplied for update.
 --
+--
 -- If the update is successful, this method returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email.
+--
 module Network.AWS.Route53Domains.UpdateDomainContact
     (
     -- * Creating a Request
@@ -40,84 +42,62 @@ module Network.AWS.Route53Domains.UpdateDomainContact
     , udcrsOperationId
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | The UpdateDomainContact request includes the following elements.
 --
+--
+--
 -- /See:/ 'updateDomainContact' smart constructor.
 data UpdateDomainContact = UpdateDomainContact'
-    { _udcRegistrantContact :: !(Maybe (Sensitive ContactDetail))
-    , _udcAdminContact      :: !(Maybe (Sensitive ContactDetail))
-    , _udcTechContact       :: !(Maybe (Sensitive ContactDetail))
-    , _udcDomainName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udcRegistrantContact :: !(Maybe (Sensitive ContactDetail))
+  , _udcAdminContact      :: !(Maybe (Sensitive ContactDetail))
+  , _udcTechContact       :: !(Maybe (Sensitive ContactDetail))
+  , _udcDomainName        :: !Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDomainContact' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udcRegistrantContact'
+-- * 'udcRegistrantContact' - Provides detailed contact information.
 --
--- * 'udcAdminContact'
+-- * 'udcAdminContact' - Provides detailed contact information.
 --
--- * 'udcTechContact'
+-- * 'udcTechContact' - Provides detailed contact information.
 --
--- * 'udcDomainName'
+-- * 'udcDomainName' - The name of the domain that you want to update contact information for.
 updateDomainContact
     :: Text -- ^ 'udcDomainName'
     -> UpdateDomainContact
 updateDomainContact pDomainName_ =
-    UpdateDomainContact'
-    { _udcRegistrantContact = Nothing
-    , _udcAdminContact = Nothing
-    , _udcTechContact = Nothing
-    , _udcDomainName = pDomainName_
-    }
+  UpdateDomainContact'
+  { _udcRegistrantContact = Nothing
+  , _udcAdminContact = Nothing
+  , _udcTechContact = Nothing
+  , _udcDomainName = pDomainName_
+  }
+
 
 -- | Provides detailed contact information.
---
--- Type: Complex
---
--- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
---
--- Required: Yes
 udcRegistrantContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
 udcRegistrantContact = lens _udcRegistrantContact (\ s a -> s{_udcRegistrantContact = a}) . mapping _Sensitive;
 
 -- | Provides detailed contact information.
---
--- Type: Complex
---
--- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
---
--- Required: Yes
 udcAdminContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
 udcAdminContact = lens _udcAdminContact (\ s a -> s{_udcAdminContact = a}) . mapping _Sensitive;
 
 -- | Provides detailed contact information.
---
--- Type: Complex
---
--- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
---
--- Required: Yes
 udcTechContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
 udcTechContact = lens _udcTechContact (\ s a -> s{_udcTechContact = a}) . mapping _Sensitive;
 
--- | The name of a domain.
---
--- Type: String
---
--- Default: None
---
--- Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.
---
--- Required: Yes
+-- | The name of the domain that you want to update contact information for.
 udcDomainName :: Lens' UpdateDomainContact Text
 udcDomainName = lens _udcDomainName (\ s a -> s{_udcDomainName = a});
 
@@ -131,9 +111,9 @@ instance AWSRequest UpdateDomainContact where
                  UpdateDomainContactResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
-instance Hashable UpdateDomainContact
+instance Hashable UpdateDomainContact where
 
-instance NFData UpdateDomainContact
+instance NFData UpdateDomainContact where
 
 instance ToHeaders UpdateDomainContact where
         toHeaders
@@ -162,41 +142,37 @@ instance ToQuery UpdateDomainContact where
 
 -- | The UpdateDomainContact response includes the following element.
 --
+--
+--
 -- /See:/ 'updateDomainContactResponse' smart constructor.
 data UpdateDomainContactResponse = UpdateDomainContactResponse'
-    { _udcrsResponseStatus :: !Int
-    , _udcrsOperationId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udcrsResponseStatus :: !Int
+  , _udcrsOperationId    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDomainContactResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udcrsResponseStatus'
+-- * 'udcrsResponseStatus' - -- | The response status code.
 --
--- * 'udcrsOperationId'
+-- * 'udcrsOperationId' - Identifier for tracking the progress of the request. To use this ID to query the operation status, use 'GetOperationDetail' .
 updateDomainContactResponse
     :: Int -- ^ 'udcrsResponseStatus'
     -> Text -- ^ 'udcrsOperationId'
     -> UpdateDomainContactResponse
 updateDomainContactResponse pResponseStatus_ pOperationId_ =
-    UpdateDomainContactResponse'
-    { _udcrsResponseStatus = pResponseStatus_
-    , _udcrsOperationId = pOperationId_
-    }
+  UpdateDomainContactResponse'
+  {_udcrsResponseStatus = pResponseStatus_, _udcrsOperationId = pOperationId_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 udcrsResponseStatus :: Lens' UpdateDomainContactResponse Int
 udcrsResponseStatus = lens _udcrsResponseStatus (\ s a -> s{_udcrsResponseStatus = a});
 
--- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
+-- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use 'GetOperationDetail' .
 udcrsOperationId :: Lens' UpdateDomainContactResponse Text
 udcrsOperationId = lens _udcrsOperationId (\ s a -> s{_udcrsOperationId = a});
 
-instance NFData UpdateDomainContactResponse
+instance NFData UpdateDomainContactResponse where

@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.SES.UpdateReceiptRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a receipt rule.
 --
--- For information about managing receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide>.
 --
--- This action is throttled at one request per second.
+-- For information about managing receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide> .
+--
+-- You can execute this operation no more than once per second.
+--
 module Network.AWS.SES.UpdateReceiptRule
     (
     -- * Creating a Request
@@ -39,39 +41,40 @@ module Network.AWS.SES.UpdateReceiptRule
     , urrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
--- | Represents a request to update a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+-- | Represents a request to update a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'updateReceiptRule' smart constructor.
 data UpdateReceiptRule = UpdateReceiptRule'
-    { _urrRuleSetName :: !Text
-    , _urrRule        :: !ReceiptRule
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urrRuleSetName :: !Text
+  , _urrRule        :: !ReceiptRule
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateReceiptRule' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urrRuleSetName'
+-- * 'urrRuleSetName' - The name of the receipt rule set that the receipt rule belongs to.
 --
--- * 'urrRule'
+-- * 'urrRule' - A data structure that contains the updated receipt rule information.
 updateReceiptRule
     :: Text -- ^ 'urrRuleSetName'
     -> ReceiptRule -- ^ 'urrRule'
     -> UpdateReceiptRule
 updateReceiptRule pRuleSetName_ pRule_ =
-    UpdateReceiptRule'
-    { _urrRuleSetName = pRuleSetName_
-    , _urrRule = pRule_
-    }
+  UpdateReceiptRule' {_urrRuleSetName = pRuleSetName_, _urrRule = pRule_}
 
--- | The name of the receipt rule set to which the receipt rule belongs.
+
+-- | The name of the receipt rule set that the receipt rule belongs to.
 urrRuleSetName :: Lens' UpdateReceiptRule Text
 urrRuleSetName = lens _urrRuleSetName (\ s a -> s{_urrRuleSetName = a});
 
@@ -87,9 +90,9 @@ instance AWSRequest UpdateReceiptRule where
               (\ s h x ->
                  UpdateReceiptRuleResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateReceiptRule
+instance Hashable UpdateReceiptRule where
 
-instance NFData UpdateReceiptRule
+instance NFData UpdateReceiptRule where
 
 instance ToHeaders UpdateReceiptRule where
         toHeaders = const mempty
@@ -106,26 +109,28 @@ instance ToQuery UpdateReceiptRule where
 
 -- | An empty element returned on a successful request.
 --
+--
+--
 -- /See:/ 'updateReceiptRuleResponse' smart constructor.
 newtype UpdateReceiptRuleResponse = UpdateReceiptRuleResponse'
-    { _urrrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urrrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateReceiptRuleResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urrrsResponseStatus'
+-- * 'urrrsResponseStatus' - -- | The response status code.
 updateReceiptRuleResponse
     :: Int -- ^ 'urrrsResponseStatus'
     -> UpdateReceiptRuleResponse
 updateReceiptRuleResponse pResponseStatus_ =
-    UpdateReceiptRuleResponse'
-    { _urrrsResponseStatus = pResponseStatus_
-    }
+  UpdateReceiptRuleResponse' {_urrrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 urrrsResponseStatus :: Lens' UpdateReceiptRuleResponse Int
 urrrsResponseStatus = lens _urrrsResponseStatus (\ s a -> s{_urrrsResponseStatus = a});
 
-instance NFData UpdateReceiptRuleResponse
+instance NFData UpdateReceiptRuleResponse where

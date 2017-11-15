@@ -6,25 +6,28 @@
 {-# LANGUAGE TemplateHaskell   #-}
 
 -- Module      : Gen.Types.Pager
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
 module Gen.Types.Pager where
 
-import           Control.Applicative
-import           Control.Lens
-import           Control.Monad
-import           Data.Aeson
-import           Data.List.NonEmpty  (NonEmpty (..))
-import qualified Data.List.NonEmpty  as NE
-import           Gen.Types.Id
-import           Gen.Types.Notation
+import Control.Applicative
+import Control.Lens
+import Control.Monad
+
+import Data.Aeson
+import Data.List.NonEmpty (NonEmpty (..))
+
+import Gen.Types.Id
+import Gen.Types.Notation
+
+import qualified Data.List.NonEmpty as NE
 
 data Token a = Token
     { _tokenInput  :: Notation a

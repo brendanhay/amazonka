@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Delete an origin access identity.
+--
+--
 module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
     (
     -- * Creating a Request
@@ -33,47 +35,50 @@ module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
     , DeleteCloudFrontOriginAccessIdentityResponse
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | The request to delete a origin access identity.
+-- | Deletes a origin access identity.
+--
+--
 --
 -- /See:/ 'deleteCloudFrontOriginAccessIdentity' smart constructor.
 data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity'
-    { _dcfoaiIfMatch :: !(Maybe Text)
-    , _dcfoaiId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcfoaiIfMatch :: !(Maybe Text)
+  , _dcfoaiId      :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCloudFrontOriginAccessIdentity' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcfoaiIfMatch'
+-- * 'dcfoaiIfMatch' - The value of the @ETag@ header you received from a previous @GET@ or @PUT@ request. For example: @E2QWRUHAPOMQZL@ .
 --
--- * 'dcfoaiId'
+-- * 'dcfoaiId' - The origin access identity's ID.
 deleteCloudFrontOriginAccessIdentity
     :: Text -- ^ 'dcfoaiId'
     -> DeleteCloudFrontOriginAccessIdentity
 deleteCloudFrontOriginAccessIdentity pId_ =
-    DeleteCloudFrontOriginAccessIdentity'
-    { _dcfoaiIfMatch = Nothing
-    , _dcfoaiId = pId_
-    }
+  DeleteCloudFrontOriginAccessIdentity'
+  {_dcfoaiIfMatch = Nothing, _dcfoaiId = pId_}
 
--- | The value of the ETag header you received from a previous GET or PUT request. For example: E2QWRUHAPOMQZL.
+
+-- | The value of the @ETag@ header you received from a previous @GET@ or @PUT@ request. For example: @E2QWRUHAPOMQZL@ .
 dcfoaiIfMatch :: Lens' DeleteCloudFrontOriginAccessIdentity (Maybe Text)
 dcfoaiIfMatch = lens _dcfoaiIfMatch (\ s a -> s{_dcfoaiIfMatch = a});
 
--- | The origin access identity\'s id.
+-- | The origin access identity's ID.
 dcfoaiId :: Lens' DeleteCloudFrontOriginAccessIdentity Text
 dcfoaiId = lens _dcfoaiId (\ s a -> s{_dcfoaiId = a});
 
 instance AWSRequest
-         DeleteCloudFrontOriginAccessIdentity where
+           DeleteCloudFrontOriginAccessIdentity
+         where
         type Rs DeleteCloudFrontOriginAccessIdentity =
              DeleteCloudFrontOriginAccessIdentityResponse
         request = delete cloudFront
@@ -82,12 +87,15 @@ instance AWSRequest
               DeleteCloudFrontOriginAccessIdentityResponse'
 
 instance Hashable
-         DeleteCloudFrontOriginAccessIdentity
+           DeleteCloudFrontOriginAccessIdentity
+         where
 
 instance NFData DeleteCloudFrontOriginAccessIdentity
+         where
 
 instance ToHeaders
-         DeleteCloudFrontOriginAccessIdentity where
+           DeleteCloudFrontOriginAccessIdentity
+         where
         toHeaders DeleteCloudFrontOriginAccessIdentity'{..}
           = mconcat ["If-Match" =# _dcfoaiIfMatch]
 
@@ -95,7 +103,7 @@ instance ToPath DeleteCloudFrontOriginAccessIdentity
          where
         toPath DeleteCloudFrontOriginAccessIdentity'{..}
           = mconcat
-              ["/2016-09-07/origin-access-identity/cloudfront/",
+              ["/2017-03-25/origin-access-identity/cloudfront/",
                toBS _dcfoaiId]
 
 instance ToQuery DeleteCloudFrontOriginAccessIdentity
@@ -104,15 +112,18 @@ instance ToQuery DeleteCloudFrontOriginAccessIdentity
 
 -- | /See:/ 'deleteCloudFrontOriginAccessIdentityResponse' smart constructor.
 data DeleteCloudFrontOriginAccessIdentityResponse =
-    DeleteCloudFrontOriginAccessIdentityResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteCloudFrontOriginAccessIdentityResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCloudFrontOriginAccessIdentityResponse' with the minimum fields required to make a request.
 --
 deleteCloudFrontOriginAccessIdentityResponse
     :: DeleteCloudFrontOriginAccessIdentityResponse
 deleteCloudFrontOriginAccessIdentityResponse =
-    DeleteCloudFrontOriginAccessIdentityResponse'
+  DeleteCloudFrontOriginAccessIdentityResponse'
+
 
 instance NFData
-         DeleteCloudFrontOriginAccessIdentityResponse
+           DeleteCloudFrontOriginAccessIdentityResponse
+         where

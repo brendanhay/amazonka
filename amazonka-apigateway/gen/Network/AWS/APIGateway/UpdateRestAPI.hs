@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateRestAPI
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes information about the specified API.
+--
+--
 module Network.AWS.APIGateway.UpdateRestAPI
     (
     -- * Creating a Request
@@ -32,49 +34,53 @@ module Network.AWS.APIGateway.UpdateRestAPI
     , restAPI
     , RestAPI
     -- * Response Lenses
+    , raBinaryMediaTypes
     , raWarnings
     , raCreatedDate
     , raName
+    , raVersion
     , raId
+    , raEndpointConfiguration
     , raDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Request to update an existing < RestApi> resource in your collection.
+-- | Request to update an existing 'RestApi' resource in your collection.
+--
+--
 --
 -- /See:/ 'updateRestAPI' smart constructor.
 data UpdateRestAPI = UpdateRestAPI'
-    { _uraPatchOperations :: !(Maybe [PatchOperation])
-    , _uraRestAPIId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uraPatchOperations :: !(Maybe [PatchOperation])
+  , _uraRestAPIId       :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateRestAPI' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uraPatchOperations'
+-- * 'uraPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uraRestAPIId'
+-- * 'uraRestAPIId' - The string identifier of the associated 'RestApi' .
 updateRestAPI
     :: Text -- ^ 'uraRestAPIId'
     -> UpdateRestAPI
 updateRestAPI pRestAPIId_ =
-    UpdateRestAPI'
-    { _uraPatchOperations = Nothing
-    , _uraRestAPIId = pRestAPIId_
-    }
+  UpdateRestAPI' {_uraPatchOperations = Nothing, _uraRestAPIId = pRestAPIId_}
+
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uraPatchOperations :: Lens' UpdateRestAPI [PatchOperation]
 uraPatchOperations = lens _uraPatchOperations (\ s a -> s{_uraPatchOperations = a}) . _Default . _Coerce;
 
--- | The ID of the < RestApi> you want to update.
+-- | The string identifier of the associated 'RestApi' .
 uraRestAPIId :: Lens' UpdateRestAPI Text
 uraRestAPIId = lens _uraRestAPIId (\ s a -> s{_uraRestAPIId = a});
 
@@ -83,9 +89,9 @@ instance AWSRequest UpdateRestAPI where
         request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateRestAPI
+instance Hashable UpdateRestAPI where
 
-instance NFData UpdateRestAPI
+instance NFData UpdateRestAPI where
 
 instance ToHeaders UpdateRestAPI where
         toHeaders

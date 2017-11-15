@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.CreateAlias
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an alias that points to the specified Lambda function version. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
+-- Creates an alias that points to the specified Lambda function version. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases> .
+--
 --
 -- Alias names are unique for a given function. This requires permission for the lambda:CreateAlias action.
+--
 module Network.AWS.Lambda.CreateAlias
     (
     -- * Creating a Request
@@ -42,50 +44,52 @@ module Network.AWS.Lambda.CreateAlias
     , acDescription
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createAlias' smart constructor.
 data CreateAlias = CreateAlias'
-    { _caDescription     :: !(Maybe Text)
-    , _caFunctionName    :: !Text
-    , _caName            :: !Text
-    , _caFunctionVersion :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _caDescription     :: !(Maybe Text)
+  , _caFunctionName    :: !Text
+  , _caName            :: !Text
+  , _caFunctionVersion :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAlias' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caDescription'
+-- * 'caDescription' - Description of the alias.
 --
--- * 'caFunctionName'
+-- * 'caFunctionName' - Name of the Lambda function for which you want to create an alias. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
--- * 'caName'
+-- * 'caName' - Name for the alias you are creating.
 --
--- * 'caFunctionVersion'
+-- * 'caFunctionVersion' - Lambda function version for which you are creating the alias.
 createAlias
     :: Text -- ^ 'caFunctionName'
     -> Text -- ^ 'caName'
     -> Text -- ^ 'caFunctionVersion'
     -> CreateAlias
 createAlias pFunctionName_ pName_ pFunctionVersion_ =
-    CreateAlias'
-    { _caDescription = Nothing
-    , _caFunctionName = pFunctionName_
-    , _caName = pName_
-    , _caFunctionVersion = pFunctionVersion_
-    }
+  CreateAlias'
+  { _caDescription = Nothing
+  , _caFunctionName = pFunctionName_
+  , _caName = pName_
+  , _caFunctionVersion = pFunctionVersion_
+  }
+
 
 -- | Description of the alias.
 caDescription :: Lens' CreateAlias (Maybe Text)
 caDescription = lens _caDescription (\ s a -> s{_caDescription = a});
 
--- | Name of the Lambda function for which you want to create an alias.
+-- | Name of the Lambda function for which you want to create an alias. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 caFunctionName :: Lens' CreateAlias Text
 caFunctionName = lens _caFunctionName (\ s a -> s{_caFunctionName = a});
 
@@ -102,9 +106,9 @@ instance AWSRequest CreateAlias where
         request = postJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateAlias
+instance Hashable CreateAlias where
 
-instance NFData CreateAlias
+instance NFData CreateAlias where
 
 instance ToHeaders CreateAlias where
         toHeaders = const mempty

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteBasePathMapping
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the < BasePathMapping> resource.
+-- Deletes the 'BasePathMapping' resource.
+--
+--
 module Network.AWS.APIGateway.DeleteBasePathMapping
     (
     -- * Creating a Request
@@ -33,43 +35,45 @@ module Network.AWS.APIGateway.DeleteBasePathMapping
     , DeleteBasePathMappingResponse
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | A request to delete the < BasePathMapping> resource.
+-- | A request to delete the 'BasePathMapping' resource.
+--
+--
 --
 -- /See:/ 'deleteBasePathMapping' smart constructor.
 data DeleteBasePathMapping = DeleteBasePathMapping'
-    { _dbpmDomainName :: !Text
-    , _dbpmBasePath   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbpmDomainName :: !Text
+  , _dbpmBasePath   :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBasePathMapping' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbpmDomainName'
+-- * 'dbpmDomainName' - The domain name of the 'BasePathMapping' resource to delete.
 --
--- * 'dbpmBasePath'
+-- * 'dbpmBasePath' - The base path name of the 'BasePathMapping' resource to delete.
 deleteBasePathMapping
     :: Text -- ^ 'dbpmDomainName'
     -> Text -- ^ 'dbpmBasePath'
     -> DeleteBasePathMapping
 deleteBasePathMapping pDomainName_ pBasePath_ =
-    DeleteBasePathMapping'
-    { _dbpmDomainName = pDomainName_
-    , _dbpmBasePath = pBasePath_
-    }
+  DeleteBasePathMapping'
+  {_dbpmDomainName = pDomainName_, _dbpmBasePath = pBasePath_}
 
--- | The domain name of the < BasePathMapping> resource to delete.
+
+-- | The domain name of the 'BasePathMapping' resource to delete.
 dbpmDomainName :: Lens' DeleteBasePathMapping Text
 dbpmDomainName = lens _dbpmDomainName (\ s a -> s{_dbpmDomainName = a});
 
--- | The base path name of the < BasePathMapping> resource to delete.
+-- | The base path name of the 'BasePathMapping' resource to delete.
 dbpmBasePath :: Lens' DeleteBasePathMapping Text
 dbpmBasePath = lens _dbpmBasePath (\ s a -> s{_dbpmBasePath = a});
 
@@ -79,9 +83,9 @@ instance AWSRequest DeleteBasePathMapping where
         request = delete apiGateway
         response = receiveNull DeleteBasePathMappingResponse'
 
-instance Hashable DeleteBasePathMapping
+instance Hashable DeleteBasePathMapping where
 
-instance NFData DeleteBasePathMapping
+instance NFData DeleteBasePathMapping where
 
 instance ToHeaders DeleteBasePathMapping where
         toHeaders
@@ -100,8 +104,9 @@ instance ToQuery DeleteBasePathMapping where
 
 -- | /See:/ 'deleteBasePathMappingResponse' smart constructor.
 data DeleteBasePathMappingResponse =
-    DeleteBasePathMappingResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteBasePathMappingResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBasePathMappingResponse' with the minimum fields required to make a request.
 --
@@ -109,4 +114,5 @@ deleteBasePathMappingResponse
     :: DeleteBasePathMappingResponse
 deleteBasePathMappingResponse = DeleteBasePathMappingResponse'
 
-instance NFData DeleteBasePathMappingResponse
+
+instance NFData DeleteBasePathMappingResponse where

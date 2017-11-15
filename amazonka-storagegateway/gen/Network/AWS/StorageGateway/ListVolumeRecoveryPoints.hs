@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListVolumeRecoveryPoints
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the recovery points for a specified gateway. This operation is supported only for the gateway-cached volume architecture.
+-- Lists the recovery points for a specified gateway. This operation is only supported in the cached volume gateway architecture.
 --
--- Each gateway-cached volume has one recovery point. A volume recovery point is a point in time at which all data of the volume is consistent and from which you can create a snapshot. To create a snapshot from a volume recovery point use the < CreateSnapshotFromVolumeRecoveryPoint> operation.
+--
+-- Each cache volume has one recovery point. A volume recovery point is a point in time at which all data of the volume is consistent and from which you can create a snapshot or clone a new cached volume from a source volume. To create a snapshot from a volume recovery point use the 'CreateSnapshotFromVolumeRecoveryPoint' operation.
+--
 module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     (
     -- * Creating a Request
@@ -38,30 +40,30 @@ module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     , lvrprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'listVolumeRecoveryPoints' smart constructor.
 newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints'
-    { _lvrpGatewayARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lvrpGatewayARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListVolumeRecoveryPoints' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lvrpGatewayARN'
+-- * 'lvrpGatewayARN' - Undocumented member.
 listVolumeRecoveryPoints
     :: Text -- ^ 'lvrpGatewayARN'
     -> ListVolumeRecoveryPoints
 listVolumeRecoveryPoints pGatewayARN_ =
-    ListVolumeRecoveryPoints'
-    { _lvrpGatewayARN = pGatewayARN_
-    }
+  ListVolumeRecoveryPoints' {_lvrpGatewayARN = pGatewayARN_}
+
 
 -- | Undocumented member.
 lvrpGatewayARN :: Lens' ListVolumeRecoveryPoints Text
@@ -79,9 +81,9 @@ instance AWSRequest ListVolumeRecoveryPoints where
                      (x .?> "GatewayARN")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListVolumeRecoveryPoints
+instance Hashable ListVolumeRecoveryPoints where
 
-instance NFData ListVolumeRecoveryPoints
+instance NFData ListVolumeRecoveryPoints where
 
 instance ToHeaders ListVolumeRecoveryPoints where
         toHeaders
@@ -106,29 +108,31 @@ instance ToQuery ListVolumeRecoveryPoints where
 
 -- | /See:/ 'listVolumeRecoveryPointsResponse' smart constructor.
 data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
-    { _lvrprsVolumeRecoveryPointInfos :: !(Maybe [VolumeRecoveryPointInfo])
-    , _lvrprsGatewayARN               :: !(Maybe Text)
-    , _lvrprsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lvrprsVolumeRecoveryPointInfos :: !(Maybe [VolumeRecoveryPointInfo])
+  , _lvrprsGatewayARN               :: !(Maybe Text)
+  , _lvrprsResponseStatus           :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListVolumeRecoveryPointsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lvrprsVolumeRecoveryPointInfos'
+-- * 'lvrprsVolumeRecoveryPointInfos' - Undocumented member.
 --
--- * 'lvrprsGatewayARN'
+-- * 'lvrprsGatewayARN' - Undocumented member.
 --
--- * 'lvrprsResponseStatus'
+-- * 'lvrprsResponseStatus' - -- | The response status code.
 listVolumeRecoveryPointsResponse
     :: Int -- ^ 'lvrprsResponseStatus'
     -> ListVolumeRecoveryPointsResponse
 listVolumeRecoveryPointsResponse pResponseStatus_ =
-    ListVolumeRecoveryPointsResponse'
-    { _lvrprsVolumeRecoveryPointInfos = Nothing
-    , _lvrprsGatewayARN = Nothing
-    , _lvrprsResponseStatus = pResponseStatus_
-    }
+  ListVolumeRecoveryPointsResponse'
+  { _lvrprsVolumeRecoveryPointInfos = Nothing
+  , _lvrprsGatewayARN = Nothing
+  , _lvrprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 lvrprsVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse [VolumeRecoveryPointInfo]
@@ -138,8 +142,9 @@ lvrprsVolumeRecoveryPointInfos = lens _lvrprsVolumeRecoveryPointInfos (\ s a -> 
 lvrprsGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
 lvrprsGatewayARN = lens _lvrprsGatewayARN (\ s a -> s{_lvrprsGatewayARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lvrprsResponseStatus :: Lens' ListVolumeRecoveryPointsResponse Int
 lvrprsResponseStatus = lens _lvrprsResponseStatus (\ s a -> s{_lvrprsResponseStatus = a});
 
 instance NFData ListVolumeRecoveryPointsResponse
+         where

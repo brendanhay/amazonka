@@ -1,12 +1,13 @@
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE OverloadedStrings          #-}
 
 -- |
 -- Module      : Network.AWS.Data.Sensitive
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
@@ -17,9 +18,13 @@ import           Data.Data                   (Data, Typeable)
 import           Data.Hashable
 import           Data.Monoid
 import           Data.String
+
 import           GHC.Generics                (Generic)
+
+import           Network.AWS.Data.Headers
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.JSON
+import           Network.AWS.Data.Log        (ToLog (..))
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
@@ -30,7 +35,6 @@ newtype Sensitive a = Sensitive { desensitise :: a }
     deriving
         ( Eq
         , Ord
-        , Read
         , IsString
         , Monoid
         , Data
@@ -44,10 +48,11 @@ newtype Sensitive a = Sensitive { desensitise :: a }
         , ToQuery
         , ToJSON
         , FromJSON
+        , ToHeader
         )
 
-instance Show (Sensitive a) where
-    show = const "******"
+instance Show  (Sensitive a) where show  = const "******"
+instance ToLog (Sensitive a) where build = const "******"
 
 instance Hashable a => Hashable (Sensitive a)
 instance NFData   a => NFData   (Sensitive a)

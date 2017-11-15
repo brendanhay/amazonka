@@ -12,55 +12,65 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeDocument
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified SSM document.
+-- Describes the specified Systems Manager document.
+--
+--
 module Network.AWS.SSM.DescribeDocument
     (
     -- * Creating a Request
       describeDocument
     , DescribeDocument
     -- * Request Lenses
+    , ddDocumentVersion
     , ddName
 
     -- * Destructuring the Response
     , describeDocumentResponse
     , DescribeDocumentResponse
     -- * Response Lenses
-    , drsDocument
-    , drsResponseStatus
+    , desrsDocument
+    , desrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeDocument' smart constructor.
-newtype DescribeDocument = DescribeDocument'
-    { _ddName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+data DescribeDocument = DescribeDocument'
+  { _ddDocumentVersion :: !(Maybe Text)
+  , _ddName            :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDocument' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddName'
+-- * 'ddDocumentVersion' - The document version for which you want information. Can be a specific version or the default version.
+--
+-- * 'ddName' - The name of the Systems Manager document.
 describeDocument
     :: Text -- ^ 'ddName'
     -> DescribeDocument
 describeDocument pName_ =
-    DescribeDocument'
-    { _ddName = pName_
-    }
+  DescribeDocument' {_ddDocumentVersion = Nothing, _ddName = pName_}
 
--- | The name of the SSM document.
+
+-- | The document version for which you want information. Can be a specific version or the default version.
+ddDocumentVersion :: Lens' DescribeDocument (Maybe Text)
+ddDocumentVersion = lens _ddDocumentVersion (\ s a -> s{_ddDocumentVersion = a});
+
+-- | The name of the Systems Manager document.
 ddName :: Lens' DescribeDocument Text
 ddName = lens _ddName (\ s a -> s{_ddName = a});
 
@@ -73,9 +83,9 @@ instance AWSRequest DescribeDocument where
                  DescribeDocumentResponse' <$>
                    (x .?> "Document") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDocument
+instance Hashable DescribeDocument where
 
-instance NFData DescribeDocument
+instance NFData DescribeDocument where
 
 instance ToHeaders DescribeDocument where
         toHeaders
@@ -88,7 +98,10 @@ instance ToHeaders DescribeDocument where
 
 instance ToJSON DescribeDocument where
         toJSON DescribeDocument'{..}
-          = object (catMaybes [Just ("Name" .= _ddName)])
+          = object
+              (catMaybes
+                 [("DocumentVersion" .=) <$> _ddDocumentVersion,
+                  Just ("Name" .= _ddName)])
 
 instance ToPath DescribeDocument where
         toPath = const "/"
@@ -98,32 +111,32 @@ instance ToQuery DescribeDocument where
 
 -- | /See:/ 'describeDocumentResponse' smart constructor.
 data DescribeDocumentResponse = DescribeDocumentResponse'
-    { _drsDocument       :: !(Maybe DocumentDescription)
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desrsDocument       :: !(Maybe DocumentDescription)
+  , _desrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDocumentResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsDocument'
+-- * 'desrsDocument' - Information about the Systems Manager document.
 --
--- * 'drsResponseStatus'
+-- * 'desrsResponseStatus' - -- | The response status code.
 describeDocumentResponse
-    :: Int -- ^ 'drsResponseStatus'
+    :: Int -- ^ 'desrsResponseStatus'
     -> DescribeDocumentResponse
 describeDocumentResponse pResponseStatus_ =
-    DescribeDocumentResponse'
-    { _drsDocument = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeDocumentResponse'
+  {_desrsDocument = Nothing, _desrsResponseStatus = pResponseStatus_}
 
--- | Information about the SSM document.
-drsDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
-drsDocument = lens _drsDocument (\ s a -> s{_drsDocument = a});
 
--- | The response status code.
-drsResponseStatus :: Lens' DescribeDocumentResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+-- | Information about the Systems Manager document.
+desrsDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
+desrsDocument = lens _desrsDocument (\ s a -> s{_desrsDocument = a});
 
-instance NFData DescribeDocumentResponse
+-- | -- | The response status code.
+desrsResponseStatus :: Lens' DescribeDocumentResponse Int
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+
+instance NFData DescribeDocumentResponse where

@@ -12,17 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.SES.DeleteVerifiedEmailAddress
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified email address from the list of verified addresses.
+-- Deprecated. Use the @DeleteIdentity@ operation to delete email addresses and domains.
 --
--- The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The DeleteIdentity action is now preferred.
 --
--- This action is throttled at one request per second.
 module Network.AWS.SES.DeleteVerifiedEmailAddress
     (
     -- * Creating a Request
@@ -36,32 +34,34 @@ module Network.AWS.SES.DeleteVerifiedEmailAddress
     , DeleteVerifiedEmailAddressResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to delete an email address from the list of email addresses you have attempted to verify under your AWS account.
 --
+--
+--
 -- /See:/ 'deleteVerifiedEmailAddress' smart constructor.
 newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress'
-    { _dveaEmailAddress :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dveaEmailAddress :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVerifiedEmailAddress' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dveaEmailAddress'
+-- * 'dveaEmailAddress' - An email address to be removed from the list of verified addresses.
 deleteVerifiedEmailAddress
     :: Text -- ^ 'dveaEmailAddress'
     -> DeleteVerifiedEmailAddress
 deleteVerifiedEmailAddress pEmailAddress_ =
-    DeleteVerifiedEmailAddress'
-    { _dveaEmailAddress = pEmailAddress_
-    }
+  DeleteVerifiedEmailAddress' {_dveaEmailAddress = pEmailAddress_}
+
 
 -- | An email address to be removed from the list of verified addresses.
 dveaEmailAddress :: Lens' DeleteVerifiedEmailAddress Text
@@ -74,9 +74,9 @@ instance AWSRequest DeleteVerifiedEmailAddress where
         response
           = receiveNull DeleteVerifiedEmailAddressResponse'
 
-instance Hashable DeleteVerifiedEmailAddress
+instance Hashable DeleteVerifiedEmailAddress where
 
-instance NFData DeleteVerifiedEmailAddress
+instance NFData DeleteVerifiedEmailAddress where
 
 instance ToHeaders DeleteVerifiedEmailAddress where
         toHeaders = const mempty
@@ -94,8 +94,9 @@ instance ToQuery DeleteVerifiedEmailAddress where
 
 -- | /See:/ 'deleteVerifiedEmailAddressResponse' smart constructor.
 data DeleteVerifiedEmailAddressResponse =
-    DeleteVerifiedEmailAddressResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteVerifiedEmailAddressResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVerifiedEmailAddressResponse' with the minimum fields required to make a request.
 --
@@ -103,4 +104,6 @@ deleteVerifiedEmailAddressResponse
     :: DeleteVerifiedEmailAddressResponse
 deleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse'
 
+
 instance NFData DeleteVerifiedEmailAddressResponse
+         where

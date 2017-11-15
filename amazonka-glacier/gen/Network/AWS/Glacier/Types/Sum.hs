@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Glacier.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ActionCode
-    = ArchiveRetrieval
-    | InventoryRetrieval
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ArchiveRetrieval
+  | InventoryRetrieval
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ActionCode where
     parser = takeLowerText >>= \case
@@ -46,10 +47,11 @@ instance FromJSON ActionCode where
     parseJSON = parseJSONText "ActionCode"
 
 data StatusCode
-    = Failed
-    | InProgress
-    | Succeeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Failed
+  | InProgress
+  | Succeeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StatusCode where
     parser = takeLowerText >>= \case

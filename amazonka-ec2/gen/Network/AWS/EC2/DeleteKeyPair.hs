@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteKeyPair
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified key pair, by removing the public key from Amazon EC2.
+--
+--
 module Network.AWS.EC2.DeleteKeyPair
     (
     -- * Creating a Request
@@ -33,38 +35,39 @@ module Network.AWS.EC2.DeleteKeyPair
     , DeleteKeyPairResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteKeyPair.
 --
+--
+--
 -- /See:/ 'deleteKeyPair' smart constructor.
 data DeleteKeyPair = DeleteKeyPair'
-    { _dkpDryRun  :: !(Maybe Bool)
-    , _dkpKeyName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dkpDryRun  :: !(Maybe Bool)
+  , _dkpKeyName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteKeyPair' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dkpDryRun'
+-- * 'dkpDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dkpKeyName'
+-- * 'dkpKeyName' - The name of the key pair.
 deleteKeyPair
     :: Text -- ^ 'dkpKeyName'
     -> DeleteKeyPair
 deleteKeyPair pKeyName_ =
-    DeleteKeyPair'
-    { _dkpDryRun = Nothing
-    , _dkpKeyName = pKeyName_
-    }
+  DeleteKeyPair' {_dkpDryRun = Nothing, _dkpKeyName = pKeyName_}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dkpDryRun :: Lens' DeleteKeyPair (Maybe Bool)
 dkpDryRun = lens _dkpDryRun (\ s a -> s{_dkpDryRun = a});
 
@@ -77,9 +80,9 @@ instance AWSRequest DeleteKeyPair where
         request = postQuery ec2
         response = receiveNull DeleteKeyPairResponse'
 
-instance Hashable DeleteKeyPair
+instance Hashable DeleteKeyPair where
 
-instance NFData DeleteKeyPair
+instance NFData DeleteKeyPair where
 
 instance ToHeaders DeleteKeyPair where
         toHeaders = const mempty
@@ -91,13 +94,14 @@ instance ToQuery DeleteKeyPair where
         toQuery DeleteKeyPair'{..}
           = mconcat
               ["Action" =: ("DeleteKeyPair" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _dkpDryRun, "KeyName" =: _dkpKeyName]
 
 -- | /See:/ 'deleteKeyPairResponse' smart constructor.
 data DeleteKeyPairResponse =
-    DeleteKeyPairResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteKeyPairResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteKeyPairResponse' with the minimum fields required to make a request.
 --
@@ -105,4 +109,5 @@ deleteKeyPairResponse
     :: DeleteKeyPairResponse
 deleteKeyPairResponse = DeleteKeyPairResponse'
 
-instance NFData DeleteKeyPairResponse
+
+instance NFData DeleteKeyPairResponse where

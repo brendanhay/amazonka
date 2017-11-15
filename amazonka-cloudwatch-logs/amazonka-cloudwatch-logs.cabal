@@ -1,54 +1,51 @@
 name:                  amazonka-cloudwatch-logs
-version:               1.4.4
+version:               1.5.0
 synopsis:              Amazon CloudWatch Logs SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               OtherLicense
+license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2016 Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2017 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-    You can use Amazon CloudWatch Logs to monitor, store, and access your log files from Amazon Elastic Compute Cloud (Amazon EC2) instances, Amazon CloudTrail, or other sources. You can then retrieve the associated log data from CloudWatch Logs using the Amazon CloudWatch console, the CloudWatch Logs commands in the AWS CLI, the CloudWatch Logs API, or the CloudWatch Logs SDK.
-
-    You can use CloudWatch Logs to:
-
-    -   __Monitor Logs from Amazon EC2 Instances in Real-time__: You can use CloudWatch Logs to monitor applications and systems using log data. For example, CloudWatch Logs can track the number of errors that occur in your application logs and send you a notification whenever the rate of errors exceeds a threshold you specify. CloudWatch Logs uses your log data for monitoring; so, no code changes are required. For example, you can monitor application logs for specific literal terms (such as \"NullReferenceException\") or count the number of occurrences of a literal term at a particular position in log data (such as \"404\" status codes in an Apache access log). When the term you are searching for is found, CloudWatch Logs reports the data to a Amazon CloudWatch metric that you specify.
-
-    -   __Monitor Amazon CloudTrail Logged Events__: You can create alarms in Amazon CloudWatch and receive notifications of particular API activity as captured by CloudTrail and use the notification to perform troubleshooting.
-
-    -   __Archive Log Data__: You can use CloudWatch Logs to store your log data in highly durable storage. You can change the log retention setting so that any log events older than this setting are automatically deleted. The CloudWatch Logs agent makes it easy to quickly send both rotated and non-rotated log data off of a host and into the log service. You can then access the raw log data when you need it.
-    .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information and sending requests.
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
     .
-    Use of lenses is required for constructing and manipulating types.
-    This is due to the amount of nesting of AWS types and transparency regarding
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
     de/serialisation into more palatable Haskell values.
     The provided lenses should be compatible with any of the major lens libraries
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
     .
-    See "Network.AWS.CloudWatchLogs" or <https://aws.amazon.com/documentation/ the AWS Documentation>
+    See "Network.AWS.CloudWatchLogs" or <https://aws.amazon.com/documentation/ the AWS documentation>
     to get started.
 
 source-repository head
-    type:     git
-    location: git://github.com/brendanhay/amazonka.git
+    type:              git
+    location:          git://github.com/brendanhay/amazonka.git
+    subdir:            amazonka-cloudwatch-logs
 
 library
     default-language:  Haskell2010
     hs-source-dirs:    src gen
 
-    ghc-options:       -Wall
+    ghc-options:
+        -Wall
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updates
+        -funbox-strict-fields
 
     exposed-modules:
           Network.AWS.CloudWatchLogs
+        , Network.AWS.CloudWatchLogs.AssociateKMSKey
         , Network.AWS.CloudWatchLogs.CancelExportTask
         , Network.AWS.CloudWatchLogs.CreateExportTask
         , Network.AWS.CloudWatchLogs.CreateLogGroup
@@ -57,6 +54,7 @@ library
         , Network.AWS.CloudWatchLogs.DeleteLogGroup
         , Network.AWS.CloudWatchLogs.DeleteLogStream
         , Network.AWS.CloudWatchLogs.DeleteMetricFilter
+        , Network.AWS.CloudWatchLogs.DeleteResourcePolicy
         , Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
         , Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
         , Network.AWS.CloudWatchLogs.DescribeDestinations
@@ -64,17 +62,23 @@ library
         , Network.AWS.CloudWatchLogs.DescribeLogGroups
         , Network.AWS.CloudWatchLogs.DescribeLogStreams
         , Network.AWS.CloudWatchLogs.DescribeMetricFilters
+        , Network.AWS.CloudWatchLogs.DescribeResourcePolicies
         , Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
+        , Network.AWS.CloudWatchLogs.DisassociateKMSKey
         , Network.AWS.CloudWatchLogs.FilterLogEvents
         , Network.AWS.CloudWatchLogs.GetLogEvents
+        , Network.AWS.CloudWatchLogs.ListTagsLogGroup
         , Network.AWS.CloudWatchLogs.PutDestination
         , Network.AWS.CloudWatchLogs.PutDestinationPolicy
         , Network.AWS.CloudWatchLogs.PutLogEvents
         , Network.AWS.CloudWatchLogs.PutMetricFilter
+        , Network.AWS.CloudWatchLogs.PutResourcePolicy
         , Network.AWS.CloudWatchLogs.PutRetentionPolicy
         , Network.AWS.CloudWatchLogs.PutSubscriptionFilter
+        , Network.AWS.CloudWatchLogs.TagLogGroup
         , Network.AWS.CloudWatchLogs.TestMetricFilter
         , Network.AWS.CloudWatchLogs.Types
+        , Network.AWS.CloudWatchLogs.UntagLogGroup
         , Network.AWS.CloudWatchLogs.Waiters
 
     other-modules:
@@ -82,7 +86,7 @@ library
         , Network.AWS.CloudWatchLogs.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.4.*
+          amazonka-core == 1.5.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cloudwatch-logs-test
@@ -102,9 +106,9 @@ test-suite amazonka-cloudwatch-logs-test
         , Test.AWS.CloudWatchLogs.Internal
 
     build-depends:
-          amazonka-core == 1.4.4.*
-        , amazonka-test == 1.4.4.*
-        , amazonka-cloudwatch-logs == 1.4.4.*
+          amazonka-core == 1.5.0.*
+        , amazonka-test == 1.5.0.*
+        , amazonka-cloudwatch-logs == 1.5.0.*
         , base
         , bytestring
         , tasty

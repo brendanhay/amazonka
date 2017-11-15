@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.ReadJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- The ReadJob operation returns detailed information about a job.
+--
+--
 module Network.AWS.ElasticTranscoder.ReadJob
     (
     -- * Creating a Request
@@ -35,32 +37,33 @@ module Network.AWS.ElasticTranscoder.ReadJob
     , rjrsJob
     ) where
 
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.ElasticTranscoder.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.ElasticTranscoder.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | The 'ReadJobRequest' structure.
+-- | The @ReadJobRequest@ structure.
+--
+--
 --
 -- /See:/ 'readJob' smart constructor.
 newtype ReadJob = ReadJob'
-    { _rjId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rjId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReadJob' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rjId'
+-- * 'rjId' - The identifier of the job for which you want to get detailed information.
 readJob
     :: Text -- ^ 'rjId'
     -> ReadJob
-readJob pId_ =
-    ReadJob'
-    { _rjId = pId_
-    }
+readJob pId_ = ReadJob' {_rjId = pId_}
+
 
 -- | The identifier of the job for which you want to get detailed information.
 rjId :: Lens' ReadJob Text
@@ -75,9 +78,9 @@ instance AWSRequest ReadJob where
                  ReadJobResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Job"))
 
-instance Hashable ReadJob
+instance Hashable ReadJob where
 
-instance NFData ReadJob
+instance NFData ReadJob where
 
 instance ToHeaders ReadJob where
         toHeaders = const mempty
@@ -89,32 +92,33 @@ instance ToPath ReadJob where
 instance ToQuery ReadJob where
         toQuery = const mempty
 
--- | The 'ReadJobResponse' structure.
+-- | The @ReadJobResponse@ structure.
+--
+--
 --
 -- /See:/ 'readJobResponse' smart constructor.
 data ReadJobResponse = ReadJobResponse'
-    { _rjrsResponseStatus :: !Int
-    , _rjrsJob            :: !Job'
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rjrsResponseStatus :: !Int
+  , _rjrsJob            :: !Job'
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReadJobResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rjrsResponseStatus'
+-- * 'rjrsResponseStatus' - -- | The response status code.
 --
--- * 'rjrsJob'
+-- * 'rjrsJob' - A section of the response body that provides information about the job.
 readJobResponse
     :: Int -- ^ 'rjrsResponseStatus'
     -> Job' -- ^ 'rjrsJob'
     -> ReadJobResponse
 readJobResponse pResponseStatus_ pJob_ =
-    ReadJobResponse'
-    { _rjrsResponseStatus = pResponseStatus_
-    , _rjrsJob = pJob_
-    }
+  ReadJobResponse' {_rjrsResponseStatus = pResponseStatus_, _rjrsJob = pJob_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 rjrsResponseStatus :: Lens' ReadJobResponse Int
 rjrsResponseStatus = lens _rjrsResponseStatus (\ s a -> s{_rjrsResponseStatus = a});
 
@@ -122,4 +126,4 @@ rjrsResponseStatus = lens _rjrsResponseStatus (\ s a -> s{_rjrsResponseStatus = 
 rjrsJob :: Lens' ReadJobResponse Job'
 rjrsJob = lens _rjrsJob (\ s a -> s{_rjrsJob = a});
 
-instance NFData ReadJobResponse
+instance NFData ReadJobResponse where

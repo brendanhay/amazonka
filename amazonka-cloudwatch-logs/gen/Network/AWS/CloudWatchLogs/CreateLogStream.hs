@@ -12,19 +12,26 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.CreateLogStream
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new log stream in the specified log group. The name of the log stream must be unique within the log group. There is no limit on the number of log streams that can exist in a log group.
+-- Creates a log stream for the specified log group.
+--
+--
+-- There is no limit on the number of log streams that you can create for a log group.
 --
 -- You must use the following guidelines when naming a log stream:
 --
--- -   Log stream names can be between 1 and 512 characters long.
+--     * Log stream names must be unique within the log group.
 --
--- -   The \':\' colon character is not allowed.
+--     * Log stream names can be between 1 and 512 characters long.
+--
+--     * The ':' (colon) and '*' (asterisk) characters are not allowed.
+--
+--
 --
 module Network.AWS.CloudWatchLogs.CreateLogStream
     (
@@ -40,41 +47,41 @@ module Network.AWS.CloudWatchLogs.CreateLogStream
     , CreateLogStreamResponse
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createLogStream' smart constructor.
 data CreateLogStream = CreateLogStream'
-    { _clsLogGroupName  :: !Text
-    , _clsLogStreamName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clsLogGroupName  :: !Text
+  , _clsLogStreamName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLogStream' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clsLogGroupName'
+-- * 'clsLogGroupName' - The name of the log group.
 --
--- * 'clsLogStreamName'
+-- * 'clsLogStreamName' - The name of the log stream.
 createLogStream
     :: Text -- ^ 'clsLogGroupName'
     -> Text -- ^ 'clsLogStreamName'
     -> CreateLogStream
 createLogStream pLogGroupName_ pLogStreamName_ =
-    CreateLogStream'
-    { _clsLogGroupName = pLogGroupName_
-    , _clsLogStreamName = pLogStreamName_
-    }
+  CreateLogStream'
+  {_clsLogGroupName = pLogGroupName_, _clsLogStreamName = pLogStreamName_}
 
--- | The name of the log group under which the log stream is to be created.
+
+-- | The name of the log group.
 clsLogGroupName :: Lens' CreateLogStream Text
 clsLogGroupName = lens _clsLogGroupName (\ s a -> s{_clsLogGroupName = a});
 
--- | The name of the log stream to create.
+-- | The name of the log stream.
 clsLogStreamName :: Lens' CreateLogStream Text
 clsLogStreamName = lens _clsLogStreamName (\ s a -> s{_clsLogStreamName = a});
 
@@ -83,9 +90,9 @@ instance AWSRequest CreateLogStream where
         request = postJSON cloudWatchLogs
         response = receiveNull CreateLogStreamResponse'
 
-instance Hashable CreateLogStream
+instance Hashable CreateLogStream where
 
-instance NFData CreateLogStream
+instance NFData CreateLogStream where
 
 instance ToHeaders CreateLogStream where
         toHeaders
@@ -111,8 +118,9 @@ instance ToQuery CreateLogStream where
 
 -- | /See:/ 'createLogStreamResponse' smart constructor.
 data CreateLogStreamResponse =
-    CreateLogStreamResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CreateLogStreamResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLogStreamResponse' with the minimum fields required to make a request.
 --
@@ -120,4 +128,5 @@ createLogStreamResponse
     :: CreateLogStreamResponse
 createLogStreamResponse = CreateLogStreamResponse'
 
-instance NFData CreateLogStreamResponse
+
+instance NFData CreateLogStreamResponse where

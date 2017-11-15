@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,8 +50,14 @@ module Network.AWS.DeviceFarm.Types
     -- * ExecutionResult
     , ExecutionResult (..)
 
+    -- * ExecutionResultCode
+    , ExecutionResultCode (..)
+
     -- * ExecutionStatus
     , ExecutionStatus (..)
+
+    -- * NetworkProfileType
+    , NetworkProfileType (..)
 
     -- * OfferingTransactionType
     , OfferingTransactionType (..)
@@ -81,8 +87,12 @@ module Network.AWS.DeviceFarm.Types
     , AccountSettings
     , accountSettings
     , asAwsAccountNumber
+    , asMaxJobTimeoutMinutes
+    , asMaxSlots
+    , asTrialMinutes
     , asUnmeteredDevices
     , asUnmeteredRemoteAccessDevices
+    , asDefaultJobTimeoutMinutes
 
     -- * Artifact
     , Artifact
@@ -116,6 +126,13 @@ module Network.AWS.DeviceFarm.Types
     , createRemoteAccessSessionConfiguration
     , crascBillingMethod
 
+    -- * CustomerArtifactPaths
+    , CustomerArtifactPaths
+    , customerArtifactPaths
+    , capAndroidPaths
+    , capDeviceHostPaths
+    , capIosPaths
+
     -- * Device
     , Device
     , device
@@ -133,6 +150,7 @@ module Network.AWS.DeviceFarm.Types
     , devOs
     , devName
     , devModel
+    , devRemoteDebugEnabled
     , devCpu
     , devHeapSize
     , devFleetName
@@ -159,6 +177,13 @@ module Network.AWS.DeviceFarm.Types
     , dpcrDevice
     , dpcrCompatible
     , dpcrIncompatibilityMessages
+
+    -- * ExecutionConfiguration
+    , ExecutionConfiguration
+    , executionConfiguration
+    , ecAccountsCleanup
+    , ecAppPackagesCleanup
+    , ecJobTimeoutMinutes
 
     -- * IncompatibilityMessage
     , IncompatibilityMessage
@@ -194,6 +219,22 @@ module Network.AWS.DeviceFarm.Types
     , maAmount
     , maCurrencyCode
 
+    -- * NetworkProfile
+    , NetworkProfile
+    , networkProfile
+    , npUplinkJitterMs
+    , npArn
+    , npUplinkLossPercent
+    , npDownlinkJitterMs
+    , npName
+    , npDownlinkLossPercent
+    , npType
+    , npUplinkDelayMs
+    , npUplinkBandwidthBits
+    , npDescription
+    , npDownlinkDelayMs
+    , npDownlinkBandwidthBits
+
     -- * Offering
     , Offering
     , offering
@@ -202,6 +243,12 @@ module Network.AWS.DeviceFarm.Types
     , oRecurringCharges
     , oType
     , oDescription
+
+    -- * OfferingPromotion
+    , OfferingPromotion
+    , offeringPromotion
+    , opId
+    , opDescription
 
     -- * OfferingStatus
     , OfferingStatus
@@ -217,6 +264,7 @@ module Network.AWS.DeviceFarm.Types
     , otOfferingStatus
     , otCost
     , otTransactionId
+    , otOfferingPromotionId
     , otCreatedOn
 
     -- * Problem
@@ -242,6 +290,7 @@ module Network.AWS.DeviceFarm.Types
     , pArn
     , pCreated
     , pName
+    , pDefaultJobTimeoutMinutes
 
     -- * Radios
     , Radios
@@ -261,6 +310,8 @@ module Network.AWS.DeviceFarm.Types
     , RemoteAccessSession
     , remoteAccessSession
     , rasBillingMethod
+    , rasClientId
+    , rasDeviceUdid
     , rasStatus
     , rasArn
     , rasCreated
@@ -269,8 +320,10 @@ module Network.AWS.DeviceFarm.Types
     , rasResult
     , rasName
     , rasDeviceMinutes
+    , rasRemoteDebugEnabled
     , rasEndpoint
     , rasMessage
+    , rasHostAddress
     , rasStarted
 
     -- * Resolution
@@ -291,6 +344,7 @@ module Network.AWS.DeviceFarm.Types
     , run
     , runBillingMethod
     , runStatus
+    , runCustomerArtifactPaths
     , runCounters
     , runPlatform
     , runArn
@@ -298,7 +352,10 @@ module Network.AWS.DeviceFarm.Types
     , runStopped
     , runResult
     , runCompletedJobs
+    , runResultCode
     , runName
+    , runParsingResultURL
+    , runNetworkProfile
     , runDeviceMinutes
     , runType
     , runMessage
@@ -316,6 +373,7 @@ module Network.AWS.DeviceFarm.Types
     , ScheduleRunConfiguration
     , scheduleRunConfiguration
     , srcBillingMethod
+    , srcCustomerArtifactPaths
     , srcRadios
     , srcLocation
     , srcLocale
@@ -361,6 +419,12 @@ module Network.AWS.DeviceFarm.Types
     , tMessage
     , tStarted
 
+    -- * TrialMinutes
+    , TrialMinutes
+    , trialMinutes
+    , tmRemaining
+    , tmTotal
+
     -- * UniqueProblem
     , UniqueProblem
     , uniqueProblem
@@ -381,38 +445,40 @@ module Network.AWS.DeviceFarm.Types
     , uContentType
     ) where
 
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.DeviceFarm.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.DeviceFarm.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
--- | API version '2015-06-23' of the Amazon Device Farm SDK configuration.
+-- | API version @2015-06-23@ of the Amazon Device Farm SDK configuration.
 deviceFarm :: Service
 deviceFarm =
-    Service
-    { _svcAbbrev = "DeviceFarm"
-    , _svcSigner = v4
-    , _svcPrefix = "devicefarm"
-    , _svcVersion = "2015-06-23"
-    , _svcEndpoint = defaultEndpoint deviceFarm
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "DeviceFarm"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "DeviceFarm"
+  , _svcSigner = v4
+  , _svcPrefix = "devicefarm"
+  , _svcVersion = "2015-06-23"
+  , _svcEndpoint = defaultEndpoint deviceFarm
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "DeviceFarm"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -421,26 +487,46 @@ deviceFarm =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | Exception gets thrown when a user is not eligible to perform the specified transaction.
+--
+--
 _NotEligibleException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotEligibleException = _ServiceError . hasCode "NotEligibleException"
+_NotEligibleException = _MatchServiceError deviceFarm "NotEligibleException"
+
 
 -- | An entity with the same name already exists.
+--
+--
 _IdempotencyException :: AsError a => Getting (First ServiceError) a ServiceError
-_IdempotencyException = _ServiceError . hasCode "IdempotencyException"
+_IdempotencyException = _MatchServiceError deviceFarm "IdempotencyException"
+
 
 -- | An invalid argument was specified.
+--
+--
 _ArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
-_ArgumentException = _ServiceError . hasCode "ArgumentException"
+_ArgumentException = _MatchServiceError deviceFarm "ArgumentException"
+
 
 -- | The specified entity was not found.
+--
+--
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotFoundException = _ServiceError . hasCode "NotFoundException"
+_NotFoundException = _MatchServiceError deviceFarm "NotFoundException"
+
 
 -- | There was a problem with the service account.
+--
+--
 _ServiceAccountException :: AsError a => Getting (First ServiceError) a ServiceError
-_ServiceAccountException = _ServiceError . hasCode "ServiceAccountException"
+_ServiceAccountException =
+  _MatchServiceError deviceFarm "ServiceAccountException"
+
 
 -- | A limit was exceeded.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+_LimitExceededException = _MatchServiceError deviceFarm "LimitExceededException"
+

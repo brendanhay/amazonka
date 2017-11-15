@@ -5,17 +5,18 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon CloudSearch Configuration Service
+-- __Amazon CloudSearch Configuration Service__
 --
 -- You use the Amazon CloudSearch configuration service to create, configure, and manage search domains. Configuration service requests are submitted using the AWS Query protocol. AWS Query requests are HTTP or HTTPS requests submitted via HTTP GET or POST with a query parameter named Action.
 --
--- The endpoint for configuration service requests is region-specific: cloudsearch./region/.amazonaws.com. For example, cloudsearch.us-east-1.amazonaws.com. For a current list of supported regions and endpoints, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region Regions and Endpoints>.
+-- The endpoint for configuration service requests is region-specific: cloudsearch./region/ .amazonaws.com. For example, cloudsearch.us-east-1.amazonaws.com. For a current list of supported regions and endpoints, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region Regions and Endpoints> .
+--
 module Network.AWS.CloudSearch
     (
     -- * Service Configuration
@@ -384,32 +385,32 @@ module Network.AWS.CloudSearch
     , toDefaultValue
     ) where
 
-import           Network.AWS.CloudSearch.BuildSuggesters
-import           Network.AWS.CloudSearch.CreateDomain
-import           Network.AWS.CloudSearch.DefineAnalysisScheme
-import           Network.AWS.CloudSearch.DefineExpression
-import           Network.AWS.CloudSearch.DefineIndexField
-import           Network.AWS.CloudSearch.DefineSuggester
-import           Network.AWS.CloudSearch.DeleteAnalysisScheme
-import           Network.AWS.CloudSearch.DeleteDomain
-import           Network.AWS.CloudSearch.DeleteExpression
-import           Network.AWS.CloudSearch.DeleteIndexField
-import           Network.AWS.CloudSearch.DeleteSuggester
-import           Network.AWS.CloudSearch.DescribeAnalysisSchemes
-import           Network.AWS.CloudSearch.DescribeAvailabilityOptions
-import           Network.AWS.CloudSearch.DescribeDomains
-import           Network.AWS.CloudSearch.DescribeExpressions
-import           Network.AWS.CloudSearch.DescribeIndexFields
-import           Network.AWS.CloudSearch.DescribeScalingParameters
-import           Network.AWS.CloudSearch.DescribeServiceAccessPolicies
-import           Network.AWS.CloudSearch.DescribeSuggesters
-import           Network.AWS.CloudSearch.IndexDocuments
-import           Network.AWS.CloudSearch.ListDomainNames
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.CloudSearch.UpdateAvailabilityOptions
-import           Network.AWS.CloudSearch.UpdateScalingParameters
-import           Network.AWS.CloudSearch.UpdateServiceAccessPolicies
-import           Network.AWS.CloudSearch.Waiters
+import Network.AWS.CloudSearch.BuildSuggesters
+import Network.AWS.CloudSearch.CreateDomain
+import Network.AWS.CloudSearch.DefineAnalysisScheme
+import Network.AWS.CloudSearch.DefineExpression
+import Network.AWS.CloudSearch.DefineIndexField
+import Network.AWS.CloudSearch.DefineSuggester
+import Network.AWS.CloudSearch.DeleteAnalysisScheme
+import Network.AWS.CloudSearch.DeleteDomain
+import Network.AWS.CloudSearch.DeleteExpression
+import Network.AWS.CloudSearch.DeleteIndexField
+import Network.AWS.CloudSearch.DeleteSuggester
+import Network.AWS.CloudSearch.DescribeAnalysisSchemes
+import Network.AWS.CloudSearch.DescribeAvailabilityOptions
+import Network.AWS.CloudSearch.DescribeDomains
+import Network.AWS.CloudSearch.DescribeExpressions
+import Network.AWS.CloudSearch.DescribeIndexFields
+import Network.AWS.CloudSearch.DescribeScalingParameters
+import Network.AWS.CloudSearch.DescribeServiceAccessPolicies
+import Network.AWS.CloudSearch.DescribeSuggesters
+import Network.AWS.CloudSearch.IndexDocuments
+import Network.AWS.CloudSearch.ListDomainNames
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.UpdateAvailabilityOptions
+import Network.AWS.CloudSearch.UpdateScalingParameters
+import Network.AWS.CloudSearch.UpdateServiceAccessPolicies
+import Network.AWS.CloudSearch.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

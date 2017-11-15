@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DeleteTargetGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified target group.
 --
+--
 -- You can delete a target group if it is not referenced by any actions. Deleting a target group also deletes any associated health checks.
+--
 module Network.AWS.ELBv2.DeleteTargetGroup
     (
     -- * Creating a Request
@@ -36,32 +38,30 @@ module Network.AWS.ELBv2.DeleteTargetGroup
     , dtgrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for DeleteTargetGroup.
---
--- /See:/ 'deleteTargetGroup' smart constructor.
+-- | /See:/ 'deleteTargetGroup' smart constructor.
 newtype DeleteTargetGroup = DeleteTargetGroup'
-    { _dtgTargetGroupARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtgTargetGroupARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTargetGroup' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtgTargetGroupARN'
+-- * 'dtgTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 deleteTargetGroup
     :: Text -- ^ 'dtgTargetGroupARN'
     -> DeleteTargetGroup
 deleteTargetGroup pTargetGroupARN_ =
-    DeleteTargetGroup'
-    { _dtgTargetGroupARN = pTargetGroupARN_
-    }
+  DeleteTargetGroup' {_dtgTargetGroupARN = pTargetGroupARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the target group.
 dtgTargetGroupARN :: Lens' DeleteTargetGroup Text
@@ -75,9 +75,9 @@ instance AWSRequest DeleteTargetGroup where
               (\ s h x ->
                  DeleteTargetGroupResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteTargetGroup
+instance Hashable DeleteTargetGroup where
 
-instance NFData DeleteTargetGroup
+instance NFData DeleteTargetGroup where
 
 instance ToHeaders DeleteTargetGroup where
         toHeaders = const mempty
@@ -92,28 +92,26 @@ instance ToQuery DeleteTargetGroup where
                "Version" =: ("2015-12-01" :: ByteString),
                "TargetGroupArn" =: _dtgTargetGroupARN]
 
--- | Contains the output of DeleteTargetGroup.
---
--- /See:/ 'deleteTargetGroupResponse' smart constructor.
+-- | /See:/ 'deleteTargetGroupResponse' smart constructor.
 newtype DeleteTargetGroupResponse = DeleteTargetGroupResponse'
-    { _dtgrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtgrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTargetGroupResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtgrsResponseStatus'
+-- * 'dtgrsResponseStatus' - -- | The response status code.
 deleteTargetGroupResponse
     :: Int -- ^ 'dtgrsResponseStatus'
     -> DeleteTargetGroupResponse
 deleteTargetGroupResponse pResponseStatus_ =
-    DeleteTargetGroupResponse'
-    { _dtgrsResponseStatus = pResponseStatus_
-    }
+  DeleteTargetGroupResponse' {_dtgrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 dtgrsResponseStatus :: Lens' DeleteTargetGroupResponse Int
 dtgrsResponseStatus = lens _dtgrsResponseStatus (\ s a -> s{_dtgrsResponseStatus = a});
 
-instance NFData DeleteTargetGroupResponse
+instance NFData DeleteTargetGroupResponse where

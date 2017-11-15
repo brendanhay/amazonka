@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DeleteAlarms
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes all specified alarms. In the event of an error, no alarms are deleted.
+-- Deletes the specified alarms. In the event of an error, no alarms are deleted.
+--
+--
 module Network.AWS.CloudWatch.DeleteAlarms
     (
     -- * Creating a Request
@@ -32,33 +34,30 @@ module Network.AWS.CloudWatch.DeleteAlarms
     , DeleteAlarmsResponse
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Describes the inputs for DeleteAlarms.
---
--- /See:/ 'deleteAlarms' smart constructor.
+-- | /See:/ 'deleteAlarms' smart constructor.
 newtype DeleteAlarms = DeleteAlarms'
-    { _dAlarmNames :: [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dAlarmNames :: [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAlarms' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dAlarmNames'
+-- * 'dAlarmNames' - The alarms to be deleted.
 deleteAlarms
     :: DeleteAlarms
-deleteAlarms =
-    DeleteAlarms'
-    { _dAlarmNames = mempty
-    }
+deleteAlarms = DeleteAlarms' {_dAlarmNames = mempty}
 
--- | A list of alarms to be deleted.
+
+-- | The alarms to be deleted.
 dAlarmNames :: Lens' DeleteAlarms [Text]
 dAlarmNames = lens _dAlarmNames (\ s a -> s{_dAlarmNames = a}) . _Coerce;
 
@@ -67,9 +66,9 @@ instance AWSRequest DeleteAlarms where
         request = postQuery cloudWatch
         response = receiveNull DeleteAlarmsResponse'
 
-instance Hashable DeleteAlarms
+instance Hashable DeleteAlarms where
 
-instance NFData DeleteAlarms
+instance NFData DeleteAlarms where
 
 instance ToHeaders DeleteAlarms where
         toHeaders = const mempty
@@ -86,8 +85,9 @@ instance ToQuery DeleteAlarms where
 
 -- | /See:/ 'deleteAlarmsResponse' smart constructor.
 data DeleteAlarmsResponse =
-    DeleteAlarmsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteAlarmsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAlarmsResponse' with the minimum fields required to make a request.
 --
@@ -95,4 +95,5 @@ deleteAlarmsResponse
     :: DeleteAlarmsResponse
 deleteAlarmsResponse = DeleteAlarmsResponse'
 
-instance NFData DeleteAlarmsResponse
+
+instance NFData DeleteAlarmsResponse where

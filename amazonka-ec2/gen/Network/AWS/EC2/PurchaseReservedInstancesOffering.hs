@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.EC2.PurchaseReservedInstancesOffering
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Purchases a Reserved Instance for use with your account. With Reserved Instances, you obtain a capacity reservation for a certain instance configuration over a specified period of time and pay a lower hourly rate compared to On-Demand instance pricing.
+-- Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower hourly rate compared to On-Demand instance pricing.
 --
--- Use < DescribeReservedInstancesOfferings> to get a list of Reserved Instance offerings that match your specifications. After you\'ve purchased a Reserved Instance, you can check for your new Reserved Instance with < DescribeReservedInstances>.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html Reserved Instances> and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Use 'DescribeReservedInstancesOfferings' to get a list of Reserved Instance offerings that match your specifications. After you've purchased a Reserved Instance, you can check for your new Reserved Instance with 'DescribeReservedInstances' .
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html Reserved Instances> and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.PurchaseReservedInstancesOffering
     (
     -- * Creating a Request
@@ -31,8 +33,8 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     -- * Request Lenses
     , prioLimitPrice
     , prioDryRun
-    , prioReservedInstancesOfferingId
     , prioInstanceCount
+    , prioReservedInstancesOfferingId
 
     -- * Destructuring the Response
     , purchaseReservedInstancesOfferingResponse
@@ -42,61 +44,65 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     , priorsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for PurchaseReservedInstancesOffering.
 --
+--
+--
 -- /See:/ 'purchaseReservedInstancesOffering' smart constructor.
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
-    { _prioLimitPrice                  :: !(Maybe ReservedInstanceLimitPrice)
-    , _prioDryRun                      :: !(Maybe Bool)
-    , _prioReservedInstancesOfferingId :: !Text
-    , _prioInstanceCount               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prioLimitPrice                  :: !(Maybe ReservedInstanceLimitPrice)
+  , _prioDryRun                      :: !(Maybe Bool)
+  , _prioInstanceCount               :: !Int
+  , _prioReservedInstancesOfferingId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurchaseReservedInstancesOffering' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prioLimitPrice'
+-- * 'prioLimitPrice' - Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.
 --
--- * 'prioDryRun'
+-- * 'prioDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'prioReservedInstancesOfferingId'
+-- * 'prioInstanceCount' - The number of Reserved Instances to purchase.
 --
--- * 'prioInstanceCount'
+-- * 'prioReservedInstancesOfferingId' - The ID of the Reserved Instance offering to purchase.
 purchaseReservedInstancesOffering
-    :: Text -- ^ 'prioReservedInstancesOfferingId'
-    -> Int -- ^ 'prioInstanceCount'
+    :: Int -- ^ 'prioInstanceCount'
+    -> Text -- ^ 'prioReservedInstancesOfferingId'
     -> PurchaseReservedInstancesOffering
-purchaseReservedInstancesOffering pReservedInstancesOfferingId_ pInstanceCount_ =
-    PurchaseReservedInstancesOffering'
-    { _prioLimitPrice = Nothing
-    , _prioDryRun = Nothing
-    , _prioReservedInstancesOfferingId = pReservedInstancesOfferingId_
-    , _prioInstanceCount = pInstanceCount_
-    }
+purchaseReservedInstancesOffering pInstanceCount_ pReservedInstancesOfferingId_ =
+  PurchaseReservedInstancesOffering'
+  { _prioLimitPrice = Nothing
+  , _prioDryRun = Nothing
+  , _prioInstanceCount = pInstanceCount_
+  , _prioReservedInstancesOfferingId = pReservedInstancesOfferingId_
+  }
+
 
 -- | Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.
 prioLimitPrice :: Lens' PurchaseReservedInstancesOffering (Maybe ReservedInstanceLimitPrice)
 prioLimitPrice = lens _prioLimitPrice (\ s a -> s{_prioLimitPrice = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 prioDryRun :: Lens' PurchaseReservedInstancesOffering (Maybe Bool)
 prioDryRun = lens _prioDryRun (\ s a -> s{_prioDryRun = a});
-
--- | The ID of the Reserved Instance offering to purchase.
-prioReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering Text
-prioReservedInstancesOfferingId = lens _prioReservedInstancesOfferingId (\ s a -> s{_prioReservedInstancesOfferingId = a});
 
 -- | The number of Reserved Instances to purchase.
 prioInstanceCount :: Lens' PurchaseReservedInstancesOffering Int
 prioInstanceCount = lens _prioInstanceCount (\ s a -> s{_prioInstanceCount = a});
+
+-- | The ID of the Reserved Instance offering to purchase.
+prioReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering Text
+prioReservedInstancesOfferingId = lens _prioReservedInstancesOfferingId (\ s a -> s{_prioReservedInstancesOfferingId = a});
 
 instance AWSRequest PurchaseReservedInstancesOffering
          where
@@ -111,8 +117,10 @@ instance AWSRequest PurchaseReservedInstancesOffering
                      (pure (fromEnum s)))
 
 instance Hashable PurchaseReservedInstancesOffering
+         where
 
 instance NFData PurchaseReservedInstancesOffering
+         where
 
 instance ToHeaders PurchaseReservedInstancesOffering
          where
@@ -128,44 +136,49 @@ instance ToQuery PurchaseReservedInstancesOffering
           = mconcat
               ["Action" =:
                  ("PurchaseReservedInstancesOffering" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "LimitPrice" =: _prioLimitPrice,
                "DryRun" =: _prioDryRun,
+               "InstanceCount" =: _prioInstanceCount,
                "ReservedInstancesOfferingId" =:
-                 _prioReservedInstancesOfferingId,
-               "InstanceCount" =: _prioInstanceCount]
+                 _prioReservedInstancesOfferingId]
 
 -- | Contains the output of PurchaseReservedInstancesOffering.
 --
+--
+--
 -- /See:/ 'purchaseReservedInstancesOfferingResponse' smart constructor.
 data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse'
-    { _priorsReservedInstancesId :: !(Maybe Text)
-    , _priorsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _priorsReservedInstancesId :: !(Maybe Text)
+  , _priorsResponseStatus      :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurchaseReservedInstancesOfferingResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'priorsReservedInstancesId'
+-- * 'priorsReservedInstancesId' - The IDs of the purchased Reserved Instances.
 --
--- * 'priorsResponseStatus'
+-- * 'priorsResponseStatus' - -- | The response status code.
 purchaseReservedInstancesOfferingResponse
     :: Int -- ^ 'priorsResponseStatus'
     -> PurchaseReservedInstancesOfferingResponse
 purchaseReservedInstancesOfferingResponse pResponseStatus_ =
-    PurchaseReservedInstancesOfferingResponse'
-    { _priorsReservedInstancesId = Nothing
-    , _priorsResponseStatus = pResponseStatus_
-    }
+  PurchaseReservedInstancesOfferingResponse'
+  { _priorsReservedInstancesId = Nothing
+  , _priorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The IDs of the purchased Reserved Instances.
 priorsReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
 priorsReservedInstancesId = lens _priorsReservedInstancesId (\ s a -> s{_priorsReservedInstancesId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 priorsResponseStatus :: Lens' PurchaseReservedInstancesOfferingResponse Int
 priorsResponseStatus = lens _priorsResponseStatus (\ s a -> s{_priorsResponseStatus = a});
 
 instance NFData
-         PurchaseReservedInstancesOfferingResponse
+           PurchaseReservedInstancesOfferingResponse
+         where

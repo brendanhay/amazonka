@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.CreateTrust
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- AWS Directory Service for Microsoft Active Directory allows you to configure trust relationships. For example, you can establish a trust between your Microsoft AD in the AWS cloud, and your existing on-premises Microsoft Active Directory. This would allow you to provide users and groups access to resources in either domain, with a single set of credentials.
 --
+--
 -- This action initiates the creation of the AWS side of a trust relationship between a Microsoft AD in the AWS cloud and an external domain.
+--
 module Network.AWS.DirectoryService.CreateTrust
     (
     -- * Creating a Request
@@ -42,42 +44,45 @@ module Network.AWS.DirectoryService.CreateTrust
     , ctrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | AWS Directory Service for Microsoft Active Directory allows you to configure trust relationships. For example, you can establish a trust between your Microsoft AD in the AWS cloud, and your existing on-premises Microsoft Active Directory. This would allow you to provide users and groups access to resources in either domain, with a single set of credentials.
 --
+--
 -- This action initiates the creation of the AWS side of a trust relationship between a Microsoft AD in the AWS cloud and an external domain.
+--
 --
 -- /See:/ 'createTrust' smart constructor.
 data CreateTrust = CreateTrust'
-    { _ctConditionalForwarderIPAddrs :: !(Maybe [Text])
-    , _ctTrustType                   :: !(Maybe TrustType)
-    , _ctDirectoryId                 :: !Text
-    , _ctRemoteDomainName            :: !Text
-    , _ctTrustPassword               :: !(Sensitive Text)
-    , _ctTrustDirection              :: !TrustDirection
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctConditionalForwarderIPAddrs :: !(Maybe [Text])
+  , _ctTrustType                   :: !(Maybe TrustType)
+  , _ctDirectoryId                 :: !Text
+  , _ctRemoteDomainName            :: !Text
+  , _ctTrustPassword               :: !(Sensitive Text)
+  , _ctTrustDirection              :: !TrustDirection
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTrust' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctConditionalForwarderIPAddrs'
+-- * 'ctConditionalForwarderIPAddrs' - The IP addresses of the remote DNS server associated with RemoteDomainName.
 --
--- * 'ctTrustType'
+-- * 'ctTrustType' - The trust relationship type.
 --
--- * 'ctDirectoryId'
+-- * 'ctDirectoryId' - The Directory ID of the Microsoft AD in the AWS cloud for which to establish the trust relationship.
 --
--- * 'ctRemoteDomainName'
+-- * 'ctRemoteDomainName' - The Fully Qualified Domain Name (FQDN) of the external domain for which to create the trust relationship.
 --
--- * 'ctTrustPassword'
+-- * 'ctTrustPassword' - The trust password. The must be the same password that was used when creating the trust relationship on the external domain.
 --
--- * 'ctTrustDirection'
+-- * 'ctTrustDirection' - The direction of the trust relationship.
 createTrust
     :: Text -- ^ 'ctDirectoryId'
     -> Text -- ^ 'ctRemoteDomainName'
@@ -85,14 +90,15 @@ createTrust
     -> TrustDirection -- ^ 'ctTrustDirection'
     -> CreateTrust
 createTrust pDirectoryId_ pRemoteDomainName_ pTrustPassword_ pTrustDirection_ =
-    CreateTrust'
-    { _ctConditionalForwarderIPAddrs = Nothing
-    , _ctTrustType = Nothing
-    , _ctDirectoryId = pDirectoryId_
-    , _ctRemoteDomainName = pRemoteDomainName_
-    , _ctTrustPassword = _Sensitive # pTrustPassword_
-    , _ctTrustDirection = pTrustDirection_
-    }
+  CreateTrust'
+  { _ctConditionalForwarderIPAddrs = Nothing
+  , _ctTrustType = Nothing
+  , _ctDirectoryId = pDirectoryId_
+  , _ctRemoteDomainName = pRemoteDomainName_
+  , _ctTrustPassword = _Sensitive # pTrustPassword_
+  , _ctTrustDirection = pTrustDirection_
+  }
+
 
 -- | The IP addresses of the remote DNS server associated with RemoteDomainName.
 ctConditionalForwarderIPAddrs :: Lens' CreateTrust [Text]
@@ -127,9 +133,9 @@ instance AWSRequest CreateTrust where
                  CreateTrustResponse' <$>
                    (x .?> "TrustId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateTrust
+instance Hashable CreateTrust where
 
-instance NFData CreateTrust
+instance NFData CreateTrust where
 
 instance ToHeaders CreateTrust where
         toHeaders
@@ -161,34 +167,36 @@ instance ToQuery CreateTrust where
 
 -- | The result of a CreateTrust request.
 --
+--
+--
 -- /See:/ 'createTrustResponse' smart constructor.
 data CreateTrustResponse = CreateTrustResponse'
-    { _ctrsTrustId        :: !(Maybe Text)
-    , _ctrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctrsTrustId        :: !(Maybe Text)
+  , _ctrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTrustResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctrsTrustId'
+-- * 'ctrsTrustId' - A unique identifier for the trust relationship that was created.
 --
--- * 'ctrsResponseStatus'
+-- * 'ctrsResponseStatus' - -- | The response status code.
 createTrustResponse
     :: Int -- ^ 'ctrsResponseStatus'
     -> CreateTrustResponse
 createTrustResponse pResponseStatus_ =
-    CreateTrustResponse'
-    { _ctrsTrustId = Nothing
-    , _ctrsResponseStatus = pResponseStatus_
-    }
+  CreateTrustResponse'
+  {_ctrsTrustId = Nothing, _ctrsResponseStatus = pResponseStatus_}
+
 
 -- | A unique identifier for the trust relationship that was created.
 ctrsTrustId :: Lens' CreateTrustResponse (Maybe Text)
 ctrsTrustId = lens _ctrsTrustId (\ s a -> s{_ctrsTrustId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTrustResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
 
-instance NFData CreateTrustResponse
+instance NFData CreateTrustResponse where

@@ -12,50 +12,59 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.PutMetricAlarm
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates an alarm and associates it with the specified Amazon CloudWatch metric. Optionally, this operation can associate one or more Amazon SNS resources with the alarm.
+-- Creates or updates an alarm and associates it with the specified metric. Optionally, this operation can associate one or more Amazon SNS resources with the alarm.
 --
--- When this operation creates an alarm, the alarm state is immediately set to 'INSUFFICIENT_DATA'. The alarm is evaluated and its 'StateValue' is set appropriately. Any actions associated with the 'StateValue' are then executed.
 --
--- When updating an existing alarm, its 'StateValue' is left unchanged, but it completely overwrites the alarm\'s previous configuration.
+-- When this operation creates an alarm, the alarm state is immediately set to @INSUFFICIENT_DATA@ . The alarm is evaluated and its state is set appropriately. Any actions associated with the state are then executed.
 --
--- If you are using an AWS Identity and Access Management (IAM) account to create or modify an alarm, you must have the following Amazon EC2 permissions:
+-- When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.
 --
--- -   'ec2:DescribeInstanceStatus' and 'ec2:DescribeInstances' for all alarms on Amazon EC2 instance status metrics.
+-- If you are an IAM user, you must have Amazon EC2 permissions for some operations:
 --
--- -   'ec2:StopInstances' for alarms with stop actions.
+--     * @ec2:DescribeInstanceStatus@ and @ec2:DescribeInstances@ for all alarms on EC2 instance status metrics
 --
--- -   'ec2:TerminateInstances' for alarms with terminate actions.
+--     * @ec2:StopInstances@ for alarms with stop actions
 --
--- -   'ec2:DescribeInstanceRecoveryAttribute', and 'ec2:RecoverInstances' for alarms with recover actions.
+--     * @ec2:TerminateInstances@ for alarms with terminate actions
 --
--- If you have read\/write permissions for Amazon CloudWatch but not for Amazon EC2, you can still create an alarm but the stop or terminate actions won\'t be performed on the Amazon EC2 instance. However, if you are later granted permission to use the associated Amazon EC2 APIs, the alarm actions you created earlier will be performed. For more information about IAM permissions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html Permissions and Policies> in /Using IAM/.
+--     * @ec2:DescribeInstanceRecoveryAttribute@ and @ec2:RecoverInstances@ for alarms with recover actions
 --
--- If you are using an IAM role (e.g., an Amazon EC2 instance profile), you cannot stop or terminate the instance using alarm actions. However, you can still see the alarm state and perform any other actions such as Amazon SNS notifications or Auto Scaling policies.
 --
--- If you are using temporary security credentials granted using the AWS Security Token Service (AWS STS), you cannot stop or terminate an Amazon EC2 instance using alarm actions.
+--
+-- If you have read/write permissions for Amazon CloudWatch but not for Amazon EC2, you can still create an alarm, but the stop or terminate actions are not performed. However, if you are later granted the required permissions, the alarm actions that you created earlier are performed.
+--
+-- If you are using an IAM role (for example, an EC2 instance profile), you cannot stop or terminate the instance using alarm actions. However, you can still see the alarm state and perform any other actions such as Amazon SNS notifications or Auto Scaling policies.
+--
+-- If you are using temporary security credentials granted using AWS STS, you cannot stop or terminate an EC2 instance using alarm actions.
+--
+-- You must create at least one stop, terminate, or reboot alarm using either the Amazon EC2 or CloudWatch consoles to create the __EC2ActionsAccess__ IAM role. After this IAM role is created, you can create stop, terminate, or reboot alarms using a command-line interface or API.
+--
 module Network.AWS.CloudWatch.PutMetricAlarm
     (
     -- * Creating a Request
       putMetricAlarm
     , PutMetricAlarm
     -- * Request Lenses
+    , pmaTreatMissingData
     , pmaAlarmDescription
     , pmaOKActions
+    , pmaEvaluateLowSampleCountPercentile
     , pmaActionsEnabled
     , pmaInsufficientDataActions
     , pmaDimensions
     , pmaAlarmActions
     , pmaUnit
+    , pmaStatistic
+    , pmaExtendedStatistic
     , pmaAlarmName
     , pmaMetricName
     , pmaNamespace
-    , pmaStatistic
     , pmaPeriod
     , pmaEvaluationPeriods
     , pmaThreshold
@@ -66,165 +75,168 @@ module Network.AWS.CloudWatch.PutMetricAlarm
     , PutMetricAlarmResponse
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Describes the inputs for PutMetricAlarm.
---
--- /See:/ 'putMetricAlarm' smart constructor.
+-- | /See:/ 'putMetricAlarm' smart constructor.
 data PutMetricAlarm = PutMetricAlarm'
-    { _pmaAlarmDescription        :: !(Maybe Text)
-    , _pmaOKActions               :: !(Maybe [Text])
-    , _pmaActionsEnabled          :: !(Maybe Bool)
-    , _pmaInsufficientDataActions :: !(Maybe [Text])
-    , _pmaDimensions              :: !(Maybe [Dimension])
-    , _pmaAlarmActions            :: !(Maybe [Text])
-    , _pmaUnit                    :: !(Maybe StandardUnit)
-    , _pmaAlarmName               :: !Text
-    , _pmaMetricName              :: !Text
-    , _pmaNamespace               :: !Text
-    , _pmaStatistic               :: !Statistic
-    , _pmaPeriod                  :: !Nat
-    , _pmaEvaluationPeriods       :: !Nat
-    , _pmaThreshold               :: !Double
-    , _pmaComparisonOperator      :: !ComparisonOperator
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pmaTreatMissingData                 :: !(Maybe Text)
+  , _pmaAlarmDescription                 :: !(Maybe Text)
+  , _pmaOKActions                        :: !(Maybe [Text])
+  , _pmaEvaluateLowSampleCountPercentile :: !(Maybe Text)
+  , _pmaActionsEnabled                   :: !(Maybe Bool)
+  , _pmaInsufficientDataActions          :: !(Maybe [Text])
+  , _pmaDimensions                       :: !(Maybe [Dimension])
+  , _pmaAlarmActions                     :: !(Maybe [Text])
+  , _pmaUnit                             :: !(Maybe StandardUnit)
+  , _pmaStatistic                        :: !(Maybe Statistic)
+  , _pmaExtendedStatistic                :: !(Maybe Text)
+  , _pmaAlarmName                        :: !Text
+  , _pmaMetricName                       :: !Text
+  , _pmaNamespace                        :: !Text
+  , _pmaPeriod                           :: !Nat
+  , _pmaEvaluationPeriods                :: !Nat
+  , _pmaThreshold                        :: !Double
+  , _pmaComparisonOperator               :: !ComparisonOperator
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutMetricAlarm' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pmaAlarmDescription'
+-- * 'pmaTreatMissingData' - Sets how this alarm is to handle missing data points. If @TreatMissingData@ is omitted, the default behavior of @missing@ is used. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data Configuring How CloudWatch Alarms Treats Missing Data> . Valid Values: @breaching | notBreaching | ignore | missing@
 --
--- * 'pmaOKActions'
+-- * 'pmaAlarmDescription' - The description for the alarm.
 --
--- * 'pmaActionsEnabled'
+-- * 'pmaOKActions' - The actions to execute when this alarm transitions to an @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN). Valid Values: arn:aws:automate:/region/ :ec2:stop | arn:aws:automate:/region/ :ec2:terminate | arn:aws:automate:/region/ :ec2:recover Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{/customer-account/ }:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:us-east-1:{/customer-account/ }:action/actions/AWS_EC2.InstanceId.Terminate/1.0 | arn:aws:swf:us-east-1:{/customer-account/ }:action/actions/AWS_EC2.InstanceId.Reboot/1.0
 --
--- * 'pmaInsufficientDataActions'
+-- * 'pmaEvaluateLowSampleCountPercentile' - Used only for alarms based on percentiles. If you specify @ignore@ , the alarm state does not change during periods with too few data points to be statistically significant. If you specify @evaluate@ or omit this parameter, the alarm is always evaluated and possibly changes state no matter how many data points are available. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples Percentile-Based CloudWatch Alarms and Low Data Samples> . Valid Values: @evaluate | ignore@
 --
--- * 'pmaDimensions'
+-- * 'pmaActionsEnabled' - Indicates whether actions should be executed during any changes to the alarm state.
 --
--- * 'pmaAlarmActions'
+-- * 'pmaInsufficientDataActions' - The actions to execute when this alarm transitions to the @INSUFFICIENT_DATA@ state from any other state. Each action is specified as an Amazon Resource Name (ARN). Valid Values: arn:aws:automate:/region/ :ec2:stop | arn:aws:automate:/region/ :ec2:terminate | arn:aws:automate:/region/ :ec2:recover Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{/customer-account/ }:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:us-east-1:{/customer-account/ }:action/actions/AWS_EC2.InstanceId.Terminate/1.0 | arn:aws:swf:us-east-1:{/customer-account/ }:action/actions/AWS_EC2.InstanceId.Reboot/1.0
 --
--- * 'pmaUnit'
+-- * 'pmaDimensions' - The dimensions for the metric associated with the alarm.
 --
--- * 'pmaAlarmName'
+-- * 'pmaAlarmActions' - The actions to execute when this alarm transitions to the @ALARM@ state from any other state. Each action is specified as an Amazon Resource Name (ARN). Valid Values: arn:aws:automate:/region/ :ec2:stop | arn:aws:automate:/region/ :ec2:terminate | arn:aws:automate:/region/ :ec2:recover Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{/customer-account/ }:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:us-east-1:{/customer-account/ }:action/actions/AWS_EC2.InstanceId.Terminate/1.0 | arn:aws:swf:us-east-1:{/customer-account/ }:action/actions/AWS_EC2.InstanceId.Reboot/1.0
 --
--- * 'pmaMetricName'
+-- * 'pmaUnit' - The unit of measure for the statistic. For example, the units for the Amazon EC2 NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an instance receives on all network interfaces. You can also specify a unit when you create a custom metric. Units help provide conceptual meaning to your data. Metric data points that specify a unit of measure, such as Percent, are aggregated separately. If you specify a unit, you must use a unit that is appropriate for the metric. Otherwise, the CloudWatch alarm can get stuck in the @INSUFFICIENT DATA@ state.
 --
--- * 'pmaNamespace'
+-- * 'pmaStatistic' - The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use @ExtendedStatistic@ .
 --
--- * 'pmaStatistic'
+-- * 'pmaExtendedStatistic' - The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 --
--- * 'pmaPeriod'
+-- * 'pmaAlarmName' - The name for the alarm. This name must be unique within the AWS account.
 --
--- * 'pmaEvaluationPeriods'
+-- * 'pmaMetricName' - The name for the metric associated with the alarm.
 --
--- * 'pmaThreshold'
+-- * 'pmaNamespace' - The namespace for the metric associated with the alarm.
 --
--- * 'pmaComparisonOperator'
+-- * 'pmaPeriod' - The period, in seconds, over which the specified statistic is applied. Valid values are 10, 30, and any multiple of 60. Be sure to specify 10 or 30 only for metrics that are stored by a @PutMetricData@ call with a @StorageResolution@ of 1. If you specify a Period of 10 or 30 for a metric that does not have sub-minute resolution, the alarm still attempts to gather data at the period rate that you specify. In this case, it does not receive data for the attempts that do not correspond to a one-minute data resolution, and the alarm may often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets this alarm as a high-resolution alarm, which has a higher charge than other alarms. For more information about pricing, see <https://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing> . An alarm's total current evaluation period can be no longer than one day, so @Period@ multiplied by @EvaluationPeriods@ cannot be more than 86,400 seconds.
+--
+-- * 'pmaEvaluationPeriods' - The number of periods over which data is compared to the specified threshold. An alarm's total current evaluation period can be no longer than one day, so this number multiplied by @Period@ cannot be more than 86,400 seconds.
+--
+-- * 'pmaThreshold' - The value against which the specified statistic is compared.
+--
+-- * 'pmaComparisonOperator' - The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
 putMetricAlarm
     :: Text -- ^ 'pmaAlarmName'
     -> Text -- ^ 'pmaMetricName'
     -> Text -- ^ 'pmaNamespace'
-    -> Statistic -- ^ 'pmaStatistic'
     -> Natural -- ^ 'pmaPeriod'
     -> Natural -- ^ 'pmaEvaluationPeriods'
     -> Double -- ^ 'pmaThreshold'
     -> ComparisonOperator -- ^ 'pmaComparisonOperator'
     -> PutMetricAlarm
-putMetricAlarm pAlarmName_ pMetricName_ pNamespace_ pStatistic_ pPeriod_ pEvaluationPeriods_ pThreshold_ pComparisonOperator_ =
-    PutMetricAlarm'
-    { _pmaAlarmDescription = Nothing
-    , _pmaOKActions = Nothing
-    , _pmaActionsEnabled = Nothing
-    , _pmaInsufficientDataActions = Nothing
-    , _pmaDimensions = Nothing
-    , _pmaAlarmActions = Nothing
-    , _pmaUnit = Nothing
-    , _pmaAlarmName = pAlarmName_
-    , _pmaMetricName = pMetricName_
-    , _pmaNamespace = pNamespace_
-    , _pmaStatistic = pStatistic_
-    , _pmaPeriod = _Nat # pPeriod_
-    , _pmaEvaluationPeriods = _Nat # pEvaluationPeriods_
-    , _pmaThreshold = pThreshold_
-    , _pmaComparisonOperator = pComparisonOperator_
-    }
+putMetricAlarm pAlarmName_ pMetricName_ pNamespace_ pPeriod_ pEvaluationPeriods_ pThreshold_ pComparisonOperator_ =
+  PutMetricAlarm'
+  { _pmaTreatMissingData = Nothing
+  , _pmaAlarmDescription = Nothing
+  , _pmaOKActions = Nothing
+  , _pmaEvaluateLowSampleCountPercentile = Nothing
+  , _pmaActionsEnabled = Nothing
+  , _pmaInsufficientDataActions = Nothing
+  , _pmaDimensions = Nothing
+  , _pmaAlarmActions = Nothing
+  , _pmaUnit = Nothing
+  , _pmaStatistic = Nothing
+  , _pmaExtendedStatistic = Nothing
+  , _pmaAlarmName = pAlarmName_
+  , _pmaMetricName = pMetricName_
+  , _pmaNamespace = pNamespace_
+  , _pmaPeriod = _Nat # pPeriod_
+  , _pmaEvaluationPeriods = _Nat # pEvaluationPeriods_
+  , _pmaThreshold = pThreshold_
+  , _pmaComparisonOperator = pComparisonOperator_
+  }
+
+
+-- | Sets how this alarm is to handle missing data points. If @TreatMissingData@ is omitted, the default behavior of @missing@ is used. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data Configuring How CloudWatch Alarms Treats Missing Data> . Valid Values: @breaching | notBreaching | ignore | missing@
+pmaTreatMissingData :: Lens' PutMetricAlarm (Maybe Text)
+pmaTreatMissingData = lens _pmaTreatMissingData (\ s a -> s{_pmaTreatMissingData = a});
 
 -- | The description for the alarm.
 pmaAlarmDescription :: Lens' PutMetricAlarm (Maybe Text)
 pmaAlarmDescription = lens _pmaAlarmDescription (\ s a -> s{_pmaAlarmDescription = a});
 
--- | The list of actions to execute when this alarm transitions into an 'OK' state from any other state. Each action is specified as an Amazon Resource Name (ARN).
---
--- Valid Values: arn:aws:automate:/region (e.g., us-east-1)/:ec2:stop | arn:aws:automate:/region (e.g., us-east-1)/:ec2:terminate | arn:aws:automate:/region (e.g., us-east-1)/:ec2:recover
---
--- Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{/customer-account/}:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0 | arn:aws:swf:us-east-1:{/customer-account/}:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0 | arn:aws:swf:us-east-1:{/customer-account/}:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0
---
--- __Note:__ You must create at least one stop, terminate, or reboot alarm using the Amazon EC2 or CloudWatch console to create the __EC2ActionsAccess__ IAM role for the first time. After this IAM role is created, you can create stop, terminate, or reboot alarms using the CLI.
+-- | The actions to execute when this alarm transitions to an @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN). Valid Values: arn:aws:automate:/region/ :ec2:stop | arn:aws:automate:/region/ :ec2:terminate | arn:aws:automate:/region/ :ec2:recover Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{/customer-account/ }:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:us-east-1:{/customer-account/ }:action/actions/AWS_EC2.InstanceId.Terminate/1.0 | arn:aws:swf:us-east-1:{/customer-account/ }:action/actions/AWS_EC2.InstanceId.Reboot/1.0
 pmaOKActions :: Lens' PutMetricAlarm [Text]
 pmaOKActions = lens _pmaOKActions (\ s a -> s{_pmaOKActions = a}) . _Default . _Coerce;
 
--- | Indicates whether or not actions should be executed during any changes to the alarm\'s state.
+-- | Used only for alarms based on percentiles. If you specify @ignore@ , the alarm state does not change during periods with too few data points to be statistically significant. If you specify @evaluate@ or omit this parameter, the alarm is always evaluated and possibly changes state no matter how many data points are available. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples Percentile-Based CloudWatch Alarms and Low Data Samples> . Valid Values: @evaluate | ignore@
+pmaEvaluateLowSampleCountPercentile :: Lens' PutMetricAlarm (Maybe Text)
+pmaEvaluateLowSampleCountPercentile = lens _pmaEvaluateLowSampleCountPercentile (\ s a -> s{_pmaEvaluateLowSampleCountPercentile = a});
+
+-- | Indicates whether actions should be executed during any changes to the alarm state.
 pmaActionsEnabled :: Lens' PutMetricAlarm (Maybe Bool)
 pmaActionsEnabled = lens _pmaActionsEnabled (\ s a -> s{_pmaActionsEnabled = a});
 
--- | The list of actions to execute when this alarm transitions into an 'INSUFFICIENT_DATA' state from any other state. Each action is specified as an Amazon Resource Name (ARN).
---
--- Valid Values: arn:aws:automate:/region (e.g., us-east-1)/:ec2:stop | arn:aws:automate:/region (e.g., us-east-1)/:ec2:terminate | arn:aws:automate:/region (e.g., us-east-1)/:ec2:recover
---
--- Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{/customer-account/}:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0 | arn:aws:swf:us-east-1:{/customer-account/}:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0 | arn:aws:swf:us-east-1:{/customer-account/}:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0
---
--- __Note:__ You must create at least one stop, terminate, or reboot alarm using the Amazon EC2 or CloudWatch console to create the __EC2ActionsAccess__ IAM role for the first time. After this IAM role is created, you can create stop, terminate, or reboot alarms using the CLI.
+-- | The actions to execute when this alarm transitions to the @INSUFFICIENT_DATA@ state from any other state. Each action is specified as an Amazon Resource Name (ARN). Valid Values: arn:aws:automate:/region/ :ec2:stop | arn:aws:automate:/region/ :ec2:terminate | arn:aws:automate:/region/ :ec2:recover Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{/customer-account/ }:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:us-east-1:{/customer-account/ }:action/actions/AWS_EC2.InstanceId.Terminate/1.0 | arn:aws:swf:us-east-1:{/customer-account/ }:action/actions/AWS_EC2.InstanceId.Reboot/1.0
 pmaInsufficientDataActions :: Lens' PutMetricAlarm [Text]
 pmaInsufficientDataActions = lens _pmaInsufficientDataActions (\ s a -> s{_pmaInsufficientDataActions = a}) . _Default . _Coerce;
 
--- | The dimensions for the alarm\'s associated metric.
+-- | The dimensions for the metric associated with the alarm.
 pmaDimensions :: Lens' PutMetricAlarm [Dimension]
 pmaDimensions = lens _pmaDimensions (\ s a -> s{_pmaDimensions = a}) . _Default . _Coerce;
 
--- | The list of actions to execute when this alarm transitions into an 'ALARM' state from any other state. Each action is specified as an Amazon Resource Name (ARN).
---
--- Valid Values: arn:aws:automate:/region (e.g., us-east-1)/:ec2:stop | arn:aws:automate:/region (e.g., us-east-1)/:ec2:terminate | arn:aws:automate:/region (e.g., us-east-1)/:ec2:recover
---
--- Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{/customer-account/}:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0 | arn:aws:swf:us-east-1:{/customer-account/}:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0 | arn:aws:swf:us-east-1:{/customer-account/}:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0
---
--- __Note:__ You must create at least one stop, terminate, or reboot alarm using the Amazon EC2 or CloudWatch console to create the __EC2ActionsAccess__ IAM role for the first time. After this IAM role is created, you can create stop, terminate, or reboot alarms using the CLI.
+-- | The actions to execute when this alarm transitions to the @ALARM@ state from any other state. Each action is specified as an Amazon Resource Name (ARN). Valid Values: arn:aws:automate:/region/ :ec2:stop | arn:aws:automate:/region/ :ec2:terminate | arn:aws:automate:/region/ :ec2:recover Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{/customer-account/ }:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:us-east-1:{/customer-account/ }:action/actions/AWS_EC2.InstanceId.Terminate/1.0 | arn:aws:swf:us-east-1:{/customer-account/ }:action/actions/AWS_EC2.InstanceId.Reboot/1.0
 pmaAlarmActions :: Lens' PutMetricAlarm [Text]
 pmaAlarmActions = lens _pmaAlarmActions (\ s a -> s{_pmaAlarmActions = a}) . _Default . _Coerce;
 
--- | The statistic\'s unit of measure. For example, the units for the Amazon EC2 NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an instance receives on all network interfaces. You can also specify a unit when you create a custom metric. Units help provide conceptual meaning to your data. Metric data points that specify a unit of measure, such as Percent, are aggregated separately.
---
--- __Note:__ If you specify a unit, you must use a unit that is appropriate for the metric. Otherwise, this can cause an Amazon CloudWatch alarm to get stuck in the INSUFFICIENT DATA state.
+-- | The unit of measure for the statistic. For example, the units for the Amazon EC2 NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an instance receives on all network interfaces. You can also specify a unit when you create a custom metric. Units help provide conceptual meaning to your data. Metric data points that specify a unit of measure, such as Percent, are aggregated separately. If you specify a unit, you must use a unit that is appropriate for the metric. Otherwise, the CloudWatch alarm can get stuck in the @INSUFFICIENT DATA@ state.
 pmaUnit :: Lens' PutMetricAlarm (Maybe StandardUnit)
 pmaUnit = lens _pmaUnit (\ s a -> s{_pmaUnit = a});
 
--- | The descriptive name for the alarm. This name must be unique within the user\'s AWS account
+-- | The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use @ExtendedStatistic@ .
+pmaStatistic :: Lens' PutMetricAlarm (Maybe Statistic)
+pmaStatistic = lens _pmaStatistic (\ s a -> s{_pmaStatistic = a});
+
+-- | The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+pmaExtendedStatistic :: Lens' PutMetricAlarm (Maybe Text)
+pmaExtendedStatistic = lens _pmaExtendedStatistic (\ s a -> s{_pmaExtendedStatistic = a});
+
+-- | The name for the alarm. This name must be unique within the AWS account.
 pmaAlarmName :: Lens' PutMetricAlarm Text
 pmaAlarmName = lens _pmaAlarmName (\ s a -> s{_pmaAlarmName = a});
 
--- | The name for the alarm\'s associated metric.
+-- | The name for the metric associated with the alarm.
 pmaMetricName :: Lens' PutMetricAlarm Text
 pmaMetricName = lens _pmaMetricName (\ s a -> s{_pmaMetricName = a});
 
--- | The namespace for the alarm\'s associated metric.
+-- | The namespace for the metric associated with the alarm.
 pmaNamespace :: Lens' PutMetricAlarm Text
 pmaNamespace = lens _pmaNamespace (\ s a -> s{_pmaNamespace = a});
 
--- | The statistic to apply to the alarm\'s associated metric.
-pmaStatistic :: Lens' PutMetricAlarm Statistic
-pmaStatistic = lens _pmaStatistic (\ s a -> s{_pmaStatistic = a});
-
--- | The period in seconds over which the specified statistic is applied.
+-- | The period, in seconds, over which the specified statistic is applied. Valid values are 10, 30, and any multiple of 60. Be sure to specify 10 or 30 only for metrics that are stored by a @PutMetricData@ call with a @StorageResolution@ of 1. If you specify a Period of 10 or 30 for a metric that does not have sub-minute resolution, the alarm still attempts to gather data at the period rate that you specify. In this case, it does not receive data for the attempts that do not correspond to a one-minute data resolution, and the alarm may often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets this alarm as a high-resolution alarm, which has a higher charge than other alarms. For more information about pricing, see <https://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing> . An alarm's total current evaluation period can be no longer than one day, so @Period@ multiplied by @EvaluationPeriods@ cannot be more than 86,400 seconds.
 pmaPeriod :: Lens' PutMetricAlarm Natural
 pmaPeriod = lens _pmaPeriod (\ s a -> s{_pmaPeriod = a}) . _Nat;
 
--- | The number of periods over which data is compared to the specified threshold.
+-- | The number of periods over which data is compared to the specified threshold. An alarm's total current evaluation period can be no longer than one day, so this number multiplied by @Period@ cannot be more than 86,400 seconds.
 pmaEvaluationPeriods :: Lens' PutMetricAlarm Natural
 pmaEvaluationPeriods = lens _pmaEvaluationPeriods (\ s a -> s{_pmaEvaluationPeriods = a}) . _Nat;
 
@@ -232,7 +244,7 @@ pmaEvaluationPeriods = lens _pmaEvaluationPeriods (\ s a -> s{_pmaEvaluationPeri
 pmaThreshold :: Lens' PutMetricAlarm Double
 pmaThreshold = lens _pmaThreshold (\ s a -> s{_pmaThreshold = a});
 
--- | The arithmetic operation to use when comparing the specified 'Statistic' and 'Threshold'. The specified 'Statistic' value is used as the first operand.
+-- | The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
 pmaComparisonOperator :: Lens' PutMetricAlarm ComparisonOperator
 pmaComparisonOperator = lens _pmaComparisonOperator (\ s a -> s{_pmaComparisonOperator = a});
 
@@ -241,9 +253,9 @@ instance AWSRequest PutMetricAlarm where
         request = postQuery cloudWatch
         response = receiveNull PutMetricAlarmResponse'
 
-instance Hashable PutMetricAlarm
+instance Hashable PutMetricAlarm where
 
-instance NFData PutMetricAlarm
+instance NFData PutMetricAlarm where
 
 instance ToHeaders PutMetricAlarm where
         toHeaders = const mempty
@@ -256,9 +268,12 @@ instance ToQuery PutMetricAlarm where
           = mconcat
               ["Action" =: ("PutMetricAlarm" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
+               "TreatMissingData" =: _pmaTreatMissingData,
                "AlarmDescription" =: _pmaAlarmDescription,
                "OKActions" =:
                  toQuery (toQueryList "member" <$> _pmaOKActions),
+               "EvaluateLowSampleCountPercentile" =:
+                 _pmaEvaluateLowSampleCountPercentile,
                "ActionsEnabled" =: _pmaActionsEnabled,
                "InsufficientDataActions" =:
                  toQuery
@@ -268,18 +283,20 @@ instance ToQuery PutMetricAlarm where
                  toQuery (toQueryList "member" <$> _pmaDimensions),
                "AlarmActions" =:
                  toQuery (toQueryList "member" <$> _pmaAlarmActions),
-               "Unit" =: _pmaUnit, "AlarmName" =: _pmaAlarmName,
+               "Unit" =: _pmaUnit, "Statistic" =: _pmaStatistic,
+               "ExtendedStatistic" =: _pmaExtendedStatistic,
+               "AlarmName" =: _pmaAlarmName,
                "MetricName" =: _pmaMetricName,
-               "Namespace" =: _pmaNamespace,
-               "Statistic" =: _pmaStatistic, "Period" =: _pmaPeriod,
+               "Namespace" =: _pmaNamespace, "Period" =: _pmaPeriod,
                "EvaluationPeriods" =: _pmaEvaluationPeriods,
                "Threshold" =: _pmaThreshold,
                "ComparisonOperator" =: _pmaComparisonOperator]
 
 -- | /See:/ 'putMetricAlarmResponse' smart constructor.
 data PutMetricAlarmResponse =
-    PutMetricAlarmResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutMetricAlarmResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutMetricAlarmResponse' with the minimum fields required to make a request.
 --
@@ -287,4 +304,5 @@ putMetricAlarmResponse
     :: PutMetricAlarmResponse
 putMetricAlarmResponse = PutMetricAlarmResponse'
 
-instance NFData PutMetricAlarmResponse
+
+instance NFData PutMetricAlarmResponse where

@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeLogGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all the log groups that are associated with the AWS account making the request. The list returned in the response is ASCII-sorted by log group name.
+-- Lists the specified log groups. You can list all your log groups or filter the results by prefix. The results are ASCII-sorted by log group name.
 --
--- By default, this operation returns up to 50 log groups. If there are more log groups to list, the response would contain a 'nextToken' value in the response body. You can also limit the number of log groups returned in the response by specifying the 'limit' parameter in the request.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeLogGroups
@@ -42,48 +42,50 @@ module Network.AWS.CloudWatchLogs.DescribeLogGroups
     , dlgrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeLogGroups' smart constructor.
 data DescribeLogGroups = DescribeLogGroups'
-    { _dlgLogGroupNamePrefix :: !(Maybe Text)
-    , _dlgNextToken          :: !(Maybe Text)
-    , _dlgLimit              :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlgLogGroupNamePrefix :: !(Maybe Text)
+  , _dlgNextToken          :: !(Maybe Text)
+  , _dlgLimit              :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLogGroups' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlgLogGroupNamePrefix'
+-- * 'dlgLogGroupNamePrefix' - The prefix to match.
 --
--- * 'dlgNextToken'
+-- * 'dlgNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dlgLimit'
+-- * 'dlgLimit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 describeLogGroups
     :: DescribeLogGroups
 describeLogGroups =
-    DescribeLogGroups'
-    { _dlgLogGroupNamePrefix = Nothing
-    , _dlgNextToken = Nothing
-    , _dlgLimit = Nothing
-    }
+  DescribeLogGroups'
+  { _dlgLogGroupNamePrefix = Nothing
+  , _dlgNextToken = Nothing
+  , _dlgLimit = Nothing
+  }
 
--- | Will only return log groups that match the provided logGroupNamePrefix. If you don\'t specify a value, no prefix filter is applied.
+
+-- | The prefix to match.
 dlgLogGroupNamePrefix :: Lens' DescribeLogGroups (Maybe Text)
 dlgLogGroupNamePrefix = lens _dlgLogGroupNamePrefix (\ s a -> s{_dlgLogGroupNamePrefix = a});
 
--- | A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous 'DescribeLogGroups' request.
+-- | The token for the next set of items to return. (You received this token from a previous call.)
 dlgNextToken :: Lens' DescribeLogGroups (Maybe Text)
 dlgNextToken = lens _dlgNextToken (\ s a -> s{_dlgNextToken = a});
 
--- | The maximum number of items returned in the response. If you don\'t specify a value, the request would return up to 50 items.
+-- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 dlgLimit :: Lens' DescribeLogGroups (Maybe Natural)
 dlgLimit = lens _dlgLimit (\ s a -> s{_dlgLimit = a}) . mapping _Nat;
 
@@ -105,9 +107,9 @@ instance AWSRequest DescribeLogGroups where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeLogGroups
+instance Hashable DescribeLogGroups where
 
-instance NFData DescribeLogGroups
+instance NFData DescribeLogGroups where
 
 instance ToHeaders DescribeLogGroups where
         toHeaders
@@ -135,31 +137,33 @@ instance ToQuery DescribeLogGroups where
 
 -- | /See:/ 'describeLogGroupsResponse' smart constructor.
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
-    { _dlgrsLogGroups      :: !(Maybe [LogGroup])
-    , _dlgrsNextToken      :: !(Maybe Text)
-    , _dlgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlgrsLogGroups      :: !(Maybe [LogGroup])
+  , _dlgrsNextToken      :: !(Maybe Text)
+  , _dlgrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLogGroupsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlgrsLogGroups'
+-- * 'dlgrsLogGroups' - The log groups.
 --
--- * 'dlgrsNextToken'
+-- * 'dlgrsNextToken' - Undocumented member.
 --
--- * 'dlgrsResponseStatus'
+-- * 'dlgrsResponseStatus' - -- | The response status code.
 describeLogGroupsResponse
     :: Int -- ^ 'dlgrsResponseStatus'
     -> DescribeLogGroupsResponse
 describeLogGroupsResponse pResponseStatus_ =
-    DescribeLogGroupsResponse'
-    { _dlgrsLogGroups = Nothing
-    , _dlgrsNextToken = Nothing
-    , _dlgrsResponseStatus = pResponseStatus_
-    }
+  DescribeLogGroupsResponse'
+  { _dlgrsLogGroups = Nothing
+  , _dlgrsNextToken = Nothing
+  , _dlgrsResponseStatus = pResponseStatus_
+  }
 
--- | Undocumented member.
+
+-- | The log groups.
 dlgrsLogGroups :: Lens' DescribeLogGroupsResponse [LogGroup]
 dlgrsLogGroups = lens _dlgrsLogGroups (\ s a -> s{_dlgrsLogGroups = a}) . _Default . _Coerce;
 
@@ -167,8 +171,8 @@ dlgrsLogGroups = lens _dlgrsLogGroups (\ s a -> s{_dlgrsLogGroups = a}) . _Defau
 dlgrsNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)
 dlgrsNextToken = lens _dlgrsNextToken (\ s a -> s{_dlgrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dlgrsResponseStatus :: Lens' DescribeLogGroupsResponse Int
 dlgrsResponseStatus = lens _dlgrsResponseStatus (\ s a -> s{_dlgrsResponseStatus = a});
 
-instance NFData DescribeLogGroupsResponse
+instance NFData DescribeLogGroupsResponse where

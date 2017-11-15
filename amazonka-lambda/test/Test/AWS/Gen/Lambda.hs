@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.Lambda
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.Lambda where
 
 import Data.Proxy
+import Network.AWS.Lambda
 import Test.AWS.Fixture
+import Test.AWS.Lambda.Internal
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.Lambda
-import Test.AWS.Lambda.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -76,14 +76,26 @@ import Test.AWS.Lambda.Internal
 --         , requestUpdateAlias $
 --             updateAlias
 --
+--         , requestGetAccountSettings $
+--             getAccountSettings
+--
 --         , requestAddPermission $
 --             addPermission
+--
+--         , requestTagResource $
+--             tagResource
 --
 --         , requestPublishVersion $
 --             publishVersion
 --
+--         , requestListTags $
+--             listTags
+--
 --         , requestDeleteFunction $
 --             deleteFunction
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestUpdateFunctionConfiguration $
 --             updateFunctionConfiguration
@@ -148,14 +160,26 @@ import Test.AWS.Lambda.Internal
 --         , responseUpdateAlias $
 --             aliasConfiguration
 --
+--         , responseGetAccountSettings $
+--             getAccountSettingsResponse
+--
 --         , responseAddPermission $
 --             addPermissionResponse
+--
+--         , responseTagResource $
+--             tagResourceResponse
 --
 --         , responsePublishVersion $
 --             functionConfiguration
 --
+--         , responseListTags $
+--             listTagsResponse
+--
 --         , responseDeleteFunction $
 --             deleteFunctionResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responseUpdateFunctionConfiguration $
 --             functionConfiguration
@@ -254,20 +278,40 @@ requestUpdateAlias = req
     "UpdateAlias"
     "fixture/UpdateAlias.yaml"
 
+requestGetAccountSettings :: GetAccountSettings -> TestTree
+requestGetAccountSettings = req
+    "GetAccountSettings"
+    "fixture/GetAccountSettings.yaml"
+
 requestAddPermission :: AddPermission -> TestTree
 requestAddPermission = req
     "AddPermission"
     "fixture/AddPermission.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
 
 requestPublishVersion :: PublishVersion -> TestTree
 requestPublishVersion = req
     "PublishVersion"
     "fixture/PublishVersion.yaml"
 
+requestListTags :: ListTags -> TestTree
+requestListTags = req
+    "ListTags"
+    "fixture/ListTags.yaml"
+
 requestDeleteFunction :: DeleteFunction -> TestTree
 requestDeleteFunction = req
     "DeleteFunction"
     "fixture/DeleteFunction.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestUpdateFunctionConfiguration :: UpdateFunctionConfiguration -> TestTree
 requestUpdateFunctionConfiguration = req
@@ -403,12 +447,26 @@ responseUpdateAlias = res
     lambda
     (Proxy :: Proxy UpdateAlias)
 
+responseGetAccountSettings :: GetAccountSettingsResponse -> TestTree
+responseGetAccountSettings = res
+    "GetAccountSettingsResponse"
+    "fixture/GetAccountSettingsResponse.proto"
+    lambda
+    (Proxy :: Proxy GetAccountSettings)
+
 responseAddPermission :: AddPermissionResponse -> TestTree
 responseAddPermission = res
     "AddPermissionResponse"
     "fixture/AddPermissionResponse.proto"
     lambda
     (Proxy :: Proxy AddPermission)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    lambda
+    (Proxy :: Proxy TagResource)
 
 responsePublishVersion :: FunctionConfiguration -> TestTree
 responsePublishVersion = res
@@ -417,12 +475,26 @@ responsePublishVersion = res
     lambda
     (Proxy :: Proxy PublishVersion)
 
+responseListTags :: ListTagsResponse -> TestTree
+responseListTags = res
+    "ListTagsResponse"
+    "fixture/ListTagsResponse.proto"
+    lambda
+    (Proxy :: Proxy ListTags)
+
 responseDeleteFunction :: DeleteFunctionResponse -> TestTree
 responseDeleteFunction = res
     "DeleteFunctionResponse"
     "fixture/DeleteFunctionResponse.proto"
     lambda
     (Proxy :: Proxy DeleteFunction)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    lambda
+    (Proxy :: Proxy UntagResource)
 
 responseUpdateFunctionConfiguration :: FunctionConfiguration -> TestTree
 responseUpdateFunctionConfiguration = res

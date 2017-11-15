@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a < Resource> resource.
+-- Creates a 'Resource' resource.
+--
+--
 module Network.AWS.APIGateway.CreateResource
     (
     -- * Creating a Request
@@ -40,48 +42,52 @@ module Network.AWS.APIGateway.CreateResource
     , rParentId
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Requests Amazon API Gateway to create a < Resource> resource.
+-- | Requests Amazon API Gateway to create a 'Resource' resource.
+--
+--
 --
 -- /See:/ 'createResource' smart constructor.
 data CreateResource = CreateResource'
-    { _crRestAPIId :: !Text
-    , _crParentId  :: !Text
-    , _crPathPart  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crRestAPIId :: !Text
+  , _crParentId  :: !Text
+  , _crPathPart  :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crRestAPIId'
+-- * 'crRestAPIId' - The string identifier of the associated 'RestApi' .
 --
--- * 'crParentId'
+-- * 'crParentId' - The parent resource's identifier.
 --
--- * 'crPathPart'
+-- * 'crPathPart' - The last path segment for this resource.
 createResource
     :: Text -- ^ 'crRestAPIId'
     -> Text -- ^ 'crParentId'
     -> Text -- ^ 'crPathPart'
     -> CreateResource
 createResource pRestAPIId_ pParentId_ pPathPart_ =
-    CreateResource'
-    { _crRestAPIId = pRestAPIId_
-    , _crParentId = pParentId_
-    , _crPathPart = pPathPart_
-    }
+  CreateResource'
+  { _crRestAPIId = pRestAPIId_
+  , _crParentId = pParentId_
+  , _crPathPart = pPathPart_
+  }
 
--- | The identifier of the < RestApi> for the resource.
+
+-- | The string identifier of the associated 'RestApi' .
 crRestAPIId :: Lens' CreateResource Text
 crRestAPIId = lens _crRestAPIId (\ s a -> s{_crRestAPIId = a});
 
--- | The parent resource\'s identifier.
+-- | The parent resource's identifier.
 crParentId :: Lens' CreateResource Text
 crParentId = lens _crParentId (\ s a -> s{_crParentId = a});
 
@@ -94,9 +100,9 @@ instance AWSRequest CreateResource where
         request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateResource
+instance Hashable CreateResource where
 
-instance NFData CreateResource
+instance NFData CreateResource where
 
 instance ToHeaders CreateResource where
         toHeaders

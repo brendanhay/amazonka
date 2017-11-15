@@ -12,19 +12,21 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifySpotFleetRequest
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the specified Spot fleet request.
 --
--- While the Spot fleet request is being modified, it is in the 'modifying' state.
 --
--- To scale up your Spot fleet, increase its target capacity. The Spot fleet launches the additional Spot instances according to the allocation strategy for the Spot fleet request. If the allocation strategy is 'lowestPrice', the Spot fleet launches instances using the Spot pool with the lowest price. If the allocation strategy is 'diversified', the Spot fleet distributes the instances across the Spot pools.
+-- While the Spot fleet request is being modified, it is in the @modifying@ state.
 --
--- To scale down your Spot fleet, decrease its target capacity. First, the Spot fleet cancels any open bids that exceed the new target capacity. You can request that the Spot fleet terminate Spot instances until the size of the fleet no longer exceeds the new target capacity. If the allocation strategy is 'lowestPrice', the Spot fleet terminates the instances with the highest price per unit. If the allocation strategy is 'diversified', the Spot fleet terminates instances across the Spot pools. Alternatively, you can request that the Spot fleet keep the fleet at its current size, but not replace any Spot instances that are interrupted or that you terminate manually.
+-- To scale up your Spot fleet, increase its target capacity. The Spot fleet launches the additional Spot instances according to the allocation strategy for the Spot fleet request. If the allocation strategy is @lowestPrice@ , the Spot fleet launches instances using the Spot pool with the lowest price. If the allocation strategy is @diversified@ , the Spot fleet distributes the instances across the Spot pools.
+--
+-- To scale down your Spot fleet, decrease its target capacity. First, the Spot fleet cancels any open bids that exceed the new target capacity. You can request that the Spot fleet terminate Spot instances until the size of the fleet no longer exceeds the new target capacity. If the allocation strategy is @lowestPrice@ , the Spot fleet terminates the instances with the highest price per unit. If the allocation strategy is @diversified@ , the Spot fleet terminates instances across the Spot pools. Alternatively, you can request that the Spot fleet keep the fleet at its current size, but not replace any Spot instances that are interrupted or that you terminate manually.
+--
 module Network.AWS.EC2.ModifySpotFleetRequest
     (
     -- * Creating a Request
@@ -43,40 +45,44 @@ module Network.AWS.EC2.ModifySpotFleetRequest
     , msfrrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ModifySpotFleetRequest.
 --
+--
+--
 -- /See:/ 'modifySpotFleetRequest' smart constructor.
 data ModifySpotFleetRequest = ModifySpotFleetRequest'
-    { _msfrTargetCapacity                  :: !(Maybe Int)
-    , _msfrExcessCapacityTerminationPolicy :: !(Maybe ExcessCapacityTerminationPolicy)
-    , _msfrSpotFleetRequestId              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _msfrTargetCapacity :: !(Maybe Int)
+  , _msfrExcessCapacityTerminationPolicy :: !(Maybe ExcessCapacityTerminationPolicy)
+  , _msfrSpotFleetRequestId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifySpotFleetRequest' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'msfrTargetCapacity'
+-- * 'msfrTargetCapacity' - The size of the fleet.
 --
--- * 'msfrExcessCapacityTerminationPolicy'
+-- * 'msfrExcessCapacityTerminationPolicy' - Indicates whether running Spot instances should be terminated if the target capacity of the Spot fleet request is decreased below the current size of the Spot fleet.
 --
--- * 'msfrSpotFleetRequestId'
+-- * 'msfrSpotFleetRequestId' - The ID of the Spot fleet request.
 modifySpotFleetRequest
     :: Text -- ^ 'msfrSpotFleetRequestId'
     -> ModifySpotFleetRequest
 modifySpotFleetRequest pSpotFleetRequestId_ =
-    ModifySpotFleetRequest'
-    { _msfrTargetCapacity = Nothing
-    , _msfrExcessCapacityTerminationPolicy = Nothing
-    , _msfrSpotFleetRequestId = pSpotFleetRequestId_
-    }
+  ModifySpotFleetRequest'
+  { _msfrTargetCapacity = Nothing
+  , _msfrExcessCapacityTerminationPolicy = Nothing
+  , _msfrSpotFleetRequestId = pSpotFleetRequestId_
+  }
+
 
 -- | The size of the fleet.
 msfrTargetCapacity :: Lens' ModifySpotFleetRequest (Maybe Int)
@@ -100,9 +106,9 @@ instance AWSRequest ModifySpotFleetRequest where
                  ModifySpotFleetRequestResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
-instance Hashable ModifySpotFleetRequest
+instance Hashable ModifySpotFleetRequest where
 
-instance NFData ModifySpotFleetRequest
+instance NFData ModifySpotFleetRequest where
 
 instance ToHeaders ModifySpotFleetRequest where
         toHeaders = const mempty
@@ -115,7 +121,7 @@ instance ToQuery ModifySpotFleetRequest where
           = mconcat
               ["Action" =:
                  ("ModifySpotFleetRequest" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "TargetCapacity" =: _msfrTargetCapacity,
                "ExcessCapacityTerminationPolicy" =:
                  _msfrExcessCapacityTerminationPolicy,
@@ -123,34 +129,36 @@ instance ToQuery ModifySpotFleetRequest where
 
 -- | Contains the output of ModifySpotFleetRequest.
 --
+--
+--
 -- /See:/ 'modifySpotFleetRequestResponse' smart constructor.
 data ModifySpotFleetRequestResponse = ModifySpotFleetRequestResponse'
-    { _msfrrsReturn         :: !(Maybe Bool)
-    , _msfrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _msfrrsReturn         :: !(Maybe Bool)
+  , _msfrrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifySpotFleetRequestResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'msfrrsReturn'
+-- * 'msfrrsReturn' - Is @true@ if the request succeeds, and an error otherwise.
 --
--- * 'msfrrsResponseStatus'
+-- * 'msfrrsResponseStatus' - -- | The response status code.
 modifySpotFleetRequestResponse
     :: Int -- ^ 'msfrrsResponseStatus'
     -> ModifySpotFleetRequestResponse
 modifySpotFleetRequestResponse pResponseStatus_ =
-    ModifySpotFleetRequestResponse'
-    { _msfrrsReturn = Nothing
-    , _msfrrsResponseStatus = pResponseStatus_
-    }
+  ModifySpotFleetRequestResponse'
+  {_msfrrsReturn = Nothing, _msfrrsResponseStatus = pResponseStatus_}
 
--- | Is 'true' if the request succeeds, and an error otherwise.
+
+-- | Is @true@ if the request succeeds, and an error otherwise.
 msfrrsReturn :: Lens' ModifySpotFleetRequestResponse (Maybe Bool)
 msfrrsReturn = lens _msfrrsReturn (\ s a -> s{_msfrrsReturn = a});
 
--- | The response status code.
+-- | -- | The response status code.
 msfrrsResponseStatus :: Lens' ModifySpotFleetRequestResponse Int
 msfrrsResponseStatus = lens _msfrrsResponseStatus (\ s a -> s{_msfrrsResponseStatus = a});
 
-instance NFData ModifySpotFleetRequestResponse
+instance NFData ModifySpotFleetRequestResponse where

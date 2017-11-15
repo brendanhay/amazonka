@@ -5,17 +5,18 @@
 
 -- |
 -- Module      : Network.AWS.IoT
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS IoT
+-- __AWS IoT__
 --
 -- AWS IoT provides secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each thing (Thing Registry), configure logging, and create and manage policies and credentials to authenticate things.
 --
--- For more information about how AWS IoT works, see the <http://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html Developer Guide>.
+-- For more information about how AWS IoT works, see the <http://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html Developer Guide> .
+--
 module Network.AWS.IoT
     (
     -- * Service Configuration
@@ -90,7 +91,7 @@ module Network.AWS.IoT
     -- * Operations
     -- $operations
 
-    -- ** ListPolicies
+    -- ** ListPolicies (Paginated)
     , module Network.AWS.IoT.ListPolicies
 
     -- ** CreatePolicy
@@ -102,17 +103,17 @@ module Network.AWS.IoT
     -- ** ListThingPrincipals
     , module Network.AWS.IoT.ListThingPrincipals
 
-    -- ** ListPrincipalThings
+    -- ** ListPrincipalThings (Paginated)
     , module Network.AWS.IoT.ListPrincipalThings
 
     -- ** GetLoggingOptions
     , module Network.AWS.IoT.GetLoggingOptions
 
-    -- ** ListThingTypes
+    -- ** ListThingTypes (Paginated)
     , module Network.AWS.IoT.ListThingTypes
 
-    -- ** CreateCertificateFromCsr
-    , module Network.AWS.IoT.CreateCertificateFromCsr
+    -- ** CreateCertificateFromCSR
+    , module Network.AWS.IoT.CreateCertificateFromCSR
 
     -- ** DeleteThing
     , module Network.AWS.IoT.DeleteThing
@@ -138,13 +139,13 @@ module Network.AWS.IoT
     -- ** CreatePolicyVersion
     , module Network.AWS.IoT.CreatePolicyVersion
 
-    -- ** ListCACertificates
+    -- ** ListCACertificates (Paginated)
     , module Network.AWS.IoT.ListCACertificates
 
     -- ** DeleteTopicRule
     , module Network.AWS.IoT.DeleteTopicRule
 
-    -- ** ListPrincipalPolicies
+    -- ** ListPrincipalPolicies (Paginated)
     , module Network.AWS.IoT.ListPrincipalPolicies
 
     -- ** DeleteCACertificate
@@ -153,7 +154,7 @@ module Network.AWS.IoT
     -- ** UpdateCACertificate
     , module Network.AWS.IoT.UpdateCACertificate
 
-    -- ** ListTopicRules
+    -- ** ListTopicRules (Paginated)
     , module Network.AWS.IoT.ListTopicRules
 
     -- ** TransferCertificate
@@ -168,7 +169,7 @@ module Network.AWS.IoT
     -- ** DeletePolicy
     , module Network.AWS.IoT.DeletePolicy
 
-    -- ** ListCertificates
+    -- ** ListCertificates (Paginated)
     , module Network.AWS.IoT.ListCertificates
 
     -- ** GetPolicyVersion
@@ -180,7 +181,7 @@ module Network.AWS.IoT
     -- ** UpdateCertificate
     , module Network.AWS.IoT.UpdateCertificate
 
-    -- ** ListOutgoingCertificates
+    -- ** ListOutgoingCertificates (Paginated)
     , module Network.AWS.IoT.ListOutgoingCertificates
 
     -- ** DescribeCACertificate
@@ -192,13 +193,13 @@ module Network.AWS.IoT
     -- ** DeleteThingType
     , module Network.AWS.IoT.DeleteThingType
 
-    -- ** ListCertificatesByCA
+    -- ** ListCertificatesByCA (Paginated)
     , module Network.AWS.IoT.ListCertificatesByCA
 
     -- ** AttachThingPrincipal
     , module Network.AWS.IoT.AttachThingPrincipal
 
-    -- ** ListThings
+    -- ** ListThings (Paginated)
     , module Network.AWS.IoT.ListThings
 
     -- ** DetachPrincipalPolicy
@@ -213,7 +214,7 @@ module Network.AWS.IoT
     -- ** DescribeCertificate
     , module Network.AWS.IoT.DescribeCertificate
 
-    -- ** ListPolicyPrincipals
+    -- ** ListPolicyPrincipals (Paginated)
     , module Network.AWS.IoT.ListPolicyPrincipals
 
     -- ** ReplaceTopicRule
@@ -269,6 +270,9 @@ module Network.AWS.IoT
     -- ** CACertificateStatus
     , CACertificateStatus (..)
 
+    -- ** CannedAccessControlList
+    , CannedAccessControlList (..)
+
     -- ** CertificateStatus
     , CertificateStatus (..)
 
@@ -285,11 +289,13 @@ module Network.AWS.IoT
     , Action
     , action
     , aCloudwatchMetric
+    , aDynamoDBv2
     , aCloudwatchAlarm
     , aSns
     , aDynamoDB
     , aFirehose
     , aLambda
+    , aSalesforce
     , aKinesis
     , aS3
     , aElasticsearch
@@ -364,16 +370,22 @@ module Network.AWS.IoT
     -- ** DynamoDBAction
     , DynamoDBAction
     , dynamoDBAction
-    , ddaHashKeyType
-    , ddaOperation
-    , ddaRangeKeyType
-    , ddaPayloadField
-    , ddaRangeKeyField
-    , ddaRangeKeyValue
-    , ddaTableName
+    , ddbaHashKeyType
+    , ddbaOperation
+    , ddbaRangeKeyType
+    , ddbaPayloadField
+    , ddbaRangeKeyField
+    , ddbaRangeKeyValue
+    , ddbaTableName
+    , ddbaRoleARN
+    , ddbaHashKeyField
+    , ddbaHashKeyValue
+
+    -- ** DynamoDBv2Action
+    , DynamoDBv2Action
+    , dynamoDBv2Action
+    , ddaPutItem
     , ddaRoleARN
-    , ddaHashKeyField
-    , ddaHashKeyValue
 
     -- ** ElasticsearchAction
     , ElasticsearchAction
@@ -438,6 +450,11 @@ module Network.AWS.IoT
     , pvCreateDate
     , pvIsDefaultVersion
 
+    -- ** PutItemInput
+    , PutItemInput
+    , putItemInput
+    , piiTableName
+
     -- ** RepublishAction
     , RepublishAction
     , republishAction
@@ -447,6 +464,7 @@ module Network.AWS.IoT
     -- ** S3Action
     , S3Action
     , s3Action
+    , sCannedACL
     , sRoleARN
     , sBucketName
     , sKey
@@ -457,6 +475,12 @@ module Network.AWS.IoT
     , snsaMessageFormat
     , snsaTargetARN
     , snsaRoleARN
+
+    -- ** SalesforceAction
+    , SalesforceAction
+    , salesforceAction
+    , saToken
+    , saUrl
 
     -- ** SqsAction
     , SqsAction
@@ -532,65 +556,65 @@ module Network.AWS.IoT
     , tdRejectReason
     ) where
 
-import           Network.AWS.IoT.AcceptCertificateTransfer
-import           Network.AWS.IoT.AttachPrincipalPolicy
-import           Network.AWS.IoT.AttachThingPrincipal
-import           Network.AWS.IoT.CancelCertificateTransfer
-import           Network.AWS.IoT.CreateCertificateFromCsr
-import           Network.AWS.IoT.CreateKeysAndCertificate
-import           Network.AWS.IoT.CreatePolicy
-import           Network.AWS.IoT.CreatePolicyVersion
-import           Network.AWS.IoT.CreateThing
-import           Network.AWS.IoT.CreateThingType
-import           Network.AWS.IoT.CreateTopicRule
-import           Network.AWS.IoT.DeleteCACertificate
-import           Network.AWS.IoT.DeleteCertificate
-import           Network.AWS.IoT.DeletePolicy
-import           Network.AWS.IoT.DeletePolicyVersion
-import           Network.AWS.IoT.DeleteRegistrationCode
-import           Network.AWS.IoT.DeleteThing
-import           Network.AWS.IoT.DeleteThingType
-import           Network.AWS.IoT.DeleteTopicRule
-import           Network.AWS.IoT.DeprecateThingType
-import           Network.AWS.IoT.DescribeCACertificate
-import           Network.AWS.IoT.DescribeCertificate
-import           Network.AWS.IoT.DescribeEndpoint
-import           Network.AWS.IoT.DescribeThing
-import           Network.AWS.IoT.DescribeThingType
-import           Network.AWS.IoT.DetachPrincipalPolicy
-import           Network.AWS.IoT.DetachThingPrincipal
-import           Network.AWS.IoT.DisableTopicRule
-import           Network.AWS.IoT.EnableTopicRule
-import           Network.AWS.IoT.GetLoggingOptions
-import           Network.AWS.IoT.GetPolicy
-import           Network.AWS.IoT.GetPolicyVersion
-import           Network.AWS.IoT.GetRegistrationCode
-import           Network.AWS.IoT.GetTopicRule
-import           Network.AWS.IoT.ListCACertificates
-import           Network.AWS.IoT.ListCertificates
-import           Network.AWS.IoT.ListCertificatesByCA
-import           Network.AWS.IoT.ListOutgoingCertificates
-import           Network.AWS.IoT.ListPolicies
-import           Network.AWS.IoT.ListPolicyPrincipals
-import           Network.AWS.IoT.ListPolicyVersions
-import           Network.AWS.IoT.ListPrincipalPolicies
-import           Network.AWS.IoT.ListPrincipalThings
-import           Network.AWS.IoT.ListThingPrincipals
-import           Network.AWS.IoT.ListThings
-import           Network.AWS.IoT.ListThingTypes
-import           Network.AWS.IoT.ListTopicRules
-import           Network.AWS.IoT.RegisterCACertificate
-import           Network.AWS.IoT.RegisterCertificate
-import           Network.AWS.IoT.RejectCertificateTransfer
-import           Network.AWS.IoT.ReplaceTopicRule
-import           Network.AWS.IoT.SetDefaultPolicyVersion
-import           Network.AWS.IoT.SetLoggingOptions
-import           Network.AWS.IoT.TransferCertificate
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.UpdateCACertificate
-import           Network.AWS.IoT.UpdateCertificate
-import           Network.AWS.IoT.UpdateThing
-import           Network.AWS.IoT.Waiters
+import Network.AWS.IoT.AcceptCertificateTransfer
+import Network.AWS.IoT.AttachPrincipalPolicy
+import Network.AWS.IoT.AttachThingPrincipal
+import Network.AWS.IoT.CancelCertificateTransfer
+import Network.AWS.IoT.CreateCertificateFromCSR
+import Network.AWS.IoT.CreateKeysAndCertificate
+import Network.AWS.IoT.CreatePolicy
+import Network.AWS.IoT.CreatePolicyVersion
+import Network.AWS.IoT.CreateThing
+import Network.AWS.IoT.CreateThingType
+import Network.AWS.IoT.CreateTopicRule
+import Network.AWS.IoT.DeleteCACertificate
+import Network.AWS.IoT.DeleteCertificate
+import Network.AWS.IoT.DeletePolicy
+import Network.AWS.IoT.DeletePolicyVersion
+import Network.AWS.IoT.DeleteRegistrationCode
+import Network.AWS.IoT.DeleteThing
+import Network.AWS.IoT.DeleteThingType
+import Network.AWS.IoT.DeleteTopicRule
+import Network.AWS.IoT.DeprecateThingType
+import Network.AWS.IoT.DescribeCACertificate
+import Network.AWS.IoT.DescribeCertificate
+import Network.AWS.IoT.DescribeEndpoint
+import Network.AWS.IoT.DescribeThing
+import Network.AWS.IoT.DescribeThingType
+import Network.AWS.IoT.DetachPrincipalPolicy
+import Network.AWS.IoT.DetachThingPrincipal
+import Network.AWS.IoT.DisableTopicRule
+import Network.AWS.IoT.EnableTopicRule
+import Network.AWS.IoT.GetLoggingOptions
+import Network.AWS.IoT.GetPolicy
+import Network.AWS.IoT.GetPolicyVersion
+import Network.AWS.IoT.GetRegistrationCode
+import Network.AWS.IoT.GetTopicRule
+import Network.AWS.IoT.ListCACertificates
+import Network.AWS.IoT.ListCertificates
+import Network.AWS.IoT.ListCertificatesByCA
+import Network.AWS.IoT.ListOutgoingCertificates
+import Network.AWS.IoT.ListPolicies
+import Network.AWS.IoT.ListPolicyPrincipals
+import Network.AWS.IoT.ListPolicyVersions
+import Network.AWS.IoT.ListPrincipalPolicies
+import Network.AWS.IoT.ListPrincipalThings
+import Network.AWS.IoT.ListThingPrincipals
+import Network.AWS.IoT.ListThings
+import Network.AWS.IoT.ListThingTypes
+import Network.AWS.IoT.ListTopicRules
+import Network.AWS.IoT.RegisterCACertificate
+import Network.AWS.IoT.RegisterCertificate
+import Network.AWS.IoT.RejectCertificateTransfer
+import Network.AWS.IoT.ReplaceTopicRule
+import Network.AWS.IoT.SetDefaultPolicyVersion
+import Network.AWS.IoT.SetLoggingOptions
+import Network.AWS.IoT.TransferCertificate
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.UpdateCACertificate
+import Network.AWS.IoT.UpdateCertificate
+import Network.AWS.IoT.UpdateThing
+import Network.AWS.IoT.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

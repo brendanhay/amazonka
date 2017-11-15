@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.StopInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops a specified instance. When you stop a standard instance, the data disappears and must be reinstalled when you restart the instance. You can stop an Amazon EBS-backed instance without losing data. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html Starting, Stopping, and Rebooting Instances>.
+-- Stops a specified instance. When you stop a standard instance, the data disappears and must be reinstalled when you restart the instance. You can stop an Amazon EBS-backed instance without losing data. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html Starting, Stopping, and Rebooting Instances> .
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.StopInstance
     (
     -- * Creating a Request
@@ -34,30 +36,29 @@ module Network.AWS.OpsWorks.StopInstance
     , StopInstanceResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'stopInstance' smart constructor.
 newtype StopInstance = StopInstance'
-    { _siInstanceId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _siInstanceId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopInstance' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'siInstanceId'
+-- * 'siInstanceId' - The instance ID.
 stopInstance
     :: Text -- ^ 'siInstanceId'
     -> StopInstance
-stopInstance pInstanceId_ =
-    StopInstance'
-    { _siInstanceId = pInstanceId_
-    }
+stopInstance pInstanceId_ = StopInstance' {_siInstanceId = pInstanceId_}
+
 
 -- | The instance ID.
 siInstanceId :: Lens' StopInstance Text
@@ -68,9 +69,9 @@ instance AWSRequest StopInstance where
         request = postJSON opsWorks
         response = receiveNull StopInstanceResponse'
 
-instance Hashable StopInstance
+instance Hashable StopInstance where
 
-instance NFData StopInstance
+instance NFData StopInstance where
 
 instance ToHeaders StopInstance where
         toHeaders
@@ -94,8 +95,9 @@ instance ToQuery StopInstance where
 
 -- | /See:/ 'stopInstanceResponse' smart constructor.
 data StopInstanceResponse =
-    StopInstanceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  StopInstanceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopInstanceResponse' with the minimum fields required to make a request.
 --
@@ -103,4 +105,5 @@ stopInstanceResponse
     :: StopInstanceResponse
 stopInstanceResponse = StopInstanceResponse'
 
-instance NFData StopInstanceResponse
+
+instance NFData StopInstanceResponse where

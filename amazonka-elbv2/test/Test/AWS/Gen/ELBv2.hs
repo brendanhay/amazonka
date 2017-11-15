@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.ELBv2
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.ELBv2 where
 
 import Data.Proxy
+import Network.AWS.ELBv2
+import Test.AWS.ELBv2.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.ELBv2
-import Test.AWS.ELBv2.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -48,6 +48,9 @@ import Test.AWS.ELBv2.Internal
 --
 --         , requestCreateRule $
 --             createRule
+--
+--         , requestDescribeListenerCertificates $
+--             describeListenerCertificates
 --
 --         , requestSetSecurityGroups $
 --             setSecurityGroups
@@ -85,6 +88,9 @@ import Test.AWS.ELBv2.Internal
 --         , requestDescribeSSLPolicies $
 --             describeSSLPolicies
 --
+--         , requestDescribeAccountLimits $
+--             describeAccountLimits
+--
 --         , requestDeregisterTargets $
 --             deregisterTargets
 --
@@ -96,6 +102,9 @@ import Test.AWS.ELBv2.Internal
 --
 --         , requestModifyLoadBalancerAttributes $
 --             modifyLoadBalancerAttributes
+--
+--         , requestSetIPAddressType $
+--             setIPAddressType
 --
 --         , requestAddTags $
 --             addTags
@@ -112,8 +121,14 @@ import Test.AWS.ELBv2.Internal
 --         , requestCreateLoadBalancer $
 --             createLoadBalancer
 --
+--         , requestRemoveListenerCertificates $
+--             removeListenerCertificates
+--
 --         , requestModifyRule $
 --             modifyRule
+--
+--         , requestAddListenerCertificates $
+--             addListenerCertificates
 --
 --           ]
 
@@ -138,6 +153,9 @@ import Test.AWS.ELBv2.Internal
 --
 --         , responseCreateRule $
 --             createRuleResponse
+--
+--         , responseDescribeListenerCertificates $
+--             describeListenerCertificatesResponse
 --
 --         , responseSetSecurityGroups $
 --             setSecurityGroupsResponse
@@ -175,6 +193,9 @@ import Test.AWS.ELBv2.Internal
 --         , responseDescribeSSLPolicies $
 --             describeSSLPoliciesResponse
 --
+--         , responseDescribeAccountLimits $
+--             describeAccountLimitsResponse
+--
 --         , responseDeregisterTargets $
 --             deregisterTargetsResponse
 --
@@ -186,6 +207,9 @@ import Test.AWS.ELBv2.Internal
 --
 --         , responseModifyLoadBalancerAttributes $
 --             modifyLoadBalancerAttributesResponse
+--
+--         , responseSetIPAddressType $
+--             setIPAddressTypeResponse
 --
 --         , responseAddTags $
 --             addTagsResponse
@@ -202,8 +226,14 @@ import Test.AWS.ELBv2.Internal
 --         , responseCreateLoadBalancer $
 --             createLoadBalancerResponse
 --
+--         , responseRemoveListenerCertificates $
+--             removeListenerCertificatesResponse
+--
 --         , responseModifyRule $
 --             modifyRuleResponse
+--
+--         , responseAddListenerCertificates $
+--             addListenerCertificatesResponse
 --
 --           ]
 --     ]
@@ -244,6 +274,11 @@ requestCreateRule :: CreateRule -> TestTree
 requestCreateRule = req
     "CreateRule"
     "fixture/CreateRule.yaml"
+
+requestDescribeListenerCertificates :: DescribeListenerCertificates -> TestTree
+requestDescribeListenerCertificates = req
+    "DescribeListenerCertificates"
+    "fixture/DescribeListenerCertificates.yaml"
 
 requestSetSecurityGroups :: SetSecurityGroups -> TestTree
 requestSetSecurityGroups = req
@@ -305,6 +340,11 @@ requestDescribeSSLPolicies = req
     "DescribeSSLPolicies"
     "fixture/DescribeSSLPolicies.yaml"
 
+requestDescribeAccountLimits :: DescribeAccountLimits -> TestTree
+requestDescribeAccountLimits = req
+    "DescribeAccountLimits"
+    "fixture/DescribeAccountLimits.yaml"
+
 requestDeregisterTargets :: DeregisterTargets -> TestTree
 requestDeregisterTargets = req
     "DeregisterTargets"
@@ -324,6 +364,11 @@ requestModifyLoadBalancerAttributes :: ModifyLoadBalancerAttributes -> TestTree
 requestModifyLoadBalancerAttributes = req
     "ModifyLoadBalancerAttributes"
     "fixture/ModifyLoadBalancerAttributes.yaml"
+
+requestSetIPAddressType :: SetIPAddressType -> TestTree
+requestSetIPAddressType = req
+    "SetIPAddressType"
+    "fixture/SetIPAddressType.yaml"
 
 requestAddTags :: AddTags -> TestTree
 requestAddTags = req
@@ -350,10 +395,20 @@ requestCreateLoadBalancer = req
     "CreateLoadBalancer"
     "fixture/CreateLoadBalancer.yaml"
 
+requestRemoveListenerCertificates :: RemoveListenerCertificates -> TestTree
+requestRemoveListenerCertificates = req
+    "RemoveListenerCertificates"
+    "fixture/RemoveListenerCertificates.yaml"
+
 requestModifyRule :: ModifyRule -> TestTree
 requestModifyRule = req
     "ModifyRule"
     "fixture/ModifyRule.yaml"
+
+requestAddListenerCertificates :: AddListenerCertificates -> TestTree
+requestAddListenerCertificates = req
+    "AddListenerCertificates"
+    "fixture/AddListenerCertificates.yaml"
 
 -- Responses
 
@@ -405,6 +460,13 @@ responseCreateRule = res
     "fixture/CreateRuleResponse.proto"
     eLBv2
     (Proxy :: Proxy CreateRule)
+
+responseDescribeListenerCertificates :: DescribeListenerCertificatesResponse -> TestTree
+responseDescribeListenerCertificates = res
+    "DescribeListenerCertificatesResponse"
+    "fixture/DescribeListenerCertificatesResponse.proto"
+    eLBv2
+    (Proxy :: Proxy DescribeListenerCertificates)
 
 responseSetSecurityGroups :: SetSecurityGroupsResponse -> TestTree
 responseSetSecurityGroups = res
@@ -490,6 +552,13 @@ responseDescribeSSLPolicies = res
     eLBv2
     (Proxy :: Proxy DescribeSSLPolicies)
 
+responseDescribeAccountLimits :: DescribeAccountLimitsResponse -> TestTree
+responseDescribeAccountLimits = res
+    "DescribeAccountLimitsResponse"
+    "fixture/DescribeAccountLimitsResponse.proto"
+    eLBv2
+    (Proxy :: Proxy DescribeAccountLimits)
+
 responseDeregisterTargets :: DeregisterTargetsResponse -> TestTree
 responseDeregisterTargets = res
     "DeregisterTargetsResponse"
@@ -517,6 +586,13 @@ responseModifyLoadBalancerAttributes = res
     "fixture/ModifyLoadBalancerAttributesResponse.proto"
     eLBv2
     (Proxy :: Proxy ModifyLoadBalancerAttributes)
+
+responseSetIPAddressType :: SetIPAddressTypeResponse -> TestTree
+responseSetIPAddressType = res
+    "SetIPAddressTypeResponse"
+    "fixture/SetIPAddressTypeResponse.proto"
+    eLBv2
+    (Proxy :: Proxy SetIPAddressType)
 
 responseAddTags :: AddTagsResponse -> TestTree
 responseAddTags = res
@@ -553,9 +629,23 @@ responseCreateLoadBalancer = res
     eLBv2
     (Proxy :: Proxy CreateLoadBalancer)
 
+responseRemoveListenerCertificates :: RemoveListenerCertificatesResponse -> TestTree
+responseRemoveListenerCertificates = res
+    "RemoveListenerCertificatesResponse"
+    "fixture/RemoveListenerCertificatesResponse.proto"
+    eLBv2
+    (Proxy :: Proxy RemoveListenerCertificates)
+
 responseModifyRule :: ModifyRuleResponse -> TestTree
 responseModifyRule = res
     "ModifyRuleResponse"
     "fixture/ModifyRuleResponse.proto"
     eLBv2
     (Proxy :: Proxy ModifyRule)
+
+responseAddListenerCertificates :: AddListenerCertificatesResponse -> TestTree
+responseAddListenerCertificates = res
+    "AddListenerCertificatesResponse"
+    "fixture/AddListenerCertificatesResponse.proto"
+    eLBv2
+    (Proxy :: Proxy AddListenerCertificates)

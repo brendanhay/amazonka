@@ -5,35 +5,42 @@
 {-# LANGUAGE RecordWildCards       #-}
 {-# LANGUAGE TemplateHaskell       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-top-binds #-}
+
 -- Module      : Main
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
 module Main (main) where
 
-import           Control.Error
-import           Control.Lens
-import           Control.Monad
-import           Control.Monad.Except
-import           Control.Monad.State
-import           Data.Monoid
-import           Data.String
-import qualified Data.Text                 as Text
-import qualified Filesystem                as FS
-import           Filesystem.Path.CurrentOS
-import qualified Gen.AST                   as AST
+import Control.Error
+import Control.Lens
+import Control.Monad
+import Control.Monad.Except
+import Control.Monad.State
+
+import Data.Monoid
+import Data.String
+
+import Filesystem.Path.CurrentOS
+
 import           Gen.Formatting
 import           Gen.IO
-import qualified Gen.JSON                  as JS
-import qualified Gen.Tree                  as Tree
-import           Gen.Types                 hiding (info)
-import           Options.Applicative
+import qualified Gen.JSON       as JS
+import           Gen.Types      hiding (info)
+
+import Options.Applicative
+
+import qualified Data.Text  as Text
+import qualified Filesystem as FS
+import qualified Gen.AST    as AST
+import qualified Gen.Tree   as Tree
 
 data Opt = Opt
     { _optOutput    :: Path
@@ -147,22 +154,30 @@ main = do
 
     run $ do
         title "Initialising..." <* done
-        title ("Loading templates from " % path) _optTemplates
 
         let load = readTemplate _optTemplates
 
-        tmpl <- flip evalStateT mempty $ Templates
-            <$> load "cabal.ede"
-            <*> load "toc.ede"
-            <*> load "waiters.ede"
-            <*> load "readme.ede"
-            <*> load "operation.ede"
-            <*> load "types.ede"
-            <*> load "types/sum.ede"
-            <*> load "types/product.ede"
-            <*> load "test/main.ede"
-            <*> load "test/fixtures.ede"
-            <*  lift done
+        tmpl <- flip evalStateT mempty $ do
+            lift (title ("Loading templates from " % path) _optTemplates)
+
+            cabalTemplate          <- load "cabal.ede"
+            tocTemplate            <- load "toc.ede"
+            waitersTemplate        <- load "waiters.ede"
+            readmeTemplate         <- load "readme.ede"
+            operationTemplate      <- load "operation.ede"
+            typesTemplate          <- load "types.ede"
+            sumTemplate            <- load "types/sum.ede"
+            productTemplate        <- load "types/product.ede"
+            testMainTemplate       <- load "test/main.ede"
+            testNamespaceTemplate  <- load "test/namespace.ede"
+            testInternalTemplate   <- load "test/internal.ede"
+            fixturesTemplate       <- load "test/fixtures.ede"
+            fixtureRequestTemplate <- load "test/fixtures/request.ede"
+            blankTemplate          <- load "blank.ede"
+
+            lift done
+
+            pure Templates{..}
 
         r  <- JS.required _optRetry
 
@@ -193,7 +208,7 @@ main = do
             lib <- hoistEither (AST.rewrite _optVersions cfg api)
 
             dir <- hoistEither (Tree.populate _optOutput tmpl lib)
-                >>= Tree.fold createDir (\x -> maybe (touchFile x) (writeLTFile x))
+                >>= Tree.fold createDir (\x -> either (touchFile x) (writeLTFile x))
 
             say ("Successfully rendered " % stext % "-" % semver % " package")
                 (lib ^. libraryName)

@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CodeDeploy.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ApplicationRevisionSortBy
-    = FirstUsedTime
-    | LastUsedTime
-    | RegisterTime
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = FirstUsedTime
+  | LastUsedTime
+  | RegisterTime
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ApplicationRevisionSortBy where
     parser = takeLowerText >>= \case
@@ -48,11 +49,45 @@ instance ToHeader     ApplicationRevisionSortBy
 instance ToJSON ApplicationRevisionSortBy where
     toJSON = toJSONText
 
+data AutoRollbackEvent
+  = AREDeploymentFailure
+  | AREDeploymentStopOnAlarm
+  | AREDeploymentStopOnRequest
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AutoRollbackEvent where
+    parser = takeLowerText >>= \case
+        "deployment_failure" -> pure AREDeploymentFailure
+        "deployment_stop_on_alarm" -> pure AREDeploymentStopOnAlarm
+        "deployment_stop_on_request" -> pure AREDeploymentStopOnRequest
+        e -> fromTextError $ "Failure parsing AutoRollbackEvent from value: '" <> e
+           <> "'. Accepted values: deployment_failure, deployment_stop_on_alarm, deployment_stop_on_request"
+
+instance ToText AutoRollbackEvent where
+    toText = \case
+        AREDeploymentFailure -> "DEPLOYMENT_FAILURE"
+        AREDeploymentStopOnAlarm -> "DEPLOYMENT_STOP_ON_ALARM"
+        AREDeploymentStopOnRequest -> "DEPLOYMENT_STOP_ON_REQUEST"
+
+instance Hashable     AutoRollbackEvent
+instance NFData       AutoRollbackEvent
+instance ToByteString AutoRollbackEvent
+instance ToQuery      AutoRollbackEvent
+instance ToHeader     AutoRollbackEvent
+
+instance ToJSON AutoRollbackEvent where
+    toJSON = toJSONText
+
+instance FromJSON AutoRollbackEvent where
+    parseJSON = parseJSONText "AutoRollbackEvent"
+
 data BundleType
-    = TAR
-    | TGZ
-    | Zip
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = TAR
+  | TGZ
+  | Zip
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BundleType where
     parser = takeLowerText >>= \case
@@ -81,30 +116,41 @@ instance FromJSON BundleType where
     parseJSON = parseJSONText "BundleType"
 
 data DeployErrorCode
-    = ApplicationMissing
-    | DeploymentGroupMissing
-    | HealthConstraints
-    | HealthConstraintsInvalid
-    | IAMRoleMissing
-    | IAMRolePermissions
-    | InternalError
-    | NoEC2Subscription
-    | NoInstances
-    | OverMaxInstances
-    | RevisionMissing
-    | Throttled
-    | Timeout
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AgentIssue
+  | AlarmActive
+  | ApplicationMissing
+  | AutoScalingConfiguration
+  | AutoScalingIAMRolePermissions
+  | DeploymentGroupMissing
+  | HealthConstraints
+  | HealthConstraintsInvalid
+  | IAMRoleMissing
+  | IAMRolePermissions
+  | InternalError
+  | ManualStop
+  | NoEC2Subscription
+  | NoInstances
+  | OverMaxInstances
+  | RevisionMissing
+  | Throttled
+  | Timeout
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeployErrorCode where
     parser = takeLowerText >>= \case
+        "agent_issue" -> pure AgentIssue
+        "alarm_active" -> pure AlarmActive
         "application_missing" -> pure ApplicationMissing
+        "auto_scaling_configuration" -> pure AutoScalingConfiguration
+        "auto_scaling_iam_role_permissions" -> pure AutoScalingIAMRolePermissions
         "deployment_group_missing" -> pure DeploymentGroupMissing
         "health_constraints" -> pure HealthConstraints
         "health_constraints_invalid" -> pure HealthConstraintsInvalid
         "iam_role_missing" -> pure IAMRoleMissing
         "iam_role_permissions" -> pure IAMRolePermissions
         "internal_error" -> pure InternalError
+        "manual_stop" -> pure ManualStop
         "no_ec2_subscription" -> pure NoEC2Subscription
         "no_instances" -> pure NoInstances
         "over_max_instances" -> pure OverMaxInstances
@@ -112,17 +158,22 @@ instance FromText DeployErrorCode where
         "throttled" -> pure Throttled
         "timeout" -> pure Timeout
         e -> fromTextError $ "Failure parsing DeployErrorCode from value: '" <> e
-           <> "'. Accepted values: application_missing, deployment_group_missing, health_constraints, health_constraints_invalid, iam_role_missing, iam_role_permissions, internal_error, no_ec2_subscription, no_instances, over_max_instances, revision_missing, throttled, timeout"
+           <> "'. Accepted values: agent_issue, alarm_active, application_missing, auto_scaling_configuration, auto_scaling_iam_role_permissions, deployment_group_missing, health_constraints, health_constraints_invalid, iam_role_missing, iam_role_permissions, internal_error, manual_stop, no_ec2_subscription, no_instances, over_max_instances, revision_missing, throttled, timeout"
 
 instance ToText DeployErrorCode where
     toText = \case
+        AgentIssue -> "AGENT_ISSUE"
+        AlarmActive -> "ALARM_ACTIVE"
         ApplicationMissing -> "APPLICATION_MISSING"
+        AutoScalingConfiguration -> "AUTO_SCALING_CONFIGURATION"
+        AutoScalingIAMRolePermissions -> "AUTO_SCALING_IAM_ROLE_PERMISSIONS"
         DeploymentGroupMissing -> "DEPLOYMENT_GROUP_MISSING"
         HealthConstraints -> "HEALTH_CONSTRAINTS"
         HealthConstraintsInvalid -> "HEALTH_CONSTRAINTS_INVALID"
         IAMRoleMissing -> "IAM_ROLE_MISSING"
         IAMRolePermissions -> "IAM_ROLE_PERMISSIONS"
         InternalError -> "INTERNAL_ERROR"
+        ManualStop -> "MANUAL_STOP"
         NoEC2Subscription -> "NO_EC2_SUBSCRIPTION"
         NoInstances -> "NO_INSTANCES"
         OverMaxInstances -> "OVER_MAX_INSTANCES"
@@ -140,20 +191,24 @@ instance FromJSON DeployErrorCode where
     parseJSON = parseJSONText "DeployErrorCode"
 
 data DeploymentCreator
-    = Autoscaling
-    | User
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Autoscaling
+  | CodeDeployRollback
+  | User
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeploymentCreator where
     parser = takeLowerText >>= \case
         "autoscaling" -> pure Autoscaling
+        "codedeployrollback" -> pure CodeDeployRollback
         "user" -> pure User
         e -> fromTextError $ "Failure parsing DeploymentCreator from value: '" <> e
-           <> "'. Accepted values: autoscaling, user"
+           <> "'. Accepted values: autoscaling, codedeployrollback, user"
 
 instance ToText DeploymentCreator where
     toText = \case
         Autoscaling -> "autoscaling"
+        CodeDeployRollback -> "codeDeployRollback"
         User -> "user"
 
 instance Hashable     DeploymentCreator
@@ -165,14 +220,76 @@ instance ToHeader     DeploymentCreator
 instance FromJSON DeploymentCreator where
     parseJSON = parseJSONText "DeploymentCreator"
 
+data DeploymentOption
+  = WithTrafficControl
+  | WithoutTrafficControl
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DeploymentOption where
+    parser = takeLowerText >>= \case
+        "with_traffic_control" -> pure WithTrafficControl
+        "without_traffic_control" -> pure WithoutTrafficControl
+        e -> fromTextError $ "Failure parsing DeploymentOption from value: '" <> e
+           <> "'. Accepted values: with_traffic_control, without_traffic_control"
+
+instance ToText DeploymentOption where
+    toText = \case
+        WithTrafficControl -> "WITH_TRAFFIC_CONTROL"
+        WithoutTrafficControl -> "WITHOUT_TRAFFIC_CONTROL"
+
+instance Hashable     DeploymentOption
+instance NFData       DeploymentOption
+instance ToByteString DeploymentOption
+instance ToQuery      DeploymentOption
+instance ToHeader     DeploymentOption
+
+instance ToJSON DeploymentOption where
+    toJSON = toJSONText
+
+instance FromJSON DeploymentOption where
+    parseJSON = parseJSONText "DeploymentOption"
+
+data DeploymentReadyAction
+  = ContinueDeployment
+  | StopDeployment
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DeploymentReadyAction where
+    parser = takeLowerText >>= \case
+        "continue_deployment" -> pure ContinueDeployment
+        "stop_deployment" -> pure StopDeployment
+        e -> fromTextError $ "Failure parsing DeploymentReadyAction from value: '" <> e
+           <> "'. Accepted values: continue_deployment, stop_deployment"
+
+instance ToText DeploymentReadyAction where
+    toText = \case
+        ContinueDeployment -> "CONTINUE_DEPLOYMENT"
+        StopDeployment -> "STOP_DEPLOYMENT"
+
+instance Hashable     DeploymentReadyAction
+instance NFData       DeploymentReadyAction
+instance ToByteString DeploymentReadyAction
+instance ToQuery      DeploymentReadyAction
+instance ToHeader     DeploymentReadyAction
+
+instance ToJSON DeploymentReadyAction where
+    toJSON = toJSONText
+
+instance FromJSON DeploymentReadyAction where
+    parseJSON = parseJSONText "DeploymentReadyAction"
+
 data DeploymentStatus
-    = Created
-    | Failed
-    | InProgress
-    | Queued
-    | Stopped
-    | Succeeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Created
+  | Failed
+  | InProgress
+  | Queued
+  | Ready
+  | Stopped
+  | Succeeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeploymentStatus where
     parser = takeLowerText >>= \case
@@ -180,10 +297,11 @@ instance FromText DeploymentStatus where
         "failed" -> pure Failed
         "inprogress" -> pure InProgress
         "queued" -> pure Queued
+        "ready" -> pure Ready
         "stopped" -> pure Stopped
         "succeeded" -> pure Succeeded
         e -> fromTextError $ "Failure parsing DeploymentStatus from value: '" <> e
-           <> "'. Accepted values: created, failed, inprogress, queued, stopped, succeeded"
+           <> "'. Accepted values: created, failed, inprogress, queued, ready, stopped, succeeded"
 
 instance ToText DeploymentStatus where
     toText = \case
@@ -191,6 +309,7 @@ instance ToText DeploymentStatus where
         Failed -> "Failed"
         InProgress -> "InProgress"
         Queued -> "Queued"
+        Ready -> "Ready"
         Stopped -> "Stopped"
         Succeeded -> "Succeeded"
 
@@ -206,11 +325,42 @@ instance ToJSON DeploymentStatus where
 instance FromJSON DeploymentStatus where
     parseJSON = parseJSONText "DeploymentStatus"
 
+data DeploymentType
+  = BlueGreen
+  | InPlace
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DeploymentType where
+    parser = takeLowerText >>= \case
+        "blue_green" -> pure BlueGreen
+        "in_place" -> pure InPlace
+        e -> fromTextError $ "Failure parsing DeploymentType from value: '" <> e
+           <> "'. Accepted values: blue_green, in_place"
+
+instance ToText DeploymentType where
+    toText = \case
+        BlueGreen -> "BLUE_GREEN"
+        InPlace -> "IN_PLACE"
+
+instance Hashable     DeploymentType
+instance NFData       DeploymentType
+instance ToByteString DeploymentType
+instance ToQuery      DeploymentType
+instance ToHeader     DeploymentType
+
+instance ToJSON DeploymentType where
+    toJSON = toJSONText
+
+instance FromJSON DeploymentType where
+    parseJSON = parseJSONText "DeploymentType"
+
 data EC2TagFilterType
-    = KeyAndValue
-    | KeyOnly
-    | ValueOnly
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = KeyAndValue
+  | KeyOnly
+  | ValueOnly
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EC2TagFilterType where
     parser = takeLowerText >>= \case
@@ -238,31 +388,128 @@ instance ToJSON EC2TagFilterType where
 instance FromJSON EC2TagFilterType where
     parseJSON = parseJSONText "EC2TagFilterType"
 
+data FileExistsBehavior
+  = Disallow
+  | Overwrite
+  | Retain
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText FileExistsBehavior where
+    parser = takeLowerText >>= \case
+        "disallow" -> pure Disallow
+        "overwrite" -> pure Overwrite
+        "retain" -> pure Retain
+        e -> fromTextError $ "Failure parsing FileExistsBehavior from value: '" <> e
+           <> "'. Accepted values: disallow, overwrite, retain"
+
+instance ToText FileExistsBehavior where
+    toText = \case
+        Disallow -> "DISALLOW"
+        Overwrite -> "OVERWRITE"
+        Retain -> "RETAIN"
+
+instance Hashable     FileExistsBehavior
+instance NFData       FileExistsBehavior
+instance ToByteString FileExistsBehavior
+instance ToQuery      FileExistsBehavior
+instance ToHeader     FileExistsBehavior
+
+instance ToJSON FileExistsBehavior where
+    toJSON = toJSONText
+
+instance FromJSON FileExistsBehavior where
+    parseJSON = parseJSONText "FileExistsBehavior"
+
+data GreenFleetProvisioningAction
+  = CopyAutoScalingGroup
+  | DiscoverExisting
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText GreenFleetProvisioningAction where
+    parser = takeLowerText >>= \case
+        "copy_auto_scaling_group" -> pure CopyAutoScalingGroup
+        "discover_existing" -> pure DiscoverExisting
+        e -> fromTextError $ "Failure parsing GreenFleetProvisioningAction from value: '" <> e
+           <> "'. Accepted values: copy_auto_scaling_group, discover_existing"
+
+instance ToText GreenFleetProvisioningAction where
+    toText = \case
+        CopyAutoScalingGroup -> "COPY_AUTO_SCALING_GROUP"
+        DiscoverExisting -> "DISCOVER_EXISTING"
+
+instance Hashable     GreenFleetProvisioningAction
+instance NFData       GreenFleetProvisioningAction
+instance ToByteString GreenFleetProvisioningAction
+instance ToQuery      GreenFleetProvisioningAction
+instance ToHeader     GreenFleetProvisioningAction
+
+instance ToJSON GreenFleetProvisioningAction where
+    toJSON = toJSONText
+
+instance FromJSON GreenFleetProvisioningAction where
+    parseJSON = parseJSONText "GreenFleetProvisioningAction"
+
+data InstanceAction
+  = KeepAlive
+  | Terminate
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText InstanceAction where
+    parser = takeLowerText >>= \case
+        "keep_alive" -> pure KeepAlive
+        "terminate" -> pure Terminate
+        e -> fromTextError $ "Failure parsing InstanceAction from value: '" <> e
+           <> "'. Accepted values: keep_alive, terminate"
+
+instance ToText InstanceAction where
+    toText = \case
+        KeepAlive -> "KEEP_ALIVE"
+        Terminate -> "TERMINATE"
+
+instance Hashable     InstanceAction
+instance NFData       InstanceAction
+instance ToByteString InstanceAction
+instance ToQuery      InstanceAction
+instance ToHeader     InstanceAction
+
+instance ToJSON InstanceAction where
+    toJSON = toJSONText
+
+instance FromJSON InstanceAction where
+    parseJSON = parseJSONText "InstanceAction"
+
 data InstanceStatus
-    = ISFailed
-    | ISInProgress
-    | ISPending
-    | ISSkipped
-    | ISSucceeded
-    | ISUnknown
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ISFailed
+  | ISInProgress
+  | ISPending
+  | ISReady
+  | ISSkipped
+  | ISSucceeded
+  | ISUnknown
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceStatus where
     parser = takeLowerText >>= \case
         "failed" -> pure ISFailed
         "inprogress" -> pure ISInProgress
         "pending" -> pure ISPending
+        "ready" -> pure ISReady
         "skipped" -> pure ISSkipped
         "succeeded" -> pure ISSucceeded
         "unknown" -> pure ISUnknown
         e -> fromTextError $ "Failure parsing InstanceStatus from value: '" <> e
-           <> "'. Accepted values: failed, inprogress, pending, skipped, succeeded, unknown"
+           <> "'. Accepted values: failed, inprogress, pending, ready, skipped, succeeded, unknown"
 
 instance ToText InstanceStatus where
     toText = \case
         ISFailed -> "Failed"
         ISInProgress -> "InProgress"
         ISPending -> "Pending"
+        ISReady -> "Ready"
         ISSkipped -> "Skipped"
         ISSucceeded -> "Succeeded"
         ISUnknown -> "Unknown"
@@ -279,14 +526,45 @@ instance ToJSON InstanceStatus where
 instance FromJSON InstanceStatus where
     parseJSON = parseJSONText "InstanceStatus"
 
+data InstanceType
+  = Blue
+  | Green
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText InstanceType where
+    parser = takeLowerText >>= \case
+        "blue" -> pure Blue
+        "green" -> pure Green
+        e -> fromTextError $ "Failure parsing InstanceType from value: '" <> e
+           <> "'. Accepted values: blue, green"
+
+instance ToText InstanceType where
+    toText = \case
+        Blue -> "Blue"
+        Green -> "Green"
+
+instance Hashable     InstanceType
+instance NFData       InstanceType
+instance ToByteString InstanceType
+instance ToQuery      InstanceType
+instance ToHeader     InstanceType
+
+instance ToJSON InstanceType where
+    toJSON = toJSONText
+
+instance FromJSON InstanceType where
+    parseJSON = parseJSONText "InstanceType"
+
 data LifecycleErrorCode
-    = ScriptFailed
-    | ScriptMissing
-    | ScriptNotExecutable
-    | ScriptTimedOut
-    | Success
-    | UnknownError
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ScriptFailed
+  | ScriptMissing
+  | ScriptNotExecutable
+  | ScriptTimedOut
+  | Success
+  | UnknownError
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LifecycleErrorCode where
     parser = takeLowerText >>= \case
@@ -318,13 +596,14 @@ instance FromJSON LifecycleErrorCode where
     parseJSON = parseJSONText "LifecycleErrorCode"
 
 data LifecycleEventStatus
-    = LESFailed
-    | LESInProgress
-    | LESPending
-    | LESSkipped
-    | LESSucceeded
-    | LESUnknown
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = LESFailed
+  | LESInProgress
+  | LESPending
+  | LESSkipped
+  | LESSucceeded
+  | LESUnknown
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LifecycleEventStatus where
     parser = takeLowerText >>= \case
@@ -356,10 +635,11 @@ instance FromJSON LifecycleEventStatus where
     parseJSON = parseJSONText "LifecycleEventStatus"
 
 data ListStateFilterAction
-    = Exclude
-    | Ignore
-    | Include
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Exclude
+  | Ignore
+  | Include
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ListStateFilterAction where
     parser = takeLowerText >>= \case
@@ -385,9 +665,10 @@ instance ToJSON ListStateFilterAction where
     toJSON = toJSONText
 
 data MinimumHealthyHostsType
-    = FleetPercent
-    | HostCount
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = FleetPercent
+  | HostCount
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MinimumHealthyHostsType where
     parser = takeLowerText >>= \case
@@ -414,9 +695,10 @@ instance FromJSON MinimumHealthyHostsType where
     parseJSON = parseJSONText "MinimumHealthyHostsType"
 
 data RegistrationStatus
-    = Deregistered
-    | Registered
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Deregistered
+  | Registered
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RegistrationStatus where
     parser = takeLowerText >>= \case
@@ -440,9 +722,10 @@ instance ToJSON RegistrationStatus where
     toJSON = toJSONText
 
 data RevisionLocationType
-    = GitHub
-    | S3
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = GitHub
+  | S3
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RevisionLocationType where
     parser = takeLowerText >>= \case
@@ -469,9 +752,10 @@ instance FromJSON RevisionLocationType where
     parseJSON = parseJSONText "RevisionLocationType"
 
 data SortOrder
-    = Ascending
-    | Descending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Ascending
+  | Descending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SortOrder where
     parser = takeLowerText >>= \case
@@ -495,9 +779,10 @@ instance ToJSON SortOrder where
     toJSON = toJSONText
 
 data StopStatus
-    = SSPending
-    | SSSucceeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SSPending
+  | SSSucceeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StopStatus where
     parser = takeLowerText >>= \case
@@ -521,10 +806,11 @@ instance FromJSON StopStatus where
     parseJSON = parseJSONText "StopStatus"
 
 data TagFilterType
-    = TFTKeyAndValue
-    | TFTKeyOnly
-    | TFTValueOnly
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = TFTKeyAndValue
+  | TFTKeyOnly
+  | TFTValueOnly
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TagFilterType where
     parser = takeLowerText >>= \case
@@ -553,34 +839,44 @@ instance FromJSON TagFilterType where
     parseJSON = parseJSONText "TagFilterType"
 
 data TriggerEventType
-    = DeploymentFailure
-    | DeploymentStart
-    | DeploymentStop
-    | DeploymentSuccess
-    | InstanceFailure
-    | InstanceStart
-    | InstanceSuccess
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DeploymentFailure
+  | DeploymentReady
+  | DeploymentRollback
+  | DeploymentStart
+  | DeploymentStop
+  | DeploymentSuccess
+  | InstanceFailure
+  | InstanceReady
+  | InstanceStart
+  | InstanceSuccess
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TriggerEventType where
     parser = takeLowerText >>= \case
         "deploymentfailure" -> pure DeploymentFailure
+        "deploymentready" -> pure DeploymentReady
+        "deploymentrollback" -> pure DeploymentRollback
         "deploymentstart" -> pure DeploymentStart
         "deploymentstop" -> pure DeploymentStop
         "deploymentsuccess" -> pure DeploymentSuccess
         "instancefailure" -> pure InstanceFailure
+        "instanceready" -> pure InstanceReady
         "instancestart" -> pure InstanceStart
         "instancesuccess" -> pure InstanceSuccess
         e -> fromTextError $ "Failure parsing TriggerEventType from value: '" <> e
-           <> "'. Accepted values: deploymentfailure, deploymentstart, deploymentstop, deploymentsuccess, instancefailure, instancestart, instancesuccess"
+           <> "'. Accepted values: deploymentfailure, deploymentready, deploymentrollback, deploymentstart, deploymentstop, deploymentsuccess, instancefailure, instanceready, instancestart, instancesuccess"
 
 instance ToText TriggerEventType where
     toText = \case
         DeploymentFailure -> "DeploymentFailure"
+        DeploymentReady -> "DeploymentReady"
+        DeploymentRollback -> "DeploymentRollback"
         DeploymentStart -> "DeploymentStart"
         DeploymentStop -> "DeploymentStop"
         DeploymentSuccess -> "DeploymentSuccess"
         InstanceFailure -> "InstanceFailure"
+        InstanceReady -> "InstanceReady"
         InstanceStart -> "InstanceStart"
         InstanceSuccess -> "InstanceSuccess"
 

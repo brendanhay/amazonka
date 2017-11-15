@@ -12,19 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Initiates a snapshot of a gateway from a volume recovery point. This operation is supported only for the gateway-cached volume architecture.
+-- Initiates a snapshot of a gateway from a volume recovery point. This operation is only supported in the cached volume gateway architecture.
 --
--- A volume recovery point is a point in time at which all data of the volume is consistent and from which you can create a snapshot. To get a list of volume recovery point for gateway-cached volumes, use < ListVolumeRecoveryPoints>.
 --
--- In the 'CreateSnapshotFromVolumeRecoveryPoint' request, you identify the volume by providing its Amazon Resource Name (ARN). You must also provide a description for the snapshot. When AWS Storage Gateway takes a snapshot of the specified volume, the snapshot and its description appear in the AWS Storage Gateway console. In response, AWS Storage Gateway returns you a snapshot ID. You can use this snapshot ID to check the snapshot progress or later use it when you want to create a volume from a snapshot.
+-- A volume recovery point is a point in time at which all data of the volume is consistent and from which you can create a snapshot. To get a list of volume recovery point for cached volume gateway, use 'ListVolumeRecoveryPoints' .
 --
--- To list or delete a snapshot, you must use the Amazon EC2 API. For more information, in /Amazon Elastic Compute Cloud API Reference/.
+-- In the @CreateSnapshotFromVolumeRecoveryPoint@ request, you identify the volume by providing its Amazon Resource Name (ARN). You must also provide a description for the snapshot. When the gateway takes a snapshot of the specified volume, the snapshot and its description appear in the AWS Storage Gateway console. In response, the gateway returns you a snapshot ID. You can use this snapshot ID to check the snapshot progress or later use it when you want to create a volume from a snapshot.
+--
 module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     (
     -- * Creating a Request
@@ -44,35 +44,37 @@ module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     , csfvrprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'createSnapshotFromVolumeRecoveryPoint' smart constructor.
 data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoint'
-    { _csfvrpVolumeARN           :: !Text
-    , _csfvrpSnapshotDescription :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csfvrpVolumeARN           :: !Text
+  , _csfvrpSnapshotDescription :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSnapshotFromVolumeRecoveryPoint' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csfvrpVolumeARN'
+-- * 'csfvrpVolumeARN' - Undocumented member.
 --
--- * 'csfvrpSnapshotDescription'
+-- * 'csfvrpSnapshotDescription' - Undocumented member.
 createSnapshotFromVolumeRecoveryPoint
     :: Text -- ^ 'csfvrpVolumeARN'
     -> Text -- ^ 'csfvrpSnapshotDescription'
     -> CreateSnapshotFromVolumeRecoveryPoint
 createSnapshotFromVolumeRecoveryPoint pVolumeARN_ pSnapshotDescription_ =
-    CreateSnapshotFromVolumeRecoveryPoint'
-    { _csfvrpVolumeARN = pVolumeARN_
-    , _csfvrpSnapshotDescription = pSnapshotDescription_
-    }
+  CreateSnapshotFromVolumeRecoveryPoint'
+  { _csfvrpVolumeARN = pVolumeARN_
+  , _csfvrpSnapshotDescription = pSnapshotDescription_
+  }
+
 
 -- | Undocumented member.
 csfvrpVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
@@ -83,7 +85,8 @@ csfvrpSnapshotDescription :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
 csfvrpSnapshotDescription = lens _csfvrpSnapshotDescription (\ s a -> s{_csfvrpSnapshotDescription = a});
 
 instance AWSRequest
-         CreateSnapshotFromVolumeRecoveryPoint where
+           CreateSnapshotFromVolumeRecoveryPoint
+         where
         type Rs CreateSnapshotFromVolumeRecoveryPoint =
              CreateSnapshotFromVolumeRecoveryPointResponse
         request = postJSON storageGateway
@@ -97,12 +100,15 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable
-         CreateSnapshotFromVolumeRecoveryPoint
+           CreateSnapshotFromVolumeRecoveryPoint
+         where
 
 instance NFData CreateSnapshotFromVolumeRecoveryPoint
+         where
 
 instance ToHeaders
-         CreateSnapshotFromVolumeRecoveryPoint where
+           CreateSnapshotFromVolumeRecoveryPoint
+         where
         toHeaders
           = const
               (mconcat
@@ -127,38 +133,41 @@ instance ToPath CreateSnapshotFromVolumeRecoveryPoint
         toPath = const "/"
 
 instance ToQuery
-         CreateSnapshotFromVolumeRecoveryPoint where
+           CreateSnapshotFromVolumeRecoveryPoint
+         where
         toQuery = const mempty
 
 -- | /See:/ 'createSnapshotFromVolumeRecoveryPointResponse' smart constructor.
 data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse'
-    { _csfvrprsVolumeRecoveryPointTime :: !(Maybe Text)
-    , _csfvrprsVolumeARN               :: !(Maybe Text)
-    , _csfvrprsSnapshotId              :: !(Maybe Text)
-    , _csfvrprsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csfvrprsVolumeRecoveryPointTime :: !(Maybe Text)
+  , _csfvrprsVolumeARN               :: !(Maybe Text)
+  , _csfvrprsSnapshotId              :: !(Maybe Text)
+  , _csfvrprsResponseStatus          :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSnapshotFromVolumeRecoveryPointResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csfvrprsVolumeRecoveryPointTime'
+-- * 'csfvrprsVolumeRecoveryPointTime' - Undocumented member.
 --
--- * 'csfvrprsVolumeARN'
+-- * 'csfvrprsVolumeARN' - Undocumented member.
 --
--- * 'csfvrprsSnapshotId'
+-- * 'csfvrprsSnapshotId' - Undocumented member.
 --
--- * 'csfvrprsResponseStatus'
+-- * 'csfvrprsResponseStatus' - -- | The response status code.
 createSnapshotFromVolumeRecoveryPointResponse
     :: Int -- ^ 'csfvrprsResponseStatus'
     -> CreateSnapshotFromVolumeRecoveryPointResponse
 createSnapshotFromVolumeRecoveryPointResponse pResponseStatus_ =
-    CreateSnapshotFromVolumeRecoveryPointResponse'
-    { _csfvrprsVolumeRecoveryPointTime = Nothing
-    , _csfvrprsVolumeARN = Nothing
-    , _csfvrprsSnapshotId = Nothing
-    , _csfvrprsResponseStatus = pResponseStatus_
-    }
+  CreateSnapshotFromVolumeRecoveryPointResponse'
+  { _csfvrprsVolumeRecoveryPointTime = Nothing
+  , _csfvrprsVolumeARN = Nothing
+  , _csfvrprsSnapshotId = Nothing
+  , _csfvrprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 csfvrprsVolumeRecoveryPointTime :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
@@ -172,9 +181,10 @@ csfvrprsVolumeARN = lens _csfvrprsVolumeARN (\ s a -> s{_csfvrprsVolumeARN = a})
 csfvrprsSnapshotId :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
 csfvrprsSnapshotId = lens _csfvrprsSnapshotId (\ s a -> s{_csfvrprsSnapshotId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 csfvrprsResponseStatus :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse Int
 csfvrprsResponseStatus = lens _csfvrprsResponseStatus (\ s a -> s{_csfvrprsResponseStatus = a});
 
 instance NFData
-         CreateSnapshotFromVolumeRecoveryPointResponse
+           CreateSnapshotFromVolumeRecoveryPointResponse
+         where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IoT.EnableTopicRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables the specified rule.
+--
+--
 module Network.AWS.IoT.EnableTopicRule
     (
     -- * Creating a Request
@@ -32,32 +34,33 @@ module Network.AWS.IoT.EnableTopicRule
     , EnableTopicRuleResponse
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the EnableTopicRuleRequest operation.
 --
+--
+--
 -- /See:/ 'enableTopicRule' smart constructor.
 newtype EnableTopicRule = EnableTopicRule'
-    { _etrRuleName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _etrRuleName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableTopicRule' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'etrRuleName'
+-- * 'etrRuleName' - The name of the topic rule to enable.
 enableTopicRule
     :: Text -- ^ 'etrRuleName'
     -> EnableTopicRule
-enableTopicRule pRuleName_ =
-    EnableTopicRule'
-    { _etrRuleName = pRuleName_
-    }
+enableTopicRule pRuleName_ = EnableTopicRule' {_etrRuleName = pRuleName_}
+
 
 -- | The name of the topic rule to enable.
 etrRuleName :: Lens' EnableTopicRule Text
@@ -68,9 +71,9 @@ instance AWSRequest EnableTopicRule where
         request = postJSON ioT
         response = receiveNull EnableTopicRuleResponse'
 
-instance Hashable EnableTopicRule
+instance Hashable EnableTopicRule where
 
-instance NFData EnableTopicRule
+instance NFData EnableTopicRule where
 
 instance ToHeaders EnableTopicRule where
         toHeaders = const mempty
@@ -87,8 +90,9 @@ instance ToQuery EnableTopicRule where
 
 -- | /See:/ 'enableTopicRuleResponse' smart constructor.
 data EnableTopicRuleResponse =
-    EnableTopicRuleResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  EnableTopicRuleResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableTopicRuleResponse' with the minimum fields required to make a request.
 --
@@ -96,4 +100,5 @@ enableTopicRuleResponse
     :: EnableTopicRuleResponse
 enableTopicRuleResponse = EnableTopicRuleResponse'
 
-instance NFData EnableTopicRuleResponse
+
+instance NFData EnableTopicRuleResponse where

@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.KMS.GenerateRandom
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates an unpredictable byte string.
+-- Returns a random byte string that is cryptographically secure.
+--
+--
+-- For more information about entropy and random number generation, see the <https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf AWS Key Management Service Cryptographic Details> whitepaper.
+--
 module Network.AWS.KMS.GenerateRandom
     (
     -- * Creating a Request
@@ -35,31 +39,30 @@ module Network.AWS.KMS.GenerateRandom
     , grrsResponseStatus
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'generateRandom' smart constructor.
 newtype GenerateRandom = GenerateRandom'
-    { _grNumberOfBytes :: Maybe Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grNumberOfBytes :: Maybe Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GenerateRandom' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grNumberOfBytes'
+-- * 'grNumberOfBytes' - The length of the byte string.
 generateRandom
     :: GenerateRandom
-generateRandom =
-    GenerateRandom'
-    { _grNumberOfBytes = Nothing
-    }
+generateRandom = GenerateRandom' {_grNumberOfBytes = Nothing}
 
--- | Integer that contains the number of bytes to generate. Common values are 128, 256, 512, 1024 and so on. The current limit is 1024 bytes.
+
+-- | The length of the byte string.
 grNumberOfBytes :: Lens' GenerateRandom (Maybe Natural)
 grNumberOfBytes = lens _grNumberOfBytes (\ s a -> s{_grNumberOfBytes = a}) . mapping _Nat;
 
@@ -72,9 +75,9 @@ instance AWSRequest GenerateRandom where
                  GenerateRandomResponse' <$>
                    (x .?> "Plaintext") <*> (pure (fromEnum s)))
 
-instance Hashable GenerateRandom
+instance Hashable GenerateRandom where
 
-instance NFData GenerateRandom
+instance NFData GenerateRandom where
 
 instance ToHeaders GenerateRandom where
         toHeaders
@@ -99,38 +102,32 @@ instance ToQuery GenerateRandom where
 
 -- | /See:/ 'generateRandomResponse' smart constructor.
 data GenerateRandomResponse = GenerateRandomResponse'
-    { _grrsPlaintext      :: !(Maybe (Sensitive Base64))
-    , _grrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grrsPlaintext      :: !(Maybe (Sensitive Base64))
+  , _grrsResponseStatus :: !Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GenerateRandomResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grrsPlaintext'
+-- * 'grrsPlaintext' - The random byte string. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'grrsResponseStatus'
+-- * 'grrsResponseStatus' - -- | The response status code.
 generateRandomResponse
     :: Int -- ^ 'grrsResponseStatus'
     -> GenerateRandomResponse
 generateRandomResponse pResponseStatus_ =
-    GenerateRandomResponse'
-    { _grrsPlaintext = Nothing
-    , _grrsResponseStatus = pResponseStatus_
-    }
+  GenerateRandomResponse'
+  {_grrsPlaintext = Nothing, _grrsResponseStatus = pResponseStatus_}
 
--- | Plaintext that contains the unpredictable byte string.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+
+-- | The random byte string. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 grrsPlaintext :: Lens' GenerateRandomResponse (Maybe ByteString)
 grrsPlaintext = lens _grrsPlaintext (\ s a -> s{_grrsPlaintext = a}) . mapping (_Sensitive . _Base64);
 
--- | The response status code.
+-- | -- | The response status code.
 grrsResponseStatus :: Lens' GenerateRandomResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
 
-instance NFData GenerateRandomResponse
+instance NFData GenerateRandomResponse where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.EC2.PurchaseHostReservation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Purchase a reservation with configurations that match those of your Dedicated Host. You must have active Dedicated Hosts in your account before you purchase a reservation. This action results in the specified reservation being purchased and charged to your account.
+--
+--
 module Network.AWS.EC2.PurchaseHostReservation
     (
     -- * Creating a Request
@@ -28,8 +30,8 @@ module Network.AWS.EC2.PurchaseHostReservation
     , phrCurrencyCode
     , phrClientToken
     , phrLimitPrice
-    , phrOfferingId
     , phrHostIdSet
+    , phrOfferingId
 
     -- * Destructuring the Response
     , purchaseHostReservationResponse
@@ -43,66 +45,68 @@ module Network.AWS.EC2.PurchaseHostReservation
     , phrrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'purchaseHostReservation' smart constructor.
 data PurchaseHostReservation = PurchaseHostReservation'
-    { _phrCurrencyCode :: !(Maybe CurrencyCodeValues)
-    , _phrClientToken  :: !(Maybe Text)
-    , _phrLimitPrice   :: !(Maybe Text)
-    , _phrOfferingId   :: !Text
-    , _phrHostIdSet    :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _phrCurrencyCode :: !(Maybe CurrencyCodeValues)
+  , _phrClientToken  :: !(Maybe Text)
+  , _phrLimitPrice   :: !(Maybe Text)
+  , _phrHostIdSet    :: ![Text]
+  , _phrOfferingId   :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurchaseHostReservation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'phrCurrencyCode'
+-- * 'phrCurrencyCode' - The currency in which the @totalUpfrontPrice@ , @LimitPrice@ , and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
 --
--- * 'phrClientToken'
+-- * 'phrClientToken' - Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- * 'phrLimitPrice'
+-- * 'phrLimitPrice' - The specified limit is checked against the total upfront cost of the reservation (calculated as the offering's upfront cost multiplied by the host count). If the total upfront cost is greater than the specified price limit, the request will fail. This is used to ensure that the purchase does not exceed the expected upfront cost of the purchase. At this time, the only supported currency is @USD@ . For example, to indicate a limit price of USD 100, specify 100.00.
 --
--- * 'phrOfferingId'
+-- * 'phrHostIdSet' - The ID/s of the Dedicated Host/s that the reservation will be associated with.
 --
--- * 'phrHostIdSet'
+-- * 'phrOfferingId' - The ID of the offering.
 purchaseHostReservation
     :: Text -- ^ 'phrOfferingId'
     -> PurchaseHostReservation
 purchaseHostReservation pOfferingId_ =
-    PurchaseHostReservation'
-    { _phrCurrencyCode = Nothing
-    , _phrClientToken = Nothing
-    , _phrLimitPrice = Nothing
-    , _phrOfferingId = pOfferingId_
-    , _phrHostIdSet = mempty
-    }
+  PurchaseHostReservation'
+  { _phrCurrencyCode = Nothing
+  , _phrClientToken = Nothing
+  , _phrLimitPrice = Nothing
+  , _phrHostIdSet = mempty
+  , _phrOfferingId = pOfferingId_
+  }
 
--- | The currency in which the 'totalUpfrontPrice', 'LimitPrice', and 'totalHourlyPrice' amounts are specified. At this time, the only supported currency is 'USD'.
+
+-- | The currency in which the @totalUpfrontPrice@ , @LimitPrice@ , and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
 phrCurrencyCode :: Lens' PurchaseHostReservation (Maybe CurrencyCodeValues)
 phrCurrencyCode = lens _phrCurrencyCode (\ s a -> s{_phrCurrencyCode = a});
 
--- | Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/.
+-- | Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
 phrClientToken :: Lens' PurchaseHostReservation (Maybe Text)
 phrClientToken = lens _phrClientToken (\ s a -> s{_phrClientToken = a});
 
--- | The specified limit is checked against the total upfront cost of the reservation (calculated as the offering\'s upfront cost multiplied by the host count). If the total upfront cost is greater than the specified price limit, the request will fail. This is used to ensure that the purchase does not exceed the expected upfront cost of the purchase. At this time, the only supported currency is 'USD'. For example, to indicate a limit price of USD 100, specify 100.00.
+-- | The specified limit is checked against the total upfront cost of the reservation (calculated as the offering's upfront cost multiplied by the host count). If the total upfront cost is greater than the specified price limit, the request will fail. This is used to ensure that the purchase does not exceed the expected upfront cost of the purchase. At this time, the only supported currency is @USD@ . For example, to indicate a limit price of USD 100, specify 100.00.
 phrLimitPrice :: Lens' PurchaseHostReservation (Maybe Text)
 phrLimitPrice = lens _phrLimitPrice (\ s a -> s{_phrLimitPrice = a});
+
+-- | The ID/s of the Dedicated Host/s that the reservation will be associated with.
+phrHostIdSet :: Lens' PurchaseHostReservation [Text]
+phrHostIdSet = lens _phrHostIdSet (\ s a -> s{_phrHostIdSet = a}) . _Coerce;
 
 -- | The ID of the offering.
 phrOfferingId :: Lens' PurchaseHostReservation Text
 phrOfferingId = lens _phrOfferingId (\ s a -> s{_phrOfferingId = a});
-
--- | The ID\/s of the Dedicated Host\/s that the reservation will be associated with.
-phrHostIdSet :: Lens' PurchaseHostReservation [Text]
-phrHostIdSet = lens _phrHostIdSet (\ s a -> s{_phrHostIdSet = a}) . _Coerce;
 
 instance AWSRequest PurchaseHostReservation where
         type Rs PurchaseHostReservation =
@@ -117,12 +121,12 @@ instance AWSRequest PurchaseHostReservation where
                      <*> (x .@? "totalUpfrontPrice")
                      <*>
                      (x .@? "purchase" .!@ mempty >>=
-                        may (parseXMLList "member"))
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable PurchaseHostReservation
+instance Hashable PurchaseHostReservation where
 
-instance NFData PurchaseHostReservation
+instance NFData PurchaseHostReservation where
 
 instance ToHeaders PurchaseHostReservation where
         toHeaders = const mempty
@@ -135,52 +139,54 @@ instance ToQuery PurchaseHostReservation where
           = mconcat
               ["Action" =:
                  ("PurchaseHostReservation" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "CurrencyCode" =: _phrCurrencyCode,
                "ClientToken" =: _phrClientToken,
                "LimitPrice" =: _phrLimitPrice,
-               "OfferingId" =: _phrOfferingId,
-               toQueryList "HostIdSet" _phrHostIdSet]
+               toQueryList "HostIdSet" _phrHostIdSet,
+               "OfferingId" =: _phrOfferingId]
 
 -- | /See:/ 'purchaseHostReservationResponse' smart constructor.
 data PurchaseHostReservationResponse = PurchaseHostReservationResponse'
-    { _phrrsCurrencyCode      :: !(Maybe CurrencyCodeValues)
-    , _phrrsClientToken       :: !(Maybe Text)
-    , _phrrsTotalHourlyPrice  :: !(Maybe Text)
-    , _phrrsTotalUpfrontPrice :: !(Maybe Text)
-    , _phrrsPurchase          :: !(Maybe [Purchase])
-    , _phrrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _phrrsCurrencyCode      :: !(Maybe CurrencyCodeValues)
+  , _phrrsClientToken       :: !(Maybe Text)
+  , _phrrsTotalHourlyPrice  :: !(Maybe Text)
+  , _phrrsTotalUpfrontPrice :: !(Maybe Text)
+  , _phrrsPurchase          :: !(Maybe [Purchase])
+  , _phrrsResponseStatus    :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurchaseHostReservationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'phrrsCurrencyCode'
+-- * 'phrrsCurrencyCode' - The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
 --
--- * 'phrrsClientToken'
+-- * 'phrrsClientToken' - Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/
 --
--- * 'phrrsTotalHourlyPrice'
+-- * 'phrrsTotalHourlyPrice' - The total hourly price of the reservation calculated per hour.
 --
--- * 'phrrsTotalUpfrontPrice'
+-- * 'phrrsTotalUpfrontPrice' - The total amount that will be charged to your account when you purchase the reservation.
 --
--- * 'phrrsPurchase'
+-- * 'phrrsPurchase' - Describes the details of the purchase.
 --
--- * 'phrrsResponseStatus'
+-- * 'phrrsResponseStatus' - -- | The response status code.
 purchaseHostReservationResponse
     :: Int -- ^ 'phrrsResponseStatus'
     -> PurchaseHostReservationResponse
 purchaseHostReservationResponse pResponseStatus_ =
-    PurchaseHostReservationResponse'
-    { _phrrsCurrencyCode = Nothing
-    , _phrrsClientToken = Nothing
-    , _phrrsTotalHourlyPrice = Nothing
-    , _phrrsTotalUpfrontPrice = Nothing
-    , _phrrsPurchase = Nothing
-    , _phrrsResponseStatus = pResponseStatus_
-    }
+  PurchaseHostReservationResponse'
+  { _phrrsCurrencyCode = Nothing
+  , _phrrsClientToken = Nothing
+  , _phrrsTotalHourlyPrice = Nothing
+  , _phrrsTotalUpfrontPrice = Nothing
+  , _phrrsPurchase = Nothing
+  , _phrrsResponseStatus = pResponseStatus_
+  }
 
--- | The currency in which the 'totalUpfrontPrice' and 'totalHourlyPrice' amounts are specified. At this time, the only supported currency is 'USD'.
+
+-- | The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
 phrrsCurrencyCode :: Lens' PurchaseHostReservationResponse (Maybe CurrencyCodeValues)
 phrrsCurrencyCode = lens _phrrsCurrencyCode (\ s a -> s{_phrrsCurrencyCode = a});
 
@@ -200,8 +206,8 @@ phrrsTotalUpfrontPrice = lens _phrrsTotalUpfrontPrice (\ s a -> s{_phrrsTotalUpf
 phrrsPurchase :: Lens' PurchaseHostReservationResponse [Purchase]
 phrrsPurchase = lens _phrrsPurchase (\ s a -> s{_phrrsPurchase = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 phrrsResponseStatus :: Lens' PurchaseHostReservationResponse Int
 phrrsResponseStatus = lens _phrrsResponseStatus (\ s a -> s{_phrrsResponseStatus = a});
 
-instance NFData PurchaseHostReservationResponse
+instance NFData PurchaseHostReservationResponse where

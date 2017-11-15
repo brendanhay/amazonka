@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.SetDesiredCapacity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the size of the specified Auto Scaling group.
 --
--- For more information about desired capacity, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.html What Is Auto Scaling?> in the /Auto Scaling User Guide/.
+--
+-- For more information about desired capacity, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/WhatIsAutoScaling.html What Is Auto Scaling?> in the /Auto Scaling User Guide/ .
+--
 module Network.AWS.AutoScaling.SetDesiredCapacity
     (
     -- * Creating a Request
@@ -36,43 +38,43 @@ module Network.AWS.AutoScaling.SetDesiredCapacity
     , SetDesiredCapacityResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for SetDesiredCapacity.
---
--- /See:/ 'setDesiredCapacity' smart constructor.
+-- | /See:/ 'setDesiredCapacity' smart constructor.
 data SetDesiredCapacity = SetDesiredCapacity'
-    { _sdcHonorCooldown        :: !(Maybe Bool)
-    , _sdcAutoScalingGroupName :: !Text
-    , _sdcDesiredCapacity      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdcHonorCooldown        :: !(Maybe Bool)
+  , _sdcAutoScalingGroupName :: !Text
+  , _sdcDesiredCapacity      :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetDesiredCapacity' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdcHonorCooldown'
+-- * 'sdcHonorCooldown' - By default, @SetDesiredCapacity@ overrides any cooldown period associated with the Auto Scaling group. Specify @True@ to make Auto Scaling to wait for the cool-down period associated with the Auto Scaling group to complete before initiating a scaling activity to set your Auto Scaling group to its new capacity.
 --
--- * 'sdcAutoScalingGroupName'
+-- * 'sdcAutoScalingGroupName' - The name of the Auto Scaling group.
 --
--- * 'sdcDesiredCapacity'
+-- * 'sdcDesiredCapacity' - The number of EC2 instances that should be running in the Auto Scaling group.
 setDesiredCapacity
     :: Text -- ^ 'sdcAutoScalingGroupName'
     -> Int -- ^ 'sdcDesiredCapacity'
     -> SetDesiredCapacity
 setDesiredCapacity pAutoScalingGroupName_ pDesiredCapacity_ =
-    SetDesiredCapacity'
-    { _sdcHonorCooldown = Nothing
-    , _sdcAutoScalingGroupName = pAutoScalingGroupName_
-    , _sdcDesiredCapacity = pDesiredCapacity_
-    }
+  SetDesiredCapacity'
+  { _sdcHonorCooldown = Nothing
+  , _sdcAutoScalingGroupName = pAutoScalingGroupName_
+  , _sdcDesiredCapacity = pDesiredCapacity_
+  }
 
--- | By default, 'SetDesiredCapacity' overrides any cooldown period associated with the Auto Scaling group. Specify 'True' to make Auto Scaling to wait for the cool-down period associated with the Auto Scaling group to complete before initiating a scaling activity to set your Auto Scaling group to its new capacity.
+
+-- | By default, @SetDesiredCapacity@ overrides any cooldown period associated with the Auto Scaling group. Specify @True@ to make Auto Scaling to wait for the cool-down period associated with the Auto Scaling group to complete before initiating a scaling activity to set your Auto Scaling group to its new capacity.
 sdcHonorCooldown :: Lens' SetDesiredCapacity (Maybe Bool)
 sdcHonorCooldown = lens _sdcHonorCooldown (\ s a -> s{_sdcHonorCooldown = a});
 
@@ -90,9 +92,9 @@ instance AWSRequest SetDesiredCapacity where
         request = postQuery autoScaling
         response = receiveNull SetDesiredCapacityResponse'
 
-instance Hashable SetDesiredCapacity
+instance Hashable SetDesiredCapacity where
 
-instance NFData SetDesiredCapacity
+instance NFData SetDesiredCapacity where
 
 instance ToHeaders SetDesiredCapacity where
         toHeaders = const mempty
@@ -111,8 +113,9 @@ instance ToQuery SetDesiredCapacity where
 
 -- | /See:/ 'setDesiredCapacityResponse' smart constructor.
 data SetDesiredCapacityResponse =
-    SetDesiredCapacityResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetDesiredCapacityResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetDesiredCapacityResponse' with the minimum fields required to make a request.
 --
@@ -120,4 +123,5 @@ setDesiredCapacityResponse
     :: SetDesiredCapacityResponse
 setDesiredCapacityResponse = SetDesiredCapacityResponse'
 
-instance NFData SetDesiredCapacityResponse
+
+instance NFData SetDesiredCapacityResponse where

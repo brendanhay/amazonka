@@ -12,21 +12,23 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DeleteUserAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the attributes for a user.
+--
+--
 module Network.AWS.CognitoIdentityProvider.DeleteUserAttributes
     (
     -- * Creating a Request
       deleteUserAttributes
     , DeleteUserAttributes
     -- * Request Lenses
-    , duaAccessToken
     , duaUserAttributeNames
+    , duaAccessToken
 
     -- * Destructuring the Response
     , deleteUserAttributesResponse
@@ -35,43 +37,48 @@ module Network.AWS.CognitoIdentityProvider.DeleteUserAttributes
     , duarsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to delete user attributes.
 --
+--
+--
 -- /See:/ 'deleteUserAttributes' smart constructor.
 data DeleteUserAttributes = DeleteUserAttributes'
-    { _duaAccessToken        :: !(Maybe (Sensitive Text))
-    , _duaUserAttributeNames :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _duaUserAttributeNames :: ![Text]
+  , _duaAccessToken        :: !(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUserAttributes' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duaAccessToken'
+-- * 'duaUserAttributeNames' - An array of strings representing the user attribute names you wish to delete. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 --
--- * 'duaUserAttributeNames'
+-- * 'duaAccessToken' - The access token used in the request to delete user attributes.
 deleteUserAttributes
-    :: DeleteUserAttributes
-deleteUserAttributes =
-    DeleteUserAttributes'
-    { _duaAccessToken = Nothing
-    , _duaUserAttributeNames = mempty
-    }
+    :: Text -- ^ 'duaAccessToken'
+    -> DeleteUserAttributes
+deleteUserAttributes pAccessToken_ =
+  DeleteUserAttributes'
+  { _duaUserAttributeNames = mempty
+  , _duaAccessToken = _Sensitive # pAccessToken_
+  }
 
--- | The access token used in the request to delete user attributes.
-duaAccessToken :: Lens' DeleteUserAttributes (Maybe Text)
-duaAccessToken = lens _duaAccessToken (\ s a -> s{_duaAccessToken = a}) . mapping _Sensitive;
 
--- | An array of strings representing the user attribute names you wish to delete.
+-- | An array of strings representing the user attribute names you wish to delete. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 duaUserAttributeNames :: Lens' DeleteUserAttributes [Text]
 duaUserAttributeNames = lens _duaUserAttributeNames (\ s a -> s{_duaUserAttributeNames = a}) . _Coerce;
+
+-- | The access token used in the request to delete user attributes.
+duaAccessToken :: Lens' DeleteUserAttributes Text
+duaAccessToken = lens _duaAccessToken (\ s a -> s{_duaAccessToken = a}) . _Sensitive;
 
 instance AWSRequest DeleteUserAttributes where
         type Rs DeleteUserAttributes =
@@ -83,9 +90,9 @@ instance AWSRequest DeleteUserAttributes where
                  DeleteUserAttributesResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteUserAttributes
+instance Hashable DeleteUserAttributes where
 
-instance NFData DeleteUserAttributes
+instance NFData DeleteUserAttributes where
 
 instance ToHeaders DeleteUserAttributes where
         toHeaders
@@ -101,9 +108,9 @@ instance ToJSON DeleteUserAttributes where
         toJSON DeleteUserAttributes'{..}
           = object
               (catMaybes
-                 [("AccessToken" .=) <$> _duaAccessToken,
-                  Just
-                    ("UserAttributeNames" .= _duaUserAttributeNames)])
+                 [Just
+                    ("UserAttributeNames" .= _duaUserAttributeNames),
+                  Just ("AccessToken" .= _duaAccessToken)])
 
 instance ToPath DeleteUserAttributes where
         toPath = const "/"
@@ -113,26 +120,28 @@ instance ToQuery DeleteUserAttributes where
 
 -- | Represents the response from the server to delete user attributes.
 --
+--
+--
 -- /See:/ 'deleteUserAttributesResponse' smart constructor.
 newtype DeleteUserAttributesResponse = DeleteUserAttributesResponse'
-    { _duarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _duarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUserAttributesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duarsResponseStatus'
+-- * 'duarsResponseStatus' - -- | The response status code.
 deleteUserAttributesResponse
     :: Int -- ^ 'duarsResponseStatus'
     -> DeleteUserAttributesResponse
 deleteUserAttributesResponse pResponseStatus_ =
-    DeleteUserAttributesResponse'
-    { _duarsResponseStatus = pResponseStatus_
-    }
+  DeleteUserAttributesResponse' {_duarsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 duarsResponseStatus :: Lens' DeleteUserAttributesResponse Int
 duarsResponseStatus = lens _duarsResponseStatus (\ s a -> s{_duarsResponseStatus = a});
 
-instance NFData DeleteUserAttributesResponse
+instance NFData DeleteUserAttributesResponse where

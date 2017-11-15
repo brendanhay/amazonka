@@ -12,21 +12,24 @@
 
 -- |
 -- Module      : Network.AWS.EFS.ModifyMountTargetSecurityGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the set of security groups in effect for a mount target.
 --
--- When you create a mount target, Amazon EFS also creates a new network interface. For more information, see < CreateMountTarget>. This operation replaces the security groups in effect for the network interface associated with a mount target, with the 'SecurityGroups' provided in the request. This operation requires that the network interface of the mount target has been created and the lifecycle state of the mount target is not 'deleted'.
+--
+-- When you create a mount target, Amazon EFS also creates a new network interface. For more information, see 'CreateMountTarget' . This operation replaces the security groups in effect for the network interface associated with a mount target, with the @SecurityGroups@ provided in the request. This operation requires that the network interface of the mount target has been created and the lifecycle state of the mount target is not @deleted@ .
 --
 -- The operation requires permissions for the following actions:
 --
--- -   'elasticfilesystem:ModifyMountTargetSecurityGroups' action on the mount target\'s file system.
+--     * @elasticfilesystem:ModifyMountTargetSecurityGroups@ action on the mount target's file system.
 --
--- -   'ec2:ModifyNetworkInterfaceAttribute' action on the mount target\'s network interface.
+--     * @ec2:ModifyNetworkInterfaceAttribute@ action on the mount target's network interface.
+--
+--
 --
 module Network.AWS.EFS.ModifyMountTargetSecurityGroups
     (
@@ -42,36 +45,38 @@ module Network.AWS.EFS.ModifyMountTargetSecurityGroups
     , ModifyMountTargetSecurityGroupsResponse
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.EFS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'modifyMountTargetSecurityGroups' smart constructor.
 data ModifyMountTargetSecurityGroups = ModifyMountTargetSecurityGroups'
-    { _mmtsgSecurityGroups :: !(Maybe [Text])
-    , _mmtsgMountTargetId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mmtsgSecurityGroups :: !(Maybe [Text])
+  , _mmtsgMountTargetId  :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyMountTargetSecurityGroups' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mmtsgSecurityGroups'
+-- * 'mmtsgSecurityGroups' - Array of up to five VPC security group IDs.
 --
--- * 'mmtsgMountTargetId'
+-- * 'mmtsgMountTargetId' - ID of the mount target whose security groups you want to modify.
 modifyMountTargetSecurityGroups
     :: Text -- ^ 'mmtsgMountTargetId'
     -> ModifyMountTargetSecurityGroups
 modifyMountTargetSecurityGroups pMountTargetId_ =
-    ModifyMountTargetSecurityGroups'
-    { _mmtsgSecurityGroups = Nothing
-    , _mmtsgMountTargetId = pMountTargetId_
-    }
+  ModifyMountTargetSecurityGroups'
+  {_mmtsgSecurityGroups = Nothing, _mmtsgMountTargetId = pMountTargetId_}
+
 
 -- | Array of up to five VPC security group IDs.
 mmtsgSecurityGroups :: Lens' ModifyMountTargetSecurityGroups [Text]
@@ -91,8 +96,9 @@ instance AWSRequest ModifyMountTargetSecurityGroups
               ModifyMountTargetSecurityGroupsResponse'
 
 instance Hashable ModifyMountTargetSecurityGroups
+         where
 
-instance NFData ModifyMountTargetSecurityGroups
+instance NFData ModifyMountTargetSecurityGroups where
 
 instance ToHeaders ModifyMountTargetSecurityGroups
          where
@@ -116,15 +122,18 @@ instance ToQuery ModifyMountTargetSecurityGroups
 
 -- | /See:/ 'modifyMountTargetSecurityGroupsResponse' smart constructor.
 data ModifyMountTargetSecurityGroupsResponse =
-    ModifyMountTargetSecurityGroupsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ModifyMountTargetSecurityGroupsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyMountTargetSecurityGroupsResponse' with the minimum fields required to make a request.
 --
 modifyMountTargetSecurityGroupsResponse
     :: ModifyMountTargetSecurityGroupsResponse
 modifyMountTargetSecurityGroupsResponse =
-    ModifyMountTargetSecurityGroupsResponse'
+  ModifyMountTargetSecurityGroupsResponse'
+
 
 instance NFData
-         ModifyMountTargetSecurityGroupsResponse
+           ModifyMountTargetSecurityGroupsResponse
+         where

@@ -12,21 +12,24 @@
 
 -- |
 -- Module      : Network.AWS.SSM.CreateDocument
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an SSM document.
+-- Creates a Systems Manager document.
 --
--- After you create an SSM document, you can use CreateAssociation to associate it with one or more running instances.
+--
+-- After you create a document, you can use CreateAssociation to associate it with one or more running instances.
+--
 module Network.AWS.SSM.CreateDocument
     (
     -- * Creating a Request
       createDocument
     , CreateDocument
     -- * Request Lenses
+    , cdDocumentType
     , cdContent
     , cdName
 
@@ -38,41 +41,48 @@ module Network.AWS.SSM.CreateDocument
     , cdrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createDocument' smart constructor.
 data CreateDocument = CreateDocument'
-    { _cdContent :: !Text
-    , _cdName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdDocumentType :: !(Maybe DocumentType)
+  , _cdContent      :: !Text
+  , _cdName         :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDocument' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdContent'
+-- * 'cdDocumentType' - The type of document to create. Valid document types include: Policy, Automation, and Command.
 --
--- * 'cdName'
+-- * 'cdContent' - A valid JSON string.
+--
+-- * 'cdName' - A name for the Systems Manager document.
 createDocument
     :: Text -- ^ 'cdContent'
     -> Text -- ^ 'cdName'
     -> CreateDocument
 createDocument pContent_ pName_ =
-    CreateDocument'
-    { _cdContent = pContent_
-    , _cdName = pName_
-    }
+  CreateDocument'
+  {_cdDocumentType = Nothing, _cdContent = pContent_, _cdName = pName_}
+
+
+-- | The type of document to create. Valid document types include: Policy, Automation, and Command.
+cdDocumentType :: Lens' CreateDocument (Maybe DocumentType)
+cdDocumentType = lens _cdDocumentType (\ s a -> s{_cdDocumentType = a});
 
 -- | A valid JSON string.
 cdContent :: Lens' CreateDocument Text
 cdContent = lens _cdContent (\ s a -> s{_cdContent = a});
 
--- | A name for the SSM document.
+-- | A name for the Systems Manager document.
 cdName :: Lens' CreateDocument Text
 cdName = lens _cdName (\ s a -> s{_cdName = a});
 
@@ -86,9 +96,9 @@ instance AWSRequest CreateDocument where
                    (x .?> "DocumentDescription") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateDocument
+instance Hashable CreateDocument where
 
-instance NFData CreateDocument
+instance NFData CreateDocument where
 
 instance ToHeaders CreateDocument where
         toHeaders
@@ -103,7 +113,8 @@ instance ToJSON CreateDocument where
         toJSON CreateDocument'{..}
           = object
               (catMaybes
-                 [Just ("Content" .= _cdContent),
+                 [("DocumentType" .=) <$> _cdDocumentType,
+                  Just ("Content" .= _cdContent),
                   Just ("Name" .= _cdName)])
 
 instance ToPath CreateDocument where
@@ -114,32 +125,32 @@ instance ToQuery CreateDocument where
 
 -- | /See:/ 'createDocumentResponse' smart constructor.
 data CreateDocumentResponse = CreateDocumentResponse'
-    { _cdrsDocumentDescription :: !(Maybe DocumentDescription)
-    , _cdrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdrsDocumentDescription :: !(Maybe DocumentDescription)
+  , _cdrsResponseStatus      :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDocumentResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdrsDocumentDescription'
+-- * 'cdrsDocumentDescription' - Information about the Systems Manager document.
 --
--- * 'cdrsResponseStatus'
+-- * 'cdrsResponseStatus' - -- | The response status code.
 createDocumentResponse
     :: Int -- ^ 'cdrsResponseStatus'
     -> CreateDocumentResponse
 createDocumentResponse pResponseStatus_ =
-    CreateDocumentResponse'
-    { _cdrsDocumentDescription = Nothing
-    , _cdrsResponseStatus = pResponseStatus_
-    }
+  CreateDocumentResponse'
+  {_cdrsDocumentDescription = Nothing, _cdrsResponseStatus = pResponseStatus_}
 
--- | Information about the SSM document.
+
+-- | Information about the Systems Manager document.
 cdrsDocumentDescription :: Lens' CreateDocumentResponse (Maybe DocumentDescription)
 cdrsDocumentDescription = lens _cdrsDocumentDescription (\ s a -> s{_cdrsDocumentDescription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdrsResponseStatus :: Lens' CreateDocumentResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
 
-instance NFData CreateDocumentResponse
+instance NFData CreateDocumentResponse where

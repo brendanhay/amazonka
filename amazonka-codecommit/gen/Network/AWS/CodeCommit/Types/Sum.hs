@@ -9,20 +9,51 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CodeCommit.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
+
+data ChangeTypeEnum
+  = A
+  | D
+  | M
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ChangeTypeEnum where
+    parser = takeLowerText >>= \case
+        "a" -> pure A
+        "d" -> pure D
+        "m" -> pure M
+        e -> fromTextError $ "Failure parsing ChangeTypeEnum from value: '" <> e
+           <> "'. Accepted values: a, d, m"
+
+instance ToText ChangeTypeEnum where
+    toText = \case
+        A -> "A"
+        D -> "D"
+        M -> "M"
+
+instance Hashable     ChangeTypeEnum
+instance NFData       ChangeTypeEnum
+instance ToByteString ChangeTypeEnum
+instance ToQuery      ChangeTypeEnum
+instance ToHeader     ChangeTypeEnum
+
+instance FromJSON ChangeTypeEnum where
+    parseJSON = parseJSONText "ChangeTypeEnum"
 
 data OrderEnum
-    = Ascending
-    | Descending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Ascending
+  | Descending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OrderEnum where
     parser = takeLowerText >>= \case
@@ -46,11 +77,12 @@ instance ToJSON OrderEnum where
     toJSON = toJSONText
 
 data RepositoryTriggerEventEnum
-    = All
-    | CreateReference
-    | DeleteReference
-    | UpdateReference
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = All
+  | CreateReference
+  | DeleteReference
+  | UpdateReference
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RepositoryTriggerEventEnum where
     parser = takeLowerText >>= \case
@@ -81,9 +113,10 @@ instance FromJSON RepositoryTriggerEventEnum where
     parseJSON = parseJSONText "RepositoryTriggerEventEnum"
 
 data SortByEnum
-    = LastModifiedDate
-    | RepositoryName
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = LastModifiedDate
+  | RepositoryName
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SortByEnum where
     parser = takeLowerText >>= \case

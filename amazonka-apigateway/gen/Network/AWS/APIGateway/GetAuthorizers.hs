@@ -12,13 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetAuthorizers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describe an existing < Authorizers> resource.
+-- Describe an existing 'Authorizers' resource.
+--
 --
 -- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html AWS CLI>
 module Network.AWS.APIGateway.GetAuthorizers
@@ -40,50 +41,51 @@ module Network.AWS.APIGateway.GetAuthorizers
     , garsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Request to describe an existing < Authorizers> resource.
+-- | Request to describe an existing 'Authorizers' resource.
+--
+--
 --
 -- /See:/ 'getAuthorizers' smart constructor.
 data GetAuthorizers = GetAuthorizers'
-    { _gaLimit     :: !(Maybe Int)
-    , _gaPosition  :: !(Maybe Text)
-    , _gaRestAPIId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gaLimit     :: !(Maybe Int)
+  , _gaPosition  :: !(Maybe Text)
+  , _gaRestAPIId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAuthorizers' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaLimit'
+-- * 'gaLimit' - The maximum number of returned results per page.
 --
--- * 'gaPosition'
+-- * 'gaPosition' - The current pagination position in the paged result set.
 --
--- * 'gaRestAPIId'
+-- * 'gaRestAPIId' - The string identifier of the associated 'RestApi' .
 getAuthorizers
     :: Text -- ^ 'gaRestAPIId'
     -> GetAuthorizers
 getAuthorizers pRestAPIId_ =
-    GetAuthorizers'
-    { _gaLimit = Nothing
-    , _gaPosition = Nothing
-    , _gaRestAPIId = pRestAPIId_
-    }
+  GetAuthorizers'
+  {_gaLimit = Nothing, _gaPosition = Nothing, _gaRestAPIId = pRestAPIId_}
 
--- | Limit the number of < Authorizer> resources in the response.
+
+-- | The maximum number of returned results per page.
 gaLimit :: Lens' GetAuthorizers (Maybe Int)
 gaLimit = lens _gaLimit (\ s a -> s{_gaLimit = a});
 
--- | If not all < Authorizer> resources in the response were present, the position will specify where to start the next page of results.
+-- | The current pagination position in the paged result set.
 gaPosition :: Lens' GetAuthorizers (Maybe Text)
 gaPosition = lens _gaPosition (\ s a -> s{_gaPosition = a});
 
--- | The < RestApi> identifier for the < Authorizers> resource.
+-- | The string identifier of the associated 'RestApi' .
 gaRestAPIId :: Lens' GetAuthorizers Text
 gaRestAPIId = lens _gaRestAPIId (\ s a -> s{_gaRestAPIId = a});
 
@@ -97,9 +99,9 @@ instance AWSRequest GetAuthorizers where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetAuthorizers
+instance Hashable GetAuthorizers where
 
-instance NFData GetAuthorizers
+instance NFData GetAuthorizers where
 
 instance ToHeaders GetAuthorizers where
         toHeaders
@@ -117,37 +119,40 @@ instance ToQuery GetAuthorizers where
           = mconcat
               ["limit" =: _gaLimit, "position" =: _gaPosition]
 
--- | Represents a collection of < Authorizer> resources.
+-- | Represents a collection of 'Authorizer' resources.
+--
 --
 -- <http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html Enable custom authorization>
 --
 -- /See:/ 'getAuthorizersResponse' smart constructor.
 data GetAuthorizersResponse = GetAuthorizersResponse'
-    { _garsItems          :: !(Maybe [Authorizer])
-    , _garsPosition       :: !(Maybe Text)
-    , _garsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _garsItems          :: !(Maybe [Authorizer])
+  , _garsPosition       :: !(Maybe Text)
+  , _garsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAuthorizersResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'garsItems'
+-- * 'garsItems' - The current page of elements from this collection.
 --
--- * 'garsPosition'
+-- * 'garsPosition' - Undocumented member.
 --
--- * 'garsResponseStatus'
+-- * 'garsResponseStatus' - -- | The response status code.
 getAuthorizersResponse
     :: Int -- ^ 'garsResponseStatus'
     -> GetAuthorizersResponse
 getAuthorizersResponse pResponseStatus_ =
-    GetAuthorizersResponse'
-    { _garsItems = Nothing
-    , _garsPosition = Nothing
-    , _garsResponseStatus = pResponseStatus_
-    }
+  GetAuthorizersResponse'
+  { _garsItems = Nothing
+  , _garsPosition = Nothing
+  , _garsResponseStatus = pResponseStatus_
+  }
 
--- | Gets the current list of < Authorizer> resources in the collection.
+
+-- | The current page of elements from this collection.
 garsItems :: Lens' GetAuthorizersResponse [Authorizer]
 garsItems = lens _garsItems (\ s a -> s{_garsItems = a}) . _Default . _Coerce;
 
@@ -155,8 +160,8 @@ garsItems = lens _garsItems (\ s a -> s{_garsItems = a}) . _Default . _Coerce;
 garsPosition :: Lens' GetAuthorizersResponse (Maybe Text)
 garsPosition = lens _garsPosition (\ s a -> s{_garsPosition = a});
 
--- | The response status code.
+-- | -- | The response status code.
 garsResponseStatus :: Lens' GetAuthorizersResponse Int
 garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
 
-instance NFData GetAuthorizersResponse
+instance NFData GetAuthorizersResponse where

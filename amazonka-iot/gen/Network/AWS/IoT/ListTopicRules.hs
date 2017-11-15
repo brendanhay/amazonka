@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListTopicRules
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the rules for the specific topic.
+--
+--
+--
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListTopicRules
     (
     -- * Creating a Request
@@ -39,43 +43,48 @@ module Network.AWS.IoT.ListTopicRules
     , ltrrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the ListTopicRules operation.
 --
+--
+--
 -- /See:/ 'listTopicRules' smart constructor.
 data ListTopicRules = ListTopicRules'
-    { _ltrRuleDisabled :: !(Maybe Bool)
-    , _ltrTopic        :: !(Maybe Text)
-    , _ltrNextToken    :: !(Maybe Text)
-    , _ltrMaxResults   :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltrRuleDisabled :: !(Maybe Bool)
+  , _ltrTopic        :: !(Maybe Text)
+  , _ltrNextToken    :: !(Maybe Text)
+  , _ltrMaxResults   :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTopicRules' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltrRuleDisabled'
+-- * 'ltrRuleDisabled' - Specifies whether the rule is disabled.
 --
--- * 'ltrTopic'
+-- * 'ltrTopic' - The topic.
 --
--- * 'ltrNextToken'
+-- * 'ltrNextToken' - A token used to retrieve the next value.
 --
--- * 'ltrMaxResults'
+-- * 'ltrMaxResults' - The maximum number of results to return.
 listTopicRules
     :: ListTopicRules
 listTopicRules =
-    ListTopicRules'
-    { _ltrRuleDisabled = Nothing
-    , _ltrTopic = Nothing
-    , _ltrNextToken = Nothing
-    , _ltrMaxResults = Nothing
-    }
+  ListTopicRules'
+  { _ltrRuleDisabled = Nothing
+  , _ltrTopic = Nothing
+  , _ltrNextToken = Nothing
+  , _ltrMaxResults = Nothing
+  }
+
 
 -- | Specifies whether the rule is disabled.
 ltrRuleDisabled :: Lens' ListTopicRules (Maybe Bool)
@@ -93,6 +102,13 @@ ltrNextToken = lens _ltrNextToken (\ s a -> s{_ltrNextToken = a});
 ltrMaxResults :: Lens' ListTopicRules (Maybe Natural)
 ltrMaxResults = lens _ltrMaxResults (\ s a -> s{_ltrMaxResults = a}) . mapping _Nat;
 
+instance AWSPager ListTopicRules where
+        page rq rs
+          | stop (rs ^. ltrrsNextToken) = Nothing
+          | stop (rs ^. ltrrsRules) = Nothing
+          | otherwise =
+            Just $ rq & ltrNextToken .~ rs ^. ltrrsNextToken
+
 instance AWSRequest ListTopicRules where
         type Rs ListTopicRules = ListTopicRulesResponse
         request = get ioT
@@ -103,9 +119,9 @@ instance AWSRequest ListTopicRules where
                    (x .?> "rules" .!@ mempty) <*> (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListTopicRules
+instance Hashable ListTopicRules where
 
-instance NFData ListTopicRules
+instance NFData ListTopicRules where
 
 instance ToHeaders ListTopicRules where
         toHeaders = const mempty
@@ -122,31 +138,35 @@ instance ToQuery ListTopicRules where
 
 -- | The output from the ListTopicRules operation.
 --
+--
+--
 -- /See:/ 'listTopicRulesResponse' smart constructor.
 data ListTopicRulesResponse = ListTopicRulesResponse'
-    { _ltrrsRules          :: !(Maybe [TopicRuleListItem])
-    , _ltrrsNextToken      :: !(Maybe Text)
-    , _ltrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltrrsRules          :: !(Maybe [TopicRuleListItem])
+  , _ltrrsNextToken      :: !(Maybe Text)
+  , _ltrrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTopicRulesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltrrsRules'
+-- * 'ltrrsRules' - The rules.
 --
--- * 'ltrrsNextToken'
+-- * 'ltrrsNextToken' - A token used to retrieve the next value.
 --
--- * 'ltrrsResponseStatus'
+-- * 'ltrrsResponseStatus' - -- | The response status code.
 listTopicRulesResponse
     :: Int -- ^ 'ltrrsResponseStatus'
     -> ListTopicRulesResponse
 listTopicRulesResponse pResponseStatus_ =
-    ListTopicRulesResponse'
-    { _ltrrsRules = Nothing
-    , _ltrrsNextToken = Nothing
-    , _ltrrsResponseStatus = pResponseStatus_
-    }
+  ListTopicRulesResponse'
+  { _ltrrsRules = Nothing
+  , _ltrrsNextToken = Nothing
+  , _ltrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The rules.
 ltrrsRules :: Lens' ListTopicRulesResponse [TopicRuleListItem]
@@ -156,8 +176,8 @@ ltrrsRules = lens _ltrrsRules (\ s a -> s{_ltrrsRules = a}) . _Default . _Coerce
 ltrrsNextToken :: Lens' ListTopicRulesResponse (Maybe Text)
 ltrrsNextToken = lens _ltrrsNextToken (\ s a -> s{_ltrrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ltrrsResponseStatus :: Lens' ListTopicRulesResponse Int
 ltrrsResponseStatus = lens _ltrrsResponseStatus (\ s a -> s{_ltrrsResponseStatus = a});
 
-instance NFData ListTopicRulesResponse
+instance NFData ListTopicRulesResponse where

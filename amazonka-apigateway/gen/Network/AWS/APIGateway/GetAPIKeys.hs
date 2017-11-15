@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetAPIKeys
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the current < ApiKeys> resource.
+-- Gets information about the current 'ApiKeys' resource.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetAPIKeys
@@ -28,6 +30,7 @@ module Network.AWS.APIGateway.GetAPIKeys
     , GetAPIKeys
     -- * Request Lenses
     , gakIncludeValues
+    , gakCustomerId
     , gakNameQuery
     , gakLimit
     , gakPosition
@@ -42,58 +45,70 @@ module Network.AWS.APIGateway.GetAPIKeys
     , gakrsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | A request to get information about the current < ApiKeys> resource.
+-- | A request to get information about the current 'ApiKeys' resource.
+--
+--
 --
 -- /See:/ 'getAPIKeys' smart constructor.
 data GetAPIKeys = GetAPIKeys'
-    { _gakIncludeValues :: !(Maybe Bool)
-    , _gakNameQuery     :: !(Maybe Text)
-    , _gakLimit         :: !(Maybe Int)
-    , _gakPosition      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gakIncludeValues :: !(Maybe Bool)
+  , _gakCustomerId    :: !(Maybe Text)
+  , _gakNameQuery     :: !(Maybe Text)
+  , _gakLimit         :: !(Maybe Int)
+  , _gakPosition      :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAPIKeys' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gakIncludeValues'
+-- * 'gakIncludeValues' - A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains key values.
 --
--- * 'gakNameQuery'
+-- * 'gakCustomerId' - The identifier of a customer in AWS Marketplace or an external system, such as a developer portal.
 --
--- * 'gakLimit'
+-- * 'gakNameQuery' - The name of queried API keys.
 --
--- * 'gakPosition'
+-- * 'gakLimit' - The maximum number of returned results per page.
+--
+-- * 'gakPosition' - The current pagination position in the paged result set.
 getAPIKeys
     :: GetAPIKeys
 getAPIKeys =
-    GetAPIKeys'
-    { _gakIncludeValues = Nothing
-    , _gakNameQuery = Nothing
-    , _gakLimit = Nothing
-    , _gakPosition = Nothing
-    }
+  GetAPIKeys'
+  { _gakIncludeValues = Nothing
+  , _gakCustomerId = Nothing
+  , _gakNameQuery = Nothing
+  , _gakLimit = Nothing
+  , _gakPosition = Nothing
+  }
 
--- | A boolean flag to specify whether ('true') or not ('false') the result contains key values.
+
+-- | A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains key values.
 gakIncludeValues :: Lens' GetAPIKeys (Maybe Bool)
 gakIncludeValues = lens _gakIncludeValues (\ s a -> s{_gakIncludeValues = a});
+
+-- | The identifier of a customer in AWS Marketplace or an external system, such as a developer portal.
+gakCustomerId :: Lens' GetAPIKeys (Maybe Text)
+gakCustomerId = lens _gakCustomerId (\ s a -> s{_gakCustomerId = a});
 
 -- | The name of queried API keys.
 gakNameQuery :: Lens' GetAPIKeys (Maybe Text)
 gakNameQuery = lens _gakNameQuery (\ s a -> s{_gakNameQuery = a});
 
--- | The maximum number of < ApiKeys> to get information about.
+-- | The maximum number of returned results per page.
 gakLimit :: Lens' GetAPIKeys (Maybe Int)
 gakLimit = lens _gakLimit (\ s a -> s{_gakLimit = a});
 
--- | The position of the current < ApiKeys> resource to get information about.
+-- | The current pagination position in the paged result set.
 gakPosition :: Lens' GetAPIKeys (Maybe Text)
 gakPosition = lens _gakPosition (\ s a -> s{_gakPosition = a});
 
@@ -116,9 +131,9 @@ instance AWSRequest GetAPIKeys where
                      <*> (x .?> "position")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetAPIKeys
+instance Hashable GetAPIKeys where
 
-instance NFData GetAPIKeys
+instance NFData GetAPIKeys where
 
 instance ToHeaders GetAPIKeys where
         toHeaders
@@ -133,48 +148,52 @@ instance ToQuery GetAPIKeys where
         toQuery GetAPIKeys'{..}
           = mconcat
               ["includeValues" =: _gakIncludeValues,
+               "customerId" =: _gakCustomerId,
                "name" =: _gakNameQuery, "limit" =: _gakLimit,
                "position" =: _gakPosition]
 
--- | Represents a collection of API keys as represented by an < ApiKeys> resource.
+-- | Represents a collection of API keys as represented by an 'ApiKeys' resource.
+--
 --
 -- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html Use API Keys>
 --
 -- /See:/ 'getAPIKeysResponse' smart constructor.
 data GetAPIKeysResponse = GetAPIKeysResponse'
-    { _gakrsItems          :: !(Maybe [APIKey])
-    , _gakrsWarnings       :: !(Maybe [Text])
-    , _gakrsPosition       :: !(Maybe Text)
-    , _gakrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gakrsItems          :: !(Maybe [APIKey])
+  , _gakrsWarnings       :: !(Maybe [Text])
+  , _gakrsPosition       :: !(Maybe Text)
+  , _gakrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAPIKeysResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gakrsItems'
+-- * 'gakrsItems' - The current page of elements from this collection.
 --
--- * 'gakrsWarnings'
+-- * 'gakrsWarnings' - A list of warning messages logged during the import of API keys when the @failOnWarnings@ option is set to true.
 --
--- * 'gakrsPosition'
+-- * 'gakrsPosition' - Undocumented member.
 --
--- * 'gakrsResponseStatus'
+-- * 'gakrsResponseStatus' - -- | The response status code.
 getAPIKeysResponse
     :: Int -- ^ 'gakrsResponseStatus'
     -> GetAPIKeysResponse
 getAPIKeysResponse pResponseStatus_ =
-    GetAPIKeysResponse'
-    { _gakrsItems = Nothing
-    , _gakrsWarnings = Nothing
-    , _gakrsPosition = Nothing
-    , _gakrsResponseStatus = pResponseStatus_
-    }
+  GetAPIKeysResponse'
+  { _gakrsItems = Nothing
+  , _gakrsWarnings = Nothing
+  , _gakrsPosition = Nothing
+  , _gakrsResponseStatus = pResponseStatus_
+  }
 
--- | The current page of any < ApiKey> resources in the collection of < ApiKey> resources.
+
+-- | The current page of elements from this collection.
 gakrsItems :: Lens' GetAPIKeysResponse [APIKey]
 gakrsItems = lens _gakrsItems (\ s a -> s{_gakrsItems = a}) . _Default . _Coerce;
 
--- | A list of warning messages logged during the import of API keys when the 'failOnWarnings' option is set to true.
+-- | A list of warning messages logged during the import of API keys when the @failOnWarnings@ option is set to true.
 gakrsWarnings :: Lens' GetAPIKeysResponse [Text]
 gakrsWarnings = lens _gakrsWarnings (\ s a -> s{_gakrsWarnings = a}) . _Default . _Coerce;
 
@@ -182,8 +201,8 @@ gakrsWarnings = lens _gakrsWarnings (\ s a -> s{_gakrsWarnings = a}) . _Default 
 gakrsPosition :: Lens' GetAPIKeysResponse (Maybe Text)
 gakrsPosition = lens _gakrsPosition (\ s a -> s{_gakrsPosition = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gakrsResponseStatus :: Lens' GetAPIKeysResponse Int
 gakrsResponseStatus = lens _gakrsResponseStatus (\ s a -> s{_gakrsResponseStatus = a});
 
-instance NFData GetAPIKeysResponse
+instance NFData GetAPIKeysResponse where

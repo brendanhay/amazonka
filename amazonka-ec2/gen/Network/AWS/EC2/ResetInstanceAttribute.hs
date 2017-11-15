@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ResetInstanceAttribute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Resets an attribute of an instance to its default value. To reset the 'kernel' or 'ramdisk', the instance must be in a stopped state. To reset the 'sourceDestCheck', the instance can be either running or stopped.
+-- Resets an attribute of an instance to its default value. To reset the @kernel@ or @ramdisk@ , the instance must be in a stopped state. To reset the @sourceDestCheck@ , the instance can be either running or stopped.
 --
--- The 'sourceDestCheck' attribute controls whether source\/destination checking is enabled. The default value is 'true', which means checking is enabled. This value must be 'false' for a NAT instance to perform NAT. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- The @sourceDestCheck@ attribute controls whether source/destination checking is enabled. The default value is @true@ , which means checking is enabled. This value must be @false@ for a NAT instance to perform NAT. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
+--
 module Network.AWS.EC2.ResetInstanceAttribute
     (
     -- * Creating a Request
@@ -28,63 +30,65 @@ module Network.AWS.EC2.ResetInstanceAttribute
     , ResetInstanceAttribute
     -- * Request Lenses
     , riaDryRun
-    , riaInstanceId
     , riaAttribute
+    , riaInstanceId
 
     -- * Destructuring the Response
     , resetInstanceAttributeResponse
     , ResetInstanceAttributeResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ResetInstanceAttribute.
 --
+--
+--
 -- /See:/ 'resetInstanceAttribute' smart constructor.
 data ResetInstanceAttribute = ResetInstanceAttribute'
-    { _riaDryRun     :: !(Maybe Bool)
-    , _riaInstanceId :: !Text
-    , _riaAttribute  :: !InstanceAttributeName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _riaDryRun     :: !(Maybe Bool)
+  , _riaAttribute  :: !InstanceAttributeName
+  , _riaInstanceId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResetInstanceAttribute' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'riaDryRun'
+-- * 'riaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'riaInstanceId'
+-- * 'riaAttribute' - The attribute to reset. /Important:/ You can only reset the following attributes: @kernel@ | @ramdisk@ | @sourceDestCheck@ . To change an instance attribute, use 'ModifyInstanceAttribute' .
 --
--- * 'riaAttribute'
+-- * 'riaInstanceId' - The ID of the instance.
 resetInstanceAttribute
-    :: Text -- ^ 'riaInstanceId'
-    -> InstanceAttributeName -- ^ 'riaAttribute'
+    :: InstanceAttributeName -- ^ 'riaAttribute'
+    -> Text -- ^ 'riaInstanceId'
     -> ResetInstanceAttribute
-resetInstanceAttribute pInstanceId_ pAttribute_ =
-    ResetInstanceAttribute'
-    { _riaDryRun = Nothing
-    , _riaInstanceId = pInstanceId_
-    , _riaAttribute = pAttribute_
-    }
+resetInstanceAttribute pAttribute_ pInstanceId_ =
+  ResetInstanceAttribute'
+  { _riaDryRun = Nothing
+  , _riaAttribute = pAttribute_
+  , _riaInstanceId = pInstanceId_
+  }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 riaDryRun :: Lens' ResetInstanceAttribute (Maybe Bool)
 riaDryRun = lens _riaDryRun (\ s a -> s{_riaDryRun = a});
+
+-- | The attribute to reset. /Important:/ You can only reset the following attributes: @kernel@ | @ramdisk@ | @sourceDestCheck@ . To change an instance attribute, use 'ModifyInstanceAttribute' .
+riaAttribute :: Lens' ResetInstanceAttribute InstanceAttributeName
+riaAttribute = lens _riaAttribute (\ s a -> s{_riaAttribute = a});
 
 -- | The ID of the instance.
 riaInstanceId :: Lens' ResetInstanceAttribute Text
 riaInstanceId = lens _riaInstanceId (\ s a -> s{_riaInstanceId = a});
-
--- | The attribute to reset.
---
--- You can only reset the following attributes: 'kernel' | 'ramdisk' | 'sourceDestCheck'. To change an instance attribute, use < ModifyInstanceAttribute>.
-riaAttribute :: Lens' ResetInstanceAttribute InstanceAttributeName
-riaAttribute = lens _riaAttribute (\ s a -> s{_riaAttribute = a});
 
 instance AWSRequest ResetInstanceAttribute where
         type Rs ResetInstanceAttribute =
@@ -93,9 +97,9 @@ instance AWSRequest ResetInstanceAttribute where
         response
           = receiveNull ResetInstanceAttributeResponse'
 
-instance Hashable ResetInstanceAttribute
+instance Hashable ResetInstanceAttribute where
 
-instance NFData ResetInstanceAttribute
+instance NFData ResetInstanceAttribute where
 
 instance ToHeaders ResetInstanceAttribute where
         toHeaders = const mempty
@@ -108,15 +112,15 @@ instance ToQuery ResetInstanceAttribute where
           = mconcat
               ["Action" =:
                  ("ResetInstanceAttribute" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
-               "DryRun" =: _riaDryRun,
-               "InstanceId" =: _riaInstanceId,
-               "Attribute" =: _riaAttribute]
+               "Version" =: ("2016-11-15" :: ByteString),
+               "DryRun" =: _riaDryRun, "Attribute" =: _riaAttribute,
+               "InstanceId" =: _riaInstanceId]
 
 -- | /See:/ 'resetInstanceAttributeResponse' smart constructor.
 data ResetInstanceAttributeResponse =
-    ResetInstanceAttributeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ResetInstanceAttributeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResetInstanceAttributeResponse' with the minimum fields required to make a request.
 --
@@ -124,4 +128,5 @@ resetInstanceAttributeResponse
     :: ResetInstanceAttributeResponse
 resetInstanceAttributeResponse = ResetInstanceAttributeResponse'
 
-instance NFData ResetInstanceAttributeResponse
+
+instance NFData ResetInstanceAttributeResponse where

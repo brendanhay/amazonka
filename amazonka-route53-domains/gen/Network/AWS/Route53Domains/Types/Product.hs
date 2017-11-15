@@ -9,87 +9,74 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Route53Domains.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Route53Domains.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Route53Domains.Types.Sum
 
--- | /See:/ 'billingRecord' smart constructor.
+-- | Information for one billing record.
+--
+--
+--
+-- /See:/ 'billingRecord' smart constructor.
 data BillingRecord = BillingRecord'
-    { _brOperation  :: !(Maybe OperationType)
-    , _brInvoiceId  :: !(Maybe Text)
-    , _brDomainName :: !(Maybe Text)
-    , _brBillDate   :: !(Maybe POSIX)
-    , _brPrice      :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _brOperation  :: !(Maybe OperationType)
+  , _brInvoiceId  :: !(Maybe Text)
+  , _brDomainName :: !(Maybe Text)
+  , _brBillDate   :: !(Maybe POSIX)
+  , _brPrice      :: !(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BillingRecord' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'brOperation'
+-- * 'brOperation' - The operation that you were charged for.
 --
--- * 'brInvoiceId'
+-- * 'brInvoiceId' - The ID of the invoice that is associated with the billing record.
 --
--- * 'brDomainName'
+-- * 'brDomainName' - The name of the domain that the billing record applies to. If the domain name contains characters other than a-z, 0-9, and - (hyphen), such as an internationalized domain name, then this value is in Punycode. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html DNS Domain Name Format> in the /Amazon Route 53 Developer Guidezzz/ .
 --
--- * 'brBillDate'
+-- * 'brBillDate' - The date that the operation was billed, in Unix format.
 --
--- * 'brPrice'
+-- * 'brPrice' - The price that you were charged for the operation, in US dollars. Example value: 12.0
 billingRecord
     :: BillingRecord
 billingRecord =
-    BillingRecord'
-    { _brOperation = Nothing
-    , _brInvoiceId = Nothing
-    , _brDomainName = Nothing
-    , _brBillDate = Nothing
-    , _brPrice = Nothing
-    }
+  BillingRecord'
+  { _brOperation = Nothing
+  , _brInvoiceId = Nothing
+  , _brDomainName = Nothing
+  , _brBillDate = Nothing
+  , _brPrice = Nothing
+  }
+
 
 -- | The operation that you were charged for.
---
--- Type: String
---
--- Valid values:
---
--- -   'REGISTER_DOMAIN'
--- -   'TRANSFER_IN_DOMAIN'
--- -   'RENEW_DOMAIN'
--- -   'CHANGE_DOMAIN_OWNER'
 brOperation :: Lens' BillingRecord (Maybe OperationType)
 brOperation = lens _brOperation (\ s a -> s{_brOperation = a});
 
 -- | The ID of the invoice that is associated with the billing record.
---
--- Type: String
 brInvoiceId :: Lens' BillingRecord (Maybe Text)
 brInvoiceId = lens _brInvoiceId (\ s a -> s{_brInvoiceId = a});
 
--- | The name of a domain.
---
--- Type: String
+-- | The name of the domain that the billing record applies to. If the domain name contains characters other than a-z, 0-9, and - (hyphen), such as an internationalized domain name, then this value is in Punycode. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html DNS Domain Name Format> in the /Amazon Route 53 Developer Guidezzz/ .
 brDomainName :: Lens' BillingRecord (Maybe Text)
 brDomainName = lens _brDomainName (\ s a -> s{_brDomainName = a});
 
 -- | The date that the operation was billed, in Unix format.
---
--- Type: Double
 brBillDate :: Lens' BillingRecord (Maybe UTCTime)
 brBillDate = lens _brBillDate (\ s a -> s{_brBillDate = a}) . mapping _Time;
 
--- | The price that you were charged for the operation, in US dollars.
---
--- Type: Double
---
--- Example value: 12.0
+-- | The price that you were charged for the operation, in US dollars. Example value: 12.0
 brPrice :: Lens' BillingRecord (Maybe Double)
 brPrice = lens _brPrice (\ s a -> s{_brPrice = a});
 
@@ -103,276 +90,138 @@ instance FromJSON BillingRecord where
                      <*> (x .:? "BillDate")
                      <*> (x .:? "Price"))
 
-instance Hashable BillingRecord
+instance Hashable BillingRecord where
 
-instance NFData BillingRecord
+instance NFData BillingRecord where
 
 -- | ContactDetail includes the following elements.
 --
+--
+--
 -- /See:/ 'contactDetail' smart constructor.
 data ContactDetail = ContactDetail'
-    { _cdOrganizationName :: !(Maybe Text)
-    , _cdEmail            :: !(Maybe Text)
-    , _cdState            :: !(Maybe Text)
-    , _cdFax              :: !(Maybe Text)
-    , _cdLastName         :: !(Maybe Text)
-    , _cdExtraParams      :: !(Maybe [ExtraParam])
-    , _cdZipCode          :: !(Maybe Text)
-    , _cdAddressLine1     :: !(Maybe Text)
-    , _cdCity             :: !(Maybe Text)
-    , _cdPhoneNumber      :: !(Maybe Text)
-    , _cdAddressLine2     :: !(Maybe Text)
-    , _cdFirstName        :: !(Maybe Text)
-    , _cdCountryCode      :: !(Maybe CountryCode)
-    , _cdContactType      :: !(Maybe ContactType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdOrganizationName :: !(Maybe Text)
+  , _cdEmail            :: !(Maybe Text)
+  , _cdState            :: !(Maybe Text)
+  , _cdFax              :: !(Maybe Text)
+  , _cdLastName         :: !(Maybe Text)
+  , _cdExtraParams      :: !(Maybe [ExtraParam])
+  , _cdZipCode          :: !(Maybe Text)
+  , _cdAddressLine1     :: !(Maybe Text)
+  , _cdCity             :: !(Maybe Text)
+  , _cdPhoneNumber      :: !(Maybe Text)
+  , _cdAddressLine2     :: !(Maybe Text)
+  , _cdFirstName        :: !(Maybe Text)
+  , _cdCountryCode      :: !(Maybe CountryCode)
+  , _cdContactType      :: !(Maybe ContactType)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ContactDetail' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdOrganizationName'
+-- * 'cdOrganizationName' - Name of the organization for contact types other than @PERSON@ .
 --
--- * 'cdEmail'
+-- * 'cdEmail' - Email address of the contact.
 --
--- * 'cdState'
+-- * 'cdState' - The state or province of the contact's city.
 --
--- * 'cdFax'
+-- * 'cdFax' - Fax number of the contact. Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as @"+1.1234567890"@ .
 --
--- * 'cdLastName'
+-- * 'cdLastName' - Last name of contact.
 --
--- * 'cdExtraParams'
+-- * 'cdExtraParams' - A list of name-value pairs for parameters required by certain top-level domains.
 --
--- * 'cdZipCode'
+-- * 'cdZipCode' - The zip or postal code of the contact's address.
 --
--- * 'cdAddressLine1'
+-- * 'cdAddressLine1' - First line of the contact's address.
 --
--- * 'cdCity'
+-- * 'cdCity' - The city of the contact's address.
 --
--- * 'cdPhoneNumber'
+-- * 'cdPhoneNumber' - The phone number of the contact. Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as @"+1.1234567890"@ .
 --
--- * 'cdAddressLine2'
+-- * 'cdAddressLine2' - Second line of contact's address, if any.
 --
--- * 'cdFirstName'
+-- * 'cdFirstName' - First name of contact.
 --
--- * 'cdCountryCode'
+-- * 'cdCountryCode' - Code for the country of the contact's address.
 --
--- * 'cdContactType'
+-- * 'cdContactType' - Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than @PERSON@ , you must enter an organization name, and you can't enable privacy protection for the contact.
 contactDetail
     :: ContactDetail
 contactDetail =
-    ContactDetail'
-    { _cdOrganizationName = Nothing
-    , _cdEmail = Nothing
-    , _cdState = Nothing
-    , _cdFax = Nothing
-    , _cdLastName = Nothing
-    , _cdExtraParams = Nothing
-    , _cdZipCode = Nothing
-    , _cdAddressLine1 = Nothing
-    , _cdCity = Nothing
-    , _cdPhoneNumber = Nothing
-    , _cdAddressLine2 = Nothing
-    , _cdFirstName = Nothing
-    , _cdCountryCode = Nothing
-    , _cdContactType = Nothing
-    }
+  ContactDetail'
+  { _cdOrganizationName = Nothing
+  , _cdEmail = Nothing
+  , _cdState = Nothing
+  , _cdFax = Nothing
+  , _cdLastName = Nothing
+  , _cdExtraParams = Nothing
+  , _cdZipCode = Nothing
+  , _cdAddressLine1 = Nothing
+  , _cdCity = Nothing
+  , _cdPhoneNumber = Nothing
+  , _cdAddressLine2 = Nothing
+  , _cdFirstName = Nothing
+  , _cdCountryCode = Nothing
+  , _cdContactType = Nothing
+  }
 
--- | Name of the organization for contact types other than 'PERSON'.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters. Contact type must not be 'PERSON'.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: No
+
+-- | Name of the organization for contact types other than @PERSON@ .
 cdOrganizationName :: Lens' ContactDetail (Maybe Text)
 cdOrganizationName = lens _cdOrganizationName (\ s a -> s{_cdOrganizationName = a});
 
 -- | Email address of the contact.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 254 characters.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: Yes
 cdEmail :: Lens' ContactDetail (Maybe Text)
 cdEmail = lens _cdEmail (\ s a -> s{_cdEmail = a});
 
--- | The state or province of the contact\'s city.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: No
+-- | The state or province of the contact's city.
 cdState :: Lens' ContactDetail (Maybe Text)
 cdState = lens _cdState (\ s a -> s{_cdState = a});
 
--- | Fax number of the contact.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code]\". For example, a US phone number might appear as '\"+1.1234567890\"'.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: No
+-- | Fax number of the contact. Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as @"+1.1234567890"@ .
 cdFax :: Lens' ContactDetail (Maybe Text)
 cdFax = lens _cdFax (\ s a -> s{_cdFax = a});
 
 -- | Last name of contact.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: Yes
 cdLastName :: Lens' ContactDetail (Maybe Text)
 cdLastName = lens _cdLastName (\ s a -> s{_cdLastName = a});
 
 -- | A list of name-value pairs for parameters required by certain top-level domains.
---
--- Type: Complex
---
--- Default: None
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Children: 'Name', 'Value'
---
--- Required: No
 cdExtraParams :: Lens' ContactDetail [ExtraParam]
 cdExtraParams = lens _cdExtraParams (\ s a -> s{_cdExtraParams = a}) . _Default . _Coerce;
 
--- | The zip or postal code of the contact\'s address.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: No
+-- | The zip or postal code of the contact's address.
 cdZipCode :: Lens' ContactDetail (Maybe Text)
 cdZipCode = lens _cdZipCode (\ s a -> s{_cdZipCode = a});
 
--- | First line of the contact\'s address.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: Yes
+-- | First line of the contact's address.
 cdAddressLine1 :: Lens' ContactDetail (Maybe Text)
 cdAddressLine1 = lens _cdAddressLine1 (\ s a -> s{_cdAddressLine1 = a});
 
--- | The city of the contact\'s address.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: Yes
+-- | The city of the contact's address.
 cdCity :: Lens' ContactDetail (Maybe Text)
 cdCity = lens _cdCity (\ s a -> s{_cdCity = a});
 
--- | The phone number of the contact.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code>]\". For example, a US phone number might appear as '\"+1.1234567890\"'.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: Yes
+-- | The phone number of the contact. Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as @"+1.1234567890"@ .
 cdPhoneNumber :: Lens' ContactDetail (Maybe Text)
 cdPhoneNumber = lens _cdPhoneNumber (\ s a -> s{_cdPhoneNumber = a});
 
--- | Second line of contact\'s address, if any.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: No
+-- | Second line of contact's address, if any.
 cdAddressLine2 :: Lens' ContactDetail (Maybe Text)
 cdAddressLine2 = lens _cdAddressLine2 (\ s a -> s{_cdAddressLine2 = a});
 
 -- | First name of contact.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: Yes
 cdFirstName :: Lens' ContactDetail (Maybe Text)
 cdFirstName = lens _cdFirstName (\ s a -> s{_cdFirstName = a});
 
--- | Code for the country of the contact\'s address.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: Yes
+-- | Code for the country of the contact's address.
 cdCountryCode :: Lens' ContactDetail (Maybe CountryCode)
 cdCountryCode = lens _cdCountryCode (\ s a -> s{_cdCountryCode = a});
 
--- | Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than 'PERSON', you must enter an organization name, and you can\'t enable privacy protection for the contact.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Valid values: 'PERSON' | 'COMPANY' | 'ASSOCIATION' | 'PUBLIC_BODY'
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: Yes
+-- | Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than @PERSON@ , you must enter an organization name, and you can't enable privacy protection for the contact.
 cdContactType :: Lens' ContactDetail (Maybe ContactType)
 cdContactType = lens _cdContactType (\ s a -> s{_cdContactType = a});
 
@@ -395,9 +244,9 @@ instance FromJSON ContactDetail where
                      <*> (x .:? "CountryCode")
                      <*> (x .:? "ContactType"))
 
-instance Hashable ContactDetail
+instance Hashable ContactDetail where
 
-instance NFData ContactDetail
+instance NFData ContactDetail where
 
 instance ToJSON ContactDetail where
         toJSON ContactDetail'{..}
@@ -417,32 +266,35 @@ instance ToJSON ContactDetail where
                   ("CountryCode" .=) <$> _cdCountryCode,
                   ("ContactType" .=) <$> _cdContactType])
 
--- | /See:/ 'domainSuggestion' smart constructor.
+-- | Information about one suggested domain name.
+--
+--
+--
+-- /See:/ 'domainSuggestion' smart constructor.
 data DomainSuggestion = DomainSuggestion'
-    { _dAvailability :: !(Maybe Text)
-    , _dDomainName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dAvailability :: !(Maybe Text)
+  , _dDomainName   :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DomainSuggestion' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dAvailability'
+-- * 'dAvailability' - Whether the domain name is available for registering. Valid values:     * AVAILABLE    * The domain name is available.     * AVAILABLE_RESERVED    * The domain name is reserved under specific conditions.     * AVAILABLE_PREORDER    * The domain name is available and can be preordered.     * DONT_KNOW    * The TLD registry didn't reply with a definitive answer about whether the domain name is available. Amazon Route 53 can return this response for a variety of reasons, for example, the registry is performing maintenance. Try again later.     * PENDING    * The TLD registry didn't return a response in the expected amount of time. When the response is delayed, it usually takes just a few extra seconds. You can resubmit the request immediately.     * RESERVED    * The domain name has been reserved for another person or organization.     * UNAVAILABLE    * The domain name is not available.     * UNAVAILABLE_PREMIUM    * The domain name is not available.     * UNAVAILABLE_RESTRICTED    * The domain name is forbidden.
 --
--- * 'dDomainName'
+-- * 'dDomainName' - A suggested domain name.
 domainSuggestion
     :: DomainSuggestion
 domainSuggestion =
-    DomainSuggestion'
-    { _dAvailability = Nothing
-    , _dDomainName = Nothing
-    }
+  DomainSuggestion' {_dAvailability = Nothing, _dDomainName = Nothing}
 
--- | Undocumented member.
+
+-- | Whether the domain name is available for registering. Valid values:     * AVAILABLE    * The domain name is available.     * AVAILABLE_RESERVED    * The domain name is reserved under specific conditions.     * AVAILABLE_PREORDER    * The domain name is available and can be preordered.     * DONT_KNOW    * The TLD registry didn't reply with a definitive answer about whether the domain name is available. Amazon Route 53 can return this response for a variety of reasons, for example, the registry is performing maintenance. Try again later.     * PENDING    * The TLD registry didn't return a response in the expected amount of time. When the response is delayed, it usually takes just a few extra seconds. You can resubmit the request immediately.     * RESERVED    * The domain name has been reserved for another person or organization.     * UNAVAILABLE    * The domain name is not available.     * UNAVAILABLE_PREMIUM    * The domain name is not available.     * UNAVAILABLE_RESTRICTED    * The domain name is forbidden.
 dAvailability :: Lens' DomainSuggestion (Maybe Text)
 dAvailability = lens _dAvailability (\ s a -> s{_dAvailability = a});
 
--- | Undocumented member.
+-- | A suggested domain name.
 dDomainName :: Lens' DomainSuggestion (Maybe Text)
 dDomainName = lens _dDomainName (\ s a -> s{_dDomainName = a});
 
@@ -453,65 +305,59 @@ instance FromJSON DomainSuggestion where
                  DomainSuggestion' <$>
                    (x .:? "Availability") <*> (x .:? "DomainName"))
 
-instance Hashable DomainSuggestion
+instance Hashable DomainSuggestion where
 
-instance NFData DomainSuggestion
+instance NFData DomainSuggestion where
 
--- | /See:/ 'domainSummary' smart constructor.
+-- | Summary information about one domain.
+--
+--
+--
+-- /See:/ 'domainSummary' smart constructor.
 data DomainSummary = DomainSummary'
-    { _dsExpiry       :: !(Maybe POSIX)
-    , _dsTransferLock :: !(Maybe Bool)
-    , _dsAutoRenew    :: !(Maybe Bool)
-    , _dsDomainName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsExpiry       :: !(Maybe POSIX)
+  , _dsTransferLock :: !(Maybe Bool)
+  , _dsAutoRenew    :: !(Maybe Bool)
+  , _dsDomainName   :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DomainSummary' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsExpiry'
+-- * 'dsExpiry' - Expiration date of the domain in Coordinated Universal Time (UTC).
 --
--- * 'dsTransferLock'
+-- * 'dsTransferLock' - Indicates whether a domain is locked from unauthorized transfer to another party.
 --
--- * 'dsAutoRenew'
+-- * 'dsAutoRenew' - Indicates whether the domain is automatically renewed upon expiration.
 --
--- * 'dsDomainName'
+-- * 'dsDomainName' - The name of the domain that the summary information applies to.
 domainSummary
     :: Text -- ^ 'dsDomainName'
     -> DomainSummary
 domainSummary pDomainName_ =
-    DomainSummary'
-    { _dsExpiry = Nothing
-    , _dsTransferLock = Nothing
-    , _dsAutoRenew = Nothing
-    , _dsDomainName = pDomainName_
-    }
+  DomainSummary'
+  { _dsExpiry = Nothing
+  , _dsTransferLock = Nothing
+  , _dsAutoRenew = Nothing
+  , _dsDomainName = pDomainName_
+  }
+
 
 -- | Expiration date of the domain in Coordinated Universal Time (UTC).
---
--- Type: Long
 dsExpiry :: Lens' DomainSummary (Maybe UTCTime)
 dsExpiry = lens _dsExpiry (\ s a -> s{_dsExpiry = a}) . mapping _Time;
 
 -- | Indicates whether a domain is locked from unauthorized transfer to another party.
---
--- Type: Boolean
---
--- Valid values: 'True' | 'False'
 dsTransferLock :: Lens' DomainSummary (Maybe Bool)
 dsTransferLock = lens _dsTransferLock (\ s a -> s{_dsTransferLock = a});
 
 -- | Indicates whether the domain is automatically renewed upon expiration.
---
--- Type: Boolean
---
--- Valid values: 'True' | 'False'
 dsAutoRenew :: Lens' DomainSummary (Maybe Bool)
 dsAutoRenew = lens _dsAutoRenew (\ s a -> s{_dsAutoRenew = a});
 
--- | The name of a domain.
---
--- Type: String
+-- | The name of the domain that the summary information applies to.
 dsDomainName :: Lens' DomainSummary Text
 dsDomainName = lens _dsDomainName (\ s a -> s{_dsDomainName = a});
 
@@ -524,60 +370,70 @@ instance FromJSON DomainSummary where
                      (x .:? "AutoRenew")
                      <*> (x .: "DomainName"))
 
-instance Hashable DomainSummary
+instance Hashable DomainSummary where
 
-instance NFData DomainSummary
+instance NFData DomainSummary where
+
+-- | /See:/ 'domainTransferability' smart constructor.
+newtype DomainTransferability = DomainTransferability'
+  { _dtTransferable :: Maybe Transferable
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DomainTransferability' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtTransferable' - Undocumented member.
+domainTransferability
+    :: DomainTransferability
+domainTransferability = DomainTransferability' {_dtTransferable = Nothing}
+
+
+-- | Undocumented member.
+dtTransferable :: Lens' DomainTransferability (Maybe Transferable)
+dtTransferable = lens _dtTransferable (\ s a -> s{_dtTransferable = a});
+
+instance FromJSON DomainTransferability where
+        parseJSON
+          = withObject "DomainTransferability"
+              (\ x ->
+                 DomainTransferability' <$> (x .:? "Transferable"))
+
+instance Hashable DomainTransferability where
+
+instance NFData DomainTransferability where
 
 -- | ExtraParam includes the following elements.
 --
+--
+--
 -- /See:/ 'extraParam' smart constructor.
 data ExtraParam = ExtraParam'
-    { _epName  :: !ExtraParamName
-    , _epValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _epName  :: !ExtraParamName
+  , _epValue :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExtraParam' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'epName'
+-- * 'epName' - Name of the additional parameter required by the top-level domain.
 --
--- * 'epValue'
+-- * 'epValue' - Values corresponding to the additional parameter names required by some top-level domains.
 extraParam
     :: ExtraParamName -- ^ 'epName'
     -> Text -- ^ 'epValue'
     -> ExtraParam
-extraParam pName_ pValue_ =
-    ExtraParam'
-    { _epName = pName_
-    , _epValue = pValue_
-    }
+extraParam pName_ pValue_ = ExtraParam' {_epName = pName_, _epValue = pValue_}
+
 
 -- | Name of the additional parameter required by the top-level domain.
---
--- Type: String
---
--- Default: None
---
--- Valid values: 'DUNS_NUMBER' | 'BRAND_NUMBER' | 'BIRTH_DEPARTMENT' | 'BIRTH_DATE_IN_YYYY_MM_DD' | 'BIRTH_COUNTRY' | 'BIRTH_CITY' | 'DOCUMENT_NUMBER' | 'AU_ID_NUMBER' | 'AU_ID_TYPE' | 'CA_LEGAL_TYPE' | 'CA_BUSINESS_ENTITY_TYPE' |'ES_IDENTIFICATION' | 'ES_IDENTIFICATION_TYPE' | 'ES_LEGAL_FORM' | 'FI_BUSINESS_NUMBER' | 'FI_ID_NUMBER' | 'IT_PIN' | 'RU_PASSPORT_DATA' | 'SE_ID_NUMBER' | 'SG_ID_NUMBER' | 'VAT_NUMBER'
---
--- Parent: 'ExtraParams'
---
--- Required: Yes
 epName :: Lens' ExtraParam ExtraParamName
 epName = lens _epName (\ s a -> s{_epName = a});
 
 -- | Values corresponding to the additional parameter names required by some top-level domains.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 2048 characters.
---
--- Parent: 'ExtraParams'
---
--- Required: Yes
 epValue :: Lens' ExtraParam Text
 epValue = lens _epValue (\ s a -> s{_epValue = a});
 
@@ -587,9 +443,9 @@ instance FromJSON ExtraParam where
               (\ x ->
                  ExtraParam' <$> (x .: "Name") <*> (x .: "Value"))
 
-instance Hashable ExtraParam
+instance Hashable ExtraParam where
 
-instance NFData ExtraParam
+instance NFData ExtraParam where
 
 instance ToJSON ExtraParam where
         toJSON ExtraParam'{..}
@@ -600,45 +456,33 @@ instance ToJSON ExtraParam where
 
 -- | Nameserver includes the following elements.
 --
+--
+--
 -- /See:/ 'nameserver' smart constructor.
 data Nameserver = Nameserver'
-    { _nGlueIPs :: !(Maybe [Text])
-    , _nName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nGlueIPs :: !(Maybe [Text])
+  , _nName    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Nameserver' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'nGlueIPs'
+-- * 'nGlueIPs' - Glue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com. Constraints: The list can contain only one IPv4 and one IPv6 address.
 --
--- * 'nName'
+-- * 'nName' - The fully qualified host name of the name server. Constraint: Maximum 255 characters
 nameserver
     :: Text -- ^ 'nName'
     -> Nameserver
-nameserver pName_ =
-    Nameserver'
-    { _nGlueIPs = Nothing
-    , _nName = pName_
-    }
+nameserver pName_ = Nameserver' {_nGlueIPs = Nothing, _nName = pName_}
 
--- | Glue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com.
---
--- Type: List of IP addresses.
---
--- Constraints: The list can contain only one IPv4 and one IPv6 address.
---
--- Parent: 'Nameservers'
+
+-- | Glue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com. Constraints: The list can contain only one IPv4 and one IPv6 address.
 nGlueIPs :: Lens' Nameserver [Text]
 nGlueIPs = lens _nGlueIPs (\ s a -> s{_nGlueIPs = a}) . _Default . _Coerce;
 
--- | The fully qualified host name of the name server.
---
--- Type: String
---
--- Constraint: Maximum 255 characterss
---
--- Parent: 'Nameservers'
+-- | The fully qualified host name of the name server. Constraint: Maximum 255 characters
 nName :: Lens' Nameserver Text
 nName = lens _nName (\ s a -> s{_nName = a});
 
@@ -649,9 +493,9 @@ instance FromJSON Nameserver where
                  Nameserver' <$>
                    (x .:? "GlueIps" .!= mempty) <*> (x .: "Name"))
 
-instance Hashable Nameserver
+instance Hashable Nameserver where
 
-instance NFData Nameserver
+instance NFData Nameserver where
 
 instance ToJSON Nameserver where
         toJSON Nameserver'{..}
@@ -662,25 +506,28 @@ instance ToJSON Nameserver where
 
 -- | OperationSummary includes the following elements.
 --
+--
+--
 -- /See:/ 'operationSummary' smart constructor.
 data OperationSummary = OperationSummary'
-    { _osOperationId   :: !Text
-    , _osStatus        :: !OperationStatus
-    , _osType          :: !OperationType
-    , _osSubmittedDate :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _osOperationId   :: !Text
+  , _osStatus        :: !OperationStatus
+  , _osType          :: !OperationType
+  , _osSubmittedDate :: !POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OperationSummary' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'osOperationId'
+-- * 'osOperationId' - Identifier returned to track the requested action.
 --
--- * 'osStatus'
+-- * 'osStatus' - The current status of the requested operation in the system.
 --
--- * 'osType'
+-- * 'osType' - Type of the action requested.
 --
--- * 'osSubmittedDate'
+-- * 'osSubmittedDate' - The date when the request was submitted.
 operationSummary
     :: Text -- ^ 'osOperationId'
     -> OperationStatus -- ^ 'osStatus'
@@ -688,30 +535,23 @@ operationSummary
     -> UTCTime -- ^ 'osSubmittedDate'
     -> OperationSummary
 operationSummary pOperationId_ pStatus_ pType_ pSubmittedDate_ =
-    OperationSummary'
-    { _osOperationId = pOperationId_
-    , _osStatus = pStatus_
-    , _osType = pType_
-    , _osSubmittedDate = _Time # pSubmittedDate_
-    }
+  OperationSummary'
+  { _osOperationId = pOperationId_
+  , _osStatus = pStatus_
+  , _osType = pType_
+  , _osSubmittedDate = _Time # pSubmittedDate_
+  }
+
 
 -- | Identifier returned to track the requested action.
---
--- Type: String
 osOperationId :: Lens' OperationSummary Text
 osOperationId = lens _osOperationId (\ s a -> s{_osOperationId = a});
 
 -- | The current status of the requested operation in the system.
---
--- Type: String
 osStatus :: Lens' OperationSummary OperationStatus
 osStatus = lens _osStatus (\ s a -> s{_osStatus = a});
 
 -- | Type of the action requested.
---
--- Type: String
---
--- Valid values: 'REGISTER_DOMAIN' | 'DELETE_DOMAIN' | 'TRANSFER_IN_DOMAIN' | 'UPDATE_DOMAIN_CONTACT' | 'UPDATE_NAMESERVER' | 'CHANGE_PRIVACY_PROTECTION' | 'DOMAIN_LOCK'
 osType :: Lens' OperationSummary OperationType
 osType = lens _osType (\ s a -> s{_osType = a});
 
@@ -728,58 +568,38 @@ instance FromJSON OperationSummary where
                      (x .: "Type")
                      <*> (x .: "SubmittedDate"))
 
-instance Hashable OperationSummary
+instance Hashable OperationSummary where
 
-instance NFData OperationSummary
+instance NFData OperationSummary where
 
 -- | Each tag includes the following elements.
 --
+--
+--
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue'
+-- * 'tagValue' - The value of a tag. Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@" Constraints: Each value can be 0-256 characters long.
 --
--- * 'tagKey'
+-- * 'tagKey' - The key (name) of a tag. Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@" Constraints: Each key can be 1-128 characters long.
 tag
     :: Tag
-tag =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = Nothing
-    }
+tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
 
--- | The value of a tag.
---
--- Type: String
---
--- Default: None
---
--- Valid values: A-Z, a-z, 0-9, space, \".:\/=+\\-\'\"
---
--- Constraints: Each value can be 0-256 characters long.
---
--- Required: Yes
+
+-- | The value of a tag. Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@" Constraints: Each value can be 0-256 characters long.
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
--- | The key (name) of a tag.
---
--- Type: String
---
--- Default: None
---
--- Valid values: A-Z, a-z, 0-9, space, \".:\/=+\\-\'\"
---
--- Constraints: Each key can be 1-128 characters long.
---
--- Required: Yes
+-- | The key (name) of a tag. Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@" Constraints: Each key can be 1-128 characters long.
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
@@ -788,9 +608,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteClientCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the < ClientCertificate> resource.
+-- Deletes the 'ClientCertificate' resource.
+--
+--
 module Network.AWS.APIGateway.DeleteClientCertificate
     (
     -- * Creating a Request
@@ -32,34 +34,36 @@ module Network.AWS.APIGateway.DeleteClientCertificate
     , DeleteClientCertificateResponse
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | A request to delete the < ClientCertificate> resource.
+-- | A request to delete the 'ClientCertificate' resource.
+--
+--
 --
 -- /See:/ 'deleteClientCertificate' smart constructor.
 newtype DeleteClientCertificate = DeleteClientCertificate'
-    { _dccClientCertificateId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dccClientCertificateId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteClientCertificate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dccClientCertificateId'
+-- * 'dccClientCertificateId' - The identifier of the 'ClientCertificate' resource to be deleted.
 deleteClientCertificate
     :: Text -- ^ 'dccClientCertificateId'
     -> DeleteClientCertificate
 deleteClientCertificate pClientCertificateId_ =
-    DeleteClientCertificate'
-    { _dccClientCertificateId = pClientCertificateId_
-    }
+  DeleteClientCertificate' {_dccClientCertificateId = pClientCertificateId_}
 
--- | The identifier of the < ClientCertificate> resource to be deleted.
+
+-- | The identifier of the 'ClientCertificate' resource to be deleted.
 dccClientCertificateId :: Lens' DeleteClientCertificate Text
 dccClientCertificateId = lens _dccClientCertificateId (\ s a -> s{_dccClientCertificateId = a});
 
@@ -70,9 +74,9 @@ instance AWSRequest DeleteClientCertificate where
         response
           = receiveNull DeleteClientCertificateResponse'
 
-instance Hashable DeleteClientCertificate
+instance Hashable DeleteClientCertificate where
 
-instance NFData DeleteClientCertificate
+instance NFData DeleteClientCertificate where
 
 instance ToHeaders DeleteClientCertificate where
         toHeaders
@@ -91,8 +95,9 @@ instance ToQuery DeleteClientCertificate where
 
 -- | /See:/ 'deleteClientCertificateResponse' smart constructor.
 data DeleteClientCertificateResponse =
-    DeleteClientCertificateResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteClientCertificateResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteClientCertificateResponse' with the minimum fields required to make a request.
 --
@@ -100,4 +105,5 @@ deleteClientCertificateResponse
     :: DeleteClientCertificateResponse
 deleteClientCertificateResponse = DeleteClientCertificateResponse'
 
-instance NFData DeleteClientCertificateResponse
+
+instance NFData DeleteClientCertificateResponse where

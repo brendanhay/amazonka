@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ECS.SubmitContainerStateChange
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This action is only used by the Amazon EC2 Container Service agent, and it is not intended for use outside of the agent.
---
 -- Sent to acknowledge that a container changed states.
+--
+--
 module Network.AWS.ECS.SubmitContainerStateChange
     (
     -- * Creating a Request
@@ -43,53 +43,55 @@ module Network.AWS.ECS.SubmitContainerStateChange
     , scscrsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'submitContainerStateChange' smart constructor.
 data SubmitContainerStateChange = SubmitContainerStateChange'
-    { _scscNetworkBindings :: !(Maybe [NetworkBinding])
-    , _scscStatus          :: !(Maybe Text)
-    , _scscCluster         :: !(Maybe Text)
-    , _scscContainerName   :: !(Maybe Text)
-    , _scscReason          :: !(Maybe Text)
-    , _scscExitCode        :: !(Maybe Int)
-    , _scscTask            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scscNetworkBindings :: !(Maybe [NetworkBinding])
+  , _scscStatus          :: !(Maybe Text)
+  , _scscCluster         :: !(Maybe Text)
+  , _scscContainerName   :: !(Maybe Text)
+  , _scscReason          :: !(Maybe Text)
+  , _scscExitCode        :: !(Maybe Int)
+  , _scscTask            :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SubmitContainerStateChange' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scscNetworkBindings'
+-- * 'scscNetworkBindings' - The network bindings of the container.
 --
--- * 'scscStatus'
+-- * 'scscStatus' - The status of the state change request.
 --
--- * 'scscCluster'
+-- * 'scscCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container.
 --
--- * 'scscContainerName'
+-- * 'scscContainerName' - The name of the container.
 --
--- * 'scscReason'
+-- * 'scscReason' - The reason for the state change request.
 --
--- * 'scscExitCode'
+-- * 'scscExitCode' - The exit code returned for the state change request.
 --
--- * 'scscTask'
+-- * 'scscTask' - The task ID or full Amazon Resource Name (ARN) of the task that hosts the container.
 submitContainerStateChange
     :: SubmitContainerStateChange
 submitContainerStateChange =
-    SubmitContainerStateChange'
-    { _scscNetworkBindings = Nothing
-    , _scscStatus = Nothing
-    , _scscCluster = Nothing
-    , _scscContainerName = Nothing
-    , _scscReason = Nothing
-    , _scscExitCode = Nothing
-    , _scscTask = Nothing
-    }
+  SubmitContainerStateChange'
+  { _scscNetworkBindings = Nothing
+  , _scscStatus = Nothing
+  , _scscCluster = Nothing
+  , _scscContainerName = Nothing
+  , _scscReason = Nothing
+  , _scscExitCode = Nothing
+  , _scscTask = Nothing
+  }
+
 
 -- | The network bindings of the container.
 scscNetworkBindings :: Lens' SubmitContainerStateChange [NetworkBinding]
@@ -129,9 +131,9 @@ instance AWSRequest SubmitContainerStateChange where
                  SubmitContainerStateChangeResponse' <$>
                    (x .?> "acknowledgment") <*> (pure (fromEnum s)))
 
-instance Hashable SubmitContainerStateChange
+instance Hashable SubmitContainerStateChange where
 
-instance NFData SubmitContainerStateChange
+instance NFData SubmitContainerStateChange where
 
 instance ToHeaders SubmitContainerStateChange where
         toHeaders
@@ -163,32 +165,33 @@ instance ToQuery SubmitContainerStateChange where
 
 -- | /See:/ 'submitContainerStateChangeResponse' smart constructor.
 data SubmitContainerStateChangeResponse = SubmitContainerStateChangeResponse'
-    { _scscrsAcknowledgment :: !(Maybe Text)
-    , _scscrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scscrsAcknowledgment :: !(Maybe Text)
+  , _scscrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SubmitContainerStateChangeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scscrsAcknowledgment'
+-- * 'scscrsAcknowledgment' - Acknowledgement of the state change.
 --
--- * 'scscrsResponseStatus'
+-- * 'scscrsResponseStatus' - -- | The response status code.
 submitContainerStateChangeResponse
     :: Int -- ^ 'scscrsResponseStatus'
     -> SubmitContainerStateChangeResponse
 submitContainerStateChangeResponse pResponseStatus_ =
-    SubmitContainerStateChangeResponse'
-    { _scscrsAcknowledgment = Nothing
-    , _scscrsResponseStatus = pResponseStatus_
-    }
+  SubmitContainerStateChangeResponse'
+  {_scscrsAcknowledgment = Nothing, _scscrsResponseStatus = pResponseStatus_}
+
 
 -- | Acknowledgement of the state change.
 scscrsAcknowledgment :: Lens' SubmitContainerStateChangeResponse (Maybe Text)
 scscrsAcknowledgment = lens _scscrsAcknowledgment (\ s a -> s{_scscrsAcknowledgment = a});
 
--- | The response status code.
+-- | -- | The response status code.
 scscrsResponseStatus :: Lens' SubmitContainerStateChangeResponse Int
 scscrsResponseStatus = lens _scscrsResponseStatus (\ s a -> s{_scscrsResponseStatus = a});
 
 instance NFData SubmitContainerStateChangeResponse
+         where

@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeConfigurationRecorderStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the current status of the specified configuration recorder. If a configuration recorder is not specified, this action returns the status of all configuration recorder associated with the account.
 --
--- Currently, you can specify only one configuration recorder per account.
+--
 module Network.AWS.Config.DescribeConfigurationRecorderStatus
     (
     -- * Creating a Request
@@ -37,38 +37,42 @@ module Network.AWS.Config.DescribeConfigurationRecorderStatus
     , dcrsrsResponseStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | The input for the < DescribeConfigurationRecorderStatus> action.
+-- | The input for the 'DescribeConfigurationRecorderStatus' action.
+--
+--
 --
 -- /See:/ 'describeConfigurationRecorderStatus' smart constructor.
 newtype DescribeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus'
-    { _dcrsConfigurationRecorderNames :: Maybe [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrsConfigurationRecorderNames :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConfigurationRecorderStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrsConfigurationRecorderNames'
+-- * 'dcrsConfigurationRecorderNames' - The name(s) of the configuration recorder. If the name is not specified, the action returns the current status of all the configuration recorders associated with the account.
 describeConfigurationRecorderStatus
     :: DescribeConfigurationRecorderStatus
 describeConfigurationRecorderStatus =
-    DescribeConfigurationRecorderStatus'
-    { _dcrsConfigurationRecorderNames = Nothing
-    }
+  DescribeConfigurationRecorderStatus'
+  {_dcrsConfigurationRecorderNames = Nothing}
+
 
 -- | The name(s) of the configuration recorder. If the name is not specified, the action returns the current status of all the configuration recorders associated with the account.
 dcrsConfigurationRecorderNames :: Lens' DescribeConfigurationRecorderStatus [Text]
 dcrsConfigurationRecorderNames = lens _dcrsConfigurationRecorderNames (\ s a -> s{_dcrsConfigurationRecorderNames = a}) . _Default . _Coerce;
 
 instance AWSRequest
-         DescribeConfigurationRecorderStatus where
+           DescribeConfigurationRecorderStatus
+         where
         type Rs DescribeConfigurationRecorderStatus =
              DescribeConfigurationRecorderStatusResponse
         request = postJSON config
@@ -80,11 +84,14 @@ instance AWSRequest
                      (pure (fromEnum s)))
 
 instance Hashable DescribeConfigurationRecorderStatus
+         where
 
 instance NFData DescribeConfigurationRecorderStatus
+         where
 
 instance ToHeaders
-         DescribeConfigurationRecorderStatus where
+           DescribeConfigurationRecorderStatus
+         where
         toHeaders
           = const
               (mconcat
@@ -110,37 +117,42 @@ instance ToQuery DescribeConfigurationRecorderStatus
          where
         toQuery = const mempty
 
--- | The output for the < DescribeConfigurationRecorderStatus> action in JSON format.
+-- | The output for the 'DescribeConfigurationRecorderStatus' action in JSON format.
+--
+--
 --
 -- /See:/ 'describeConfigurationRecorderStatusResponse' smart constructor.
 data DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'
-    { _dcrsrsConfigurationRecordersStatus :: !(Maybe [ConfigurationRecorderStatus])
-    , _dcrsrsResponseStatus               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrsrsConfigurationRecordersStatus :: !(Maybe [ConfigurationRecorderStatus])
+  , _dcrsrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConfigurationRecorderStatusResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrsrsConfigurationRecordersStatus'
+-- * 'dcrsrsConfigurationRecordersStatus' - A list that contains status of the specified recorders.
 --
--- * 'dcrsrsResponseStatus'
+-- * 'dcrsrsResponseStatus' - -- | The response status code.
 describeConfigurationRecorderStatusResponse
     :: Int -- ^ 'dcrsrsResponseStatus'
     -> DescribeConfigurationRecorderStatusResponse
 describeConfigurationRecorderStatusResponse pResponseStatus_ =
-    DescribeConfigurationRecorderStatusResponse'
-    { _dcrsrsConfigurationRecordersStatus = Nothing
-    , _dcrsrsResponseStatus = pResponseStatus_
-    }
+  DescribeConfigurationRecorderStatusResponse'
+  { _dcrsrsConfigurationRecordersStatus = Nothing
+  , _dcrsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list that contains status of the specified recorders.
 dcrsrsConfigurationRecordersStatus :: Lens' DescribeConfigurationRecorderStatusResponse [ConfigurationRecorderStatus]
 dcrsrsConfigurationRecordersStatus = lens _dcrsrsConfigurationRecordersStatus (\ s a -> s{_dcrsrsConfigurationRecordersStatus = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dcrsrsResponseStatus :: Lens' DescribeConfigurationRecorderStatusResponse Int
 dcrsrsResponseStatus = lens _dcrsrsResponseStatus (\ s a -> s{_dcrsrsResponseStatus = a});
 
 instance NFData
-         DescribeConfigurationRecorderStatusResponse
+           DescribeConfigurationRecorderStatusResponse
+         where

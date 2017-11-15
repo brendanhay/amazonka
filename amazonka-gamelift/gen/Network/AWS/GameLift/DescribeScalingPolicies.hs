@@ -12,15 +12,69 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeScalingPolicies
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves all scaling policies applied to a fleet.
 --
--- To get a fleet\'s scaling policies, specify the fleet ID. You can filter this request by policy status, such as to retrieve only active scaling policies. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, set of < ScalingPolicy> objects is returned for the fleet.
+--
+-- To get a fleet's scaling policies, specify the fleet ID. You can filter this request by policy status, such as to retrieve only active scaling policies. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, set of 'ScalingPolicy' objects is returned for the fleet.
+--
+-- Fleet-related operations include:
+--
+--     * 'CreateFleet'
+--
+--     * 'ListFleets'
+--
+--     * Describe fleets:
+--
+--     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetPortSettings'
+--
+--     * 'DescribeFleetUtilization'
+--
+--     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeFleetEvents'
+--
+--
+--
+--     * Update fleets:
+--
+--     * 'UpdateFleetAttributes'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'UpdateFleetPortSettings'
+--
+--     * 'UpdateRuntimeConfiguration'
+--
+--
+--
+--     * Manage fleet capacity:
+--
+--     * 'DescribeFleetCapacity'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'PutScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeScalingPolicies' (automatic scaling)
+--
+--     * 'DeleteScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeEC2InstanceLimits'
+--
+--
+--
+--     * 'DeleteFleet'
+--
+--
+--
 module Network.AWS.GameLift.DescribeScalingPolicies
     (
     -- * Creating a Request
@@ -41,66 +95,62 @@ module Network.AWS.GameLift.DescribeScalingPolicies
     , dsprsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'describeScalingPolicies' smart constructor.
 data DescribeScalingPolicies = DescribeScalingPolicies'
-    { _dNextToken    :: !(Maybe Text)
-    , _dStatusFilter :: !(Maybe ScalingStatusType)
-    , _dLimit        :: !(Maybe Nat)
-    , _dFleetId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dNextToken    :: !(Maybe Text)
+  , _dStatusFilter :: !(Maybe ScalingStatusType)
+  , _dLimit        :: !(Maybe Nat)
+  , _dFleetId      :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScalingPolicies' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dNextToken'
+-- * 'dNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 --
--- * 'dStatusFilter'
+-- * 'dStatusFilter' - Scaling policy status to filter results on. A scaling policy is only in force when in an @ACTIVE@ status.     * __ACTIVE__ -- The scaling policy is currently in force.     * __UPDATEREQUESTED__ -- A request to update the scaling policy has been received.     * __UPDATING__ -- A change is being made to the scaling policy.     * __DELETEREQUESTED__ -- A request to delete the scaling policy has been received.     * __DELETING__ -- The scaling policy is being deleted.     * __DELETED__ -- The scaling policy has been deleted.     * __ERROR__ -- An error occurred in creating the policy. It should be removed and recreated.
 --
--- * 'dLimit'
+-- * 'dLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 --
--- * 'dFleetId'
+-- * 'dFleetId' - Unique identifier for a fleet to retrieve scaling policies for.
 describeScalingPolicies
     :: Text -- ^ 'dFleetId'
     -> DescribeScalingPolicies
 describeScalingPolicies pFleetId_ =
-    DescribeScalingPolicies'
-    { _dNextToken = Nothing
-    , _dStatusFilter = Nothing
-    , _dLimit = Nothing
-    , _dFleetId = pFleetId_
-    }
+  DescribeScalingPolicies'
+  { _dNextToken = Nothing
+  , _dStatusFilter = Nothing
+  , _dLimit = Nothing
+  , _dFleetId = pFleetId_
+  }
 
--- | Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 dNextToken :: Lens' DescribeScalingPolicies (Maybe Text)
 dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
--- | Scaling policy status to filter results on. A scaling policy is only in force when in an 'ACTIVE' status.
---
--- -   __ACTIVE__ – The scaling policy is currently in force.
--- -   __UPDATEREQUESTED__ – A request to update the scaling policy has been received.
--- -   __UPDATING__ – A change is being made to the scaling policy.
--- -   __DELETEREQUESTED__ – A request to delete the scaling policy has been received.
--- -   __DELETING__ – The scaling policy is being deleted.
--- -   __DELETED__ – The scaling policy has been deleted.
--- -   __ERROR__ – An error occurred in creating the policy. It should be removed and recreated.
+-- | Scaling policy status to filter results on. A scaling policy is only in force when in an @ACTIVE@ status.     * __ACTIVE__ -- The scaling policy is currently in force.     * __UPDATEREQUESTED__ -- A request to update the scaling policy has been received.     * __UPDATING__ -- A change is being made to the scaling policy.     * __DELETEREQUESTED__ -- A request to delete the scaling policy has been received.     * __DELETING__ -- The scaling policy is being deleted.     * __DELETED__ -- The scaling policy has been deleted.     * __ERROR__ -- An error occurred in creating the policy. It should be removed and recreated.
 dStatusFilter :: Lens' DescribeScalingPolicies (Maybe ScalingStatusType)
 dStatusFilter = lens _dStatusFilter (\ s a -> s{_dStatusFilter = a});
 
--- | Maximum number of results to return. Use this parameter with 'NextToken' to get results as a set of sequential pages.
+-- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 dLimit :: Lens' DescribeScalingPolicies (Maybe Natural)
 dLimit = lens _dLimit (\ s a -> s{_dLimit = a}) . mapping _Nat;
 
--- | Unique identifier for a fleet. Specify the fleet to retrieve scaling policies for.
+-- | Unique identifier for a fleet to retrieve scaling policies for.
 dFleetId :: Lens' DescribeScalingPolicies Text
 dFleetId = lens _dFleetId (\ s a -> s{_dFleetId = a});
 
@@ -116,9 +166,9 @@ instance AWSRequest DescribeScalingPolicies where
                      (x .?> "ScalingPolicies" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeScalingPolicies
+instance Hashable DescribeScalingPolicies where
 
-instance NFData DescribeScalingPolicies
+instance NFData DescribeScalingPolicies where
 
 instance ToHeaders DescribeScalingPolicies where
         toHeaders
@@ -146,35 +196,37 @@ instance ToQuery DescribeScalingPolicies where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'describeScalingPoliciesResponse' smart constructor.
 data DescribeScalingPoliciesResponse = DescribeScalingPoliciesResponse'
-    { _dsprsNextToken       :: !(Maybe Text)
-    , _dsprsScalingPolicies :: !(Maybe [ScalingPolicy])
-    , _dsprsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsprsNextToken       :: !(Maybe Text)
+  , _dsprsScalingPolicies :: !(Maybe [ScalingPolicy])
+  , _dsprsResponseStatus  :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScalingPoliciesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsprsNextToken'
+-- * 'dsprsNextToken' - Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 --
--- * 'dsprsScalingPolicies'
+-- * 'dsprsScalingPolicies' - Collection of objects containing the scaling policies matching the request.
 --
--- * 'dsprsResponseStatus'
+-- * 'dsprsResponseStatus' - -- | The response status code.
 describeScalingPoliciesResponse
     :: Int -- ^ 'dsprsResponseStatus'
     -> DescribeScalingPoliciesResponse
 describeScalingPoliciesResponse pResponseStatus_ =
-    DescribeScalingPoliciesResponse'
-    { _dsprsNextToken = Nothing
-    , _dsprsScalingPolicies = Nothing
-    , _dsprsResponseStatus = pResponseStatus_
-    }
+  DescribeScalingPoliciesResponse'
+  { _dsprsNextToken = Nothing
+  , _dsprsScalingPolicies = Nothing
+  , _dsprsResponseStatus = pResponseStatus_
+  }
 
--- | Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
---
--- If a request has a limit that exactly matches the number of remaining results, a token is returned even though there are no more results to retrieve.
+
+-- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dsprsNextToken :: Lens' DescribeScalingPoliciesResponse (Maybe Text)
 dsprsNextToken = lens _dsprsNextToken (\ s a -> s{_dsprsNextToken = a});
 
@@ -182,8 +234,8 @@ dsprsNextToken = lens _dsprsNextToken (\ s a -> s{_dsprsNextToken = a});
 dsprsScalingPolicies :: Lens' DescribeScalingPoliciesResponse [ScalingPolicy]
 dsprsScalingPolicies = lens _dsprsScalingPolicies (\ s a -> s{_dsprsScalingPolicies = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dsprsResponseStatus :: Lens' DescribeScalingPoliciesResponse Int
 dsprsResponseStatus = lens _dsprsResponseStatus (\ s a -> s{_dsprsResponseStatus = a});
 
-instance NFData DescribeScalingPoliciesResponse
+instance NFData DescribeScalingPoliciesResponse where

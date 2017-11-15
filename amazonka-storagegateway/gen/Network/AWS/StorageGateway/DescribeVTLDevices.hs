@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeVTLDevices
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a description of virtual tape library (VTL) devices for the specified gateway. In the response, AWS Storage Gateway returns VTL device information.
+-- Returns a description of virtual tape library (VTL) devices for the specified tape gateway. In the response, AWS Storage Gateway returns VTL device information.
 --
--- The list of VTL devices must be from one gateway.
+--
+-- This operation is only supported in the tape gateway architecture.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.DescribeVTLDevices
@@ -44,45 +46,49 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
     , dvtldrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | DescribeVTLDevicesInput
 --
+--
+--
 -- /See:/ 'describeVTLDevices' smart constructor.
 data DescribeVTLDevices = DescribeVTLDevices'
-    { _dvtldMarker        :: !(Maybe Text)
-    , _dvtldLimit         :: !(Maybe Nat)
-    , _dvtldVTLDeviceARNs :: !(Maybe [Text])
-    , _dvtldGatewayARN    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvtldMarker        :: !(Maybe Text)
+  , _dvtldLimit         :: !(Maybe Nat)
+  , _dvtldVTLDeviceARNs :: !(Maybe [Text])
+  , _dvtldGatewayARN    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVTLDevices' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvtldMarker'
+-- * 'dvtldMarker' - An opaque string that indicates the position at which to begin describing the VTL devices.
 --
--- * 'dvtldLimit'
+-- * 'dvtldLimit' - Specifies that the number of VTL devices described be limited to the specified number.
 --
--- * 'dvtldVTLDeviceARNs'
+-- * 'dvtldVTLDeviceARNs' - An array of strings, where each string represents the Amazon Resource Name (ARN) of a VTL device.
 --
--- * 'dvtldGatewayARN'
+-- * 'dvtldGatewayARN' - Undocumented member.
 describeVTLDevices
     :: Text -- ^ 'dvtldGatewayARN'
     -> DescribeVTLDevices
 describeVTLDevices pGatewayARN_ =
-    DescribeVTLDevices'
-    { _dvtldMarker = Nothing
-    , _dvtldLimit = Nothing
-    , _dvtldVTLDeviceARNs = Nothing
-    , _dvtldGatewayARN = pGatewayARN_
-    }
+  DescribeVTLDevices'
+  { _dvtldMarker = Nothing
+  , _dvtldLimit = Nothing
+  , _dvtldVTLDeviceARNs = Nothing
+  , _dvtldGatewayARN = pGatewayARN_
+  }
+
 
 -- | An opaque string that indicates the position at which to begin describing the VTL devices.
 dvtldMarker :: Lens' DescribeVTLDevices (Maybe Text)
@@ -93,8 +99,6 @@ dvtldLimit :: Lens' DescribeVTLDevices (Maybe Natural)
 dvtldLimit = lens _dvtldLimit (\ s a -> s{_dvtldLimit = a}) . mapping _Nat;
 
 -- | An array of strings, where each string represents the Amazon Resource Name (ARN) of a VTL device.
---
--- All of the specified VTL devices must be from the same gateway. If no VTL devices are specified, the result will contain all devices on the specified gateway.
 dvtldVTLDeviceARNs :: Lens' DescribeVTLDevices [Text]
 dvtldVTLDeviceARNs = lens _dvtldVTLDeviceARNs (\ s a -> s{_dvtldVTLDeviceARNs = a}) . _Default . _Coerce;
 
@@ -122,9 +126,9 @@ instance AWSRequest DescribeVTLDevices where
                      <*> (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeVTLDevices
+instance Hashable DescribeVTLDevices where
 
-instance NFData DescribeVTLDevices
+instance NFData DescribeVTLDevices where
 
 instance ToHeaders DescribeVTLDevices where
         toHeaders
@@ -153,35 +157,39 @@ instance ToQuery DescribeVTLDevices where
 
 -- | DescribeVTLDevicesOutput
 --
+--
+--
 -- /See:/ 'describeVTLDevicesResponse' smart constructor.
 data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
-    { _dvtldrsVTLDevices     :: !(Maybe [VTLDevice])
-    , _dvtldrsGatewayARN     :: !(Maybe Text)
-    , _dvtldrsMarker         :: !(Maybe Text)
-    , _dvtldrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvtldrsVTLDevices     :: !(Maybe [VTLDevice])
+  , _dvtldrsGatewayARN     :: !(Maybe Text)
+  , _dvtldrsMarker         :: !(Maybe Text)
+  , _dvtldrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVTLDevicesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvtldrsVTLDevices'
+-- * 'dvtldrsVTLDevices' - An array of VTL device objects composed of the Amazon Resource Name(ARN) of the VTL devices.
 --
--- * 'dvtldrsGatewayARN'
+-- * 'dvtldrsGatewayARN' - Undocumented member.
 --
--- * 'dvtldrsMarker'
+-- * 'dvtldrsMarker' - An opaque string that indicates the position at which the VTL devices that were fetched for description ended. Use the marker in your next request to fetch the next set of VTL devices in the list. If there are no more VTL devices to describe, this field does not appear in the response.
 --
--- * 'dvtldrsResponseStatus'
+-- * 'dvtldrsResponseStatus' - -- | The response status code.
 describeVTLDevicesResponse
     :: Int -- ^ 'dvtldrsResponseStatus'
     -> DescribeVTLDevicesResponse
 describeVTLDevicesResponse pResponseStatus_ =
-    DescribeVTLDevicesResponse'
-    { _dvtldrsVTLDevices = Nothing
-    , _dvtldrsGatewayARN = Nothing
-    , _dvtldrsMarker = Nothing
-    , _dvtldrsResponseStatus = pResponseStatus_
-    }
+  DescribeVTLDevicesResponse'
+  { _dvtldrsVTLDevices = Nothing
+  , _dvtldrsGatewayARN = Nothing
+  , _dvtldrsMarker = Nothing
+  , _dvtldrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of VTL device objects composed of the Amazon Resource Name(ARN) of the VTL devices.
 dvtldrsVTLDevices :: Lens' DescribeVTLDevicesResponse [VTLDevice]
@@ -195,8 +203,8 @@ dvtldrsGatewayARN = lens _dvtldrsGatewayARN (\ s a -> s{_dvtldrsGatewayARN = a})
 dvtldrsMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
 dvtldrsMarker = lens _dvtldrsMarker (\ s a -> s{_dvtldrsMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dvtldrsResponseStatus :: Lens' DescribeVTLDevicesResponse Int
 dvtldrsResponseStatus = lens _dvtldrsResponseStatus (\ s a -> s{_dvtldrsResponseStatus = a});
 
-instance NFData DescribeVTLDevicesResponse
+instance NFData DescribeVTLDevicesResponse where

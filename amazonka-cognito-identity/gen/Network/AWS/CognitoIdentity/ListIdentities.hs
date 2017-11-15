@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.ListIdentities
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the identities in a pool.
 --
+--
 -- You must use AWS Developer credentials to call this API.
+--
 module Network.AWS.CognitoIdentity.ListIdentities
     (
     -- * Creating a Request
@@ -42,45 +44,49 @@ module Network.AWS.CognitoIdentity.ListIdentities
     , lirsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the ListIdentities action.
 --
+--
+--
 -- /See:/ 'listIdentities' smart constructor.
 data ListIdentities = ListIdentities'
-    { _liHideDisabled   :: !(Maybe Bool)
-    , _liNextToken      :: !(Maybe Text)
-    , _liIdentityPoolId :: !Text
-    , _liMaxResults     :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _liHideDisabled   :: !(Maybe Bool)
+  , _liNextToken      :: !(Maybe Text)
+  , _liIdentityPoolId :: !Text
+  , _liMaxResults     :: !Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListIdentities' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'liHideDisabled'
+-- * 'liHideDisabled' - An optional boolean parameter that allows you to hide disabled identities. If omitted, the ListIdentities API will include disabled identities in the response.
 --
--- * 'liNextToken'
+-- * 'liNextToken' - A pagination token.
 --
--- * 'liIdentityPoolId'
+-- * 'liIdentityPoolId' - An identity pool ID in the format REGION:GUID.
 --
--- * 'liMaxResults'
+-- * 'liMaxResults' - The maximum number of identities to return.
 listIdentities
     :: Text -- ^ 'liIdentityPoolId'
     -> Natural -- ^ 'liMaxResults'
     -> ListIdentities
 listIdentities pIdentityPoolId_ pMaxResults_ =
-    ListIdentities'
-    { _liHideDisabled = Nothing
-    , _liNextToken = Nothing
-    , _liIdentityPoolId = pIdentityPoolId_
-    , _liMaxResults = _Nat # pMaxResults_
-    }
+  ListIdentities'
+  { _liHideDisabled = Nothing
+  , _liNextToken = Nothing
+  , _liIdentityPoolId = pIdentityPoolId_
+  , _liMaxResults = _Nat # pMaxResults_
+  }
+
 
 -- | An optional boolean parameter that allows you to hide disabled identities. If omitted, the ListIdentities API will include disabled identities in the response.
 liHideDisabled :: Lens' ListIdentities (Maybe Bool)
@@ -109,9 +115,9 @@ instance AWSRequest ListIdentities where
                      (x .?> "Identities" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListIdentities
+instance Hashable ListIdentities where
 
-instance NFData ListIdentities
+instance NFData ListIdentities where
 
 instance ToHeaders ListIdentities where
         toHeaders
@@ -140,35 +146,39 @@ instance ToQuery ListIdentities where
 
 -- | The response to a ListIdentities request.
 --
+--
+--
 -- /See:/ 'listIdentitiesResponse' smart constructor.
 data ListIdentitiesResponse = ListIdentitiesResponse'
-    { _lirsIdentityPoolId :: !(Maybe Text)
-    , _lirsNextToken      :: !(Maybe Text)
-    , _lirsIdentities     :: !(Maybe [IdentityDescription])
-    , _lirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lirsIdentityPoolId :: !(Maybe Text)
+  , _lirsNextToken      :: !(Maybe Text)
+  , _lirsIdentities     :: !(Maybe [IdentityDescription])
+  , _lirsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListIdentitiesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lirsIdentityPoolId'
+-- * 'lirsIdentityPoolId' - An identity pool ID in the format REGION:GUID.
 --
--- * 'lirsNextToken'
+-- * 'lirsNextToken' - A pagination token.
 --
--- * 'lirsIdentities'
+-- * 'lirsIdentities' - An object containing a set of identities and associated mappings.
 --
--- * 'lirsResponseStatus'
+-- * 'lirsResponseStatus' - -- | The response status code.
 listIdentitiesResponse
     :: Int -- ^ 'lirsResponseStatus'
     -> ListIdentitiesResponse
 listIdentitiesResponse pResponseStatus_ =
-    ListIdentitiesResponse'
-    { _lirsIdentityPoolId = Nothing
-    , _lirsNextToken = Nothing
-    , _lirsIdentities = Nothing
-    , _lirsResponseStatus = pResponseStatus_
-    }
+  ListIdentitiesResponse'
+  { _lirsIdentityPoolId = Nothing
+  , _lirsNextToken = Nothing
+  , _lirsIdentities = Nothing
+  , _lirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An identity pool ID in the format REGION:GUID.
 lirsIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
@@ -182,8 +192,8 @@ lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
 lirsIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
 lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lirsResponseStatus :: Lens' ListIdentitiesResponse Int
 lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
 
-instance NFData ListIdentitiesResponse
+instance NFData ListIdentitiesResponse where

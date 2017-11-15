@@ -12,17 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the recovery point for the specified virtual tape.
+-- Retrieves the recovery point for the specified virtual tape. This operation is only supported in the tape gateway architecture.
+--
 --
 -- A recovery point is a point in time view of a virtual tape at which all the data on the tape is consistent. If your gateway crashes, virtual tapes that have recovery points can be recovered to a new gateway.
 --
--- The virtual tape can be retrieved to only one gateway. The retrieved tape is read-only. The virtual tape can be retrieved to only a gateway-VTL. There is no charge for retrieving recovery points.
 module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     (
     -- * Creating a Request
@@ -40,37 +40,39 @@ module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     , rtrprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | RetrieveTapeRecoveryPointInput
 --
+--
+--
 -- /See:/ 'retrieveTapeRecoveryPoint' smart constructor.
 data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint'
-    { _rtrpTapeARN    :: !Text
-    , _rtrpGatewayARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtrpTapeARN    :: !Text
+  , _rtrpGatewayARN :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RetrieveTapeRecoveryPoint' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtrpTapeARN'
+-- * 'rtrpTapeARN' - The Amazon Resource Name (ARN) of the virtual tape for which you want to retrieve the recovery point.
 --
--- * 'rtrpGatewayARN'
+-- * 'rtrpGatewayARN' - Undocumented member.
 retrieveTapeRecoveryPoint
     :: Text -- ^ 'rtrpTapeARN'
     -> Text -- ^ 'rtrpGatewayARN'
     -> RetrieveTapeRecoveryPoint
 retrieveTapeRecoveryPoint pTapeARN_ pGatewayARN_ =
-    RetrieveTapeRecoveryPoint'
-    { _rtrpTapeARN = pTapeARN_
-    , _rtrpGatewayARN = pGatewayARN_
-    }
+  RetrieveTapeRecoveryPoint'
+  {_rtrpTapeARN = pTapeARN_, _rtrpGatewayARN = pGatewayARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which you want to retrieve the recovery point.
 rtrpTapeARN :: Lens' RetrieveTapeRecoveryPoint Text
@@ -90,9 +92,9 @@ instance AWSRequest RetrieveTapeRecoveryPoint where
                  RetrieveTapeRecoveryPointResponse' <$>
                    (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
-instance Hashable RetrieveTapeRecoveryPoint
+instance Hashable RetrieveTapeRecoveryPoint where
 
-instance NFData RetrieveTapeRecoveryPoint
+instance NFData RetrieveTapeRecoveryPoint where
 
 instance ToHeaders RetrieveTapeRecoveryPoint where
         toHeaders
@@ -119,34 +121,37 @@ instance ToQuery RetrieveTapeRecoveryPoint where
 
 -- | RetrieveTapeRecoveryPointOutput
 --
+--
+--
 -- /See:/ 'retrieveTapeRecoveryPointResponse' smart constructor.
 data RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'
-    { _rtrprsTapeARN        :: !(Maybe Text)
-    , _rtrprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtrprsTapeARN        :: !(Maybe Text)
+  , _rtrprsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RetrieveTapeRecoveryPointResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtrprsTapeARN'
+-- * 'rtrprsTapeARN' - The Amazon Resource Name (ARN) of the virtual tape for which the recovery point was retrieved.
 --
--- * 'rtrprsResponseStatus'
+-- * 'rtrprsResponseStatus' - -- | The response status code.
 retrieveTapeRecoveryPointResponse
     :: Int -- ^ 'rtrprsResponseStatus'
     -> RetrieveTapeRecoveryPointResponse
 retrieveTapeRecoveryPointResponse pResponseStatus_ =
-    RetrieveTapeRecoveryPointResponse'
-    { _rtrprsTapeARN = Nothing
-    , _rtrprsResponseStatus = pResponseStatus_
-    }
+  RetrieveTapeRecoveryPointResponse'
+  {_rtrprsTapeARN = Nothing, _rtrprsResponseStatus = pResponseStatus_}
+
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which the recovery point was retrieved.
 rtrprsTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
 rtrprsTapeARN = lens _rtrprsTapeARN (\ s a -> s{_rtrprsTapeARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rtrprsResponseStatus :: Lens' RetrieveTapeRecoveryPointResponse Int
 rtrprsResponseStatus = lens _rtrprsResponseStatus (\ s a -> s{_rtrprsResponseStatus = a});
 
 instance NFData RetrieveTapeRecoveryPointResponse
+         where

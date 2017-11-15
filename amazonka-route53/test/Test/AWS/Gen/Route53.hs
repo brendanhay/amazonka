@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.Route53
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.Route53 where
 
 import Data.Proxy
+import Network.AWS.Route53
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.Tasty
-import Network.AWS.Route53
 import Test.AWS.Route53.Internal
+import Test.Tasty
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -55,6 +55,9 @@ import Test.AWS.Route53.Internal
 --         , requestListTagsForResource $
 --             listTagsForResource
 --
+--         , requestListQueryLoggingConfigs $
+--             listQueryLoggingConfigs
+--
 --         , requestListTrafficPolicyInstances $
 --             listTrafficPolicyInstances
 --
@@ -76,6 +79,12 @@ import Test.AWS.Route53.Internal
 --         , requestCreateHostedZone $
 --             createHostedZone
 --
+--         , requestCreateVPCAssociationAuthorization $
+--             createVPCAssociationAuthorization
+--
+--         , requestListVPCAssociationAuthorizations $
+--             listVPCAssociationAuthorizations
+--
 --         , requestListTrafficPolicyInstancesByPolicy $
 --             listTrafficPolicyInstancesByPolicy
 --
@@ -84,6 +93,9 @@ import Test.AWS.Route53.Internal
 --
 --         , requestCreateHealthCheck $
 --             createHealthCheck
+--
+--         , requestDeleteVPCAssociationAuthorization $
+--             deleteVPCAssociationAuthorization
 --
 --         , requestChangeTagsForResource $
 --             changeTagsForResource
@@ -109,6 +121,9 @@ import Test.AWS.Route53.Internal
 --         , requestCreateReusableDelegationSet $
 --             createReusableDelegationSet
 --
+--         , requestCreateQueryLoggingConfig $
+--             createQueryLoggingConfig
+--
 --         , requestGetHealthCheckCount $
 --             getHealthCheckCount
 --
@@ -117,6 +132,12 @@ import Test.AWS.Route53.Internal
 --
 --         , requestGetHostedZoneCount $
 --             getHostedZoneCount
+--
+--         , requestDeleteQueryLoggingConfig $
+--             deleteQueryLoggingConfig
+--
+--         , requestGetQueryLoggingConfig $
+--             getQueryLoggingConfig
 --
 --         , requestGetReusableDelegationSet $
 --             getReusableDelegationSet
@@ -196,6 +217,9 @@ import Test.AWS.Route53.Internal
 --         , responseListTagsForResource $
 --             listTagsForResourceResponse
 --
+--         , responseListQueryLoggingConfigs $
+--             listQueryLoggingConfigsResponse
+--
 --         , responseListTrafficPolicyInstances $
 --             listTrafficPolicyInstancesResponse
 --
@@ -217,6 +241,12 @@ import Test.AWS.Route53.Internal
 --         , responseCreateHostedZone $
 --             createHostedZoneResponse
 --
+--         , responseCreateVPCAssociationAuthorization $
+--             createVPCAssociationAuthorizationResponse
+--
+--         , responseListVPCAssociationAuthorizations $
+--             listVPCAssociationAuthorizationsResponse
+--
 --         , responseListTrafficPolicyInstancesByPolicy $
 --             listTrafficPolicyInstancesByPolicyResponse
 --
@@ -225,6 +255,9 @@ import Test.AWS.Route53.Internal
 --
 --         , responseCreateHealthCheck $
 --             createHealthCheckResponse
+--
+--         , responseDeleteVPCAssociationAuthorization $
+--             deleteVPCAssociationAuthorizationResponse
 --
 --         , responseChangeTagsForResource $
 --             changeTagsForResourceResponse
@@ -250,6 +283,9 @@ import Test.AWS.Route53.Internal
 --         , responseCreateReusableDelegationSet $
 --             createReusableDelegationSetResponse
 --
+--         , responseCreateQueryLoggingConfig $
+--             createQueryLoggingConfigResponse
+--
 --         , responseGetHealthCheckCount $
 --             getHealthCheckCountResponse
 --
@@ -258,6 +294,12 @@ import Test.AWS.Route53.Internal
 --
 --         , responseGetHostedZoneCount $
 --             getHostedZoneCountResponse
+--
+--         , responseDeleteQueryLoggingConfig $
+--             deleteQueryLoggingConfigResponse
+--
+--         , responseGetQueryLoggingConfig $
+--             getQueryLoggingConfigResponse
 --
 --         , responseGetReusableDelegationSet $
 --             getReusableDelegationSetResponse
@@ -357,6 +399,11 @@ requestListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
+requestListQueryLoggingConfigs :: ListQueryLoggingConfigs -> TestTree
+requestListQueryLoggingConfigs = req
+    "ListQueryLoggingConfigs"
+    "fixture/ListQueryLoggingConfigs.yaml"
+
 requestListTrafficPolicyInstances :: ListTrafficPolicyInstances -> TestTree
 requestListTrafficPolicyInstances = req
     "ListTrafficPolicyInstances"
@@ -392,6 +439,16 @@ requestCreateHostedZone = req
     "CreateHostedZone"
     "fixture/CreateHostedZone.yaml"
 
+requestCreateVPCAssociationAuthorization :: CreateVPCAssociationAuthorization -> TestTree
+requestCreateVPCAssociationAuthorization = req
+    "CreateVPCAssociationAuthorization"
+    "fixture/CreateVPCAssociationAuthorization.yaml"
+
+requestListVPCAssociationAuthorizations :: ListVPCAssociationAuthorizations -> TestTree
+requestListVPCAssociationAuthorizations = req
+    "ListVPCAssociationAuthorizations"
+    "fixture/ListVPCAssociationAuthorizations.yaml"
+
 requestListTrafficPolicyInstancesByPolicy :: ListTrafficPolicyInstancesByPolicy -> TestTree
 requestListTrafficPolicyInstancesByPolicy = req
     "ListTrafficPolicyInstancesByPolicy"
@@ -406,6 +463,11 @@ requestCreateHealthCheck :: CreateHealthCheck -> TestTree
 requestCreateHealthCheck = req
     "CreateHealthCheck"
     "fixture/CreateHealthCheck.yaml"
+
+requestDeleteVPCAssociationAuthorization :: DeleteVPCAssociationAuthorization -> TestTree
+requestDeleteVPCAssociationAuthorization = req
+    "DeleteVPCAssociationAuthorization"
+    "fixture/DeleteVPCAssociationAuthorization.yaml"
 
 requestChangeTagsForResource :: ChangeTagsForResource -> TestTree
 requestChangeTagsForResource = req
@@ -447,6 +509,11 @@ requestCreateReusableDelegationSet = req
     "CreateReusableDelegationSet"
     "fixture/CreateReusableDelegationSet.yaml"
 
+requestCreateQueryLoggingConfig :: CreateQueryLoggingConfig -> TestTree
+requestCreateQueryLoggingConfig = req
+    "CreateQueryLoggingConfig"
+    "fixture/CreateQueryLoggingConfig.yaml"
+
 requestGetHealthCheckCount :: GetHealthCheckCount -> TestTree
 requestGetHealthCheckCount = req
     "GetHealthCheckCount"
@@ -461,6 +528,16 @@ requestGetHostedZoneCount :: GetHostedZoneCount -> TestTree
 requestGetHostedZoneCount = req
     "GetHostedZoneCount"
     "fixture/GetHostedZoneCount.yaml"
+
+requestDeleteQueryLoggingConfig :: DeleteQueryLoggingConfig -> TestTree
+requestDeleteQueryLoggingConfig = req
+    "DeleteQueryLoggingConfig"
+    "fixture/DeleteQueryLoggingConfig.yaml"
+
+requestGetQueryLoggingConfig :: GetQueryLoggingConfig -> TestTree
+requestGetQueryLoggingConfig = req
+    "GetQueryLoggingConfig"
+    "fixture/GetQueryLoggingConfig.yaml"
 
 requestGetReusableDelegationSet :: GetReusableDelegationSet -> TestTree
 requestGetReusableDelegationSet = req
@@ -607,6 +684,13 @@ responseListTagsForResource = res
     route53
     (Proxy :: Proxy ListTagsForResource)
 
+responseListQueryLoggingConfigs :: ListQueryLoggingConfigsResponse -> TestTree
+responseListQueryLoggingConfigs = res
+    "ListQueryLoggingConfigsResponse"
+    "fixture/ListQueryLoggingConfigsResponse.proto"
+    route53
+    (Proxy :: Proxy ListQueryLoggingConfigs)
+
 responseListTrafficPolicyInstances :: ListTrafficPolicyInstancesResponse -> TestTree
 responseListTrafficPolicyInstances = res
     "ListTrafficPolicyInstancesResponse"
@@ -656,6 +740,20 @@ responseCreateHostedZone = res
     route53
     (Proxy :: Proxy CreateHostedZone)
 
+responseCreateVPCAssociationAuthorization :: CreateVPCAssociationAuthorizationResponse -> TestTree
+responseCreateVPCAssociationAuthorization = res
+    "CreateVPCAssociationAuthorizationResponse"
+    "fixture/CreateVPCAssociationAuthorizationResponse.proto"
+    route53
+    (Proxy :: Proxy CreateVPCAssociationAuthorization)
+
+responseListVPCAssociationAuthorizations :: ListVPCAssociationAuthorizationsResponse -> TestTree
+responseListVPCAssociationAuthorizations = res
+    "ListVPCAssociationAuthorizationsResponse"
+    "fixture/ListVPCAssociationAuthorizationsResponse.proto"
+    route53
+    (Proxy :: Proxy ListVPCAssociationAuthorizations)
+
 responseListTrafficPolicyInstancesByPolicy :: ListTrafficPolicyInstancesByPolicyResponse -> TestTree
 responseListTrafficPolicyInstancesByPolicy = res
     "ListTrafficPolicyInstancesByPolicyResponse"
@@ -676,6 +774,13 @@ responseCreateHealthCheck = res
     "fixture/CreateHealthCheckResponse.proto"
     route53
     (Proxy :: Proxy CreateHealthCheck)
+
+responseDeleteVPCAssociationAuthorization :: DeleteVPCAssociationAuthorizationResponse -> TestTree
+responseDeleteVPCAssociationAuthorization = res
+    "DeleteVPCAssociationAuthorizationResponse"
+    "fixture/DeleteVPCAssociationAuthorizationResponse.proto"
+    route53
+    (Proxy :: Proxy DeleteVPCAssociationAuthorization)
 
 responseChangeTagsForResource :: ChangeTagsForResourceResponse -> TestTree
 responseChangeTagsForResource = res
@@ -733,6 +838,13 @@ responseCreateReusableDelegationSet = res
     route53
     (Proxy :: Proxy CreateReusableDelegationSet)
 
+responseCreateQueryLoggingConfig :: CreateQueryLoggingConfigResponse -> TestTree
+responseCreateQueryLoggingConfig = res
+    "CreateQueryLoggingConfigResponse"
+    "fixture/CreateQueryLoggingConfigResponse.proto"
+    route53
+    (Proxy :: Proxy CreateQueryLoggingConfig)
+
 responseGetHealthCheckCount :: GetHealthCheckCountResponse -> TestTree
 responseGetHealthCheckCount = res
     "GetHealthCheckCountResponse"
@@ -753,6 +865,20 @@ responseGetHostedZoneCount = res
     "fixture/GetHostedZoneCountResponse.proto"
     route53
     (Proxy :: Proxy GetHostedZoneCount)
+
+responseDeleteQueryLoggingConfig :: DeleteQueryLoggingConfigResponse -> TestTree
+responseDeleteQueryLoggingConfig = res
+    "DeleteQueryLoggingConfigResponse"
+    "fixture/DeleteQueryLoggingConfigResponse.proto"
+    route53
+    (Proxy :: Proxy DeleteQueryLoggingConfig)
+
+responseGetQueryLoggingConfig :: GetQueryLoggingConfigResponse -> TestTree
+responseGetQueryLoggingConfig = res
+    "GetQueryLoggingConfigResponse"
+    "fixture/GetQueryLoggingConfigResponse.proto"
+    route53
+    (Proxy :: Proxy GetQueryLoggingConfig)
 
 responseGetReusableDelegationSet :: GetReusableDelegationSetResponse -> TestTree
 responseGetReusableDelegationSet = res

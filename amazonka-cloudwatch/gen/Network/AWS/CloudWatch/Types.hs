@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -17,8 +17,10 @@ module Network.AWS.CloudWatch.Types
 
     -- * Errors
     , _LimitExceededFault
+    , _DashboardNotFoundError
     , _InvalidNextToken
     , _InternalServiceFault
+    , _DashboardInvalidInputError
     , _InvalidParameterValueException
     , _InvalidFormatFault
     , _MissingRequiredParameterException
@@ -49,6 +51,20 @@ module Network.AWS.CloudWatch.Types
     , ahiHistorySummary
     , ahiTimestamp
 
+    -- * DashboardEntry
+    , DashboardEntry
+    , dashboardEntry
+    , deSize
+    , deDashboardName
+    , deLastModified
+    , deDashboardARN
+
+    -- * DashboardValidationMessage
+    , DashboardValidationMessage
+    , dashboardValidationMessage
+    , dvmDataPath
+    , dvmMessage
+
     -- * Datapoint
     , Datapoint
     , datapoint
@@ -56,6 +72,7 @@ module Network.AWS.CloudWatch.Types
     , dMaximum
     , dAverage
     , dMinimum
+    , dExtendedStatistics
     , dSum
     , dUnit
     , dTimestamp
@@ -84,6 +101,7 @@ module Network.AWS.CloudWatch.Types
     , metricAlarm
     , maAlarmName
     , maStateUpdatedTimestamp
+    , maTreatMissingData
     , maPeriod
     , maAlarmDescription
     , maEvaluationPeriods
@@ -91,6 +109,7 @@ module Network.AWS.CloudWatch.Types
     , maNamespace
     , maComparisonOperator
     , maOKActions
+    , maEvaluateLowSampleCountPercentile
     , maStateValue
     , maThreshold
     , maAlarmConfigurationUpdatedTimestamp
@@ -103,11 +122,13 @@ module Network.AWS.CloudWatch.Types
     , maAlarmActions
     , maUnit
     , maStatistic
+    , maExtendedStatistic
 
     -- * MetricDatum
     , MetricDatum
     , metricDatum
     , mdValue
+    , mdStorageResolution
     , mdDimensions
     , mdUnit
     , mdTimestamp
@@ -123,38 +144,40 @@ module Network.AWS.CloudWatch.Types
     , ssMaximum
     ) where
 
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.CloudWatch.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.CloudWatch.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
--- | API version '2010-08-01' of the Amazon CloudWatch SDK configuration.
+-- | API version @2010-08-01@ of the Amazon CloudWatch SDK configuration.
 cloudWatch :: Service
 cloudWatch =
-    Service
-    { _svcAbbrev = "CloudWatch"
-    , _svcSigner = v4
-    , _svcPrefix = "monitoring"
-    , _svcVersion = "2010-08-01"
-    , _svcEndpoint = defaultEndpoint cloudWatch
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseXMLError "CloudWatch"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "CloudWatch"
+  , _svcSigner = v4
+  , _svcPrefix = "monitoring"
+  , _svcVersion = "2010-08-01"
+  , _svcEndpoint = defaultEndpoint cloudWatch
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseXMLError "CloudWatch"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -163,38 +186,83 @@ cloudWatch =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | The quota for alarms for this customer has already been reached.
+--
+--
 _LimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededFault = _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
+_LimitExceededFault =
+  _MatchServiceError cloudWatch "LimitExceeded" . hasStatus 400
+
+
+-- | The specified dashboard does not exist.
+--
+--
+_DashboardNotFoundError :: AsError a => Getting (First ServiceError) a ServiceError
+_DashboardNotFoundError =
+  _MatchServiceError cloudWatch "ResourceNotFound" . hasStatus 404
+
 
 -- | The next token specified is invalid.
+--
+--
 _InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
+_InvalidNextToken =
+  _MatchServiceError cloudWatch "InvalidNextToken" . hasStatus 400
 
--- | Indicates that the request processing has failed due to some unknown error, exception, or failure.
+
+-- | Request processing has failed due to some unknown error, exception, or failure.
+--
+--
 _InternalServiceFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServiceFault =
-    _ServiceError . hasStatus 500 . hasCode "InternalServiceError"
+  _MatchServiceError cloudWatch "InternalServiceError" . hasStatus 500
 
--- | Bad or out-of-range value was supplied for the input parameter.
+
+-- | Some part of the dashboard data is invalid.
+--
+--
+_DashboardInvalidInputError :: AsError a => Getting (First ServiceError) a ServiceError
+_DashboardInvalidInputError =
+  _MatchServiceError cloudWatch "InvalidParameterInput" . hasStatus 400
+
+
+-- | The value of an input parameter is bad or out-of-range.
+--
+--
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValueException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidParameterValue"
+  _MatchServiceError cloudWatch "InvalidParameterValue" . hasStatus 400
+
 
 -- | Data was not syntactically valid JSON.
+--
+--
 _InvalidFormatFault :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidFormatFault = _ServiceError . hasStatus 400 . hasCode "InvalidFormat"
+_InvalidFormatFault =
+  _MatchServiceError cloudWatch "InvalidFormat" . hasStatus 400
 
--- | An input parameter that is mandatory for processing the request is not supplied.
+
+-- | An input parameter that is required is missing.
+--
+--
 _MissingRequiredParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _MissingRequiredParameterException =
-    _ServiceError . hasStatus 400 . hasCode "MissingParameter"
+  _MatchServiceError cloudWatch "MissingParameter" . hasStatus 400
 
--- | Parameters that must not be used together were used together.
+
+-- | Parameters were used together that cannot be used together.
+--
+--
 _InvalidParameterCombinationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterCombinationException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidParameterCombination"
+  _MatchServiceError cloudWatch "InvalidParameterCombination" . hasStatus 400
+
 
 -- | The named resource does not exist.
+--
+--
 _ResourceNotFound :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFound = _ServiceError . hasStatus 404 . hasCode "ResourceNotFound"
+_ResourceNotFound =
+  _MatchServiceError cloudWatch "ResourceNotFound" . hasStatus 404
+

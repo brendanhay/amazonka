@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDomainName
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents a domain name that is contained in a simpler, more intuitive URL that can be called.
+--
+--
 module Network.AWS.APIGateway.GetDomainName
     (
     -- * Creating a Request
@@ -32,39 +34,45 @@ module Network.AWS.APIGateway.GetDomainName
     , DomainName
     -- * Response Lenses
     , dnCertificateName
+    , dnRegionalCertificateARN
+    , dnCertificateARN
     , dnDomainName
+    , dnRegionalCertificateName
+    , dnRegionalDomainName
     , dnCertificateUploadDate
     , dnDistributionDomainName
+    , dnEndpointConfiguration
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Request to get the name of a < DomainName> resource.
+-- | Request to get the name of a 'DomainName' resource.
+--
+--
 --
 -- /See:/ 'getDomainName' smart constructor.
 newtype GetDomainName = GetDomainName'
-    { _gdnDomainName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdnDomainName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDomainName' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdnDomainName'
+-- * 'gdnDomainName' - The name of the 'DomainName' resource.
 getDomainName
     :: Text -- ^ 'gdnDomainName'
     -> GetDomainName
-getDomainName pDomainName_ =
-    GetDomainName'
-    { _gdnDomainName = pDomainName_
-    }
+getDomainName pDomainName_ = GetDomainName' {_gdnDomainName = pDomainName_}
 
--- | The name of the < DomainName> resource.
+
+-- | The name of the 'DomainName' resource.
 gdnDomainName :: Lens' GetDomainName Text
 gdnDomainName = lens _gdnDomainName (\ s a -> s{_gdnDomainName = a});
 
@@ -73,9 +81,9 @@ instance AWSRequest GetDomainName where
         request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetDomainName
+instance Hashable GetDomainName where
 
-instance NFData GetDomainName
+instance NFData GetDomainName where
 
 instance ToHeaders GetDomainName where
         toHeaders

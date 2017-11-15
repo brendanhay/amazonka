@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -22,11 +22,16 @@ module Network.AWS.GameLift.Types
     , _TerminalRoutingStrategyException
     , _NotFoundException
     , _GameSessionFullException
+    , _UnsupportedRegionException
     , _InvalidGameSessionStatusException
     , _InternalServiceException
+    , _IdempotentParameterMismatchException
     , _UnauthorizedException
     , _FleetCapacityExceededException
     , _LimitExceededException
+
+    -- * AcceptanceType
+    , AcceptanceType (..)
 
     -- * BuildStatus
     , BuildStatus (..)
@@ -43,11 +48,20 @@ module Network.AWS.GameLift.Types
     -- * FleetStatus
     , FleetStatus (..)
 
+    -- * GameSessionPlacementState
+    , GameSessionPlacementState (..)
+
     -- * GameSessionStatus
     , GameSessionStatus (..)
 
     -- * IPProtocol
     , IPProtocol (..)
+
+    -- * InstanceStatus
+    , InstanceStatus (..)
+
+    -- * MatchmakingConfigurationStatus
+    , MatchmakingConfigurationStatus (..)
 
     -- * MetricName
     , MetricName (..)
@@ -88,7 +102,16 @@ module Network.AWS.GameLift.Types
     , aAliasId
     , aRoutingStrategy
     , aName
+    , aAliasARN
     , aDescription
+
+    -- * AttributeValue
+    , AttributeValue
+    , attributeValue
+    , avSL
+    , avSDM
+    , avN
+    , avS
 
     -- * Build
     , Build
@@ -100,6 +123,12 @@ module Network.AWS.GameLift.Types
     , bName
     , bVersion
     , bSizeOnDisk
+
+    -- * DesiredPlayerSession
+    , DesiredPlayerSession
+    , desiredPlayerSession
+    , dpsPlayerData
+    , dpsPlayerId
 
     -- * EC2InstanceCounts
     , EC2InstanceCounts
@@ -123,6 +152,7 @@ module Network.AWS.GameLift.Types
     , Event
     , event
     , eResourceId
+    , ePreSignedLogURL
     , eEventTime
     , eMessage
     , eEventCode
@@ -137,12 +167,15 @@ module Network.AWS.GameLift.Types
     , faLogPaths
     , faOperatingSystem
     , faBuildId
+    , faFleetARN
     , faTerminationTime
     , faNewGameSessionProtectionPolicy
     , faName
     , faServerLaunchPath
+    , faMetricGroups
     , faFleetId
     , faDescription
+    , faResourceCreationLimitPolicy
 
     -- * FleetCapacity
     , FleetCapacity
@@ -179,14 +212,58 @@ module Network.AWS.GameLift.Types
     , gsPlayerSessionCreationPolicy
     , gsName
     , gsCurrentPlayerSessionCount
+    , gsGameSessionData
     , gsFleetId
+    , gsCreatorId
     , gsPort
+
+    -- * GameSessionConnectionInfo
+    , GameSessionConnectionInfo
+    , gameSessionConnectionInfo
+    , gsciMatchedPlayerSessions
+    , gsciIPAddress
+    , gsciGameSessionARN
+    , gsciPort
 
     -- * GameSessionDetail
     , GameSessionDetail
     , gameSessionDetail
     , gsdGameSession
     , gsdProtectionPolicy
+
+    -- * GameSessionPlacement
+    , GameSessionPlacement
+    , gameSessionPlacement
+    , gspStatus
+    , gspPlacementId
+    , gspGameProperties
+    , gspIPAddress
+    , gspGameSessionName
+    , gspStartTime
+    , gspGameSessionId
+    , gspGameSessionRegion
+    , gspMaximumPlayerSessionCount
+    , gspEndTime
+    , gspGameSessionARN
+    , gspPlayerLatencies
+    , gspGameSessionData
+    , gspGameSessionQueueName
+    , gspPlacedPlayerSessions
+    , gspPort
+
+    -- * GameSessionQueue
+    , GameSessionQueue
+    , gameSessionQueue
+    , gsqGameSessionQueueARN
+    , gsqPlayerLatencyPolicies
+    , gsqTimeoutInSeconds
+    , gsqDestinations
+    , gsqName
+
+    -- * GameSessionQueueDestination
+    , GameSessionQueueDestination
+    , gameSessionQueueDestination
+    , gsqdDestinationARN
 
     -- * IPPermission
     , IPPermission
@@ -195,6 +272,103 @@ module Network.AWS.GameLift.Types
     , ipToPort
     , ipIPRange
     , ipProtocol
+
+    -- * Instance
+    , Instance
+    , instance'
+    , iCreationTime
+    , iInstanceId
+    , iStatus
+    , iIPAddress
+    , iOperatingSystem
+    , iType
+    , iFleetId
+
+    -- * InstanceAccess
+    , InstanceAccess
+    , instanceAccess
+    , iaInstanceId
+    , iaIPAddress
+    , iaOperatingSystem
+    , iaCredentials
+    , iaFleetId
+
+    -- * InstanceCredentials
+    , InstanceCredentials
+    , instanceCredentials
+    , icUserName
+    , icSecret
+
+    -- * MatchedPlayerSession
+    , MatchedPlayerSession
+    , matchedPlayerSession
+    , mpsPlayerSessionId
+    , mpsPlayerId
+
+    -- * MatchmakingConfiguration
+    , MatchmakingConfiguration
+    , matchmakingConfiguration
+    , mcCreationTime
+    , mcGameProperties
+    , mcRuleSetName
+    , mcAcceptanceTimeoutSeconds
+    , mcRequestTimeoutSeconds
+    , mcNotificationTarget
+    , mcGameSessionQueueARNs
+    , mcName
+    , mcCustomEventData
+    , mcAcceptanceRequired
+    , mcGameSessionData
+    , mcDescription
+    , mcAdditionalPlayerCount
+
+    -- * MatchmakingRuleSet
+    , MatchmakingRuleSet
+    , matchmakingRuleSet
+    , mrsCreationTime
+    , mrsRuleSetName
+    , mrsRuleSetBody
+
+    -- * MatchmakingTicket
+    , MatchmakingTicket
+    , matchmakingTicket
+    , mtStatus
+    , mtConfigurationName
+    , mtStartTime
+    , mtGameSessionConnectionInfo
+    , mtTicketId
+    , mtEstimatedWaitTime
+    , mtStatusMessage
+    , mtEndTime
+    , mtStatusReason
+    , mtPlayers
+
+    -- * PlacedPlayerSession
+    , PlacedPlayerSession
+    , placedPlayerSession
+    , ppsPlayerSessionId
+    , ppsPlayerId
+
+    -- * Player
+    , Player
+    , player
+    , pPlayerAttributes
+    , pTeam
+    , pPlayerId
+    , pLatencyInMs
+
+    -- * PlayerLatency
+    , PlayerLatency
+    , playerLatency
+    , plLatencyInMilliseconds
+    , plRegionIdentifier
+    , plPlayerId
+
+    -- * PlayerLatencyPolicy
+    , PlayerLatencyPolicy
+    , playerLatencyPolicy
+    , plpPolicyDurationSeconds
+    , plpMaximumIndividualPlayerLatencyMilliseconds
 
     -- * PlayerSession
     , PlayerSession
@@ -206,8 +380,15 @@ module Network.AWS.GameLift.Types
     , psTerminationTime
     , psPlayerSessionId
     , psFleetId
+    , psPlayerData
     , psPlayerId
     , psPort
+
+    -- * ResourceCreationLimitPolicy
+    , ResourceCreationLimitPolicy
+    , resourceCreationLimitPolicy
+    , rclpNewGameSessionsPerCreator
+    , rclpPolicyPeriodInMinutes
 
     -- * RoutingStrategy
     , RoutingStrategy
@@ -219,7 +400,9 @@ module Network.AWS.GameLift.Types
     -- * RuntimeConfiguration
     , RuntimeConfiguration
     , runtimeConfiguration
+    , rcGameSessionActivationTimeoutSeconds
     , rcServerProcesses
+    , rcMaxConcurrentGameSessionActivations
 
     -- * S3Location
     , S3Location
@@ -247,40 +430,67 @@ module Network.AWS.GameLift.Types
     , spParameters
     , spLaunchPath
     , spConcurrentExecutions
+
+    -- * VPCPeeringAuthorization
+    , VPCPeeringAuthorization
+    , vpcPeeringAuthorization
+    , vpaCreationTime
+    , vpaPeerVPCId
+    , vpaPeerVPCAWSAccountId
+    , vpaGameLiftAWSAccountId
+    , vpaExpirationTime
+
+    -- * VPCPeeringConnection
+    , VPCPeeringConnection
+    , vpcPeeringConnection
+    , vpcVPCPeeringConnectionId
+    , vpcStatus
+    , vpcPeerVPCId
+    , vpcIPV4CidrBlock
+    , vpcGameLiftVPCId
+    , vpcFleetId
+
+    -- * VPCPeeringConnectionStatus
+    , VPCPeeringConnectionStatus
+    , vpcPeeringConnectionStatus
+    , vpcsCode
+    , vpcsMessage
     ) where
 
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.GameLift.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.GameLift.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
--- | API version '2015-10-01' of the Amazon GameLift SDK configuration.
+-- | API version @2015-10-01@ of the Amazon GameLift SDK configuration.
 gameLift :: Service
 gameLift =
-    Service
-    { _svcAbbrev = "GameLift"
-    , _svcSigner = v4
-    , _svcPrefix = "gamelift"
-    , _svcVersion = "2015-10-01"
-    , _svcEndpoint = defaultEndpoint gameLift
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "GameLift"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "GameLift"
+  , _svcSigner = v4
+  , _svcPrefix = "gamelift"
+  , _svcVersion = "2015-10-01"
+  , _svcEndpoint = defaultEndpoint gameLift
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "GameLift"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -289,50 +499,102 @@ gameLift =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The requested operation would cause a conflict with the current state of a resource associated with the request and\/or the fleet. Resolve the conflict before retrying.
+
+-- | The requested operation would cause a conflict with the current state of a resource associated with the request and/or the fleet. Resolve the conflict before retrying.
+--
+--
 _InvalidFleetStatusException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidFleetStatusException =
-    _ServiceError . hasCode "InvalidFleetStatusException"
+  _MatchServiceError gameLift "InvalidFleetStatusException"
 
--- | One or more parameters specified as part of the request are invalid. Correct the invalid parameters before retrying.
+
+-- | One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
+--
+--
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRequestException = _ServiceError . hasCode "InvalidRequestException"
+_InvalidRequestException = _MatchServiceError gameLift "InvalidRequestException"
+
 
 -- | The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
+--
+--
 _ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
-_ConflictException = _ServiceError . hasCode "ConflictException"
+_ConflictException = _MatchServiceError gameLift "ConflictException"
 
--- | The service is unable to resolve the routing for a particular alias because it has a terminal < RoutingStrategy> associated with it. The message returned in this exception is the message defined in the routing strategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified.
+
+-- | The service is unable to resolve the routing for a particular alias because it has a terminal 'RoutingStrategy' associated with it. The message returned in this exception is the message defined in the routing strategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified.
+--
+--
 _TerminalRoutingStrategyException :: AsError a => Getting (First ServiceError) a ServiceError
 _TerminalRoutingStrategyException =
-    _ServiceError . hasCode "TerminalRoutingStrategyException"
+  _MatchServiceError gameLift "TerminalRoutingStrategyException"
 
--- | A service resource associated with the request could not be found. Clients should not retry such requests
+
+-- | A service resource associated with the request could not be found. Clients should not retry such requests.
+--
+--
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotFoundException = _ServiceError . hasCode "NotFoundException"
+_NotFoundException = _MatchServiceError gameLift "NotFoundException"
 
--- | The game instance is currently full and cannot allow the requested player(s) to join. This exception occurs in response to a < CreatePlayerSession> request.
+
+-- | The game instance is currently full and cannot allow the requested player(s) to join. Clients can retry such requests immediately or after a waiting period.
+--
+--
 _GameSessionFullException :: AsError a => Getting (First ServiceError) a ServiceError
-_GameSessionFullException = _ServiceError . hasCode "GameSessionFullException"
+_GameSessionFullException =
+  _MatchServiceError gameLift "GameSessionFullException"
 
--- | The requested operation would cause a conflict with the current state of a resource associated with the request and\/or the game instance. Clients should not retry such requests without resolving the conflict.
+
+-- | The requested operation is not supported in the region specified.
+--
+--
+_UnsupportedRegionException :: AsError a => Getting (First ServiceError) a ServiceError
+_UnsupportedRegionException =
+  _MatchServiceError gameLift "UnsupportedRegionException"
+
+
+-- | The requested operation would cause a conflict with the current state of a resource associated with the request and/or the game instance. Resolve the conflict before retrying.
+--
+--
 _InvalidGameSessionStatusException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidGameSessionStatusException =
-    _ServiceError . hasCode "InvalidGameSessionStatusException"
+  _MatchServiceError gameLift "InvalidGameSessionStatusException"
 
--- | The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests, either immediately or after a back-off period.
+
+-- | The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
+--
+--
 _InternalServiceException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServiceException = _ServiceError . hasCode "InternalServiceException"
+_InternalServiceException =
+  _MatchServiceError gameLift "InternalServiceException"
 
--- | The client failed authentication. Clients should not retry such requests
+
+-- | A game session with this custom ID string already exists in this fleet. Resolve this conflict before retrying this request.
+--
+--
+_IdempotentParameterMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
+_IdempotentParameterMismatchException =
+  _MatchServiceError gameLift "IdempotentParameterMismatchException"
+
+
+-- | The client failed authentication. Clients should not retry such requests.
+--
+--
 _UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
-_UnauthorizedException = _ServiceError . hasCode "UnauthorizedException"
+_UnauthorizedException = _MatchServiceError gameLift "UnauthorizedException"
 
--- | The specified fleet has no available instances to fulfill a request to create a new game session. Such requests should only be retried once the fleet capacity has been increased.
+
+-- | The specified fleet has no available instances to fulfill a @CreateGameSession@ request. Clients can retry such requests immediately or after a waiting period.
+--
+--
 _FleetCapacityExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _FleetCapacityExceededException =
-    _ServiceError . hasCode "FleetCapacityExceededException"
+  _MatchServiceError gameLift "FleetCapacityExceededException"
+
 
 -- | The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+_LimitExceededException = _MatchServiceError gameLift "LimitExceededException"
+

@@ -6,12 +6,12 @@
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Gen.AST.Override
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
@@ -19,17 +19,19 @@ module Gen.AST.Override
     ( override
     ) where
 
-import           Control.Comonad
-import           Control.Comonad.Cofree
-import           Control.Error
-import           Control.Lens           hiding ((:<))
-import           Control.Monad.State
-import           Data.Bifunctor
-import qualified Data.HashMap.Strict    as Map
-import           Data.List              ((\\))
-import           Data.Monoid
-import           Gen.Types.TypeOf
-import           Gen.Types
+import Control.Comonad
+import Control.Comonad.Cofree
+import Control.Error
+import Control.Lens           hiding ((:<))
+import Control.Monad.State
+
+import Data.Bifunctor
+import Data.List      ((\\))
+import Data.Monoid
+
+import Gen.Types
+
+import qualified Data.HashMap.Strict as Map
 
 data Env = Env
     { _renamed  :: Map Id Id

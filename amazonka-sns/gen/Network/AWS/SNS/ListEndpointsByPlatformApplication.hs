@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.SNS.ListEndpointsByPlatformApplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the endpoints and endpoint attributes for devices in a supported push notification service, such as GCM and APNS. The results for 'ListEndpointsByPlatformApplication' are paginated and return a limited list of endpoints, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call 'ListEndpointsByPlatformApplication' again using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
+-- Lists the endpoints and endpoint attributes for devices in a supported push notification service, such as GCM and APNS. The results for @ListEndpointsByPlatformApplication@ are paginated and return a limited list of endpoints, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call @ListEndpointsByPlatformApplication@ again using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications> .
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListEndpointsByPlatformApplication
@@ -39,37 +41,41 @@ module Network.AWS.SNS.ListEndpointsByPlatformApplication
     , lebparsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | Input for ListEndpointsByPlatformApplication action.
 --
+--
+--
 -- /See:/ 'listEndpointsByPlatformApplication' smart constructor.
 data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication'
-    { _lebpaNextToken              :: !(Maybe Text)
-    , _lebpaPlatformApplicationARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lebpaNextToken              :: !(Maybe Text)
+  , _lebpaPlatformApplicationARN :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListEndpointsByPlatformApplication' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lebpaNextToken'
+-- * 'lebpaNextToken' - NextToken string is used when calling ListEndpointsByPlatformApplication action to retrieve additional records that are available after the first page results.
 --
--- * 'lebpaPlatformApplicationARN'
+-- * 'lebpaPlatformApplicationARN' - PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.
 listEndpointsByPlatformApplication
     :: Text -- ^ 'lebpaPlatformApplicationARN'
     -> ListEndpointsByPlatformApplication
 listEndpointsByPlatformApplication pPlatformApplicationARN_ =
-    ListEndpointsByPlatformApplication'
-    { _lebpaNextToken = Nothing
-    , _lebpaPlatformApplicationARN = pPlatformApplicationARN_
-    }
+  ListEndpointsByPlatformApplication'
+  { _lebpaNextToken = Nothing
+  , _lebpaPlatformApplicationARN = pPlatformApplicationARN_
+  }
+
 
 -- | NextToken string is used when calling ListEndpointsByPlatformApplication action to retrieve additional records that are available after the first page results.
 lebpaNextToken :: Lens' ListEndpointsByPlatformApplication (Maybe Text)
@@ -88,7 +94,8 @@ instance AWSPager ListEndpointsByPlatformApplication
             Just $ rq & lebpaNextToken .~ rs ^. lebparsNextToken
 
 instance AWSRequest
-         ListEndpointsByPlatformApplication where
+           ListEndpointsByPlatformApplication
+         where
         type Rs ListEndpointsByPlatformApplication =
              ListEndpointsByPlatformApplicationResponse
         request = postQuery sns
@@ -103,8 +110,10 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListEndpointsByPlatformApplication
+         where
 
 instance NFData ListEndpointsByPlatformApplication
+         where
 
 instance ToHeaders ListEndpointsByPlatformApplication
          where
@@ -127,31 +136,35 @@ instance ToQuery ListEndpointsByPlatformApplication
 
 -- | Response for ListEndpointsByPlatformApplication action.
 --
+--
+--
 -- /See:/ 'listEndpointsByPlatformApplicationResponse' smart constructor.
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse'
-    { _lebparsNextToken      :: !(Maybe Text)
-    , _lebparsEndpoints      :: !(Maybe [Endpoint])
-    , _lebparsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lebparsNextToken      :: !(Maybe Text)
+  , _lebparsEndpoints      :: !(Maybe [Endpoint])
+  , _lebparsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListEndpointsByPlatformApplicationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lebparsNextToken'
+-- * 'lebparsNextToken' - NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results.
 --
--- * 'lebparsEndpoints'
+-- * 'lebparsEndpoints' - Endpoints returned for ListEndpointsByPlatformApplication action.
 --
--- * 'lebparsResponseStatus'
+-- * 'lebparsResponseStatus' - -- | The response status code.
 listEndpointsByPlatformApplicationResponse
     :: Int -- ^ 'lebparsResponseStatus'
     -> ListEndpointsByPlatformApplicationResponse
 listEndpointsByPlatformApplicationResponse pResponseStatus_ =
-    ListEndpointsByPlatformApplicationResponse'
-    { _lebparsNextToken = Nothing
-    , _lebparsEndpoints = Nothing
-    , _lebparsResponseStatus = pResponseStatus_
-    }
+  ListEndpointsByPlatformApplicationResponse'
+  { _lebparsNextToken = Nothing
+  , _lebparsEndpoints = Nothing
+  , _lebparsResponseStatus = pResponseStatus_
+  }
+
 
 -- | NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results.
 lebparsNextToken :: Lens' ListEndpointsByPlatformApplicationResponse (Maybe Text)
@@ -161,9 +174,10 @@ lebparsNextToken = lens _lebparsNextToken (\ s a -> s{_lebparsNextToken = a});
 lebparsEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]
 lebparsEndpoints = lens _lebparsEndpoints (\ s a -> s{_lebparsEndpoints = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lebparsResponseStatus :: Lens' ListEndpointsByPlatformApplicationResponse Int
 lebparsResponseStatus = lens _lebparsResponseStatus (\ s a -> s{_lebparsResponseStatus = a});
 
 instance NFData
-         ListEndpointsByPlatformApplicationResponse
+           ListEndpointsByPlatformApplicationResponse
+         where

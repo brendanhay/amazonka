@@ -12,13 +12,67 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeRuntimeConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the current runtime configuration for the specified fleet. The runtime configuration tells GameLift how to launch server processes on instances in the fleet.
+-- Retrieves the current run-time configuration for the specified fleet. The run-time configuration tells Amazon GameLift how to launch server processes on instances in the fleet.
+--
+--
+-- Fleet-related operations include:
+--
+--     * 'CreateFleet'
+--
+--     * 'ListFleets'
+--
+--     * Describe fleets:
+--
+--     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetPortSettings'
+--
+--     * 'DescribeFleetUtilization'
+--
+--     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeFleetEvents'
+--
+--
+--
+--     * Update fleets:
+--
+--     * 'UpdateFleetAttributes'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'UpdateFleetPortSettings'
+--
+--     * 'UpdateRuntimeConfiguration'
+--
+--
+--
+--     * Manage fleet capacity:
+--
+--     * 'DescribeFleetCapacity'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'PutScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeScalingPolicies' (automatic scaling)
+--
+--     * 'DeleteScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeEC2InstanceLimits'
+--
+--
+--
+--     * 'DeleteFleet'
+--
+--
+--
 module Network.AWS.GameLift.DescribeRuntimeConfiguration
     (
     -- * Creating a Request
@@ -35,34 +89,36 @@ module Network.AWS.GameLift.DescribeRuntimeConfiguration
     , drcrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'describeRuntimeConfiguration' smart constructor.
 newtype DescribeRuntimeConfiguration = DescribeRuntimeConfiguration'
-    { _drcFleetId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drcFleetId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRuntimeConfiguration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drcFleetId'
+-- * 'drcFleetId' - Unique identifier for a fleet to get the run-time configuration for.
 describeRuntimeConfiguration
     :: Text -- ^ 'drcFleetId'
     -> DescribeRuntimeConfiguration
 describeRuntimeConfiguration pFleetId_ =
-    DescribeRuntimeConfiguration'
-    { _drcFleetId = pFleetId_
-    }
+  DescribeRuntimeConfiguration' {_drcFleetId = pFleetId_}
 
--- | Unique identifier of the fleet to get the runtime configuration for.
+
+-- | Unique identifier for a fleet to get the run-time configuration for.
 drcFleetId :: Lens' DescribeRuntimeConfiguration Text
 drcFleetId = lens _drcFleetId (\ s a -> s{_drcFleetId = a});
 
@@ -78,9 +134,9 @@ instance AWSRequest DescribeRuntimeConfiguration
                    (x .?> "RuntimeConfiguration") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeRuntimeConfiguration
+instance Hashable DescribeRuntimeConfiguration where
 
-instance NFData DescribeRuntimeConfiguration
+instance NFData DescribeRuntimeConfiguration where
 
 instance ToHeaders DescribeRuntimeConfiguration where
         toHeaders
@@ -105,34 +161,39 @@ instance ToQuery DescribeRuntimeConfiguration where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'describeRuntimeConfigurationResponse' smart constructor.
 data DescribeRuntimeConfigurationResponse = DescribeRuntimeConfigurationResponse'
-    { _drcrsRuntimeConfiguration :: !(Maybe RuntimeConfiguration)
-    , _drcrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drcrsRuntimeConfiguration :: !(Maybe RuntimeConfiguration)
+  , _drcrsResponseStatus       :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRuntimeConfigurationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drcrsRuntimeConfiguration'
+-- * 'drcrsRuntimeConfiguration' - Instructions describing how server processes should be launched and maintained on each instance in the fleet.
 --
--- * 'drcrsResponseStatus'
+-- * 'drcrsResponseStatus' - -- | The response status code.
 describeRuntimeConfigurationResponse
     :: Int -- ^ 'drcrsResponseStatus'
     -> DescribeRuntimeConfigurationResponse
 describeRuntimeConfigurationResponse pResponseStatus_ =
-    DescribeRuntimeConfigurationResponse'
-    { _drcrsRuntimeConfiguration = Nothing
-    , _drcrsResponseStatus = pResponseStatus_
-    }
+  DescribeRuntimeConfigurationResponse'
+  { _drcrsRuntimeConfiguration = Nothing
+  , _drcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Instructions describing how server processes should be launched and maintained on each instance in the fleet.
 drcrsRuntimeConfiguration :: Lens' DescribeRuntimeConfigurationResponse (Maybe RuntimeConfiguration)
 drcrsRuntimeConfiguration = lens _drcrsRuntimeConfiguration (\ s a -> s{_drcrsRuntimeConfiguration = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drcrsResponseStatus :: Lens' DescribeRuntimeConfigurationResponse Int
 drcrsResponseStatus = lens _drcrsResponseStatus (\ s a -> s{_drcrsResponseStatus = a});
 
 instance NFData DescribeRuntimeConfigurationResponse
+         where

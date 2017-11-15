@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Increases the Amazon Kinesis stream\'s retention period, which is the length of time data records are accessible after they are added to the stream. The maximum value of a stream\'s retention period is 168 hours (7 days).
+-- Increases the Amazon Kinesis stream's retention period, which is the length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours (7 days).
 --
--- Upon choosing a longer stream retention period, this operation will increase the time period records are accessible that have not yet expired. However, it will not make previous data that has expired (older than the stream\'s previous retention period) accessible after the operation has been called. For example, if a stream\'s retention period is set to 24 hours and is increased to 168 hours, any data that is older than 24 hours will remain inaccessible to consumer applications.
+--
+-- Upon choosing a longer stream retention period, this operation will increase the time period records are accessible that have not yet expired. However, it will not make previous data that has expired (older than the stream's previous retention period) accessible after the operation has been called. For example, if a stream's retention period is set to 24 hours and is increased to 168 hours, any data that is older than 24 hours will remain inaccessible to consumer applications.
+--
 module Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
     (
     -- * Creating a Request
@@ -35,37 +37,41 @@ module Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
     , IncreaseStreamRetentionPeriodResponse
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input for < IncreaseStreamRetentionPeriod>.
+-- | Represents the input for 'IncreaseStreamRetentionPeriod' .
+--
+--
 --
 -- /See:/ 'increaseStreamRetentionPeriod' smart constructor.
 data IncreaseStreamRetentionPeriod = IncreaseStreamRetentionPeriod'
-    { _isrpStreamName           :: !Text
-    , _isrpRetentionPeriodHours :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _isrpStreamName           :: !Text
+  , _isrpRetentionPeriodHours :: !Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IncreaseStreamRetentionPeriod' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'isrpStreamName'
+-- * 'isrpStreamName' - The name of the stream to modify.
 --
--- * 'isrpRetentionPeriodHours'
+-- * 'isrpRetentionPeriodHours' - The new retention period of the stream, in hours. Must be more than the current retention period.
 increaseStreamRetentionPeriod
     :: Text -- ^ 'isrpStreamName'
     -> Natural -- ^ 'isrpRetentionPeriodHours'
     -> IncreaseStreamRetentionPeriod
 increaseStreamRetentionPeriod pStreamName_ pRetentionPeriodHours_ =
-    IncreaseStreamRetentionPeriod'
-    { _isrpStreamName = pStreamName_
-    , _isrpRetentionPeriodHours = _Nat # pRetentionPeriodHours_
-    }
+  IncreaseStreamRetentionPeriod'
+  { _isrpStreamName = pStreamName_
+  , _isrpRetentionPeriodHours = _Nat # pRetentionPeriodHours_
+  }
+
 
 -- | The name of the stream to modify.
 isrpStreamName :: Lens' IncreaseStreamRetentionPeriod Text
@@ -83,9 +89,9 @@ instance AWSRequest IncreaseStreamRetentionPeriod
         response
           = receiveNull IncreaseStreamRetentionPeriodResponse'
 
-instance Hashable IncreaseStreamRetentionPeriod
+instance Hashable IncreaseStreamRetentionPeriod where
 
-instance NFData IncreaseStreamRetentionPeriod
+instance NFData IncreaseStreamRetentionPeriod where
 
 instance ToHeaders IncreaseStreamRetentionPeriod
          where
@@ -115,8 +121,9 @@ instance ToQuery IncreaseStreamRetentionPeriod where
 
 -- | /See:/ 'increaseStreamRetentionPeriodResponse' smart constructor.
 data IncreaseStreamRetentionPeriodResponse =
-    IncreaseStreamRetentionPeriodResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  IncreaseStreamRetentionPeriodResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IncreaseStreamRetentionPeriodResponse' with the minimum fields required to make a request.
 --
@@ -124,4 +131,6 @@ increaseStreamRetentionPeriodResponse
     :: IncreaseStreamRetentionPeriodResponse
 increaseStreamRetentionPeriodResponse = IncreaseStreamRetentionPeriodResponse'
 
+
 instance NFData IncreaseStreamRetentionPeriodResponse
+         where

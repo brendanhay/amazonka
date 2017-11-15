@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.SES.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.SES.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data BehaviorOnMXFailure
-    = RejectMessage
-    | UseDefaultValue
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = RejectMessage
+  | UseDefaultValue
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BehaviorOnMXFailure where
     parser = takeLowerText >>= \case
@@ -46,33 +47,34 @@ instance FromXML BehaviorOnMXFailure where
     parseXML = parseXMLText "BehaviorOnMXFailure"
 
 data BounceType
-    = BTContentRejected
-    | BTDoesNotExist
-    | BTExceededQuota
-    | BTMessageTooLarge
-    | BTTemporaryFailure
-    | BTUndefined
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ContentRejected
+  | DoesNotExist
+  | ExceededQuota
+  | MessageTooLarge
+  | TemporaryFailure
+  | Undefined
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BounceType where
     parser = takeLowerText >>= \case
-        "contentrejected" -> pure BTContentRejected
-        "doesnotexist" -> pure BTDoesNotExist
-        "exceededquota" -> pure BTExceededQuota
-        "messagetoolarge" -> pure BTMessageTooLarge
-        "temporaryfailure" -> pure BTTemporaryFailure
-        "undefined" -> pure BTUndefined
+        "contentrejected" -> pure ContentRejected
+        "doesnotexist" -> pure DoesNotExist
+        "exceededquota" -> pure ExceededQuota
+        "messagetoolarge" -> pure MessageTooLarge
+        "temporaryfailure" -> pure TemporaryFailure
+        "undefined" -> pure Undefined
         e -> fromTextError $ "Failure parsing BounceType from value: '" <> e
            <> "'. Accepted values: contentrejected, doesnotexist, exceededquota, messagetoolarge, temporaryfailure, undefined"
 
 instance ToText BounceType where
     toText = \case
-        BTContentRejected -> "ContentRejected"
-        BTDoesNotExist -> "DoesNotExist"
-        BTExceededQuota -> "ExceededQuota"
-        BTMessageTooLarge -> "MessageTooLarge"
-        BTTemporaryFailure -> "TemporaryFailure"
-        BTUndefined -> "Undefined"
+        ContentRejected -> "ContentRejected"
+        DoesNotExist -> "DoesNotExist"
+        ExceededQuota -> "ExceededQuota"
+        MessageTooLarge -> "MessageTooLarge"
+        TemporaryFailure -> "TemporaryFailure"
+        Undefined -> "Undefined"
 
 instance Hashable     BounceType
 instance NFData       BounceType
@@ -80,12 +82,94 @@ instance ToByteString BounceType
 instance ToQuery      BounceType
 instance ToHeader     BounceType
 
+data BulkEmailStatus
+  = AccountDailyQuotaExceeded
+  | AccountSuspended
+  | AccountThrottled
+  | ConfigurationSetDoesNotExist
+  | Failed
+  | InvalidParameterValue
+  | InvalidSendingPoolName
+  | MailFromDomainNotVerified
+  | MessageRejected
+  | Success
+  | TemplateDoesNotExist
+  | TransientFailure
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText BulkEmailStatus where
+    parser = takeLowerText >>= \case
+        "accountdailyquotaexceeded" -> pure AccountDailyQuotaExceeded
+        "accountsuspended" -> pure AccountSuspended
+        "accountthrottled" -> pure AccountThrottled
+        "configurationsetdoesnotexist" -> pure ConfigurationSetDoesNotExist
+        "failed" -> pure Failed
+        "invalidparametervalue" -> pure InvalidParameterValue
+        "invalidsendingpoolname" -> pure InvalidSendingPoolName
+        "mailfromdomainnotverified" -> pure MailFromDomainNotVerified
+        "messagerejected" -> pure MessageRejected
+        "success" -> pure Success
+        "templatedoesnotexist" -> pure TemplateDoesNotExist
+        "transientfailure" -> pure TransientFailure
+        e -> fromTextError $ "Failure parsing BulkEmailStatus from value: '" <> e
+           <> "'. Accepted values: accountdailyquotaexceeded, accountsuspended, accountthrottled, configurationsetdoesnotexist, failed, invalidparametervalue, invalidsendingpoolname, mailfromdomainnotverified, messagerejected, success, templatedoesnotexist, transientfailure"
+
+instance ToText BulkEmailStatus where
+    toText = \case
+        AccountDailyQuotaExceeded -> "AccountDailyQuotaExceeded"
+        AccountSuspended -> "AccountSuspended"
+        AccountThrottled -> "AccountThrottled"
+        ConfigurationSetDoesNotExist -> "ConfigurationSetDoesNotExist"
+        Failed -> "Failed"
+        InvalidParameterValue -> "InvalidParameterValue"
+        InvalidSendingPoolName -> "InvalidSendingPoolName"
+        MailFromDomainNotVerified -> "MailFromDomainNotVerified"
+        MessageRejected -> "MessageRejected"
+        Success -> "Success"
+        TemplateDoesNotExist -> "TemplateDoesNotExist"
+        TransientFailure -> "TransientFailure"
+
+instance Hashable     BulkEmailStatus
+instance NFData       BulkEmailStatus
+instance ToByteString BulkEmailStatus
+instance ToQuery      BulkEmailStatus
+instance ToHeader     BulkEmailStatus
+
+instance FromXML BulkEmailStatus where
+    parseXML = parseXMLText "BulkEmailStatus"
+
+data ConfigurationSetAttribute
+  = EventDestinations
+  | TrackingOptions
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ConfigurationSetAttribute where
+    parser = takeLowerText >>= \case
+        "eventdestinations" -> pure EventDestinations
+        "trackingoptions" -> pure TrackingOptions
+        e -> fromTextError $ "Failure parsing ConfigurationSetAttribute from value: '" <> e
+           <> "'. Accepted values: eventdestinations, trackingoptions"
+
+instance ToText ConfigurationSetAttribute where
+    toText = \case
+        EventDestinations -> "eventDestinations"
+        TrackingOptions -> "trackingOptions"
+
+instance Hashable     ConfigurationSetAttribute
+instance NFData       ConfigurationSetAttribute
+instance ToByteString ConfigurationSetAttribute
+instance ToQuery      ConfigurationSetAttribute
+instance ToHeader     ConfigurationSetAttribute
+
 data CustomMailFromStatus
-    = CMFSFailed
-    | CMFSPending
-    | CMFSSuccess
-    | CMFSTemporaryFailure
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CMFSFailed
+  | CMFSPending
+  | CMFSSuccess
+  | CMFSTemporaryFailure
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CustomMailFromStatus where
     parser = takeLowerText >>= \case
@@ -112,13 +196,44 @@ instance ToHeader     CustomMailFromStatus
 instance FromXML CustomMailFromStatus where
     parseXML = parseXMLText "CustomMailFromStatus"
 
+data DimensionValueSource
+  = EmailHeader
+  | LinkTag
+  | MessageTag
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DimensionValueSource where
+    parser = takeLowerText >>= \case
+        "emailheader" -> pure EmailHeader
+        "linktag" -> pure LinkTag
+        "messagetag" -> pure MessageTag
+        e -> fromTextError $ "Failure parsing DimensionValueSource from value: '" <> e
+           <> "'. Accepted values: emailheader, linktag, messagetag"
+
+instance ToText DimensionValueSource where
+    toText = \case
+        EmailHeader -> "emailHeader"
+        LinkTag -> "linkTag"
+        MessageTag -> "messageTag"
+
+instance Hashable     DimensionValueSource
+instance NFData       DimensionValueSource
+instance ToByteString DimensionValueSource
+instance ToQuery      DimensionValueSource
+instance ToHeader     DimensionValueSource
+
+instance FromXML DimensionValueSource where
+    parseXML = parseXMLText "DimensionValueSource"
+
 data DsnAction
-    = DADelayed
-    | DADelivered
-    | DAExpanded
-    | DAFailed
-    | DARelayed
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DADelayed
+  | DADelivered
+  | DAExpanded
+  | DAFailed
+  | DARelayed
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DsnAction where
     parser = takeLowerText >>= \case
@@ -144,10 +259,56 @@ instance ToByteString DsnAction
 instance ToQuery      DsnAction
 instance ToHeader     DsnAction
 
+data EventType
+  = ETBounce
+  | ETClick
+  | ETComplaint
+  | ETDelivery
+  | ETOpen
+  | ETReject
+  | ETRenderingFailure
+  | ETSend
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText EventType where
+    parser = takeLowerText >>= \case
+        "bounce" -> pure ETBounce
+        "click" -> pure ETClick
+        "complaint" -> pure ETComplaint
+        "delivery" -> pure ETDelivery
+        "open" -> pure ETOpen
+        "reject" -> pure ETReject
+        "renderingfailure" -> pure ETRenderingFailure
+        "send" -> pure ETSend
+        e -> fromTextError $ "Failure parsing EventType from value: '" <> e
+           <> "'. Accepted values: bounce, click, complaint, delivery, open, reject, renderingfailure, send"
+
+instance ToText EventType where
+    toText = \case
+        ETBounce -> "bounce"
+        ETClick -> "click"
+        ETComplaint -> "complaint"
+        ETDelivery -> "delivery"
+        ETOpen -> "open"
+        ETReject -> "reject"
+        ETRenderingFailure -> "renderingFailure"
+        ETSend -> "send"
+
+instance Hashable     EventType
+instance NFData       EventType
+instance ToByteString EventType
+instance ToQuery      EventType
+instance ToHeader     EventType
+
+instance FromXML EventType where
+    parseXML = parseXMLText "EventType"
+
 data IdentityType
-    = Domain
-    | EmailAddress
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Domain
+  | EmailAddress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText IdentityType where
     parser = takeLowerText >>= \case
@@ -168,9 +329,10 @@ instance ToQuery      IdentityType
 instance ToHeader     IdentityType
 
 data InvocationType
-    = Event
-    | RequestResponse
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Event
+  | RequestResponse
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InvocationType where
     parser = takeLowerText >>= \case
@@ -194,10 +356,11 @@ instance FromXML InvocationType where
     parseXML = parseXMLText "InvocationType"
 
 data NotificationType
-    = Bounce
-    | Complaint
-    | Delivery
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Bounce
+  | Complaint
+  | Delivery
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText NotificationType where
     parser = takeLowerText >>= \case
@@ -220,9 +383,10 @@ instance ToQuery      NotificationType
 instance ToHeader     NotificationType
 
 data ReceiptFilterPolicy
-    = Allow
-    | Block
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Allow
+  | Block
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReceiptFilterPolicy where
     parser = takeLowerText >>= \case
@@ -246,9 +410,10 @@ instance FromXML ReceiptFilterPolicy where
     parseXML = parseXMLText "ReceiptFilterPolicy"
 
 data SNSActionEncoding
-    = BASE64
-    | Utf8
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = BASE64
+  | Utf8
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SNSActionEncoding where
     parser = takeLowerText >>= \case
@@ -272,8 +437,9 @@ instance FromXML SNSActionEncoding where
     parseXML = parseXMLText "SNSActionEncoding"
 
 data StopScope =
-    RuleSet
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  RuleSet
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StopScope where
     parser = takeLowerText >>= \case
@@ -295,9 +461,10 @@ instance FromXML StopScope where
     parseXML = parseXMLText "StopScope"
 
 data TLSPolicy
-    = Optional
-    | Require
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Optional
+  | Require
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TLSPolicy where
     parser = takeLowerText >>= \case
@@ -321,30 +488,31 @@ instance FromXML TLSPolicy where
     parseXML = parseXMLText "TLSPolicy"
 
 data VerificationStatus
-    = Failed
-    | NotStarted
-    | Pending
-    | Success
-    | TemporaryFailure
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = VSFailed
+  | VSNotStarted
+  | VSPending
+  | VSSuccess
+  | VSTemporaryFailure
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VerificationStatus where
     parser = takeLowerText >>= \case
-        "failed" -> pure Failed
-        "notstarted" -> pure NotStarted
-        "pending" -> pure Pending
-        "success" -> pure Success
-        "temporaryfailure" -> pure TemporaryFailure
+        "failed" -> pure VSFailed
+        "notstarted" -> pure VSNotStarted
+        "pending" -> pure VSPending
+        "success" -> pure VSSuccess
+        "temporaryfailure" -> pure VSTemporaryFailure
         e -> fromTextError $ "Failure parsing VerificationStatus from value: '" <> e
            <> "'. Accepted values: failed, notstarted, pending, success, temporaryfailure"
 
 instance ToText VerificationStatus where
     toText = \case
-        Failed -> "Failed"
-        NotStarted -> "NotStarted"
-        Pending -> "Pending"
-        Success -> "Success"
-        TemporaryFailure -> "TemporaryFailure"
+        VSFailed -> "Failed"
+        VSNotStarted -> "NotStarted"
+        VSPending -> "Pending"
+        VSSuccess -> "Success"
+        VSTemporaryFailure -> "TemporaryFailure"
 
 instance Hashable     VerificationStatus
 instance NFData       VerificationStatus

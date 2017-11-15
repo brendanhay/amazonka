@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreatePlacementGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a placement group that you launch cluster instances into. You must give the group a name that\'s unique within the scope of your account.
+-- Creates a placement group that you launch cluster instances into. Give the group a name that's unique within the scope of your account.
 --
--- For more information about placement groups and cluster instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances> in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- For more information about placement groups and cluster instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.CreatePlacementGroup
     (
     -- * Creating a Request
@@ -36,49 +38,48 @@ module Network.AWS.EC2.CreatePlacementGroup
     , CreatePlacementGroupResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreatePlacementGroup.
 --
+--
+--
 -- /See:/ 'createPlacementGroup' smart constructor.
 data CreatePlacementGroup = CreatePlacementGroup'
-    { _cpgDryRun    :: !(Maybe Bool)
-    , _cpgGroupName :: !Text
-    , _cpgStrategy  :: !PlacementStrategy
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpgDryRun    :: !(Maybe Bool)
+  , _cpgGroupName :: !Text
+  , _cpgStrategy  :: !PlacementStrategy
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePlacementGroup' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpgDryRun'
+-- * 'cpgDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'cpgGroupName'
+-- * 'cpgGroupName' - A name for the placement group. Constraints: Up to 255 ASCII characters
 --
--- * 'cpgStrategy'
+-- * 'cpgStrategy' - The placement strategy.
 createPlacementGroup
     :: Text -- ^ 'cpgGroupName'
     -> PlacementStrategy -- ^ 'cpgStrategy'
     -> CreatePlacementGroup
 createPlacementGroup pGroupName_ pStrategy_ =
-    CreatePlacementGroup'
-    { _cpgDryRun = Nothing
-    , _cpgGroupName = pGroupName_
-    , _cpgStrategy = pStrategy_
-    }
+  CreatePlacementGroup'
+  {_cpgDryRun = Nothing, _cpgGroupName = pGroupName_, _cpgStrategy = pStrategy_}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cpgDryRun :: Lens' CreatePlacementGroup (Maybe Bool)
 cpgDryRun = lens _cpgDryRun (\ s a -> s{_cpgDryRun = a});
 
--- | A name for the placement group.
---
--- Constraints: Up to 255 ASCII characters
+-- | A name for the placement group. Constraints: Up to 255 ASCII characters
 cpgGroupName :: Lens' CreatePlacementGroup Text
 cpgGroupName = lens _cpgGroupName (\ s a -> s{_cpgGroupName = a});
 
@@ -92,9 +93,9 @@ instance AWSRequest CreatePlacementGroup where
         request = postQuery ec2
         response = receiveNull CreatePlacementGroupResponse'
 
-instance Hashable CreatePlacementGroup
+instance Hashable CreatePlacementGroup where
 
-instance NFData CreatePlacementGroup
+instance NFData CreatePlacementGroup where
 
 instance ToHeaders CreatePlacementGroup where
         toHeaders = const mempty
@@ -106,14 +107,15 @@ instance ToQuery CreatePlacementGroup where
         toQuery CreatePlacementGroup'{..}
           = mconcat
               ["Action" =: ("CreatePlacementGroup" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _cpgDryRun, "GroupName" =: _cpgGroupName,
                "Strategy" =: _cpgStrategy]
 
 -- | /See:/ 'createPlacementGroupResponse' smart constructor.
 data CreatePlacementGroupResponse =
-    CreatePlacementGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CreatePlacementGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePlacementGroupResponse' with the minimum fields required to make a request.
 --
@@ -121,4 +123,5 @@ createPlacementGroupResponse
     :: CreatePlacementGroupResponse
 createPlacementGroupResponse = CreatePlacementGroupResponse'
 
-instance NFData CreatePlacementGroupResponse
+
+instance NFData CreatePlacementGroupResponse where

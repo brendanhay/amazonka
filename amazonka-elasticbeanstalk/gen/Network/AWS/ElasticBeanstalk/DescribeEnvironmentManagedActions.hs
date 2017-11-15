@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists an environment\'s upcoming and in-progress managed actions.
+-- Lists an environment's upcoming and in-progress managed actions.
+--
+--
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActions
     (
     -- * Creating a Request
@@ -37,39 +39,43 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActions
     , demarsResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Request to list an environment\'s upcoming and in-progress managed actions.
+-- | Request to list an environment's upcoming and in-progress managed actions.
+--
+--
 --
 -- /See:/ 'describeEnvironmentManagedActions' smart constructor.
 data DescribeEnvironmentManagedActions = DescribeEnvironmentManagedActions'
-    { _demaStatus          :: !(Maybe ActionStatus)
-    , _demaEnvironmentName :: !(Maybe Text)
-    , _demaEnvironmentId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _demaStatus          :: !(Maybe ActionStatus)
+  , _demaEnvironmentName :: !(Maybe Text)
+  , _demaEnvironmentId   :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEnvironmentManagedActions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'demaStatus'
+-- * 'demaStatus' - To show only actions with a particular status, specify a status.
 --
--- * 'demaEnvironmentName'
+-- * 'demaEnvironmentName' - The name of the target environment.
 --
--- * 'demaEnvironmentId'
+-- * 'demaEnvironmentId' - The environment ID of the target environment.
 describeEnvironmentManagedActions
     :: DescribeEnvironmentManagedActions
 describeEnvironmentManagedActions =
-    DescribeEnvironmentManagedActions'
-    { _demaStatus = Nothing
-    , _demaEnvironmentName = Nothing
-    , _demaEnvironmentId = Nothing
-    }
+  DescribeEnvironmentManagedActions'
+  { _demaStatus = Nothing
+  , _demaEnvironmentName = Nothing
+  , _demaEnvironmentId = Nothing
+  }
+
 
 -- | To show only actions with a particular status, specify a status.
 demaStatus :: Lens' DescribeEnvironmentManagedActions (Maybe ActionStatus)
@@ -98,8 +104,10 @@ instance AWSRequest DescribeEnvironmentManagedActions
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeEnvironmentManagedActions
+         where
 
 instance NFData DescribeEnvironmentManagedActions
+         where
 
 instance ToHeaders DescribeEnvironmentManagedActions
          where
@@ -122,35 +130,38 @@ instance ToQuery DescribeEnvironmentManagedActions
 
 -- | The result message containing a list of managed actions.
 --
+--
+--
 -- /See:/ 'describeEnvironmentManagedActionsResponse' smart constructor.
 data DescribeEnvironmentManagedActionsResponse = DescribeEnvironmentManagedActionsResponse'
-    { _demarsManagedActions :: !(Maybe (List1 ManagedAction))
-    , _demarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _demarsManagedActions :: !(Maybe (List1 ManagedAction))
+  , _demarsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEnvironmentManagedActionsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'demarsManagedActions'
+-- * 'demarsManagedActions' - A list of upcoming and in-progress managed actions.
 --
--- * 'demarsResponseStatus'
+-- * 'demarsResponseStatus' - -- | The response status code.
 describeEnvironmentManagedActionsResponse
     :: Int -- ^ 'demarsResponseStatus'
     -> DescribeEnvironmentManagedActionsResponse
 describeEnvironmentManagedActionsResponse pResponseStatus_ =
-    DescribeEnvironmentManagedActionsResponse'
-    { _demarsManagedActions = Nothing
-    , _demarsResponseStatus = pResponseStatus_
-    }
+  DescribeEnvironmentManagedActionsResponse'
+  {_demarsManagedActions = Nothing, _demarsResponseStatus = pResponseStatus_}
+
 
 -- | A list of upcoming and in-progress managed actions.
 demarsManagedActions :: Lens' DescribeEnvironmentManagedActionsResponse (Maybe (NonEmpty ManagedAction))
 demarsManagedActions = lens _demarsManagedActions (\ s a -> s{_demarsManagedActions = a}) . mapping _List1;
 
--- | The response status code.
+-- | -- | The response status code.
 demarsResponseStatus :: Lens' DescribeEnvironmentManagedActionsResponse Int
 demarsResponseStatus = lens _demarsResponseStatus (\ s a -> s{_demarsResponseStatus = a});
 
 instance NFData
-         DescribeEnvironmentManagedActionsResponse
+           DescribeEnvironmentManagedActionsResponse
+         where

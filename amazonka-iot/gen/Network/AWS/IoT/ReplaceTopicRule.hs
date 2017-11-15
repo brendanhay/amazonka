@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ReplaceTopicRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Replaces the specified rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.
+--
+--
 module Network.AWS.IoT.ReplaceTopicRule
     (
     -- * Creating a Request
@@ -33,37 +35,39 @@ module Network.AWS.IoT.ReplaceTopicRule
     , ReplaceTopicRuleResponse
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the ReplaceTopicRule operation.
 --
+--
+--
 -- /See:/ 'replaceTopicRule' smart constructor.
 data ReplaceTopicRule = ReplaceTopicRule'
-    { _rtrRuleName         :: !Text
-    , _rtrTopicRulePayload :: !TopicRulePayload
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtrRuleName         :: !Text
+  , _rtrTopicRulePayload :: !TopicRulePayload
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplaceTopicRule' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtrRuleName'
+-- * 'rtrRuleName' - The name of the rule.
 --
--- * 'rtrTopicRulePayload'
+-- * 'rtrTopicRulePayload' - The rule payload.
 replaceTopicRule
     :: Text -- ^ 'rtrRuleName'
     -> TopicRulePayload -- ^ 'rtrTopicRulePayload'
     -> ReplaceTopicRule
 replaceTopicRule pRuleName_ pTopicRulePayload_ =
-    ReplaceTopicRule'
-    { _rtrRuleName = pRuleName_
-    , _rtrTopicRulePayload = pTopicRulePayload_
-    }
+  ReplaceTopicRule'
+  {_rtrRuleName = pRuleName_, _rtrTopicRulePayload = pTopicRulePayload_}
+
 
 -- | The name of the rule.
 rtrRuleName :: Lens' ReplaceTopicRule Text
@@ -78,9 +82,9 @@ instance AWSRequest ReplaceTopicRule where
         request = patchJSON ioT
         response = receiveNull ReplaceTopicRuleResponse'
 
-instance Hashable ReplaceTopicRule
+instance Hashable ReplaceTopicRule where
 
-instance NFData ReplaceTopicRule
+instance NFData ReplaceTopicRule where
 
 instance ToHeaders ReplaceTopicRule where
         toHeaders = const mempty
@@ -100,8 +104,9 @@ instance ToQuery ReplaceTopicRule where
 
 -- | /See:/ 'replaceTopicRuleResponse' smart constructor.
 data ReplaceTopicRuleResponse =
-    ReplaceTopicRuleResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ReplaceTopicRuleResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplaceTopicRuleResponse' with the minimum fields required to make a request.
 --
@@ -109,4 +114,5 @@ replaceTopicRuleResponse
     :: ReplaceTopicRuleResponse
 replaceTopicRuleResponse = ReplaceTopicRuleResponse'
 
-instance NFData ReplaceTopicRuleResponse
+
+instance NFData ReplaceTopicRuleResponse where

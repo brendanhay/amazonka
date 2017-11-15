@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetBasePathMappings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Represents a collection of < BasePathMapping> resources.
+-- Represents a collection of 'BasePathMapping' resources.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetBasePathMappings
@@ -40,51 +42,52 @@ module Network.AWS.APIGateway.GetBasePathMappings
     , gbpmrsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | A request to get information about a collection of < BasePathMapping> resources.
+-- | A request to get information about a collection of 'BasePathMapping' resources.
+--
+--
 --
 -- /See:/ 'getBasePathMappings' smart constructor.
 data GetBasePathMappings = GetBasePathMappings'
-    { _gLimit      :: !(Maybe Int)
-    , _gPosition   :: !(Maybe Text)
-    , _gDomainName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gLimit      :: !(Maybe Int)
+  , _gPosition   :: !(Maybe Text)
+  , _gDomainName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBasePathMappings' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gLimit'
+-- * 'gLimit' - The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 --
--- * 'gPosition'
+-- * 'gPosition' - The current pagination position in the paged result set.
 --
--- * 'gDomainName'
+-- * 'gDomainName' - The domain name of a 'BasePathMapping' resource.
 getBasePathMappings
     :: Text -- ^ 'gDomainName'
     -> GetBasePathMappings
 getBasePathMappings pDomainName_ =
-    GetBasePathMappings'
-    { _gLimit = Nothing
-    , _gPosition = Nothing
-    , _gDomainName = pDomainName_
-    }
+  GetBasePathMappings'
+  {_gLimit = Nothing, _gPosition = Nothing, _gDomainName = pDomainName_}
 
--- | The maximum number of < BasePathMapping> resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
+
+-- | The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 gLimit :: Lens' GetBasePathMappings (Maybe Int)
 gLimit = lens _gLimit (\ s a -> s{_gLimit = a});
 
--- | The position of the current < BasePathMapping> resource in the collection to get information about.
+-- | The current pagination position in the paged result set.
 gPosition :: Lens' GetBasePathMappings (Maybe Text)
 gPosition = lens _gPosition (\ s a -> s{_gPosition = a});
 
--- | The domain name of a < BasePathMapping> resource.
+-- | The domain name of a 'BasePathMapping' resource.
 gDomainName :: Lens' GetBasePathMappings Text
 gDomainName = lens _gDomainName (\ s a -> s{_gDomainName = a});
 
@@ -106,9 +109,9 @@ instance AWSRequest GetBasePathMappings where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetBasePathMappings
+instance Hashable GetBasePathMappings where
 
-instance NFData GetBasePathMappings
+instance NFData GetBasePathMappings where
 
 instance ToHeaders GetBasePathMappings where
         toHeaders
@@ -127,37 +130,40 @@ instance ToQuery GetBasePathMappings where
           = mconcat
               ["limit" =: _gLimit, "position" =: _gPosition]
 
--- | Represents a collection of < BasePathMapping> resources.
+-- | Represents a collection of 'BasePathMapping' resources.
+--
 --
 -- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html Use Custom Domain Names>
 --
 -- /See:/ 'getBasePathMappingsResponse' smart constructor.
 data GetBasePathMappingsResponse = GetBasePathMappingsResponse'
-    { _gbpmrsItems          :: !(Maybe [BasePathMapping])
-    , _gbpmrsPosition       :: !(Maybe Text)
-    , _gbpmrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbpmrsItems          :: !(Maybe [BasePathMapping])
+  , _gbpmrsPosition       :: !(Maybe Text)
+  , _gbpmrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBasePathMappingsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbpmrsItems'
+-- * 'gbpmrsItems' - The current page of elements from this collection.
 --
--- * 'gbpmrsPosition'
+-- * 'gbpmrsPosition' - Undocumented member.
 --
--- * 'gbpmrsResponseStatus'
+-- * 'gbpmrsResponseStatus' - -- | The response status code.
 getBasePathMappingsResponse
     :: Int -- ^ 'gbpmrsResponseStatus'
     -> GetBasePathMappingsResponse
 getBasePathMappingsResponse pResponseStatus_ =
-    GetBasePathMappingsResponse'
-    { _gbpmrsItems = Nothing
-    , _gbpmrsPosition = Nothing
-    , _gbpmrsResponseStatus = pResponseStatus_
-    }
+  GetBasePathMappingsResponse'
+  { _gbpmrsItems = Nothing
+  , _gbpmrsPosition = Nothing
+  , _gbpmrsResponseStatus = pResponseStatus_
+  }
 
--- | The current page of any < BasePathMapping> resources in the collection of base path mapping resources.
+
+-- | The current page of elements from this collection.
 gbpmrsItems :: Lens' GetBasePathMappingsResponse [BasePathMapping]
 gbpmrsItems = lens _gbpmrsItems (\ s a -> s{_gbpmrsItems = a}) . _Default . _Coerce;
 
@@ -165,8 +171,8 @@ gbpmrsItems = lens _gbpmrsItems (\ s a -> s{_gbpmrsItems = a}) . _Default . _Coe
 gbpmrsPosition :: Lens' GetBasePathMappingsResponse (Maybe Text)
 gbpmrsPosition = lens _gbpmrsPosition (\ s a -> s{_gbpmrsPosition = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gbpmrsResponseStatus :: Lens' GetBasePathMappingsResponse Int
 gbpmrsResponseStatus = lens _gbpmrsResponseStatus (\ s a -> s{_gbpmrsResponseStatus = a});
 
-instance NFData GetBasePathMappingsResponse
+instance NFData GetBasePathMappingsResponse where

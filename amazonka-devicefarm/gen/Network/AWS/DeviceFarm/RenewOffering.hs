@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.RenewOffering
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Explicitly sets the quantity of devices to renew for an offering, starting from the 'effectiveDate' of the next period. The API returns a 'NotEligible' error if the user is not permitted to invoke the operation. Please contact <mailto:aws-devicefarm-support'amazon.com aws-devicefarm-support\'amazon.com> if you believe that you should be able to invoke this operation.
+-- Explicitly sets the quantity of devices to renew for an offering, starting from the @effectiveDate@ of the next period. The API returns a @NotEligible@ error if the user is not permitted to invoke the operation. Please contact <mailto:aws-devicefarm-support@amazon.com aws-devicefarm-support@amazon.com> if you believe that you should be able to invoke this operation.
+--
+--
 module Network.AWS.DeviceFarm.RenewOffering
     (
     -- * Creating a Request
@@ -36,35 +38,35 @@ module Network.AWS.DeviceFarm.RenewOffering
     , rorsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request representing an offering renewal.
 --
+--
+--
 -- /See:/ 'renewOffering' smart constructor.
 data RenewOffering = RenewOffering'
-    { _roQuantity   :: !(Maybe Int)
-    , _roOfferingId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _roQuantity   :: !(Maybe Int)
+  , _roOfferingId :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RenewOffering' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'roQuantity'
+-- * 'roQuantity' - The quantity requested in an offering renewal.
 --
--- * 'roOfferingId'
+-- * 'roOfferingId' - The ID of a request to renew an offering.
 renewOffering
     :: RenewOffering
-renewOffering =
-    RenewOffering'
-    { _roQuantity = Nothing
-    , _roOfferingId = Nothing
-    }
+renewOffering = RenewOffering' {_roQuantity = Nothing, _roOfferingId = Nothing}
+
 
 -- | The quantity requested in an offering renewal.
 roQuantity :: Lens' RenewOffering (Maybe Int)
@@ -84,9 +86,9 @@ instance AWSRequest RenewOffering where
                    (x .?> "offeringTransaction") <*>
                      (pure (fromEnum s)))
 
-instance Hashable RenewOffering
+instance Hashable RenewOffering where
 
-instance NFData RenewOffering
+instance NFData RenewOffering where
 
 instance ToHeaders RenewOffering where
         toHeaders
@@ -112,34 +114,36 @@ instance ToQuery RenewOffering where
 
 -- | The result of a renewal offering.
 --
+--
+--
 -- /See:/ 'renewOfferingResponse' smart constructor.
 data RenewOfferingResponse = RenewOfferingResponse'
-    { _rorsOfferingTransaction :: !(Maybe OfferingTransaction)
-    , _rorsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rorsOfferingTransaction :: !(Maybe OfferingTransaction)
+  , _rorsResponseStatus      :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RenewOfferingResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rorsOfferingTransaction'
+-- * 'rorsOfferingTransaction' - Represents the status of the offering transaction for the renewal.
 --
--- * 'rorsResponseStatus'
+-- * 'rorsResponseStatus' - -- | The response status code.
 renewOfferingResponse
     :: Int -- ^ 'rorsResponseStatus'
     -> RenewOfferingResponse
 renewOfferingResponse pResponseStatus_ =
-    RenewOfferingResponse'
-    { _rorsOfferingTransaction = Nothing
-    , _rorsResponseStatus = pResponseStatus_
-    }
+  RenewOfferingResponse'
+  {_rorsOfferingTransaction = Nothing, _rorsResponseStatus = pResponseStatus_}
+
 
 -- | Represents the status of the offering transaction for the renewal.
 rorsOfferingTransaction :: Lens' RenewOfferingResponse (Maybe OfferingTransaction)
 rorsOfferingTransaction = lens _rorsOfferingTransaction (\ s a -> s{_rorsOfferingTransaction = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rorsResponseStatus :: Lens' RenewOfferingResponse Int
 rorsResponseStatus = lens _rorsResponseStatus (\ s a -> s{_rorsResponseStatus = a});
 
-instance NFData RenewOfferingResponse
+instance NFData RenewOfferingResponse where

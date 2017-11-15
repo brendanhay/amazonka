@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetAPIKey
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the current < ApiKey> resource.
+-- Gets information about the current 'ApiKey' resource.
+--
+--
 module Network.AWS.APIGateway.GetAPIKey
     (
     -- * Creating a Request
@@ -34,6 +36,7 @@ module Network.AWS.APIGateway.GetAPIKey
     -- * Response Lenses
     , akEnabled
     , akValue
+    , akCustomerId
     , akCreatedDate
     , akName
     , akId
@@ -42,42 +45,43 @@ module Network.AWS.APIGateway.GetAPIKey
     , akDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | A request to get information about the current < ApiKey> resource.
+-- | A request to get information about the current 'ApiKey' resource.
+--
+--
 --
 -- /See:/ 'getAPIKey' smart constructor.
 data GetAPIKey = GetAPIKey'
-    { _gakIncludeValue :: !(Maybe Bool)
-    , _gakApiKey       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gakIncludeValue :: !(Maybe Bool)
+  , _gakApiKey       :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAPIKey' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gakIncludeValue'
+-- * 'gakIncludeValue' - A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains the key value.
 --
--- * 'gakApiKey'
+-- * 'gakApiKey' - The identifier of the 'ApiKey' resource.
 getAPIKey
     :: Text -- ^ 'gakApiKey'
     -> GetAPIKey
 getAPIKey pApiKey_ =
-    GetAPIKey'
-    { _gakIncludeValue = Nothing
-    , _gakApiKey = pApiKey_
-    }
+  GetAPIKey' {_gakIncludeValue = Nothing, _gakApiKey = pApiKey_}
 
--- | A boolean flag to specify whether ('true') or not ('false') the result contains the key value.
+
+-- | A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains the key value.
 gakIncludeValue :: Lens' GetAPIKey (Maybe Bool)
 gakIncludeValue = lens _gakIncludeValue (\ s a -> s{_gakIncludeValue = a});
 
--- | The identifier of the < ApiKey> resource.
+-- | The identifier of the 'ApiKey' resource.
 gakApiKey :: Lens' GetAPIKey Text
 gakApiKey = lens _gakApiKey (\ s a -> s{_gakApiKey = a});
 
@@ -86,9 +90,9 @@ instance AWSRequest GetAPIKey where
         request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetAPIKey
+instance Hashable GetAPIKey where
 
-instance NFData GetAPIKey
+instance NFData GetAPIKey where
 
 instance ToHeaders GetAPIKey where
         toHeaders

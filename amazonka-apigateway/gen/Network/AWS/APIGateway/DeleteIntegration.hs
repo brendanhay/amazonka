@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteIntegration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents a delete integration.
+--
+--
 module Network.AWS.APIGateway.DeleteIntegration
     (
     -- * Creating a Request
@@ -34,52 +36,56 @@ module Network.AWS.APIGateway.DeleteIntegration
     , DeleteIntegrationResponse'
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a delete integration request.
 --
+--
+--
 -- /See:/ 'deleteIntegration' smart constructor.
 data DeleteIntegration = DeleteIntegration'
-    { _delRestAPIId  :: !Text
-    , _delResourceId :: !Text
-    , _delHttpMethod :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delRestAPIId  :: !Text
+  , _delResourceId :: !Text
+  , _delHttpMethod :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIntegration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delRestAPIId'
+-- * 'delRestAPIId' - The string identifier of the associated 'RestApi' .
 --
--- * 'delResourceId'
+-- * 'delResourceId' - Specifies a delete integration request's resource identifier.
 --
--- * 'delHttpMethod'
+-- * 'delHttpMethod' - Specifies a delete integration request's HTTP method.
 deleteIntegration
     :: Text -- ^ 'delRestAPIId'
     -> Text -- ^ 'delResourceId'
     -> Text -- ^ 'delHttpMethod'
     -> DeleteIntegration
 deleteIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
-    DeleteIntegration'
-    { _delRestAPIId = pRestAPIId_
-    , _delResourceId = pResourceId_
-    , _delHttpMethod = pHttpMethod_
-    }
+  DeleteIntegration'
+  { _delRestAPIId = pRestAPIId_
+  , _delResourceId = pResourceId_
+  , _delHttpMethod = pHttpMethod_
+  }
 
--- | Specifies a delete integration request\'s API identifier.
+
+-- | The string identifier of the associated 'RestApi' .
 delRestAPIId :: Lens' DeleteIntegration Text
 delRestAPIId = lens _delRestAPIId (\ s a -> s{_delRestAPIId = a});
 
--- | Specifies a delete integration request\'s resource identifier.
+-- | Specifies a delete integration request's resource identifier.
 delResourceId :: Lens' DeleteIntegration Text
 delResourceId = lens _delResourceId (\ s a -> s{_delResourceId = a});
 
--- | Specifies a delete integration request\'s HTTP method.
+-- | Specifies a delete integration request's HTTP method.
 delHttpMethod :: Lens' DeleteIntegration Text
 delHttpMethod = lens _delHttpMethod (\ s a -> s{_delHttpMethod = a});
 
@@ -89,9 +95,9 @@ instance AWSRequest DeleteIntegration where
         request = delete apiGateway
         response = receiveNull DeleteIntegrationResponse''
 
-instance Hashable DeleteIntegration
+instance Hashable DeleteIntegration where
 
-instance NFData DeleteIntegration
+instance NFData DeleteIntegration where
 
 instance ToHeaders DeleteIntegration where
         toHeaders
@@ -111,8 +117,9 @@ instance ToQuery DeleteIntegration where
 
 -- | /See:/ 'deleteIntegrationResponse'' smart constructor.
 data DeleteIntegrationResponse' =
-    DeleteIntegrationResponse''
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteIntegrationResponse''
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIntegrationResponse'' with the minimum fields required to make a request.
 --
@@ -120,4 +127,5 @@ deleteIntegrationResponse'
     :: DeleteIntegrationResponse'
 deleteIntegrationResponse' = DeleteIntegrationResponse''
 
-instance NFData DeleteIntegrationResponse'
+
+instance NFData DeleteIntegrationResponse' where

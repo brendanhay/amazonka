@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IAM.RemoveUserFromGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the specified user from the specified group.
+--
+--
 module Network.AWS.IAM.RemoveUserFromGroup
     (
     -- * Creating a Request
@@ -33,45 +35,41 @@ module Network.AWS.IAM.RemoveUserFromGroup
     , RemoveUserFromGroupResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'removeUserFromGroup' smart constructor.
 data RemoveUserFromGroup = RemoveUserFromGroup'
-    { _rufgGroupName :: !Text
-    , _rufgUserName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rufgGroupName :: !Text
+  , _rufgUserName  :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveUserFromGroup' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rufgGroupName'
+-- * 'rufgGroupName' - The name of the group to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'rufgUserName'
+-- * 'rufgUserName' - The name of the user to remove. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 removeUserFromGroup
     :: Text -- ^ 'rufgGroupName'
     -> Text -- ^ 'rufgUserName'
     -> RemoveUserFromGroup
 removeUserFromGroup pGroupName_ pUserName_ =
-    RemoveUserFromGroup'
-    { _rufgGroupName = pGroupName_
-    , _rufgUserName = pUserName_
-    }
+  RemoveUserFromGroup'
+  {_rufgGroupName = pGroupName_, _rufgUserName = pUserName_}
 
--- | The name of the group to update.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+
+-- | The name of the group to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 rufgGroupName :: Lens' RemoveUserFromGroup Text
 rufgGroupName = lens _rufgGroupName (\ s a -> s{_rufgGroupName = a});
 
--- | The name of the user to remove.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the user to remove. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 rufgUserName :: Lens' RemoveUserFromGroup Text
 rufgUserName = lens _rufgUserName (\ s a -> s{_rufgUserName = a});
 
@@ -81,9 +79,9 @@ instance AWSRequest RemoveUserFromGroup where
         request = postQuery iam
         response = receiveNull RemoveUserFromGroupResponse'
 
-instance Hashable RemoveUserFromGroup
+instance Hashable RemoveUserFromGroup where
 
-instance NFData RemoveUserFromGroup
+instance NFData RemoveUserFromGroup where
 
 instance ToHeaders RemoveUserFromGroup where
         toHeaders = const mempty
@@ -101,8 +99,9 @@ instance ToQuery RemoveUserFromGroup where
 
 -- | /See:/ 'removeUserFromGroupResponse' smart constructor.
 data RemoveUserFromGroupResponse =
-    RemoveUserFromGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RemoveUserFromGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveUserFromGroupResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +109,5 @@ removeUserFromGroupResponse
     :: RemoveUserFromGroupResponse
 removeUserFromGroupResponse = RemoveUserFromGroupResponse'
 
-instance NFData RemoveUserFromGroupResponse
+
+instance NFData RemoveUserFromGroupResponse where

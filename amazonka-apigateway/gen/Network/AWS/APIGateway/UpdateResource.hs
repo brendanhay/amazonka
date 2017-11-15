@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about a < Resource> resource.
+-- Changes information about a 'Resource' resource.
+--
+--
 module Network.AWS.APIGateway.UpdateResource
     (
     -- * Creating a Request
@@ -40,51 +42,55 @@ module Network.AWS.APIGateway.UpdateResource
     , rParentId
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Request to change information about a < Resource> resource.
+-- | Request to change information about a 'Resource' resource.
+--
+--
 --
 -- /See:/ 'updateResource' smart constructor.
 data UpdateResource = UpdateResource'
-    { _urPatchOperations :: !(Maybe [PatchOperation])
-    , _urRestAPIId       :: !Text
-    , _urResourceId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urPatchOperations :: !(Maybe [PatchOperation])
+  , _urRestAPIId       :: !Text
+  , _urResourceId      :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urPatchOperations'
+-- * 'urPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'urRestAPIId'
+-- * 'urRestAPIId' - The string identifier of the associated 'RestApi' .
 --
--- * 'urResourceId'
+-- * 'urResourceId' - The identifier of the 'Resource' resource.
 updateResource
     :: Text -- ^ 'urRestAPIId'
     -> Text -- ^ 'urResourceId'
     -> UpdateResource
 updateResource pRestAPIId_ pResourceId_ =
-    UpdateResource'
-    { _urPatchOperations = Nothing
-    , _urRestAPIId = pRestAPIId_
-    , _urResourceId = pResourceId_
-    }
+  UpdateResource'
+  { _urPatchOperations = Nothing
+  , _urRestAPIId = pRestAPIId_
+  , _urResourceId = pResourceId_
+  }
+
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 urPatchOperations :: Lens' UpdateResource [PatchOperation]
 urPatchOperations = lens _urPatchOperations (\ s a -> s{_urPatchOperations = a}) . _Default . _Coerce;
 
--- | The < RestApi> identifier for the < Resource> resource.
+-- | The string identifier of the associated 'RestApi' .
 urRestAPIId :: Lens' UpdateResource Text
 urRestAPIId = lens _urRestAPIId (\ s a -> s{_urRestAPIId = a});
 
--- | The identifier of the < Resource> resource.
+-- | The identifier of the 'Resource' resource.
 urResourceId :: Lens' UpdateResource Text
 urResourceId = lens _urResourceId (\ s a -> s{_urResourceId = a});
 
@@ -93,9 +99,9 @@ instance AWSRequest UpdateResource where
         request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateResource
+instance Hashable UpdateResource where
 
-instance NFData UpdateResource
+instance NFData UpdateResource where
 
 instance ToHeaders UpdateResource where
         toHeaders

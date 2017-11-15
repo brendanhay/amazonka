@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DescribeAlarmHistory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves history for the specified alarm. Filter alarms by date range or item type. If an alarm name is not specified, Amazon CloudWatch returns histories for all of the owner\'s alarms.
+-- Retrieves the history for the specified alarm. You can filter the results by date range or item type. If an alarm name is not specified, the histories for all alarms are returned.
 --
--- Amazon CloudWatch retains the history of an alarm for two weeks, whether or not you delete the alarm.
+--
+-- CloudWatch retains the history of an alarm even if you delete the alarm.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatch.DescribeAlarmHistory
@@ -45,52 +47,52 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
     , dahrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Describes the inputs for DescribeAlarmHistory.
---
--- /See:/ 'describeAlarmHistory' smart constructor.
+-- | /See:/ 'describeAlarmHistory' smart constructor.
 data DescribeAlarmHistory = DescribeAlarmHistory'
-    { _dahAlarmName       :: !(Maybe Text)
-    , _dahHistoryItemType :: !(Maybe HistoryItemType)
-    , _dahEndDate         :: !(Maybe ISO8601)
-    , _dahStartDate       :: !(Maybe ISO8601)
-    , _dahNextToken       :: !(Maybe Text)
-    , _dahMaxRecords      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dahAlarmName       :: !(Maybe Text)
+  , _dahHistoryItemType :: !(Maybe HistoryItemType)
+  , _dahEndDate         :: !(Maybe ISO8601)
+  , _dahStartDate       :: !(Maybe ISO8601)
+  , _dahNextToken       :: !(Maybe Text)
+  , _dahMaxRecords      :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAlarmHistory' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dahAlarmName'
+-- * 'dahAlarmName' - The name of the alarm.
 --
--- * 'dahHistoryItemType'
+-- * 'dahHistoryItemType' - The type of alarm histories to retrieve.
 --
--- * 'dahEndDate'
+-- * 'dahEndDate' - The ending date to retrieve alarm history.
 --
--- * 'dahStartDate'
+-- * 'dahStartDate' - The starting date to retrieve alarm history.
 --
--- * 'dahNextToken'
+-- * 'dahNextToken' - The token returned by a previous call to indicate that there is more data available.
 --
--- * 'dahMaxRecords'
+-- * 'dahMaxRecords' - The maximum number of alarm history records to retrieve.
 describeAlarmHistory
     :: DescribeAlarmHistory
 describeAlarmHistory =
-    DescribeAlarmHistory'
-    { _dahAlarmName = Nothing
-    , _dahHistoryItemType = Nothing
-    , _dahEndDate = Nothing
-    , _dahStartDate = Nothing
-    , _dahNextToken = Nothing
-    , _dahMaxRecords = Nothing
-    }
+  DescribeAlarmHistory'
+  { _dahAlarmName = Nothing
+  , _dahHistoryItemType = Nothing
+  , _dahEndDate = Nothing
+  , _dahStartDate = Nothing
+  , _dahNextToken = Nothing
+  , _dahMaxRecords = Nothing
+  }
+
 
 -- | The name of the alarm.
 dahAlarmName :: Lens' DescribeAlarmHistory (Maybe Text)
@@ -136,9 +138,9 @@ instance AWSRequest DescribeAlarmHistory where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAlarmHistory
+instance Hashable DescribeAlarmHistory where
 
-instance NFData DescribeAlarmHistory
+instance NFData DescribeAlarmHistory where
 
 instance ToHeaders DescribeAlarmHistory where
         toHeaders = const mempty
@@ -158,44 +160,44 @@ instance ToQuery DescribeAlarmHistory where
                "NextToken" =: _dahNextToken,
                "MaxRecords" =: _dahMaxRecords]
 
--- | The output for < DescribeAlarmHistory>.
---
--- /See:/ 'describeAlarmHistoryResponse' smart constructor.
+-- | /See:/ 'describeAlarmHistoryResponse' smart constructor.
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
-    { _dahrsAlarmHistoryItems :: !(Maybe [AlarmHistoryItem])
-    , _dahrsNextToken         :: !(Maybe Text)
-    , _dahrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dahrsAlarmHistoryItems :: !(Maybe [AlarmHistoryItem])
+  , _dahrsNextToken         :: !(Maybe Text)
+  , _dahrsResponseStatus    :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAlarmHistoryResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dahrsAlarmHistoryItems'
+-- * 'dahrsAlarmHistoryItems' - The alarm histories, in JSON format.
 --
--- * 'dahrsNextToken'
+-- * 'dahrsNextToken' - The token that marks the start of the next batch of returned results.
 --
--- * 'dahrsResponseStatus'
+-- * 'dahrsResponseStatus' - -- | The response status code.
 describeAlarmHistoryResponse
     :: Int -- ^ 'dahrsResponseStatus'
     -> DescribeAlarmHistoryResponse
 describeAlarmHistoryResponse pResponseStatus_ =
-    DescribeAlarmHistoryResponse'
-    { _dahrsAlarmHistoryItems = Nothing
-    , _dahrsNextToken = Nothing
-    , _dahrsResponseStatus = pResponseStatus_
-    }
+  DescribeAlarmHistoryResponse'
+  { _dahrsAlarmHistoryItems = Nothing
+  , _dahrsNextToken = Nothing
+  , _dahrsResponseStatus = pResponseStatus_
+  }
 
--- | A list of alarm histories in JSON format.
+
+-- | The alarm histories, in JSON format.
 dahrsAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse [AlarmHistoryItem]
 dahrsAlarmHistoryItems = lens _dahrsAlarmHistoryItems (\ s a -> s{_dahrsAlarmHistoryItems = a}) . _Default . _Coerce;
 
--- | A string that marks the start of the next batch of returned results.
+-- | The token that marks the start of the next batch of returned results.
 dahrsNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
 dahrsNextToken = lens _dahrsNextToken (\ s a -> s{_dahrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dahrsResponseStatus :: Lens' DescribeAlarmHistoryResponse Int
 dahrsResponseStatus = lens _dahrsResponseStatus (\ s a -> s{_dahrsResponseStatus = a});
 
-instance NFData DescribeAlarmHistoryResponse
+instance NFData DescribeAlarmHistoryResponse where

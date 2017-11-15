@@ -12,17 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeApps
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Requests a description of a specified set of apps.
 --
--- You must specify at least one of the parameters.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DescribeApps
     (
     -- * Creating a Request
@@ -40,39 +40,37 @@ module Network.AWS.OpsWorks.DescribeApps
     , darsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeApps' smart constructor.
 data DescribeApps = DescribeApps'
-    { _daAppIds  :: !(Maybe [Text])
-    , _daStackId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daAppIds  :: !(Maybe [Text])
+  , _daStackId :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeApps' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daAppIds'
+-- * 'daAppIds' - An array of app IDs for the apps to be described. If you use this parameter, @DescribeApps@ returns a description of the specified apps. Otherwise, it returns a description of every app.
 --
--- * 'daStackId'
+-- * 'daStackId' - The app stack ID. If you use this parameter, @DescribeApps@ returns a description of the apps in the specified stack.
 describeApps
     :: DescribeApps
-describeApps =
-    DescribeApps'
-    { _daAppIds = Nothing
-    , _daStackId = Nothing
-    }
+describeApps = DescribeApps' {_daAppIds = Nothing, _daStackId = Nothing}
 
--- | An array of app IDs for the apps to be described. If you use this parameter, 'DescribeApps' returns a description of the specified apps. Otherwise, it returns a description of every app.
+
+-- | An array of app IDs for the apps to be described. If you use this parameter, @DescribeApps@ returns a description of the specified apps. Otherwise, it returns a description of every app.
 daAppIds :: Lens' DescribeApps [Text]
 daAppIds = lens _daAppIds (\ s a -> s{_daAppIds = a}) . _Default . _Coerce;
 
--- | The app stack ID. If you use this parameter, 'DescribeApps' returns a description of the apps in the specified stack.
+-- | The app stack ID. If you use this parameter, @DescribeApps@ returns a description of the apps in the specified stack.
 daStackId :: Lens' DescribeApps (Maybe Text)
 daStackId = lens _daStackId (\ s a -> s{_daStackId = a});
 
@@ -85,9 +83,9 @@ instance AWSRequest DescribeApps where
                  DescribeAppsResponse' <$>
                    (x .?> "Apps" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable DescribeApps
+instance Hashable DescribeApps where
 
-instance NFData DescribeApps
+instance NFData DescribeApps where
 
 instance ToHeaders DescribeApps where
         toHeaders
@@ -111,36 +109,38 @@ instance ToPath DescribeApps where
 instance ToQuery DescribeApps where
         toQuery = const mempty
 
--- | Contains the response to a 'DescribeApps' request.
+-- | Contains the response to a @DescribeApps@ request.
+--
+--
 --
 -- /See:/ 'describeAppsResponse' smart constructor.
 data DescribeAppsResponse = DescribeAppsResponse'
-    { _darsApps           :: !(Maybe [App])
-    , _darsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _darsApps           :: !(Maybe [App])
+  , _darsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAppsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darsApps'
+-- * 'darsApps' - An array of @App@ objects that describe the specified apps.
 --
--- * 'darsResponseStatus'
+-- * 'darsResponseStatus' - -- | The response status code.
 describeAppsResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DescribeAppsResponse
 describeAppsResponse pResponseStatus_ =
-    DescribeAppsResponse'
-    { _darsApps = Nothing
-    , _darsResponseStatus = pResponseStatus_
-    }
+  DescribeAppsResponse'
+  {_darsApps = Nothing, _darsResponseStatus = pResponseStatus_}
 
--- | An array of 'App' objects that describe the specified apps.
+
+-- | An array of @App@ objects that describe the specified apps.
 darsApps :: Lens' DescribeAppsResponse [App]
 darsApps = lens _darsApps (\ s a -> s{_darsApps = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeAppsResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 
-instance NFData DescribeAppsResponse
+instance NFData DescribeAppsResponse where

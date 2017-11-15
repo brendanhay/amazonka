@@ -3,37 +3,43 @@
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Gen.IO
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
 module Gen.IO where
 
-import           Control.Error
-import           Control.Monad.Except
-import           Control.Monad.State
-import           Data.Bifunctor
-import           Data.ByteString           (ByteString)
-import           Data.Text                 (Text)
-import qualified Data.Text                 as Text
-import qualified Data.Text.Lazy            as LText
-import           Data.Text.Lazy.Builder    (toLazyText)
-import qualified Data.Text.Lazy.IO         as LText
-import qualified Filesystem                as FS
-import           Filesystem.Path.CurrentOS
-import           Gen.Formatting
-import           Gen.Types
-import           System.IO
-import qualified Text.EDE                  as EDE
-import           UnexceptionalIO           (fromIO, runUIO)
+import Control.Error
+import Control.Monad.Except
+import Control.Monad.State
+
+import Data.Bifunctor
+import Data.ByteString        (ByteString)
+import Data.Text              (Text)
+import Data.Text.Lazy.Builder (toLazyText)
+
+import Filesystem.Path.CurrentOS
+
+import Gen.Formatting
+import Gen.Types
+
+import System.IO
+
+import UnexceptionalIO (fromIO, runUIO)
+
+import qualified Data.Text         as Text
+import qualified Data.Text.Lazy    as LText
+import qualified Data.Text.Lazy.IO as LText
+import qualified Filesystem        as FS
+import qualified Text.EDE          as EDE
 
 run :: ExceptT Error IO a -> IO a
-run = runScript . fmapLT LText.unpack
+run = runScript . fmapLT LText.toStrict
 
 io :: MonadIO m => IO a -> ExceptT Error m a
 io = ExceptT . fmap (first (LText.pack . show)) . liftIO . runUIO . fromIO
@@ -67,11 +73,11 @@ writeLTFile f t = do
         hSetEncoding  h utf8
         LText.hPutStr h t
 
-touchFile :: MonadIO m => Path -> ExceptT Error m ()
-touchFile f = do
+touchFile :: MonadIO m => Path -> LText.Text -> ExceptT Error m ()
+touchFile f t = do
     p <- isFile f
     unless p $
-        writeLTFile f mempty
+        writeLTFile f t
 
 createDir :: MonadIO m => Path -> ExceptT Error m ()
 createDir d = do

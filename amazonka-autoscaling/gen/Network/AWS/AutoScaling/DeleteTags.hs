@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DeleteTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified tags.
+--
+--
 module Network.AWS.AutoScaling.DeleteTags
     (
     -- * Creating a Request
@@ -32,31 +34,28 @@ module Network.AWS.AutoScaling.DeleteTags
     , DeleteTagsResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for DeleteTags.
---
--- /See:/ 'deleteTags' smart constructor.
+-- | /See:/ 'deleteTags' smart constructor.
 newtype DeleteTags = DeleteTags'
-    { _dtTags :: [Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtTags :: [Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtTags'
+-- * 'dtTags' - One or more tags.
 deleteTags
     :: DeleteTags
-deleteTags =
-    DeleteTags'
-    { _dtTags = mempty
-    }
+deleteTags = DeleteTags' {_dtTags = mempty}
+
 
 -- | One or more tags.
 dtTags :: Lens' DeleteTags [Tag]
@@ -67,9 +66,9 @@ instance AWSRequest DeleteTags where
         request = postQuery autoScaling
         response = receiveNull DeleteTagsResponse'
 
-instance Hashable DeleteTags
+instance Hashable DeleteTags where
 
-instance NFData DeleteTags
+instance NFData DeleteTags where
 
 instance ToHeaders DeleteTags where
         toHeaders = const mempty
@@ -86,8 +85,9 @@ instance ToQuery DeleteTags where
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
 data DeleteTagsResponse =
-    DeleteTagsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteTagsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.
 --
@@ -95,4 +95,5 @@ deleteTagsResponse
     :: DeleteTagsResponse
 deleteTagsResponse = DeleteTagsResponse'
 
-instance NFData DeleteTagsResponse
+
+instance NFData DeleteTagsResponse where

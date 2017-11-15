@@ -9,20 +9,51 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CloudFormation.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
+
+data AccountGateStatus
+  = AGSFailed
+  | AGSSkipped
+  | AGSSucceeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AccountGateStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure AGSFailed
+        "skipped" -> pure AGSSkipped
+        "succeeded" -> pure AGSSucceeded
+        e -> fromTextError $ "Failure parsing AccountGateStatus from value: '" <> e
+           <> "'. Accepted values: failed, skipped, succeeded"
+
+instance ToText AccountGateStatus where
+    toText = \case
+        AGSFailed -> "FAILED"
+        AGSSkipped -> "SKIPPED"
+        AGSSucceeded -> "SUCCEEDED"
+
+instance Hashable     AccountGateStatus
+instance NFData       AccountGateStatus
+instance ToByteString AccountGateStatus
+instance ToQuery      AccountGateStatus
+instance ToHeader     AccountGateStatus
+
+instance FromXML AccountGateStatus where
+    parseXML = parseXMLText "AccountGateStatus"
 
 data Capability
-    = CapabilityIAM
-    | CapabilityNamedIAM
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CapabilityIAM
+  | CapabilityNamedIAM
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Capability where
     parser = takeLowerText >>= \case
@@ -46,10 +77,11 @@ instance FromXML Capability where
     parseXML = parseXMLText "Capability"
 
 data ChangeAction
-    = Add
-    | Modify
-    | Remove
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Add
+  | Modify
+  | Remove
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChangeAction where
     parser = takeLowerText >>= \case
@@ -75,12 +107,13 @@ instance FromXML ChangeAction where
     parseXML = parseXMLText "ChangeAction"
 
 data ChangeSetStatus
-    = CSSCreateComplete
-    | CSSCreateInProgress
-    | CSSCreatePending
-    | CSSDeleteComplete
-    | CSSFailed
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CSSCreateComplete
+  | CSSCreateInProgress
+  | CSSCreatePending
+  | CSSDeleteComplete
+  | CSSFailed
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChangeSetStatus where
     parser = takeLowerText >>= \case
@@ -109,13 +142,38 @@ instance ToHeader     ChangeSetStatus
 instance FromXML ChangeSetStatus where
     parseXML = parseXMLText "ChangeSetStatus"
 
+data ChangeSetType
+  = Create
+  | Update
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ChangeSetType where
+    parser = takeLowerText >>= \case
+        "create" -> pure Create
+        "update" -> pure Update
+        e -> fromTextError $ "Failure parsing ChangeSetType from value: '" <> e
+           <> "'. Accepted values: create, update"
+
+instance ToText ChangeSetType where
+    toText = \case
+        Create -> "CREATE"
+        Update -> "UPDATE"
+
+instance Hashable     ChangeSetType
+instance NFData       ChangeSetType
+instance ToByteString ChangeSetType
+instance ToQuery      ChangeSetType
+instance ToHeader     ChangeSetType
+
 data ChangeSource
-    = Automatic
-    | DirectModification
-    | ParameterReference
-    | ResourceAttribute
-    | ResourceReference
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Automatic
+  | DirectModification
+  | ParameterReference
+  | ResourceAttribute
+  | ResourceReference
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChangeSource where
     parser = takeLowerText >>= \case
@@ -145,8 +203,9 @@ instance FromXML ChangeSource where
     parseXML = parseXMLText "ChangeSource"
 
 data ChangeType =
-    Resource
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Resource
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChangeType where
     parser = takeLowerText >>= \case
@@ -168,9 +227,10 @@ instance FromXML ChangeType where
     parseXML = parseXMLText "ChangeType"
 
 data EvaluationType
-    = Dynamic
-    | Static
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Dynamic
+  | Static
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EvaluationType where
     parser = takeLowerText >>= \case
@@ -194,13 +254,14 @@ instance FromXML EvaluationType where
     parseXML = parseXMLText "EvaluationType"
 
 data ExecutionStatus
-    = Available
-    | ExecuteComplete
-    | ExecuteFailed
-    | ExecuteInProgress
-    | Obsolete
-    | Unavailable
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Available
+  | ExecuteComplete
+  | ExecuteFailed
+  | ExecuteInProgress
+  | Obsolete
+  | Unavailable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ExecutionStatus where
     parser = takeLowerText >>= \case
@@ -232,10 +293,11 @@ instance FromXML ExecutionStatus where
     parseXML = parseXMLText "ExecutionStatus"
 
 data OnFailure
-    = Delete
-    | DoNothing
-    | Rollback
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Delete
+  | DoNothing
+  | Rollback
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OnFailure where
     parser = takeLowerText >>= \case
@@ -258,10 +320,11 @@ instance ToQuery      OnFailure
 instance ToHeader     OnFailure
 
 data Replacement
-    = Conditional
-    | False'
-    | True'
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Conditional
+  | False'
+  | True'
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Replacement where
     parser = takeLowerText >>= \case
@@ -287,10 +350,11 @@ instance FromXML Replacement where
     parseXML = parseXMLText "Replacement"
 
 data RequiresRecreation
-    = Always
-    | Conditionally
-    | Never
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Always
+  | Conditionally
+  | Never
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RequiresRecreation where
     parser = takeLowerText >>= \case
@@ -316,13 +380,14 @@ instance FromXML RequiresRecreation where
     parseXML = parseXMLText "RequiresRecreation"
 
 data ResourceAttribute
-    = CreationPolicy
-    | DeletionPolicy
-    | Metadata
-    | Properties
-    | Tags
-    | UpdatePolicy
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CreationPolicy
+  | DeletionPolicy
+  | Metadata
+  | Properties
+  | Tags
+  | UpdatePolicy
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ResourceAttribute where
     parser = takeLowerText >>= \case
@@ -354,9 +419,10 @@ instance FromXML ResourceAttribute where
     parseXML = parseXMLText "ResourceAttribute"
 
 data ResourceSignalStatus
-    = Failure
-    | Success
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Failure
+  | Success
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ResourceSignalStatus where
     parser = takeLowerText >>= \case
@@ -377,17 +443,18 @@ instance ToQuery      ResourceSignalStatus
 instance ToHeader     ResourceSignalStatus
 
 data ResourceStatus
-    = CreateComplete
-    | CreateFailed
-    | CreateInProgress
-    | DeleteComplete
-    | DeleteFailed
-    | DeleteInProgress
-    | DeleteSkipped
-    | UpdateComplete
-    | UpdateFailed
-    | UpdateInProgress
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CreateComplete
+  | CreateFailed
+  | CreateInProgress
+  | DeleteComplete
+  | DeleteFailed
+  | DeleteInProgress
+  | DeleteSkipped
+  | UpdateComplete
+  | UpdateFailed
+  | UpdateInProgress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ResourceStatus where
     parser = takeLowerText >>= \case
@@ -426,24 +493,185 @@ instance ToHeader     ResourceStatus
 instance FromXML ResourceStatus where
     parseXML = parseXMLText "ResourceStatus"
 
+data StackInstanceStatus
+  = Current
+  | Inoperable
+  | Outdated
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText StackInstanceStatus where
+    parser = takeLowerText >>= \case
+        "current" -> pure Current
+        "inoperable" -> pure Inoperable
+        "outdated" -> pure Outdated
+        e -> fromTextError $ "Failure parsing StackInstanceStatus from value: '" <> e
+           <> "'. Accepted values: current, inoperable, outdated"
+
+instance ToText StackInstanceStatus where
+    toText = \case
+        Current -> "CURRENT"
+        Inoperable -> "INOPERABLE"
+        Outdated -> "OUTDATED"
+
+instance Hashable     StackInstanceStatus
+instance NFData       StackInstanceStatus
+instance ToByteString StackInstanceStatus
+instance ToQuery      StackInstanceStatus
+instance ToHeader     StackInstanceStatus
+
+instance FromXML StackInstanceStatus where
+    parseXML = parseXMLText "StackInstanceStatus"
+
+data StackSetOperationAction
+  = SSOACreate
+  | SSOADelete
+  | SSOAUpdate
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText StackSetOperationAction where
+    parser = takeLowerText >>= \case
+        "create" -> pure SSOACreate
+        "delete" -> pure SSOADelete
+        "update" -> pure SSOAUpdate
+        e -> fromTextError $ "Failure parsing StackSetOperationAction from value: '" <> e
+           <> "'. Accepted values: create, delete, update"
+
+instance ToText StackSetOperationAction where
+    toText = \case
+        SSOACreate -> "CREATE"
+        SSOADelete -> "DELETE"
+        SSOAUpdate -> "UPDATE"
+
+instance Hashable     StackSetOperationAction
+instance NFData       StackSetOperationAction
+instance ToByteString StackSetOperationAction
+instance ToQuery      StackSetOperationAction
+instance ToHeader     StackSetOperationAction
+
+instance FromXML StackSetOperationAction where
+    parseXML = parseXMLText "StackSetOperationAction"
+
+data StackSetOperationResultStatus
+  = Cancelled
+  | Failed
+  | Pending
+  | Running
+  | Succeeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText StackSetOperationResultStatus where
+    parser = takeLowerText >>= \case
+        "cancelled" -> pure Cancelled
+        "failed" -> pure Failed
+        "pending" -> pure Pending
+        "running" -> pure Running
+        "succeeded" -> pure Succeeded
+        e -> fromTextError $ "Failure parsing StackSetOperationResultStatus from value: '" <> e
+           <> "'. Accepted values: cancelled, failed, pending, running, succeeded"
+
+instance ToText StackSetOperationResultStatus where
+    toText = \case
+        Cancelled -> "CANCELLED"
+        Failed -> "FAILED"
+        Pending -> "PENDING"
+        Running -> "RUNNING"
+        Succeeded -> "SUCCEEDED"
+
+instance Hashable     StackSetOperationResultStatus
+instance NFData       StackSetOperationResultStatus
+instance ToByteString StackSetOperationResultStatus
+instance ToQuery      StackSetOperationResultStatus
+instance ToHeader     StackSetOperationResultStatus
+
+instance FromXML StackSetOperationResultStatus where
+    parseXML = parseXMLText "StackSetOperationResultStatus"
+
+data StackSetOperationStatus
+  = SSOSFailed
+  | SSOSRunning
+  | SSOSStopped
+  | SSOSStopping
+  | SSOSSucceeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText StackSetOperationStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure SSOSFailed
+        "running" -> pure SSOSRunning
+        "stopped" -> pure SSOSStopped
+        "stopping" -> pure SSOSStopping
+        "succeeded" -> pure SSOSSucceeded
+        e -> fromTextError $ "Failure parsing StackSetOperationStatus from value: '" <> e
+           <> "'. Accepted values: failed, running, stopped, stopping, succeeded"
+
+instance ToText StackSetOperationStatus where
+    toText = \case
+        SSOSFailed -> "FAILED"
+        SSOSRunning -> "RUNNING"
+        SSOSStopped -> "STOPPED"
+        SSOSStopping -> "STOPPING"
+        SSOSSucceeded -> "SUCCEEDED"
+
+instance Hashable     StackSetOperationStatus
+instance NFData       StackSetOperationStatus
+instance ToByteString StackSetOperationStatus
+instance ToQuery      StackSetOperationStatus
+instance ToHeader     StackSetOperationStatus
+
+instance FromXML StackSetOperationStatus where
+    parseXML = parseXMLText "StackSetOperationStatus"
+
+data StackSetStatus
+  = Active
+  | Deleted
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText StackSetStatus where
+    parser = takeLowerText >>= \case
+        "active" -> pure Active
+        "deleted" -> pure Deleted
+        e -> fromTextError $ "Failure parsing StackSetStatus from value: '" <> e
+           <> "'. Accepted values: active, deleted"
+
+instance ToText StackSetStatus where
+    toText = \case
+        Active -> "ACTIVE"
+        Deleted -> "DELETED"
+
+instance Hashable     StackSetStatus
+instance NFData       StackSetStatus
+instance ToByteString StackSetStatus
+instance ToQuery      StackSetStatus
+instance ToHeader     StackSetStatus
+
+instance FromXML StackSetStatus where
+    parseXML = parseXMLText "StackSetStatus"
+
 data StackStatus
-    = SSCreateComplete
-    | SSCreateFailed
-    | SSCreateInProgress
-    | SSDeleteComplete
-    | SSDeleteFailed
-    | SSDeleteInProgress
-    | SSRollbackComplete
-    | SSRollbackFailed
-    | SSRollbackInProgress
-    | SSUpdateComplete
-    | SSUpdateCompleteCleanupInProgress
-    | SSUpdateInProgress
-    | SSUpdateRollbackComplete
-    | SSUpdateRollbackCompleteCleanupInProgress
-    | SSUpdateRollbackFailed
-    | SSUpdateRollbackInProgress
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SSCreateComplete
+  | SSCreateFailed
+  | SSCreateInProgress
+  | SSDeleteComplete
+  | SSDeleteFailed
+  | SSDeleteInProgress
+  | SSReviewInProgress
+  | SSRollbackComplete
+  | SSRollbackFailed
+  | SSRollbackInProgress
+  | SSUpdateComplete
+  | SSUpdateCompleteCleanupInProgress
+  | SSUpdateInProgress
+  | SSUpdateRollbackComplete
+  | SSUpdateRollbackCompleteCleanupInProgress
+  | SSUpdateRollbackFailed
+  | SSUpdateRollbackInProgress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StackStatus where
     parser = takeLowerText >>= \case
@@ -453,6 +681,7 @@ instance FromText StackStatus where
         "delete_complete" -> pure SSDeleteComplete
         "delete_failed" -> pure SSDeleteFailed
         "delete_in_progress" -> pure SSDeleteInProgress
+        "review_in_progress" -> pure SSReviewInProgress
         "rollback_complete" -> pure SSRollbackComplete
         "rollback_failed" -> pure SSRollbackFailed
         "rollback_in_progress" -> pure SSRollbackInProgress
@@ -464,7 +693,7 @@ instance FromText StackStatus where
         "update_rollback_failed" -> pure SSUpdateRollbackFailed
         "update_rollback_in_progress" -> pure SSUpdateRollbackInProgress
         e -> fromTextError $ "Failure parsing StackStatus from value: '" <> e
-           <> "'. Accepted values: create_complete, create_failed, create_in_progress, delete_complete, delete_failed, delete_in_progress, rollback_complete, rollback_failed, rollback_in_progress, update_complete, update_complete_cleanup_in_progress, update_in_progress, update_rollback_complete, update_rollback_complete_cleanup_in_progress, update_rollback_failed, update_rollback_in_progress"
+           <> "'. Accepted values: create_complete, create_failed, create_in_progress, delete_complete, delete_failed, delete_in_progress, review_in_progress, rollback_complete, rollback_failed, rollback_in_progress, update_complete, update_complete_cleanup_in_progress, update_in_progress, update_rollback_complete, update_rollback_complete_cleanup_in_progress, update_rollback_failed, update_rollback_in_progress"
 
 instance ToText StackStatus where
     toText = \case
@@ -474,6 +703,7 @@ instance ToText StackStatus where
         SSDeleteComplete -> "DELETE_COMPLETE"
         SSDeleteFailed -> "DELETE_FAILED"
         SSDeleteInProgress -> "DELETE_IN_PROGRESS"
+        SSReviewInProgress -> "REVIEW_IN_PROGRESS"
         SSRollbackComplete -> "ROLLBACK_COMPLETE"
         SSRollbackFailed -> "ROLLBACK_FAILED"
         SSRollbackInProgress -> "ROLLBACK_IN_PROGRESS"
@@ -493,3 +723,30 @@ instance ToHeader     StackStatus
 
 instance FromXML StackStatus where
     parseXML = parseXMLText "StackStatus"
+
+data TemplateStage
+  = Original
+  | Processed
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TemplateStage where
+    parser = takeLowerText >>= \case
+        "original" -> pure Original
+        "processed" -> pure Processed
+        e -> fromTextError $ "Failure parsing TemplateStage from value: '" <> e
+           <> "'. Accepted values: original, processed"
+
+instance ToText TemplateStage where
+    toText = \case
+        Original -> "Original"
+        Processed -> "Processed"
+
+instance Hashable     TemplateStage
+instance NFData       TemplateStage
+instance ToByteString TemplateStage
+instance ToQuery      TemplateStage
+instance ToHeader     TemplateStage
+
+instance FromXML TemplateStage where
+    parseXML = parseXMLText "TemplateStage"

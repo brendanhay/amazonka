@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DeleteRegistrationCode
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a CA certificate registration code.
+--
+--
 module Network.AWS.IoT.DeleteRegistrationCode
     (
     -- * Creating a Request
@@ -32,25 +34,29 @@ module Network.AWS.IoT.DeleteRegistrationCode
     , drcrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DeleteRegistrationCode operation.
 --
+--
+--
 -- /See:/ 'deleteRegistrationCode' smart constructor.
 data DeleteRegistrationCode =
-    DeleteRegistrationCode'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteRegistrationCode'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRegistrationCode' with the minimum fields required to make a request.
 --
 deleteRegistrationCode
     :: DeleteRegistrationCode
 deleteRegistrationCode = DeleteRegistrationCode'
+
 
 instance AWSRequest DeleteRegistrationCode where
         type Rs DeleteRegistrationCode =
@@ -62,9 +68,9 @@ instance AWSRequest DeleteRegistrationCode where
                  DeleteRegistrationCodeResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteRegistrationCode
+instance Hashable DeleteRegistrationCode where
 
-instance NFData DeleteRegistrationCode
+instance NFData DeleteRegistrationCode where
 
 instance ToHeaders DeleteRegistrationCode where
         toHeaders = const mempty
@@ -77,26 +83,28 @@ instance ToQuery DeleteRegistrationCode where
 
 -- | The output for the DeleteRegistrationCode operation.
 --
+--
+--
 -- /See:/ 'deleteRegistrationCodeResponse' smart constructor.
 newtype DeleteRegistrationCodeResponse = DeleteRegistrationCodeResponse'
-    { _drcrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drcrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRegistrationCodeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drcrsResponseStatus'
+-- * 'drcrsResponseStatus' - -- | The response status code.
 deleteRegistrationCodeResponse
     :: Int -- ^ 'drcrsResponseStatus'
     -> DeleteRegistrationCodeResponse
 deleteRegistrationCodeResponse pResponseStatus_ =
-    DeleteRegistrationCodeResponse'
-    { _drcrsResponseStatus = pResponseStatus_
-    }
+  DeleteRegistrationCodeResponse' {_drcrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 drcrsResponseStatus :: Lens' DeleteRegistrationCodeResponse Int
 drcrsResponseStatus = lens _drcrsResponseStatus (\ s a -> s{_drcrsResponseStatus = a});
 
-instance NFData DeleteRegistrationCodeResponse
+instance NFData DeleteRegistrationCodeResponse where

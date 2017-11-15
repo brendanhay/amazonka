@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DeleteChapCredentials
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target and initiator pair.
+--
+--
 module Network.AWS.StorageGateway.DeleteChapCredentials
     (
     -- * Creating a Request
@@ -37,44 +39,47 @@ module Network.AWS.StorageGateway.DeleteChapCredentials
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   < DeleteChapCredentialsInput>InitiatorName>
 --
--- -   < DeleteChapCredentialsInput>TargetARN>
+--     * 'DeleteChapCredentialsInput$InitiatorName'
+--
+--     * 'DeleteChapCredentialsInput$TargetARN'
+--
+--
 --
 --
 -- /See:/ 'deleteChapCredentials' smart constructor.
 data DeleteChapCredentials = DeleteChapCredentials'
-    { _dTargetARN     :: !Text
-    , _dInitiatorName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dTargetARN     :: !Text
+  , _dInitiatorName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteChapCredentials' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dTargetARN'
+-- * 'dTargetARN' - The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
 --
--- * 'dInitiatorName'
+-- * 'dInitiatorName' - The iSCSI initiator that connects to the target.
 deleteChapCredentials
     :: Text -- ^ 'dTargetARN'
     -> Text -- ^ 'dInitiatorName'
     -> DeleteChapCredentials
 deleteChapCredentials pTargetARN_ pInitiatorName_ =
-    DeleteChapCredentials'
-    { _dTargetARN = pTargetARN_
-    , _dInitiatorName = pInitiatorName_
-    }
+  DeleteChapCredentials'
+  {_dTargetARN = pTargetARN_, _dInitiatorName = pInitiatorName_}
 
--- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the < DescribeStorediSCSIVolumes> operation to return to retrieve the TargetARN for specified VolumeARN.
+
+-- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
 dTargetARN :: Lens' DeleteChapCredentials Text
 dTargetARN = lens _dTargetARN (\ s a -> s{_dTargetARN = a});
 
@@ -93,9 +98,9 @@ instance AWSRequest DeleteChapCredentials where
                    (x .?> "TargetARN") <*> (x .?> "InitiatorName") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DeleteChapCredentials
+instance Hashable DeleteChapCredentials where
 
-instance NFData DeleteChapCredentials
+instance NFData DeleteChapCredentials where
 
 instance ToHeaders DeleteChapCredentials where
         toHeaders
@@ -122,31 +127,35 @@ instance ToQuery DeleteChapCredentials where
 
 -- | A JSON object containing the following fields:
 --
+--
+--
 -- /See:/ 'deleteChapCredentialsResponse' smart constructor.
 data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
-    { _drsTargetARN      :: !(Maybe Text)
-    , _drsInitiatorName  :: !(Maybe Text)
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsTargetARN      :: !(Maybe Text)
+  , _drsInitiatorName  :: !(Maybe Text)
+  , _drsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteChapCredentialsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsTargetARN'
+-- * 'drsTargetARN' - The Amazon Resource Name (ARN) of the target.
 --
--- * 'drsInitiatorName'
+-- * 'drsInitiatorName' - The iSCSI initiator that connects to the target.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteChapCredentialsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteChapCredentialsResponse
 deleteChapCredentialsResponse pResponseStatus_ =
-    DeleteChapCredentialsResponse'
-    { _drsTargetARN = Nothing
-    , _drsInitiatorName = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DeleteChapCredentialsResponse'
+  { _drsTargetARN = Nothing
+  , _drsInitiatorName = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the target.
 drsTargetARN :: Lens' DeleteChapCredentialsResponse (Maybe Text)
@@ -156,8 +165,8 @@ drsTargetARN = lens _drsTargetARN (\ s a -> s{_drsTargetARN = a});
 drsInitiatorName :: Lens' DeleteChapCredentialsResponse (Maybe Text)
 drsInitiatorName = lens _drsInitiatorName (\ s a -> s{_drsInitiatorName = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteChapCredentialsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteChapCredentialsResponse
+instance NFData DeleteChapCredentialsResponse where

@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.SES.CloneReceiptRuleSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a receipt rule set by cloning an existing one. All receipt rules and configurations are copied to the new receipt rule set and are completely independent of the source rule set.
 --
--- For information about setting up rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html Amazon SES Developer Guide>.
 --
--- This action is throttled at one request per second.
+-- For information about setting up rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html Amazon SES Developer Guide> .
+--
+-- You can execute this operation no more than once per second.
+--
 module Network.AWS.SES.CloneReceiptRuleSet
     (
     -- * Creating a Request
@@ -39,46 +41,41 @@ module Network.AWS.SES.CloneReceiptRuleSet
     , crsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
--- | Represents a request to create a receipt rule set by cloning an existing one. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+-- | Represents a request to create a receipt rule set by cloning an existing one. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'cloneReceiptRuleSet' smart constructor.
 data CloneReceiptRuleSet = CloneReceiptRuleSet'
-    { _cRuleSetName         :: !Text
-    , _cOriginalRuleSetName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cRuleSetName         :: !Text
+  , _cOriginalRuleSetName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloneReceiptRuleSet' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cRuleSetName'
+-- * 'cRuleSetName' - The name of the rule set to create. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
 --
--- * 'cOriginalRuleSetName'
+-- * 'cOriginalRuleSetName' - The name of the rule set to clone.
 cloneReceiptRuleSet
     :: Text -- ^ 'cRuleSetName'
     -> Text -- ^ 'cOriginalRuleSetName'
     -> CloneReceiptRuleSet
 cloneReceiptRuleSet pRuleSetName_ pOriginalRuleSetName_ =
-    CloneReceiptRuleSet'
-    { _cRuleSetName = pRuleSetName_
-    , _cOriginalRuleSetName = pOriginalRuleSetName_
-    }
+  CloneReceiptRuleSet'
+  {_cRuleSetName = pRuleSetName_, _cOriginalRuleSetName = pOriginalRuleSetName_}
 
--- | The name of the rule set to create. The name must:
---
--- -   Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).
---
--- -   Start and end with a letter or number.
---
--- -   Contain less than 64 characters.
---
+
+-- | The name of the rule set to create. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
 cRuleSetName :: Lens' CloneReceiptRuleSet Text
 cRuleSetName = lens _cRuleSetName (\ s a -> s{_cRuleSetName = a});
 
@@ -95,9 +92,9 @@ instance AWSRequest CloneReceiptRuleSet where
               (\ s h x ->
                  CloneReceiptRuleSetResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CloneReceiptRuleSet
+instance Hashable CloneReceiptRuleSet where
 
-instance NFData CloneReceiptRuleSet
+instance NFData CloneReceiptRuleSet where
 
 instance ToHeaders CloneReceiptRuleSet where
         toHeaders = const mempty
@@ -115,26 +112,28 @@ instance ToQuery CloneReceiptRuleSet where
 
 -- | An empty element returned on a successful request.
 --
+--
+--
 -- /See:/ 'cloneReceiptRuleSetResponse' smart constructor.
 newtype CloneReceiptRuleSetResponse = CloneReceiptRuleSetResponse'
-    { _crsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloneReceiptRuleSetResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsResponseStatus'
+-- * 'crsResponseStatus' - -- | The response status code.
 cloneReceiptRuleSetResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CloneReceiptRuleSetResponse
 cloneReceiptRuleSetResponse pResponseStatus_ =
-    CloneReceiptRuleSetResponse'
-    { _crsResponseStatus = pResponseStatus_
-    }
+  CloneReceiptRuleSetResponse' {_crsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 crsResponseStatus :: Lens' CloneReceiptRuleSetResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 
-instance NFData CloneReceiptRuleSetResponse
+instance NFData CloneReceiptRuleSetResponse where

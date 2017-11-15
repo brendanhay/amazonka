@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.ApplicationAutoScaling
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.ApplicationAutoScaling where
 
 import Data.Proxy
+import Network.AWS.ApplicationAutoScaling
+import Test.AWS.ApplicationAutoScaling.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.ApplicationAutoScaling
-import Test.AWS.ApplicationAutoScaling.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -39,6 +39,15 @@ import Test.AWS.ApplicationAutoScaling.Internal
 --
 --         , requestDescribeScalingPolicies $
 --             describeScalingPolicies
+--
+--         , requestPutScheduledAction $
+--             putScheduledAction
+--
+--         , requestDeleteScheduledAction $
+--             deleteScheduledAction
+--
+--         , requestDescribeScheduledActions $
+--             describeScheduledActions
 --
 --         , requestDescribeScalableTargets $
 --             describeScalableTargets
@@ -63,6 +72,15 @@ import Test.AWS.ApplicationAutoScaling.Internal
 --
 --         , responseDescribeScalingPolicies $
 --             describeScalingPoliciesResponse
+--
+--         , responsePutScheduledAction $
+--             putScheduledActionResponse
+--
+--         , responseDeleteScheduledAction $
+--             deleteScheduledActionResponse
+--
+--         , responseDescribeScheduledActions $
+--             describeScheduledActionsResponse
 --
 --         , responseDescribeScalableTargets $
 --             describeScalableTargetsResponse
@@ -97,6 +115,21 @@ requestDescribeScalingPolicies :: DescribeScalingPolicies -> TestTree
 requestDescribeScalingPolicies = req
     "DescribeScalingPolicies"
     "fixture/DescribeScalingPolicies.yaml"
+
+requestPutScheduledAction :: PutScheduledAction -> TestTree
+requestPutScheduledAction = req
+    "PutScheduledAction"
+    "fixture/PutScheduledAction.yaml"
+
+requestDeleteScheduledAction :: DeleteScheduledAction -> TestTree
+requestDeleteScheduledAction = req
+    "DeleteScheduledAction"
+    "fixture/DeleteScheduledAction.yaml"
+
+requestDescribeScheduledActions :: DescribeScheduledActions -> TestTree
+requestDescribeScheduledActions = req
+    "DescribeScheduledActions"
+    "fixture/DescribeScheduledActions.yaml"
 
 requestDescribeScalableTargets :: DescribeScalableTargets -> TestTree
 requestDescribeScalableTargets = req
@@ -142,6 +175,27 @@ responseDescribeScalingPolicies = res
     "fixture/DescribeScalingPoliciesResponse.proto"
     applicationAutoScaling
     (Proxy :: Proxy DescribeScalingPolicies)
+
+responsePutScheduledAction :: PutScheduledActionResponse -> TestTree
+responsePutScheduledAction = res
+    "PutScheduledActionResponse"
+    "fixture/PutScheduledActionResponse.proto"
+    applicationAutoScaling
+    (Proxy :: Proxy PutScheduledAction)
+
+responseDeleteScheduledAction :: DeleteScheduledActionResponse -> TestTree
+responseDeleteScheduledAction = res
+    "DeleteScheduledActionResponse"
+    "fixture/DeleteScheduledActionResponse.proto"
+    applicationAutoScaling
+    (Proxy :: Proxy DeleteScheduledAction)
+
+responseDescribeScheduledActions :: DescribeScheduledActionsResponse -> TestTree
+responseDescribeScheduledActions = res
+    "DescribeScheduledActionsResponse"
+    "fixture/DescribeScheduledActionsResponse.proto"
+    applicationAutoScaling
+    (Proxy :: Proxy DescribeScheduledActions)
 
 responseDescribeScalableTargets :: DescribeScalableTargetsResponse -> TestTree
 responseDescribeScalableTargets = res

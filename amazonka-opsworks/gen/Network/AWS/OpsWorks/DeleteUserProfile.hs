@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeleteUserProfile
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a user profile.
 --
--- __Required Permissions__: To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DeleteUserProfile
     (
     -- * Creating a Request
@@ -34,32 +36,32 @@ module Network.AWS.OpsWorks.DeleteUserProfile
     , DeleteUserProfileResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteUserProfile' smart constructor.
 newtype DeleteUserProfile = DeleteUserProfile'
-    { _dupIAMUserARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dupIAMUserARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUserProfile' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dupIAMUserARN'
+-- * 'dupIAMUserARN' - The user's IAM ARN. This can also be a federated user's ARN.
 deleteUserProfile
     :: Text -- ^ 'dupIAMUserARN'
     -> DeleteUserProfile
 deleteUserProfile pIAMUserARN_ =
-    DeleteUserProfile'
-    { _dupIAMUserARN = pIAMUserARN_
-    }
+  DeleteUserProfile' {_dupIAMUserARN = pIAMUserARN_}
 
--- | The user\'s IAM ARN.
+
+-- | The user's IAM ARN. This can also be a federated user's ARN.
 dupIAMUserARN :: Lens' DeleteUserProfile Text
 dupIAMUserARN = lens _dupIAMUserARN (\ s a -> s{_dupIAMUserARN = a});
 
@@ -68,9 +70,9 @@ instance AWSRequest DeleteUserProfile where
         request = postJSON opsWorks
         response = receiveNull DeleteUserProfileResponse'
 
-instance Hashable DeleteUserProfile
+instance Hashable DeleteUserProfile where
 
-instance NFData DeleteUserProfile
+instance NFData DeleteUserProfile where
 
 instance ToHeaders DeleteUserProfile where
         toHeaders
@@ -95,8 +97,9 @@ instance ToQuery DeleteUserProfile where
 
 -- | /See:/ 'deleteUserProfileResponse' smart constructor.
 data DeleteUserProfileResponse =
-    DeleteUserProfileResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteUserProfileResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUserProfileResponse' with the minimum fields required to make a request.
 --
@@ -104,4 +107,5 @@ deleteUserProfileResponse
     :: DeleteUserProfileResponse
 deleteUserProfileResponse = DeleteUserProfileResponse'
 
-instance NFData DeleteUserProfileResponse
+
+instance NFData DeleteUserProfileResponse where

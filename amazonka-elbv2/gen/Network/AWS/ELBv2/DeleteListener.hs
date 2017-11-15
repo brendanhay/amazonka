@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DeleteListener
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified listener.
 --
--- Alternatively, your listener is deleted when you delete the load balancer it is attached to using < DeleteLoadBalancer>.
+--
+-- Alternatively, your listener is deleted when you delete the load balancer it is attached to using 'DeleteLoadBalancer' .
+--
 module Network.AWS.ELBv2.DeleteListener
     (
     -- * Creating a Request
@@ -36,32 +38,29 @@ module Network.AWS.ELBv2.DeleteListener
     , dlrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for DeleteListener.
---
--- /See:/ 'deleteListener' smart constructor.
+-- | /See:/ 'deleteListener' smart constructor.
 newtype DeleteListener = DeleteListener'
-    { _dlListenerARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlListenerARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteListener' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlListenerARN'
+-- * 'dlListenerARN' - The Amazon Resource Name (ARN) of the listener.
 deleteListener
     :: Text -- ^ 'dlListenerARN'
     -> DeleteListener
-deleteListener pListenerARN_ =
-    DeleteListener'
-    { _dlListenerARN = pListenerARN_
-    }
+deleteListener pListenerARN_ = DeleteListener' {_dlListenerARN = pListenerARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the listener.
 dlListenerARN :: Lens' DeleteListener Text
@@ -75,9 +74,9 @@ instance AWSRequest DeleteListener where
               (\ s h x ->
                  DeleteListenerResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteListener
+instance Hashable DeleteListener where
 
-instance NFData DeleteListener
+instance NFData DeleteListener where
 
 instance ToHeaders DeleteListener where
         toHeaders = const mempty
@@ -92,28 +91,26 @@ instance ToQuery DeleteListener where
                "Version" =: ("2015-12-01" :: ByteString),
                "ListenerArn" =: _dlListenerARN]
 
--- | Contains the output of DeleteListener.
---
--- /See:/ 'deleteListenerResponse' smart constructor.
+-- | /See:/ 'deleteListenerResponse' smart constructor.
 newtype DeleteListenerResponse = DeleteListenerResponse'
-    { _dlrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteListenerResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlrsResponseStatus'
+-- * 'dlrsResponseStatus' - -- | The response status code.
 deleteListenerResponse
     :: Int -- ^ 'dlrsResponseStatus'
     -> DeleteListenerResponse
 deleteListenerResponse pResponseStatus_ =
-    DeleteListenerResponse'
-    { _dlrsResponseStatus = pResponseStatus_
-    }
+  DeleteListenerResponse' {_dlrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 dlrsResponseStatus :: Lens' DeleteListenerResponse Int
 dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
 
-instance NFData DeleteListenerResponse
+instance NFData DeleteListenerResponse where

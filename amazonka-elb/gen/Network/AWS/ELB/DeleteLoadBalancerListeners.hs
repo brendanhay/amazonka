@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DeleteLoadBalancerListeners
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified listeners from the specified load balancer.
+--
+--
 module Network.AWS.ELB.DeleteLoadBalancerListeners
     (
     -- * Creating a Request
@@ -35,36 +37,38 @@ module Network.AWS.ELB.DeleteLoadBalancerListeners
     , dlblrsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteLoadBalancerListeners.
 --
+--
+--
 -- /See:/ 'deleteLoadBalancerListeners' smart constructor.
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners'
-    { _dlblLoadBalancerName  :: !Text
-    , _dlblLoadBalancerPorts :: ![Int]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlblLoadBalancerName  :: !Text
+  , _dlblLoadBalancerPorts :: ![Int]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLoadBalancerListeners' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlblLoadBalancerName'
+-- * 'dlblLoadBalancerName' - The name of the load balancer.
 --
--- * 'dlblLoadBalancerPorts'
+-- * 'dlblLoadBalancerPorts' - The client port numbers of the listeners.
 deleteLoadBalancerListeners
     :: Text -- ^ 'dlblLoadBalancerName'
     -> DeleteLoadBalancerListeners
 deleteLoadBalancerListeners pLoadBalancerName_ =
-    DeleteLoadBalancerListeners'
-    { _dlblLoadBalancerName = pLoadBalancerName_
-    , _dlblLoadBalancerPorts = mempty
-    }
+  DeleteLoadBalancerListeners'
+  {_dlblLoadBalancerName = pLoadBalancerName_, _dlblLoadBalancerPorts = mempty}
+
 
 -- | The name of the load balancer.
 dlblLoadBalancerName :: Lens' DeleteLoadBalancerListeners Text
@@ -85,9 +89,9 @@ instance AWSRequest DeleteLoadBalancerListeners where
                  DeleteLoadBalancerListenersResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteLoadBalancerListeners
+instance Hashable DeleteLoadBalancerListeners where
 
-instance NFData DeleteLoadBalancerListeners
+instance NFData DeleteLoadBalancerListeners where
 
 instance ToHeaders DeleteLoadBalancerListeners where
         toHeaders = const mempty
@@ -107,26 +111,30 @@ instance ToQuery DeleteLoadBalancerListeners where
 
 -- | Contains the output of DeleteLoadBalancerListeners.
 --
+--
+--
 -- /See:/ 'deleteLoadBalancerListenersResponse' smart constructor.
 newtype DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse'
-    { _dlblrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlblrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLoadBalancerListenersResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlblrsResponseStatus'
+-- * 'dlblrsResponseStatus' - -- | The response status code.
 deleteLoadBalancerListenersResponse
     :: Int -- ^ 'dlblrsResponseStatus'
     -> DeleteLoadBalancerListenersResponse
 deleteLoadBalancerListenersResponse pResponseStatus_ =
-    DeleteLoadBalancerListenersResponse'
-    { _dlblrsResponseStatus = pResponseStatus_
-    }
+  DeleteLoadBalancerListenersResponse'
+  {_dlblrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 dlblrsResponseStatus :: Lens' DeleteLoadBalancerListenersResponse Int
 dlblrsResponseStatus = lens _dlblrsResponseStatus (\ s a -> s{_dlblrsResponseStatus = a});
 
 instance NFData DeleteLoadBalancerListenersResponse
+         where

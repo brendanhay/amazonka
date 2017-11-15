@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ListBootstrapActions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides information about the bootstrap actions associated with a cluster.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListBootstrapActions
@@ -39,43 +41,44 @@ module Network.AWS.EMR.ListBootstrapActions
     , lbarsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This input determines which bootstrap actions to retrieve.
 --
+--
+--
 -- /See:/ 'listBootstrapActions' smart constructor.
 data ListBootstrapActions = ListBootstrapActions'
-    { _lbaMarker    :: !(Maybe Text)
-    , _lbaClusterId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbaMarker    :: !(Maybe Text)
+  , _lbaClusterId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListBootstrapActions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbaMarker'
+-- * 'lbaMarker' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'lbaClusterId'
+-- * 'lbaClusterId' - The cluster identifier for the bootstrap actions to list.
 listBootstrapActions
     :: Text -- ^ 'lbaClusterId'
     -> ListBootstrapActions
 listBootstrapActions pClusterId_ =
-    ListBootstrapActions'
-    { _lbaMarker = Nothing
-    , _lbaClusterId = pClusterId_
-    }
+  ListBootstrapActions' {_lbaMarker = Nothing, _lbaClusterId = pClusterId_}
 
--- | The pagination token that indicates the next set of results to retrieve .
+
+-- | The pagination token that indicates the next set of results to retrieve.
 lbaMarker :: Lens' ListBootstrapActions (Maybe Text)
 lbaMarker = lens _lbaMarker (\ s a -> s{_lbaMarker = a});
 
--- | The cluster identifier for the bootstrap actions to list .
+-- | The cluster identifier for the bootstrap actions to list.
 lbaClusterId :: Lens' ListBootstrapActions Text
 lbaClusterId = lens _lbaClusterId (\ s a -> s{_lbaClusterId = a});
 
@@ -98,9 +101,9 @@ instance AWSRequest ListBootstrapActions where
                      (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListBootstrapActions
+instance Hashable ListBootstrapActions where
 
-instance NFData ListBootstrapActions
+instance NFData ListBootstrapActions where
 
 instance ToHeaders ListBootstrapActions where
         toHeaders
@@ -125,44 +128,48 @@ instance ToPath ListBootstrapActions where
 instance ToQuery ListBootstrapActions where
         toQuery = const mempty
 
--- | This output contains the boostrap actions detail .
+-- | This output contains the bootstrap actions detail.
+--
+--
 --
 -- /See:/ 'listBootstrapActionsResponse' smart constructor.
 data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
-    { _lbarsBootstrapActions :: !(Maybe [Command])
-    , _lbarsMarker           :: !(Maybe Text)
-    , _lbarsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbarsBootstrapActions :: !(Maybe [Command])
+  , _lbarsMarker           :: !(Maybe Text)
+  , _lbarsResponseStatus   :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListBootstrapActionsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbarsBootstrapActions'
+-- * 'lbarsBootstrapActions' - The bootstrap actions associated with the cluster.
 --
--- * 'lbarsMarker'
+-- * 'lbarsMarker' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'lbarsResponseStatus'
+-- * 'lbarsResponseStatus' - -- | The response status code.
 listBootstrapActionsResponse
     :: Int -- ^ 'lbarsResponseStatus'
     -> ListBootstrapActionsResponse
 listBootstrapActionsResponse pResponseStatus_ =
-    ListBootstrapActionsResponse'
-    { _lbarsBootstrapActions = Nothing
-    , _lbarsMarker = Nothing
-    , _lbarsResponseStatus = pResponseStatus_
-    }
+  ListBootstrapActionsResponse'
+  { _lbarsBootstrapActions = Nothing
+  , _lbarsMarker = Nothing
+  , _lbarsResponseStatus = pResponseStatus_
+  }
 
--- | The bootstrap actions associated with the cluster .
+
+-- | The bootstrap actions associated with the cluster.
 lbarsBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]
 lbarsBootstrapActions = lens _lbarsBootstrapActions (\ s a -> s{_lbarsBootstrapActions = a}) . _Default . _Coerce;
 
--- | The pagination token that indicates the next set of results to retrieve .
+-- | The pagination token that indicates the next set of results to retrieve.
 lbarsMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
 lbarsMarker = lens _lbarsMarker (\ s a -> s{_lbarsMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lbarsResponseStatus :: Lens' ListBootstrapActionsResponse Int
 lbarsResponseStatus = lens _lbarsResponseStatus (\ s a -> s{_lbarsResponseStatus = a});
 
-instance NFData ListBootstrapActionsResponse
+instance NFData ListBootstrapActionsResponse where

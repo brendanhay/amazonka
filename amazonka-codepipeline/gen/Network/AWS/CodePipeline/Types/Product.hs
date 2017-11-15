@@ -9,47 +9,51 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CodePipeline.Types.Product where
 
-import           Network.AWS.CodePipeline.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CodePipeline.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the Amazon S3 bucket used to store artifact for the pipeline in AWS CodePipeline.
 --
+--
+--
 -- /See:/ 'awsSessionCredentials' smart constructor.
 data AWSSessionCredentials = AWSSessionCredentials'
-    { _ascAccessKeyId     :: !Text
-    , _ascSecretAccessKey :: !Text
-    , _ascSessionToken    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ascAccessKeyId     :: !Text
+  , _ascSecretAccessKey :: !Text
+  , _ascSessionToken    :: !Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AWSSessionCredentials' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ascAccessKeyId'
+-- * 'ascAccessKeyId' - The access key for the session.
 --
--- * 'ascSecretAccessKey'
+-- * 'ascSecretAccessKey' - The secret access key for the session.
 --
--- * 'ascSessionToken'
+-- * 'ascSessionToken' - The token for the session.
 awsSessionCredentials
     :: Text -- ^ 'ascAccessKeyId'
     -> Text -- ^ 'ascSecretAccessKey'
     -> Text -- ^ 'ascSessionToken'
     -> AWSSessionCredentials
 awsSessionCredentials pAccessKeyId_ pSecretAccessKey_ pSessionToken_ =
-    AWSSessionCredentials'
-    { _ascAccessKeyId = pAccessKeyId_
-    , _ascSecretAccessKey = pSecretAccessKey_
-    , _ascSessionToken = pSessionToken_
-    }
+  AWSSessionCredentials'
+  { _ascAccessKeyId = pAccessKeyId_
+  , _ascSecretAccessKey = pSecretAccessKey_
+  , _ascSessionToken = pSessionToken_
+  }
+
 
 -- | The access key for the session.
 ascAccessKeyId :: Lens' AWSSessionCredentials Text
@@ -71,28 +75,29 @@ instance FromJSON AWSSessionCredentials where
                    (x .: "accessKeyId") <*> (x .: "secretAccessKey") <*>
                      (x .: "sessionToken"))
 
-instance Hashable AWSSessionCredentials
+instance Hashable AWSSessionCredentials where
 
-instance NFData AWSSessionCredentials
+instance NFData AWSSessionCredentials where
 
 -- | Represents information about an action configuration.
 --
+--
+--
 -- /See:/ 'actionConfiguration' smart constructor.
 newtype ActionConfiguration = ActionConfiguration'
-    { _acConfiguration :: Maybe (Map Text Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acConfiguration :: Maybe (Map Text Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActionConfiguration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acConfiguration'
+-- * 'acConfiguration' - The configuration data for the action.
 actionConfiguration
     :: ActionConfiguration
-actionConfiguration =
-    ActionConfiguration'
-    { _acConfiguration = Nothing
-    }
+actionConfiguration = ActionConfiguration' {_acConfiguration = Nothing}
+
 
 -- | The configuration data for the action.
 acConfiguration :: Lens' ActionConfiguration (HashMap Text Text)
@@ -105,40 +110,43 @@ instance FromJSON ActionConfiguration where
                  ActionConfiguration' <$>
                    (x .:? "configuration" .!= mempty))
 
-instance Hashable ActionConfiguration
+instance Hashable ActionConfiguration where
 
-instance NFData ActionConfiguration
+instance NFData ActionConfiguration where
 
 -- | Represents information about an action configuration property.
 --
+--
+--
 -- /See:/ 'actionConfigurationProperty' smart constructor.
 data ActionConfigurationProperty = ActionConfigurationProperty'
-    { _acpQueryable   :: !(Maybe Bool)
-    , _acpType        :: !(Maybe ActionConfigurationPropertyType)
-    , _acpDescription :: !(Maybe Text)
-    , _acpName        :: !Text
-    , _acpRequired    :: !Bool
-    , _acpKey         :: !Bool
-    , _acpSecret      :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acpQueryable   :: !(Maybe Bool)
+  , _acpType        :: !(Maybe ActionConfigurationPropertyType)
+  , _acpDescription :: !(Maybe Text)
+  , _acpName        :: !Text
+  , _acpRequired    :: !Bool
+  , _acpKey         :: !Bool
+  , _acpSecret      :: !Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActionConfigurationProperty' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acpQueryable'
+-- * 'acpQueryable' - Indicates that the property will be used in conjunction with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret. If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to additional restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
 --
--- * 'acpType'
+-- * 'acpType' - The type of the configuration property.
 --
--- * 'acpDescription'
+-- * 'acpDescription' - The description of the action configuration property that will be displayed to users.
 --
--- * 'acpName'
+-- * 'acpName' - The name of the action configuration property.
 --
--- * 'acpRequired'
+-- * 'acpRequired' - Whether the configuration property is a required value.
 --
--- * 'acpKey'
+-- * 'acpKey' - Whether the configuration property is a key.
 --
--- * 'acpSecret'
+-- * 'acpSecret' - Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs. When updating a pipeline, passing * * * * * without changing any other values of the action will preserve the prior value of the secret.
 actionConfigurationProperty
     :: Text -- ^ 'acpName'
     -> Bool -- ^ 'acpRequired'
@@ -146,19 +154,18 @@ actionConfigurationProperty
     -> Bool -- ^ 'acpSecret'
     -> ActionConfigurationProperty
 actionConfigurationProperty pName_ pRequired_ pKey_ pSecret_ =
-    ActionConfigurationProperty'
-    { _acpQueryable = Nothing
-    , _acpType = Nothing
-    , _acpDescription = Nothing
-    , _acpName = pName_
-    , _acpRequired = pRequired_
-    , _acpKey = pKey_
-    , _acpSecret = pSecret_
-    }
+  ActionConfigurationProperty'
+  { _acpQueryable = Nothing
+  , _acpType = Nothing
+  , _acpDescription = Nothing
+  , _acpName = pName_
+  , _acpRequired = pRequired_
+  , _acpKey = pKey_
+  , _acpSecret = pSecret_
+  }
 
--- | Indicates that the proprety will be used in conjunction with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.
---
--- If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to additional restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
+
+-- | Indicates that the property will be used in conjunction with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret. If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to additional restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
 acpQueryable :: Lens' ActionConfigurationProperty (Maybe Bool)
 acpQueryable = lens _acpQueryable (\ s a -> s{_acpQueryable = a});
 
@@ -182,9 +189,7 @@ acpRequired = lens _acpRequired (\ s a -> s{_acpRequired = a});
 acpKey :: Lens' ActionConfigurationProperty Bool
 acpKey = lens _acpKey (\ s a -> s{_acpKey = a});
 
--- | Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs.
---
--- When updating a pipeline, passing * * * * * without changing any other values of the action will preserve the prior value of the secret.
+-- | Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs. When updating a pipeline, passing * * * * * without changing any other values of the action will preserve the prior value of the secret.
 acpSecret :: Lens' ActionConfigurationProperty Bool
 acpSecret = lens _acpSecret (\ s a -> s{_acpSecret = a});
 
@@ -200,9 +205,9 @@ instance FromJSON ActionConfigurationProperty where
                      <*> (x .: "key")
                      <*> (x .: "secret"))
 
-instance Hashable ActionConfigurationProperty
+instance Hashable ActionConfigurationProperty where
 
-instance NFData ActionConfigurationProperty
+instance NFData ActionConfigurationProperty where
 
 instance ToJSON ActionConfigurationProperty where
         toJSON ActionConfigurationProperty'{..}
@@ -218,22 +223,23 @@ instance ToJSON ActionConfigurationProperty where
 
 -- | Represents the context of an action within the stage of a pipeline to a job worker.
 --
+--
+--
 -- /See:/ 'actionContext' smart constructor.
 newtype ActionContext = ActionContext'
-    { _acName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActionContext' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acName'
+-- * 'acName' - The name of the action within the context of a job.
 actionContext
     :: ActionContext
-actionContext =
-    ActionContext'
-    { _acName = Nothing
-    }
+actionContext = ActionContext' {_acName = Nothing}
+
 
 -- | The name of the action within the context of a job.
 acName :: Lens' ActionContext (Maybe Text)
@@ -244,54 +250,58 @@ instance FromJSON ActionContext where
           = withObject "ActionContext"
               (\ x -> ActionContext' <$> (x .:? "name"))
 
-instance Hashable ActionContext
+instance Hashable ActionContext where
 
-instance NFData ActionContext
+instance NFData ActionContext where
 
 -- | Represents information about an action declaration.
 --
+--
+--
 -- /See:/ 'actionDeclaration' smart constructor.
 data ActionDeclaration = ActionDeclaration'
-    { _adOutputArtifacts :: !(Maybe [OutputArtifact])
-    , _adRunOrder        :: !(Maybe Nat)
-    , _adConfiguration   :: !(Maybe (Map Text Text))
-    , _adInputArtifacts  :: !(Maybe [InputArtifact])
-    , _adRoleARN         :: !(Maybe Text)
-    , _adName            :: !Text
-    , _adActionTypeId    :: !ActionTypeId
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _adOutputArtifacts :: !(Maybe [OutputArtifact])
+  , _adRunOrder        :: !(Maybe Nat)
+  , _adConfiguration   :: !(Maybe (Map Text Text))
+  , _adInputArtifacts  :: !(Maybe [InputArtifact])
+  , _adRoleARN         :: !(Maybe Text)
+  , _adName            :: !Text
+  , _adActionTypeId    :: !ActionTypeId
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActionDeclaration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'adOutputArtifacts'
+-- * 'adOutputArtifacts' - The name or ID of the result of the action declaration, such as a test or build artifact.
 --
--- * 'adRunOrder'
+-- * 'adRunOrder' - The order in which actions are run.
 --
--- * 'adConfiguration'
+-- * 'adConfiguration' - The action declaration's configuration.
 --
--- * 'adInputArtifacts'
+-- * 'adInputArtifacts' - The name or ID of the artifact consumed by the action, such as a test or build artifact.
 --
--- * 'adRoleARN'
+-- * 'adRoleARN' - The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
 --
--- * 'adName'
+-- * 'adName' - The action declaration's name.
 --
--- * 'adActionTypeId'
+-- * 'adActionTypeId' - The configuration information for the action type.
 actionDeclaration
     :: Text -- ^ 'adName'
     -> ActionTypeId -- ^ 'adActionTypeId'
     -> ActionDeclaration
 actionDeclaration pName_ pActionTypeId_ =
-    ActionDeclaration'
-    { _adOutputArtifacts = Nothing
-    , _adRunOrder = Nothing
-    , _adConfiguration = Nothing
-    , _adInputArtifacts = Nothing
-    , _adRoleARN = Nothing
-    , _adName = pName_
-    , _adActionTypeId = pActionTypeId_
-    }
+  ActionDeclaration'
+  { _adOutputArtifacts = Nothing
+  , _adRunOrder = Nothing
+  , _adConfiguration = Nothing
+  , _adInputArtifacts = Nothing
+  , _adRoleARN = Nothing
+  , _adName = pName_
+  , _adActionTypeId = pActionTypeId_
+  }
+
 
 -- | The name or ID of the result of the action declaration, such as a test or build artifact.
 adOutputArtifacts :: Lens' ActionDeclaration [OutputArtifact]
@@ -301,7 +311,7 @@ adOutputArtifacts = lens _adOutputArtifacts (\ s a -> s{_adOutputArtifacts = a})
 adRunOrder :: Lens' ActionDeclaration (Maybe Natural)
 adRunOrder = lens _adRunOrder (\ s a -> s{_adRunOrder = a}) . mapping _Nat;
 
--- | The action declaration\'s configuration.
+-- | The action declaration's configuration.
 adConfiguration :: Lens' ActionDeclaration (HashMap Text Text)
 adConfiguration = lens _adConfiguration (\ s a -> s{_adConfiguration = a}) . _Default . _Map;
 
@@ -313,7 +323,7 @@ adInputArtifacts = lens _adInputArtifacts (\ s a -> s{_adInputArtifacts = a}) . 
 adRoleARN :: Lens' ActionDeclaration (Maybe Text)
 adRoleARN = lens _adRoleARN (\ s a -> s{_adRoleARN = a});
 
--- | The action declaration\'s name.
+-- | The action declaration's name.
 adName :: Lens' ActionDeclaration Text
 adName = lens _adName (\ s a -> s{_adName = a});
 
@@ -334,9 +344,9 @@ instance FromJSON ActionDeclaration where
                      <*> (x .: "name")
                      <*> (x .: "actionTypeId"))
 
-instance Hashable ActionDeclaration
+instance Hashable ActionDeclaration where
 
-instance NFData ActionDeclaration
+instance NFData ActionDeclaration where
 
 instance ToJSON ActionDeclaration where
         toJSON ActionDeclaration'{..}
@@ -352,54 +362,58 @@ instance ToJSON ActionDeclaration where
 
 -- | Represents information about the run of an action.
 --
+--
+--
 -- /See:/ 'actionExecution' smart constructor.
 data ActionExecution = ActionExecution'
-    { _aeLastUpdatedBy        :: !(Maybe Text)
-    , _aeSummary              :: !(Maybe Text)
-    , _aeStatus               :: !(Maybe ActionExecutionStatus)
-    , _aeLastStatusChange     :: !(Maybe POSIX)
-    , _aeToken                :: !(Maybe Text)
-    , _aeExternalExecutionURL :: !(Maybe Text)
-    , _aeExternalExecutionId  :: !(Maybe Text)
-    , _aeErrorDetails         :: !(Maybe ErrorDetails)
-    , _aePercentComplete      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aeLastUpdatedBy        :: !(Maybe Text)
+  , _aeSummary              :: !(Maybe Text)
+  , _aeStatus               :: !(Maybe ActionExecutionStatus)
+  , _aeLastStatusChange     :: !(Maybe POSIX)
+  , _aeToken                :: !(Maybe Text)
+  , _aeExternalExecutionURL :: !(Maybe Text)
+  , _aeExternalExecutionId  :: !(Maybe Text)
+  , _aeErrorDetails         :: !(Maybe ErrorDetails)
+  , _aePercentComplete      :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActionExecution' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aeLastUpdatedBy'
+-- * 'aeLastUpdatedBy' - The ARN of the user who last changed the pipeline.
 --
--- * 'aeSummary'
+-- * 'aeSummary' - A summary of the run of the action.
 --
--- * 'aeStatus'
+-- * 'aeStatus' - The status of the action, or for a completed action, the last status of the action.
 --
--- * 'aeLastStatusChange'
+-- * 'aeLastStatusChange' - The last status change of the action.
 --
--- * 'aeToken'
+-- * 'aeToken' - The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the GetPipelineState command and is used to validate that the approval request corresponding to this token is still valid.
 --
--- * 'aeExternalExecutionURL'
+-- * 'aeExternalExecutionURL' - The URL of a resource external to AWS that will be used when running the action, for example an external repository URL.
 --
--- * 'aeExternalExecutionId'
+-- * 'aeExternalExecutionId' - The external ID of the run of the action.
 --
--- * 'aeErrorDetails'
+-- * 'aeErrorDetails' - The details of an error returned by a URL external to AWS.
 --
--- * 'aePercentComplete'
+-- * 'aePercentComplete' - A percentage of completeness of the action as it runs.
 actionExecution
     :: ActionExecution
 actionExecution =
-    ActionExecution'
-    { _aeLastUpdatedBy = Nothing
-    , _aeSummary = Nothing
-    , _aeStatus = Nothing
-    , _aeLastStatusChange = Nothing
-    , _aeToken = Nothing
-    , _aeExternalExecutionURL = Nothing
-    , _aeExternalExecutionId = Nothing
-    , _aeErrorDetails = Nothing
-    , _aePercentComplete = Nothing
-    }
+  ActionExecution'
+  { _aeLastUpdatedBy = Nothing
+  , _aeSummary = Nothing
+  , _aeStatus = Nothing
+  , _aeLastStatusChange = Nothing
+  , _aeToken = Nothing
+  , _aeExternalExecutionURL = Nothing
+  , _aeExternalExecutionId = Nothing
+  , _aeErrorDetails = Nothing
+  , _aePercentComplete = Nothing
+  }
+
 
 -- | The ARN of the user who last changed the pipeline.
 aeLastUpdatedBy :: Lens' ActionExecution (Maybe Text)
@@ -451,39 +465,43 @@ instance FromJSON ActionExecution where
                      <*> (x .:? "errorDetails")
                      <*> (x .:? "percentComplete"))
 
-instance Hashable ActionExecution
+instance Hashable ActionExecution where
 
-instance NFData ActionExecution
+instance NFData ActionExecution where
 
 -- | Represents information about the version (or revision) of an action.
 --
+--
+--
 -- /See:/ 'actionRevision' smart constructor.
 data ActionRevision = ActionRevision'
-    { _aRevisionId       :: !Text
-    , _aRevisionChangeId :: !Text
-    , _aCreated          :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aRevisionId       :: !Text
+  , _aRevisionChangeId :: !Text
+  , _aCreated          :: !POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActionRevision' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aRevisionId'
+-- * 'aRevisionId' - The system-generated unique ID that identifies the revision number of the action.
 --
--- * 'aRevisionChangeId'
+-- * 'aRevisionChangeId' - The unique identifier of the change that set the state to this revision, for example a deployment ID or timestamp.
 --
--- * 'aCreated'
+-- * 'aCreated' - The date and time when the most recent version of the action was created, in timestamp format.
 actionRevision
     :: Text -- ^ 'aRevisionId'
     -> Text -- ^ 'aRevisionChangeId'
     -> UTCTime -- ^ 'aCreated'
     -> ActionRevision
 actionRevision pRevisionId_ pRevisionChangeId_ pCreated_ =
-    ActionRevision'
-    { _aRevisionId = pRevisionId_
-    , _aRevisionChangeId = pRevisionChangeId_
-    , _aCreated = _Time # pCreated_
-    }
+  ActionRevision'
+  { _aRevisionId = pRevisionId_
+  , _aRevisionChangeId = pRevisionChangeId_
+  , _aCreated = _Time # pCreated_
+  }
+
 
 -- | The system-generated unique ID that identifies the revision number of the action.
 aRevisionId :: Lens' ActionRevision Text
@@ -505,9 +523,9 @@ instance FromJSON ActionRevision where
                    (x .: "revisionId") <*> (x .: "revisionChangeId") <*>
                      (x .: "created"))
 
-instance Hashable ActionRevision
+instance Hashable ActionRevision where
 
-instance NFData ActionRevision
+instance NFData ActionRevision where
 
 instance ToJSON ActionRevision where
         toJSON ActionRevision'{..}
@@ -519,38 +537,42 @@ instance ToJSON ActionRevision where
 
 -- | Represents information about the state of an action.
 --
+--
+--
 -- /See:/ 'actionState' smart constructor.
 data ActionState = ActionState'
-    { _asRevisionURL     :: !(Maybe Text)
-    , _asEntityURL       :: !(Maybe Text)
-    , _asActionName      :: !(Maybe Text)
-    , _asCurrentRevision :: !(Maybe ActionRevision)
-    , _asLatestExecution :: !(Maybe ActionExecution)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asRevisionURL     :: !(Maybe Text)
+  , _asEntityURL       :: !(Maybe Text)
+  , _asActionName      :: !(Maybe Text)
+  , _asCurrentRevision :: !(Maybe ActionRevision)
+  , _asLatestExecution :: !(Maybe ActionExecution)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActionState' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asRevisionURL'
+-- * 'asRevisionURL' - A URL link for more information about the revision, such as a commit details page.
 --
--- * 'asEntityURL'
+-- * 'asEntityURL' - A URL link for more information about the state of the action, such as a deployment group details page.
 --
--- * 'asActionName'
+-- * 'asActionName' - The name of the action.
 --
--- * 'asCurrentRevision'
+-- * 'asCurrentRevision' - Represents information about the version (or revision) of an action.
 --
--- * 'asLatestExecution'
+-- * 'asLatestExecution' - Represents information about the run of an action.
 actionState
     :: ActionState
 actionState =
-    ActionState'
-    { _asRevisionURL = Nothing
-    , _asEntityURL = Nothing
-    , _asActionName = Nothing
-    , _asCurrentRevision = Nothing
-    , _asLatestExecution = Nothing
-    }
+  ActionState'
+  { _asRevisionURL = Nothing
+  , _asEntityURL = Nothing
+  , _asActionName = Nothing
+  , _asCurrentRevision = Nothing
+  , _asLatestExecution = Nothing
+  }
+
 
 -- | A URL link for more information about the revision, such as a commit details page.
 asRevisionURL :: Lens' ActionState (Maybe Text)
@@ -564,11 +586,11 @@ asEntityURL = lens _asEntityURL (\ s a -> s{_asEntityURL = a});
 asActionName :: Lens' ActionState (Maybe Text)
 asActionName = lens _asActionName (\ s a -> s{_asActionName = a});
 
--- | Undocumented member.
+-- | Represents information about the version (or revision) of an action.
 asCurrentRevision :: Lens' ActionState (Maybe ActionRevision)
 asCurrentRevision = lens _asCurrentRevision (\ s a -> s{_asCurrentRevision = a});
 
--- | Undocumented member.
+-- | Represents information about the run of an action.
 asLatestExecution :: Lens' ActionState (Maybe ActionExecution)
 asLatestExecution = lens _asLatestExecution (\ s a -> s{_asLatestExecution = a});
 
@@ -582,47 +604,51 @@ instance FromJSON ActionState where
                      <*> (x .:? "currentRevision")
                      <*> (x .:? "latestExecution"))
 
-instance Hashable ActionState
+instance Hashable ActionState where
 
-instance NFData ActionState
+instance NFData ActionState where
 
 -- | Returns information about the details of an action type.
 --
+--
+--
 -- /See:/ 'actionType' smart constructor.
 data ActionType = ActionType'
-    { _atSettings                      :: !(Maybe ActionTypeSettings)
-    , _atActionConfigurationProperties :: !(Maybe [ActionConfigurationProperty])
-    , _atId                            :: !ActionTypeId
-    , _atInputArtifactDetails          :: !ArtifactDetails
-    , _atOutputArtifactDetails         :: !ArtifactDetails
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atSettings                      :: !(Maybe ActionTypeSettings)
+  , _atActionConfigurationProperties :: !(Maybe [ActionConfigurationProperty])
+  , _atId                            :: !ActionTypeId
+  , _atInputArtifactDetails          :: !ArtifactDetails
+  , _atOutputArtifactDetails         :: !ArtifactDetails
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActionType' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atSettings'
+-- * 'atSettings' - The settings for the action type.
 --
--- * 'atActionConfigurationProperties'
+-- * 'atActionConfigurationProperties' - The configuration properties for the action type.
 --
--- * 'atId'
+-- * 'atId' - Represents information about an action type.
 --
--- * 'atInputArtifactDetails'
+-- * 'atInputArtifactDetails' - The details of the input artifact for the action, such as its commit ID.
 --
--- * 'atOutputArtifactDetails'
+-- * 'atOutputArtifactDetails' - The details of the output artifact of the action, such as its commit ID.
 actionType
     :: ActionTypeId -- ^ 'atId'
     -> ArtifactDetails -- ^ 'atInputArtifactDetails'
     -> ArtifactDetails -- ^ 'atOutputArtifactDetails'
     -> ActionType
 actionType pId_ pInputArtifactDetails_ pOutputArtifactDetails_ =
-    ActionType'
-    { _atSettings = Nothing
-    , _atActionConfigurationProperties = Nothing
-    , _atId = pId_
-    , _atInputArtifactDetails = pInputArtifactDetails_
-    , _atOutputArtifactDetails = pOutputArtifactDetails_
-    }
+  ActionType'
+  { _atSettings = Nothing
+  , _atActionConfigurationProperties = Nothing
+  , _atId = pId_
+  , _atInputArtifactDetails = pInputArtifactDetails_
+  , _atOutputArtifactDetails = pOutputArtifactDetails_
+  }
+
 
 -- | The settings for the action type.
 atSettings :: Lens' ActionType (Maybe ActionTypeSettings)
@@ -632,7 +658,7 @@ atSettings = lens _atSettings (\ s a -> s{_atSettings = a});
 atActionConfigurationProperties :: Lens' ActionType [ActionConfigurationProperty]
 atActionConfigurationProperties = lens _atActionConfigurationProperties (\ s a -> s{_atActionConfigurationProperties = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | Represents information about an action type.
 atId :: Lens' ActionType ActionTypeId
 atId = lens _atId (\ s a -> s{_atId = a});
 
@@ -655,31 +681,34 @@ instance FromJSON ActionType where
                      <*> (x .: "inputArtifactDetails")
                      <*> (x .: "outputArtifactDetails"))
 
-instance Hashable ActionType
+instance Hashable ActionType where
 
-instance NFData ActionType
+instance NFData ActionType where
 
 -- | Represents information about an action type.
 --
+--
+--
 -- /See:/ 'actionTypeId' smart constructor.
 data ActionTypeId = ActionTypeId'
-    { _atiCategory :: !ActionCategory
-    , _atiOwner    :: !ActionOwner
-    , _atiProvider :: !Text
-    , _atiVersion  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atiCategory :: !ActionCategory
+  , _atiOwner    :: !ActionOwner
+  , _atiProvider :: !Text
+  , _atiVersion  :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActionTypeId' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atiCategory'
+-- * 'atiCategory' - A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Valid categories are limited to one of the values below.
 --
--- * 'atiOwner'
+-- * 'atiOwner' - The creator of the action being called.
 --
--- * 'atiProvider'
+-- * 'atiProvider' - The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
 --
--- * 'atiVersion'
+-- * 'atiVersion' - A string that identifies the action type.
 actionTypeId
     :: ActionCategory -- ^ 'atiCategory'
     -> ActionOwner -- ^ 'atiOwner'
@@ -687,12 +716,13 @@ actionTypeId
     -> Text -- ^ 'atiVersion'
     -> ActionTypeId
 actionTypeId pCategory_ pOwner_ pProvider_ pVersion_ =
-    ActionTypeId'
-    { _atiCategory = pCategory_
-    , _atiOwner = pOwner_
-    , _atiProvider = pProvider_
-    , _atiVersion = pVersion_
-    }
+  ActionTypeId'
+  { _atiCategory = pCategory_
+  , _atiOwner = pOwner_
+  , _atiProvider = pProvider_
+  , _atiVersion = pVersion_
+  }
+
 
 -- | A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Valid categories are limited to one of the values below.
 atiCategory :: Lens' ActionTypeId ActionCategory
@@ -719,9 +749,9 @@ instance FromJSON ActionTypeId where
                      (x .: "provider")
                      <*> (x .: "version"))
 
-instance Hashable ActionTypeId
+instance Hashable ActionTypeId where
 
-instance NFData ActionTypeId
+instance NFData ActionTypeId where
 
 instance ToJSON ActionTypeId where
         toJSON ActionTypeId'{..}
@@ -734,34 +764,38 @@ instance ToJSON ActionTypeId where
 
 -- | Returns information about the settings for an action type.
 --
+--
+--
 -- /See:/ 'actionTypeSettings' smart constructor.
 data ActionTypeSettings = ActionTypeSettings'
-    { _atsThirdPartyConfigurationURL :: !(Maybe Text)
-    , _atsExecutionURLTemplate       :: !(Maybe Text)
-    , _atsRevisionURLTemplate        :: !(Maybe Text)
-    , _atsEntityURLTemplate          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atsThirdPartyConfigurationURL :: !(Maybe Text)
+  , _atsExecutionURLTemplate       :: !(Maybe Text)
+  , _atsRevisionURLTemplate        :: !(Maybe Text)
+  , _atsEntityURLTemplate          :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActionTypeSettings' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atsThirdPartyConfigurationURL'
+-- * 'atsThirdPartyConfigurationURL' - The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
 --
--- * 'atsExecutionURLTemplate'
+-- * 'atsExecutionURLTemplate' - The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action.
 --
--- * 'atsRevisionURLTemplate'
+-- * 'atsRevisionURLTemplate' - The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
 --
--- * 'atsEntityURLTemplate'
+-- * 'atsEntityURLTemplate' - The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display within the pipeline.
 actionTypeSettings
     :: ActionTypeSettings
 actionTypeSettings =
-    ActionTypeSettings'
-    { _atsThirdPartyConfigurationURL = Nothing
-    , _atsExecutionURLTemplate = Nothing
-    , _atsRevisionURLTemplate = Nothing
-    , _atsEntityURLTemplate = Nothing
-    }
+  ActionTypeSettings'
+  { _atsThirdPartyConfigurationURL = Nothing
+  , _atsExecutionURLTemplate = Nothing
+  , _atsRevisionURLTemplate = Nothing
+  , _atsEntityURLTemplate = Nothing
+  }
+
 
 -- | The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
 atsThirdPartyConfigurationURL :: Lens' ActionTypeSettings (Maybe Text)
@@ -789,9 +823,9 @@ instance FromJSON ActionTypeSettings where
                      <*> (x .:? "revisionUrlTemplate")
                      <*> (x .:? "entityUrlTemplate"))
 
-instance Hashable ActionTypeSettings
+instance Hashable ActionTypeSettings where
 
-instance NFData ActionTypeSettings
+instance NFData ActionTypeSettings where
 
 instance ToJSON ActionTypeSettings where
         toJSON ActionTypeSettings'{..}
@@ -807,28 +841,29 @@ instance ToJSON ActionTypeSettings where
 
 -- | Represents information about the result of an approval request.
 --
+--
+--
 -- /See:/ 'approvalResult' smart constructor.
 data ApprovalResult = ApprovalResult'
-    { _arSummary :: !Text
-    , _arStatus  :: !ApprovalStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _arSummary :: !Text
+  , _arStatus  :: !ApprovalStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApprovalResult' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'arSummary'
+-- * 'arSummary' - The summary of the current status of the approval request.
 --
--- * 'arStatus'
+-- * 'arStatus' - The response submitted by a reviewer assigned to an approval action request.
 approvalResult
     :: Text -- ^ 'arSummary'
     -> ApprovalStatus -- ^ 'arStatus'
     -> ApprovalResult
 approvalResult pSummary_ pStatus_ =
-    ApprovalResult'
-    { _arSummary = pSummary_
-    , _arStatus = pStatus_
-    }
+  ApprovalResult' {_arSummary = pSummary_, _arStatus = pStatus_}
+
 
 -- | The summary of the current status of the approval request.
 arSummary :: Lens' ApprovalResult Text
@@ -838,9 +873,9 @@ arSummary = lens _arSummary (\ s a -> s{_arSummary = a});
 arStatus :: Lens' ApprovalResult ApprovalStatus
 arStatus = lens _arStatus (\ s a -> s{_arStatus = a});
 
-instance Hashable ApprovalResult
+instance Hashable ApprovalResult where
 
-instance NFData ApprovalResult
+instance NFData ApprovalResult where
 
 instance ToJSON ApprovalResult where
         toJSON ApprovalResult'{..}
@@ -851,40 +886,40 @@ instance ToJSON ApprovalResult where
 
 -- | Represents information about an artifact that will be worked upon by actions in the pipeline.
 --
+--
+--
 -- /See:/ 'artifact' smart constructor.
 data Artifact = Artifact'
-    { _aLocation :: !(Maybe ArtifactLocation)
-    , _aName     :: !(Maybe Text)
-    , _aRevision :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aLocation :: !(Maybe ArtifactLocation)
+  , _aName     :: !(Maybe Text)
+  , _aRevision :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Artifact' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aLocation'
+-- * 'aLocation' - The location of an artifact.
 --
--- * 'aName'
+-- * 'aName' - The artifact's name.
 --
--- * 'aRevision'
+-- * 'aRevision' - The artifact's revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
 artifact
     :: Artifact
 artifact =
-    Artifact'
-    { _aLocation = Nothing
-    , _aName = Nothing
-    , _aRevision = Nothing
-    }
+  Artifact' {_aLocation = Nothing, _aName = Nothing, _aRevision = Nothing}
+
 
 -- | The location of an artifact.
 aLocation :: Lens' Artifact (Maybe ArtifactLocation)
 aLocation = lens _aLocation (\ s a -> s{_aLocation = a});
 
--- | The artifact\'s name.
+-- | The artifact's name.
 aName :: Lens' Artifact (Maybe Text)
 aName = lens _aName (\ s a -> s{_aName = a});
 
--- | The artifact\'s revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
+-- | The artifact's revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
 aRevision :: Lens' Artifact (Maybe Text)
 aRevision = lens _aRevision (\ s a -> s{_aRevision = a});
 
@@ -896,34 +931,38 @@ instance FromJSON Artifact where
                    (x .:? "location") <*> (x .:? "name") <*>
                      (x .:? "revision"))
 
-instance Hashable Artifact
+instance Hashable Artifact where
 
-instance NFData Artifact
+instance NFData Artifact where
 
 -- | Returns information about the details of an artifact.
 --
+--
+--
 -- /See:/ 'artifactDetails' smart constructor.
 data ArtifactDetails = ArtifactDetails'
-    { _adMinimumCount :: !Nat
-    , _adMaximumCount :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _adMinimumCount :: !Nat
+  , _adMaximumCount :: !Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ArtifactDetails' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'adMinimumCount'
+-- * 'adMinimumCount' - The minimum number of artifacts allowed for the action type.
 --
--- * 'adMaximumCount'
+-- * 'adMaximumCount' - The maximum number of artifacts allowed for the action type.
 artifactDetails
     :: Natural -- ^ 'adMinimumCount'
     -> Natural -- ^ 'adMaximumCount'
     -> ArtifactDetails
 artifactDetails pMinimumCount_ pMaximumCount_ =
-    ArtifactDetails'
-    { _adMinimumCount = _Nat # pMinimumCount_
-    , _adMaximumCount = _Nat # pMaximumCount_
-    }
+  ArtifactDetails'
+  { _adMinimumCount = _Nat # pMinimumCount_
+  , _adMaximumCount = _Nat # pMaximumCount_
+  }
+
 
 -- | The minimum number of artifacts allowed for the action type.
 adMinimumCount :: Lens' ArtifactDetails Natural
@@ -940,9 +979,9 @@ instance FromJSON ArtifactDetails where
                  ArtifactDetails' <$>
                    (x .: "minimumCount") <*> (x .: "maximumCount"))
 
-instance Hashable ArtifactDetails
+instance Hashable ArtifactDetails where
 
-instance NFData ArtifactDetails
+instance NFData ArtifactDetails where
 
 instance ToJSON ArtifactDetails where
         toJSON ArtifactDetails'{..}
@@ -953,26 +992,27 @@ instance ToJSON ArtifactDetails where
 
 -- | Represents information about the location of an artifact.
 --
+--
+--
 -- /See:/ 'artifactLocation' smart constructor.
 data ArtifactLocation = ArtifactLocation'
-    { _alS3Location :: !(Maybe S3ArtifactLocation)
-    , _alType       :: !(Maybe ArtifactLocationType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _alS3Location :: !(Maybe S3ArtifactLocation)
+  , _alType       :: !(Maybe ArtifactLocationType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ArtifactLocation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'alS3Location'
+-- * 'alS3Location' - The Amazon S3 bucket that contains the artifact.
 --
--- * 'alType'
+-- * 'alType' - The type of artifact in the location.
 artifactLocation
     :: ArtifactLocation
 artifactLocation =
-    ArtifactLocation'
-    { _alS3Location = Nothing
-    , _alType = Nothing
-    }
+  ArtifactLocation' {_alS3Location = Nothing, _alType = Nothing}
+
 
 -- | The Amazon S3 bucket that contains the artifact.
 alS3Location :: Lens' ArtifactLocation (Maybe S3ArtifactLocation)
@@ -989,50 +1029,54 @@ instance FromJSON ArtifactLocation where
                  ArtifactLocation' <$>
                    (x .:? "s3Location") <*> (x .:? "type"))
 
-instance Hashable ArtifactLocation
+instance Hashable ArtifactLocation where
 
-instance NFData ArtifactLocation
+instance NFData ArtifactLocation where
 
 -- | Represents revision details of an artifact.
 --
+--
+--
 -- /See:/ 'artifactRevision' smart constructor.
 data ArtifactRevision = ArtifactRevision'
-    { _arRevisionSummary          :: !(Maybe Text)
-    , _arRevisionURL              :: !(Maybe Text)
-    , _arCreated                  :: !(Maybe POSIX)
-    , _arName                     :: !(Maybe Text)
-    , _arRevisionId               :: !(Maybe Text)
-    , _arRevisionChangeIdentifier :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _arRevisionSummary          :: !(Maybe Text)
+  , _arRevisionURL              :: !(Maybe Text)
+  , _arCreated                  :: !(Maybe POSIX)
+  , _arName                     :: !(Maybe Text)
+  , _arRevisionId               :: !(Maybe Text)
+  , _arRevisionChangeIdentifier :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ArtifactRevision' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'arRevisionSummary'
+-- * 'arRevisionSummary' - Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a @codepipeline-artifact-revision-summary@ key specified in the object metadata.
 --
--- * 'arRevisionURL'
+-- * 'arRevisionURL' - The commit ID for the artifact revision. For artifacts stored in GitHub or AWS CodeCommit repositories, the commit ID is linked to a commit details page.
 --
--- * 'arCreated'
+-- * 'arCreated' - The date and time when the most recent revision of the artifact was created, in timestamp format.
 --
--- * 'arName'
+-- * 'arName' - The name of an artifact. This name might be system-generated, such as "MyApp", or might be defined by the user when an action is created.
 --
--- * 'arRevisionId'
+-- * 'arRevisionId' - The revision ID of the artifact.
 --
--- * 'arRevisionChangeIdentifier'
+-- * 'arRevisionChangeIdentifier' - An additional identifier for a revision, such as a commit date or, for artifacts stored in Amazon S3 buckets, the ETag value.
 artifactRevision
     :: ArtifactRevision
 artifactRevision =
-    ArtifactRevision'
-    { _arRevisionSummary = Nothing
-    , _arRevisionURL = Nothing
-    , _arCreated = Nothing
-    , _arName = Nothing
-    , _arRevisionId = Nothing
-    , _arRevisionChangeIdentifier = Nothing
-    }
+  ArtifactRevision'
+  { _arRevisionSummary = Nothing
+  , _arRevisionURL = Nothing
+  , _arCreated = Nothing
+  , _arName = Nothing
+  , _arRevisionId = Nothing
+  , _arRevisionChangeIdentifier = Nothing
+  }
 
--- | Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a 'codepipeline-artifact-revision-summary' key specified in the object metadata.
+
+-- | Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a @codepipeline-artifact-revision-summary@ key specified in the object metadata.
 arRevisionSummary :: Lens' ArtifactRevision (Maybe Text)
 arRevisionSummary = lens _arRevisionSummary (\ s a -> s{_arRevisionSummary = a});
 
@@ -1044,7 +1088,7 @@ arRevisionURL = lens _arRevisionURL (\ s a -> s{_arRevisionURL = a});
 arCreated :: Lens' ArtifactRevision (Maybe UTCTime)
 arCreated = lens _arCreated (\ s a -> s{_arCreated = a}) . mapping _Time;
 
--- | The name of an artifact. This name might be system-generated, such as \"MyApp\", or might be defined by the user when an action is created.
+-- | The name of an artifact. This name might be system-generated, such as "MyApp", or might be defined by the user when an action is created.
 arName :: Lens' ArtifactRevision (Maybe Text)
 arName = lens _arName (\ s a -> s{_arName = a});
 
@@ -1067,38 +1111,39 @@ instance FromJSON ArtifactRevision where
                      <*> (x .:? "revisionId")
                      <*> (x .:? "revisionChangeIdentifier"))
 
-instance Hashable ArtifactRevision
+instance Hashable ArtifactRevision where
 
-instance NFData ArtifactRevision
+instance NFData ArtifactRevision where
 
--- | The Amazon S3 location where artifacts are stored for the pipeline. If this Amazon S3 bucket is created manually, it must meet the requirements for AWS CodePipeline. For more information, see the <http://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#CPS3Bucket Concepts>.
+-- | The Amazon S3 bucket where artifacts are stored for the pipeline.
+--
+--
 --
 -- /See:/ 'artifactStore' smart constructor.
 data ArtifactStore = ArtifactStore'
-    { _asEncryptionKey :: !(Maybe EncryptionKey)
-    , _asType          :: !ArtifactStoreType
-    , _asLocation      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asEncryptionKey :: !(Maybe EncryptionKey)
+  , _asType          :: !ArtifactStoreType
+  , _asLocation      :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ArtifactStore' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asEncryptionKey'
+-- * 'asEncryptionKey' - The encryption key used to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If this is undefined, the default key for Amazon S3 is used.
 --
--- * 'asType'
+-- * 'asType' - The type of the artifact store, such as S3.
 --
--- * 'asLocation'
+-- * 'asLocation' - The Amazon S3 bucket used for storing the artifacts for a pipeline. You can specify the name of an S3 bucket but not a folder within the bucket. A folder to contain the pipeline artifacts is created for you based on the name of the pipeline. You can use any Amazon S3 bucket in the same AWS Region as the pipeline to store your pipeline artifacts.
 artifactStore
     :: ArtifactStoreType -- ^ 'asType'
     -> Text -- ^ 'asLocation'
     -> ArtifactStore
 artifactStore pType_ pLocation_ =
-    ArtifactStore'
-    { _asEncryptionKey = Nothing
-    , _asType = pType_
-    , _asLocation = pLocation_
-    }
+  ArtifactStore'
+  {_asEncryptionKey = Nothing, _asType = pType_, _asLocation = pLocation_}
+
 
 -- | The encryption key used to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If this is undefined, the default key for Amazon S3 is used.
 asEncryptionKey :: Lens' ArtifactStore (Maybe EncryptionKey)
@@ -1108,7 +1153,7 @@ asEncryptionKey = lens _asEncryptionKey (\ s a -> s{_asEncryptionKey = a});
 asType :: Lens' ArtifactStore ArtifactStoreType
 asType = lens _asType (\ s a -> s{_asType = a});
 
--- | The location for storing the artifacts for a pipeline, such as an S3 bucket or folder.
+-- | The Amazon S3 bucket used for storing the artifacts for a pipeline. You can specify the name of an S3 bucket but not a folder within the bucket. A folder to contain the pipeline artifacts is created for you based on the name of the pipeline. You can use any Amazon S3 bucket in the same AWS Region as the pipeline to store your pipeline artifacts.
 asLocation :: Lens' ArtifactStore Text
 asLocation = lens _asLocation (\ s a -> s{_asLocation = a});
 
@@ -1120,9 +1165,9 @@ instance FromJSON ArtifactStore where
                    (x .:? "encryptionKey") <*> (x .: "type") <*>
                      (x .: "location"))
 
-instance Hashable ArtifactStore
+instance Hashable ArtifactStore where
 
-instance NFData ArtifactStore
+instance NFData ArtifactStore where
 
 instance ToJSON ArtifactStore where
         toJSON ArtifactStore'{..}
@@ -1134,28 +1179,29 @@ instance ToJSON ArtifactStore where
 
 -- | Reserved for future use.
 --
+--
+--
 -- /See:/ 'blockerDeclaration' smart constructor.
 data BlockerDeclaration = BlockerDeclaration'
-    { _bdName :: !Text
-    , _bdType :: !BlockerType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bdName :: !Text
+  , _bdType :: !BlockerType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BlockerDeclaration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bdName'
+-- * 'bdName' - Reserved for future use.
 --
--- * 'bdType'
+-- * 'bdType' - Reserved for future use.
 blockerDeclaration
     :: Text -- ^ 'bdName'
     -> BlockerType -- ^ 'bdType'
     -> BlockerDeclaration
 blockerDeclaration pName_ pType_ =
-    BlockerDeclaration'
-    { _bdName = pName_
-    , _bdType = pType_
-    }
+  BlockerDeclaration' {_bdName = pName_, _bdType = pType_}
+
 
 -- | Reserved for future use.
 bdName :: Lens' BlockerDeclaration Text
@@ -1172,9 +1218,9 @@ instance FromJSON BlockerDeclaration where
                  BlockerDeclaration' <$>
                    (x .: "name") <*> (x .: "type"))
 
-instance Hashable BlockerDeclaration
+instance Hashable BlockerDeclaration where
 
-instance NFData BlockerDeclaration
+instance NFData BlockerDeclaration where
 
 instance ToJSON BlockerDeclaration where
         toJSON BlockerDeclaration'{..}
@@ -1184,36 +1230,40 @@ instance ToJSON BlockerDeclaration where
 
 -- | Represents information about a current revision.
 --
+--
+--
 -- /See:/ 'currentRevision' smart constructor.
 data CurrentRevision = CurrentRevision'
-    { _crRevisionSummary  :: !(Maybe Text)
-    , _crCreated          :: !(Maybe POSIX)
-    , _crRevision         :: !Text
-    , _crChangeIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crRevisionSummary  :: !(Maybe Text)
+  , _crCreated          :: !(Maybe POSIX)
+  , _crRevision         :: !Text
+  , _crChangeIdentifier :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CurrentRevision' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crRevisionSummary'
+-- * 'crRevisionSummary' - The summary of the most recent revision of the artifact.
 --
--- * 'crCreated'
+-- * 'crCreated' - The date and time when the most recent revision of the artifact was created, in timestamp format.
 --
--- * 'crRevision'
+-- * 'crRevision' - The revision ID of the current version of an artifact.
 --
--- * 'crChangeIdentifier'
+-- * 'crChangeIdentifier' - The change identifier for the current revision.
 currentRevision
     :: Text -- ^ 'crRevision'
     -> Text -- ^ 'crChangeIdentifier'
     -> CurrentRevision
 currentRevision pRevision_ pChangeIdentifier_ =
-    CurrentRevision'
-    { _crRevisionSummary = Nothing
-    , _crCreated = Nothing
-    , _crRevision = pRevision_
-    , _crChangeIdentifier = pChangeIdentifier_
-    }
+  CurrentRevision'
+  { _crRevisionSummary = Nothing
+  , _crCreated = Nothing
+  , _crRevision = pRevision_
+  , _crChangeIdentifier = pChangeIdentifier_
+  }
+
 
 -- | The summary of the most recent revision of the artifact.
 crRevisionSummary :: Lens' CurrentRevision (Maybe Text)
@@ -1231,9 +1281,9 @@ crRevision = lens _crRevision (\ s a -> s{_crRevision = a});
 crChangeIdentifier :: Lens' CurrentRevision Text
 crChangeIdentifier = lens _crChangeIdentifier (\ s a -> s{_crChangeIdentifier = a});
 
-instance Hashable CurrentRevision
+instance Hashable CurrentRevision where
 
-instance NFData CurrentRevision
+instance NFData CurrentRevision where
 
 instance ToJSON CurrentRevision where
         toJSON CurrentRevision'{..}
@@ -1246,34 +1296,34 @@ instance ToJSON CurrentRevision where
 
 -- | Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service (AWS KMS) key.
 --
+--
+--
 -- /See:/ 'encryptionKey' smart constructor.
 data EncryptionKey = EncryptionKey'
-    { _ekId   :: !Text
-    , _ekType :: !EncryptionKeyType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ekId   :: !Text
+  , _ekType :: !EncryptionKeyType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EncryptionKey' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ekId'
+-- * 'ekId' - The ID used to identify the key. For an AWS KMS key, this is the key ID or key ARN.
 --
--- * 'ekType'
+-- * 'ekType' - The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'.
 encryptionKey
     :: Text -- ^ 'ekId'
     -> EncryptionKeyType -- ^ 'ekType'
     -> EncryptionKey
-encryptionKey pId_ pType_ =
-    EncryptionKey'
-    { _ekId = pId_
-    , _ekType = pType_
-    }
+encryptionKey pId_ pType_ = EncryptionKey' {_ekId = pId_, _ekType = pType_}
+
 
 -- | The ID used to identify the key. For an AWS KMS key, this is the key ID or key ARN.
 ekId :: Lens' EncryptionKey Text
 ekId = lens _ekId (\ s a -> s{_ekId = a});
 
--- | The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to \'KMS\'.
+-- | The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'.
 ekType :: Lens' EncryptionKey EncryptionKeyType
 ekType = lens _ekType (\ s a -> s{_ekType = a});
 
@@ -1283,9 +1333,9 @@ instance FromJSON EncryptionKey where
               (\ x ->
                  EncryptionKey' <$> (x .: "id") <*> (x .: "type"))
 
-instance Hashable EncryptionKey
+instance Hashable EncryptionKey where
 
-instance NFData EncryptionKey
+instance NFData EncryptionKey where
 
 instance ToJSON EncryptionKey where
         toJSON EncryptionKey'{..}
@@ -1295,26 +1345,26 @@ instance ToJSON EncryptionKey where
 
 -- | Represents information about an error in AWS CodePipeline.
 --
+--
+--
 -- /See:/ 'errorDetails' smart constructor.
 data ErrorDetails = ErrorDetails'
-    { _edCode    :: !(Maybe Text)
-    , _edMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edCode    :: !(Maybe Text)
+  , _edMessage :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ErrorDetails' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'edCode'
+-- * 'edCode' - The system ID or error number code of the error.
 --
--- * 'edMessage'
+-- * 'edMessage' - The text of the error message.
 errorDetails
     :: ErrorDetails
-errorDetails =
-    ErrorDetails'
-    { _edCode = Nothing
-    , _edMessage = Nothing
-    }
+errorDetails = ErrorDetails' {_edCode = Nothing, _edMessage = Nothing}
+
 
 -- | The system ID or error number code of the error.
 edCode :: Lens' ErrorDetails (Maybe Text)
@@ -1331,36 +1381,40 @@ instance FromJSON ErrorDetails where
                  ErrorDetails' <$>
                    (x .:? "code") <*> (x .:? "message"))
 
-instance Hashable ErrorDetails
+instance Hashable ErrorDetails where
 
-instance NFData ErrorDetails
+instance NFData ErrorDetails where
 
 -- | The details of the actions taken and results produced on an artifact as it passes through stages in the pipeline.
 --
+--
+--
 -- /See:/ 'executionDetails' smart constructor.
 data ExecutionDetails = ExecutionDetails'
-    { _edSummary             :: !(Maybe Text)
-    , _edExternalExecutionId :: !(Maybe Text)
-    , _edPercentComplete     :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edSummary             :: !(Maybe Text)
+  , _edExternalExecutionId :: !(Maybe Text)
+  , _edPercentComplete     :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExecutionDetails' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'edSummary'
+-- * 'edSummary' - The summary of the current status of the actions.
 --
--- * 'edExternalExecutionId'
+-- * 'edExternalExecutionId' - The system-generated unique ID of this action used to identify this job worker in any external systems, such as AWS CodeDeploy.
 --
--- * 'edPercentComplete'
+-- * 'edPercentComplete' - The percentage of work completed on the action, represented on a scale of zero to one hundred percent.
 executionDetails
     :: ExecutionDetails
 executionDetails =
-    ExecutionDetails'
-    { _edSummary = Nothing
-    , _edExternalExecutionId = Nothing
-    , _edPercentComplete = Nothing
-    }
+  ExecutionDetails'
+  { _edSummary = Nothing
+  , _edExternalExecutionId = Nothing
+  , _edPercentComplete = Nothing
+  }
+
 
 -- | The summary of the current status of the actions.
 edSummary :: Lens' ExecutionDetails (Maybe Text)
@@ -1374,9 +1428,9 @@ edExternalExecutionId = lens _edExternalExecutionId (\ s a -> s{_edExternalExecu
 edPercentComplete :: Lens' ExecutionDetails (Maybe Natural)
 edPercentComplete = lens _edPercentComplete (\ s a -> s{_edPercentComplete = a}) . mapping _Nat;
 
-instance Hashable ExecutionDetails
+instance Hashable ExecutionDetails where
 
-instance NFData ExecutionDetails
+instance NFData ExecutionDetails where
 
 instance ToJSON ExecutionDetails where
         toJSON ExecutionDetails'{..}
@@ -1389,32 +1443,33 @@ instance ToJSON ExecutionDetails where
 
 -- | Represents information about failure details.
 --
+--
+--
 -- /See:/ 'failureDetails' smart constructor.
 data FailureDetails = FailureDetails'
-    { _fdExternalExecutionId :: !(Maybe Text)
-    , _fdType                :: !FailureType
-    , _fdMessage             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fdExternalExecutionId :: !(Maybe Text)
+  , _fdType                :: !FailureType
+  , _fdMessage             :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FailureDetails' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fdExternalExecutionId'
+-- * 'fdExternalExecutionId' - The external ID of the run of the action that failed.
 --
--- * 'fdType'
+-- * 'fdType' - The type of the failure.
 --
--- * 'fdMessage'
+-- * 'fdMessage' - The message about the failure.
 failureDetails
     :: FailureType -- ^ 'fdType'
     -> Text -- ^ 'fdMessage'
     -> FailureDetails
 failureDetails pType_ pMessage_ =
-    FailureDetails'
-    { _fdExternalExecutionId = Nothing
-    , _fdType = pType_
-    , _fdMessage = pMessage_
-    }
+  FailureDetails'
+  {_fdExternalExecutionId = Nothing, _fdType = pType_, _fdMessage = pMessage_}
+
 
 -- | The external ID of the run of the action that failed.
 fdExternalExecutionId :: Lens' FailureDetails (Maybe Text)
@@ -1428,9 +1483,9 @@ fdType = lens _fdType (\ s a -> s{_fdType = a});
 fdMessage :: Lens' FailureDetails Text
 fdMessage = lens _fdMessage (\ s a -> s{_fdMessage = a});
 
-instance Hashable FailureDetails
+instance Hashable FailureDetails where
 
-instance NFData FailureDetails
+instance NFData FailureDetails where
 
 instance ToJSON FailureDetails where
         toJSON FailureDetails'{..}
@@ -1443,27 +1498,26 @@ instance ToJSON FailureDetails where
 
 -- | Represents information about an artifact to be worked on, such as a test or build artifact.
 --
+--
+--
 -- /See:/ 'inputArtifact' smart constructor.
 newtype InputArtifact = InputArtifact'
-    { _iaName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iaName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InputArtifact' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iaName'
+-- * 'iaName' - The name of the artifact to be worked on, for example, "My App". The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
 inputArtifact
     :: Text -- ^ 'iaName'
     -> InputArtifact
-inputArtifact pName_ =
-    InputArtifact'
-    { _iaName = pName_
-    }
+inputArtifact pName_ = InputArtifact' {_iaName = pName_}
 
--- | The name of the artifact to be worked on, for example, \"My App\".
---
--- The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
+
+-- | The name of the artifact to be worked on, for example, "My App". The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
 iaName :: Lens' InputArtifact Text
 iaName = lens _iaName (\ s a -> s{_iaName = a});
 
@@ -1472,9 +1526,9 @@ instance FromJSON InputArtifact where
           = withObject "InputArtifact"
               (\ x -> InputArtifact' <$> (x .: "name"))
 
-instance Hashable InputArtifact
+instance Hashable InputArtifact where
 
-instance NFData InputArtifact
+instance NFData InputArtifact where
 
 instance ToJSON InputArtifact where
         toJSON InputArtifact'{..}
@@ -1482,34 +1536,34 @@ instance ToJSON InputArtifact where
 
 -- | Represents information about a job.
 --
+--
+--
 -- /See:/ 'job' smart constructor.
 data Job = Job'
-    { _jData      :: !(Maybe JobData)
-    , _jAccountId :: !(Maybe Text)
-    , _jId        :: !(Maybe Text)
-    , _jNonce     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jData      :: !(Maybe JobData)
+  , _jAccountId :: !(Maybe Text)
+  , _jId        :: !(Maybe Text)
+  , _jNonce     :: !(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Job' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'jData'
+-- * 'jData' - Additional data about a job.
 --
--- * 'jAccountId'
+-- * 'jAccountId' - The ID of the AWS account to use when performing the job.
 --
--- * 'jId'
+-- * 'jId' - The unique system-generated ID of the job.
 --
--- * 'jNonce'
+-- * 'jNonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an 'AcknowledgeJob' request.
 job
     :: Job
 job =
-    Job'
-    { _jData = Nothing
-    , _jAccountId = Nothing
-    , _jId = Nothing
-    , _jNonce = Nothing
-    }
+  Job'
+  {_jData = Nothing, _jAccountId = Nothing, _jId = Nothing, _jNonce = Nothing}
+
 
 -- | Additional data about a job.
 jData :: Lens' Job (Maybe JobData)
@@ -1523,7 +1577,7 @@ jAccountId = lens _jAccountId (\ s a -> s{_jAccountId = a});
 jId :: Lens' Job (Maybe Text)
 jId = lens _jId (\ s a -> s{_jId = a});
 
--- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. This number must be returned in the response.
+-- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an 'AcknowledgeJob' request.
 jNonce :: Lens' Job (Maybe Text)
 jNonce = lens _jNonce (\ s a -> s{_jNonce = a});
 
@@ -1536,56 +1590,60 @@ instance FromJSON Job where
                      (x .:? "id")
                      <*> (x .:? "nonce"))
 
-instance Hashable Job
+instance Hashable Job where
 
-instance NFData Job
+instance NFData Job where
 
 -- | Represents additional information about a job required for a job worker to complete the job.
 --
+--
+--
 -- /See:/ 'jobData' smart constructor.
 data JobData = JobData'
-    { _jdContinuationToken   :: !(Maybe Text)
-    , _jdOutputArtifacts     :: !(Maybe [Artifact])
-    , _jdArtifactCredentials :: !(Maybe (Sensitive AWSSessionCredentials))
-    , _jdPipelineContext     :: !(Maybe PipelineContext)
-    , _jdEncryptionKey       :: !(Maybe EncryptionKey)
-    , _jdActionTypeId        :: !(Maybe ActionTypeId)
-    , _jdInputArtifacts      :: !(Maybe [Artifact])
-    , _jdActionConfiguration :: !(Maybe ActionConfiguration)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jdContinuationToken   :: !(Maybe Text)
+  , _jdOutputArtifacts     :: !(Maybe [Artifact])
+  , _jdArtifactCredentials :: !(Maybe (Sensitive AWSSessionCredentials))
+  , _jdPipelineContext     :: !(Maybe PipelineContext)
+  , _jdEncryptionKey       :: !(Maybe EncryptionKey)
+  , _jdActionTypeId        :: !(Maybe ActionTypeId)
+  , _jdInputArtifacts      :: !(Maybe [Artifact])
+  , _jdActionConfiguration :: !(Maybe ActionConfiguration)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'JobData' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'jdContinuationToken'
+-- * 'jdContinuationToken' - A system-generated token, such as a AWS CodeDeploy deployment ID, that a job requires in order to continue the job asynchronously.
 --
--- * 'jdOutputArtifacts'
+-- * 'jdOutputArtifacts' - The output of the job.
 --
--- * 'jdArtifactCredentials'
+-- * 'jdArtifactCredentials' - Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the Amazon S3 bucket used to store artifact for the pipeline in AWS CodePipeline.
 --
--- * 'jdPipelineContext'
+-- * 'jdPipelineContext' - Represents information about a pipeline to a job worker.
 --
--- * 'jdEncryptionKey'
+-- * 'jdEncryptionKey' - Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service (AWS KMS) key.
 --
--- * 'jdActionTypeId'
+-- * 'jdActionTypeId' - Represents information about an action type.
 --
--- * 'jdInputArtifacts'
+-- * 'jdInputArtifacts' - The artifact supplied to the job.
 --
--- * 'jdActionConfiguration'
+-- * 'jdActionConfiguration' - Represents information about an action configuration.
 jobData
     :: JobData
 jobData =
-    JobData'
-    { _jdContinuationToken = Nothing
-    , _jdOutputArtifacts = Nothing
-    , _jdArtifactCredentials = Nothing
-    , _jdPipelineContext = Nothing
-    , _jdEncryptionKey = Nothing
-    , _jdActionTypeId = Nothing
-    , _jdInputArtifacts = Nothing
-    , _jdActionConfiguration = Nothing
-    }
+  JobData'
+  { _jdContinuationToken = Nothing
+  , _jdOutputArtifacts = Nothing
+  , _jdArtifactCredentials = Nothing
+  , _jdPipelineContext = Nothing
+  , _jdEncryptionKey = Nothing
+  , _jdActionTypeId = Nothing
+  , _jdInputArtifacts = Nothing
+  , _jdActionConfiguration = Nothing
+  }
+
 
 -- | A system-generated token, such as a AWS CodeDeploy deployment ID, that a job requires in order to continue the job asynchronously.
 jdContinuationToken :: Lens' JobData (Maybe Text)
@@ -1595,19 +1653,19 @@ jdContinuationToken = lens _jdContinuationToken (\ s a -> s{_jdContinuationToken
 jdOutputArtifacts :: Lens' JobData [Artifact]
 jdOutputArtifacts = lens _jdOutputArtifacts (\ s a -> s{_jdOutputArtifacts = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the Amazon S3 bucket used to store artifact for the pipeline in AWS CodePipeline.
 jdArtifactCredentials :: Lens' JobData (Maybe AWSSessionCredentials)
 jdArtifactCredentials = lens _jdArtifactCredentials (\ s a -> s{_jdArtifactCredentials = a}) . mapping _Sensitive;
 
--- | Undocumented member.
+-- | Represents information about a pipeline to a job worker.
 jdPipelineContext :: Lens' JobData (Maybe PipelineContext)
 jdPipelineContext = lens _jdPipelineContext (\ s a -> s{_jdPipelineContext = a});
 
--- | Undocumented member.
+-- | Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service (AWS KMS) key.
 jdEncryptionKey :: Lens' JobData (Maybe EncryptionKey)
 jdEncryptionKey = lens _jdEncryptionKey (\ s a -> s{_jdEncryptionKey = a});
 
--- | Undocumented member.
+-- | Represents information about an action type.
 jdActionTypeId :: Lens' JobData (Maybe ActionTypeId)
 jdActionTypeId = lens _jdActionTypeId (\ s a -> s{_jdActionTypeId = a});
 
@@ -1615,7 +1673,7 @@ jdActionTypeId = lens _jdActionTypeId (\ s a -> s{_jdActionTypeId = a});
 jdInputArtifacts :: Lens' JobData [Artifact]
 jdInputArtifacts = lens _jdInputArtifacts (\ s a -> s{_jdInputArtifacts = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | Represents information about an action configuration.
 jdActionConfiguration :: Lens' JobData (Maybe ActionConfiguration)
 jdActionConfiguration = lens _jdActionConfiguration (\ s a -> s{_jdActionConfiguration = a});
 
@@ -1633,38 +1691,38 @@ instance FromJSON JobData where
                      <*> (x .:? "inputArtifacts" .!= mempty)
                      <*> (x .:? "actionConfiguration"))
 
-instance Hashable JobData
+instance Hashable JobData where
 
-instance NFData JobData
+instance NFData JobData where
 
 -- | Represents information about the details of a job.
 --
+--
+--
 -- /See:/ 'jobDetails' smart constructor.
 data JobDetails = JobDetails'
-    { _jdData      :: !(Maybe JobData)
-    , _jdAccountId :: !(Maybe Text)
-    , _jdId        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jdData      :: !(Maybe JobData)
+  , _jdAccountId :: !(Maybe Text)
+  , _jdId        :: !(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'JobDetails' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'jdData'
+-- * 'jdData' - Represents additional information about a job required for a job worker to complete the job.
 --
--- * 'jdAccountId'
+-- * 'jdAccountId' - The AWS account ID associated with the job.
 --
--- * 'jdId'
+-- * 'jdId' - The unique system-generated ID of the job.
 jobDetails
     :: JobDetails
 jobDetails =
-    JobDetails'
-    { _jdData = Nothing
-    , _jdAccountId = Nothing
-    , _jdId = Nothing
-    }
+  JobDetails' {_jdData = Nothing, _jdAccountId = Nothing, _jdId = Nothing}
 
--- | Undocumented member.
+
+-- | Represents additional information about a job required for a job worker to complete the job.
 jdData :: Lens' JobDetails (Maybe JobData)
 jdData = lens _jdData (\ s a -> s{_jdData = a});
 
@@ -1684,35 +1742,32 @@ instance FromJSON JobDetails where
                    (x .:? "data") <*> (x .:? "accountId") <*>
                      (x .:? "id"))
 
-instance Hashable JobDetails
+instance Hashable JobDetails where
 
-instance NFData JobDetails
+instance NFData JobDetails where
 
 -- | Represents information about the output of an action.
 --
+--
+--
 -- /See:/ 'outputArtifact' smart constructor.
 newtype OutputArtifact = OutputArtifact'
-    { _oaName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _oaName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OutputArtifact' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oaName'
+-- * 'oaName' - The name of the output of an artifact, such as "My App". The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions. Output artifact names must be unique within a pipeline.
 outputArtifact
     :: Text -- ^ 'oaName'
     -> OutputArtifact
-outputArtifact pName_ =
-    OutputArtifact'
-    { _oaName = pName_
-    }
+outputArtifact pName_ = OutputArtifact' {_oaName = pName_}
 
--- | The name of the output of an artifact, such as \"My App\".
---
--- The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
---
--- Output artifact names must be unique within a pipeline.
+
+-- | The name of the output of an artifact, such as "My App". The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions. Output artifact names must be unique within a pipeline.
 oaName :: Lens' OutputArtifact Text
 oaName = lens _oaName (\ s a -> s{_oaName = a});
 
@@ -1721,9 +1776,9 @@ instance FromJSON OutputArtifact where
           = withObject "OutputArtifact"
               (\ x -> OutputArtifact' <$> (x .: "name"))
 
-instance Hashable OutputArtifact
+instance Hashable OutputArtifact where
 
-instance NFData OutputArtifact
+instance NFData OutputArtifact where
 
 instance ToJSON OutputArtifact where
         toJSON OutputArtifact'{..}
@@ -1731,30 +1786,31 @@ instance ToJSON OutputArtifact where
 
 -- | Represents information about a pipeline to a job worker.
 --
+--
+--
 -- /See:/ 'pipelineContext' smart constructor.
 data PipelineContext = PipelineContext'
-    { _pcStage        :: !(Maybe StageContext)
-    , _pcPipelineName :: !(Maybe Text)
-    , _pcAction       :: !(Maybe ActionContext)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pcStage        :: !(Maybe StageContext)
+  , _pcPipelineName :: !(Maybe Text)
+  , _pcAction       :: !(Maybe ActionContext)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PipelineContext' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pcStage'
+-- * 'pcStage' - The stage of the pipeline.
 --
--- * 'pcPipelineName'
+-- * 'pcPipelineName' - The name of the pipeline. This is a user-specified value. Pipeline names must be unique across all pipeline names under an Amazon Web Services account.
 --
--- * 'pcAction'
+-- * 'pcAction' - The context of an action to a job worker within the stage of a pipeline.
 pipelineContext
     :: PipelineContext
 pipelineContext =
-    PipelineContext'
-    { _pcStage = Nothing
-    , _pcPipelineName = Nothing
-    , _pcAction = Nothing
-    }
+  PipelineContext'
+  {_pcStage = Nothing, _pcPipelineName = Nothing, _pcAction = Nothing}
+
 
 -- | The stage of the pipeline.
 pcStage :: Lens' PipelineContext (Maybe StageContext)
@@ -1764,7 +1820,7 @@ pcStage = lens _pcStage (\ s a -> s{_pcStage = a});
 pcPipelineName :: Lens' PipelineContext (Maybe Text)
 pcPipelineName = lens _pcPipelineName (\ s a -> s{_pcPipelineName = a});
 
--- | Undocumented member.
+-- | The context of an action to a job worker within the stage of a pipeline.
 pcAction :: Lens' PipelineContext (Maybe ActionContext)
 pcAction = lens _pcAction (\ s a -> s{_pcAction = a});
 
@@ -1776,47 +1832,51 @@ instance FromJSON PipelineContext where
                    (x .:? "stage") <*> (x .:? "pipelineName") <*>
                      (x .:? "action"))
 
-instance Hashable PipelineContext
+instance Hashable PipelineContext where
 
-instance NFData PipelineContext
+instance NFData PipelineContext where
 
 -- | Represents the structure of actions and stages to be performed in the pipeline.
 --
+--
+--
 -- /See:/ 'pipelineDeclaration' smart constructor.
 data PipelineDeclaration = PipelineDeclaration'
-    { _pdVersion       :: !(Maybe Nat)
-    , _pdName          :: !Text
-    , _pdRoleARN       :: !Text
-    , _pdArtifactStore :: !ArtifactStore
-    , _pdStages        :: ![StageDeclaration]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pdVersion       :: !(Maybe Nat)
+  , _pdName          :: !Text
+  , _pdRoleARN       :: !Text
+  , _pdArtifactStore :: !ArtifactStore
+  , _pdStages        :: ![StageDeclaration]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PipelineDeclaration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pdVersion'
+-- * 'pdVersion' - The version number of the pipeline. A new pipeline always has a version number of 1. This number is automatically incremented when a pipeline is updated.
 --
--- * 'pdName'
+-- * 'pdName' - The name of the action to be performed.
 --
--- * 'pdRoleARN'
+-- * 'pdRoleARN' - The Amazon Resource Name (ARN) for AWS CodePipeline to use to either perform actions with no actionRoleArn, or to use to assume roles for actions with an actionRoleArn.
 --
--- * 'pdArtifactStore'
+-- * 'pdArtifactStore' - Represents information about the Amazon S3 bucket where artifacts are stored for the pipeline.
 --
--- * 'pdStages'
+-- * 'pdStages' - The stage in which to perform the action.
 pipelineDeclaration
     :: Text -- ^ 'pdName'
     -> Text -- ^ 'pdRoleARN'
     -> ArtifactStore -- ^ 'pdArtifactStore'
     -> PipelineDeclaration
 pipelineDeclaration pName_ pRoleARN_ pArtifactStore_ =
-    PipelineDeclaration'
-    { _pdVersion = Nothing
-    , _pdName = pName_
-    , _pdRoleARN = pRoleARN_
-    , _pdArtifactStore = pArtifactStore_
-    , _pdStages = mempty
-    }
+  PipelineDeclaration'
+  { _pdVersion = Nothing
+  , _pdName = pName_
+  , _pdRoleARN = pRoleARN_
+  , _pdArtifactStore = pArtifactStore_
+  , _pdStages = mempty
+  }
+
 
 -- | The version number of the pipeline. A new pipeline always has a version number of 1. This number is automatically incremented when a pipeline is updated.
 pdVersion :: Lens' PipelineDeclaration (Maybe Natural)
@@ -1830,7 +1890,7 @@ pdName = lens _pdName (\ s a -> s{_pdName = a});
 pdRoleARN :: Lens' PipelineDeclaration Text
 pdRoleARN = lens _pdRoleARN (\ s a -> s{_pdRoleARN = a});
 
--- | Undocumented member.
+-- | Represents information about the Amazon S3 bucket where artifacts are stored for the pipeline.
 pdArtifactStore :: Lens' PipelineDeclaration ArtifactStore
 pdArtifactStore = lens _pdArtifactStore (\ s a -> s{_pdArtifactStore = a});
 
@@ -1848,9 +1908,9 @@ instance FromJSON PipelineDeclaration where
                      <*> (x .: "artifactStore")
                      <*> (x .:? "stages" .!= mempty))
 
-instance Hashable PipelineDeclaration
+instance Hashable PipelineDeclaration where
 
-instance NFData PipelineDeclaration
+instance NFData PipelineDeclaration where
 
 instance ToJSON PipelineDeclaration where
         toJSON PipelineDeclaration'{..}
@@ -1864,49 +1924,44 @@ instance ToJSON PipelineDeclaration where
 
 -- | Represents information about an execution of a pipeline.
 --
+--
+--
 -- /See:/ 'pipelineExecution' smart constructor.
 data PipelineExecution = PipelineExecution'
-    { _peStatus              :: !(Maybe PipelineExecutionStatus)
-    , _pePipelineName        :: !(Maybe Text)
-    , _pePipelineVersion     :: !(Maybe Nat)
-    , _pePipelineExecutionId :: !(Maybe Text)
-    , _peArtifactRevisions   :: !(Maybe [ArtifactRevision])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _peStatus              :: !(Maybe PipelineExecutionStatus)
+  , _pePipelineName        :: !(Maybe Text)
+  , _pePipelineVersion     :: !(Maybe Nat)
+  , _pePipelineExecutionId :: !(Maybe Text)
+  , _peArtifactRevisions   :: !(Maybe [ArtifactRevision])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PipelineExecution' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'peStatus'
+-- * 'peStatus' - The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution was completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution advanced and continued through the pipeline instead.      * Failed: The pipeline execution was not completed successfully.
 --
--- * 'pePipelineName'
+-- * 'pePipelineName' - The name of the pipeline that was executed.
 --
--- * 'pePipelineVersion'
+-- * 'pePipelineVersion' - The version number of the pipeline that was executed.
 --
--- * 'pePipelineExecutionId'
+-- * 'pePipelineExecutionId' - The ID of the pipeline execution.
 --
--- * 'peArtifactRevisions'
+-- * 'peArtifactRevisions' - A list of ArtifactRevision objects included in a pipeline execution.
 pipelineExecution
     :: PipelineExecution
 pipelineExecution =
-    PipelineExecution'
-    { _peStatus = Nothing
-    , _pePipelineName = Nothing
-    , _pePipelineVersion = Nothing
-    , _pePipelineExecutionId = Nothing
-    , _peArtifactRevisions = Nothing
-    }
+  PipelineExecution'
+  { _peStatus = Nothing
+  , _pePipelineName = Nothing
+  , _pePipelineVersion = Nothing
+  , _pePipelineExecutionId = Nothing
+  , _peArtifactRevisions = Nothing
+  }
 
--- | The status of the pipeline execution.
---
--- -   InProgress: The pipeline execution is currently running.
---
--- -   Succeeded: The pipeline execution completed successfully.
---
--- -   Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution caught up and continued through the pipeline instead.
---
--- -   Failed: The pipeline did not complete successfully.
---
+
+-- | The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution was completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution advanced and continued through the pipeline instead.      * Failed: The pipeline execution was not completed successfully.
 peStatus :: Lens' PipelineExecution (Maybe PipelineExecutionStatus)
 peStatus = lens _peStatus (\ s a -> s{_peStatus = a});
 
@@ -1936,40 +1991,160 @@ instance FromJSON PipelineExecution where
                      <*> (x .:? "pipelineExecutionId")
                      <*> (x .:? "artifactRevisions" .!= mempty))
 
-instance Hashable PipelineExecution
+instance Hashable PipelineExecution where
 
-instance NFData PipelineExecution
+instance NFData PipelineExecution where
+
+-- | Summary information about a pipeline execution.
+--
+--
+--
+-- /See:/ 'pipelineExecutionSummary' smart constructor.
+data PipelineExecutionSummary = PipelineExecutionSummary'
+  { _pesStatus              :: !(Maybe PipelineExecutionStatus)
+  , _pesStartTime           :: !(Maybe POSIX)
+  , _pesPipelineExecutionId :: !(Maybe Text)
+  , _pesLastUpdateTime      :: !(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'PipelineExecutionSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pesStatus' - The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution was completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution advanced and continued through the pipeline instead.      * Failed: The pipeline execution was not completed successfully.
+--
+-- * 'pesStartTime' - The date and time when the pipeline execution began, in timestamp format.
+--
+-- * 'pesPipelineExecutionId' - The ID of the pipeline execution.
+--
+-- * 'pesLastUpdateTime' - The date and time of the last change to the pipeline execution, in timestamp format.
+pipelineExecutionSummary
+    :: PipelineExecutionSummary
+pipelineExecutionSummary =
+  PipelineExecutionSummary'
+  { _pesStatus = Nothing
+  , _pesStartTime = Nothing
+  , _pesPipelineExecutionId = Nothing
+  , _pesLastUpdateTime = Nothing
+  }
+
+
+-- | The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution was completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution advanced and continued through the pipeline instead.      * Failed: The pipeline execution was not completed successfully.
+pesStatus :: Lens' PipelineExecutionSummary (Maybe PipelineExecutionStatus)
+pesStatus = lens _pesStatus (\ s a -> s{_pesStatus = a});
+
+-- | The date and time when the pipeline execution began, in timestamp format.
+pesStartTime :: Lens' PipelineExecutionSummary (Maybe UTCTime)
+pesStartTime = lens _pesStartTime (\ s a -> s{_pesStartTime = a}) . mapping _Time;
+
+-- | The ID of the pipeline execution.
+pesPipelineExecutionId :: Lens' PipelineExecutionSummary (Maybe Text)
+pesPipelineExecutionId = lens _pesPipelineExecutionId (\ s a -> s{_pesPipelineExecutionId = a});
+
+-- | The date and time of the last change to the pipeline execution, in timestamp format.
+pesLastUpdateTime :: Lens' PipelineExecutionSummary (Maybe UTCTime)
+pesLastUpdateTime = lens _pesLastUpdateTime (\ s a -> s{_pesLastUpdateTime = a}) . mapping _Time;
+
+instance FromJSON PipelineExecutionSummary where
+        parseJSON
+          = withObject "PipelineExecutionSummary"
+              (\ x ->
+                 PipelineExecutionSummary' <$>
+                   (x .:? "status") <*> (x .:? "startTime") <*>
+                     (x .:? "pipelineExecutionId")
+                     <*> (x .:? "lastUpdateTime"))
+
+instance Hashable PipelineExecutionSummary where
+
+instance NFData PipelineExecutionSummary where
+
+-- | Information about a pipeline.
+--
+--
+--
+-- /See:/ 'pipelineMetadata' smart constructor.
+data PipelineMetadata = PipelineMetadata'
+  { _pmCreated     :: !(Maybe POSIX)
+  , _pmPipelineARN :: !(Maybe Text)
+  , _pmUpdated     :: !(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'PipelineMetadata' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pmCreated' - The date and time the pipeline was created, in timestamp format.
+--
+-- * 'pmPipelineARN' - The Amazon Resource Name (ARN) of the pipeline.
+--
+-- * 'pmUpdated' - The date and time the pipeline was last updated, in timestamp format.
+pipelineMetadata
+    :: PipelineMetadata
+pipelineMetadata =
+  PipelineMetadata'
+  {_pmCreated = Nothing, _pmPipelineARN = Nothing, _pmUpdated = Nothing}
+
+
+-- | The date and time the pipeline was created, in timestamp format.
+pmCreated :: Lens' PipelineMetadata (Maybe UTCTime)
+pmCreated = lens _pmCreated (\ s a -> s{_pmCreated = a}) . mapping _Time;
+
+-- | The Amazon Resource Name (ARN) of the pipeline.
+pmPipelineARN :: Lens' PipelineMetadata (Maybe Text)
+pmPipelineARN = lens _pmPipelineARN (\ s a -> s{_pmPipelineARN = a});
+
+-- | The date and time the pipeline was last updated, in timestamp format.
+pmUpdated :: Lens' PipelineMetadata (Maybe UTCTime)
+pmUpdated = lens _pmUpdated (\ s a -> s{_pmUpdated = a}) . mapping _Time;
+
+instance FromJSON PipelineMetadata where
+        parseJSON
+          = withObject "PipelineMetadata"
+              (\ x ->
+                 PipelineMetadata' <$>
+                   (x .:? "created") <*> (x .:? "pipelineArn") <*>
+                     (x .:? "updated"))
+
+instance Hashable PipelineMetadata where
+
+instance NFData PipelineMetadata where
 
 -- | Returns a summary of a pipeline.
 --
+--
+--
 -- /See:/ 'pipelineSummary' smart constructor.
 data PipelineSummary = PipelineSummary'
-    { _psCreated :: !(Maybe POSIX)
-    , _psName    :: !(Maybe Text)
-    , _psVersion :: !(Maybe Nat)
-    , _psUpdated :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psCreated :: !(Maybe POSIX)
+  , _psName    :: !(Maybe Text)
+  , _psVersion :: !(Maybe Nat)
+  , _psUpdated :: !(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PipelineSummary' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'psCreated'
+-- * 'psCreated' - The date and time the pipeline was created, in timestamp format.
 --
--- * 'psName'
+-- * 'psName' - The name of the pipeline.
 --
--- * 'psVersion'
+-- * 'psVersion' - The version number of the pipeline.
 --
--- * 'psUpdated'
+-- * 'psUpdated' - The date and time of the last update to the pipeline, in timestamp format.
 pipelineSummary
     :: PipelineSummary
 pipelineSummary =
-    PipelineSummary'
-    { _psCreated = Nothing
-    , _psName = Nothing
-    , _psVersion = Nothing
-    , _psUpdated = Nothing
-    }
+  PipelineSummary'
+  { _psCreated = Nothing
+  , _psName = Nothing
+  , _psVersion = Nothing
+  , _psUpdated = Nothing
+  }
+
 
 -- | The date and time the pipeline was created, in timestamp format.
 psCreated :: Lens' PipelineSummary (Maybe UTCTime)
@@ -1996,34 +2171,36 @@ instance FromJSON PipelineSummary where
                      (x .:? "version")
                      <*> (x .:? "updated"))
 
-instance Hashable PipelineSummary
+instance Hashable PipelineSummary where
 
-instance NFData PipelineSummary
+instance NFData PipelineSummary where
 
 -- | The location of the Amazon S3 bucket that contains a revision.
 --
+--
+--
 -- /See:/ 's3ArtifactLocation' smart constructor.
 data S3ArtifactLocation = S3ArtifactLocation'
-    { _salBucketName :: !Text
-    , _salObjectKey  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _salBucketName :: !Text
+  , _salObjectKey  :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3ArtifactLocation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'salBucketName'
+-- * 'salBucketName' - The name of the Amazon S3 bucket.
 --
--- * 'salObjectKey'
+-- * 'salObjectKey' - The key of the object in the Amazon S3 bucket, which uniquely identifies the object in the bucket.
 s3ArtifactLocation
     :: Text -- ^ 'salBucketName'
     -> Text -- ^ 'salObjectKey'
     -> S3ArtifactLocation
 s3ArtifactLocation pBucketName_ pObjectKey_ =
-    S3ArtifactLocation'
-    { _salBucketName = pBucketName_
-    , _salObjectKey = pObjectKey_
-    }
+  S3ArtifactLocation'
+  {_salBucketName = pBucketName_, _salObjectKey = pObjectKey_}
+
 
 -- | The name of the Amazon S3 bucket.
 salBucketName :: Lens' S3ArtifactLocation Text
@@ -2040,28 +2217,29 @@ instance FromJSON S3ArtifactLocation where
                  S3ArtifactLocation' <$>
                    (x .: "bucketName") <*> (x .: "objectKey"))
 
-instance Hashable S3ArtifactLocation
+instance Hashable S3ArtifactLocation where
 
-instance NFData S3ArtifactLocation
+instance NFData S3ArtifactLocation where
 
 -- | Represents information about a stage to a job worker.
 --
+--
+--
 -- /See:/ 'stageContext' smart constructor.
 newtype StageContext = StageContext'
-    { _scName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StageContext' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scName'
+-- * 'scName' - The name of the stage.
 stageContext
     :: StageContext
-stageContext =
-    StageContext'
-    { _scName = Nothing
-    }
+stageContext = StageContext' {_scName = Nothing}
+
 
 -- | The name of the stage.
 scName :: Lens' StageContext (Maybe Text)
@@ -2072,37 +2250,38 @@ instance FromJSON StageContext where
           = withObject "StageContext"
               (\ x -> StageContext' <$> (x .:? "name"))
 
-instance Hashable StageContext
+instance Hashable StageContext where
 
-instance NFData StageContext
+instance NFData StageContext where
 
 -- | Represents information about a stage and its definition.
 --
+--
+--
 -- /See:/ 'stageDeclaration' smart constructor.
 data StageDeclaration = StageDeclaration'
-    { _sdBlockers :: !(Maybe [BlockerDeclaration])
-    , _sdName     :: !Text
-    , _sdActions  :: ![ActionDeclaration]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdBlockers :: !(Maybe [BlockerDeclaration])
+  , _sdName     :: !Text
+  , _sdActions  :: ![ActionDeclaration]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StageDeclaration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdBlockers'
+-- * 'sdBlockers' - Reserved for future use.
 --
--- * 'sdName'
+-- * 'sdName' - The name of the stage.
 --
--- * 'sdActions'
+-- * 'sdActions' - The actions included in a stage.
 stageDeclaration
     :: Text -- ^ 'sdName'
     -> StageDeclaration
 stageDeclaration pName_ =
-    StageDeclaration'
-    { _sdBlockers = Nothing
-    , _sdName = pName_
-    , _sdActions = mempty
-    }
+  StageDeclaration'
+  {_sdBlockers = Nothing, _sdName = pName_, _sdActions = mempty}
+
 
 -- | Reserved for future use.
 sdBlockers :: Lens' StageDeclaration [BlockerDeclaration]
@@ -2124,9 +2303,9 @@ instance FromJSON StageDeclaration where
                    (x .:? "blockers" .!= mempty) <*> (x .: "name") <*>
                      (x .:? "actions" .!= mempty))
 
-instance Hashable StageDeclaration
+instance Hashable StageDeclaration where
 
-instance NFData StageDeclaration
+instance NFData StageDeclaration where
 
 instance ToJSON StageDeclaration where
         toJSON StageDeclaration'{..}
@@ -2138,28 +2317,30 @@ instance ToJSON StageDeclaration where
 
 -- | Represents information about the run of a stage.
 --
+--
+--
 -- /See:/ 'stageExecution' smart constructor.
 data StageExecution = StageExecution'
-    { _sePipelineExecutionId :: !Text
-    , _seStatus              :: !StageExecutionStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sePipelineExecutionId :: !Text
+  , _seStatus              :: !StageExecutionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StageExecution' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sePipelineExecutionId'
+-- * 'sePipelineExecutionId' - The ID of the pipeline execution associated with the stage.
 --
--- * 'seStatus'
+-- * 'seStatus' - The status of the stage, or for a completed stage, the last status of the stage.
 stageExecution
     :: Text -- ^ 'sePipelineExecutionId'
     -> StageExecutionStatus -- ^ 'seStatus'
     -> StageExecution
 stageExecution pPipelineExecutionId_ pStatus_ =
-    StageExecution'
-    { _sePipelineExecutionId = pPipelineExecutionId_
-    , _seStatus = pStatus_
-    }
+  StageExecution'
+  {_sePipelineExecutionId = pPipelineExecutionId_, _seStatus = pStatus_}
+
 
 -- | The ID of the pipeline execution associated with the stage.
 sePipelineExecutionId :: Lens' StageExecution Text
@@ -2176,40 +2357,44 @@ instance FromJSON StageExecution where
                  StageExecution' <$>
                    (x .: "pipelineExecutionId") <*> (x .: "status"))
 
-instance Hashable StageExecution
+instance Hashable StageExecution where
 
-instance NFData StageExecution
+instance NFData StageExecution where
 
 -- | Represents information about the state of the stage.
 --
+--
+--
 -- /See:/ 'stageState' smart constructor.
 data StageState = StageState'
-    { _ssInboundTransitionState :: !(Maybe TransitionState)
-    , _ssActionStates           :: !(Maybe [ActionState])
-    , _ssStageName              :: !(Maybe Text)
-    , _ssLatestExecution        :: !(Maybe StageExecution)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssInboundTransitionState :: !(Maybe TransitionState)
+  , _ssActionStates           :: !(Maybe [ActionState])
+  , _ssStageName              :: !(Maybe Text)
+  , _ssLatestExecution        :: !(Maybe StageExecution)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StageState' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssInboundTransitionState'
+-- * 'ssInboundTransitionState' - The state of the inbound transition, which is either enabled or disabled.
 --
--- * 'ssActionStates'
+-- * 'ssActionStates' - The state of the stage.
 --
--- * 'ssStageName'
+-- * 'ssStageName' - The name of the stage.
 --
--- * 'ssLatestExecution'
+-- * 'ssLatestExecution' - Information about the latest execution in the stage, including its ID and status.
 stageState
     :: StageState
 stageState =
-    StageState'
-    { _ssInboundTransitionState = Nothing
-    , _ssActionStates = Nothing
-    , _ssStageName = Nothing
-    , _ssLatestExecution = Nothing
-    }
+  StageState'
+  { _ssInboundTransitionState = Nothing
+  , _ssActionStates = Nothing
+  , _ssStageName = Nothing
+  , _ssLatestExecution = Nothing
+  }
+
 
 -- | The state of the inbound transition, which is either enabled or disabled.
 ssInboundTransitionState :: Lens' StageState (Maybe TransitionState)
@@ -2237,32 +2422,32 @@ instance FromJSON StageState where
                      <*> (x .:? "stageName")
                      <*> (x .:? "latestExecution"))
 
-instance Hashable StageState
+instance Hashable StageState where
 
-instance NFData StageState
+instance NFData StageState where
 
 -- | A response to a PollForThirdPartyJobs request returned by AWS CodePipeline when there is a job to be worked upon by a partner action.
 --
+--
+--
 -- /See:/ 'thirdPartyJob' smart constructor.
 data ThirdPartyJob = ThirdPartyJob'
-    { _tpjClientId :: !(Maybe Text)
-    , _tpjJobId    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tpjClientId :: !(Maybe Text)
+  , _tpjJobId    :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ThirdPartyJob' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tpjClientId'
+-- * 'tpjClientId' - The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
 --
--- * 'tpjJobId'
+-- * 'tpjJobId' - The identifier used to identify the job in AWS CodePipeline.
 thirdPartyJob
     :: ThirdPartyJob
-thirdPartyJob =
-    ThirdPartyJob'
-    { _tpjClientId = Nothing
-    , _tpjJobId = Nothing
-    }
+thirdPartyJob = ThirdPartyJob' {_tpjClientId = Nothing, _tpjJobId = Nothing}
+
 
 -- | The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
 tpjClientId :: Lens' ThirdPartyJob (Maybe Text)
@@ -2279,70 +2464,74 @@ instance FromJSON ThirdPartyJob where
                  ThirdPartyJob' <$>
                    (x .:? "clientId") <*> (x .:? "jobId"))
 
-instance Hashable ThirdPartyJob
+instance Hashable ThirdPartyJob where
 
-instance NFData ThirdPartyJob
+instance NFData ThirdPartyJob where
 
 -- | Represents information about the job data for a partner action.
 --
+--
+--
 -- /See:/ 'thirdPartyJobData' smart constructor.
 data ThirdPartyJobData = ThirdPartyJobData'
-    { _tpjdContinuationToken   :: !(Maybe Text)
-    , _tpjdOutputArtifacts     :: !(Maybe [Artifact])
-    , _tpjdArtifactCredentials :: !(Maybe (Sensitive AWSSessionCredentials))
-    , _tpjdPipelineContext     :: !(Maybe PipelineContext)
-    , _tpjdEncryptionKey       :: !(Maybe EncryptionKey)
-    , _tpjdActionTypeId        :: !(Maybe ActionTypeId)
-    , _tpjdInputArtifacts      :: !(Maybe [Artifact])
-    , _tpjdActionConfiguration :: !(Maybe ActionConfiguration)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tpjdContinuationToken   :: !(Maybe Text)
+  , _tpjdOutputArtifacts     :: !(Maybe [Artifact])
+  , _tpjdArtifactCredentials :: !(Maybe (Sensitive AWSSessionCredentials))
+  , _tpjdPipelineContext     :: !(Maybe PipelineContext)
+  , _tpjdEncryptionKey       :: !(Maybe EncryptionKey)
+  , _tpjdActionTypeId        :: !(Maybe ActionTypeId)
+  , _tpjdInputArtifacts      :: !(Maybe [Artifact])
+  , _tpjdActionConfiguration :: !(Maybe ActionConfiguration)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ThirdPartyJobData' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tpjdContinuationToken'
+-- * 'tpjdContinuationToken' - A system-generated token, such as a AWS CodeDeploy deployment ID, that a job requires in order to continue the job asynchronously.
 --
--- * 'tpjdOutputArtifacts'
+-- * 'tpjdOutputArtifacts' - The name of the artifact that will be the result of the action, if any. This name might be system-generated, such as "MyBuiltApp", or might be defined by the user when the action is created.
 --
--- * 'tpjdArtifactCredentials'
+-- * 'tpjdArtifactCredentials' - Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the Amazon S3 bucket used to store artifact for the pipeline in AWS CodePipeline.
 --
--- * 'tpjdPipelineContext'
+-- * 'tpjdPipelineContext' - Represents information about a pipeline to a job worker.
 --
--- * 'tpjdEncryptionKey'
+-- * 'tpjdEncryptionKey' - The encryption key used to encrypt and decrypt data in the artifact store for the pipeline, such as an AWS Key Management Service (AWS KMS) key. This is optional and might not be present.
 --
--- * 'tpjdActionTypeId'
+-- * 'tpjdActionTypeId' - Represents information about an action type.
 --
--- * 'tpjdInputArtifacts'
+-- * 'tpjdInputArtifacts' - The name of the artifact that will be worked upon by the action, if any. This name might be system-generated, such as "MyApp", or might be defined by the user when the action is created. The input artifact name must match the name of an output artifact generated by an action in an earlier action or stage of the pipeline.
 --
--- * 'tpjdActionConfiguration'
+-- * 'tpjdActionConfiguration' - Represents information about an action configuration.
 thirdPartyJobData
     :: ThirdPartyJobData
 thirdPartyJobData =
-    ThirdPartyJobData'
-    { _tpjdContinuationToken = Nothing
-    , _tpjdOutputArtifacts = Nothing
-    , _tpjdArtifactCredentials = Nothing
-    , _tpjdPipelineContext = Nothing
-    , _tpjdEncryptionKey = Nothing
-    , _tpjdActionTypeId = Nothing
-    , _tpjdInputArtifacts = Nothing
-    , _tpjdActionConfiguration = Nothing
-    }
+  ThirdPartyJobData'
+  { _tpjdContinuationToken = Nothing
+  , _tpjdOutputArtifacts = Nothing
+  , _tpjdArtifactCredentials = Nothing
+  , _tpjdPipelineContext = Nothing
+  , _tpjdEncryptionKey = Nothing
+  , _tpjdActionTypeId = Nothing
+  , _tpjdInputArtifacts = Nothing
+  , _tpjdActionConfiguration = Nothing
+  }
+
 
 -- | A system-generated token, such as a AWS CodeDeploy deployment ID, that a job requires in order to continue the job asynchronously.
 tpjdContinuationToken :: Lens' ThirdPartyJobData (Maybe Text)
 tpjdContinuationToken = lens _tpjdContinuationToken (\ s a -> s{_tpjdContinuationToken = a});
 
--- | The name of the artifact that will be the result of the action, if any. This name might be system-generated, such as \"MyBuiltApp\", or might be defined by the user when the action is created.
+-- | The name of the artifact that will be the result of the action, if any. This name might be system-generated, such as "MyBuiltApp", or might be defined by the user when the action is created.
 tpjdOutputArtifacts :: Lens' ThirdPartyJobData [Artifact]
 tpjdOutputArtifacts = lens _tpjdOutputArtifacts (\ s a -> s{_tpjdOutputArtifacts = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the Amazon S3 bucket used to store artifact for the pipeline in AWS CodePipeline.
 tpjdArtifactCredentials :: Lens' ThirdPartyJobData (Maybe AWSSessionCredentials)
 tpjdArtifactCredentials = lens _tpjdArtifactCredentials (\ s a -> s{_tpjdArtifactCredentials = a}) . mapping _Sensitive;
 
--- | Undocumented member.
+-- | Represents information about a pipeline to a job worker.
 tpjdPipelineContext :: Lens' ThirdPartyJobData (Maybe PipelineContext)
 tpjdPipelineContext = lens _tpjdPipelineContext (\ s a -> s{_tpjdPipelineContext = a});
 
@@ -2350,15 +2539,15 @@ tpjdPipelineContext = lens _tpjdPipelineContext (\ s a -> s{_tpjdPipelineContext
 tpjdEncryptionKey :: Lens' ThirdPartyJobData (Maybe EncryptionKey)
 tpjdEncryptionKey = lens _tpjdEncryptionKey (\ s a -> s{_tpjdEncryptionKey = a});
 
--- | Undocumented member.
+-- | Represents information about an action type.
 tpjdActionTypeId :: Lens' ThirdPartyJobData (Maybe ActionTypeId)
 tpjdActionTypeId = lens _tpjdActionTypeId (\ s a -> s{_tpjdActionTypeId = a});
 
--- | The name of the artifact that will be worked upon by the action, if any. This name might be system-generated, such as \"MyApp\", or might be defined by the user when the action is created. The input artifact name must match the name of an output artifact generated by an action in an earlier action or stage of the pipeline.
+-- | The name of the artifact that will be worked upon by the action, if any. This name might be system-generated, such as "MyApp", or might be defined by the user when the action is created. The input artifact name must match the name of an output artifact generated by an action in an earlier action or stage of the pipeline.
 tpjdInputArtifacts :: Lens' ThirdPartyJobData [Artifact]
 tpjdInputArtifacts = lens _tpjdInputArtifacts (\ s a -> s{_tpjdInputArtifacts = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | Represents information about an action configuration.
 tpjdActionConfiguration :: Lens' ThirdPartyJobData (Maybe ActionConfiguration)
 tpjdActionConfiguration = lens _tpjdActionConfiguration (\ s a -> s{_tpjdActionConfiguration = a});
 
@@ -2376,36 +2565,37 @@ instance FromJSON ThirdPartyJobData where
                      <*> (x .:? "inputArtifacts" .!= mempty)
                      <*> (x .:? "actionConfiguration"))
 
-instance Hashable ThirdPartyJobData
+instance Hashable ThirdPartyJobData where
 
-instance NFData ThirdPartyJobData
+instance NFData ThirdPartyJobData where
 
 -- | The details of a job sent in response to a GetThirdPartyJobDetails request.
 --
+--
+--
 -- /See:/ 'thirdPartyJobDetails' smart constructor.
 data ThirdPartyJobDetails = ThirdPartyJobDetails'
-    { _tpjdData  :: !(Maybe ThirdPartyJobData)
-    , _tpjdId    :: !(Maybe Text)
-    , _tpjdNonce :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tpjdData  :: !(Maybe ThirdPartyJobData)
+  , _tpjdId    :: !(Maybe Text)
+  , _tpjdNonce :: !(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ThirdPartyJobDetails' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tpjdData'
+-- * 'tpjdData' - The data to be returned by the third party job worker.
 --
--- * 'tpjdId'
+-- * 'tpjdId' - The identifier used to identify the job details in AWS CodePipeline.
 --
--- * 'tpjdNonce'
+-- * 'tpjdNonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an 'AcknowledgeThirdPartyJob' request.
 thirdPartyJobDetails
     :: ThirdPartyJobDetails
 thirdPartyJobDetails =
-    ThirdPartyJobDetails'
-    { _tpjdData = Nothing
-    , _tpjdId = Nothing
-    , _tpjdNonce = Nothing
-    }
+  ThirdPartyJobDetails'
+  {_tpjdData = Nothing, _tpjdId = Nothing, _tpjdNonce = Nothing}
+
 
 -- | The data to be returned by the third party job worker.
 tpjdData :: Lens' ThirdPartyJobDetails (Maybe ThirdPartyJobData)
@@ -2415,7 +2605,7 @@ tpjdData = lens _tpjdData (\ s a -> s{_tpjdData = a});
 tpjdId :: Lens' ThirdPartyJobDetails (Maybe Text)
 tpjdId = lens _tpjdId (\ s a -> s{_tpjdId = a});
 
--- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. This number must be returned in the response.
+-- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an 'AcknowledgeThirdPartyJob' request.
 tpjdNonce :: Lens' ThirdPartyJobDetails (Maybe Text)
 tpjdNonce = lens _tpjdNonce (\ s a -> s{_tpjdNonce = a});
 
@@ -2426,40 +2616,44 @@ instance FromJSON ThirdPartyJobDetails where
                  ThirdPartyJobDetails' <$>
                    (x .:? "data") <*> (x .:? "id") <*> (x .:? "nonce"))
 
-instance Hashable ThirdPartyJobDetails
+instance Hashable ThirdPartyJobDetails where
 
-instance NFData ThirdPartyJobDetails
+instance NFData ThirdPartyJobDetails where
 
 -- | Represents information about the state of transitions between one stage and another stage.
 --
+--
+--
 -- /See:/ 'transitionState' smart constructor.
 data TransitionState = TransitionState'
-    { _tsEnabled        :: !(Maybe Bool)
-    , _tsDisabledReason :: !(Maybe Text)
-    , _tsLastChangedAt  :: !(Maybe POSIX)
-    , _tsLastChangedBy  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tsEnabled        :: !(Maybe Bool)
+  , _tsDisabledReason :: !(Maybe Text)
+  , _tsLastChangedAt  :: !(Maybe POSIX)
+  , _tsLastChangedBy  :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TransitionState' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tsEnabled'
+-- * 'tsEnabled' - Whether the transition between stages is enabled (true) or disabled (false).
 --
--- * 'tsDisabledReason'
+-- * 'tsDisabledReason' - The user-specified reason why the transition between two stages of a pipeline was disabled.
 --
--- * 'tsLastChangedAt'
+-- * 'tsLastChangedAt' - The timestamp when the transition state was last changed.
 --
--- * 'tsLastChangedBy'
+-- * 'tsLastChangedBy' - The ID of the user who last changed the transition state.
 transitionState
     :: TransitionState
 transitionState =
-    TransitionState'
-    { _tsEnabled = Nothing
-    , _tsDisabledReason = Nothing
-    , _tsLastChangedAt = Nothing
-    , _tsLastChangedBy = Nothing
-    }
+  TransitionState'
+  { _tsEnabled = Nothing
+  , _tsDisabledReason = Nothing
+  , _tsLastChangedAt = Nothing
+  , _tsLastChangedBy = Nothing
+  }
+
 
 -- | Whether the transition between stages is enabled (true) or disabled (false).
 tsEnabled :: Lens' TransitionState (Maybe Bool)
@@ -2486,6 +2680,6 @@ instance FromJSON TransitionState where
                      (x .:? "lastChangedAt")
                      <*> (x .:? "lastChangedBy"))
 
-instance Hashable TransitionState
+instance Hashable TransitionState where
 
-instance NFData TransitionState
+instance NFData TransitionState where

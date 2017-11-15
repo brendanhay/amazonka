@@ -4,26 +4,28 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Gen.Types.Notation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
 module Gen.Types.Notation where
 
-import           Control.Applicative
-import           Data.Aeson
+import Control.Applicative
+
+import Data.Aeson
+import Data.Bifunctor
+import Data.List.NonEmpty (NonEmpty (..))
+import Data.Text          (Text)
+
+import Gen.Types.Id
+
 import qualified Data.Attoparsec.Text as A
-import           Data.Bifunctor
-import           Data.List.NonEmpty   (NonEmpty (..))
-import           Data.Text            (Text)
 import qualified Data.Text            as Text
-import           Gen.Types.Id
-import           Gen.Types.Orphans    ()
 
 data Key a
     = Key  { fromKey :: a }
@@ -32,9 +34,10 @@ data Key a
       deriving (Eq, Show, Functor, Foldable)
 
 data Notation a
-    = Access   (NonEmpty (Key a))
-    | NonEmpty (Key a)
-    | Choice   (Notation a) (Notation a)
+    = Access       (NonEmpty (Key a))
+    | NonEmptyList (Key a)
+    | NonEmptyText (Key a)
+    | Choice       (Notation a) (Notation a)
       deriving (Eq, Show, Functor, Foldable)
 
 instance FromJSON (Notation Id) where
@@ -47,26 +50,32 @@ parseNotation t = mappend msg `first` A.parseOnly expr1 t
         ++ Text.unpack t
         ++ ", with: "
 
-    expr0 = nonEmpty <|> access
-    expr1 = choice   <|> expr0
+    expr0 = nonEmptyList <|> nonEmptyText <|> access
+    expr1 = choice <|> expr0
 
     choice = Choice
         <$> expr0
          <* A.string "||"
         <*> expr1
 
-    nonEmpty = NonEmpty
-        <$> (A.string "length(" *> key <* A.char ')')
+    nonEmptyList = NonEmptyList
+        <$> (A.string "length(" *> key1 <* A.char ')')
+        <*  strip (A.char '>')
+        <*  strip (A.string "`0`")
+
+    nonEmptyText = NonEmptyText
+        <$> (A.string "length(" *> key0 <* A.char ')')
         <*  strip (A.char '>')
         <*  strip (A.string "`0`")
 
     access = do
         x:xs <- A.sepBy1 key (A.char '.')
-        return $! Access (x :| xs)
+        pure $! Access (x :| xs)
 
-    key   = (Each <$> label <* A.string "[]")
+    key   = key1 <|> key0
+    key1  = (Each <$> label <* A.string "[]")
         <|> (Last <$> label <* A.string "[-1]")
-        <|> (Key  <$> label)
+    key0  = (Key  <$> label)
 
     label = mkId <$> strip (A.takeWhile1 delim)
 

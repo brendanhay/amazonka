@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ECS.SubmitTaskStateChange
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This action is only used by the Amazon EC2 Container Service agent, and it is not intended for use outside of the agent.
---
 -- Sent to acknowledge that a task changed states.
+--
+--
 module Network.AWS.ECS.SubmitTaskStateChange
     (
     -- * Creating a Request
@@ -40,41 +40,43 @@ module Network.AWS.ECS.SubmitTaskStateChange
     , stscrsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'submitTaskStateChange' smart constructor.
 data SubmitTaskStateChange = SubmitTaskStateChange'
-    { _stscStatus  :: !(Maybe Text)
-    , _stscCluster :: !(Maybe Text)
-    , _stscReason  :: !(Maybe Text)
-    , _stscTask    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stscStatus  :: !(Maybe Text)
+  , _stscCluster :: !(Maybe Text)
+  , _stscReason  :: !(Maybe Text)
+  , _stscTask    :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SubmitTaskStateChange' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'stscStatus'
+-- * 'stscStatus' - The status of the state change request.
 --
--- * 'stscCluster'
+-- * 'stscCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.
 --
--- * 'stscReason'
+-- * 'stscReason' - The reason for the state change request.
 --
--- * 'stscTask'
+-- * 'stscTask' - The task ID or full Amazon Resource Name (ARN) of the task in the state change request.
 submitTaskStateChange
     :: SubmitTaskStateChange
 submitTaskStateChange =
-    SubmitTaskStateChange'
-    { _stscStatus = Nothing
-    , _stscCluster = Nothing
-    , _stscReason = Nothing
-    , _stscTask = Nothing
-    }
+  SubmitTaskStateChange'
+  { _stscStatus = Nothing
+  , _stscCluster = Nothing
+  , _stscReason = Nothing
+  , _stscTask = Nothing
+  }
+
 
 -- | The status of the state change request.
 stscStatus :: Lens' SubmitTaskStateChange (Maybe Text)
@@ -102,9 +104,9 @@ instance AWSRequest SubmitTaskStateChange where
                  SubmitTaskStateChangeResponse' <$>
                    (x .?> "acknowledgment") <*> (pure (fromEnum s)))
 
-instance Hashable SubmitTaskStateChange
+instance Hashable SubmitTaskStateChange where
 
-instance NFData SubmitTaskStateChange
+instance NFData SubmitTaskStateChange where
 
 instance ToHeaders SubmitTaskStateChange where
         toHeaders
@@ -133,32 +135,32 @@ instance ToQuery SubmitTaskStateChange where
 
 -- | /See:/ 'submitTaskStateChangeResponse' smart constructor.
 data SubmitTaskStateChangeResponse = SubmitTaskStateChangeResponse'
-    { _stscrsAcknowledgment :: !(Maybe Text)
-    , _stscrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stscrsAcknowledgment :: !(Maybe Text)
+  , _stscrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SubmitTaskStateChangeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'stscrsAcknowledgment'
+-- * 'stscrsAcknowledgment' - Acknowledgement of the state change.
 --
--- * 'stscrsResponseStatus'
+-- * 'stscrsResponseStatus' - -- | The response status code.
 submitTaskStateChangeResponse
     :: Int -- ^ 'stscrsResponseStatus'
     -> SubmitTaskStateChangeResponse
 submitTaskStateChangeResponse pResponseStatus_ =
-    SubmitTaskStateChangeResponse'
-    { _stscrsAcknowledgment = Nothing
-    , _stscrsResponseStatus = pResponseStatus_
-    }
+  SubmitTaskStateChangeResponse'
+  {_stscrsAcknowledgment = Nothing, _stscrsResponseStatus = pResponseStatus_}
+
 
 -- | Acknowledgement of the state change.
 stscrsAcknowledgment :: Lens' SubmitTaskStateChangeResponse (Maybe Text)
 stscrsAcknowledgment = lens _stscrsAcknowledgment (\ s a -> s{_stscrsAcknowledgment = a});
 
--- | The response status code.
+-- | -- | The response status code.
 stscrsResponseStatus :: Lens' SubmitTaskStateChangeResponse Int
 stscrsResponseStatus = lens _stscrsResponseStatus (\ s a -> s{_stscrsResponseStatus = a});
 
-instance NFData SubmitTaskStateChangeResponse
+instance NFData SubmitTaskStateChangeResponse where

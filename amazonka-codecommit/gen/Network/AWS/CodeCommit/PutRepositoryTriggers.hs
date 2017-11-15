@@ -12,21 +12,23 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.PutRepositoryTriggers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Replaces all triggers for a repository. This can be used to create or delete triggers.
+--
+--
 module Network.AWS.CodeCommit.PutRepositoryTriggers
     (
     -- * Creating a Request
       putRepositoryTriggers
     , PutRepositoryTriggers
     -- * Request Lenses
-    , prtTriggers
     , prtRepositoryName
+    , prtTriggers
 
     -- * Destructuring the Response
     , putRepositoryTriggersResponse
@@ -36,43 +38,46 @@ module Network.AWS.CodeCommit.PutRepositoryTriggers
     , prtrsResponseStatus
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.CodeCommit.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input ofa put repository triggers operation.
 --
+--
+--
 -- /See:/ 'putRepositoryTriggers' smart constructor.
 data PutRepositoryTriggers = PutRepositoryTriggers'
-    { _prtTriggers       :: !(Maybe [RepositoryTrigger])
-    , _prtRepositoryName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prtRepositoryName :: !Text
+  , _prtTriggers       :: ![RepositoryTrigger]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRepositoryTriggers' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prtTriggers'
+-- * 'prtRepositoryName' - The name of the repository where you want to create or update the trigger.
 --
--- * 'prtRepositoryName'
+-- * 'prtTriggers' - The JSON block of configuration information for each trigger.
 putRepositoryTriggers
-    :: PutRepositoryTriggers
-putRepositoryTriggers =
-    PutRepositoryTriggers'
-    { _prtTriggers = Nothing
-    , _prtRepositoryName = Nothing
-    }
+    :: Text -- ^ 'prtRepositoryName'
+    -> PutRepositoryTriggers
+putRepositoryTriggers pRepositoryName_ =
+  PutRepositoryTriggers'
+  {_prtRepositoryName = pRepositoryName_, _prtTriggers = mempty}
+
+
+-- | The name of the repository where you want to create or update the trigger.
+prtRepositoryName :: Lens' PutRepositoryTriggers Text
+prtRepositoryName = lens _prtRepositoryName (\ s a -> s{_prtRepositoryName = a});
 
 -- | The JSON block of configuration information for each trigger.
 prtTriggers :: Lens' PutRepositoryTriggers [RepositoryTrigger]
-prtTriggers = lens _prtTriggers (\ s a -> s{_prtTriggers = a}) . _Default . _Coerce;
-
--- | The name of the repository where you want to create or update the trigger.
-prtRepositoryName :: Lens' PutRepositoryTriggers (Maybe Text)
-prtRepositoryName = lens _prtRepositoryName (\ s a -> s{_prtRepositoryName = a});
+prtTriggers = lens _prtTriggers (\ s a -> s{_prtTriggers = a}) . _Coerce;
 
 instance AWSRequest PutRepositoryTriggers where
         type Rs PutRepositoryTriggers =
@@ -84,9 +89,9 @@ instance AWSRequest PutRepositoryTriggers where
                  PutRepositoryTriggersResponse' <$>
                    (x .?> "configurationId") <*> (pure (fromEnum s)))
 
-instance Hashable PutRepositoryTriggers
+instance Hashable PutRepositoryTriggers where
 
-instance NFData PutRepositoryTriggers
+instance NFData PutRepositoryTriggers where
 
 instance ToHeaders PutRepositoryTriggers where
         toHeaders
@@ -102,8 +107,8 @@ instance ToJSON PutRepositoryTriggers where
         toJSON PutRepositoryTriggers'{..}
           = object
               (catMaybes
-                 [("triggers" .=) <$> _prtTriggers,
-                  ("repositoryName" .=) <$> _prtRepositoryName])
+                 [Just ("repositoryName" .= _prtRepositoryName),
+                  Just ("triggers" .= _prtTriggers)])
 
 instance ToPath PutRepositoryTriggers where
         toPath = const "/"
@@ -113,34 +118,36 @@ instance ToQuery PutRepositoryTriggers where
 
 -- | Represents the output of a put repository triggers operation.
 --
+--
+--
 -- /See:/ 'putRepositoryTriggersResponse' smart constructor.
 data PutRepositoryTriggersResponse = PutRepositoryTriggersResponse'
-    { _prtrsConfigurationId :: !(Maybe Text)
-    , _prtrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prtrsConfigurationId :: !(Maybe Text)
+  , _prtrsResponseStatus  :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRepositoryTriggersResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prtrsConfigurationId'
+-- * 'prtrsConfigurationId' - The system-generated unique ID for the create or update operation.
 --
--- * 'prtrsResponseStatus'
+-- * 'prtrsResponseStatus' - -- | The response status code.
 putRepositoryTriggersResponse
     :: Int -- ^ 'prtrsResponseStatus'
     -> PutRepositoryTriggersResponse
 putRepositoryTriggersResponse pResponseStatus_ =
-    PutRepositoryTriggersResponse'
-    { _prtrsConfigurationId = Nothing
-    , _prtrsResponseStatus = pResponseStatus_
-    }
+  PutRepositoryTriggersResponse'
+  {_prtrsConfigurationId = Nothing, _prtrsResponseStatus = pResponseStatus_}
+
 
 -- | The system-generated unique ID for the create or update operation.
 prtrsConfigurationId :: Lens' PutRepositoryTriggersResponse (Maybe Text)
 prtrsConfigurationId = lens _prtrsConfigurationId (\ s a -> s{_prtrsConfigurationId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 prtrsResponseStatus :: Lens' PutRepositoryTriggersResponse Int
 prtrsResponseStatus = lens _prtrsResponseStatus (\ s a -> s{_prtrsResponseStatus = a});
 
-instance NFData PutRepositoryTriggersResponse
+instance NFData PutRepositoryTriggersResponse where

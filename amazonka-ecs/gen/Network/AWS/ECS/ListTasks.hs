@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.ECS.ListTasks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of tasks for a specified cluster. You can filter the results by family name, by a particular container instance, or by the desired status of the task with the 'family', 'containerInstance', and 'desiredStatus' parameters.
+-- Returns a list of tasks for a specified cluster. You can filter the results by family name, by a particular container instance, or by the desired status of the task with the @family@ , @containerInstance@ , and @desiredStatus@ parameters.
+--
 --
 -- Recently-stopped tasks might appear in the returned results. Currently, stopped tasks appear in the returned results for at least one hour.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.ECS.ListTasks
@@ -47,92 +49,90 @@ module Network.AWS.ECS.ListTasks
     , ltrsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listTasks' smart constructor.
 data ListTasks = ListTasks'
-    { _ltDesiredStatus     :: !(Maybe DesiredStatus)
-    , _ltCluster           :: !(Maybe Text)
-    , _ltFamily            :: !(Maybe Text)
-    , _ltNextToken         :: !(Maybe Text)
-    , _ltStartedBy         :: !(Maybe Text)
-    , _ltServiceName       :: !(Maybe Text)
-    , _ltContainerInstance :: !(Maybe Text)
-    , _ltMaxResults        :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltDesiredStatus     :: !(Maybe DesiredStatus)
+  , _ltCluster           :: !(Maybe Text)
+  , _ltFamily            :: !(Maybe Text)
+  , _ltNextToken         :: !(Maybe Text)
+  , _ltStartedBy         :: !(Maybe Text)
+  , _ltServiceName       :: !(Maybe Text)
+  , _ltContainerInstance :: !(Maybe Text)
+  , _ltMaxResults        :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTasks' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltDesiredStatus'
+-- * 'ltDesiredStatus' - The task desired status with which to filter the @ListTasks@ results. Specifying a @desiredStatus@ of @STOPPED@ limits the results to tasks that ECS has set the desired status to @STOPPED@ , which can be useful for debugging tasks that are not starting properly or have died or finished. The default status filter is @RUNNING@ , which shows tasks that ECS has set the desired status to @RUNNING@ .
 --
--- * 'ltCluster'
+-- * 'ltCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the tasks to list. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'ltFamily'
+-- * 'ltFamily' - The name of the family with which to filter the @ListTasks@ results. Specifying a @family@ limits the results to tasks that belong to that family.
 --
--- * 'ltNextToken'
+-- * 'ltNextToken' - The @nextToken@ value returned from a previous paginated @ListTasks@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
 --
--- * 'ltStartedBy'
+-- * 'ltStartedBy' - The @startedBy@ value with which to filter the task results. Specifying a @startedBy@ value limits the results to tasks that were started with that value.
 --
--- * 'ltServiceName'
+-- * 'ltServiceName' - The name of the service with which to filter the @ListTasks@ results. Specifying a @serviceName@ limits the results to tasks that belong to that service.
 --
--- * 'ltContainerInstance'
+-- * 'ltContainerInstance' - The container instance ID or full Amazon Resource Name (ARN) of the container instance with which to filter the @ListTasks@ results. Specifying a @containerInstance@ limits the results to tasks that belong to that container instance.
 --
--- * 'ltMaxResults'
+-- * 'ltMaxResults' - The maximum number of task results returned by @ListTasks@ in paginated output. When this parameter is used, @ListTasks@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListTasks@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListTasks@ returns up to 100 results and a @nextToken@ value if applicable.
 listTasks
     :: ListTasks
 listTasks =
-    ListTasks'
-    { _ltDesiredStatus = Nothing
-    , _ltCluster = Nothing
-    , _ltFamily = Nothing
-    , _ltNextToken = Nothing
-    , _ltStartedBy = Nothing
-    , _ltServiceName = Nothing
-    , _ltContainerInstance = Nothing
-    , _ltMaxResults = Nothing
-    }
+  ListTasks'
+  { _ltDesiredStatus = Nothing
+  , _ltCluster = Nothing
+  , _ltFamily = Nothing
+  , _ltNextToken = Nothing
+  , _ltStartedBy = Nothing
+  , _ltServiceName = Nothing
+  , _ltContainerInstance = Nothing
+  , _ltMaxResults = Nothing
+  }
 
--- | The task desired status with which to filter the 'ListTasks' results. Specifying a 'desiredStatus' of 'STOPPED' limits the results to tasks that ECS has set the desired status to 'STOPPED', which can be useful for debugging tasks that are not starting properly or have died or finished. The default status filter is 'RUNNING', which shows tasks that ECS has set the desired status to 'RUNNING'.
---
--- Although you can filter results based on a desired status of 'PENDING', this will not return any results because ECS never sets the desired status of a task to that value (only a task\'s 'lastStatus' may have a value of 'PENDING').
+
+-- | The task desired status with which to filter the @ListTasks@ results. Specifying a @desiredStatus@ of @STOPPED@ limits the results to tasks that ECS has set the desired status to @STOPPED@ , which can be useful for debugging tasks that are not starting properly or have died or finished. The default status filter is @RUNNING@ , which shows tasks that ECS has set the desired status to @RUNNING@ .
 ltDesiredStatus :: Lens' ListTasks (Maybe DesiredStatus)
 ltDesiredStatus = lens _ltDesiredStatus (\ s a -> s{_ltDesiredStatus = a});
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the tasks to list. If you do not specify a cluster, the default cluster is assumed..
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the tasks to list. If you do not specify a cluster, the default cluster is assumed.
 ltCluster :: Lens' ListTasks (Maybe Text)
 ltCluster = lens _ltCluster (\ s a -> s{_ltCluster = a});
 
--- | The name of the family with which to filter the 'ListTasks' results. Specifying a 'family' limits the results to tasks that belong to that family.
+-- | The name of the family with which to filter the @ListTasks@ results. Specifying a @family@ limits the results to tasks that belong to that family.
 ltFamily :: Lens' ListTasks (Maybe Text)
 ltFamily = lens _ltFamily (\ s a -> s{_ltFamily = a});
 
--- | The 'nextToken' value returned from a previous paginated 'ListTasks' request where 'maxResults' was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the 'nextToken' value. This value is 'null' when there are no more results to return.
---
--- This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.
+-- | The @nextToken@ value returned from a previous paginated @ListTasks@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
 ltNextToken :: Lens' ListTasks (Maybe Text)
 ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
 
--- | The 'startedBy' value with which to filter the task results. Specifying a 'startedBy' value limits the results to tasks that were started with that value.
+-- | The @startedBy@ value with which to filter the task results. Specifying a @startedBy@ value limits the results to tasks that were started with that value.
 ltStartedBy :: Lens' ListTasks (Maybe Text)
 ltStartedBy = lens _ltStartedBy (\ s a -> s{_ltStartedBy = a});
 
--- | The name of the service with which to filter the 'ListTasks' results. Specifying a 'serviceName' limits the results to tasks that belong to that service.
+-- | The name of the service with which to filter the @ListTasks@ results. Specifying a @serviceName@ limits the results to tasks that belong to that service.
 ltServiceName :: Lens' ListTasks (Maybe Text)
 ltServiceName = lens _ltServiceName (\ s a -> s{_ltServiceName = a});
 
--- | The container instance ID or full Amazon Resource Name (ARN) of the container instance with which to filter the 'ListTasks' results. Specifying a 'containerInstance' limits the results to tasks that belong to that container instance.
+-- | The container instance ID or full Amazon Resource Name (ARN) of the container instance with which to filter the @ListTasks@ results. Specifying a @containerInstance@ limits the results to tasks that belong to that container instance.
 ltContainerInstance :: Lens' ListTasks (Maybe Text)
 ltContainerInstance = lens _ltContainerInstance (\ s a -> s{_ltContainerInstance = a});
 
--- | The maximum number of task results returned by 'ListTasks' in paginated output. When this parameter is used, 'ListTasks' only returns 'maxResults' results in a single page along with a 'nextToken' response element. The remaining results of the initial request can be seen by sending another 'ListTasks' request with the returned 'nextToken' value. This value can be between 1 and 100. If this parameter is not used, then 'ListTasks' returns up to 100 results and a 'nextToken' value if applicable.
+-- | The maximum number of task results returned by @ListTasks@ in paginated output. When this parameter is used, @ListTasks@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListTasks@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListTasks@ returns up to 100 results and a @nextToken@ value if applicable.
 ltMaxResults :: Lens' ListTasks (Maybe Int)
 ltMaxResults = lens _ltMaxResults (\ s a -> s{_ltMaxResults = a});
 
@@ -153,9 +153,9 @@ instance AWSRequest ListTasks where
                    (x .?> "nextToken") <*> (x .?> "taskArns" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListTasks
+instance Hashable ListTasks where
 
-instance NFData ListTasks
+instance NFData ListTasks where
 
 instance ToHeaders ListTasks where
         toHeaders
@@ -188,40 +188,42 @@ instance ToQuery ListTasks where
 
 -- | /See:/ 'listTasksResponse' smart constructor.
 data ListTasksResponse = ListTasksResponse'
-    { _ltrsNextToken      :: !(Maybe Text)
-    , _ltrsTaskARNs       :: !(Maybe [Text])
-    , _ltrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltrsNextToken      :: !(Maybe Text)
+  , _ltrsTaskARNs       :: !(Maybe [Text])
+  , _ltrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTasksResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltrsNextToken'
+-- * 'ltrsNextToken' - The @nextToken@ value to include in a future @ListTasks@ request. When the results of a @ListTasks@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
--- * 'ltrsTaskARNs'
+-- * 'ltrsTaskARNs' - The list of task Amazon Resource Name (ARN) entries for the @ListTasks@ request.
 --
--- * 'ltrsResponseStatus'
+-- * 'ltrsResponseStatus' - -- | The response status code.
 listTasksResponse
     :: Int -- ^ 'ltrsResponseStatus'
     -> ListTasksResponse
 listTasksResponse pResponseStatus_ =
-    ListTasksResponse'
-    { _ltrsNextToken = Nothing
-    , _ltrsTaskARNs = Nothing
-    , _ltrsResponseStatus = pResponseStatus_
-    }
+  ListTasksResponse'
+  { _ltrsNextToken = Nothing
+  , _ltrsTaskARNs = Nothing
+  , _ltrsResponseStatus = pResponseStatus_
+  }
 
--- | The 'nextToken' value to include in a future 'ListTasks' request. When the results of a 'ListTasks' request exceed 'maxResults', this value can be used to retrieve the next page of results. This value is 'null' when there are no more results to return.
+
+-- | The @nextToken@ value to include in a future @ListTasks@ request. When the results of a @ListTasks@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 ltrsNextToken :: Lens' ListTasksResponse (Maybe Text)
 ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 
--- | The list of task Amazon Resource Name (ARN) entries for the 'ListTasks' request.
+-- | The list of task Amazon Resource Name (ARN) entries for the @ListTasks@ request.
 ltrsTaskARNs :: Lens' ListTasksResponse [Text]
 ltrsTaskARNs = lens _ltrsTaskARNs (\ s a -> s{_ltrsTaskARNs = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ltrsResponseStatus :: Lens' ListTasksResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
 
-instance NFData ListTasksResponse
+instance NFData ListTasksResponse where

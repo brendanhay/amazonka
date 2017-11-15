@@ -13,9 +13,9 @@
 
 -- |
 -- Module      : Network.AWS.Data.Time
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
@@ -193,6 +193,9 @@ instance ToQuery ISO8601   where toQuery = toQuery . toBS
 instance ToQuery BasicTime where toQuery = toQuery . toBS
 instance ToQuery AWSTime   where toQuery = toQuery . toBS
 
+instance ToQuery POSIX where
+    toQuery (Time t) = toQuery (truncate (utcTimeToPOSIXSeconds t) :: Integer)
+
 instance ToXML RFC822    where toXML = toXMLText
 instance ToXML ISO8601   where toXML = toXMLText
 instance ToXML AWSTime   where toXML = toXMLText
@@ -204,5 +207,5 @@ instance ToJSON AWSTime   where toJSON = toJSONText
 instance ToJSON BasicTime where toJSON = toJSONText
 
 instance ToJSON POSIX where
-    toJSON (Time t) = Number $
-        scientific (truncate (utcTimeToPOSIXSeconds t) :: Integer) 0
+    toJSON (Time t) =
+        Number $ scientific (truncate (utcTimeToPOSIXSeconds t) :: Integer) 0

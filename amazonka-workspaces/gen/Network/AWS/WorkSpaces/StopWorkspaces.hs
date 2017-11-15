@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.StopWorkspaces
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops the specified WorkSpaces. The API only works with WorkSpaces that have RunningMode configured as AutoStop and the State set to AVAILABLE, IMPAIRED, UNHEALTHY, or ERROR.
+-- Stops the specified WorkSpaces. The WorkSpaces must have a running mode of AutoStop and a state of AVAILABLE, IMPAIRED, UNHEALTHY, or ERROR.
+--
+--
 module Network.AWS.WorkSpaces.StopWorkspaces
     (
     -- * Creating a Request
@@ -35,30 +37,30 @@ module Network.AWS.WorkSpaces.StopWorkspaces
     , srsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkSpaces.Types
-import           Network.AWS.WorkSpaces.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkSpaces.Types
+import Network.AWS.WorkSpaces.Types.Product
 
 -- | /See:/ 'stopWorkspaces' smart constructor.
 newtype StopWorkspaces = StopWorkspaces'
-    { _swStopWorkspaceRequests :: List1 StopRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _swStopWorkspaceRequests :: List1 StopRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopWorkspaces' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'swStopWorkspaceRequests'
+-- * 'swStopWorkspaceRequests' - The requests.
 stopWorkspaces
     :: NonEmpty StopRequest -- ^ 'swStopWorkspaceRequests'
     -> StopWorkspaces
 stopWorkspaces pStopWorkspaceRequests_ =
-    StopWorkspaces'
-    { _swStopWorkspaceRequests = _List1 # pStopWorkspaceRequests_
-    }
+  StopWorkspaces' {_swStopWorkspaceRequests = _List1 # pStopWorkspaceRequests_}
+
 
 -- | The requests.
 swStopWorkspaceRequests :: Lens' StopWorkspaces (NonEmpty StopRequest)
@@ -74,9 +76,9 @@ instance AWSRequest StopWorkspaces where
                    (x .?> "FailedRequests" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable StopWorkspaces
+instance Hashable StopWorkspaces where
 
-instance NFData StopWorkspaces
+instance NFData StopWorkspaces where
 
 instance ToHeaders StopWorkspaces where
         toHeaders
@@ -103,32 +105,32 @@ instance ToQuery StopWorkspaces where
 
 -- | /See:/ 'stopWorkspacesResponse' smart constructor.
 data StopWorkspacesResponse = StopWorkspacesResponse'
-    { _srsFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
-    , _srsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
+  , _srsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopWorkspacesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsFailedRequests'
+-- * 'srsFailedRequests' - The failed requests.
 --
--- * 'srsResponseStatus'
+-- * 'srsResponseStatus' - -- | The response status code.
 stopWorkspacesResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StopWorkspacesResponse
 stopWorkspacesResponse pResponseStatus_ =
-    StopWorkspacesResponse'
-    { _srsFailedRequests = Nothing
-    , _srsResponseStatus = pResponseStatus_
-    }
+  StopWorkspacesResponse'
+  {_srsFailedRequests = Nothing, _srsResponseStatus = pResponseStatus_}
+
 
 -- | The failed requests.
 srsFailedRequests :: Lens' StopWorkspacesResponse [FailedWorkspaceChangeRequest]
 srsFailedRequests = lens _srsFailedRequests (\ s a -> s{_srsFailedRequests = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 srsResponseStatus :: Lens' StopWorkspacesResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 
-instance NFData StopWorkspacesResponse
+instance NFData StopWorkspacesResponse where

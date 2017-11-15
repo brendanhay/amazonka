@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Decreases the Amazon Kinesis stream\'s retention period, which is the length of time data records are accessible after they are added to the stream. The minimum value of a stream\'s retention period is 24 hours.
+-- Decreases the Amazon Kinesis stream's retention period, which is the length of time data records are accessible after they are added to the stream. The minimum value of a stream's retention period is 24 hours.
 --
--- This operation may result in lost data. For example, if the stream\'s retention period is 48 hours and is decreased to 24 hours, any data already in the stream that is older than 24 hours is inaccessible.
+--
+-- This operation may result in lost data. For example, if the stream's retention period is 48 hours and is decreased to 24 hours, any data already in the stream that is older than 24 hours is inaccessible.
+--
 module Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
     (
     -- * Creating a Request
@@ -35,37 +37,41 @@ module Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
     , DecreaseStreamRetentionPeriodResponse
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input for < DecreaseStreamRetentionPeriod>.
+-- | Represents the input for 'DecreaseStreamRetentionPeriod' .
+--
+--
 --
 -- /See:/ 'decreaseStreamRetentionPeriod' smart constructor.
 data DecreaseStreamRetentionPeriod = DecreaseStreamRetentionPeriod'
-    { _dsrpStreamName           :: !Text
-    , _dsrpRetentionPeriodHours :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrpStreamName           :: !Text
+  , _dsrpRetentionPeriodHours :: !Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DecreaseStreamRetentionPeriod' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrpStreamName'
+-- * 'dsrpStreamName' - The name of the stream to modify.
 --
--- * 'dsrpRetentionPeriodHours'
+-- * 'dsrpRetentionPeriodHours' - The new retention period of the stream, in hours. Must be less than the current retention period.
 decreaseStreamRetentionPeriod
     :: Text -- ^ 'dsrpStreamName'
     -> Natural -- ^ 'dsrpRetentionPeriodHours'
     -> DecreaseStreamRetentionPeriod
 decreaseStreamRetentionPeriod pStreamName_ pRetentionPeriodHours_ =
-    DecreaseStreamRetentionPeriod'
-    { _dsrpStreamName = pStreamName_
-    , _dsrpRetentionPeriodHours = _Nat # pRetentionPeriodHours_
-    }
+  DecreaseStreamRetentionPeriod'
+  { _dsrpStreamName = pStreamName_
+  , _dsrpRetentionPeriodHours = _Nat # pRetentionPeriodHours_
+  }
+
 
 -- | The name of the stream to modify.
 dsrpStreamName :: Lens' DecreaseStreamRetentionPeriod Text
@@ -83,9 +89,9 @@ instance AWSRequest DecreaseStreamRetentionPeriod
         response
           = receiveNull DecreaseStreamRetentionPeriodResponse'
 
-instance Hashable DecreaseStreamRetentionPeriod
+instance Hashable DecreaseStreamRetentionPeriod where
 
-instance NFData DecreaseStreamRetentionPeriod
+instance NFData DecreaseStreamRetentionPeriod where
 
 instance ToHeaders DecreaseStreamRetentionPeriod
          where
@@ -115,8 +121,9 @@ instance ToQuery DecreaseStreamRetentionPeriod where
 
 -- | /See:/ 'decreaseStreamRetentionPeriodResponse' smart constructor.
 data DecreaseStreamRetentionPeriodResponse =
-    DecreaseStreamRetentionPeriodResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DecreaseStreamRetentionPeriodResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DecreaseStreamRetentionPeriodResponse' with the minimum fields required to make a request.
 --
@@ -124,4 +131,6 @@ decreaseStreamRetentionPeriodResponse
     :: DecreaseStreamRetentionPeriodResponse
 decreaseStreamRetentionPeriodResponse = DecreaseStreamRetentionPeriodResponse'
 
+
 instance NFData DecreaseStreamRetentionPeriodResponse
+         where

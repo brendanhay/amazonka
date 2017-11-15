@@ -12,67 +12,87 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeAssociation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the associations for the specified SSM document or instance.
+-- Describes the associations for the specified Systems Manager document or instance.
+--
+--
 module Network.AWS.SSM.DescribeAssociation
     (
     -- * Creating a Request
       describeAssociation
     , DescribeAssociation
     -- * Request Lenses
-    , daName
+    , daAssociationId
     , daInstanceId
+    , daName
+    , daAssociationVersion
 
     -- * Destructuring the Response
     , describeAssociationResponse
     , DescribeAssociationResponse
     -- * Response Lenses
-    , desrsAssociationDescription
-    , desrsResponseStatus
+    , daarsAssociationDescription
+    , daarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeAssociation' smart constructor.
 data DescribeAssociation = DescribeAssociation'
-    { _daName       :: !Text
-    , _daInstanceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daAssociationId      :: !(Maybe Text)
+  , _daInstanceId         :: !(Maybe Text)
+  , _daName               :: !(Maybe Text)
+  , _daAssociationVersion :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAssociation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daName'
+-- * 'daAssociationId' - The association ID for which you want information.
 --
--- * 'daInstanceId'
+-- * 'daInstanceId' - The instance ID.
+--
+-- * 'daName' - The name of the Systems Manager document.
+--
+-- * 'daAssociationVersion' - Specify the association version to retrieve. To view the latest version, either specify @> LATEST@ for this parameter, or omit this parameter. To view a list of all associations for an instance, use ListInstanceAssociations. To get a list of versions for a specific association, use ListAssociationVersions.
 describeAssociation
-    :: Text -- ^ 'daName'
-    -> Text -- ^ 'daInstanceId'
-    -> DescribeAssociation
-describeAssociation pName_ pInstanceId_ =
-    DescribeAssociation'
-    { _daName = pName_
-    , _daInstanceId = pInstanceId_
-    }
+    :: DescribeAssociation
+describeAssociation =
+  DescribeAssociation'
+  { _daAssociationId = Nothing
+  , _daInstanceId = Nothing
+  , _daName = Nothing
+  , _daAssociationVersion = Nothing
+  }
 
--- | The name of the SSM document.
-daName :: Lens' DescribeAssociation Text
-daName = lens _daName (\ s a -> s{_daName = a});
+
+-- | The association ID for which you want information.
+daAssociationId :: Lens' DescribeAssociation (Maybe Text)
+daAssociationId = lens _daAssociationId (\ s a -> s{_daAssociationId = a});
 
 -- | The instance ID.
-daInstanceId :: Lens' DescribeAssociation Text
+daInstanceId :: Lens' DescribeAssociation (Maybe Text)
 daInstanceId = lens _daInstanceId (\ s a -> s{_daInstanceId = a});
+
+-- | The name of the Systems Manager document.
+daName :: Lens' DescribeAssociation (Maybe Text)
+daName = lens _daName (\ s a -> s{_daName = a});
+
+-- | Specify the association version to retrieve. To view the latest version, either specify @> LATEST@ for this parameter, or omit this parameter. To view a list of all associations for an instance, use ListInstanceAssociations. To get a list of versions for a specific association, use ListAssociationVersions.
+daAssociationVersion :: Lens' DescribeAssociation (Maybe Text)
+daAssociationVersion = lens _daAssociationVersion (\ s a -> s{_daAssociationVersion = a});
 
 instance AWSRequest DescribeAssociation where
         type Rs DescribeAssociation =
@@ -85,9 +105,9 @@ instance AWSRequest DescribeAssociation where
                    (x .?> "AssociationDescription") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeAssociation
+instance Hashable DescribeAssociation where
 
-instance NFData DescribeAssociation
+instance NFData DescribeAssociation where
 
 instance ToHeaders DescribeAssociation where
         toHeaders
@@ -102,8 +122,10 @@ instance ToJSON DescribeAssociation where
         toJSON DescribeAssociation'{..}
           = object
               (catMaybes
-                 [Just ("Name" .= _daName),
-                  Just ("InstanceId" .= _daInstanceId)])
+                 [("AssociationId" .=) <$> _daAssociationId,
+                  ("InstanceId" .=) <$> _daInstanceId,
+                  ("Name" .=) <$> _daName,
+                  ("AssociationVersion" .=) <$> _daAssociationVersion])
 
 instance ToPath DescribeAssociation where
         toPath = const "/"
@@ -113,32 +135,34 @@ instance ToQuery DescribeAssociation where
 
 -- | /See:/ 'describeAssociationResponse' smart constructor.
 data DescribeAssociationResponse = DescribeAssociationResponse'
-    { _desrsAssociationDescription :: !(Maybe AssociationDescription)
-    , _desrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daarsAssociationDescription :: !(Maybe AssociationDescription)
+  , _daarsResponseStatus         :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAssociationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desrsAssociationDescription'
+-- * 'daarsAssociationDescription' - Information about the association.
 --
--- * 'desrsResponseStatus'
+-- * 'daarsResponseStatus' - -- | The response status code.
 describeAssociationResponse
-    :: Int -- ^ 'desrsResponseStatus'
+    :: Int -- ^ 'daarsResponseStatus'
     -> DescribeAssociationResponse
 describeAssociationResponse pResponseStatus_ =
-    DescribeAssociationResponse'
-    { _desrsAssociationDescription = Nothing
-    , _desrsResponseStatus = pResponseStatus_
-    }
+  DescribeAssociationResponse'
+  { _daarsAssociationDescription = Nothing
+  , _daarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the association.
-desrsAssociationDescription :: Lens' DescribeAssociationResponse (Maybe AssociationDescription)
-desrsAssociationDescription = lens _desrsAssociationDescription (\ s a -> s{_desrsAssociationDescription = a});
+daarsAssociationDescription :: Lens' DescribeAssociationResponse (Maybe AssociationDescription)
+daarsAssociationDescription = lens _daarsAssociationDescription (\ s a -> s{_daarsAssociationDescription = a});
 
--- | The response status code.
-desrsResponseStatus :: Lens' DescribeAssociationResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+-- | -- | The response status code.
+daarsResponseStatus :: Lens' DescribeAssociationResponse Int
+daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});
 
-instance NFData DescribeAssociationResponse
+instance NFData DescribeAssociationResponse where

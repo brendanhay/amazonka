@@ -12,25 +12,35 @@
 
 -- |
 -- Module      : Network.AWS.SWF.DescribeActivityType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about the specified activity type. This includes configuration settings provided when the type was registered and other general information about the type.
 --
+--
 -- __Access Control__
 --
--- You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this action's access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this action.
--- -   Constrain the following parameters by using a 'Condition' element with the appropriate keys.
---     -   'activityType.name': String constraint. The key is 'swf:activityType.name'.
---     -   'activityType.version': String constraint. The key is 'swf:activityType.version'.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--     * Use an @Action@ element to allow or deny permission to call this action.
+--
+--     * Constrain the following parameters by using a @Condition@ element with the appropriate keys.
+--
+--     * @activityType.name@ : String constraint. The key is @swf:activityType.name@ .
+--
+--     * @activityType.version@ : String constraint. The key is @swf:activityType.version@ .
+--
+--
+--
+--
+--
+-- If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's @cause@ parameter is set to @OPERATION_NOT_PERMITTED@ . For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
+--
 module Network.AWS.SWF.DescribeActivityType
     (
     -- * Creating a Request
@@ -49,41 +59,41 @@ module Network.AWS.SWF.DescribeActivityType
     , datrsConfiguration
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'describeActivityType' smart constructor.
 data DescribeActivityType = DescribeActivityType'
-    { _datDomain       :: !Text
-    , _datActivityType :: !ActivityType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _datDomain       :: !Text
+  , _datActivityType :: !ActivityType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeActivityType' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'datDomain'
+-- * 'datDomain' - The name of the domain in which the activity type is registered.
 --
--- * 'datActivityType'
+-- * 'datActivityType' - The activity type to get information about. Activity types are identified by the @name@ and @version@ that were supplied when the activity was registered.
 describeActivityType
     :: Text -- ^ 'datDomain'
     -> ActivityType -- ^ 'datActivityType'
     -> DescribeActivityType
 describeActivityType pDomain_ pActivityType_ =
-    DescribeActivityType'
-    { _datDomain = pDomain_
-    , _datActivityType = pActivityType_
-    }
+  DescribeActivityType'
+  {_datDomain = pDomain_, _datActivityType = pActivityType_}
+
 
 -- | The name of the domain in which the activity type is registered.
 datDomain :: Lens' DescribeActivityType Text
 datDomain = lens _datDomain (\ s a -> s{_datDomain = a});
 
--- | The activity type to get information about. Activity types are identified by the 'name' and 'version' that were supplied when the activity was registered.
+-- | The activity type to get information about. Activity types are identified by the @name@ and @version@ that were supplied when the activity was registered.
 datActivityType :: Lens' DescribeActivityType ActivityType
 datActivityType = lens _datActivityType (\ s a -> s{_datActivityType = a});
 
@@ -98,9 +108,9 @@ instance AWSRequest DescribeActivityType where
                    (pure (fromEnum s)) <*> (x .:> "typeInfo") <*>
                      (x .:> "configuration"))
 
-instance Hashable DescribeActivityType
+instance Hashable DescribeActivityType where
 
-instance NFData DescribeActivityType
+instance NFData DescribeActivityType where
 
 instance ToHeaders DescribeActivityType where
         toHeaders
@@ -127,44 +137,43 @@ instance ToQuery DescribeActivityType where
 
 -- | Detailed information about an activity type.
 --
+--
+--
 -- /See:/ 'describeActivityTypeResponse' smart constructor.
 data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
-    { _datrsResponseStatus :: !Int
-    , _datrsTypeInfo       :: !ActivityTypeInfo
-    , _datrsConfiguration  :: !ActivityTypeConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _datrsResponseStatus :: !Int
+  , _datrsTypeInfo       :: !ActivityTypeInfo
+  , _datrsConfiguration  :: !ActivityTypeConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeActivityTypeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'datrsResponseStatus'
+-- * 'datrsResponseStatus' - -- | The response status code.
 --
--- * 'datrsTypeInfo'
+-- * 'datrsTypeInfo' - General information about the activity type. The status of activity type (returned in the ActivityTypeInfo structure) can be one of the following.     * @REGISTERED@ – The type is registered and available. Workers supporting this type should be running.      * @DEPRECATED@ – The type was deprecated using 'DeprecateActivityType' , but is still in use. You should keep workers supporting this type running. You cannot create new tasks of this type.
 --
--- * 'datrsConfiguration'
+-- * 'datrsConfiguration' - The configuration settings registered with the activity type.
 describeActivityTypeResponse
     :: Int -- ^ 'datrsResponseStatus'
     -> ActivityTypeInfo -- ^ 'datrsTypeInfo'
     -> ActivityTypeConfiguration -- ^ 'datrsConfiguration'
     -> DescribeActivityTypeResponse
 describeActivityTypeResponse pResponseStatus_ pTypeInfo_ pConfiguration_ =
-    DescribeActivityTypeResponse'
-    { _datrsResponseStatus = pResponseStatus_
-    , _datrsTypeInfo = pTypeInfo_
-    , _datrsConfiguration = pConfiguration_
-    }
+  DescribeActivityTypeResponse'
+  { _datrsResponseStatus = pResponseStatus_
+  , _datrsTypeInfo = pTypeInfo_
+  , _datrsConfiguration = pConfiguration_
+  }
 
--- | The response status code.
+
+-- | -- | The response status code.
 datrsResponseStatus :: Lens' DescribeActivityTypeResponse Int
 datrsResponseStatus = lens _datrsResponseStatus (\ s a -> s{_datrsResponseStatus = a});
 
--- | General information about the activity type.
---
--- The status of activity type (returned in the ActivityTypeInfo structure) can be one of the following.
---
--- -   __REGISTERED__: The type is registered and available. Workers supporting this type should be running.
--- -   __DEPRECATED__: The type was deprecated using < DeprecateActivityType>, but is still in use. You should keep workers supporting this type running. You cannot create new tasks of this type.
+-- | General information about the activity type. The status of activity type (returned in the ActivityTypeInfo structure) can be one of the following.     * @REGISTERED@ – The type is registered and available. Workers supporting this type should be running.      * @DEPRECATED@ – The type was deprecated using 'DeprecateActivityType' , but is still in use. You should keep workers supporting this type running. You cannot create new tasks of this type.
 datrsTypeInfo :: Lens' DescribeActivityTypeResponse ActivityTypeInfo
 datrsTypeInfo = lens _datrsTypeInfo (\ s a -> s{_datrsTypeInfo = a});
 
@@ -172,4 +181,4 @@ datrsTypeInfo = lens _datrsTypeInfo (\ s a -> s{_datrsTypeInfo = a});
 datrsConfiguration :: Lens' DescribeActivityTypeResponse ActivityTypeConfiguration
 datrsConfiguration = lens _datrsConfiguration (\ s a -> s{_datrsConfiguration = a});
 
-instance NFData DescribeActivityTypeResponse
+instance NFData DescribeActivityTypeResponse where

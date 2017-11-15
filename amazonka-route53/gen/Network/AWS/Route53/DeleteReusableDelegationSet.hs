@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.Route53.DeleteReusableDelegationSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a reusable delegation set. Send a 'DELETE' request to the '\/2013-04-01\/delegationset\/delegation set ID ' resource.
+-- Deletes a reusable delegation set.
 --
--- You can delete a reusable delegation set only if there are no associated hosted zones.
 --
--- To verify that the reusable delegation set is not associated with any hosted zones, run the < GetReusableDelegationSet> action and specify the ID of the reusable delegation set that you want to delete.
+-- /Important:/ You can delete a reusable delegation set only if it isn't associated with any hosted zones.
+--
+-- To verify that the reusable delegation set is not associated with any hosted zones, submit a 'GetReusableDelegationSet' request and specify the ID of the reusable delegation set that you want to delete.
+--
 module Network.AWS.Route53.DeleteReusableDelegationSet
     (
     -- * Creating a Request
@@ -38,35 +40,36 @@ module Network.AWS.Route53.DeleteReusableDelegationSet
     , drdsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
--- | A complex type containing the information for the delete request.
+-- | A request to delete a reusable delegation set.
+--
+--
 --
 -- /See:/ 'deleteReusableDelegationSet' smart constructor.
 newtype DeleteReusableDelegationSet = DeleteReusableDelegationSet'
-    { _drdsId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drdsId :: ResourceId
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteReusableDelegationSet' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drdsId'
+-- * 'drdsId' - The ID of the reusable delegation set that you want to delete.
 deleteReusableDelegationSet
-    :: Text -- ^ 'drdsId'
+    :: ResourceId -- ^ 'drdsId'
     -> DeleteReusableDelegationSet
-deleteReusableDelegationSet pId_ =
-    DeleteReusableDelegationSet'
-    { _drdsId = pId_
-    }
+deleteReusableDelegationSet pId_ = DeleteReusableDelegationSet' {_drdsId = pId_}
 
--- | The ID of the reusable delegation set you want to delete.
-drdsId :: Lens' DeleteReusableDelegationSet Text
+
+-- | The ID of the reusable delegation set that you want to delete.
+drdsId :: Lens' DeleteReusableDelegationSet ResourceId
 drdsId = lens _drdsId (\ s a -> s{_drdsId = a});
 
 instance AWSRequest DeleteReusableDelegationSet where
@@ -79,9 +82,9 @@ instance AWSRequest DeleteReusableDelegationSet where
                  DeleteReusableDelegationSetResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteReusableDelegationSet
+instance Hashable DeleteReusableDelegationSet where
 
-instance NFData DeleteReusableDelegationSet
+instance NFData DeleteReusableDelegationSet where
 
 instance ToHeaders DeleteReusableDelegationSet where
         toHeaders = const mempty
@@ -96,26 +99,30 @@ instance ToQuery DeleteReusableDelegationSet where
 
 -- | An empty element.
 --
+--
+--
 -- /See:/ 'deleteReusableDelegationSetResponse' smart constructor.
 newtype DeleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse'
-    { _drdsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drdsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteReusableDelegationSetResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drdsrsResponseStatus'
+-- * 'drdsrsResponseStatus' - -- | The response status code.
 deleteReusableDelegationSetResponse
     :: Int -- ^ 'drdsrsResponseStatus'
     -> DeleteReusableDelegationSetResponse
 deleteReusableDelegationSetResponse pResponseStatus_ =
-    DeleteReusableDelegationSetResponse'
-    { _drdsrsResponseStatus = pResponseStatus_
-    }
+  DeleteReusableDelegationSetResponse'
+  {_drdsrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 drdsrsResponseStatus :: Lens' DeleteReusableDelegationSetResponse Int
 drdsrsResponseStatus = lens _drdsrsResponseStatus (\ s a -> s{_drdsrsResponseStatus = a});
 
 instance NFData DeleteReusableDelegationSetResponse
+         where

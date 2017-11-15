@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeGatewayInformation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns metadata about a gateway such as its name, network interfaces, configured time zone, and the state (whether the gateway is running or not). To specify which gateway to describe, use the Amazon Resource Name (ARN) of the gateway in your request.
+--
+--
 module Network.AWS.StorageGateway.DescribeGatewayInformation
     (
     -- * Creating a Request
@@ -43,32 +45,34 @@ module Network.AWS.StorageGateway.DescribeGatewayInformation
     , dgirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the id of the gateway.
 --
+--
+--
 -- /See:/ 'describeGatewayInformation' smart constructor.
 newtype DescribeGatewayInformation = DescribeGatewayInformation'
-    { _dgiGatewayARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgiGatewayARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeGatewayInformation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgiGatewayARN'
+-- * 'dgiGatewayARN' - Undocumented member.
 describeGatewayInformation
     :: Text -- ^ 'dgiGatewayARN'
     -> DescribeGatewayInformation
 describeGatewayInformation pGatewayARN_ =
-    DescribeGatewayInformation'
-    { _dgiGatewayARN = pGatewayARN_
-    }
+  DescribeGatewayInformation' {_dgiGatewayARN = pGatewayARN_}
+
 
 -- | Undocumented member.
 dgiGatewayARN :: Lens' DescribeGatewayInformation Text
@@ -92,9 +96,9 @@ instance AWSRequest DescribeGatewayInformation where
                      <*> (x .?> "GatewayTimezone")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeGatewayInformation
+instance Hashable DescribeGatewayInformation where
 
-instance NFData DescribeGatewayInformation
+instance NFData DescribeGatewayInformation where
 
 instance ToHeaders DescribeGatewayInformation where
         toHeaders
@@ -119,59 +123,63 @@ instance ToQuery DescribeGatewayInformation where
 
 -- | A JSON object containing the following fields:
 --
+--
+--
 -- /See:/ 'describeGatewayInformationResponse' smart constructor.
 data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
-    { _dgirsGatewayState               :: !(Maybe Text)
-    , _dgirsGatewayARN                 :: !(Maybe Text)
-    , _dgirsGatewayNetworkInterfaces   :: !(Maybe [NetworkInterface])
-    , _dgirsNextUpdateAvailabilityDate :: !(Maybe Text)
-    , _dgirsLastSoftwareUpdate         :: !(Maybe Text)
-    , _dgirsGatewayName                :: !(Maybe Text)
-    , _dgirsGatewayId                  :: !(Maybe Text)
-    , _dgirsGatewayType                :: !(Maybe Text)
-    , _dgirsGatewayTimezone            :: !(Maybe Text)
-    , _dgirsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgirsGatewayState               :: !(Maybe Text)
+  , _dgirsGatewayARN                 :: !(Maybe Text)
+  , _dgirsGatewayNetworkInterfaces   :: !(Maybe [NetworkInterface])
+  , _dgirsNextUpdateAvailabilityDate :: !(Maybe Text)
+  , _dgirsLastSoftwareUpdate         :: !(Maybe Text)
+  , _dgirsGatewayName                :: !(Maybe Text)
+  , _dgirsGatewayId                  :: !(Maybe Text)
+  , _dgirsGatewayType                :: !(Maybe Text)
+  , _dgirsGatewayTimezone            :: !(Maybe Text)
+  , _dgirsResponseStatus             :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeGatewayInformationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgirsGatewayState'
+-- * 'dgirsGatewayState' - A value that indicates the operating state of the gateway.
 --
--- * 'dgirsGatewayARN'
+-- * 'dgirsGatewayARN' - Undocumented member.
 --
--- * 'dgirsGatewayNetworkInterfaces'
+-- * 'dgirsGatewayNetworkInterfaces' - A 'NetworkInterface' array that contains descriptions of the gateway network interfaces.
 --
--- * 'dgirsNextUpdateAvailabilityDate'
+-- * 'dgirsNextUpdateAvailabilityDate' - The date on which an update to the gateway is available. This date is in the time zone of the gateway. If the gateway is not available for an update this field is not returned in the response.
 --
--- * 'dgirsLastSoftwareUpdate'
+-- * 'dgirsLastSoftwareUpdate' - The date on which the last software update was applied to the gateway. If the gateway has never been updated, this field does not return a value in the response.
 --
--- * 'dgirsGatewayName'
+-- * 'dgirsGatewayName' - The name you configured for your gateway.
 --
--- * 'dgirsGatewayId'
+-- * 'dgirsGatewayId' - The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
 --
--- * 'dgirsGatewayType'
+-- * 'dgirsGatewayType' - The type of the gateway.
 --
--- * 'dgirsGatewayTimezone'
+-- * 'dgirsGatewayTimezone' - A value that indicates the time zone configured for the gateway.
 --
--- * 'dgirsResponseStatus'
+-- * 'dgirsResponseStatus' - -- | The response status code.
 describeGatewayInformationResponse
     :: Int -- ^ 'dgirsResponseStatus'
     -> DescribeGatewayInformationResponse
 describeGatewayInformationResponse pResponseStatus_ =
-    DescribeGatewayInformationResponse'
-    { _dgirsGatewayState = Nothing
-    , _dgirsGatewayARN = Nothing
-    , _dgirsGatewayNetworkInterfaces = Nothing
-    , _dgirsNextUpdateAvailabilityDate = Nothing
-    , _dgirsLastSoftwareUpdate = Nothing
-    , _dgirsGatewayName = Nothing
-    , _dgirsGatewayId = Nothing
-    , _dgirsGatewayType = Nothing
-    , _dgirsGatewayTimezone = Nothing
-    , _dgirsResponseStatus = pResponseStatus_
-    }
+  DescribeGatewayInformationResponse'
+  { _dgirsGatewayState = Nothing
+  , _dgirsGatewayARN = Nothing
+  , _dgirsGatewayNetworkInterfaces = Nothing
+  , _dgirsNextUpdateAvailabilityDate = Nothing
+  , _dgirsLastSoftwareUpdate = Nothing
+  , _dgirsGatewayName = Nothing
+  , _dgirsGatewayId = Nothing
+  , _dgirsGatewayType = Nothing
+  , _dgirsGatewayTimezone = Nothing
+  , _dgirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A value that indicates the operating state of the gateway.
 dgirsGatewayState :: Lens' DescribeGatewayInformationResponse (Maybe Text)
@@ -181,7 +189,7 @@ dgirsGatewayState = lens _dgirsGatewayState (\ s a -> s{_dgirsGatewayState = a})
 dgirsGatewayARN :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayARN = lens _dgirsGatewayARN (\ s a -> s{_dgirsGatewayARN = a});
 
--- | A < NetworkInterface> array that contains descriptions of the gateway network interfaces.
+-- | A 'NetworkInterface' array that contains descriptions of the gateway network interfaces.
 dgirsGatewayNetworkInterfaces :: Lens' DescribeGatewayInformationResponse [NetworkInterface]
 dgirsGatewayNetworkInterfaces = lens _dgirsGatewayNetworkInterfaces (\ s a -> s{_dgirsGatewayNetworkInterfaces = a}) . _Default . _Coerce;
 
@@ -209,8 +217,9 @@ dgirsGatewayType = lens _dgirsGatewayType (\ s a -> s{_dgirsGatewayType = a});
 dgirsGatewayTimezone :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayTimezone = lens _dgirsGatewayTimezone (\ s a -> s{_dgirsGatewayTimezone = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dgirsResponseStatus :: Lens' DescribeGatewayInformationResponse Int
 dgirsResponseStatus = lens _dgirsResponseStatus (\ s a -> s{_dgirsResponseStatus = a});
 
 instance NFData DescribeGatewayInformationResponse
+         where

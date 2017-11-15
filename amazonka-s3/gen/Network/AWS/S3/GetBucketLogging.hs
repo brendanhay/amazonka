@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketLogging
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,30 +35,29 @@ module Network.AWS.S3.GetBucketLogging
     , gblrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketLogging' smart constructor.
 newtype GetBucketLogging = GetBucketLogging'
-    { _gBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketLogging' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gBucket'
+-- * 'gBucket' - Undocumented member.
 getBucketLogging
     :: BucketName -- ^ 'gBucket'
     -> GetBucketLogging
-getBucketLogging pBucket_ =
-    GetBucketLogging'
-    { _gBucket = pBucket_
-    }
+getBucketLogging pBucket_ = GetBucketLogging' {_gBucket = pBucket_}
+
 
 -- | Undocumented member.
 gBucket :: Lens' GetBucketLogging BucketName
@@ -73,9 +72,9 @@ instance AWSRequest GetBucketLogging where
                  GetBucketLoggingResponse' <$>
                    (x .@? "LoggingEnabled") <*> (pure (fromEnum s)))
 
-instance Hashable GetBucketLogging
+instance Hashable GetBucketLogging where
 
-instance NFData GetBucketLogging
+instance NFData GetBucketLogging where
 
 instance ToHeaders GetBucketLogging where
         toHeaders = const mempty
@@ -89,32 +88,32 @@ instance ToQuery GetBucketLogging where
 
 -- | /See:/ 'getBucketLoggingResponse' smart constructor.
 data GetBucketLoggingResponse = GetBucketLoggingResponse'
-    { _gblrsLoggingEnabled :: !(Maybe LoggingEnabled)
-    , _gblrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gblrsLoggingEnabled :: !(Maybe LoggingEnabled)
+  , _gblrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketLoggingResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gblrsLoggingEnabled'
+-- * 'gblrsLoggingEnabled' - Undocumented member.
 --
--- * 'gblrsResponseStatus'
+-- * 'gblrsResponseStatus' - -- | The response status code.
 getBucketLoggingResponse
     :: Int -- ^ 'gblrsResponseStatus'
     -> GetBucketLoggingResponse
 getBucketLoggingResponse pResponseStatus_ =
-    GetBucketLoggingResponse'
-    { _gblrsLoggingEnabled = Nothing
-    , _gblrsResponseStatus = pResponseStatus_
-    }
+  GetBucketLoggingResponse'
+  {_gblrsLoggingEnabled = Nothing, _gblrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 gblrsLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
 gblrsLoggingEnabled = lens _gblrsLoggingEnabled (\ s a -> s{_gblrsLoggingEnabled = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gblrsResponseStatus :: Lens' GetBucketLoggingResponse Int
 gblrsResponseStatus = lens _gblrsResponseStatus (\ s a -> s{_gblrsResponseStatus = a});
 
-instance NFData GetBucketLoggingResponse
+instance NFData GetBucketLoggingResponse where

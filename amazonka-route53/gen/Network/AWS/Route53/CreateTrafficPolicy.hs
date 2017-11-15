@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Route53.CreateTrafficPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a traffic policy, which you use to create multiple DNS resource record sets for one domain name (such as example.com) or one subdomain name (such as www.example.com).
 --
--- Send a 'POST' request to the '\/Amazon Route 53 API version\/trafficpolicy' resource. The request body must include a document with a 'CreateTrafficPolicyRequest' element. The response includes the 'CreateTrafficPolicyResponse' element, which contains information about the new traffic policy.
+--
 module Network.AWS.Route53.CreateTrafficPolicy
     (
     -- * Creating a Request
@@ -40,41 +40,42 @@ module Network.AWS.Route53.CreateTrafficPolicy
     , ctprsLocation
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about the traffic policy that you want to create.
 --
+--
+--
 -- /See:/ 'createTrafficPolicy' smart constructor.
 data CreateTrafficPolicy = CreateTrafficPolicy'
-    { _ctpComment  :: !(Maybe Text)
-    , _ctpName     :: !Text
-    , _ctpDocument :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctpComment  :: !(Maybe Text)
+  , _ctpName     :: !Text
+  , _ctpDocument :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTrafficPolicy' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctpComment'
+-- * 'ctpComment' - (Optional) Any comments that you want to include about the traffic policy.
 --
--- * 'ctpName'
+-- * 'ctpName' - The name of the traffic policy.
 --
--- * 'ctpDocument'
+-- * 'ctpDocument' - The definition of this traffic policy in JSON format. For more information, see <http://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> .
 createTrafficPolicy
     :: Text -- ^ 'ctpName'
     -> Text -- ^ 'ctpDocument'
     -> CreateTrafficPolicy
 createTrafficPolicy pName_ pDocument_ =
-    CreateTrafficPolicy'
-    { _ctpComment = Nothing
-    , _ctpName = pName_
-    , _ctpDocument = pDocument_
-    }
+  CreateTrafficPolicy'
+  {_ctpComment = Nothing, _ctpName = pName_, _ctpDocument = pDocument_}
+
 
 -- | (Optional) Any comments that you want to include about the traffic policy.
 ctpComment :: Lens' CreateTrafficPolicy (Maybe Text)
@@ -84,7 +85,7 @@ ctpComment = lens _ctpComment (\ s a -> s{_ctpComment = a});
 ctpName :: Lens' CreateTrafficPolicy Text
 ctpName = lens _ctpName (\ s a -> s{_ctpName = a});
 
--- | The definition of this traffic policy in JSON format. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> in the /Amazon Route 53 API Reference/.
+-- | The definition of this traffic policy in JSON format. For more information, see <http://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> .
 ctpDocument :: Lens' CreateTrafficPolicy Text
 ctpDocument = lens _ctpDocument (\ s a -> s{_ctpDocument = a});
 
@@ -99,9 +100,9 @@ instance AWSRequest CreateTrafficPolicy where
                    (pure (fromEnum s)) <*> (x .@ "TrafficPolicy") <*>
                      (h .# "Location"))
 
-instance Hashable CreateTrafficPolicy
+instance Hashable CreateTrafficPolicy where
 
-instance NFData CreateTrafficPolicy
+instance NFData CreateTrafficPolicy where
 
 instance ToElement CreateTrafficPolicy where
         toElement
@@ -123,37 +124,41 @@ instance ToXML CreateTrafficPolicy where
               ["Comment" @= _ctpComment, "Name" @= _ctpName,
                "Document" @= _ctpDocument]
 
--- | A complex type that contains the response information for the 'CreateTrafficPolicy' request.
+-- | A complex type that contains the response information for the @CreateTrafficPolicy@ request.
+--
+--
 --
 -- /See:/ 'createTrafficPolicyResponse' smart constructor.
 data CreateTrafficPolicyResponse = CreateTrafficPolicyResponse'
-    { _ctprsResponseStatus :: !Int
-    , _ctprsTrafficPolicy  :: !TrafficPolicy
-    , _ctprsLocation       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctprsResponseStatus :: !Int
+  , _ctprsTrafficPolicy  :: !TrafficPolicy
+  , _ctprsLocation       :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTrafficPolicyResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctprsResponseStatus'
+-- * 'ctprsResponseStatus' - -- | The response status code.
 --
--- * 'ctprsTrafficPolicy'
+-- * 'ctprsTrafficPolicy' - A complex type that contains settings for the new traffic policy.
 --
--- * 'ctprsLocation'
+-- * 'ctprsLocation' - A unique URL that represents a new traffic policy.
 createTrafficPolicyResponse
     :: Int -- ^ 'ctprsResponseStatus'
     -> TrafficPolicy -- ^ 'ctprsTrafficPolicy'
     -> Text -- ^ 'ctprsLocation'
     -> CreateTrafficPolicyResponse
 createTrafficPolicyResponse pResponseStatus_ pTrafficPolicy_ pLocation_ =
-    CreateTrafficPolicyResponse'
-    { _ctprsResponseStatus = pResponseStatus_
-    , _ctprsTrafficPolicy = pTrafficPolicy_
-    , _ctprsLocation = pLocation_
-    }
+  CreateTrafficPolicyResponse'
+  { _ctprsResponseStatus = pResponseStatus_
+  , _ctprsTrafficPolicy = pTrafficPolicy_
+  , _ctprsLocation = pLocation_
+  }
 
--- | The response status code.
+
+-- | -- | The response status code.
 ctprsResponseStatus :: Lens' CreateTrafficPolicyResponse Int
 ctprsResponseStatus = lens _ctprsResponseStatus (\ s a -> s{_ctprsResponseStatus = a});
 
@@ -161,8 +166,8 @@ ctprsResponseStatus = lens _ctprsResponseStatus (\ s a -> s{_ctprsResponseStatus
 ctprsTrafficPolicy :: Lens' CreateTrafficPolicyResponse TrafficPolicy
 ctprsTrafficPolicy = lens _ctprsTrafficPolicy (\ s a -> s{_ctprsTrafficPolicy = a});
 
--- | Undocumented member.
+-- | A unique URL that represents a new traffic policy.
 ctprsLocation :: Lens' CreateTrafficPolicyResponse Text
 ctprsLocation = lens _ctprsLocation (\ s a -> s{_ctprsLocation = a});
 
-instance NFData CreateTrafficPolicyResponse
+instance NFData CreateTrafficPolicyResponse where

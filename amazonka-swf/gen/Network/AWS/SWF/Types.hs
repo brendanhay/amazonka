@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -463,6 +463,7 @@ module Network.AWS.SWF.Types
     -- * LambdaFunctionScheduledEventAttributes
     , LambdaFunctionScheduledEventAttributes
     , lambdaFunctionScheduledEventAttributes
+    , lfseaControl
     , lfseaInput
     , lfseaStartToCloseTimeout
     , lfseaId
@@ -569,6 +570,7 @@ module Network.AWS.SWF.Types
     -- * ScheduleLambdaFunctionDecisionAttributes
     , ScheduleLambdaFunctionDecisionAttributes
     , scheduleLambdaFunctionDecisionAttributes
+    , slfdaControl
     , slfdaInput
     , slfdaStartToCloseTimeout
     , slfdaId
@@ -870,38 +872,40 @@ module Network.AWS.SWF.Types
     , wtiCreationDate
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
-import           Network.AWS.SWF.Types.Product
-import           Network.AWS.SWF.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
+import Network.AWS.SWF.Types.Product
+import Network.AWS.SWF.Types.Sum
 
--- | API version '2012-01-25' of the Amazon Simple Workflow Service SDK configuration.
+-- | API version @2012-01-25@ of the Amazon Simple Workflow Service SDK configuration.
 swf :: Service
 swf =
-    Service
-    { _svcAbbrev = "SWF"
-    , _svcSigner = v4
-    , _svcPrefix = "swf"
-    , _svcVersion = "2012-01-25"
-    , _svcEndpoint = defaultEndpoint swf
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "SWF"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "SWF"
+  , _svcSigner = v4
+  , _svcPrefix = "swf"
+  , _svcVersion = "2012-01-25"
+  , _svcEndpoint = defaultEndpoint swf
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "SWF"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -910,40 +914,70 @@ swf =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Returned if the specified domain already exists. You will get this fault even if the existing domain is in deprecated status.
+
+-- | Returned if the specified domain already exists. You get this fault even if the existing domain is in deprecated status.
+--
+--
 _DomainAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
-_DomainAlreadyExistsFault = _ServiceError . hasCode "DomainAlreadyExistsFault"
+_DomainAlreadyExistsFault = _MatchServiceError swf "DomainAlreadyExistsFault"
+
 
 -- | Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.
+--
+--
 _LimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededFault = _ServiceError . hasCode "LimitExceededFault"
+_LimitExceededFault = _MatchServiceError swf "LimitExceededFault"
 
--- | Returned by < StartWorkflowExecution> when an open execution with the same workflowId is already running in the specified domain.
+
+-- | Returned by 'StartWorkflowExecution' when an open execution with the same workflowId is already running in the specified domain.
+--
+--
 _WorkflowExecutionAlreadyStartedFault :: AsError a => Getting (First ServiceError) a ServiceError
 _WorkflowExecutionAlreadyStartedFault =
-    _ServiceError . hasCode "WorkflowExecutionAlreadyStartedFault"
+  _MatchServiceError swf "WorkflowExecutionAlreadyStartedFault"
 
--- | Returned when the caller does not have sufficient permissions to invoke the action.
+
+-- | Returned when the caller doesn't have sufficient permissions to invoke the action.
+--
+--
 _OperationNotPermittedFault :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationNotPermittedFault =
-    _ServiceError . hasCode "OperationNotPermittedFault"
+  _MatchServiceError swf "OperationNotPermittedFault"
+
 
 -- | Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.
+--
+--
 _UnknownResourceFault :: AsError a => Getting (First ServiceError) a ServiceError
-_UnknownResourceFault = _ServiceError . hasCode "UnknownResourceFault"
+_UnknownResourceFault = _MatchServiceError swf "UnknownResourceFault"
 
--- | Prism for DefaultUndefinedFault' errors.
+
+-- | The @StartWorkflowExecution@ API action was called without the required parameters set.
+--
+--
+-- Some workflow execution parameters, such as the decision @taskList@ , must be set to start the execution. However, these parameters might have been set as defaults when the workflow type was registered. In this case, you can omit these parameters from the @StartWorkflowExecution@ call and Amazon SWF uses the values defined in the workflow type.
+--
 _DefaultUndefinedFault :: AsError a => Getting (First ServiceError) a ServiceError
-_DefaultUndefinedFault = _ServiceError . hasCode "DefaultUndefinedFault"
+_DefaultUndefinedFault = _MatchServiceError swf "DefaultUndefinedFault"
+
 
 -- | Returned when the specified activity or workflow type was already deprecated.
+--
+--
 _TypeDeprecatedFault :: AsError a => Getting (First ServiceError) a ServiceError
-_TypeDeprecatedFault = _ServiceError . hasCode "TypeDeprecatedFault"
+_TypeDeprecatedFault = _MatchServiceError swf "TypeDeprecatedFault"
 
--- | Returned if the type already exists in the specified domain. You will get this fault even if the existing type is in deprecated status. You can specify another version if the intent is to create a new distinct version of the type.
+
+-- | Returned if the type already exists in the specified domain. You get this fault even if the existing type is in deprecated status. You can specify another version if the intent is to create a new distinct version of the type.
+--
+--
 _TypeAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
-_TypeAlreadyExistsFault = _ServiceError . hasCode "TypeAlreadyExistsFault"
+_TypeAlreadyExistsFault = _MatchServiceError swf "TypeAlreadyExistsFault"
+
 
 -- | Returned when the specified domain has been deprecated.
+--
+--
 _DomainDeprecatedFault :: AsError a => Getting (First ServiceError) a ServiceError
-_DomainDeprecatedFault = _ServiceError . hasCode "DomainDeprecatedFault"
+_DomainDeprecatedFault = _MatchServiceError swf "DomainDeprecatedFault"
+

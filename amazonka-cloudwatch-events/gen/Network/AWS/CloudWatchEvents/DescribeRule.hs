@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.DescribeRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the details of the specified rule.
+-- Describes the specified rule.
+--
+--
 module Network.AWS.CloudWatchEvents.DescribeRule
     (
     -- * Creating a Request
@@ -41,34 +43,31 @@ module Network.AWS.CloudWatchEvents.DescribeRule
     , drrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchEvents.Types
-import           Network.AWS.CloudWatchEvents.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchEvents.Types
+import Network.AWS.CloudWatchEvents.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Container for the parameters to the < DescribeRule> operation.
---
--- /See:/ 'describeRule' smart constructor.
+-- | /See:/ 'describeRule' smart constructor.
 newtype DescribeRule = DescribeRule'
-    { _desName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRule' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desName'
+-- * 'desName' - The name of the rule.
 describeRule
     :: Text -- ^ 'desName'
     -> DescribeRule
-describeRule pName_ =
-    DescribeRule'
-    { _desName = pName_
-    }
+describeRule pName_ = DescribeRule' {_desName = pName_}
 
--- | The name of the rule you want to describe details for.
+
+-- | The name of the rule.
 desName :: Lens' DescribeRule Text
 desName = lens _desName (\ s a -> s{_desName = a});
 
@@ -87,9 +86,9 @@ instance AWSRequest DescribeRule where
                      <*> (x .?> "RoleArn")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeRule
+instance Hashable DescribeRule where
 
-instance NFData DescribeRule
+instance NFData DescribeRule where
 
 instance ToHeaders DescribeRule where
         toHeaders
@@ -110,55 +109,55 @@ instance ToPath DescribeRule where
 instance ToQuery DescribeRule where
         toQuery = const mempty
 
--- | The result of the < DescribeRule> operation.
---
--- /See:/ 'describeRuleResponse' smart constructor.
+-- | /See:/ 'describeRuleResponse' smart constructor.
 data DescribeRuleResponse = DescribeRuleResponse'
-    { _drrsEventPattern       :: !(Maybe Text)
-    , _drrsState              :: !(Maybe RuleState)
-    , _drrsARN                :: !(Maybe Text)
-    , _drrsScheduleExpression :: !(Maybe Text)
-    , _drrsName               :: !(Maybe Text)
-    , _drrsDescription        :: !(Maybe Text)
-    , _drrsRoleARN            :: !(Maybe Text)
-    , _drrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drrsEventPattern       :: !(Maybe Text)
+  , _drrsState              :: !(Maybe RuleState)
+  , _drrsARN                :: !(Maybe Text)
+  , _drrsScheduleExpression :: !(Maybe Text)
+  , _drrsName               :: !(Maybe Text)
+  , _drrsDescription        :: !(Maybe Text)
+  , _drrsRoleARN            :: !(Maybe Text)
+  , _drrsResponseStatus     :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRuleResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drrsEventPattern'
+-- * 'drrsEventPattern' - The event pattern. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
 --
--- * 'drrsState'
+-- * 'drrsState' - Specifies whether the rule is enabled or disabled.
 --
--- * 'drrsARN'
+-- * 'drrsARN' - The Amazon Resource Name (ARN) of the rule.
 --
--- * 'drrsScheduleExpression'
+-- * 'drrsScheduleExpression' - The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
 --
--- * 'drrsName'
+-- * 'drrsName' - The name of the rule.
 --
--- * 'drrsDescription'
+-- * 'drrsDescription' - The description of the rule.
 --
--- * 'drrsRoleARN'
+-- * 'drrsRoleARN' - The Amazon Resource Name (ARN) of the IAM role associated with the rule.
 --
--- * 'drrsResponseStatus'
+-- * 'drrsResponseStatus' - -- | The response status code.
 describeRuleResponse
     :: Int -- ^ 'drrsResponseStatus'
     -> DescribeRuleResponse
 describeRuleResponse pResponseStatus_ =
-    DescribeRuleResponse'
-    { _drrsEventPattern = Nothing
-    , _drrsState = Nothing
-    , _drrsARN = Nothing
-    , _drrsScheduleExpression = Nothing
-    , _drrsName = Nothing
-    , _drrsDescription = Nothing
-    , _drrsRoleARN = Nothing
-    , _drrsResponseStatus = pResponseStatus_
-    }
+  DescribeRuleResponse'
+  { _drrsEventPattern = Nothing
+  , _drrsState = Nothing
+  , _drrsARN = Nothing
+  , _drrsScheduleExpression = Nothing
+  , _drrsName = Nothing
+  , _drrsDescription = Nothing
+  , _drrsRoleARN = Nothing
+  , _drrsResponseStatus = pResponseStatus_
+  }
 
--- | The event pattern.
+
+-- | The event pattern. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
 drrsEventPattern :: Lens' DescribeRuleResponse (Maybe Text)
 drrsEventPattern = lens _drrsEventPattern (\ s a -> s{_drrsEventPattern = a});
 
@@ -166,19 +165,19 @@ drrsEventPattern = lens _drrsEventPattern (\ s a -> s{_drrsEventPattern = a});
 drrsState :: Lens' DescribeRuleResponse (Maybe RuleState)
 drrsState = lens _drrsState (\ s a -> s{_drrsState = a});
 
--- | The Amazon Resource Name (ARN) associated with the rule.
+-- | The Amazon Resource Name (ARN) of the rule.
 drrsARN :: Lens' DescribeRuleResponse (Maybe Text)
 drrsARN = lens _drrsARN (\ s a -> s{_drrsARN = a});
 
--- | The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5 minutes)\".
+-- | The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
 drrsScheduleExpression :: Lens' DescribeRuleResponse (Maybe Text)
 drrsScheduleExpression = lens _drrsScheduleExpression (\ s a -> s{_drrsScheduleExpression = a});
 
--- | The rule\'s name.
+-- | The name of the rule.
 drrsName :: Lens' DescribeRuleResponse (Maybe Text)
 drrsName = lens _drrsName (\ s a -> s{_drrsName = a});
 
--- | The rule\'s description.
+-- | The description of the rule.
 drrsDescription :: Lens' DescribeRuleResponse (Maybe Text)
 drrsDescription = lens _drrsDescription (\ s a -> s{_drrsDescription = a});
 
@@ -186,8 +185,8 @@ drrsDescription = lens _drrsDescription (\ s a -> s{_drrsDescription = a});
 drrsRoleARN :: Lens' DescribeRuleResponse (Maybe Text)
 drrsRoleARN = lens _drrsRoleARN (\ s a -> s{_drrsRoleARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drrsResponseStatus :: Lens' DescribeRuleResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
 
-instance NFData DescribeRuleResponse
+instance NFData DescribeRuleResponse where

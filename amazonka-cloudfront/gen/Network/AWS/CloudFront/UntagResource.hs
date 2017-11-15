@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.UntagResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Remove tags from a CloudFront resource.
+--
+--
 module Network.AWS.CloudFront.UntagResource
     (
     -- * Creating a Request
@@ -33,43 +35,44 @@ module Network.AWS.CloudFront.UntagResource
     , UntagResourceResponse
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to remove tags from a CloudFront resource.
 --
+--
+--
 -- /See:/ 'untagResource' smart constructor.
 data UntagResource = UntagResource'
-    { _urResource :: !Text
-    , _urTagKeys  :: !TagKeys
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urResource :: !Text
+  , _urTagKeys  :: !TagKeys
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urResource'
+-- * 'urResource' - An ARN of a CloudFront resource.
 --
--- * 'urTagKeys'
+-- * 'urTagKeys' - A complex type that contains zero or more @Tag@ key elements.
 untagResource
     :: Text -- ^ 'urResource'
     -> TagKeys -- ^ 'urTagKeys'
     -> UntagResource
 untagResource pResource_ pTagKeys_ =
-    UntagResource'
-    { _urResource = pResource_
-    , _urTagKeys = pTagKeys_
-    }
+  UntagResource' {_urResource = pResource_, _urTagKeys = pTagKeys_}
+
 
 -- | An ARN of a CloudFront resource.
 urResource :: Lens' UntagResource Text
 urResource = lens _urResource (\ s a -> s{_urResource = a});
 
--- | A complex type that contains zero or more Tag key elements.
+-- | A complex type that contains zero or more @Tag@ key elements.
 urTagKeys :: Lens' UntagResource TagKeys
 urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a});
 
@@ -78,14 +81,14 @@ instance AWSRequest UntagResource where
         request = postXML cloudFront
         response = receiveNull UntagResourceResponse'
 
-instance Hashable UntagResource
+instance Hashable UntagResource where
 
-instance NFData UntagResource
+instance NFData UntagResource where
 
 instance ToElement UntagResource where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-09-07/}TagKeys"
+              "{http://cloudfront.amazonaws.com/doc/2017-03-25/}TagKeys"
               .
               _urTagKeys
 
@@ -93,7 +96,7 @@ instance ToHeaders UntagResource where
         toHeaders = const mempty
 
 instance ToPath UntagResource where
-        toPath = const "/2016-09-07/tagging"
+        toPath = const "/2017-03-25/tagging"
 
 instance ToQuery UntagResource where
         toQuery UntagResource'{..}
@@ -102,8 +105,9 @@ instance ToQuery UntagResource where
 
 -- | /See:/ 'untagResourceResponse' smart constructor.
 data UntagResourceResponse =
-    UntagResourceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UntagResourceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.
 --
@@ -111,4 +115,5 @@ untagResourceResponse
     :: UntagResourceResponse
 untagResourceResponse = UntagResourceResponse'
 
-instance NFData UntagResourceResponse
+
+instance NFData UntagResourceResponse where

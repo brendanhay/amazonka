@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.SES.GetIdentityMailFromDomainAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the custom MAIL FROM attributes for a list of identities (email addresses and\/or domains).
+-- Returns the custom MAIL FROM attributes for a list of identities (email addresses : domains).
 --
--- This action is throttled at one request per second and can only get custom MAIL FROM attributes for up to 100 identities at a time.
+--
+-- This operation is throttled at one request per second and can only get custom MAIL FROM attributes for up to 100 identities at a time.
+--
 module Network.AWS.SES.GetIdentityMailFromDomainAttributes
     (
     -- * Creating a Request
@@ -37,38 +39,41 @@ module Network.AWS.SES.GetIdentityMailFromDomainAttributes
     , gimfdarsMailFromDomainAttributes
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
--- | Represents a request to return the Amazon SES custom MAIL FROM attributes for a list of identities. For information about using a custom MAIL FROM domain, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide>.
+-- | Represents a request to return the Amazon SES custom MAIL FROM attributes for a list of identities. For information about using a custom MAIL FROM domain, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'getIdentityMailFromDomainAttributes' smart constructor.
 newtype GetIdentityMailFromDomainAttributes = GetIdentityMailFromDomainAttributes'
-    { _gimfdaIdentities :: [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gimfdaIdentities :: [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIdentityMailFromDomainAttributes' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gimfdaIdentities'
+-- * 'gimfdaIdentities' - A list of one or more identities.
 getIdentityMailFromDomainAttributes
     :: GetIdentityMailFromDomainAttributes
 getIdentityMailFromDomainAttributes =
-    GetIdentityMailFromDomainAttributes'
-    { _gimfdaIdentities = mempty
-    }
+  GetIdentityMailFromDomainAttributes' {_gimfdaIdentities = mempty}
+
 
 -- | A list of one or more identities.
 gimfdaIdentities :: Lens' GetIdentityMailFromDomainAttributes [Text]
 gimfdaIdentities = lens _gimfdaIdentities (\ s a -> s{_gimfdaIdentities = a}) . _Coerce;
 
 instance AWSRequest
-         GetIdentityMailFromDomainAttributes where
+           GetIdentityMailFromDomainAttributes
+         where
         type Rs GetIdentityMailFromDomainAttributes =
              GetIdentityMailFromDomainAttributesResponse
         request = postQuery ses
@@ -82,11 +87,14 @@ instance AWSRequest
                         parseXMLMap "entry" "key" "value"))
 
 instance Hashable GetIdentityMailFromDomainAttributes
+         where
 
 instance NFData GetIdentityMailFromDomainAttributes
+         where
 
 instance ToHeaders
-         GetIdentityMailFromDomainAttributes where
+           GetIdentityMailFromDomainAttributes
+         where
         toHeaders = const mempty
 
 instance ToPath GetIdentityMailFromDomainAttributes
@@ -106,29 +114,33 @@ instance ToQuery GetIdentityMailFromDomainAttributes
 
 -- | Represents the custom MAIL FROM attributes for a list of identities.
 --
+--
+--
 -- /See:/ 'getIdentityMailFromDomainAttributesResponse' smart constructor.
 data GetIdentityMailFromDomainAttributesResponse = GetIdentityMailFromDomainAttributesResponse'
-    { _gimfdarsResponseStatus           :: !Int
-    , _gimfdarsMailFromDomainAttributes :: !(Map Text IdentityMailFromDomainAttributes)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gimfdarsResponseStatus :: !Int
+  , _gimfdarsMailFromDomainAttributes :: !(Map Text IdentityMailFromDomainAttributes)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIdentityMailFromDomainAttributesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gimfdarsResponseStatus'
+-- * 'gimfdarsResponseStatus' - -- | The response status code.
 --
--- * 'gimfdarsMailFromDomainAttributes'
+-- * 'gimfdarsMailFromDomainAttributes' - A map of identities to custom MAIL FROM attributes.
 getIdentityMailFromDomainAttributesResponse
     :: Int -- ^ 'gimfdarsResponseStatus'
     -> GetIdentityMailFromDomainAttributesResponse
 getIdentityMailFromDomainAttributesResponse pResponseStatus_ =
-    GetIdentityMailFromDomainAttributesResponse'
-    { _gimfdarsResponseStatus = pResponseStatus_
-    , _gimfdarsMailFromDomainAttributes = mempty
-    }
+  GetIdentityMailFromDomainAttributesResponse'
+  { _gimfdarsResponseStatus = pResponseStatus_
+  , _gimfdarsMailFromDomainAttributes = mempty
+  }
 
--- | The response status code.
+
+-- | -- | The response status code.
 gimfdarsResponseStatus :: Lens' GetIdentityMailFromDomainAttributesResponse Int
 gimfdarsResponseStatus = lens _gimfdarsResponseStatus (\ s a -> s{_gimfdarsResponseStatus = a});
 
@@ -137,4 +149,5 @@ gimfdarsMailFromDomainAttributes :: Lens' GetIdentityMailFromDomainAttributesRes
 gimfdarsMailFromDomainAttributes = lens _gimfdarsMailFromDomainAttributes (\ s a -> s{_gimfdarsMailFromDomainAttributes = a}) . _Map;
 
 instance NFData
-         GetIdentityMailFromDomainAttributesResponse
+           GetIdentityMailFromDomainAttributesResponse
+         where

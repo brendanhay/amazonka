@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.GlobalSignOut
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Signs out users from all devices.
+--
+--
 module Network.AWS.CognitoIdentityProvider.GlobalSignOut
     (
     -- * Creating a Request
@@ -34,35 +36,38 @@ module Network.AWS.CognitoIdentityProvider.GlobalSignOut
     , gsorsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to sign out all devices.
 --
+--
+--
 -- /See:/ 'globalSignOut' smart constructor.
 newtype GlobalSignOut = GlobalSignOut'
-    { _gsoAccessToken :: Maybe (Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsoAccessToken :: Sensitive Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GlobalSignOut' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsoAccessToken'
+-- * 'gsoAccessToken' - The access token.
 globalSignOut
-    :: GlobalSignOut
-globalSignOut =
-    GlobalSignOut'
-    { _gsoAccessToken = Nothing
-    }
+    :: Text -- ^ 'gsoAccessToken'
+    -> GlobalSignOut
+globalSignOut pAccessToken_ =
+  GlobalSignOut' {_gsoAccessToken = _Sensitive # pAccessToken_}
+
 
 -- | The access token.
-gsoAccessToken :: Lens' GlobalSignOut (Maybe Text)
-gsoAccessToken = lens _gsoAccessToken (\ s a -> s{_gsoAccessToken = a}) . mapping _Sensitive;
+gsoAccessToken :: Lens' GlobalSignOut Text
+gsoAccessToken = lens _gsoAccessToken (\ s a -> s{_gsoAccessToken = a}) . _Sensitive;
 
 instance AWSRequest GlobalSignOut where
         type Rs GlobalSignOut = GlobalSignOutResponse
@@ -72,9 +77,9 @@ instance AWSRequest GlobalSignOut where
               (\ s h x ->
                  GlobalSignOutResponse' <$> (pure (fromEnum s)))
 
-instance Hashable GlobalSignOut
+instance Hashable GlobalSignOut where
 
-instance NFData GlobalSignOut
+instance NFData GlobalSignOut where
 
 instance ToHeaders GlobalSignOut where
         toHeaders
@@ -89,7 +94,7 @@ instance ToHeaders GlobalSignOut where
 instance ToJSON GlobalSignOut where
         toJSON GlobalSignOut'{..}
           = object
-              (catMaybes [("AccessToken" .=) <$> _gsoAccessToken])
+              (catMaybes [Just ("AccessToken" .= _gsoAccessToken)])
 
 instance ToPath GlobalSignOut where
         toPath = const "/"
@@ -99,26 +104,28 @@ instance ToQuery GlobalSignOut where
 
 -- | The response to the request to sign out all devices.
 --
+--
+--
 -- /See:/ 'globalSignOutResponse' smart constructor.
 newtype GlobalSignOutResponse = GlobalSignOutResponse'
-    { _gsorsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsorsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GlobalSignOutResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsorsResponseStatus'
+-- * 'gsorsResponseStatus' - -- | The response status code.
 globalSignOutResponse
     :: Int -- ^ 'gsorsResponseStatus'
     -> GlobalSignOutResponse
 globalSignOutResponse pResponseStatus_ =
-    GlobalSignOutResponse'
-    { _gsorsResponseStatus = pResponseStatus_
-    }
+  GlobalSignOutResponse' {_gsorsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 gsorsResponseStatus :: Lens' GlobalSignOutResponse Int
 gsorsResponseStatus = lens _gsorsResponseStatus (\ s a -> s{_gsorsResponseStatus = a});
 
-instance NFData GlobalSignOutResponse
+instance NFData GlobalSignOutResponse where

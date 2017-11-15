@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListThingTypes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the existing thing types.
+--
+--
+--
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListThingTypes
     (
     -- * Creating a Request
@@ -38,39 +42,44 @@ module Network.AWS.IoT.ListThingTypes
     , lttrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the ListThingTypes operation.
 --
+--
+--
 -- /See:/ 'listThingTypes' smart constructor.
 data ListThingTypes = ListThingTypes'
-    { _lttThingTypeName :: !(Maybe Text)
-    , _lttNextToken     :: !(Maybe Text)
-    , _lttMaxResults    :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lttThingTypeName :: !(Maybe Text)
+  , _lttNextToken     :: !(Maybe Text)
+  , _lttMaxResults    :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListThingTypes' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lttThingTypeName'
+-- * 'lttThingTypeName' - The name of the thing type.
 --
--- * 'lttNextToken'
+-- * 'lttNextToken' - The token for the next set of results, or __null__ if there are no additional results.
 --
--- * 'lttMaxResults'
+-- * 'lttMaxResults' - The maximum number of results to return in this operation.
 listThingTypes
     :: ListThingTypes
 listThingTypes =
-    ListThingTypes'
-    { _lttThingTypeName = Nothing
-    , _lttNextToken = Nothing
-    , _lttMaxResults = Nothing
-    }
+  ListThingTypes'
+  { _lttThingTypeName = Nothing
+  , _lttNextToken = Nothing
+  , _lttMaxResults = Nothing
+  }
+
 
 -- | The name of the thing type.
 lttThingTypeName :: Lens' ListThingTypes (Maybe Text)
@@ -84,6 +93,13 @@ lttNextToken = lens _lttNextToken (\ s a -> s{_lttNextToken = a});
 lttMaxResults :: Lens' ListThingTypes (Maybe Natural)
 lttMaxResults = lens _lttMaxResults (\ s a -> s{_lttMaxResults = a}) . mapping _Nat;
 
+instance AWSPager ListThingTypes where
+        page rq rs
+          | stop (rs ^. lttrsNextToken) = Nothing
+          | stop (rs ^. lttrsThingTypes) = Nothing
+          | otherwise =
+            Just $ rq & lttNextToken .~ rs ^. lttrsNextToken
+
 instance AWSRequest ListThingTypes where
         type Rs ListThingTypes = ListThingTypesResponse
         request = get ioT
@@ -95,9 +111,9 @@ instance AWSRequest ListThingTypes where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListThingTypes
+instance Hashable ListThingTypes where
 
-instance NFData ListThingTypes
+instance NFData ListThingTypes where
 
 instance ToHeaders ListThingTypes where
         toHeaders = const mempty
@@ -114,31 +130,35 @@ instance ToQuery ListThingTypes where
 
 -- | The output for the ListThingTypes operation.
 --
+--
+--
 -- /See:/ 'listThingTypesResponse' smart constructor.
 data ListThingTypesResponse = ListThingTypesResponse'
-    { _lttrsThingTypes     :: !(Maybe [ThingTypeDefinition])
-    , _lttrsNextToken      :: !(Maybe Text)
-    , _lttrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lttrsThingTypes     :: !(Maybe [ThingTypeDefinition])
+  , _lttrsNextToken      :: !(Maybe Text)
+  , _lttrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListThingTypesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lttrsThingTypes'
+-- * 'lttrsThingTypes' - The thing types.
 --
--- * 'lttrsNextToken'
+-- * 'lttrsNextToken' - The token for the next set of results, or __null__ if there are no additional results.
 --
--- * 'lttrsResponseStatus'
+-- * 'lttrsResponseStatus' - -- | The response status code.
 listThingTypesResponse
     :: Int -- ^ 'lttrsResponseStatus'
     -> ListThingTypesResponse
 listThingTypesResponse pResponseStatus_ =
-    ListThingTypesResponse'
-    { _lttrsThingTypes = Nothing
-    , _lttrsNextToken = Nothing
-    , _lttrsResponseStatus = pResponseStatus_
-    }
+  ListThingTypesResponse'
+  { _lttrsThingTypes = Nothing
+  , _lttrsNextToken = Nothing
+  , _lttrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The thing types.
 lttrsThingTypes :: Lens' ListThingTypesResponse [ThingTypeDefinition]
@@ -148,8 +168,8 @@ lttrsThingTypes = lens _lttrsThingTypes (\ s a -> s{_lttrsThingTypes = a}) . _De
 lttrsNextToken :: Lens' ListThingTypesResponse (Maybe Text)
 lttrsNextToken = lens _lttrsNextToken (\ s a -> s{_lttrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lttrsResponseStatus :: Lens' ListThingTypesResponse Int
 lttrsResponseStatus = lens _lttrsResponseStatus (\ s a -> s{_lttrsResponseStatus = a});
 
-instance NFData ListThingTypesResponse
+instance NFData ListThingTypesResponse where

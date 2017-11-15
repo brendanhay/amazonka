@@ -12,25 +12,32 @@
 
 -- |
 -- Module      : Network.AWS.Route53.CreateHealthCheck
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new health check.
 --
--- To create a new health check, send a 'POST' request to the '\/2013-04-01\/healthcheck' resource. The request body must include an XML document with a 'CreateHealthCheckRequest' element. The response returns the 'CreateHealthCheckResponse' element, containing the health check ID specified when adding health check to a resource record set. For information about adding health checks to resource record sets, see < ResourceRecordSet>HealthCheckId> in < ChangeResourceRecordSets>.
 --
--- If you are registering Amazon EC2 instances with an Elastic Load Balancing (ELB) load balancer, do not create Amazon Route 53 health checks for the Amazon EC2 instances. When you register an Amazon EC2 instance with a load balancer, you configure settings for an ELB health check, which performs a similar function to an Amazon Route 53 health check.
+-- For information about adding health checks to resource record sets, see 'ResourceRecordSet$HealthCheckId' in 'ChangeResourceRecordSets' .
+--
+-- __ELB Load Balancers__
+--
+-- If you're registering EC2 instances with an Elastic Load Balancing (ELB) load balancer, do not create Amazon Route 53 health checks for the EC2 instances. When you register an EC2 instance with a load balancer, you configure settings for an ELB health check, which performs a similar function to an Amazon Route 53 health check.
+--
+-- __Private Hosted Zones__
 --
 -- You can associate health checks with failover resource record sets in a private hosted zone. Note the following:
 --
--- -   Amazon Route 53 health checkers are outside the VPC. To check the health of an endpoint within a VPC by IP address, you must assign a public IP address to the instance in the VPC.
+--     * Amazon Route 53 health checkers are outside the VPC. To check the health of an endpoint within a VPC by IP address, you must assign a public IP address to the instance in the VPC.
 --
--- -   You can configure a health checker to check the health of an external resource that the instance relies on, such as a database server.
+--     * You can configure a health checker to check the health of an external resource that the instance relies on, such as a database server.
 --
--- -   You can create a CloudWatch metric, associate an alarm with the metric, and then create a health check that is based on the state of the alarm. For example, you might create a CloudWatch metric that checks the status of the Amazon EC2 'StatusCheckFailed' metric, add an alarm to the metric, and then create a health check that is based on the state of the alarm. For information about creating CloudWatch metrics and alarms by using the CloudWatch console, see the <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html Amazon CloudWatch Developer Guide>.
+--     * You can create a CloudWatch metric, associate an alarm with the metric, and then create a health check that is based on the state of the alarm. For example, you might create a CloudWatch metric that checks the status of the Amazon EC2 @StatusCheckFailed@ metric, add an alarm to the metric, and then create a health check that is based on the state of the alarm. For information about creating CloudWatch metrics and alarms by using the CloudWatch console, see the <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html Amazon CloudWatch User Guide> .
+--
+--
 --
 module Network.AWS.Route53.CreateHealthCheck
     (
@@ -50,43 +57,47 @@ module Network.AWS.Route53.CreateHealthCheck
     , chcrsLocation
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains the health check request information.
 --
+--
+--
 -- /See:/ 'createHealthCheck' smart constructor.
 data CreateHealthCheck = CreateHealthCheck'
-    { _chcCallerReference   :: !Text
-    , _chcHealthCheckConfig :: !HealthCheckConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chcCallerReference   :: !Text
+  , _chcHealthCheckConfig :: !HealthCheckConfig
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHealthCheck' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'chcCallerReference'
+-- * 'chcCallerReference' - A unique string that identifies the request and that allows you to retry a failed @CreateHealthCheck@ request without the risk of creating two identical health checks:     * If you send a @CreateHealthCheck@ request with the same @CallerReference@ and settings as a previous request, and if the health check doesn't exist, Amazon Route 53 creates the health check. If the health check does exist, Amazon Route 53 returns the settings for the existing health check.     * If you send a @CreateHealthCheck@ request with the same @CallerReference@ as a deleted health check, regardless of the settings, Amazon Route 53 returns a @HealthCheckAlreadyExists@ error.     * If you send a @CreateHealthCheck@ request with the same @CallerReference@ as an existing health check but with different settings, Amazon Route 53 returns a @HealthCheckAlreadyExists@ error.     * If you send a @CreateHealthCheck@ request with a unique @CallerReference@ but settings identical to an existing health check, Amazon Route 53 creates the health check.
 --
--- * 'chcHealthCheckConfig'
+-- * 'chcHealthCheckConfig' - A complex type that contains the response to a @CreateHealthCheck@ request.
 createHealthCheck
     :: Text -- ^ 'chcCallerReference'
     -> HealthCheckConfig -- ^ 'chcHealthCheckConfig'
     -> CreateHealthCheck
 createHealthCheck pCallerReference_ pHealthCheckConfig_ =
-    CreateHealthCheck'
-    { _chcCallerReference = pCallerReference_
-    , _chcHealthCheckConfig = pHealthCheckConfig_
-    }
+  CreateHealthCheck'
+  { _chcCallerReference = pCallerReference_
+  , _chcHealthCheckConfig = pHealthCheckConfig_
+  }
 
--- | A unique string that identifies the request and that allows failed 'CreateHealthCheck' requests to be retried without the risk of executing the operation twice. You must use a unique 'CallerReference' string every time you create a health check.
+
+-- | A unique string that identifies the request and that allows you to retry a failed @CreateHealthCheck@ request without the risk of creating two identical health checks:     * If you send a @CreateHealthCheck@ request with the same @CallerReference@ and settings as a previous request, and if the health check doesn't exist, Amazon Route 53 creates the health check. If the health check does exist, Amazon Route 53 returns the settings for the existing health check.     * If you send a @CreateHealthCheck@ request with the same @CallerReference@ as a deleted health check, regardless of the settings, Amazon Route 53 returns a @HealthCheckAlreadyExists@ error.     * If you send a @CreateHealthCheck@ request with the same @CallerReference@ as an existing health check but with different settings, Amazon Route 53 returns a @HealthCheckAlreadyExists@ error.     * If you send a @CreateHealthCheck@ request with a unique @CallerReference@ but settings identical to an existing health check, Amazon Route 53 creates the health check.
 chcCallerReference :: Lens' CreateHealthCheck Text
 chcCallerReference = lens _chcCallerReference (\ s a -> s{_chcCallerReference = a});
 
--- | A complex type that contains the response to a 'CreateHealthCheck' request.
+-- | A complex type that contains the response to a @CreateHealthCheck@ request.
 chcHealthCheckConfig :: Lens' CreateHealthCheck HealthCheckConfig
 chcHealthCheckConfig = lens _chcHealthCheckConfig (\ s a -> s{_chcHealthCheckConfig = a});
 
@@ -100,9 +111,9 @@ instance AWSRequest CreateHealthCheck where
                    (pure (fromEnum s)) <*> (x .@ "HealthCheck") <*>
                      (h .# "Location"))
 
-instance Hashable CreateHealthCheck
+instance Hashable CreateHealthCheck where
 
-instance NFData CreateHealthCheck
+instance NFData CreateHealthCheck where
 
 instance ToElement CreateHealthCheck where
         toElement
@@ -126,35 +137,39 @@ instance ToXML CreateHealthCheck where
 
 -- | A complex type containing the response information for the new health check.
 --
+--
+--
 -- /See:/ 'createHealthCheckResponse' smart constructor.
 data CreateHealthCheckResponse = CreateHealthCheckResponse'
-    { _chcrsResponseStatus :: !Int
-    , _chcrsHealthCheck    :: !HealthCheck
-    , _chcrsLocation       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chcrsResponseStatus :: !Int
+  , _chcrsHealthCheck    :: !HealthCheck
+  , _chcrsLocation       :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHealthCheckResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'chcrsResponseStatus'
+-- * 'chcrsResponseStatus' - -- | The response status code.
 --
--- * 'chcrsHealthCheck'
+-- * 'chcrsHealthCheck' - A complex type that contains identifying information about the health check.
 --
--- * 'chcrsLocation'
+-- * 'chcrsLocation' - The unique URL representing the new health check.
 createHealthCheckResponse
     :: Int -- ^ 'chcrsResponseStatus'
     -> HealthCheck -- ^ 'chcrsHealthCheck'
     -> Text -- ^ 'chcrsLocation'
     -> CreateHealthCheckResponse
 createHealthCheckResponse pResponseStatus_ pHealthCheck_ pLocation_ =
-    CreateHealthCheckResponse'
-    { _chcrsResponseStatus = pResponseStatus_
-    , _chcrsHealthCheck = pHealthCheck_
-    , _chcrsLocation = pLocation_
-    }
+  CreateHealthCheckResponse'
+  { _chcrsResponseStatus = pResponseStatus_
+  , _chcrsHealthCheck = pHealthCheck_
+  , _chcrsLocation = pLocation_
+  }
 
--- | The response status code.
+
+-- | -- | The response status code.
 chcrsResponseStatus :: Lens' CreateHealthCheckResponse Int
 chcrsResponseStatus = lens _chcrsResponseStatus (\ s a -> s{_chcrsResponseStatus = a});
 
@@ -166,4 +181,4 @@ chcrsHealthCheck = lens _chcrsHealthCheck (\ s a -> s{_chcrsHealthCheck = a});
 chcrsLocation :: Lens' CreateHealthCheckResponse Text
 chcrsLocation = lens _chcrsLocation (\ s a -> s{_chcrsLocation = a});
 
-instance NFData CreateHealthCheckResponse
+instance NFData CreateHealthCheckResponse where

@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.CreateAddress
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an address for a Snowball to be shipped to.
+-- Creates an address for a Snowball to be shipped to. In most regions, addresses are validated at the time of creation. The address you provide must be located within the serviceable area of your region. If the address is invalid or unsupported, then an exception is thrown.
 --
--- Addresses are validated at the time of creation. The address you provide must be located within the serviceable area of your region. If the address is invalid or unsupported, then an exception is thrown.
+--
 module Network.AWS.Snowball.CreateAddress
     (
     -- * Creating a Request
@@ -37,30 +37,29 @@ module Network.AWS.Snowball.CreateAddress
     , carsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Snowball.Types
-import           Network.AWS.Snowball.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Snowball.Types
+import Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'createAddress' smart constructor.
 newtype CreateAddress = CreateAddress'
-    { _caAddress :: Address
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _caAddress :: Address
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAddress' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caAddress'
+-- * 'caAddress' - The address that you want the Snowball shipped to.
 createAddress
     :: Address -- ^ 'caAddress'
     -> CreateAddress
-createAddress pAddress_ =
-    CreateAddress'
-    { _caAddress = pAddress_
-    }
+createAddress pAddress_ = CreateAddress' {_caAddress = pAddress_}
+
 
 -- | The address that you want the Snowball shipped to.
 caAddress :: Lens' CreateAddress Address
@@ -75,9 +74,9 @@ instance AWSRequest CreateAddress where
                  CreateAddressResponse' <$>
                    (x .?> "AddressId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateAddress
+instance Hashable CreateAddress where
 
-instance NFData CreateAddress
+instance NFData CreateAddress where
 
 instance ToHeaders CreateAddress where
         toHeaders
@@ -101,32 +100,32 @@ instance ToQuery CreateAddress where
 
 -- | /See:/ 'createAddressResponse' smart constructor.
 data CreateAddressResponse = CreateAddressResponse'
-    { _carsAddressId      :: !(Maybe Text)
-    , _carsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _carsAddressId      :: !(Maybe Text)
+  , _carsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAddressResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'carsAddressId'
+-- * 'carsAddressId' - The automatically generated ID for a specific address. You'll use this ID when you create a job to specify which address you want the Snowball for that job shipped to.
 --
--- * 'carsResponseStatus'
+-- * 'carsResponseStatus' - -- | The response status code.
 createAddressResponse
     :: Int -- ^ 'carsResponseStatus'
     -> CreateAddressResponse
 createAddressResponse pResponseStatus_ =
-    CreateAddressResponse'
-    { _carsAddressId = Nothing
-    , _carsResponseStatus = pResponseStatus_
-    }
+  CreateAddressResponse'
+  {_carsAddressId = Nothing, _carsResponseStatus = pResponseStatus_}
 
--- | The automatically generated ID for a specific address. You\'ll use this ID when you create a job to specify which address you want the Snowball for that job shipped to.
+
+-- | The automatically generated ID for a specific address. You'll use this ID when you create a job to specify which address you want the Snowball for that job shipped to.
 carsAddressId :: Lens' CreateAddressResponse (Maybe Text)
 carsAddressId = lens _carsAddressId (\ s a -> s{_carsAddressId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 carsResponseStatus :: Lens' CreateAddressResponse Int
 carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
 
-instance NFData CreateAddressResponse
+instance NFData CreateAddressResponse where

@@ -14,9 +14,9 @@
 
 -- |
 -- Module      : Network.AWS.Sign.V4.Chunked
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
@@ -24,22 +24,28 @@ module Network.AWS.Sign.V4.Chunked
     ( chunked
     ) where
 
-import           Control.Applicative
-import qualified Data.ByteString             as BS
-import           Data.ByteString.Builder
-import qualified Data.ByteString.Char8       as BS8
-import           Data.Conduit
-import           Data.Maybe
-import           Data.Monoid
-import           Network.AWS.Data.Body
-import           Network.AWS.Data.ByteString
-import           Network.AWS.Data.Crypto
-import           Network.AWS.Data.Headers
-import           Network.AWS.Data.Time
-import           Network.AWS.Lens            ((<>~))
-import           Network.AWS.Sign.V4.Base    hiding (algorithm)
-import           Network.AWS.Types
-import           Network.HTTP.Types.Header
+import Control.Applicative
+
+import Data.ByteString.Builder
+import Data.Conduit
+import Data.Maybe
+import Data.Monoid
+
+import Network.AWS.Data.Body
+import Network.AWS.Data.ByteString
+import Network.AWS.Data.Crypto
+import Network.AWS.Data.Headers
+import Network.AWS.Data.Sensitive  (_Sensitive)
+import Network.AWS.Data.Time
+import Network.AWS.Lens            ((<>~), (^.))
+import Network.AWS.Sign.V4.Base    hiding (algorithm)
+import Network.AWS.Types
+import Network.HTTP.Types.Header
+
+import Numeric (showHex)
+
+import qualified Data.ByteString       as BS
+import qualified Data.ByteString.Char8 as BS8
 
 default (Builder, Integer)
 
@@ -73,7 +79,7 @@ chunked c rq a r ts = signRequest meta (toRequestBody body) auth
         <> byteString crlf
 
     chunkSignature prev x =
-        signature (_authSecret a) scope (chunkStringToSign prev x)
+        signature (_authSecret a ^. _Sensitive) scope (chunkStringToSign prev x)
 
     chunkStringToSign prev x = Tag $ BS8.intercalate "\n"
         [ algorithm
@@ -104,7 +110,7 @@ metadataLength c =
   where
     chunkLength :: Integral a => a -> Integer
     chunkLength (toInteger -> n) =
-          _chunkedLength c
+          fromIntegral (length (showHex n ""))
         + headerLength
         + signatureLength
         + crlfLength

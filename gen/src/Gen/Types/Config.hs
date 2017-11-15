@@ -18,45 +18,47 @@
 {-# LANGUAGE TypeOperators          #-}
 
 -- Module      : Gen.Types.Config
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
 module Gen.Types.Config where
 
-import           Control.Error
-import           Control.Lens              hiding ((.=))
-import           Data.Aeson
-import           Data.List                 (nub, sort, sortOn)
-import           Data.Monoid               hiding (Product, Sum)
-import           Data.Ord
-import           Data.Text                 (Text)
+import Control.Error
+import Control.Lens  hiding ((.=))
+
+import Data.Aeson
+import Data.List   (sort, sortOn, (\\))
+import Data.Monoid hiding (Product, Sum)
+import Data.Ord
+import Data.Text   (Text)
+import Data.Time
+
+import Formatting
+
+import Gen.Text
+import Gen.TH
+import Gen.Types.Ann
+import Gen.Types.Data
+import Gen.Types.Id
+import Gen.Types.Map
+import Gen.Types.NS
+import Gen.Types.Service
+import Gen.Types.TypeOf
+
+import GHC.Generics (Generic)
+import GHC.TypeLits
+
+import Text.EDE (Template)
+
 import qualified Data.Text.Lazy            as LText
 import qualified Data.Text.Lazy.Builder    as Build
-import           Data.Time
 import qualified Filesystem.Path.CurrentOS as Path
-import           Formatting
-import           Gen.Text
-import           Gen.TH
-import           Gen.Types.Ann
-import           Gen.Types.Data
-import           Gen.Types.Help
-import           Gen.Types.Id
-import           Gen.Types.Map
-import           Gen.Types.NS
-import           Gen.Types.Service
-import           Gen.Types.TypeOf
-import           GHC.Generics              (Generic)
-import           GHC.TypeLits
-import           Text.EDE                  (Template)
-
-uniq :: Ord a => [a] -> [a]
-uniq = sort . nub
 
 type Error = LText.Text
 type Path  = Path.FilePath
@@ -66,7 +68,7 @@ toTextIgnore = either id id . Path.toText
 
 data Replace = Replace
     { _replaceName     :: Id
-    , _replaceDeriving :: [Derive]
+    , _replaceUnderive :: [Derive]
     } deriving (Eq, Show, Generic)
 
 makeLenses ''Replace
@@ -75,8 +77,8 @@ instance FromJSON Replace where
     parseJSON = gParseJSON' (lower & field %~ (. stripPrefix "replace"))
 
 instance TypeOf Replace where
-    typeOf Replace {..} =
-        TType (typeId _replaceName) (uniq (_replaceDeriving <> derivingBase))
+    typeOf Replace{..} =
+        TType (typeId _replaceName) (derivingBase \\ _replaceUnderive)
 
 data Override = Override
     { _renamedTo      :: Maybe Id      -- ^ Rename type
@@ -177,11 +179,10 @@ instance ToJSON Library where
       where
         Object y = toJSON (l ^. metadata)
         Object x = object
-            [ "plainDescription"  .= Desc 0 (l ^. documentation)
-            , "cabalDescription"  .= Desc 4 (l ^. documentation)
-            , "documentation"     .= (l ^. documentation)
+            [ "documentation"     .= (l ^. documentation)
             , "libraryName"       .= (l ^. libraryName)
             , "libraryNamespace"  .= (l ^. libraryNS)
+            , "libraryHyphenated" .= nsHyphenate (l ^. libraryNS)
             , "libraryVersion"    .= (l ^. libraryVersion)
             , "clientVersion"     .= (l ^. clientVersion)
             , "coreVersion"       .= (l ^. coreVersion)
@@ -223,16 +224,20 @@ exposedModules = to f
           : x ^.. operations . each . to (operationNS ns . view opName)
 
 data Templates = Templates
-    { cabalTemplate     :: Template
-    , tocTemplate       :: Template
-    , waitersTemplate   :: Template
-    , readmeTemplate    :: Template
-    , operationTemplate :: Template
-    , typesTemplate     :: Template
-    , sumTemplate       :: Template
-    , productTemplate   :: Template
-    , testsTemplate     :: Template
-    , fixturesTemplate  :: Template
+    { cabalTemplate          :: !Template
+    , tocTemplate            :: !Template
+    , waitersTemplate        :: !Template
+    , readmeTemplate         :: !Template
+    , operationTemplate      :: !Template
+    , typesTemplate          :: !Template
+    , sumTemplate            :: !Template
+    , productTemplate        :: !Template
+    , testMainTemplate       :: !Template
+    , testNamespaceTemplate  :: !Template
+    , testInternalTemplate   :: !Template
+    , fixturesTemplate       :: !Template
+    , fixtureRequestTemplate :: !Template
+    , blankTemplate          :: !Template
     }
 
 data Model = Model

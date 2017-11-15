@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListDevices
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about unique device types.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListDevices
@@ -39,38 +41,38 @@ module Network.AWS.DeviceFarm.ListDevices
     , ldrsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the result of a list devices request.
 --
+--
+--
 -- /See:/ 'listDevices' smart constructor.
 data ListDevices = ListDevices'
-    { _ldArn       :: !(Maybe Text)
-    , _ldNextToken :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldArn       :: !(Maybe Text)
+  , _ldNextToken :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDevices' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldArn'
+-- * 'ldArn' - The Amazon Resource Name (ARN) of the project.
 --
--- * 'ldNextToken'
+-- * 'ldNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 listDevices
     :: ListDevices
-listDevices =
-    ListDevices'
-    { _ldArn = Nothing
-    , _ldNextToken = Nothing
-    }
+listDevices = ListDevices' {_ldArn = Nothing, _ldNextToken = Nothing}
 
--- | The device types\' ARNs.
+
+-- | The Amazon Resource Name (ARN) of the project.
 ldArn :: Lens' ListDevices (Maybe Text)
 ldArn = lens _ldArn (\ s a -> s{_ldArn = a});
 
@@ -95,9 +97,9 @@ instance AWSRequest ListDevices where
                    (x .?> "nextToken") <*> (x .?> "devices" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListDevices
+instance Hashable ListDevices where
 
-instance NFData ListDevices
+instance NFData ListDevices where
 
 instance ToHeaders ListDevices where
         toHeaders
@@ -123,31 +125,35 @@ instance ToQuery ListDevices where
 
 -- | Represents the result of a list devices operation.
 --
+--
+--
 -- /See:/ 'listDevicesResponse' smart constructor.
 data ListDevicesResponse = ListDevicesResponse'
-    { _ldrsNextToken      :: !(Maybe Text)
-    , _ldrsDevices        :: !(Maybe [Device])
-    , _ldrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldrsNextToken      :: !(Maybe Text)
+  , _ldrsDevices        :: !(Maybe [Device])
+  , _ldrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDevicesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldrsNextToken'
+-- * 'ldrsNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 --
--- * 'ldrsDevices'
+-- * 'ldrsDevices' - Information about the devices.
 --
--- * 'ldrsResponseStatus'
+-- * 'ldrsResponseStatus' - -- | The response status code.
 listDevicesResponse
     :: Int -- ^ 'ldrsResponseStatus'
     -> ListDevicesResponse
 listDevicesResponse pResponseStatus_ =
-    ListDevicesResponse'
-    { _ldrsNextToken = Nothing
-    , _ldrsDevices = Nothing
-    , _ldrsResponseStatus = pResponseStatus_
-    }
+  ListDevicesResponse'
+  { _ldrsNextToken = Nothing
+  , _ldrsDevices = Nothing
+  , _ldrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 ldrsNextToken :: Lens' ListDevicesResponse (Maybe Text)
@@ -157,8 +163,8 @@ ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 ldrsDevices :: Lens' ListDevicesResponse [Device]
 ldrsDevices = lens _ldrsDevices (\ s a -> s{_ldrsDevices = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ldrsResponseStatus :: Lens' ListDevicesResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 
-instance NFData ListDevicesResponse
+instance NFData ListDevicesResponse where

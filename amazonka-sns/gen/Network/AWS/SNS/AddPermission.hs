@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.SNS.AddPermission
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a statement to a topic\'s access control policy, granting access for the specified AWS accounts to the specified actions.
+-- Adds a statement to a topic's access control policy, granting access for the specified AWS accounts to the specified actions.
+--
+--
 module Network.AWS.SNS.AddPermission
     (
     -- * Creating a Request
@@ -35,43 +37,45 @@ module Network.AWS.SNS.AddPermission
     , AddPermissionResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | /See:/ 'addPermission' smart constructor.
 data AddPermission = AddPermission'
-    { _apTopicARN     :: !Text
-    , _apLabel        :: !Text
-    , _apAWSAccountId :: ![Text]
-    , _apActionName   :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _apTopicARN     :: !Text
+  , _apLabel        :: !Text
+  , _apAWSAccountId :: ![Text]
+  , _apActionName   :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddPermission' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'apTopicARN'
+-- * 'apTopicARN' - The ARN of the topic whose access control policy you wish to modify.
 --
--- * 'apLabel'
+-- * 'apLabel' - A unique identifier for the new policy statement.
 --
--- * 'apAWSAccountId'
+-- * 'apAWSAccountId' - The AWS account IDs of the users (principals) who will be given access to the specified actions. The users must have AWS accounts, but do not need to be signed up for this service.
 --
--- * 'apActionName'
+-- * 'apActionName' - The action you want to allow for the specified principal(s). Valid values: any Amazon SNS action name.
 addPermission
     :: Text -- ^ 'apTopicARN'
     -> Text -- ^ 'apLabel'
     -> AddPermission
 addPermission pTopicARN_ pLabel_ =
-    AddPermission'
-    { _apTopicARN = pTopicARN_
-    , _apLabel = pLabel_
-    , _apAWSAccountId = mempty
-    , _apActionName = mempty
-    }
+  AddPermission'
+  { _apTopicARN = pTopicARN_
+  , _apLabel = pLabel_
+  , _apAWSAccountId = mempty
+  , _apActionName = mempty
+  }
+
 
 -- | The ARN of the topic whose access control policy you wish to modify.
 apTopicARN :: Lens' AddPermission Text
@@ -85,9 +89,7 @@ apLabel = lens _apLabel (\ s a -> s{_apLabel = a});
 apAWSAccountId :: Lens' AddPermission [Text]
 apAWSAccountId = lens _apAWSAccountId (\ s a -> s{_apAWSAccountId = a}) . _Coerce;
 
--- | The action you want to allow for the specified principal(s).
---
--- Valid values: any Amazon SNS action name.
+-- | The action you want to allow for the specified principal(s). Valid values: any Amazon SNS action name.
 apActionName :: Lens' AddPermission [Text]
 apActionName = lens _apActionName (\ s a -> s{_apActionName = a}) . _Coerce;
 
@@ -96,9 +98,9 @@ instance AWSRequest AddPermission where
         request = postQuery sns
         response = receiveNull AddPermissionResponse'
 
-instance Hashable AddPermission
+instance Hashable AddPermission where
 
-instance NFData AddPermission
+instance NFData AddPermission where
 
 instance ToHeaders AddPermission where
         toHeaders = const mempty
@@ -118,8 +120,9 @@ instance ToQuery AddPermission where
 
 -- | /See:/ 'addPermissionResponse' smart constructor.
 data AddPermissionResponse =
-    AddPermissionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AddPermissionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddPermissionResponse' with the minimum fields required to make a request.
 --
@@ -127,4 +130,5 @@ addPermissionResponse
     :: AddPermissionResponse
 addPermissionResponse = AddPermissionResponse'
 
-instance NFData AddPermissionResponse
+
+instance NFData AddPermissionResponse where

@@ -12,23 +12,26 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeleteAssociation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates the specified SSM document from the specified instance.
+-- Disassociates the specified Systems Manager document from the specified instance.
 --
--- When you disassociate an SSM document from an instance, it does not change the configuration of the instance. To change the configuration state of an instance after you disassociate a document, you must create a new document with the desired configuration and associate it with the instance.
+--
+-- When you disassociate a document from an instance, it does not change the configuration of the instance. To change the configuration state of an instance after you disassociate a document, you must create a new document with the desired configuration and associate it with the instance.
+--
 module Network.AWS.SSM.DeleteAssociation
     (
     -- * Creating a Request
       deleteAssociation
     , DeleteAssociation
     -- * Request Lenses
-    , delName
-    , delInstanceId
+    , daaAssociationId
+    , daaInstanceId
+    , daaName
 
     -- * Destructuring the Response
     , deleteAssociationResponse
@@ -37,43 +40,48 @@ module Network.AWS.SSM.DeleteAssociation
     , delrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'deleteAssociation' smart constructor.
 data DeleteAssociation = DeleteAssociation'
-    { _delName       :: !Text
-    , _delInstanceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daaAssociationId :: !(Maybe Text)
+  , _daaInstanceId    :: !(Maybe Text)
+  , _daaName          :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAssociation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delName'
+-- * 'daaAssociationId' - The association ID that you want to delete.
 --
--- * 'delInstanceId'
+-- * 'daaInstanceId' - The ID of the instance.
+--
+-- * 'daaName' - The name of the Systems Manager document.
 deleteAssociation
-    :: Text -- ^ 'delName'
-    -> Text -- ^ 'delInstanceId'
-    -> DeleteAssociation
-deleteAssociation pName_ pInstanceId_ =
-    DeleteAssociation'
-    { _delName = pName_
-    , _delInstanceId = pInstanceId_
-    }
+    :: DeleteAssociation
+deleteAssociation =
+  DeleteAssociation'
+  {_daaAssociationId = Nothing, _daaInstanceId = Nothing, _daaName = Nothing}
 
--- | The name of the SSM document.
-delName :: Lens' DeleteAssociation Text
-delName = lens _delName (\ s a -> s{_delName = a});
+
+-- | The association ID that you want to delete.
+daaAssociationId :: Lens' DeleteAssociation (Maybe Text)
+daaAssociationId = lens _daaAssociationId (\ s a -> s{_daaAssociationId = a});
 
 -- | The ID of the instance.
-delInstanceId :: Lens' DeleteAssociation Text
-delInstanceId = lens _delInstanceId (\ s a -> s{_delInstanceId = a});
+daaInstanceId :: Lens' DeleteAssociation (Maybe Text)
+daaInstanceId = lens _daaInstanceId (\ s a -> s{_daaInstanceId = a});
+
+-- | The name of the Systems Manager document.
+daaName :: Lens' DeleteAssociation (Maybe Text)
+daaName = lens _daaName (\ s a -> s{_daaName = a});
 
 instance AWSRequest DeleteAssociation where
         type Rs DeleteAssociation = DeleteAssociationResponse
@@ -83,9 +91,9 @@ instance AWSRequest DeleteAssociation where
               (\ s h x ->
                  DeleteAssociationResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteAssociation
+instance Hashable DeleteAssociation where
 
-instance NFData DeleteAssociation
+instance NFData DeleteAssociation where
 
 instance ToHeaders DeleteAssociation where
         toHeaders
@@ -100,8 +108,9 @@ instance ToJSON DeleteAssociation where
         toJSON DeleteAssociation'{..}
           = object
               (catMaybes
-                 [Just ("Name" .= _delName),
-                  Just ("InstanceId" .= _delInstanceId)])
+                 [("AssociationId" .=) <$> _daaAssociationId,
+                  ("InstanceId" .=) <$> _daaInstanceId,
+                  ("Name" .=) <$> _daaName])
 
 instance ToPath DeleteAssociation where
         toPath = const "/"
@@ -111,24 +120,24 @@ instance ToQuery DeleteAssociation where
 
 -- | /See:/ 'deleteAssociationResponse' smart constructor.
 newtype DeleteAssociationResponse = DeleteAssociationResponse'
-    { _delrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAssociationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsResponseStatus'
+-- * 'delrsResponseStatus' - -- | The response status code.
 deleteAssociationResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteAssociationResponse
 deleteAssociationResponse pResponseStatus_ =
-    DeleteAssociationResponse'
-    { _delrsResponseStatus = pResponseStatus_
-    }
+  DeleteAssociationResponse' {_delrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteAssociationResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 
-instance NFData DeleteAssociationResponse
+instance NFData DeleteAssociationResponse where

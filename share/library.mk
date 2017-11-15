@@ -9,3 +9,6 @@ sdist:
 
 upload:
 	cabal upload dist/$(NAME)-$(VERSION).tar.gz
+
+upload-docs:
+	PACKAGE=$(NAME) ../script/hackage-documentation

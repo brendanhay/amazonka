@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketTagging
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,39 +34,38 @@ module Network.AWS.S3.PutBucketTagging
     , PutBucketTaggingResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketTagging' smart constructor.
 data PutBucketTagging = PutBucketTagging'
-    { _pbtContentMD5 :: !(Maybe Text)
-    , _pbtBucket     :: !BucketName
-    , _pbtTagging    :: !Tagging
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pbtContentMD5 :: !(Maybe Text)
+  , _pbtBucket     :: !BucketName
+  , _pbtTagging    :: !Tagging
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketTagging' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbtContentMD5'
+-- * 'pbtContentMD5' - Undocumented member.
 --
--- * 'pbtBucket'
+-- * 'pbtBucket' - Undocumented member.
 --
--- * 'pbtTagging'
+-- * 'pbtTagging' - Undocumented member.
 putBucketTagging
     :: BucketName -- ^ 'pbtBucket'
     -> Tagging -- ^ 'pbtTagging'
     -> PutBucketTagging
 putBucketTagging pBucket_ pTagging_ =
-    PutBucketTagging'
-    { _pbtContentMD5 = Nothing
-    , _pbtBucket = pBucket_
-    , _pbtTagging = pTagging_
-    }
+  PutBucketTagging'
+  {_pbtContentMD5 = Nothing, _pbtBucket = pBucket_, _pbtTagging = pTagging_}
+
 
 -- | Undocumented member.
 pbtContentMD5 :: Lens' PutBucketTagging (Maybe Text)
@@ -82,12 +81,12 @@ pbtTagging = lens _pbtTagging (\ s a -> s{_pbtTagging = a});
 
 instance AWSRequest PutBucketTagging where
         type Rs PutBucketTagging = PutBucketTaggingResponse
-        request = contentMD5 . putXML s3
+        request = contentMD5Header . putXML s3
         response = receiveNull PutBucketTaggingResponse'
 
-instance Hashable PutBucketTagging
+instance Hashable PutBucketTagging where
 
-instance NFData PutBucketTagging
+instance NFData PutBucketTagging where
 
 instance ToElement PutBucketTagging where
         toElement
@@ -109,8 +108,9 @@ instance ToQuery PutBucketTagging where
 
 -- | /See:/ 'putBucketTaggingResponse' smart constructor.
 data PutBucketTaggingResponse =
-    PutBucketTaggingResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutBucketTaggingResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketTaggingResponse' with the minimum fields required to make a request.
 --
@@ -118,4 +118,5 @@ putBucketTaggingResponse
     :: PutBucketTaggingResponse
 putBucketTaggingResponse = PutBucketTaggingResponse'
 
-instance NFData PutBucketTaggingResponse
+
+instance NFData PutBucketTaggingResponse where

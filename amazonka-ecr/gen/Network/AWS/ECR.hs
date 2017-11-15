@@ -5,13 +5,15 @@
 
 -- |
 -- Module      : Network.AWS.ECR
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon EC2 Container Registry (Amazon ECR) is a managed AWS Docker registry service. Customers can use the familiar Docker CLI to push, pull, and manage images. Amazon ECR provides a secure, scalable, and reliable registry. Amazon ECR supports private Docker repositories with resource-based permissions using AWS IAM so that specific users or Amazon EC2 instances can access repositories and images. Developers can use the Docker CLI to author and manage images.
+-- Amazon EC2 Container Registry (Amazon ECR) is a managed Docker registry service. Customers can use the familiar Docker CLI to push, pull, and manage images. Amazon ECR provides a secure, scalable, and reliable registry. Amazon ECR supports private Docker repositories with resource-based permissions using IAM so that specific users or Amazon EC2 instances can access repositories and images. Developers can use the Docker CLI to author and manage images.
+--
+--
 module Network.AWS.ECR
     (
     -- * Service Configuration
@@ -41,14 +43,26 @@ module Network.AWS.ECR
     -- ** LayerPartTooSmallException
     , _LayerPartTooSmallException
 
+    -- ** LifecyclePolicyPreviewNotFoundException
+    , _LifecyclePolicyPreviewNotFoundException
+
+    -- ** ImageNotFoundException
+    , _ImageNotFoundException
+
     -- ** ImageAlreadyExistsException
     , _ImageAlreadyExistsException
 
     -- ** RepositoryNotFoundException
     , _RepositoryNotFoundException
 
+    -- ** LifecyclePolicyPreviewInProgressException
+    , _LifecyclePolicyPreviewInProgressException
+
     -- ** UploadNotFoundException
     , _UploadNotFoundException
+
+    -- ** LifecyclePolicyNotFoundException
+    , _LifecyclePolicyNotFoundException
 
     -- ** InvalidLayerPartException
     , _InvalidLayerPartException
@@ -77,8 +91,17 @@ module Network.AWS.ECR
     -- ** GetRepositoryPolicy
     , module Network.AWS.ECR.GetRepositoryPolicy
 
+    -- ** PutLifecyclePolicy
+    , module Network.AWS.ECR.PutLifecyclePolicy
+
+    -- ** DeleteLifecyclePolicy
+    , module Network.AWS.ECR.DeleteLifecyclePolicy
+
     -- ** BatchDeleteImage
     , module Network.AWS.ECR.BatchDeleteImage
+
+    -- ** GetLifecyclePolicyPreview
+    , module Network.AWS.ECR.GetLifecyclePolicyPreview
 
     -- ** BatchCheckLayerAvailability
     , module Network.AWS.ECR.BatchCheckLayerAvailability
@@ -92,14 +115,20 @@ module Network.AWS.ECR
     -- ** CompleteLayerUpload
     , module Network.AWS.ECR.CompleteLayerUpload
 
-    -- ** DescribeRepositories
+    -- ** DescribeRepositories (Paginated)
     , module Network.AWS.ECR.DescribeRepositories
+
+    -- ** StartLifecyclePolicyPreview
+    , module Network.AWS.ECR.StartLifecyclePolicyPreview
 
     -- ** UploadLayerPart
     , module Network.AWS.ECR.UploadLayerPart
 
     -- ** BatchGetImage
     , module Network.AWS.ECR.BatchGetImage
+
+    -- ** GetLifecyclePolicy
+    , module Network.AWS.ECR.GetLifecyclePolicy
 
     -- ** SetRepositoryPolicy
     , module Network.AWS.ECR.SetRepositoryPolicy
@@ -122,7 +151,13 @@ module Network.AWS.ECR
     -- ** GetDownloadURLForLayer
     , module Network.AWS.ECR.GetDownloadURLForLayer
 
+    -- ** DescribeImages (Paginated)
+    , module Network.AWS.ECR.DescribeImages
+
     -- * Types
+
+    -- ** ImageActionType
+    , ImageActionType (..)
 
     -- ** ImageFailureCode
     , ImageFailureCode (..)
@@ -132,6 +167,9 @@ module Network.AWS.ECR
 
     -- ** LayerFailureCode
     , LayerFailureCode (..)
+
+    -- ** LifecyclePolicyPreviewStatus
+    , LifecyclePolicyPreviewStatus (..)
 
     -- ** TagStatus
     , TagStatus (..)
@@ -143,6 +181,11 @@ module Network.AWS.ECR
     , adProxyEndpoint
     , adAuthorizationToken
 
+    -- ** DescribeImagesFilter
+    , DescribeImagesFilter
+    , describeImagesFilter
+    , difTagStatus
+
     -- ** Image
     , Image
     , image
@@ -150,6 +193,16 @@ module Network.AWS.ECR
     , iImageId
     , iRepositoryName
     , iImageManifest
+
+    -- ** ImageDetail
+    , ImageDetail
+    , imageDetail
+    , idRegistryId
+    , idImageTags
+    , idImageSizeInBytes
+    , idImageDigest
+    , idImagePushedAt
+    , idRepositoryName
 
     -- ** ImageFailure
     , ImageFailure
@@ -167,6 +220,7 @@ module Network.AWS.ECR
     -- ** Layer
     , Layer
     , layer
+    , lMediaType
     , lLayerDigest
     , lLayerSize
     , lLayerAvailability
@@ -178,6 +232,30 @@ module Network.AWS.ECR
     , lfFailureCode
     , lfLayerDigest
 
+    -- ** LifecyclePolicyPreviewFilter
+    , LifecyclePolicyPreviewFilter
+    , lifecyclePolicyPreviewFilter
+    , lppfTagStatus
+
+    -- ** LifecyclePolicyPreviewResult
+    , LifecyclePolicyPreviewResult
+    , lifecyclePolicyPreviewResult
+    , lpprImageTags
+    , lpprAction
+    , lpprImageDigest
+    , lpprImagePushedAt
+    , lpprAppliedRulePriority
+
+    -- ** LifecyclePolicyPreviewSummary
+    , LifecyclePolicyPreviewSummary
+    , lifecyclePolicyPreviewSummary
+    , lppsExpiringImageTotalCount
+
+    -- ** LifecyclePolicyRuleAction
+    , LifecyclePolicyRuleAction
+    , lifecyclePolicyRuleAction
+    , lpraType
+
     -- ** ListImagesFilter
     , ListImagesFilter
     , listImagesFilter
@@ -187,29 +265,36 @@ module Network.AWS.ECR
     , Repository
     , repository
     , rRepositoryARN
+    , rCreatedAt
     , rRegistryId
     , rRepositoryURI
     , rRepositoryName
     ) where
 
-import           Network.AWS.ECR.BatchCheckLayerAvailability
-import           Network.AWS.ECR.BatchDeleteImage
-import           Network.AWS.ECR.BatchGetImage
-import           Network.AWS.ECR.CompleteLayerUpload
-import           Network.AWS.ECR.CreateRepository
-import           Network.AWS.ECR.DeleteRepository
-import           Network.AWS.ECR.DeleteRepositoryPolicy
-import           Network.AWS.ECR.DescribeRepositories
-import           Network.AWS.ECR.GetAuthorizationToken
-import           Network.AWS.ECR.GetDownloadURLForLayer
-import           Network.AWS.ECR.GetRepositoryPolicy
-import           Network.AWS.ECR.InitiateLayerUpload
-import           Network.AWS.ECR.ListImages
-import           Network.AWS.ECR.PutImage
-import           Network.AWS.ECR.SetRepositoryPolicy
-import           Network.AWS.ECR.Types
-import           Network.AWS.ECR.UploadLayerPart
-import           Network.AWS.ECR.Waiters
+import Network.AWS.ECR.BatchCheckLayerAvailability
+import Network.AWS.ECR.BatchDeleteImage
+import Network.AWS.ECR.BatchGetImage
+import Network.AWS.ECR.CompleteLayerUpload
+import Network.AWS.ECR.CreateRepository
+import Network.AWS.ECR.DeleteLifecyclePolicy
+import Network.AWS.ECR.DeleteRepository
+import Network.AWS.ECR.DeleteRepositoryPolicy
+import Network.AWS.ECR.DescribeImages
+import Network.AWS.ECR.DescribeRepositories
+import Network.AWS.ECR.GetAuthorizationToken
+import Network.AWS.ECR.GetDownloadURLForLayer
+import Network.AWS.ECR.GetLifecyclePolicy
+import Network.AWS.ECR.GetLifecyclePolicyPreview
+import Network.AWS.ECR.GetRepositoryPolicy
+import Network.AWS.ECR.InitiateLayerUpload
+import Network.AWS.ECR.ListImages
+import Network.AWS.ECR.PutImage
+import Network.AWS.ECR.PutLifecyclePolicy
+import Network.AWS.ECR.SetRepositoryPolicy
+import Network.AWS.ECR.StartLifecyclePolicyPreview
+import Network.AWS.ECR.Types
+import Network.AWS.ECR.UploadLayerPart
+import Network.AWS.ECR.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

@@ -12,110 +12,153 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateDomainName
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new domain name.
+--
+--
 module Network.AWS.APIGateway.CreateDomainName
     (
     -- * Creating a Request
       createDomainName
     , CreateDomainName
     -- * Request Lenses
-    , cdnDomainName
     , cdnCertificateName
-    , cdnCertificateBody
+    , cdnRegionalCertificateARN
+    , cdnCertificateARN
     , cdnCertificatePrivateKey
+    , cdnRegionalCertificateName
+    , cdnCertificateBody
     , cdnCertificateChain
+    , cdnEndpointConfiguration
+    , cdnDomainName
 
     -- * Destructuring the Response
     , domainName
     , DomainName
     -- * Response Lenses
     , dnCertificateName
+    , dnRegionalCertificateARN
+    , dnCertificateARN
     , dnDomainName
+    , dnRegionalCertificateName
+    , dnRegionalDomainName
     , dnCertificateUploadDate
     , dnDistributionDomainName
+    , dnEndpointConfiguration
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request to create a new domain name.
 --
+--
+--
 -- /See:/ 'createDomainName' smart constructor.
 data CreateDomainName = CreateDomainName'
-    { _cdnDomainName            :: !Text
-    , _cdnCertificateName       :: !Text
-    , _cdnCertificateBody       :: !Text
-    , _cdnCertificatePrivateKey :: !Text
-    , _cdnCertificateChain      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdnCertificateName         :: !(Maybe Text)
+  , _cdnRegionalCertificateARN  :: !(Maybe Text)
+  , _cdnCertificateARN          :: !(Maybe Text)
+  , _cdnCertificatePrivateKey   :: !(Maybe Text)
+  , _cdnRegionalCertificateName :: !(Maybe Text)
+  , _cdnCertificateBody         :: !(Maybe Text)
+  , _cdnCertificateChain        :: !(Maybe Text)
+  , _cdnEndpointConfiguration   :: !(Maybe EndpointConfiguration)
+  , _cdnDomainName              :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDomainName' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdnDomainName'
+-- * 'cdnCertificateName' - The user-friendly name of the certificate that will be used by edge-optimized endpoint for this domain name.
 --
--- * 'cdnCertificateName'
+-- * 'cdnRegionalCertificateARN' - The reference to an AWS-managed certificate that will be used by regional endpoint for this domain name. AWS Certificate Manager is the only supported source.
 --
--- * 'cdnCertificateBody'
+-- * 'cdnCertificateARN' - The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
 --
--- * 'cdnCertificatePrivateKey'
+-- * 'cdnCertificatePrivateKey' - [Deprecated] Your edge-optimized endpoint's domain name certificate's private key.
 --
--- * 'cdnCertificateChain'
+-- * 'cdnRegionalCertificateName' - The user-friendly name of the certificate that will be used by regional endpoint for this domain name.
+--
+-- * 'cdnCertificateBody' - [Deprecated] The body of the server certificate that will be used by edge-optimized endpoint for this domain name provided by your certificate authority.
+--
+-- * 'cdnCertificateChain' - [Deprecated] The intermediate certificates and optionally the root certificate, one after the other without any blank lines, used by an edge-optimized endpoint for this domain name. If you include the root certificate, your certificate chain must start with intermediate certificates and end with the root certificate. Use the intermediate certificates that were provided by your certificate authority. Do not include any intermediaries that are not in the chain of trust path.
+--
+-- * 'cdnEndpointConfiguration' - The endpoint configuration of this 'DomainName' showing the endpoint types of the domain name.
+--
+-- * 'cdnDomainName' - (Required) The name of the 'DomainName' resource.
 createDomainName
     :: Text -- ^ 'cdnDomainName'
-    -> Text -- ^ 'cdnCertificateName'
-    -> Text -- ^ 'cdnCertificateBody'
-    -> Text -- ^ 'cdnCertificatePrivateKey'
-    -> Text -- ^ 'cdnCertificateChain'
     -> CreateDomainName
-createDomainName pDomainName_ pCertificateName_ pCertificateBody_ pCertificatePrivateKey_ pCertificateChain_ =
-    CreateDomainName'
-    { _cdnDomainName = pDomainName_
-    , _cdnCertificateName = pCertificateName_
-    , _cdnCertificateBody = pCertificateBody_
-    , _cdnCertificatePrivateKey = pCertificatePrivateKey_
-    , _cdnCertificateChain = pCertificateChain_
-    }
+createDomainName pDomainName_ =
+  CreateDomainName'
+  { _cdnCertificateName = Nothing
+  , _cdnRegionalCertificateARN = Nothing
+  , _cdnCertificateARN = Nothing
+  , _cdnCertificatePrivateKey = Nothing
+  , _cdnRegionalCertificateName = Nothing
+  , _cdnCertificateBody = Nothing
+  , _cdnCertificateChain = Nothing
+  , _cdnEndpointConfiguration = Nothing
+  , _cdnDomainName = pDomainName_
+  }
 
--- | The name of the < DomainName> resource.
-cdnDomainName :: Lens' CreateDomainName Text
-cdnDomainName = lens _cdnDomainName (\ s a -> s{_cdnDomainName = a});
 
--- | The name of the certificate.
-cdnCertificateName :: Lens' CreateDomainName Text
+-- | The user-friendly name of the certificate that will be used by edge-optimized endpoint for this domain name.
+cdnCertificateName :: Lens' CreateDomainName (Maybe Text)
 cdnCertificateName = lens _cdnCertificateName (\ s a -> s{_cdnCertificateName = a});
 
--- | The body of the server certificate provided by your certificate authority.
-cdnCertificateBody :: Lens' CreateDomainName Text
-cdnCertificateBody = lens _cdnCertificateBody (\ s a -> s{_cdnCertificateBody = a});
+-- | The reference to an AWS-managed certificate that will be used by regional endpoint for this domain name. AWS Certificate Manager is the only supported source.
+cdnRegionalCertificateARN :: Lens' CreateDomainName (Maybe Text)
+cdnRegionalCertificateARN = lens _cdnRegionalCertificateARN (\ s a -> s{_cdnRegionalCertificateARN = a});
 
--- | Your certificate\'s private key.
-cdnCertificatePrivateKey :: Lens' CreateDomainName Text
+-- | The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+cdnCertificateARN :: Lens' CreateDomainName (Maybe Text)
+cdnCertificateARN = lens _cdnCertificateARN (\ s a -> s{_cdnCertificateARN = a});
+
+-- | [Deprecated] Your edge-optimized endpoint's domain name certificate's private key.
+cdnCertificatePrivateKey :: Lens' CreateDomainName (Maybe Text)
 cdnCertificatePrivateKey = lens _cdnCertificatePrivateKey (\ s a -> s{_cdnCertificatePrivateKey = a});
 
--- | The intermediate certificates and optionally the root certificate, one after the other without any blank lines. If you include the root certificate, your certificate chain must start with intermediate certificates and end with the root certificate. Use the intermediate certificates that were provided by your certificate authority. Do not include any intermediaries that are not in the chain of trust path.
-cdnCertificateChain :: Lens' CreateDomainName Text
+-- | The user-friendly name of the certificate that will be used by regional endpoint for this domain name.
+cdnRegionalCertificateName :: Lens' CreateDomainName (Maybe Text)
+cdnRegionalCertificateName = lens _cdnRegionalCertificateName (\ s a -> s{_cdnRegionalCertificateName = a});
+
+-- | [Deprecated] The body of the server certificate that will be used by edge-optimized endpoint for this domain name provided by your certificate authority.
+cdnCertificateBody :: Lens' CreateDomainName (Maybe Text)
+cdnCertificateBody = lens _cdnCertificateBody (\ s a -> s{_cdnCertificateBody = a});
+
+-- | [Deprecated] The intermediate certificates and optionally the root certificate, one after the other without any blank lines, used by an edge-optimized endpoint for this domain name. If you include the root certificate, your certificate chain must start with intermediate certificates and end with the root certificate. Use the intermediate certificates that were provided by your certificate authority. Do not include any intermediaries that are not in the chain of trust path.
+cdnCertificateChain :: Lens' CreateDomainName (Maybe Text)
 cdnCertificateChain = lens _cdnCertificateChain (\ s a -> s{_cdnCertificateChain = a});
+
+-- | The endpoint configuration of this 'DomainName' showing the endpoint types of the domain name.
+cdnEndpointConfiguration :: Lens' CreateDomainName (Maybe EndpointConfiguration)
+cdnEndpointConfiguration = lens _cdnEndpointConfiguration (\ s a -> s{_cdnEndpointConfiguration = a});
+
+-- | (Required) The name of the 'DomainName' resource.
+cdnDomainName :: Lens' CreateDomainName Text
+cdnDomainName = lens _cdnDomainName (\ s a -> s{_cdnDomainName = a});
 
 instance AWSRequest CreateDomainName where
         type Rs CreateDomainName = DomainName
         request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateDomainName
+instance Hashable CreateDomainName where
 
-instance NFData CreateDomainName
+instance NFData CreateDomainName where
 
 instance ToHeaders CreateDomainName where
         toHeaders
@@ -127,13 +170,19 @@ instance ToJSON CreateDomainName where
         toJSON CreateDomainName'{..}
           = object
               (catMaybes
-                 [Just ("domainName" .= _cdnDomainName),
-                  Just ("certificateName" .= _cdnCertificateName),
-                  Just ("certificateBody" .= _cdnCertificateBody),
-                  Just
-                    ("certificatePrivateKey" .=
-                       _cdnCertificatePrivateKey),
-                  Just ("certificateChain" .= _cdnCertificateChain)])
+                 [("certificateName" .=) <$> _cdnCertificateName,
+                  ("regionalCertificateArn" .=) <$>
+                    _cdnRegionalCertificateARN,
+                  ("certificateArn" .=) <$> _cdnCertificateARN,
+                  ("certificatePrivateKey" .=) <$>
+                    _cdnCertificatePrivateKey,
+                  ("regionalCertificateName" .=) <$>
+                    _cdnRegionalCertificateName,
+                  ("certificateBody" .=) <$> _cdnCertificateBody,
+                  ("certificateChain" .=) <$> _cdnCertificateChain,
+                  ("endpointConfiguration" .=) <$>
+                    _cdnEndpointConfiguration,
+                  Just ("domainName" .= _cdnDomainName)])
 
 instance ToPath CreateDomainName where
         toPath = const "/domainnames"

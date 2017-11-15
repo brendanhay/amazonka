@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.SetAlarmState
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Temporarily sets the state of an alarm for testing purposes. When the updated 'StateValue' differs from the previous value, the action configured for the appropriate state is invoked. For example, if your alarm is configured to send an Amazon SNS message when an alarm is triggered, temporarily changing the alarm\'s state to __ALARM__ sends an Amazon SNS message. The alarm returns to its actual state (often within seconds). Because the alarm state change happens very quickly, it is typically only visible in the alarm\'s __History__ tab in the Amazon CloudWatch console or through 'DescribeAlarmHistory'.
+-- Temporarily sets the state of an alarm for testing purposes. When the updated state differs from the previous value, the action configured for the appropriate state is invoked. For example, if your alarm is configured to send an Amazon SNS message when an alarm is triggered, temporarily changing the alarm state to @ALARM@ sends an SNS message. The alarm returns to its actual state (often within seconds). Because the alarm state change happens quickly, it is typically only visible in the alarm's __History__ tab in the Amazon CloudWatch console or through 'DescribeAlarmHistory' .
+--
+--
 module Network.AWS.CloudWatch.SetAlarmState
     (
     -- * Creating a Request
@@ -35,52 +37,52 @@ module Network.AWS.CloudWatch.SetAlarmState
     , SetAlarmStateResponse
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Describes the inputs for SetAlarmState.
---
--- /See:/ 'setAlarmState' smart constructor.
+-- | /See:/ 'setAlarmState' smart constructor.
 data SetAlarmState = SetAlarmState'
-    { _sasStateReasonData :: !(Maybe Text)
-    , _sasAlarmName       :: !Text
-    , _sasStateValue      :: !StateValue
-    , _sasStateReason     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sasStateReasonData :: !(Maybe Text)
+  , _sasAlarmName       :: !Text
+  , _sasStateValue      :: !StateValue
+  , _sasStateReason     :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetAlarmState' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sasStateReasonData'
+-- * 'sasStateReasonData' - The reason that this alarm is set to this specific state, in JSON format.
 --
--- * 'sasAlarmName'
+-- * 'sasAlarmName' - The name for the alarm. This name must be unique within the AWS account. The maximum length is 255 characters.
 --
--- * 'sasStateValue'
+-- * 'sasStateValue' - The value of the state.
 --
--- * 'sasStateReason'
+-- * 'sasStateReason' - The reason that this alarm is set to this specific state, in text format.
 setAlarmState
     :: Text -- ^ 'sasAlarmName'
     -> StateValue -- ^ 'sasStateValue'
     -> Text -- ^ 'sasStateReason'
     -> SetAlarmState
 setAlarmState pAlarmName_ pStateValue_ pStateReason_ =
-    SetAlarmState'
-    { _sasStateReasonData = Nothing
-    , _sasAlarmName = pAlarmName_
-    , _sasStateValue = pStateValue_
-    , _sasStateReason = pStateReason_
-    }
+  SetAlarmState'
+  { _sasStateReasonData = Nothing
+  , _sasAlarmName = pAlarmName_
+  , _sasStateValue = pStateValue_
+  , _sasStateReason = pStateReason_
+  }
 
--- | The reason that this alarm is set to this specific state (in machine-readable JSON format)
+
+-- | The reason that this alarm is set to this specific state, in JSON format.
 sasStateReasonData :: Lens' SetAlarmState (Maybe Text)
 sasStateReasonData = lens _sasStateReasonData (\ s a -> s{_sasStateReasonData = a});
 
--- | The descriptive name for the alarm. This name must be unique within the user\'s AWS account. The maximum length is 255 characters.
+-- | The name for the alarm. This name must be unique within the AWS account. The maximum length is 255 characters.
 sasAlarmName :: Lens' SetAlarmState Text
 sasAlarmName = lens _sasAlarmName (\ s a -> s{_sasAlarmName = a});
 
@@ -88,7 +90,7 @@ sasAlarmName = lens _sasAlarmName (\ s a -> s{_sasAlarmName = a});
 sasStateValue :: Lens' SetAlarmState StateValue
 sasStateValue = lens _sasStateValue (\ s a -> s{_sasStateValue = a});
 
--- | The reason that this alarm is set to this specific state (in human-readable text format)
+-- | The reason that this alarm is set to this specific state, in text format.
 sasStateReason :: Lens' SetAlarmState Text
 sasStateReason = lens _sasStateReason (\ s a -> s{_sasStateReason = a});
 
@@ -97,9 +99,9 @@ instance AWSRequest SetAlarmState where
         request = postQuery cloudWatch
         response = receiveNull SetAlarmStateResponse'
 
-instance Hashable SetAlarmState
+instance Hashable SetAlarmState where
 
-instance NFData SetAlarmState
+instance NFData SetAlarmState where
 
 instance ToHeaders SetAlarmState where
         toHeaders = const mempty
@@ -119,8 +121,9 @@ instance ToQuery SetAlarmState where
 
 -- | /See:/ 'setAlarmStateResponse' smart constructor.
 data SetAlarmStateResponse =
-    SetAlarmStateResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetAlarmStateResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetAlarmStateResponse' with the minimum fields required to make a request.
 --
@@ -128,4 +131,5 @@ setAlarmStateResponse
     :: SetAlarmStateResponse
 setAlarmStateResponse = SetAlarmStateResponse'
 
-instance NFData SetAlarmStateResponse
+
+instance NFData SetAlarmStateResponse where

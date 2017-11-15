@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.DescribePipelines
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves metadata about one or more pipelines. The information retrieved includes the name of the pipeline, the pipeline identifier, its current state, and the user account that owns the pipeline. Using account credentials, you can retrieve metadata about pipelines that you or your IAM users have created. If you are using an IAM user account, you can retrieve metadata about only those pipelines for which you have read permissions.
 --
--- To retrieve the full pipeline definition instead of metadata about the pipeline, call < GetPipelineDefinition>.
+--
+-- To retrieve the full pipeline definition instead of metadata about the pipeline, call 'GetPipelineDefinition' .
+--
 module Network.AWS.DataPipeline.DescribePipelines
     (
     -- * Creating a Request
@@ -37,33 +39,34 @@ module Network.AWS.DataPipeline.DescribePipelines
     , dprsPipelineDescriptionList
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.DataPipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribePipelines.
 --
+--
+--
 -- /See:/ 'describePipelines' smart constructor.
 newtype DescribePipelines = DescribePipelines'
-    { _dpPipelineIds :: [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpPipelineIds :: [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePipelines' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpPipelineIds'
+-- * 'dpPipelineIds' - The IDs of the pipelines to describe. You can pass as many as 25 identifiers in a single call. To obtain pipeline IDs, call 'ListPipelines' .
 describePipelines
     :: DescribePipelines
-describePipelines =
-    DescribePipelines'
-    { _dpPipelineIds = mempty
-    }
+describePipelines = DescribePipelines' {_dpPipelineIds = mempty}
 
--- | The IDs of the pipelines to describe. You can pass as many as 25 identifiers in a single call. To obtain pipeline IDs, call < ListPipelines>.
+
+-- | The IDs of the pipelines to describe. You can pass as many as 25 identifiers in a single call. To obtain pipeline IDs, call 'ListPipelines' .
 dpPipelineIds :: Lens' DescribePipelines [Text]
 dpPipelineIds = lens _dpPipelineIds (\ s a -> s{_dpPipelineIds = a}) . _Coerce;
 
@@ -77,9 +80,9 @@ instance AWSRequest DescribePipelines where
                    (pure (fromEnum s)) <*>
                      (x .?> "pipelineDescriptionList" .!@ mempty))
 
-instance Hashable DescribePipelines
+instance Hashable DescribePipelines where
 
-instance NFData DescribePipelines
+instance NFData DescribePipelines where
 
 instance ToHeaders DescribePipelines where
         toHeaders
@@ -103,29 +106,33 @@ instance ToQuery DescribePipelines where
 
 -- | Contains the output of DescribePipelines.
 --
+--
+--
 -- /See:/ 'describePipelinesResponse' smart constructor.
 data DescribePipelinesResponse = DescribePipelinesResponse'
-    { _dprsResponseStatus          :: !Int
-    , _dprsPipelineDescriptionList :: ![PipelineDescription]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dprsResponseStatus          :: !Int
+  , _dprsPipelineDescriptionList :: ![PipelineDescription]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePipelinesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dprsResponseStatus'
+-- * 'dprsResponseStatus' - -- | The response status code.
 --
--- * 'dprsPipelineDescriptionList'
+-- * 'dprsPipelineDescriptionList' - An array of descriptions for the specified pipelines.
 describePipelinesResponse
     :: Int -- ^ 'dprsResponseStatus'
     -> DescribePipelinesResponse
 describePipelinesResponse pResponseStatus_ =
-    DescribePipelinesResponse'
-    { _dprsResponseStatus = pResponseStatus_
-    , _dprsPipelineDescriptionList = mempty
-    }
+  DescribePipelinesResponse'
+  { _dprsResponseStatus = pResponseStatus_
+  , _dprsPipelineDescriptionList = mempty
+  }
 
--- | The response status code.
+
+-- | -- | The response status code.
 dprsResponseStatus :: Lens' DescribePipelinesResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
 
@@ -133,4 +140,4 @@ dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = 
 dprsPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
 dprsPipelineDescriptionList = lens _dprsPipelineDescriptionList (\ s a -> s{_dprsPipelineDescriptionList = a}) . _Coerce;
 
-instance NFData DescribePipelinesResponse
+instance NFData DescribePipelinesResponse where

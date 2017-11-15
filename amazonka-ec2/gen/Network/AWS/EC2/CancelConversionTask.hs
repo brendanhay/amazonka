@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CancelConversionTask
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels an active conversion task. The task can be the import of an instance or volume. The action removes all artifacts of the conversion, including a partially uploaded volume or instance. If the conversion is complete or is in the process of transferring the final disk image, the command fails and returns an exception.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html Importing a Virtual Machine Using the Amazon EC2 CLI>.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html Importing a Virtual Machine Using the Amazon EC2 CLI> .
+--
 module Network.AWS.EC2.CancelConversionTask
     (
     -- * Creating a Request
@@ -36,46 +38,50 @@ module Network.AWS.EC2.CancelConversionTask
     , CancelConversionTaskResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CancelConversionTask.
 --
+--
+--
 -- /See:/ 'cancelConversionTask' smart constructor.
 data CancelConversionTask = CancelConversionTask'
-    { _cctReasonMessage    :: !(Maybe Text)
-    , _cctDryRun           :: !(Maybe Bool)
-    , _cctConversionTaskId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cctReasonMessage    :: !(Maybe Text)
+  , _cctDryRun           :: !(Maybe Bool)
+  , _cctConversionTaskId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelConversionTask' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cctReasonMessage'
+-- * 'cctReasonMessage' - The reason for canceling the conversion task.
 --
--- * 'cctDryRun'
+-- * 'cctDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'cctConversionTaskId'
+-- * 'cctConversionTaskId' - The ID of the conversion task.
 cancelConversionTask
     :: Text -- ^ 'cctConversionTaskId'
     -> CancelConversionTask
 cancelConversionTask pConversionTaskId_ =
-    CancelConversionTask'
-    { _cctReasonMessage = Nothing
-    , _cctDryRun = Nothing
-    , _cctConversionTaskId = pConversionTaskId_
-    }
+  CancelConversionTask'
+  { _cctReasonMessage = Nothing
+  , _cctDryRun = Nothing
+  , _cctConversionTaskId = pConversionTaskId_
+  }
+
 
 -- | The reason for canceling the conversion task.
 cctReasonMessage :: Lens' CancelConversionTask (Maybe Text)
 cctReasonMessage = lens _cctReasonMessage (\ s a -> s{_cctReasonMessage = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cctDryRun :: Lens' CancelConversionTask (Maybe Bool)
 cctDryRun = lens _cctDryRun (\ s a -> s{_cctDryRun = a});
 
@@ -89,9 +95,9 @@ instance AWSRequest CancelConversionTask where
         request = postQuery ec2
         response = receiveNull CancelConversionTaskResponse'
 
-instance Hashable CancelConversionTask
+instance Hashable CancelConversionTask where
 
-instance NFData CancelConversionTask
+instance NFData CancelConversionTask where
 
 instance ToHeaders CancelConversionTask where
         toHeaders = const mempty
@@ -103,15 +109,16 @@ instance ToQuery CancelConversionTask where
         toQuery CancelConversionTask'{..}
           = mconcat
               ["Action" =: ("CancelConversionTask" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "ReasonMessage" =: _cctReasonMessage,
                "DryRun" =: _cctDryRun,
                "ConversionTaskId" =: _cctConversionTaskId]
 
 -- | /See:/ 'cancelConversionTaskResponse' smart constructor.
 data CancelConversionTaskResponse =
-    CancelConversionTaskResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CancelConversionTaskResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelConversionTaskResponse' with the minimum fields required to make a request.
 --
@@ -119,4 +126,5 @@ cancelConversionTaskResponse
     :: CancelConversionTaskResponse
 cancelConversionTaskResponse = CancelConversionTaskResponse'
 
-instance NFData CancelConversionTaskResponse
+
+instance NFData CancelConversionTaskResponse where

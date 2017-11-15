@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetMethodResponse
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes a < MethodResponse> resource.
+-- Describes a 'MethodResponse' resource.
+--
+--
 module Network.AWS.APIGateway.GetMethodResponse
     (
     -- * Creating a Request
@@ -39,34 +41,37 @@ module Network.AWS.APIGateway.GetMethodResponse
     , mResponseParameters
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Request to describe a < MethodResponse> resource.
+-- | Request to describe a 'MethodResponse' resource.
+--
+--
 --
 -- /See:/ 'getMethodResponse' smart constructor.
 data GetMethodResponse = GetMethodResponse'
-    { _gmRestAPIId  :: !Text
-    , _gmResourceId :: !Text
-    , _gmHttpMethod :: !Text
-    , _gmStatusCode :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmRestAPIId  :: !Text
+  , _gmResourceId :: !Text
+  , _gmHttpMethod :: !Text
+  , _gmStatusCode :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetMethodResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmRestAPIId'
+-- * 'gmRestAPIId' - The string identifier of the associated 'RestApi' .
 --
--- * 'gmResourceId'
+-- * 'gmResourceId' - The 'Resource' identifier for the 'MethodResponse' resource.
 --
--- * 'gmHttpMethod'
+-- * 'gmHttpMethod' - The HTTP verb of the 'Method' resource.
 --
--- * 'gmStatusCode'
+-- * 'gmStatusCode' - The status code for the 'MethodResponse' resource.
 getMethodResponse
     :: Text -- ^ 'gmRestAPIId'
     -> Text -- ^ 'gmResourceId'
@@ -74,26 +79,27 @@ getMethodResponse
     -> Text -- ^ 'gmStatusCode'
     -> GetMethodResponse
 getMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
-    GetMethodResponse'
-    { _gmRestAPIId = pRestAPIId_
-    , _gmResourceId = pResourceId_
-    , _gmHttpMethod = pHttpMethod_
-    , _gmStatusCode = pStatusCode_
-    }
+  GetMethodResponse'
+  { _gmRestAPIId = pRestAPIId_
+  , _gmResourceId = pResourceId_
+  , _gmHttpMethod = pHttpMethod_
+  , _gmStatusCode = pStatusCode_
+  }
 
--- | The < RestApi> identifier for the < MethodResponse> resource.
+
+-- | The string identifier of the associated 'RestApi' .
 gmRestAPIId :: Lens' GetMethodResponse Text
 gmRestAPIId = lens _gmRestAPIId (\ s a -> s{_gmRestAPIId = a});
 
--- | The < Resource> identifier for the < MethodResponse> resource.
+-- | The 'Resource' identifier for the 'MethodResponse' resource.
 gmResourceId :: Lens' GetMethodResponse Text
 gmResourceId = lens _gmResourceId (\ s a -> s{_gmResourceId = a});
 
--- | The HTTP verb of the < Method> resource.
+-- | The HTTP verb of the 'Method' resource.
 gmHttpMethod :: Lens' GetMethodResponse Text
 gmHttpMethod = lens _gmHttpMethod (\ s a -> s{_gmHttpMethod = a});
 
--- | The status code for the < MethodResponse> resource.
+-- | The status code for the 'MethodResponse' resource.
 gmStatusCode :: Lens' GetMethodResponse Text
 gmStatusCode = lens _gmStatusCode (\ s a -> s{_gmStatusCode = a});
 
@@ -102,9 +108,9 @@ instance AWSRequest GetMethodResponse where
         request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetMethodResponse
+instance Hashable GetMethodResponse where
 
-instance NFData GetMethodResponse
+instance NFData GetMethodResponse where
 
 instance ToHeaders GetMethodResponse where
         toHeaders

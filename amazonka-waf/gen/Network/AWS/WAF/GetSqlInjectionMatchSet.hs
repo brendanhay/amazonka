@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.WAF.GetSqlInjectionMatchSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the < SqlInjectionMatchSet> that is specified by 'SqlInjectionMatchSetId'.
+-- Returns the 'SqlInjectionMatchSet' that is specified by @SqlInjectionMatchSetId@ .
+--
+--
 module Network.AWS.WAF.GetSqlInjectionMatchSet
     (
     -- * Creating a Request
@@ -35,34 +37,37 @@ module Network.AWS.WAF.GetSqlInjectionMatchSet
     , gsimsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAF.Types
-import           Network.AWS.WAF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAF.Types
+import Network.AWS.WAF.Types.Product
 
--- | A request to get a < SqlInjectionMatchSet>.
+-- | A request to get a 'SqlInjectionMatchSet' .
+--
+--
 --
 -- /See:/ 'getSqlInjectionMatchSet' smart constructor.
 newtype GetSqlInjectionMatchSet = GetSqlInjectionMatchSet'
-    { _gsimsSqlInjectionMatchSetId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsimsSqlInjectionMatchSetId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSqlInjectionMatchSet' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsimsSqlInjectionMatchSetId'
+-- * 'gsimsSqlInjectionMatchSetId' - The @SqlInjectionMatchSetId@ of the 'SqlInjectionMatchSet' that you want to get. @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
 getSqlInjectionMatchSet
     :: Text -- ^ 'gsimsSqlInjectionMatchSetId'
     -> GetSqlInjectionMatchSet
 getSqlInjectionMatchSet pSqlInjectionMatchSetId_ =
-    GetSqlInjectionMatchSet'
-    { _gsimsSqlInjectionMatchSetId = pSqlInjectionMatchSetId_
-    }
+  GetSqlInjectionMatchSet'
+  {_gsimsSqlInjectionMatchSetId = pSqlInjectionMatchSetId_}
 
--- | The 'SqlInjectionMatchSetId' of the < SqlInjectionMatchSet> that you want to get. 'SqlInjectionMatchSetId' is returned by < CreateSqlInjectionMatchSet> and by < ListSqlInjectionMatchSets>.
+
+-- | The @SqlInjectionMatchSetId@ of the 'SqlInjectionMatchSet' that you want to get. @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
 gsimsSqlInjectionMatchSetId :: Lens' GetSqlInjectionMatchSet Text
 gsimsSqlInjectionMatchSetId = lens _gsimsSqlInjectionMatchSetId (\ s a -> s{_gsimsSqlInjectionMatchSetId = a});
 
@@ -77,9 +82,9 @@ instance AWSRequest GetSqlInjectionMatchSet where
                    (x .?> "SqlInjectionMatchSet") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetSqlInjectionMatchSet
+instance Hashable GetSqlInjectionMatchSet where
 
-instance NFData GetSqlInjectionMatchSet
+instance NFData GetSqlInjectionMatchSet where
 
 instance ToHeaders GetSqlInjectionMatchSet where
         toHeaders
@@ -105,40 +110,40 @@ instance ToPath GetSqlInjectionMatchSet where
 instance ToQuery GetSqlInjectionMatchSet where
         toQuery = const mempty
 
--- | The response to a < GetSqlInjectionMatchSet> request.
+-- | The response to a 'GetSqlInjectionMatchSet' request.
+--
+--
 --
 -- /See:/ 'getSqlInjectionMatchSetResponse' smart constructor.
 data GetSqlInjectionMatchSetResponse = GetSqlInjectionMatchSetResponse'
-    { _gsimsrsSqlInjectionMatchSet :: !(Maybe SqlInjectionMatchSet)
-    , _gsimsrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsimsrsSqlInjectionMatchSet :: !(Maybe SqlInjectionMatchSet)
+  , _gsimsrsResponseStatus       :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSqlInjectionMatchSetResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsimsrsSqlInjectionMatchSet'
+-- * 'gsimsrsSqlInjectionMatchSet' - Information about the 'SqlInjectionMatchSet' that you specified in the @GetSqlInjectionMatchSet@ request. For more information, see the following topics:     * 'SqlInjectionMatchSet' : Contains @Name@ , @SqlInjectionMatchSetId@ , and an array of @SqlInjectionMatchTuple@ objects     * 'SqlInjectionMatchTuple' : Each @SqlInjectionMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
 --
--- * 'gsimsrsResponseStatus'
+-- * 'gsimsrsResponseStatus' - -- | The response status code.
 getSqlInjectionMatchSetResponse
     :: Int -- ^ 'gsimsrsResponseStatus'
     -> GetSqlInjectionMatchSetResponse
 getSqlInjectionMatchSetResponse pResponseStatus_ =
-    GetSqlInjectionMatchSetResponse'
-    { _gsimsrsSqlInjectionMatchSet = Nothing
-    , _gsimsrsResponseStatus = pResponseStatus_
-    }
+  GetSqlInjectionMatchSetResponse'
+  { _gsimsrsSqlInjectionMatchSet = Nothing
+  , _gsimsrsResponseStatus = pResponseStatus_
+  }
 
--- | Information about the < SqlInjectionMatchSet> that you specified in the 'GetSqlInjectionMatchSet' request. For more information, see the following topics:
---
--- -   < SqlInjectionMatchSet>: Contains 'Name', 'SqlInjectionMatchSetId', and an array of 'SqlInjectionMatchTuple' objects
--- -   < SqlInjectionMatchTuple>: Each 'SqlInjectionMatchTuple' object contains 'FieldToMatch' and 'TextTransformation'
--- -   < FieldToMatch>: Contains 'Data' and 'Type'
+
+-- | Information about the 'SqlInjectionMatchSet' that you specified in the @GetSqlInjectionMatchSet@ request. For more information, see the following topics:     * 'SqlInjectionMatchSet' : Contains @Name@ , @SqlInjectionMatchSetId@ , and an array of @SqlInjectionMatchTuple@ objects     * 'SqlInjectionMatchTuple' : Each @SqlInjectionMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
 gsimsrsSqlInjectionMatchSet :: Lens' GetSqlInjectionMatchSetResponse (Maybe SqlInjectionMatchSet)
 gsimsrsSqlInjectionMatchSet = lens _gsimsrsSqlInjectionMatchSet (\ s a -> s{_gsimsrsSqlInjectionMatchSet = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gsimsrsResponseStatus :: Lens' GetSqlInjectionMatchSetResponse Int
 gsimsrsResponseStatus = lens _gsimsrsResponseStatus (\ s a -> s{_gsimsrsResponseStatus = a});
 
-instance NFData GetSqlInjectionMatchSetResponse
+instance NFData GetSqlInjectionMatchSetResponse where

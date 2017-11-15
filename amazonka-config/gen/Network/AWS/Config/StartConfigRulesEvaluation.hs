@@ -12,29 +12,32 @@
 
 -- |
 -- Module      : Network.AWS.Config.StartConfigRulesEvaluation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Evaluates your resources against the specified Config rules. You can specify up to 25 Config rules per request.
+-- Runs an on-demand evaluation for the specified Config rules against the last known configuration state of the resources. Use @StartConfigRulesEvaluation@ when you want to test a rule that you updated is working as expected. @StartConfigRulesEvaluation@ does not re-record the latest configuration state for your resources; it re-runs an evaluation against the last known state of your resources.
 --
--- An existing < StartConfigRulesEvaluation> call must complete for the specified rules before you can call the API again. If you chose to have AWS Config stream to an Amazon SNS topic, you will receive a 'ConfigRuleEvaluationStarted' notification when the evaluation starts.
 --
--- You don\'t need to call the 'StartConfigRulesEvaluation' API to run an evaluation for a new rule. When you create a new rule, AWS Config automatically evaluates your resources against the rule.
+-- You can specify up to 25 Config rules per request.
 --
--- The 'StartConfigRulesEvaluation' API is useful if you want to run on-demand evaluations, such as the following example:
+-- An existing @StartConfigRulesEvaluation@ call must complete for the specified rules before you can call the API again. If you chose to have AWS Config stream to an Amazon SNS topic, you will receive a @ConfigRuleEvaluationStarted@ notification when the evaluation starts.
 --
--- 1.  You have a custom rule that evaluates your IAM resources every 24 hours.
+-- The @StartConfigRulesEvaluation@ API is useful if you want to run on-demand evaluations, such as the following example:
 --
--- 2.  You update your Lambda function to add additional conditions to your rule.
+--     * You have a custom rule that evaluates your IAM resources every 24 hours.
 --
--- 3.  Instead of waiting for the next periodic evaluation, you call the 'StartConfigRulesEvaluation' API.
+--     * You update your Lambda function to add additional conditions to your rule.
 --
--- 4.  AWS Config invokes your Lambda function and evaluates your IAM resources.
+--     * Instead of waiting for the next periodic evaluation, you call the @StartConfigRulesEvaluation@ API.
 --
--- 5.  Your custom rule will still run periodic evaluations every 24 hours.
+--     * AWS Config invokes your Lambda function and evaluates your IAM resources.
+--
+--     * Your custom rule will still run periodic evaluations every 24 hours.
+--
+--
 --
 module Network.AWS.Config.StartConfigRulesEvaluation
     (
@@ -51,29 +54,33 @@ module Network.AWS.Config.StartConfigRulesEvaluation
     , scrersResponseStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | /See:/ 'startConfigRulesEvaluation' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'startConfigRulesEvaluation' smart constructor.
 newtype StartConfigRulesEvaluation = StartConfigRulesEvaluation'
-    { _screConfigRuleNames :: Maybe (List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _screConfigRuleNames :: Maybe (List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartConfigRulesEvaluation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'screConfigRuleNames'
+-- * 'screConfigRuleNames' - The list of names of Config rules that you want to run evaluations for.
 startConfigRulesEvaluation
     :: StartConfigRulesEvaluation
 startConfigRulesEvaluation =
-    StartConfigRulesEvaluation'
-    { _screConfigRuleNames = Nothing
-    }
+  StartConfigRulesEvaluation' {_screConfigRuleNames = Nothing}
+
 
 -- | The list of names of Config rules that you want to run evaluations for.
 screConfigRuleNames :: Lens' StartConfigRulesEvaluation (Maybe (NonEmpty Text))
@@ -89,9 +96,9 @@ instance AWSRequest StartConfigRulesEvaluation where
                  StartConfigRulesEvaluationResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable StartConfigRulesEvaluation
+instance Hashable StartConfigRulesEvaluation where
 
-instance NFData StartConfigRulesEvaluation
+instance NFData StartConfigRulesEvaluation where
 
 instance ToHeaders StartConfigRulesEvaluation where
         toHeaders
@@ -117,26 +124,29 @@ instance ToQuery StartConfigRulesEvaluation where
 
 -- | The output when you start the evaluation for the specified Config rule.
 --
+--
+--
 -- /See:/ 'startConfigRulesEvaluationResponse' smart constructor.
 newtype StartConfigRulesEvaluationResponse = StartConfigRulesEvaluationResponse'
-    { _scrersResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scrersResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartConfigRulesEvaluationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scrersResponseStatus'
+-- * 'scrersResponseStatus' - -- | The response status code.
 startConfigRulesEvaluationResponse
     :: Int -- ^ 'scrersResponseStatus'
     -> StartConfigRulesEvaluationResponse
 startConfigRulesEvaluationResponse pResponseStatus_ =
-    StartConfigRulesEvaluationResponse'
-    { _scrersResponseStatus = pResponseStatus_
-    }
+  StartConfigRulesEvaluationResponse' {_scrersResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 scrersResponseStatus :: Lens' StartConfigRulesEvaluationResponse Int
 scrersResponseStatus = lens _scrersResponseStatus (\ s a -> s{_scrersResponseStatus = a});
 
 instance NFData StartConfigRulesEvaluationResponse
+         where

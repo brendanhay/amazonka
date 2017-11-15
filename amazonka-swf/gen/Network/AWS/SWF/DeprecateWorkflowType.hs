@@ -12,27 +12,35 @@
 
 -- |
 -- Module      : Network.AWS.SWF.DeprecateWorkflowType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deprecates the specified /workflow type/. After a workflow type has been deprecated, you cannot create new executions of that type. Executions that were started before the type was deprecated will continue to run. A deprecated workflow type may still be used when calling visibility actions.
+-- Deprecates the specified /workflow type/ . After a workflow type has been deprecated, you cannot create new executions of that type. Executions that were started before the type was deprecated continues to run. A deprecated workflow type may still be used when calling visibility actions.
 --
--- This operation is eventually consistent. The results are best effort and may not exactly reflect recent updates and changes.
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this action's access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this action.
--- -   Constrain the following parameters by using a 'Condition' element with the appropriate keys.
---     -   'workflowType.name': String constraint. The key is 'swf:workflowType.name'.
---     -   'workflowType.version': String constraint. The key is 'swf:workflowType.version'.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--     * Use an @Action@ element to allow or deny permission to call this action.
+--
+--     * Constrain the following parameters by using a @Condition@ element with the appropriate keys.
+--
+--     * @workflowType.name@ : String constraint. The key is @swf:workflowType.name@ .
+--
+--     * @workflowType.version@ : String constraint. The key is @swf:workflowType.version@ .
+--
+--
+--
+--
+--
+-- If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's @cause@ parameter is set to @OPERATION_NOT_PERMITTED@ . For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
+--
 module Network.AWS.SWF.DeprecateWorkflowType
     (
     -- * Creating a Request
@@ -47,35 +55,34 @@ module Network.AWS.SWF.DeprecateWorkflowType
     , DeprecateWorkflowTypeResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'deprecateWorkflowType' smart constructor.
 data DeprecateWorkflowType = DeprecateWorkflowType'
-    { _dDomain       :: !Text
-    , _dWorkflowType :: !WorkflowType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dDomain       :: !Text
+  , _dWorkflowType :: !WorkflowType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeprecateWorkflowType' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dDomain'
+-- * 'dDomain' - The name of the domain in which the workflow type is registered.
 --
--- * 'dWorkflowType'
+-- * 'dWorkflowType' - The workflow type to deprecate.
 deprecateWorkflowType
     :: Text -- ^ 'dDomain'
     -> WorkflowType -- ^ 'dWorkflowType'
     -> DeprecateWorkflowType
 deprecateWorkflowType pDomain_ pWorkflowType_ =
-    DeprecateWorkflowType'
-    { _dDomain = pDomain_
-    , _dWorkflowType = pWorkflowType_
-    }
+  DeprecateWorkflowType' {_dDomain = pDomain_, _dWorkflowType = pWorkflowType_}
+
 
 -- | The name of the domain in which the workflow type is registered.
 dDomain :: Lens' DeprecateWorkflowType Text
@@ -91,9 +98,9 @@ instance AWSRequest DeprecateWorkflowType where
         request = postJSON swf
         response = receiveNull DeprecateWorkflowTypeResponse'
 
-instance Hashable DeprecateWorkflowType
+instance Hashable DeprecateWorkflowType where
 
-instance NFData DeprecateWorkflowType
+instance NFData DeprecateWorkflowType where
 
 instance ToHeaders DeprecateWorkflowType where
         toHeaders
@@ -120,8 +127,9 @@ instance ToQuery DeprecateWorkflowType where
 
 -- | /See:/ 'deprecateWorkflowTypeResponse' smart constructor.
 data DeprecateWorkflowTypeResponse =
-    DeprecateWorkflowTypeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeprecateWorkflowTypeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeprecateWorkflowTypeResponse' with the minimum fields required to make a request.
 --
@@ -129,4 +137,5 @@ deprecateWorkflowTypeResponse
     :: DeprecateWorkflowTypeResponse
 deprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse'
 
-instance NFData DeprecateWorkflowTypeResponse
+
+instance NFData DeprecateWorkflowTypeResponse where

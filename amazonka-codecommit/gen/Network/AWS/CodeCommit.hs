@@ -5,39 +5,72 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS CodeCommit
+-- __AWS CodeCommit__
 --
--- This is the /AWS CodeCommit API Reference/. This reference provides descriptions of the operations and data types for AWS CodeCommit API.
+-- This is the /AWS CodeCommit API Reference/ . This reference provides descriptions of the operations and data types for AWS CodeCommit API along with usage examples.
 --
 -- You can use the AWS CodeCommit API to work with the following objects:
 --
--- -   Repositories, by calling the following:
---     -   < BatchGetRepositories>, which returns information about one or more repositories associated with your AWS account
---     -   < CreateRepository>, which creates an AWS CodeCommit repository
---     -   < DeleteRepository>, which deletes an AWS CodeCommit repository
---     -   < GetRepository>, which returns information about a specified repository
---     -   < ListRepositories>, which lists all AWS CodeCommit repositories associated with your AWS account
---     -   < UpdateRepositoryDescription>, which sets or updates the description of the repository
---     -   < UpdateRepositoryName>, which changes the name of the repository. If you change the name of a repository, no other users of that repository will be able to access it until you send them the new HTTPS or SSH URL to use.
--- -   Branches, by calling the following:
---     -   < CreateBranch>, which creates a new branch in a specified repository
---     -   < GetBranch>, which returns information about a specified branch
---     -   < ListBranches>, which lists all branches for a specified repository
---     -   < UpdateDefaultBranch>, which changes the default branch for a repository
--- -   Information about committed code in a repository, by calling the following:
---     -   < GetCommit>, which returns information about a commit, including commit messages and committer information.
--- -   Triggers, by calling the following:
---     -   < GetRepositoryTriggers>, which returns information about triggers configured for a repository
---     -   < PutRepositoryTriggers>, which replaces all triggers for a repository and can be used to create or delete triggers
---     -   < TestRepositoryTriggers>, which tests the functionality of a repository trigger by sending data to the trigger target
+-- Repositories, by calling the following:
 --
--- For information about how to use AWS CodeCommit, see the <http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit User Guide>.
+--     * 'BatchGetRepositories' , which returns information about one or more repositories associated with your AWS account
+--
+--     * 'CreateRepository' , which creates an AWS CodeCommit repository
+--
+--     * 'DeleteRepository' , which deletes an AWS CodeCommit repository
+--
+--     * 'GetRepository' , which returns information about a specified repository
+--
+--     * 'ListRepositories' , which lists all AWS CodeCommit repositories associated with your AWS account
+--
+--     * 'UpdateRepositoryDescription' , which sets or updates the description of the repository
+--
+--     * 'UpdateRepositoryName' , which changes the name of the repository. If you change the name of a repository, no other users of that repository will be able to access it until you send them the new HTTPS or SSH URL to use.
+--
+--
+--
+-- Branches, by calling the following:
+--
+--     * 'CreateBranch' , which creates a new branch in a specified repository
+--
+--     * 'DeleteBranch' , which deletes the specified branch in a repository unless it is the default branch
+--
+--     * 'GetBranch' , which returns information about a specified branch
+--
+--     * 'ListBranches' , which lists all branches for a specified repository
+--
+--     * 'UpdateDefaultBranch' , which changes the default branch for a repository
+--
+--
+--
+-- Information about committed code in a repository, by calling the following:
+--
+--     * 'GetBlob' , which returns the base-64 encoded content of an individual Git blob object within a repository
+--
+--     * 'GetCommit' , which returns information about a commit, including commit messages and author and committer information
+--
+--     * 'GetDifferences' , which returns information about the differences in a valid commit specifier (such as a branch, tag, HEAD, commit ID or other fully qualified reference)
+--
+--
+--
+-- Triggers, by calling the following:
+--
+--     * 'GetRepositoryTriggers' , which returns information about triggers configured for a repository
+--
+--     * 'PutRepositoryTriggers' , which replaces all triggers for a repository and can be used to create or delete triggers
+--
+--     * 'TestRepositoryTriggers' , which tests the functionality of a repository trigger by sending data to the trigger target
+--
+--
+--
+-- For information about how to use AWS CodeCommit, see the <http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit User Guide> .
+--
 module Network.AWS.CodeCommit
     (
     -- * Service Configuration
@@ -60,6 +93,9 @@ module Network.AWS.CodeCommit
 
     -- ** InvalidRepositoryTriggerCustomDataException
     , _InvalidRepositoryTriggerCustomDataException
+
+    -- ** BlobIdDoesNotExistException
+    , _BlobIdDoesNotExistException
 
     -- ** MaximumRepositoryNamesExceededException
     , _MaximumRepositoryNamesExceededException
@@ -88,14 +124,26 @@ module Network.AWS.CodeCommit
     -- ** InvalidRepositoryTriggerDestinationARNException
     , _InvalidRepositoryTriggerDestinationARNException
 
+    -- ** BlobIdRequiredException
+    , _BlobIdRequiredException
+
     -- ** RepositoryNamesRequiredException
     , _RepositoryNamesRequiredException
+
+    -- ** InvalidBlobIdException
+    , _InvalidBlobIdException
 
     -- ** InvalidOrderException
     , _InvalidOrderException
 
     -- ** BranchDoesNotExistException
     , _BranchDoesNotExistException
+
+    -- ** DefaultBranchCannotBeDeletedException
+    , _DefaultBranchCannotBeDeletedException
+
+    -- ** InvalidPathException
+    , _InvalidPathException
 
     -- ** RepositoryTriggerNameRequiredException
     , _RepositoryTriggerNameRequiredException
@@ -105,6 +153,9 @@ module Network.AWS.CodeCommit
 
     -- ** MaximumBranchesExceededException
     , _MaximumBranchesExceededException
+
+    -- ** PathDoesNotExistException
+    , _PathDoesNotExistException
 
     -- ** EncryptionIntegrityChecksFailedException
     , _EncryptionIntegrityChecksFailedException
@@ -118,11 +169,17 @@ module Network.AWS.CodeCommit
     -- ** BranchNameExistsException
     , _BranchNameExistsException
 
+    -- ** InvalidCommitException
+    , _InvalidCommitException
+
     -- ** InvalidSortByException
     , _InvalidSortByException
 
     -- ** EncryptionKeyDisabledException
     , _EncryptionKeyDisabledException
+
+    -- ** CommitRequiredException
+    , _CommitRequiredException
 
     -- ** CommitIdRequiredException
     , _CommitIdRequiredException
@@ -138,6 +195,12 @@ module Network.AWS.CodeCommit
 
     -- ** RepositoryTriggerBranchNameListRequiredException
     , _RepositoryTriggerBranchNameListRequiredException
+
+    -- ** InvalidMaxResultsException
+    , _InvalidMaxResultsException
+
+    -- ** FileTooLargeException
+    , _FileTooLargeException
 
     -- ** CommitIdDoesNotExistException
     , _CommitIdDoesNotExistException
@@ -172,6 +235,12 @@ module Network.AWS.CodeCommit
     -- ** GetBranch
     , module Network.AWS.CodeCommit.GetBranch
 
+    -- ** GetDifferences
+    , module Network.AWS.CodeCommit.GetDifferences
+
+    -- ** DeleteBranch
+    , module Network.AWS.CodeCommit.DeleteBranch
+
     -- ** UpdateRepositoryDescription
     , module Network.AWS.CodeCommit.UpdateRepositoryDescription
 
@@ -199,6 +268,9 @@ module Network.AWS.CodeCommit
     -- ** TestRepositoryTriggers
     , module Network.AWS.CodeCommit.TestRepositoryTriggers
 
+    -- ** GetBlob
+    , module Network.AWS.CodeCommit.GetBlob
+
     -- ** PutRepositoryTriggers
     , module Network.AWS.CodeCommit.PutRepositoryTriggers
 
@@ -210,6 +282,9 @@ module Network.AWS.CodeCommit
 
     -- * Types
 
+    -- ** ChangeTypeEnum
+    , ChangeTypeEnum (..)
+
     -- ** OrderEnum
     , OrderEnum (..)
 
@@ -218,6 +293,13 @@ module Network.AWS.CodeCommit
 
     -- ** SortByEnum
     , SortByEnum (..)
+
+    -- ** BlobMetadata
+    , BlobMetadata
+    , blobMetadata
+    , bmPath
+    , bmMode
+    , bmBlobId
 
     -- ** BranchInfo
     , BranchInfo
@@ -228,12 +310,20 @@ module Network.AWS.CodeCommit
     -- ** Commit
     , Commit
     , commit
+    , cCommitId
     , cCommitter
     , cTreeId
     , cAdditionalData
     , cParents
     , cAuthor
     , cMessage
+
+    -- ** Difference
+    , Difference
+    , difference
+    , dAfterBlob
+    , dBeforeBlob
+    , dChangeType
 
     -- ** RepositoryMetadata
     , RepositoryMetadata
@@ -260,8 +350,8 @@ module Network.AWS.CodeCommit
     , repositoryTrigger
     , rtBranches
     , rtCustomData
-    , rtDestinationARN
     , rtName
+    , rtDestinationARN
     , rtEvents
 
     -- ** RepositoryTriggerExecutionFailure
@@ -278,23 +368,26 @@ module Network.AWS.CodeCommit
     , uiName
     ) where
 
-import           Network.AWS.CodeCommit.BatchGetRepositories
-import           Network.AWS.CodeCommit.CreateBranch
-import           Network.AWS.CodeCommit.CreateRepository
-import           Network.AWS.CodeCommit.DeleteRepository
-import           Network.AWS.CodeCommit.GetBranch
-import           Network.AWS.CodeCommit.GetCommit
-import           Network.AWS.CodeCommit.GetRepository
-import           Network.AWS.CodeCommit.GetRepositoryTriggers
-import           Network.AWS.CodeCommit.ListBranches
-import           Network.AWS.CodeCommit.ListRepositories
-import           Network.AWS.CodeCommit.PutRepositoryTriggers
-import           Network.AWS.CodeCommit.TestRepositoryTriggers
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.CodeCommit.UpdateDefaultBranch
-import           Network.AWS.CodeCommit.UpdateRepositoryDescription
-import           Network.AWS.CodeCommit.UpdateRepositoryName
-import           Network.AWS.CodeCommit.Waiters
+import Network.AWS.CodeCommit.BatchGetRepositories
+import Network.AWS.CodeCommit.CreateBranch
+import Network.AWS.CodeCommit.CreateRepository
+import Network.AWS.CodeCommit.DeleteBranch
+import Network.AWS.CodeCommit.DeleteRepository
+import Network.AWS.CodeCommit.GetBlob
+import Network.AWS.CodeCommit.GetBranch
+import Network.AWS.CodeCommit.GetCommit
+import Network.AWS.CodeCommit.GetDifferences
+import Network.AWS.CodeCommit.GetRepository
+import Network.AWS.CodeCommit.GetRepositoryTriggers
+import Network.AWS.CodeCommit.ListBranches
+import Network.AWS.CodeCommit.ListRepositories
+import Network.AWS.CodeCommit.PutRepositoryTriggers
+import Network.AWS.CodeCommit.TestRepositoryTriggers
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.UpdateDefaultBranch
+import Network.AWS.CodeCommit.UpdateRepositoryDescription
+import Network.AWS.CodeCommit.UpdateRepositoryName
+import Network.AWS.CodeCommit.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

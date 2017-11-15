@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.ListAliases
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns list of aliases created for a Lambda function. For each alias, the response includes information such as the alias ARN, description, alias name, and the function version to which it points. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
+-- Returns list of aliases created for a Lambda function. For each alias, the response includes information such as the alias ARN, description, alias name, and the function version to which it points. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases> .
+--
 --
 -- This requires permission for the lambda:ListAliases action.
+--
 module Network.AWS.Lambda.ListAliases
     (
     -- * Creating a Request
@@ -41,44 +43,46 @@ module Network.AWS.Lambda.ListAliases
     , larsResponseStatus
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAliases' smart constructor.
 data ListAliases = ListAliases'
-    { _laMarker          :: !(Maybe Text)
-    , _laMaxItems        :: !(Maybe Nat)
-    , _laFunctionVersion :: !(Maybe Text)
-    , _laFunctionName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _laMarker          :: !(Maybe Text)
+  , _laMaxItems        :: !(Maybe Nat)
+  , _laFunctionVersion :: !(Maybe Text)
+  , _laFunctionName    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAliases' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'laMarker'
+-- * 'laMarker' - Optional string. An opaque pagination token returned from a previous @ListAliases@ operation. If present, indicates where to continue the listing.
 --
--- * 'laMaxItems'
+-- * 'laMaxItems' - Optional integer. Specifies the maximum number of aliases to return in response. This parameter value must be greater than 0.
 --
--- * 'laFunctionVersion'
+-- * 'laFunctionVersion' - If you specify this optional parameter, the API returns only the aliases that are pointing to the specific Lambda function version, otherwise the API returns all of the aliases created for the Lambda function.
 --
--- * 'laFunctionName'
+-- * 'laFunctionName' - Lambda function name for which the alias is created. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 listAliases
     :: Text -- ^ 'laFunctionName'
     -> ListAliases
 listAliases pFunctionName_ =
-    ListAliases'
-    { _laMarker = Nothing
-    , _laMaxItems = Nothing
-    , _laFunctionVersion = Nothing
-    , _laFunctionName = pFunctionName_
-    }
+  ListAliases'
+  { _laMarker = Nothing
+  , _laMaxItems = Nothing
+  , _laFunctionVersion = Nothing
+  , _laFunctionName = pFunctionName_
+  }
 
--- | Optional string. An opaque pagination token returned from a previous 'ListAliases' operation. If present, indicates where to continue the listing.
+
+-- | Optional string. An opaque pagination token returned from a previous @ListAliases@ operation. If present, indicates where to continue the listing.
 laMarker :: Lens' ListAliases (Maybe Text)
 laMarker = lens _laMarker (\ s a -> s{_laMarker = a});
 
@@ -90,7 +94,7 @@ laMaxItems = lens _laMaxItems (\ s a -> s{_laMaxItems = a}) . mapping _Nat;
 laFunctionVersion :: Lens' ListAliases (Maybe Text)
 laFunctionVersion = lens _laFunctionVersion (\ s a -> s{_laFunctionVersion = a});
 
--- | Lambda function name for which the alias is created.
+-- | Lambda function name for which the alias is created. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 laFunctionName :: Lens' ListAliases Text
 laFunctionName = lens _laFunctionName (\ s a -> s{_laFunctionName = a});
 
@@ -104,9 +108,9 @@ instance AWSRequest ListAliases where
                    (x .?> "Aliases" .!@ mempty) <*> (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListAliases
+instance Hashable ListAliases where
 
-instance NFData ListAliases
+instance NFData ListAliases where
 
 instance ToHeaders ListAliases where
         toHeaders = const mempty
@@ -125,29 +129,31 @@ instance ToQuery ListAliases where
 
 -- | /See:/ 'listAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
-    { _larsAliases        :: !(Maybe [AliasConfiguration])
-    , _larsNextMarker     :: !(Maybe Text)
-    , _larsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _larsAliases        :: !(Maybe [AliasConfiguration])
+  , _larsNextMarker     :: !(Maybe Text)
+  , _larsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAliasesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'larsAliases'
+-- * 'larsAliases' - A list of aliases.
 --
--- * 'larsNextMarker'
+-- * 'larsNextMarker' - A string, present if there are more aliases.
 --
--- * 'larsResponseStatus'
+-- * 'larsResponseStatus' - -- | The response status code.
 listAliasesResponse
     :: Int -- ^ 'larsResponseStatus'
     -> ListAliasesResponse
 listAliasesResponse pResponseStatus_ =
-    ListAliasesResponse'
-    { _larsAliases = Nothing
-    , _larsNextMarker = Nothing
-    , _larsResponseStatus = pResponseStatus_
-    }
+  ListAliasesResponse'
+  { _larsAliases = Nothing
+  , _larsNextMarker = Nothing
+  , _larsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of aliases.
 larsAliases :: Lens' ListAliasesResponse [AliasConfiguration]
@@ -157,8 +163,8 @@ larsAliases = lens _larsAliases (\ s a -> s{_larsAliases = a}) . _Default . _Coe
 larsNextMarker :: Lens' ListAliasesResponse (Maybe Text)
 larsNextMarker = lens _larsNextMarker (\ s a -> s{_larsNextMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 larsResponseStatus :: Lens' ListAliasesResponse Int
 larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
 
-instance NFData ListAliasesResponse
+instance NFData ListAliasesResponse where

@@ -4,12 +4,12 @@
 {-# LANGUAGE TemplateHaskell   #-}
 
 -- Module      : Gen.TH
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
@@ -28,14 +28,18 @@ module Gen.TH
     , camel
     ) where
 
-import           Control.Lens
-import           Data.Aeson.TH
-import           Data.Aeson.Types
-import           Data.Text            (Text)
+import Control.Lens
+
+import Data.Aeson.TH
+import Data.Aeson.Types
+import Data.Text        (Text)
+
+import Gen.Text
+
+import GHC.Generics
+
 import qualified Data.Text            as Text
 import qualified Data.Text.Manipulate as Text
-import           Gen.Text
-import           GHC.Generics
 
 data TH = TH
     { _ctor   :: Text -> Text
@@ -45,10 +49,10 @@ data TH = TH
 
 makeLenses ''TH
 
-gParseJSON' :: (Generic a, GFromJSON (Rep a)) => TH -> Value -> Parser a
+gParseJSON' :: (Generic a, GFromJSON Zero (Rep a)) => TH -> Value -> Parser a
 gParseJSON' th = genericParseJSON (aeson th)
 
-gToJSON' :: (Generic a, GToJSON (Rep a)) => TH -> a -> Value
+gToJSON' :: (Generic a, GToJSON Zero (Rep a)) => TH -> a -> Value
 gToJSON' th = genericToJSON (aeson th)
 
 upper, lower, spinal, camel :: TH

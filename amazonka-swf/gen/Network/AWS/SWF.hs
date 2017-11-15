@@ -5,19 +5,20 @@
 
 -- |
 -- Module      : Network.AWS.SWF
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon Simple Workflow Service
+-- __Amazon Simple Workflow Service__
 --
--- The Amazon Simple Workflow Service (Amazon SWF) makes it easy to build applications that use Amazon\'s cloud to coordinate work across distributed components. In Amazon SWF, a /task/ represents a logical unit of work that is performed by a component of your workflow. Coordinating tasks in a workflow involves managing intertask dependencies, scheduling, and concurrency in accordance with the logical flow of the application.
+-- The Amazon Simple Workflow Service (Amazon SWF) makes it easy to build applications that use Amazon's cloud to coordinate work across distributed components. In Amazon SWF, a /task/ represents a logical unit of work that is performed by a component of your workflow. Coordinating tasks in a workflow involves managing intertask dependencies, scheduling, and concurrency in accordance with the logical flow of the application.
 --
 -- Amazon SWF gives you full control over implementing tasks and coordinating them without worrying about underlying complexities such as tracking their progress and maintaining their state.
 --
--- This documentation serves as reference only. For a broader overview of the Amazon SWF programming model, see the <http://docs.aws.amazon.com/amazonswf/latest/developerguide/ Amazon SWF Developer Guide>.
+-- This documentation serves as reference only. For a broader overview of the Amazon SWF programming model, see the /<http:\/\/docs.aws.amazon.com\/amazonswf\/latest\/developerguide\/ Amazon SWF Developer Guide> / .
+--
 module Network.AWS.SWF
     (
     -- * Service Configuration
@@ -591,6 +592,7 @@ module Network.AWS.SWF
     -- ** LambdaFunctionScheduledEventAttributes
     , LambdaFunctionScheduledEventAttributes
     , lambdaFunctionScheduledEventAttributes
+    , lfseaControl
     , lfseaInput
     , lfseaStartToCloseTimeout
     , lfseaId
@@ -697,6 +699,7 @@ module Network.AWS.SWF
     -- ** ScheduleLambdaFunctionDecisionAttributes
     , ScheduleLambdaFunctionDecisionAttributes
     , scheduleLambdaFunctionDecisionAttributes
+    , slfdaControl
     , slfdaInput
     , slfdaStartToCloseTimeout
     , slfdaId
@@ -998,39 +1001,39 @@ module Network.AWS.SWF
     , wtiCreationDate
     ) where
 
-import           Network.AWS.SWF.CountClosedWorkflowExecutions
-import           Network.AWS.SWF.CountOpenWorkflowExecutions
-import           Network.AWS.SWF.CountPendingActivityTasks
-import           Network.AWS.SWF.CountPendingDecisionTasks
-import           Network.AWS.SWF.DeprecateActivityType
-import           Network.AWS.SWF.DeprecateDomain
-import           Network.AWS.SWF.DeprecateWorkflowType
-import           Network.AWS.SWF.DescribeActivityType
-import           Network.AWS.SWF.DescribeDomain
-import           Network.AWS.SWF.DescribeWorkflowExecution
-import           Network.AWS.SWF.DescribeWorkflowType
-import           Network.AWS.SWF.GetWorkflowExecutionHistory
-import           Network.AWS.SWF.ListActivityTypes
-import           Network.AWS.SWF.ListClosedWorkflowExecutions
-import           Network.AWS.SWF.ListDomains
-import           Network.AWS.SWF.ListOpenWorkflowExecutions
-import           Network.AWS.SWF.ListWorkflowTypes
-import           Network.AWS.SWF.PollForActivityTask
-import           Network.AWS.SWF.PollForDecisionTask
-import           Network.AWS.SWF.RecordActivityTaskHeartbeat
-import           Network.AWS.SWF.RegisterActivityType
-import           Network.AWS.SWF.RegisterDomain
-import           Network.AWS.SWF.RegisterWorkflowType
-import           Network.AWS.SWF.RequestCancelWorkflowExecution
-import           Network.AWS.SWF.RespondActivityTaskCanceled
-import           Network.AWS.SWF.RespondActivityTaskCompleted
-import           Network.AWS.SWF.RespondActivityTaskFailed
-import           Network.AWS.SWF.RespondDecisionTaskCompleted
-import           Network.AWS.SWF.SignalWorkflowExecution
-import           Network.AWS.SWF.StartWorkflowExecution
-import           Network.AWS.SWF.TerminateWorkflowExecution
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Waiters
+import Network.AWS.SWF.CountClosedWorkflowExecutions
+import Network.AWS.SWF.CountOpenWorkflowExecutions
+import Network.AWS.SWF.CountPendingActivityTasks
+import Network.AWS.SWF.CountPendingDecisionTasks
+import Network.AWS.SWF.DeprecateActivityType
+import Network.AWS.SWF.DeprecateDomain
+import Network.AWS.SWF.DeprecateWorkflowType
+import Network.AWS.SWF.DescribeActivityType
+import Network.AWS.SWF.DescribeDomain
+import Network.AWS.SWF.DescribeWorkflowExecution
+import Network.AWS.SWF.DescribeWorkflowType
+import Network.AWS.SWF.GetWorkflowExecutionHistory
+import Network.AWS.SWF.ListActivityTypes
+import Network.AWS.SWF.ListClosedWorkflowExecutions
+import Network.AWS.SWF.ListDomains
+import Network.AWS.SWF.ListOpenWorkflowExecutions
+import Network.AWS.SWF.ListWorkflowTypes
+import Network.AWS.SWF.PollForActivityTask
+import Network.AWS.SWF.PollForDecisionTask
+import Network.AWS.SWF.RecordActivityTaskHeartbeat
+import Network.AWS.SWF.RegisterActivityType
+import Network.AWS.SWF.RegisterDomain
+import Network.AWS.SWF.RegisterWorkflowType
+import Network.AWS.SWF.RequestCancelWorkflowExecution
+import Network.AWS.SWF.RespondActivityTaskCanceled
+import Network.AWS.SWF.RespondActivityTaskCompleted
+import Network.AWS.SWF.RespondActivityTaskFailed
+import Network.AWS.SWF.RespondDecisionTaskCompleted
+import Network.AWS.SWF.SignalWorkflowExecution
+import Network.AWS.SWF.StartWorkflowExecution
+import Network.AWS.SWF.TerminateWorkflowExecution
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

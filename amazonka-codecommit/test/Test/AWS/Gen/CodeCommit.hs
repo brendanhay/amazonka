@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.CodeCommit
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.CodeCommit where
 
 import Data.Proxy
+import Network.AWS.CodeCommit
+import Test.AWS.CodeCommit.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.CodeCommit
-import Test.AWS.CodeCommit.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -36,6 +36,12 @@ import Test.AWS.CodeCommit.Internal
 --
 --         , requestGetBranch $
 --             getBranch
+--
+--         , requestGetDifferences $
+--             getDifferences
+--
+--         , requestDeleteBranch $
+--             deleteBranch
 --
 --         , requestUpdateRepositoryDescription $
 --             updateRepositoryDescription
@@ -64,6 +70,9 @@ import Test.AWS.CodeCommit.Internal
 --         , requestTestRepositoryTriggers $
 --             testRepositoryTriggers
 --
+--         , requestGetBlob $
+--             getBlob
+--
 --         , requestPutRepositoryTriggers $
 --             putRepositoryTriggers
 --
@@ -84,6 +93,12 @@ import Test.AWS.CodeCommit.Internal
 --
 --         , responseGetBranch $
 --             getBranchResponse
+--
+--         , responseGetDifferences $
+--             getDifferencesResponse
+--
+--         , responseDeleteBranch $
+--             deleteBranchResponse
 --
 --         , responseUpdateRepositoryDescription $
 --             updateRepositoryDescriptionResponse
@@ -111,6 +126,9 @@ import Test.AWS.CodeCommit.Internal
 --
 --         , responseTestRepositoryTriggers $
 --             testRepositoryTriggersResponse
+--
+--         , responseGetBlob $
+--             getBlobResponse
 --
 --         , responsePutRepositoryTriggers $
 --             putRepositoryTriggersResponse
@@ -140,6 +158,16 @@ requestGetBranch :: GetBranch -> TestTree
 requestGetBranch = req
     "GetBranch"
     "fixture/GetBranch.yaml"
+
+requestGetDifferences :: GetDifferences -> TestTree
+requestGetDifferences = req
+    "GetDifferences"
+    "fixture/GetDifferences.yaml"
+
+requestDeleteBranch :: DeleteBranch -> TestTree
+requestDeleteBranch = req
+    "DeleteBranch"
+    "fixture/DeleteBranch.yaml"
 
 requestUpdateRepositoryDescription :: UpdateRepositoryDescription -> TestTree
 requestUpdateRepositoryDescription = req
@@ -186,6 +214,11 @@ requestTestRepositoryTriggers = req
     "TestRepositoryTriggers"
     "fixture/TestRepositoryTriggers.yaml"
 
+requestGetBlob :: GetBlob -> TestTree
+requestGetBlob = req
+    "GetBlob"
+    "fixture/GetBlob.yaml"
+
 requestPutRepositoryTriggers :: PutRepositoryTriggers -> TestTree
 requestPutRepositoryTriggers = req
     "PutRepositoryTriggers"
@@ -223,6 +256,20 @@ responseGetBranch = res
     "fixture/GetBranchResponse.proto"
     codeCommit
     (Proxy :: Proxy GetBranch)
+
+responseGetDifferences :: GetDifferencesResponse -> TestTree
+responseGetDifferences = res
+    "GetDifferencesResponse"
+    "fixture/GetDifferencesResponse.proto"
+    codeCommit
+    (Proxy :: Proxy GetDifferences)
+
+responseDeleteBranch :: DeleteBranchResponse -> TestTree
+responseDeleteBranch = res
+    "DeleteBranchResponse"
+    "fixture/DeleteBranchResponse.proto"
+    codeCommit
+    (Proxy :: Proxy DeleteBranch)
 
 responseUpdateRepositoryDescription :: UpdateRepositoryDescriptionResponse -> TestTree
 responseUpdateRepositoryDescription = res
@@ -286,6 +333,13 @@ responseTestRepositoryTriggers = res
     "fixture/TestRepositoryTriggersResponse.proto"
     codeCommit
     (Proxy :: Proxy TestRepositoryTriggers)
+
+responseGetBlob :: GetBlobResponse -> TestTree
+responseGetBlob = res
+    "GetBlobResponse"
+    "fixture/GetBlobResponse.proto"
+    codeCommit
+    (Proxy :: Proxy GetBlob)
 
 responsePutRepositoryTriggers :: PutRepositoryTriggersResponse -> TestTree
 responsePutRepositoryTriggers = res

@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the device status as an administrator.
+--
+--
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus
     (
     -- * Creating a Request
@@ -37,52 +41,56 @@ module Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus
     , audsrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to update the device status, as an administrator.
 --
+--
+--
 -- /See:/ 'adminUpdateDeviceStatus' smart constructor.
 data AdminUpdateDeviceStatus = AdminUpdateDeviceStatus'
-    { _audsDeviceRememberedStatus :: !(Maybe DeviceRememberedStatusType)
-    , _audsUserPoolId             :: !Text
-    , _audsUsername               :: !(Sensitive Text)
-    , _audsDeviceKey              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _audsDeviceRememberedStatus :: !(Maybe DeviceRememberedStatusType)
+  , _audsUserPoolId             :: !Text
+  , _audsUsername               :: !(Sensitive Text)
+  , _audsDeviceKey              :: !Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminUpdateDeviceStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'audsDeviceRememberedStatus'
+-- * 'audsDeviceRememberedStatus' - The status indicating whether a device has been remembered or not.
 --
--- * 'audsUserPoolId'
+-- * 'audsUserPoolId' - The user pool ID.
 --
--- * 'audsUsername'
+-- * 'audsUsername' - The user name.
 --
--- * 'audsDeviceKey'
+-- * 'audsDeviceKey' - The device key.
 adminUpdateDeviceStatus
     :: Text -- ^ 'audsUserPoolId'
     -> Text -- ^ 'audsUsername'
     -> Text -- ^ 'audsDeviceKey'
     -> AdminUpdateDeviceStatus
 adminUpdateDeviceStatus pUserPoolId_ pUsername_ pDeviceKey_ =
-    AdminUpdateDeviceStatus'
-    { _audsDeviceRememberedStatus = Nothing
-    , _audsUserPoolId = pUserPoolId_
-    , _audsUsername = _Sensitive # pUsername_
-    , _audsDeviceKey = pDeviceKey_
-    }
+  AdminUpdateDeviceStatus'
+  { _audsDeviceRememberedStatus = Nothing
+  , _audsUserPoolId = pUserPoolId_
+  , _audsUsername = _Sensitive # pUsername_
+  , _audsDeviceKey = pDeviceKey_
+  }
+
 
 -- | The status indicating whether a device has been remembered or not.
 audsDeviceRememberedStatus :: Lens' AdminUpdateDeviceStatus (Maybe DeviceRememberedStatusType)
 audsDeviceRememberedStatus = lens _audsDeviceRememberedStatus (\ s a -> s{_audsDeviceRememberedStatus = a});
 
--- | The user pool ID>
+-- | The user pool ID.
 audsUserPoolId :: Lens' AdminUpdateDeviceStatus Text
 audsUserPoolId = lens _audsUserPoolId (\ s a -> s{_audsUserPoolId = a});
 
@@ -104,9 +112,9 @@ instance AWSRequest AdminUpdateDeviceStatus where
                  AdminUpdateDeviceStatusResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable AdminUpdateDeviceStatus
+instance Hashable AdminUpdateDeviceStatus where
 
-instance NFData AdminUpdateDeviceStatus
+instance NFData AdminUpdateDeviceStatus where
 
 instance ToHeaders AdminUpdateDeviceStatus where
         toHeaders
@@ -136,26 +144,28 @@ instance ToQuery AdminUpdateDeviceStatus where
 
 -- | The status response from the request to update the device, as an administrator.
 --
+--
+--
 -- /See:/ 'adminUpdateDeviceStatusResponse' smart constructor.
 newtype AdminUpdateDeviceStatusResponse = AdminUpdateDeviceStatusResponse'
-    { _audsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _audsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminUpdateDeviceStatusResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'audsrsResponseStatus'
+-- * 'audsrsResponseStatus' - -- | The response status code.
 adminUpdateDeviceStatusResponse
     :: Int -- ^ 'audsrsResponseStatus'
     -> AdminUpdateDeviceStatusResponse
 adminUpdateDeviceStatusResponse pResponseStatus_ =
-    AdminUpdateDeviceStatusResponse'
-    { _audsrsResponseStatus = pResponseStatus_
-    }
+  AdminUpdateDeviceStatusResponse' {_audsrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 audsrsResponseStatus :: Lens' AdminUpdateDeviceStatusResponse Int
 audsrsResponseStatus = lens _audsrsResponseStatus (\ s a -> s{_audsrsResponseStatus = a});
 
-instance NFData AdminUpdateDeviceStatusResponse
+instance NFData AdminUpdateDeviceStatusResponse where

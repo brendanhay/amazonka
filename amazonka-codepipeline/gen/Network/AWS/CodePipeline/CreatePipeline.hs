@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.CreatePipeline
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a pipeline.
+--
+--
 module Network.AWS.CodePipeline.CreatePipeline
     (
     -- * Creating a Request
@@ -35,34 +37,35 @@ module Network.AWS.CodePipeline.CreatePipeline
     , cprsResponseStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a create pipeline action.
+-- | Represents the input of a CreatePipeline action.
+--
+--
 --
 -- /See:/ 'createPipeline' smart constructor.
 newtype CreatePipeline = CreatePipeline'
-    { _cpPipeline :: PipelineDeclaration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpPipeline :: PipelineDeclaration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePipeline' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpPipeline'
+-- * 'cpPipeline' - Represents the structure of actions and stages to be performed in the pipeline.
 createPipeline
     :: PipelineDeclaration -- ^ 'cpPipeline'
     -> CreatePipeline
-createPipeline pPipeline_ =
-    CreatePipeline'
-    { _cpPipeline = pPipeline_
-    }
+createPipeline pPipeline_ = CreatePipeline' {_cpPipeline = pPipeline_}
 
--- | Undocumented member.
+
+-- | Represents the structure of actions and stages to be performed in the pipeline.
 cpPipeline :: Lens' CreatePipeline PipelineDeclaration
 cpPipeline = lens _cpPipeline (\ s a -> s{_cpPipeline = a});
 
@@ -75,9 +78,9 @@ instance AWSRequest CreatePipeline where
                  CreatePipelineResponse' <$>
                    (x .?> "pipeline") <*> (pure (fromEnum s)))
 
-instance Hashable CreatePipeline
+instance Hashable CreatePipeline where
 
-instance NFData CreatePipeline
+instance NFData CreatePipeline where
 
 instance ToHeaders CreatePipeline where
         toHeaders
@@ -100,36 +103,38 @@ instance ToPath CreatePipeline where
 instance ToQuery CreatePipeline where
         toQuery = const mempty
 
--- | Represents the output of a create pipeline action.
+-- | Represents the output of a CreatePipeline action.
+--
+--
 --
 -- /See:/ 'createPipelineResponse' smart constructor.
 data CreatePipelineResponse = CreatePipelineResponse'
-    { _cprsPipeline       :: !(Maybe PipelineDeclaration)
-    , _cprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cprsPipeline       :: !(Maybe PipelineDeclaration)
+  , _cprsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePipelineResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cprsPipeline'
+-- * 'cprsPipeline' - Represents the structure of actions and stages to be performed in the pipeline.
 --
--- * 'cprsResponseStatus'
+-- * 'cprsResponseStatus' - -- | The response status code.
 createPipelineResponse
     :: Int -- ^ 'cprsResponseStatus'
     -> CreatePipelineResponse
 createPipelineResponse pResponseStatus_ =
-    CreatePipelineResponse'
-    { _cprsPipeline = Nothing
-    , _cprsResponseStatus = pResponseStatus_
-    }
+  CreatePipelineResponse'
+  {_cprsPipeline = Nothing, _cprsResponseStatus = pResponseStatus_}
 
--- | Undocumented member.
+
+-- | Represents the structure of actions and stages to be performed in the pipeline.
 cprsPipeline :: Lens' CreatePipelineResponse (Maybe PipelineDeclaration)
 cprsPipeline = lens _cprsPipeline (\ s a -> s{_cprsPipeline = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cprsResponseStatus :: Lens' CreatePipelineResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
 
-instance NFData CreatePipelineResponse
+instance NFData CreatePipelineResponse where

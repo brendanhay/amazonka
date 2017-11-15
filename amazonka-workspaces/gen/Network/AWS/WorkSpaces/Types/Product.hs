@@ -9,36 +9,37 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.WorkSpaces.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.WorkSpaces.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.WorkSpaces.Types.Sum
 
 -- | Contains information about the compute type of a WorkSpace bundle.
 --
+--
+--
 -- /See:/ 'computeType' smart constructor.
 newtype ComputeType = ComputeType'
-    { _ctName :: Maybe Compute
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctName :: Maybe Compute
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComputeType' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctName'
+-- * 'ctName' - The name of the compute type for the bundle.
 computeType
     :: ComputeType
-computeType =
-    ComputeType'
-    { _ctName = Nothing
-    }
+computeType = ComputeType' {_ctName = Nothing}
+
 
 -- | The name of the compute type for the bundle.
 ctName :: Lens' ComputeType (Maybe Compute)
@@ -49,44 +50,48 @@ instance FromJSON ComputeType where
           = withObject "ComputeType"
               (\ x -> ComputeType' <$> (x .:? "Name"))
 
-instance Hashable ComputeType
+instance Hashable ComputeType where
 
-instance NFData ComputeType
+instance NFData ComputeType where
 
 -- | Contains default WorkSpace creation information.
 --
+--
+--
 -- /See:/ 'defaultWorkspaceCreationProperties' smart constructor.
 data DefaultWorkspaceCreationProperties = DefaultWorkspaceCreationProperties'
-    { _dwcpCustomSecurityGroupId           :: !(Maybe Text)
-    , _dwcpUserEnabledAsLocalAdministrator :: !(Maybe Bool)
-    , _dwcpEnableWorkDocs                  :: !(Maybe Bool)
-    , _dwcpEnableInternetAccess            :: !(Maybe Bool)
-    , _dwcpDefaultOu                       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwcpCustomSecurityGroupId           :: !(Maybe Text)
+  , _dwcpUserEnabledAsLocalAdministrator :: !(Maybe Bool)
+  , _dwcpEnableWorkDocs                  :: !(Maybe Bool)
+  , _dwcpEnableInternetAccess            :: !(Maybe Bool)
+  , _dwcpDefaultOu                       :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DefaultWorkspaceCreationProperties' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwcpCustomSecurityGroupId'
+-- * 'dwcpCustomSecurityGroupId' - The identifier of any custom security groups that are applied to the WorkSpaces when they are created.
 --
--- * 'dwcpUserEnabledAsLocalAdministrator'
+-- * 'dwcpUserEnabledAsLocalAdministrator' - The WorkSpace user is an administrator on the WorkSpace.
 --
--- * 'dwcpEnableWorkDocs'
+-- * 'dwcpEnableWorkDocs' - Specifies if the directory is enabled for Amazon WorkDocs.
 --
--- * 'dwcpEnableInternetAccess'
+-- * 'dwcpEnableInternetAccess' - A public IP address will be attached to all WorkSpaces that are created or rebuilt.
 --
--- * 'dwcpDefaultOu'
+-- * 'dwcpDefaultOu' - The organizational unit (OU) in the directory that the WorkSpace machine accounts are placed in.
 defaultWorkspaceCreationProperties
     :: DefaultWorkspaceCreationProperties
 defaultWorkspaceCreationProperties =
-    DefaultWorkspaceCreationProperties'
-    { _dwcpCustomSecurityGroupId = Nothing
-    , _dwcpUserEnabledAsLocalAdministrator = Nothing
-    , _dwcpEnableWorkDocs = Nothing
-    , _dwcpEnableInternetAccess = Nothing
-    , _dwcpDefaultOu = Nothing
-    }
+  DefaultWorkspaceCreationProperties'
+  { _dwcpCustomSecurityGroupId = Nothing
+  , _dwcpUserEnabledAsLocalAdministrator = Nothing
+  , _dwcpEnableWorkDocs = Nothing
+  , _dwcpEnableInternetAccess = Nothing
+  , _dwcpDefaultOu = Nothing
+  }
+
 
 -- | The identifier of any custom security groups that are applied to the WorkSpaces when they are created.
 dwcpCustomSecurityGroupId :: Lens' DefaultWorkspaceCreationProperties (Maybe Text)
@@ -121,37 +126,43 @@ instance FromJSON DefaultWorkspaceCreationProperties
                      <*> (x .:? "DefaultOu"))
 
 instance Hashable DefaultWorkspaceCreationProperties
+         where
 
 instance NFData DefaultWorkspaceCreationProperties
+         where
 
 -- | Contains information about a WorkSpace that could not be created.
 --
+--
+--
 -- /See:/ 'failedCreateWorkspaceRequest' smart constructor.
 data FailedCreateWorkspaceRequest = FailedCreateWorkspaceRequest'
-    { _fcwrWorkspaceRequest :: !(Maybe WorkspaceRequest)
-    , _fcwrErrorCode        :: !(Maybe Text)
-    , _fcwrErrorMessage     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fcwrWorkspaceRequest :: !(Maybe WorkspaceRequest)
+  , _fcwrErrorCode        :: !(Maybe Text)
+  , _fcwrErrorMessage     :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FailedCreateWorkspaceRequest' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fcwrWorkspaceRequest'
+-- * 'fcwrWorkspaceRequest' - A 'FailedCreateWorkspaceRequest$WorkspaceRequest' object that contains the information about the WorkSpace that could not be created.
 --
--- * 'fcwrErrorCode'
+-- * 'fcwrErrorCode' - The error code.
 --
--- * 'fcwrErrorMessage'
+-- * 'fcwrErrorMessage' - The textual error message.
 failedCreateWorkspaceRequest
     :: FailedCreateWorkspaceRequest
 failedCreateWorkspaceRequest =
-    FailedCreateWorkspaceRequest'
-    { _fcwrWorkspaceRequest = Nothing
-    , _fcwrErrorCode = Nothing
-    , _fcwrErrorMessage = Nothing
-    }
+  FailedCreateWorkspaceRequest'
+  { _fcwrWorkspaceRequest = Nothing
+  , _fcwrErrorCode = Nothing
+  , _fcwrErrorMessage = Nothing
+  }
 
--- | A < FailedCreateWorkspaceRequest>WorkspaceRequest> object that contains the information about the WorkSpace that could not be created.
+
+-- | A 'FailedCreateWorkspaceRequest$WorkspaceRequest' object that contains the information about the WorkSpace that could not be created.
 fcwrWorkspaceRequest :: Lens' FailedCreateWorkspaceRequest (Maybe WorkspaceRequest)
 fcwrWorkspaceRequest = lens _fcwrWorkspaceRequest (\ s a -> s{_fcwrWorkspaceRequest = a});
 
@@ -171,36 +182,40 @@ instance FromJSON FailedCreateWorkspaceRequest where
                    (x .:? "WorkspaceRequest") <*> (x .:? "ErrorCode")
                      <*> (x .:? "ErrorMessage"))
 
-instance Hashable FailedCreateWorkspaceRequest
+instance Hashable FailedCreateWorkspaceRequest where
 
-instance NFData FailedCreateWorkspaceRequest
+instance NFData FailedCreateWorkspaceRequest where
 
--- | Contains information about a WorkSpace that could not be rebooted (< RebootWorkspaces>), rebuilt (< RebuildWorkspaces>), terminated (< TerminateWorkspaces>), started (< StartWorkspaces>), or stopped (< StopWorkspaces>).
+-- | Contains information about a WorkSpace that could not be rebooted ('RebootWorkspaces' ), rebuilt ('RebuildWorkspaces' ), terminated ('TerminateWorkspaces' ), started ('StartWorkspaces' ), or stopped ('StopWorkspaces' ).
+--
+--
 --
 -- /See:/ 'failedWorkspaceChangeRequest' smart constructor.
 data FailedWorkspaceChangeRequest = FailedWorkspaceChangeRequest'
-    { _fwcrErrorCode    :: !(Maybe Text)
-    , _fwcrWorkspaceId  :: !(Maybe Text)
-    , _fwcrErrorMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fwcrErrorCode    :: !(Maybe Text)
+  , _fwcrWorkspaceId  :: !(Maybe Text)
+  , _fwcrErrorMessage :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FailedWorkspaceChangeRequest' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fwcrErrorCode'
+-- * 'fwcrErrorCode' - The error code.
 --
--- * 'fwcrWorkspaceId'
+-- * 'fwcrWorkspaceId' - The identifier of the WorkSpace.
 --
--- * 'fwcrErrorMessage'
+-- * 'fwcrErrorMessage' - The textual error message.
 failedWorkspaceChangeRequest
     :: FailedWorkspaceChangeRequest
 failedWorkspaceChangeRequest =
-    FailedWorkspaceChangeRequest'
-    { _fwcrErrorCode = Nothing
-    , _fwcrWorkspaceId = Nothing
-    , _fwcrErrorMessage = Nothing
-    }
+  FailedWorkspaceChangeRequest'
+  { _fwcrErrorCode = Nothing
+  , _fwcrWorkspaceId = Nothing
+  , _fwcrErrorMessage = Nothing
+  }
+
 
 -- | The error code.
 fwcrErrorCode :: Lens' FailedWorkspaceChangeRequest (Maybe Text)
@@ -222,70 +237,72 @@ instance FromJSON FailedWorkspaceChangeRequest where
                    (x .:? "ErrorCode") <*> (x .:? "WorkspaceId") <*>
                      (x .:? "ErrorMessage"))
 
-instance Hashable FailedWorkspaceChangeRequest
+instance Hashable FailedWorkspaceChangeRequest where
 
-instance NFData FailedWorkspaceChangeRequest
+instance NFData FailedWorkspaceChangeRequest where
 
--- | Contains information used with the < RebootWorkspaces> operation to reboot a WorkSpace.
+-- | Contains information used with the 'RebootWorkspaces' operation to reboot a WorkSpace.
+--
+--
 --
 -- /See:/ 'rebootRequest' smart constructor.
 newtype RebootRequest = RebootRequest'
-    { _rWorkspaceId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rWorkspaceId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebootRequest' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rWorkspaceId'
+-- * 'rWorkspaceId' - The identifier of the WorkSpace to reboot.
 rebootRequest
     :: Text -- ^ 'rWorkspaceId'
     -> RebootRequest
-rebootRequest pWorkspaceId_ =
-    RebootRequest'
-    { _rWorkspaceId = pWorkspaceId_
-    }
+rebootRequest pWorkspaceId_ = RebootRequest' {_rWorkspaceId = pWorkspaceId_}
+
 
 -- | The identifier of the WorkSpace to reboot.
 rWorkspaceId :: Lens' RebootRequest Text
 rWorkspaceId = lens _rWorkspaceId (\ s a -> s{_rWorkspaceId = a});
 
-instance Hashable RebootRequest
+instance Hashable RebootRequest where
 
-instance NFData RebootRequest
+instance NFData RebootRequest where
 
 instance ToJSON RebootRequest where
         toJSON RebootRequest'{..}
           = object
               (catMaybes [Just ("WorkspaceId" .= _rWorkspaceId)])
 
--- | Contains information used with the < RebuildWorkspaces> operation to rebuild a WorkSpace.
+-- | Contains information used with the 'RebuildWorkspaces' operation to rebuild a WorkSpace.
+--
+--
 --
 -- /See:/ 'rebuildRequest' smart constructor.
 newtype RebuildRequest = RebuildRequest'
-    { _rrWorkspaceId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrWorkspaceId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebuildRequest' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrWorkspaceId'
+-- * 'rrWorkspaceId' - The identifier of the WorkSpace to rebuild.
 rebuildRequest
     :: Text -- ^ 'rrWorkspaceId'
     -> RebuildRequest
-rebuildRequest pWorkspaceId_ =
-    RebuildRequest'
-    { _rrWorkspaceId = pWorkspaceId_
-    }
+rebuildRequest pWorkspaceId_ = RebuildRequest' {_rrWorkspaceId = pWorkspaceId_}
+
 
 -- | The identifier of the WorkSpace to rebuild.
 rrWorkspaceId :: Lens' RebuildRequest Text
 rrWorkspaceId = lens _rrWorkspaceId (\ s a -> s{_rrWorkspaceId = a});
 
-instance Hashable RebuildRequest
+instance Hashable RebuildRequest where
 
-instance NFData RebuildRequest
+instance NFData RebuildRequest where
 
 instance ToJSON RebuildRequest where
         toJSON RebuildRequest'{..}
@@ -294,30 +311,31 @@ instance ToJSON RebuildRequest where
 
 -- | Describes the start request.
 --
+--
+--
 -- /See:/ 'startRequest' smart constructor.
 newtype StartRequest = StartRequest'
-    { _sWorkspaceId :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sWorkspaceId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartRequest' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sWorkspaceId'
+-- * 'sWorkspaceId' - The ID of the WorkSpace.
 startRequest
     :: StartRequest
-startRequest =
-    StartRequest'
-    { _sWorkspaceId = Nothing
-    }
+startRequest = StartRequest' {_sWorkspaceId = Nothing}
+
 
 -- | The ID of the WorkSpace.
 sWorkspaceId :: Lens' StartRequest (Maybe Text)
 sWorkspaceId = lens _sWorkspaceId (\ s a -> s{_sWorkspaceId = a});
 
-instance Hashable StartRequest
+instance Hashable StartRequest where
 
-instance NFData StartRequest
+instance NFData StartRequest where
 
 instance ToJSON StartRequest where
         toJSON StartRequest'{..}
@@ -326,30 +344,31 @@ instance ToJSON StartRequest where
 
 -- | Describes the stop request.
 --
+--
+--
 -- /See:/ 'stopRequest' smart constructor.
 newtype StopRequest = StopRequest'
-    { _srWorkspaceId :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srWorkspaceId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopRequest' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srWorkspaceId'
+-- * 'srWorkspaceId' - The ID of the WorkSpace.
 stopRequest
     :: StopRequest
-stopRequest =
-    StopRequest'
-    { _srWorkspaceId = Nothing
-    }
+stopRequest = StopRequest' {_srWorkspaceId = Nothing}
+
 
 -- | The ID of the WorkSpace.
 srWorkspaceId :: Lens' StopRequest (Maybe Text)
 srWorkspaceId = lens _srWorkspaceId (\ s a -> s{_srWorkspaceId = a});
 
-instance Hashable StopRequest
+instance Hashable StopRequest where
 
-instance NFData StopRequest
+instance NFData StopRequest where
 
 instance ToJSON StopRequest where
         toJSON StopRequest'{..}
@@ -358,27 +377,27 @@ instance ToJSON StopRequest where
 
 -- | Describes the tag of the WorkSpace.
 --
+--
+--
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue'
+-- * 'tagValue' - The value of the tag.
 --
--- * 'tagKey'
+-- * 'tagKey' - The key of the tag.
 tag
     :: Text -- ^ 'tagKey'
     -> Tag
-tag pKey_ =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = pKey_
-    }
+tag pKey_ = Tag' {_tagValue = Nothing, _tagKey = pKey_}
+
 
 -- | The value of the tag.
 tagValue :: Lens' Tag (Maybe Text)
@@ -393,9 +412,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .: "Key"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -404,33 +423,35 @@ instance ToJSON Tag where
                  [("Value" .=) <$> _tagValue,
                   Just ("Key" .= _tagKey)])
 
--- | Contains information used with the < TerminateWorkspaces> operation to terminate a WorkSpace.
+-- | Contains information used with the 'TerminateWorkspaces' operation to terminate a WorkSpace.
+--
+--
 --
 -- /See:/ 'terminateRequest' smart constructor.
 newtype TerminateRequest = TerminateRequest'
-    { _trWorkspaceId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trWorkspaceId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TerminateRequest' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trWorkspaceId'
+-- * 'trWorkspaceId' - The identifier of the WorkSpace to terminate.
 terminateRequest
     :: Text -- ^ 'trWorkspaceId'
     -> TerminateRequest
 terminateRequest pWorkspaceId_ =
-    TerminateRequest'
-    { _trWorkspaceId = pWorkspaceId_
-    }
+  TerminateRequest' {_trWorkspaceId = pWorkspaceId_}
+
 
 -- | The identifier of the WorkSpace to terminate.
 trWorkspaceId :: Lens' TerminateRequest Text
 trWorkspaceId = lens _trWorkspaceId (\ s a -> s{_trWorkspaceId = a});
 
-instance Hashable TerminateRequest
+instance Hashable TerminateRequest where
 
-instance NFData TerminateRequest
+instance NFData TerminateRequest where
 
 instance ToJSON TerminateRequest where
         toJSON TerminateRequest'{..}
@@ -439,22 +460,23 @@ instance ToJSON TerminateRequest where
 
 -- | Contains information about the user storage for a WorkSpace bundle.
 --
+--
+--
 -- /See:/ 'userStorage' smart constructor.
 newtype UserStorage = UserStorage'
-    { _usCapacity :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usCapacity :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UserStorage' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usCapacity'
+-- * 'usCapacity' - The amount of user storage for the bundle.
 userStorage
     :: UserStorage
-userStorage =
-    UserStorage'
-    { _usCapacity = Nothing
-    }
+userStorage = UserStorage' {_usCapacity = Nothing}
+
 
 -- | The amount of user storage for the bundle.
 usCapacity :: Lens' UserStorage (Maybe Text)
@@ -465,80 +487,84 @@ instance FromJSON UserStorage where
           = withObject "UserStorage"
               (\ x -> UserStorage' <$> (x .:? "Capacity"))
 
-instance Hashable UserStorage
+instance Hashable UserStorage where
 
-instance NFData UserStorage
+instance NFData UserStorage where
 
 -- | Contains information about a WorkSpace.
 --
+--
+--
 -- /See:/ 'workspace' smart constructor.
 data Workspace = Workspace'
-    { _wDirectoryId                 :: !(Maybe Text)
-    , _wState                       :: !(Maybe WorkspaceState)
-    , _wIPAddress                   :: !(Maybe Text)
-    , _wUserName                    :: !(Maybe Text)
-    , _wSubnetId                    :: !(Maybe Text)
-    , _wBundleId                    :: !(Maybe Text)
-    , _wWorkspaceProperties         :: !(Maybe WorkspaceProperties)
-    , _wRootVolumeEncryptionEnabled :: !(Maybe Bool)
-    , _wErrorCode                   :: !(Maybe Text)
-    , _wVolumeEncryptionKey         :: !(Maybe Text)
-    , _wComputerName                :: !(Maybe Text)
-    , _wWorkspaceId                 :: !(Maybe Text)
-    , _wUserVolumeEncryptionEnabled :: !(Maybe Bool)
-    , _wErrorMessage                :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wDirectoryId                 :: !(Maybe Text)
+  , _wState                       :: !(Maybe WorkspaceState)
+  , _wIPAddress                   :: !(Maybe Text)
+  , _wUserName                    :: !(Maybe Text)
+  , _wSubnetId                    :: !(Maybe Text)
+  , _wBundleId                    :: !(Maybe Text)
+  , _wWorkspaceProperties         :: !(Maybe WorkspaceProperties)
+  , _wRootVolumeEncryptionEnabled :: !(Maybe Bool)
+  , _wErrorCode                   :: !(Maybe Text)
+  , _wVolumeEncryptionKey         :: !(Maybe Text)
+  , _wComputerName                :: !(Maybe Text)
+  , _wWorkspaceId                 :: !(Maybe Text)
+  , _wUserVolumeEncryptionEnabled :: !(Maybe Bool)
+  , _wErrorMessage                :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Workspace' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wDirectoryId'
+-- * 'wDirectoryId' - The identifier of the AWS Directory Service directory that the WorkSpace belongs to.
 --
--- * 'wState'
+-- * 'wState' - The operational state of the WorkSpace.
 --
--- * 'wIPAddress'
+-- * 'wIPAddress' - The IP address of the WorkSpace.
 --
--- * 'wUserName'
+-- * 'wUserName' - The user that the WorkSpace is assigned to.
 --
--- * 'wSubnetId'
+-- * 'wSubnetId' - The identifier of the subnet that the WorkSpace is in.
 --
--- * 'wBundleId'
+-- * 'wBundleId' - The identifier of the bundle that the WorkSpace was created from.
 --
--- * 'wWorkspaceProperties'
+-- * 'wWorkspaceProperties' - Undocumented member.
 --
--- * 'wRootVolumeEncryptionEnabled'
+-- * 'wRootVolumeEncryptionEnabled' - Specifies whether the data stored on the root volume, or C: drive, is encrypted.
 --
--- * 'wErrorCode'
+-- * 'wErrorCode' - If the WorkSpace could not be created, this contains the error code.
 --
--- * 'wVolumeEncryptionKey'
+-- * 'wVolumeEncryptionKey' - The KMS key used to encrypt data stored on your WorkSpace.
 --
--- * 'wComputerName'
+-- * 'wComputerName' - The name of the WorkSpace as seen by the operating system.
 --
--- * 'wWorkspaceId'
+-- * 'wWorkspaceId' - The identifier of the WorkSpace.
 --
--- * 'wUserVolumeEncryptionEnabled'
+-- * 'wUserVolumeEncryptionEnabled' - Specifies whether the data stored on the user volume, or D: drive, is encrypted.
 --
--- * 'wErrorMessage'
+-- * 'wErrorMessage' - If the WorkSpace could not be created, this contains a textual error message that describes the failure.
 workspace
     :: Workspace
 workspace =
-    Workspace'
-    { _wDirectoryId = Nothing
-    , _wState = Nothing
-    , _wIPAddress = Nothing
-    , _wUserName = Nothing
-    , _wSubnetId = Nothing
-    , _wBundleId = Nothing
-    , _wWorkspaceProperties = Nothing
-    , _wRootVolumeEncryptionEnabled = Nothing
-    , _wErrorCode = Nothing
-    , _wVolumeEncryptionKey = Nothing
-    , _wComputerName = Nothing
-    , _wWorkspaceId = Nothing
-    , _wUserVolumeEncryptionEnabled = Nothing
-    , _wErrorMessage = Nothing
-    }
+  Workspace'
+  { _wDirectoryId = Nothing
+  , _wState = Nothing
+  , _wIPAddress = Nothing
+  , _wUserName = Nothing
+  , _wSubnetId = Nothing
+  , _wBundleId = Nothing
+  , _wWorkspaceProperties = Nothing
+  , _wRootVolumeEncryptionEnabled = Nothing
+  , _wErrorCode = Nothing
+  , _wVolumeEncryptionKey = Nothing
+  , _wComputerName = Nothing
+  , _wWorkspaceId = Nothing
+  , _wUserVolumeEncryptionEnabled = Nothing
+  , _wErrorMessage = Nothing
+  }
+
 
 -- | The identifier of the AWS Directory Service directory that the WorkSpace belongs to.
 wDirectoryId :: Lens' Workspace (Maybe Text)
@@ -615,54 +641,58 @@ instance FromJSON Workspace where
                      <*> (x .:? "UserVolumeEncryptionEnabled")
                      <*> (x .:? "ErrorMessage"))
 
-instance Hashable Workspace
+instance Hashable Workspace where
 
-instance NFData Workspace
+instance NFData Workspace where
 
 -- | Contains information about a WorkSpace bundle.
 --
+--
+--
 -- /See:/ 'workspaceBundle' smart constructor.
 data WorkspaceBundle = WorkspaceBundle'
-    { _wbBundleId    :: !(Maybe Text)
-    , _wbOwner       :: !(Maybe Text)
-    , _wbName        :: !(Maybe Text)
-    , _wbComputeType :: !(Maybe ComputeType)
-    , _wbUserStorage :: !(Maybe UserStorage)
-    , _wbDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wbBundleId    :: !(Maybe Text)
+  , _wbOwner       :: !(Maybe Text)
+  , _wbName        :: !(Maybe Text)
+  , _wbComputeType :: !(Maybe ComputeType)
+  , _wbUserStorage :: !(Maybe UserStorage)
+  , _wbDescription :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WorkspaceBundle' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wbBundleId'
+-- * 'wbBundleId' - The bundle identifier.
 --
--- * 'wbOwner'
+-- * 'wbOwner' - The owner of the bundle. This contains the owner's account identifier, or @AMAZON@ if the bundle is provided by AWS.
 --
--- * 'wbName'
+-- * 'wbName' - The name of the bundle.
 --
--- * 'wbComputeType'
+-- * 'wbComputeType' - A 'ComputeType' object that specifies the compute type for the bundle.
 --
--- * 'wbUserStorage'
+-- * 'wbUserStorage' - A 'UserStorage' object that specifies the amount of user storage that the bundle contains.
 --
--- * 'wbDescription'
+-- * 'wbDescription' - The bundle description.
 workspaceBundle
     :: WorkspaceBundle
 workspaceBundle =
-    WorkspaceBundle'
-    { _wbBundleId = Nothing
-    , _wbOwner = Nothing
-    , _wbName = Nothing
-    , _wbComputeType = Nothing
-    , _wbUserStorage = Nothing
-    , _wbDescription = Nothing
-    }
+  WorkspaceBundle'
+  { _wbBundleId = Nothing
+  , _wbOwner = Nothing
+  , _wbName = Nothing
+  , _wbComputeType = Nothing
+  , _wbUserStorage = Nothing
+  , _wbDescription = Nothing
+  }
+
 
 -- | The bundle identifier.
 wbBundleId :: Lens' WorkspaceBundle (Maybe Text)
 wbBundleId = lens _wbBundleId (\ s a -> s{_wbBundleId = a});
 
--- | The owner of the bundle. This contains the owner\'s account identifier, or 'AMAZON' if the bundle is provided by AWS.
+-- | The owner of the bundle. This contains the owner's account identifier, or @AMAZON@ if the bundle is provided by AWS.
 wbOwner :: Lens' WorkspaceBundle (Maybe Text)
 wbOwner = lens _wbOwner (\ s a -> s{_wbOwner = a});
 
@@ -670,11 +700,11 @@ wbOwner = lens _wbOwner (\ s a -> s{_wbOwner = a});
 wbName :: Lens' WorkspaceBundle (Maybe Text)
 wbName = lens _wbName (\ s a -> s{_wbName = a});
 
--- | A < ComputeType> object that specifies the compute type for the bundle.
+-- | A 'ComputeType' object that specifies the compute type for the bundle.
 wbComputeType :: Lens' WorkspaceBundle (Maybe ComputeType)
 wbComputeType = lens _wbComputeType (\ s a -> s{_wbComputeType = a});
 
--- | A < UserStorage> object that specifies the amount of user storage that the bundle contains.
+-- | A 'UserStorage' object that specifies the amount of user storage that the bundle contains.
 wbUserStorage :: Lens' WorkspaceBundle (Maybe UserStorage)
 wbUserStorage = lens _wbUserStorage (\ s a -> s{_wbUserStorage = a});
 
@@ -693,40 +723,44 @@ instance FromJSON WorkspaceBundle where
                      <*> (x .:? "UserStorage")
                      <*> (x .:? "Description"))
 
-instance Hashable WorkspaceBundle
+instance Hashable WorkspaceBundle where
 
-instance NFData WorkspaceBundle
+instance NFData WorkspaceBundle where
 
 -- | Describes the connection status of a WorkSpace.
 --
+--
+--
 -- /See:/ 'workspaceConnectionStatus' smart constructor.
 data WorkspaceConnectionStatus = WorkspaceConnectionStatus'
-    { _wcsLastKnownUserConnectionTimestamp :: !(Maybe POSIX)
-    , _wcsConnectionStateCheckTimestamp    :: !(Maybe POSIX)
-    , _wcsWorkspaceId                      :: !(Maybe Text)
-    , _wcsConnectionState                  :: !(Maybe ConnectionState)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wcsLastKnownUserConnectionTimestamp :: !(Maybe POSIX)
+  , _wcsConnectionStateCheckTimestamp    :: !(Maybe POSIX)
+  , _wcsWorkspaceId                      :: !(Maybe Text)
+  , _wcsConnectionState                  :: !(Maybe ConnectionState)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WorkspaceConnectionStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wcsLastKnownUserConnectionTimestamp'
+-- * 'wcsLastKnownUserConnectionTimestamp' - The timestamp of the last known user connection.
 --
--- * 'wcsConnectionStateCheckTimestamp'
+-- * 'wcsConnectionStateCheckTimestamp' - The timestamp of the connection state check.
 --
--- * 'wcsWorkspaceId'
+-- * 'wcsWorkspaceId' - The ID of the WorkSpace.
 --
--- * 'wcsConnectionState'
+-- * 'wcsConnectionState' - The connection state of the WorkSpace. Returns UNKOWN if the WorkSpace is in a Stopped state.
 workspaceConnectionStatus
     :: WorkspaceConnectionStatus
 workspaceConnectionStatus =
-    WorkspaceConnectionStatus'
-    { _wcsLastKnownUserConnectionTimestamp = Nothing
-    , _wcsConnectionStateCheckTimestamp = Nothing
-    , _wcsWorkspaceId = Nothing
-    , _wcsConnectionState = Nothing
-    }
+  WorkspaceConnectionStatus'
+  { _wcsLastKnownUserConnectionTimestamp = Nothing
+  , _wcsConnectionStateCheckTimestamp = Nothing
+  , _wcsWorkspaceId = Nothing
+  , _wcsConnectionState = Nothing
+  }
+
 
 -- | The timestamp of the last known user connection.
 wcsLastKnownUserConnectionTimestamp :: Lens' WorkspaceConnectionStatus (Maybe UTCTime)
@@ -754,72 +788,76 @@ instance FromJSON WorkspaceConnectionStatus where
                      <*> (x .:? "WorkspaceId")
                      <*> (x .:? "ConnectionState"))
 
-instance Hashable WorkspaceConnectionStatus
+instance Hashable WorkspaceConnectionStatus where
 
-instance NFData WorkspaceConnectionStatus
+instance NFData WorkspaceConnectionStatus where
 
 -- | Contains information about an AWS Directory Service directory for use with Amazon WorkSpaces.
 --
+--
+--
 -- /See:/ 'workspaceDirectory' smart constructor.
 data WorkspaceDirectory = WorkspaceDirectory'
-    { _wdRegistrationCode            :: !(Maybe Text)
-    , _wdIAMRoleId                   :: !(Maybe Text)
-    , _wdDirectoryId                 :: !(Maybe Text)
-    , _wdState                       :: !(Maybe WorkspaceDirectoryState)
-    , _wdCustomerUserName            :: !(Maybe Text)
-    , _wdSubnetIds                   :: !(Maybe [Text])
-    , _wdAlias                       :: !(Maybe Text)
-    , _wdWorkspaceSecurityGroupId    :: !(Maybe Text)
-    , _wdDirectoryType               :: !(Maybe WorkspaceDirectoryType)
-    , _wdWorkspaceCreationProperties :: !(Maybe DefaultWorkspaceCreationProperties)
-    , _wdDNSIPAddresses              :: !(Maybe [Text])
-    , _wdDirectoryName               :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wdRegistrationCode :: !(Maybe Text)
+  , _wdIAMRoleId :: !(Maybe Text)
+  , _wdDirectoryId :: !(Maybe Text)
+  , _wdState :: !(Maybe WorkspaceDirectoryState)
+  , _wdCustomerUserName :: !(Maybe Text)
+  , _wdSubnetIds :: !(Maybe [Text])
+  , _wdAlias :: !(Maybe Text)
+  , _wdWorkspaceSecurityGroupId :: !(Maybe Text)
+  , _wdDirectoryType :: !(Maybe WorkspaceDirectoryType)
+  , _wdWorkspaceCreationProperties :: !(Maybe DefaultWorkspaceCreationProperties)
+  , _wdDNSIPAddresses :: !(Maybe [Text])
+  , _wdDirectoryName :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WorkspaceDirectory' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wdRegistrationCode'
+-- * 'wdRegistrationCode' - The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
 --
--- * 'wdIAMRoleId'
+-- * 'wdIAMRoleId' - The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
 --
--- * 'wdDirectoryId'
+-- * 'wdDirectoryId' - The directory identifier.
 --
--- * 'wdState'
+-- * 'wdState' - The state of the directory's registration with Amazon WorkSpaces
 --
--- * 'wdCustomerUserName'
+-- * 'wdCustomerUserName' - The user name for the service account.
 --
--- * 'wdSubnetIds'
+-- * 'wdSubnetIds' - An array of strings that contains the identifiers of the subnets used with the directory.
 --
--- * 'wdAlias'
+-- * 'wdAlias' - The directory alias.
 --
--- * 'wdWorkspaceSecurityGroupId'
+-- * 'wdWorkspaceSecurityGroupId' - The identifier of the security group that is assigned to new WorkSpaces.
 --
--- * 'wdDirectoryType'
+-- * 'wdDirectoryType' - The directory type.
 --
--- * 'wdWorkspaceCreationProperties'
+-- * 'wdWorkspaceCreationProperties' - A structure that specifies the default creation properties for all WorkSpaces in the directory.
 --
--- * 'wdDNSIPAddresses'
+-- * 'wdDNSIPAddresses' - An array of strings that contains the IP addresses of the DNS servers for the directory.
 --
--- * 'wdDirectoryName'
+-- * 'wdDirectoryName' - The name of the directory.
 workspaceDirectory
     :: WorkspaceDirectory
 workspaceDirectory =
-    WorkspaceDirectory'
-    { _wdRegistrationCode = Nothing
-    , _wdIAMRoleId = Nothing
-    , _wdDirectoryId = Nothing
-    , _wdState = Nothing
-    , _wdCustomerUserName = Nothing
-    , _wdSubnetIds = Nothing
-    , _wdAlias = Nothing
-    , _wdWorkspaceSecurityGroupId = Nothing
-    , _wdDirectoryType = Nothing
-    , _wdWorkspaceCreationProperties = Nothing
-    , _wdDNSIPAddresses = Nothing
-    , _wdDirectoryName = Nothing
-    }
+  WorkspaceDirectory'
+  { _wdRegistrationCode = Nothing
+  , _wdIAMRoleId = Nothing
+  , _wdDirectoryId = Nothing
+  , _wdState = Nothing
+  , _wdCustomerUserName = Nothing
+  , _wdSubnetIds = Nothing
+  , _wdAlias = Nothing
+  , _wdWorkspaceSecurityGroupId = Nothing
+  , _wdDirectoryType = Nothing
+  , _wdWorkspaceCreationProperties = Nothing
+  , _wdDNSIPAddresses = Nothing
+  , _wdDirectoryName = Nothing
+  }
+
 
 -- | The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
 wdRegistrationCode :: Lens' WorkspaceDirectory (Maybe Text)
@@ -833,7 +871,7 @@ wdIAMRoleId = lens _wdIAMRoleId (\ s a -> s{_wdIAMRoleId = a});
 wdDirectoryId :: Lens' WorkspaceDirectory (Maybe Text)
 wdDirectoryId = lens _wdDirectoryId (\ s a -> s{_wdDirectoryId = a});
 
--- | The state of the directory\'s registration with Amazon WorkSpaces
+-- | The state of the directory's registration with Amazon WorkSpaces
 wdState :: Lens' WorkspaceDirectory (Maybe WorkspaceDirectoryState)
 wdState = lens _wdState (\ s a -> s{_wdState = a});
 
@@ -886,32 +924,34 @@ instance FromJSON WorkspaceDirectory where
                      <*> (x .:? "DnsIpAddresses" .!= mempty)
                      <*> (x .:? "DirectoryName"))
 
-instance Hashable WorkspaceDirectory
+instance Hashable WorkspaceDirectory where
 
-instance NFData WorkspaceDirectory
+instance NFData WorkspaceDirectory where
 
 -- | Describes the properties of a WorkSpace.
 --
+--
+--
 -- /See:/ 'workspaceProperties' smart constructor.
 data WorkspaceProperties = WorkspaceProperties'
-    { _wpRunningMode                         :: !(Maybe RunningMode)
-    , _wpRunningModeAutoStopTimeoutInMinutes :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wpRunningMode                         :: !(Maybe RunningMode)
+  , _wpRunningModeAutoStopTimeoutInMinutes :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WorkspaceProperties' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wpRunningMode'
+-- * 'wpRunningMode' - The running mode of the WorkSpace. AlwaysOn WorkSpaces are billed monthly. AutoStop WorkSpaces are billed by the hour and stopped when no longer being used in order to save on costs.
 --
--- * 'wpRunningModeAutoStopTimeoutInMinutes'
+-- * 'wpRunningModeAutoStopTimeoutInMinutes' - The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60 minute intervals.
 workspaceProperties
     :: WorkspaceProperties
 workspaceProperties =
-    WorkspaceProperties'
-    { _wpRunningMode = Nothing
-    , _wpRunningModeAutoStopTimeoutInMinutes = Nothing
-    }
+  WorkspaceProperties'
+  {_wpRunningMode = Nothing, _wpRunningModeAutoStopTimeoutInMinutes = Nothing}
+
 
 -- | The running mode of the WorkSpace. AlwaysOn WorkSpaces are billed monthly. AutoStop WorkSpaces are billed by the hour and stopped when no longer being used in order to save on costs.
 wpRunningMode :: Lens' WorkspaceProperties (Maybe RunningMode)
@@ -929,9 +969,9 @@ instance FromJSON WorkspaceProperties where
                    (x .:? "RunningMode") <*>
                      (x .:? "RunningModeAutoStopTimeoutInMinutes"))
 
-instance Hashable WorkspaceProperties
+instance Hashable WorkspaceProperties where
 
-instance NFData WorkspaceProperties
+instance NFData WorkspaceProperties where
 
 instance ToJSON WorkspaceProperties where
         toJSON WorkspaceProperties'{..}
@@ -943,53 +983,57 @@ instance ToJSON WorkspaceProperties where
 
 -- | Contains information about a WorkSpace creation request.
 --
+--
+--
 -- /See:/ 'workspaceRequest' smart constructor.
 data WorkspaceRequest = WorkspaceRequest'
-    { _wrWorkspaceProperties         :: !(Maybe WorkspaceProperties)
-    , _wrRootVolumeEncryptionEnabled :: !(Maybe Bool)
-    , _wrVolumeEncryptionKey         :: !(Maybe Text)
-    , _wrUserVolumeEncryptionEnabled :: !(Maybe Bool)
-    , _wrTags                        :: !(Maybe [Tag])
-    , _wrDirectoryId                 :: !Text
-    , _wrUserName                    :: !Text
-    , _wrBundleId                    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wrWorkspaceProperties         :: !(Maybe WorkspaceProperties)
+  , _wrRootVolumeEncryptionEnabled :: !(Maybe Bool)
+  , _wrVolumeEncryptionKey         :: !(Maybe Text)
+  , _wrUserVolumeEncryptionEnabled :: !(Maybe Bool)
+  , _wrTags                        :: !(Maybe [Tag])
+  , _wrDirectoryId                 :: !Text
+  , _wrUserName                    :: !Text
+  , _wrBundleId                    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WorkspaceRequest' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wrWorkspaceProperties'
+-- * 'wrWorkspaceProperties' - Undocumented member.
 --
--- * 'wrRootVolumeEncryptionEnabled'
+-- * 'wrRootVolumeEncryptionEnabled' - Specifies whether the data stored on the root volume, or C: drive, is encrypted.
 --
--- * 'wrVolumeEncryptionKey'
+-- * 'wrVolumeEncryptionKey' - The KMS key used to encrypt data stored on your WorkSpace.
 --
--- * 'wrUserVolumeEncryptionEnabled'
+-- * 'wrUserVolumeEncryptionEnabled' - Specifies whether the data stored on the user volume, or D: drive, is encrypted.
 --
--- * 'wrTags'
+-- * 'wrTags' - The tags of the WorkSpace request.
 --
--- * 'wrDirectoryId'
+-- * 'wrDirectoryId' - The identifier of the AWS Directory Service directory to create the WorkSpace in. You can use the 'DescribeWorkspaceDirectories' operation to obtain a list of the directories that are available.
 --
--- * 'wrUserName'
+-- * 'wrUserName' - The username that the WorkSpace is assigned to. This username must exist in the AWS Directory Service directory specified by the @DirectoryId@ member.
 --
--- * 'wrBundleId'
+-- * 'wrBundleId' - The identifier of the bundle to create the WorkSpace from. You can use the 'DescribeWorkspaceBundles' operation to obtain a list of the bundles that are available.
 workspaceRequest
     :: Text -- ^ 'wrDirectoryId'
     -> Text -- ^ 'wrUserName'
     -> Text -- ^ 'wrBundleId'
     -> WorkspaceRequest
 workspaceRequest pDirectoryId_ pUserName_ pBundleId_ =
-    WorkspaceRequest'
-    { _wrWorkspaceProperties = Nothing
-    , _wrRootVolumeEncryptionEnabled = Nothing
-    , _wrVolumeEncryptionKey = Nothing
-    , _wrUserVolumeEncryptionEnabled = Nothing
-    , _wrTags = Nothing
-    , _wrDirectoryId = pDirectoryId_
-    , _wrUserName = pUserName_
-    , _wrBundleId = pBundleId_
-    }
+  WorkspaceRequest'
+  { _wrWorkspaceProperties = Nothing
+  , _wrRootVolumeEncryptionEnabled = Nothing
+  , _wrVolumeEncryptionKey = Nothing
+  , _wrUserVolumeEncryptionEnabled = Nothing
+  , _wrTags = Nothing
+  , _wrDirectoryId = pDirectoryId_
+  , _wrUserName = pUserName_
+  , _wrBundleId = pBundleId_
+  }
+
 
 -- | Undocumented member.
 wrWorkspaceProperties :: Lens' WorkspaceRequest (Maybe WorkspaceProperties)
@@ -1011,15 +1055,15 @@ wrUserVolumeEncryptionEnabled = lens _wrUserVolumeEncryptionEnabled (\ s a -> s{
 wrTags :: Lens' WorkspaceRequest [Tag]
 wrTags = lens _wrTags (\ s a -> s{_wrTags = a}) . _Default . _Coerce;
 
--- | The identifier of the AWS Directory Service directory to create the WorkSpace in. You can use the < DescribeWorkspaceDirectories> operation to obtain a list of the directories that are available.
+-- | The identifier of the AWS Directory Service directory to create the WorkSpace in. You can use the 'DescribeWorkspaceDirectories' operation to obtain a list of the directories that are available.
 wrDirectoryId :: Lens' WorkspaceRequest Text
 wrDirectoryId = lens _wrDirectoryId (\ s a -> s{_wrDirectoryId = a});
 
--- | The username that the WorkSpace is assigned to. This username must exist in the AWS Directory Service directory specified by the 'DirectoryId' member.
+-- | The username that the WorkSpace is assigned to. This username must exist in the AWS Directory Service directory specified by the @DirectoryId@ member.
 wrUserName :: Lens' WorkspaceRequest Text
 wrUserName = lens _wrUserName (\ s a -> s{_wrUserName = a});
 
--- | The identifier of the bundle to create the WorkSpace from. You can use the < DescribeWorkspaceBundles> operation to obtain a list of the bundles that are available.
+-- | The identifier of the bundle to create the WorkSpace from. You can use the 'DescribeWorkspaceBundles' operation to obtain a list of the bundles that are available.
 wrBundleId :: Lens' WorkspaceRequest Text
 wrBundleId = lens _wrBundleId (\ s a -> s{_wrBundleId = a});
 
@@ -1037,9 +1081,9 @@ instance FromJSON WorkspaceRequest where
                      <*> (x .: "UserName")
                      <*> (x .: "BundleId"))
 
-instance Hashable WorkspaceRequest
+instance Hashable WorkspaceRequest where
 
-instance NFData WorkspaceRequest
+instance NFData WorkspaceRequest where
 
 instance ToJSON WorkspaceRequest where
         toJSON WorkspaceRequest'{..}

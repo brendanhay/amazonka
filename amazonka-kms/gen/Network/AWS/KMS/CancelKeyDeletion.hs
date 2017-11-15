@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.KMS.CancelKeyDeletion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels the deletion of a customer master key (CMK). When this operation is successful, the CMK is set to the 'Disabled' state. To enable a CMK, use < EnableKey>.
+-- Cancels the deletion of a customer master key (CMK). When this operation is successful, the CMK is set to the @Disabled@ state. To enable a CMK, use 'EnableKey' . You cannot perform this operation on a CMK in a different AWS account.
 --
--- For more information about scheduling and canceling deletion of a CMK, see <http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html Deleting Customer Master Keys> in the /AWS Key Management Service Developer Guide/.
+--
+-- For more information about scheduling and canceling deletion of a CMK, see <http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html Deleting Customer Master Keys> in the /AWS Key Management Service Developer Guide/ .
+--
 module Network.AWS.KMS.CancelKeyDeletion
     (
     -- * Creating a Request
@@ -37,40 +39,31 @@ module Network.AWS.KMS.CancelKeyDeletion
     , ckdrsResponseStatus
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'cancelKeyDeletion' smart constructor.
 newtype CancelKeyDeletion = CancelKeyDeletion'
-    { _ckdKeyId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ckdKeyId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelKeyDeletion' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ckdKeyId'
+-- * 'ckdKeyId' - The unique identifier for the customer master key (CMK) for which to cancel deletion. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 cancelKeyDeletion
     :: Text -- ^ 'ckdKeyId'
     -> CancelKeyDeletion
-cancelKeyDeletion pKeyId_ =
-    CancelKeyDeletion'
-    { _ckdKeyId = pKeyId_
-    }
+cancelKeyDeletion pKeyId_ = CancelKeyDeletion' {_ckdKeyId = pKeyId_}
 
--- | The unique identifier for the customer master key (CMK) for which to cancel deletion.
---
--- To specify this value, use the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:
---
--- -   Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
---
--- -   Key ARN: arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab
---
--- To obtain the unique key ID and key ARN for a given CMK, use < ListKeys> or < DescribeKey>.
+
+-- | The unique identifier for the customer master key (CMK) for which to cancel deletion. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 ckdKeyId :: Lens' CancelKeyDeletion Text
 ckdKeyId = lens _ckdKeyId (\ s a -> s{_ckdKeyId = a});
 
@@ -83,9 +76,9 @@ instance AWSRequest CancelKeyDeletion where
                  CancelKeyDeletionResponse' <$>
                    (x .?> "KeyId") <*> (pure (fromEnum s)))
 
-instance Hashable CancelKeyDeletion
+instance Hashable CancelKeyDeletion where
 
-instance NFData CancelKeyDeletion
+instance NFData CancelKeyDeletion where
 
 instance ToHeaders CancelKeyDeletion where
         toHeaders
@@ -108,32 +101,32 @@ instance ToQuery CancelKeyDeletion where
 
 -- | /See:/ 'cancelKeyDeletionResponse' smart constructor.
 data CancelKeyDeletionResponse = CancelKeyDeletionResponse'
-    { _ckdrsKeyId          :: !(Maybe Text)
-    , _ckdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ckdrsKeyId          :: !(Maybe Text)
+  , _ckdrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelKeyDeletionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ckdrsKeyId'
+-- * 'ckdrsKeyId' - The unique identifier of the master key for which deletion is canceled.
 --
--- * 'ckdrsResponseStatus'
+-- * 'ckdrsResponseStatus' - -- | The response status code.
 cancelKeyDeletionResponse
     :: Int -- ^ 'ckdrsResponseStatus'
     -> CancelKeyDeletionResponse
 cancelKeyDeletionResponse pResponseStatus_ =
-    CancelKeyDeletionResponse'
-    { _ckdrsKeyId = Nothing
-    , _ckdrsResponseStatus = pResponseStatus_
-    }
+  CancelKeyDeletionResponse'
+  {_ckdrsKeyId = Nothing, _ckdrsResponseStatus = pResponseStatus_}
+
 
 -- | The unique identifier of the master key for which deletion is canceled.
 ckdrsKeyId :: Lens' CancelKeyDeletionResponse (Maybe Text)
 ckdrsKeyId = lens _ckdrsKeyId (\ s a -> s{_ckdrsKeyId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ckdrsResponseStatus :: Lens' CancelKeyDeletionResponse Int
 ckdrsResponseStatus = lens _ckdrsResponseStatus (\ s a -> s{_ckdrsResponseStatus = a});
 
-instance NFData CancelKeyDeletionResponse
+instance NFData CancelKeyDeletionResponse where

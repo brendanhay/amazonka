@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketVersioning
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,45 +35,47 @@ module Network.AWS.S3.PutBucketVersioning
     , PutBucketVersioningResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketVersioning' smart constructor.
 data PutBucketVersioning = PutBucketVersioning'
-    { _pbvMFA                     :: !(Maybe Text)
-    , _pbvContentMD5              :: !(Maybe Text)
-    , _pbvBucket                  :: !BucketName
-    , _pbvVersioningConfiguration :: !VersioningConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pbvMFA                     :: !(Maybe Text)
+  , _pbvContentMD5              :: !(Maybe Text)
+  , _pbvBucket                  :: !BucketName
+  , _pbvVersioningConfiguration :: !VersioningConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketVersioning' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbvMFA'
+-- * 'pbvMFA' - The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 --
--- * 'pbvContentMD5'
+-- * 'pbvContentMD5' - Undocumented member.
 --
--- * 'pbvBucket'
+-- * 'pbvBucket' - Undocumented member.
 --
--- * 'pbvVersioningConfiguration'
+-- * 'pbvVersioningConfiguration' - Undocumented member.
 putBucketVersioning
     :: BucketName -- ^ 'pbvBucket'
     -> VersioningConfiguration -- ^ 'pbvVersioningConfiguration'
     -> PutBucketVersioning
 putBucketVersioning pBucket_ pVersioningConfiguration_ =
-    PutBucketVersioning'
-    { _pbvMFA = Nothing
-    , _pbvContentMD5 = Nothing
-    , _pbvBucket = pBucket_
-    , _pbvVersioningConfiguration = pVersioningConfiguration_
-    }
+  PutBucketVersioning'
+  { _pbvMFA = Nothing
+  , _pbvContentMD5 = Nothing
+  , _pbvBucket = pBucket_
+  , _pbvVersioningConfiguration = pVersioningConfiguration_
+  }
 
--- | The concatenation of the authentication device\'s serial number, a space, and the value that is displayed on your authentication device.
+
+-- | The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 pbvMFA :: Lens' PutBucketVersioning (Maybe Text)
 pbvMFA = lens _pbvMFA (\ s a -> s{_pbvMFA = a});
 
@@ -95,9 +97,9 @@ instance AWSRequest PutBucketVersioning where
         request = putXML s3
         response = receiveNull PutBucketVersioningResponse'
 
-instance Hashable PutBucketVersioning
+instance Hashable PutBucketVersioning where
 
-instance NFData PutBucketVersioning
+instance NFData PutBucketVersioning where
 
 instance ToElement PutBucketVersioning where
         toElement
@@ -121,8 +123,9 @@ instance ToQuery PutBucketVersioning where
 
 -- | /See:/ 'putBucketVersioningResponse' smart constructor.
 data PutBucketVersioningResponse =
-    PutBucketVersioningResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutBucketVersioningResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketVersioningResponse' with the minimum fields required to make a request.
 --
@@ -130,4 +133,5 @@ putBucketVersioningResponse
     :: PutBucketVersioningResponse
 putBucketVersioningResponse = PutBucketVersioningResponse'
 
-instance NFData PutBucketVersioningResponse
+
+instance NFData PutBucketVersioningResponse where

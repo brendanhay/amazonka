@@ -12,19 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.IAM.PutGroupPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds or updates an inline policy document that is embedded in the specified IAM group.
 --
--- A user can also have managed policies attached to it. To attach a managed policy to a group, use < AttachGroupPolicy>. To create a new managed policy, use < CreatePolicy>. For information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 --
--- For information about limits on the number of inline policies that you can embed in a group, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/.
+-- A user can also have managed policies attached to it. To attach a managed policy to a group, use 'AttachGroupPolicy' . To create a new managed policy, use 'CreatePolicy' . For information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
 --
--- Because policy documents can be large, you should use POST rather than GET when calling 'PutGroupPolicy'. For general information about using the Query API with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests> in the /IAM User Guide/.
+-- For information about limits on the number of inline policies that you can embed in a group, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.PutGroupPolicy
     (
     -- * Creating a Request
@@ -40,56 +40,52 @@ module Network.AWS.IAM.PutGroupPolicy
     , PutGroupPolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putGroupPolicy' smart constructor.
 data PutGroupPolicy = PutGroupPolicy'
-    { _pgpGroupName      :: !Text
-    , _pgpPolicyName     :: !Text
-    , _pgpPolicyDocument :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pgpGroupName      :: !Text
+  , _pgpPolicyName     :: !Text
+  , _pgpPolicyDocument :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutGroupPolicy' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pgpGroupName'
+-- * 'pgpGroupName' - The name of the group to associate the policy with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'pgpPolicyName'
+-- * 'pgpPolicyName' - The name of the policy document. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+
 --
--- * 'pgpPolicyDocument'
+-- * 'pgpPolicyDocument' - The policy document. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 putGroupPolicy
     :: Text -- ^ 'pgpGroupName'
     -> Text -- ^ 'pgpPolicyName'
     -> Text -- ^ 'pgpPolicyDocument'
     -> PutGroupPolicy
 putGroupPolicy pGroupName_ pPolicyName_ pPolicyDocument_ =
-    PutGroupPolicy'
-    { _pgpGroupName = pGroupName_
-    , _pgpPolicyName = pPolicyName_
-    , _pgpPolicyDocument = pPolicyDocument_
-    }
+  PutGroupPolicy'
+  { _pgpGroupName = pGroupName_
+  , _pgpPolicyName = pPolicyName_
+  , _pgpPolicyDocument = pPolicyDocument_
+  }
 
--- | The name of the group to associate the policy with.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+
+-- | The name of the group to associate the policy with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 pgpGroupName :: Lens' PutGroupPolicy Text
 pgpGroupName = lens _pgpGroupName (\ s a -> s{_pgpGroupName = a});
 
--- | The name of the policy document.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the policy document. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+
 pgpPolicyName :: Lens' PutGroupPolicy Text
 pgpPolicyName = lens _pgpPolicyName (\ s a -> s{_pgpPolicyName = a});
 
--- | The policy document.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\\u0020) through end of the ASCII character range (\\u00FF). It also includes the special characters tab (\\u0009), line feed (\\u000A), and carriage return (\\u000D).
+-- | The policy document. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 pgpPolicyDocument :: Lens' PutGroupPolicy Text
 pgpPolicyDocument = lens _pgpPolicyDocument (\ s a -> s{_pgpPolicyDocument = a});
 
@@ -98,9 +94,9 @@ instance AWSRequest PutGroupPolicy where
         request = postQuery iam
         response = receiveNull PutGroupPolicyResponse'
 
-instance Hashable PutGroupPolicy
+instance Hashable PutGroupPolicy where
 
-instance NFData PutGroupPolicy
+instance NFData PutGroupPolicy where
 
 instance ToHeaders PutGroupPolicy where
         toHeaders = const mempty
@@ -119,8 +115,9 @@ instance ToQuery PutGroupPolicy where
 
 -- | /See:/ 'putGroupPolicyResponse' smart constructor.
 data PutGroupPolicyResponse =
-    PutGroupPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutGroupPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutGroupPolicyResponse' with the minimum fields required to make a request.
 --
@@ -128,4 +125,5 @@ putGroupPolicyResponse
     :: PutGroupPolicyResponse
 putGroupPolicyResponse = PutGroupPolicyResponse'
 
-instance NFData PutGroupPolicyResponse
+
+instance NFData PutGroupPolicyResponse where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IoT.SetDefaultPolicyVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the specified version of the specified policy as the policy\'s default (operative) version. This action affects all certificates to which the policy is attached. To list the principals the policy is attached to, use the ListPrincipalPolicy API.
+-- Sets the specified version of the specified policy as the policy's default (operative) version. This action affects all certificates to which the policy is attached. To list the principals the policy is attached to, use the ListPrincipalPolicy API.
+--
+--
 module Network.AWS.IoT.SetDefaultPolicyVersion
     (
     -- * Creating a Request
@@ -33,37 +35,39 @@ module Network.AWS.IoT.SetDefaultPolicyVersion
     , SetDefaultPolicyVersionResponse
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the SetDefaultPolicyVersion operation.
 --
+--
+--
 -- /See:/ 'setDefaultPolicyVersion' smart constructor.
 data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
-    { _sdpvPolicyName      :: !Text
-    , _sdpvPolicyVersionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdpvPolicyName      :: !Text
+  , _sdpvPolicyVersionId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetDefaultPolicyVersion' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdpvPolicyName'
+-- * 'sdpvPolicyName' - The policy name.
 --
--- * 'sdpvPolicyVersionId'
+-- * 'sdpvPolicyVersionId' - The policy version ID.
 setDefaultPolicyVersion
     :: Text -- ^ 'sdpvPolicyName'
     -> Text -- ^ 'sdpvPolicyVersionId'
     -> SetDefaultPolicyVersion
 setDefaultPolicyVersion pPolicyName_ pPolicyVersionId_ =
-    SetDefaultPolicyVersion'
-    { _sdpvPolicyName = pPolicyName_
-    , _sdpvPolicyVersionId = pPolicyVersionId_
-    }
+  SetDefaultPolicyVersion'
+  {_sdpvPolicyName = pPolicyName_, _sdpvPolicyVersionId = pPolicyVersionId_}
+
 
 -- | The policy name.
 sdpvPolicyName :: Lens' SetDefaultPolicyVersion Text
@@ -80,9 +84,9 @@ instance AWSRequest SetDefaultPolicyVersion where
         response
           = receiveNull SetDefaultPolicyVersionResponse'
 
-instance Hashable SetDefaultPolicyVersion
+instance Hashable SetDefaultPolicyVersion where
 
-instance NFData SetDefaultPolicyVersion
+instance NFData SetDefaultPolicyVersion where
 
 instance ToHeaders SetDefaultPolicyVersion where
         toHeaders = const mempty
@@ -101,8 +105,9 @@ instance ToQuery SetDefaultPolicyVersion where
 
 -- | /See:/ 'setDefaultPolicyVersionResponse' smart constructor.
 data SetDefaultPolicyVersionResponse =
-    SetDefaultPolicyVersionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetDefaultPolicyVersionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetDefaultPolicyVersionResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +115,5 @@ setDefaultPolicyVersionResponse
     :: SetDefaultPolicyVersionResponse
 setDefaultPolicyVersionResponse = SetDefaultPolicyVersionResponse'
 
-instance NFData SetDefaultPolicyVersionResponse
+
+instance NFData SetDefaultPolicyVersionResponse where

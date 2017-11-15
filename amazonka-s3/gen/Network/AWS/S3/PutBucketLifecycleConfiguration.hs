@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketLifecycleConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -33,34 +33,34 @@ module Network.AWS.S3.PutBucketLifecycleConfiguration
     , PutBucketLifecycleConfigurationResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketLifecycleConfiguration' smart constructor.
 data PutBucketLifecycleConfiguration = PutBucketLifecycleConfiguration'
-    { _pblcLifecycleConfiguration :: !(Maybe BucketLifecycleConfiguration)
-    , _pblcBucket                 :: !BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pblcLifecycleConfiguration :: !(Maybe BucketLifecycleConfiguration)
+  , _pblcBucket                 :: !BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketLifecycleConfiguration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pblcLifecycleConfiguration'
+-- * 'pblcLifecycleConfiguration' - Undocumented member.
 --
--- * 'pblcBucket'
+-- * 'pblcBucket' - Undocumented member.
 putBucketLifecycleConfiguration
     :: BucketName -- ^ 'pblcBucket'
     -> PutBucketLifecycleConfiguration
 putBucketLifecycleConfiguration pBucket_ =
-    PutBucketLifecycleConfiguration'
-    { _pblcLifecycleConfiguration = Nothing
-    , _pblcBucket = pBucket_
-    }
+  PutBucketLifecycleConfiguration'
+  {_pblcLifecycleConfiguration = Nothing, _pblcBucket = pBucket_}
+
 
 -- | Undocumented member.
 pblcLifecycleConfiguration :: Lens' PutBucketLifecycleConfiguration (Maybe BucketLifecycleConfiguration)
@@ -80,8 +80,9 @@ instance AWSRequest PutBucketLifecycleConfiguration
               PutBucketLifecycleConfigurationResponse'
 
 instance Hashable PutBucketLifecycleConfiguration
+         where
 
-instance NFData PutBucketLifecycleConfiguration
+instance NFData PutBucketLifecycleConfiguration where
 
 instance ToElement PutBucketLifecycleConfiguration
          where
@@ -105,15 +106,18 @@ instance ToQuery PutBucketLifecycleConfiguration
 
 -- | /See:/ 'putBucketLifecycleConfigurationResponse' smart constructor.
 data PutBucketLifecycleConfigurationResponse =
-    PutBucketLifecycleConfigurationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutBucketLifecycleConfigurationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketLifecycleConfigurationResponse' with the minimum fields required to make a request.
 --
 putBucketLifecycleConfigurationResponse
     :: PutBucketLifecycleConfigurationResponse
 putBucketLifecycleConfigurationResponse =
-    PutBucketLifecycleConfigurationResponse'
+  PutBucketLifecycleConfigurationResponse'
+
 
 instance NFData
-         PutBucketLifecycleConfigurationResponse
+           PutBucketLifecycleConfigurationResponse
+         where

@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeEventSubscriptions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all the subscription descriptions for a customer account. The description for a subscription includes SubscriptionName, SNSTopicARN, CustomerID, SourceType, SourceID, CreationTime, and Status.
 --
+--
 -- If you specify a SubscriptionName, lists the description for that subscription.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeEventSubscriptions
@@ -43,44 +45,48 @@ module Network.AWS.RDS.DescribeEventSubscriptions
     , desrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeEventSubscriptions' smart constructor.
 data DescribeEventSubscriptions = DescribeEventSubscriptions'
-    { _dSubscriptionName :: !(Maybe Text)
-    , _dFilters          :: !(Maybe [Filter])
-    , _dMarker           :: !(Maybe Text)
-    , _dMaxRecords       :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dSubscriptionName :: !(Maybe Text)
+  , _dFilters          :: !(Maybe [Filter])
+  , _dMarker           :: !(Maybe Text)
+  , _dMaxRecords       :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventSubscriptions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dSubscriptionName'
+-- * 'dSubscriptionName' - The name of the RDS event notification subscription you want to describe.
 --
--- * 'dFilters'
+-- * 'dFilters' - This parameter is not currently supported.
 --
--- * 'dMarker'
+-- * 'dMarker' - An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dMaxRecords'
+-- * 'dMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 describeEventSubscriptions
     :: DescribeEventSubscriptions
 describeEventSubscriptions =
-    DescribeEventSubscriptions'
-    { _dSubscriptionName = Nothing
-    , _dFilters = Nothing
-    , _dMarker = Nothing
-    , _dMaxRecords = Nothing
-    }
+  DescribeEventSubscriptions'
+  { _dSubscriptionName = Nothing
+  , _dFilters = Nothing
+  , _dMarker = Nothing
+  , _dMaxRecords = Nothing
+  }
+
 
 -- | The name of the RDS event notification subscription you want to describe.
 dSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
@@ -90,15 +96,11 @@ dSubscriptionName = lens _dSubscriptionName (\ s a -> s{_dSubscriptionName = a})
 dFilters :: Lens' DescribeEventSubscriptions [Filter]
 dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords' .
+-- | An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
 dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 dMaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
 dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
 
@@ -123,9 +125,9 @@ instance AWSRequest DescribeEventSubscriptions where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEventSubscriptions
+instance Hashable DescribeEventSubscriptions where
 
-instance NFData DescribeEventSubscriptions
+instance NFData DescribeEventSubscriptions where
 
 instance ToHeaders DescribeEventSubscriptions where
         toHeaders = const mempty
@@ -146,42 +148,47 @@ instance ToQuery DescribeEventSubscriptions where
 
 -- | Data returned by the __DescribeEventSubscriptions__ action.
 --
+--
+--
 -- /See:/ 'describeEventSubscriptionsResponse' smart constructor.
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
-    { _desrsEventSubscriptionsList :: !(Maybe [EventSubscription])
-    , _desrsMarker                 :: !(Maybe Text)
-    , _desrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desrsEventSubscriptionsList :: !(Maybe [EventSubscription])
+  , _desrsMarker                 :: !(Maybe Text)
+  , _desrsResponseStatus         :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventSubscriptionsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desrsEventSubscriptionsList'
+-- * 'desrsEventSubscriptionsList' - A list of EventSubscriptions data types.
 --
--- * 'desrsMarker'
+-- * 'desrsMarker' - An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'desrsResponseStatus'
+-- * 'desrsResponseStatus' - -- | The response status code.
 describeEventSubscriptionsResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeEventSubscriptionsResponse
 describeEventSubscriptionsResponse pResponseStatus_ =
-    DescribeEventSubscriptionsResponse'
-    { _desrsEventSubscriptionsList = Nothing
-    , _desrsMarker = Nothing
-    , _desrsResponseStatus = pResponseStatus_
-    }
+  DescribeEventSubscriptionsResponse'
+  { _desrsEventSubscriptionsList = Nothing
+  , _desrsMarker = Nothing
+  , _desrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of EventSubscriptions data types.
 desrsEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
 desrsEventSubscriptionsList = lens _desrsEventSubscriptionsList (\ s a -> s{_desrsEventSubscriptionsList = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 desrsMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 desrsMarker = lens _desrsMarker (\ s a -> s{_desrsMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeEventSubscriptionsResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 
 instance NFData DescribeEventSubscriptionsResponse
+         where

@@ -11,39 +11,41 @@
 
 -- |
 -- Module      : Network.AWS.Sign.V4.Base
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Sign.V4.Base where
 
 import           Control.Applicative
+
 import           Data.Bifunctor
-import qualified Data.ByteString             as BS
-import qualified Data.ByteString.Char8       as BS8
-import qualified Data.CaseInsensitive        as CI
-import qualified Data.Foldable               as Fold
 import           Data.Function               (on)
 import           Data.List                   (nubBy, sortBy)
-import           Data.Maybe
 import           Data.Monoid
+
 import           GHC.TypeLits
+
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Crypto
 import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Log
 import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
+import           Network.AWS.Data.Sensitive  (_Sensitive)
 import           Network.AWS.Data.Time
-import           Network.AWS.Lens            ((%~), (<>~))
+import           Network.AWS.Lens            ((%~), (<>~), (^.))
 import           Network.AWS.Request
 import           Network.AWS.Types
+
+import qualified Data.ByteString             as BS
+import qualified Data.ByteString.Char8       as BS8
+import qualified Data.CaseInsensitive        as CI
+import qualified Data.Foldable               as Fold
 import qualified Network.HTTP.Conduit        as Client
 import qualified Network.HTTP.Types.Header   as H
-
-import           Prelude
 
 default (ByteString)
 
@@ -173,7 +175,7 @@ signMetadata a r ts presign digest rq = V4
     , metaCanonicalHeaders = chs
     , metaSignedHeaders    = shs
     , metaStringToSign     = sts
-    , metaSignature        = signature (_authSecret a) scope sts
+    , metaSignature        = signature (_authSecret a ^. _Sensitive) scope sts
     , metaHeaders          = _rqHeaders rq
     , metaTimeout          = _svcTimeout svc
     }

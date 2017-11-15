@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DeleteSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DeleteSnapshot/ action deletes an existing snapshot. When you receive a successful response from this action, ElastiCache immediately begins deleting the snapshot; you cannot cancel or revert this action.
+-- Deletes an existing snapshot. When you receive a successful response from this operation, ElastiCache immediately begins deleting the snapshot; you cannot cancel or revert this operation.
+--
+--
 module Network.AWS.ElastiCache.DeleteSnapshot
     (
     -- * Creating a Request
@@ -35,32 +37,34 @@ module Network.AWS.ElastiCache.DeleteSnapshot
     , dsrsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a /DeleteSnapshot/ action.
+-- | Represents the input of a @DeleteSnapshot@ operation.
+--
+--
 --
 -- /See:/ 'deleteSnapshot' smart constructor.
 newtype DeleteSnapshot = DeleteSnapshot'
-    { _dSnapshotName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dSnapshotName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSnapshot' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dSnapshotName'
+-- * 'dSnapshotName' - The name of the snapshot to be deleted.
 deleteSnapshot
     :: Text -- ^ 'dSnapshotName'
     -> DeleteSnapshot
 deleteSnapshot pSnapshotName_ =
-    DeleteSnapshot'
-    { _dSnapshotName = pSnapshotName_
-    }
+  DeleteSnapshot' {_dSnapshotName = pSnapshotName_}
+
 
 -- | The name of the snapshot to be deleted.
 dSnapshotName :: Lens' DeleteSnapshot Text
@@ -75,9 +79,9 @@ instance AWSRequest DeleteSnapshot where
                  DeleteSnapshotResponse' <$>
                    (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteSnapshot
+instance Hashable DeleteSnapshot where
 
-instance NFData DeleteSnapshot
+instance NFData DeleteSnapshot where
 
 instance ToHeaders DeleteSnapshot where
         toHeaders = const mempty
@@ -94,32 +98,32 @@ instance ToQuery DeleteSnapshot where
 
 -- | /See:/ 'deleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
-    { _dsrsSnapshot       :: !(Maybe Snapshot)
-    , _dsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrsSnapshot       :: !(Maybe Snapshot)
+  , _dsrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSnapshotResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrsSnapshot'
+-- * 'dsrsSnapshot' - Undocumented member.
 --
--- * 'dsrsResponseStatus'
+-- * 'dsrsResponseStatus' - -- | The response status code.
 deleteSnapshotResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DeleteSnapshotResponse
 deleteSnapshotResponse pResponseStatus_ =
-    DeleteSnapshotResponse'
-    { _dsrsSnapshot = Nothing
-    , _dsrsResponseStatus = pResponseStatus_
-    }
+  DeleteSnapshotResponse'
+  {_dsrsSnapshot = Nothing, _dsrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 dsrsSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
 dsrsSnapshot = lens _dsrsSnapshot (\ s a -> s{_dsrsSnapshot = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dsrsResponseStatus :: Lens' DeleteSnapshotResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 
-instance NFData DeleteSnapshotResponse
+instance NFData DeleteSnapshotResponse where

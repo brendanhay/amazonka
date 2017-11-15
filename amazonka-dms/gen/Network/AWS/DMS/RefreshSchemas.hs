@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DMS.RefreshSchemas
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Populates the schema for the specified endpoint. This is an asynchronous operation and can take several minutes. You can check the status of this operation by calling the DescribeRefreshSchemasStatus operation.
+--
+--
 module Network.AWS.DMS.RefreshSchemas
     (
     -- * Creating a Request
@@ -36,37 +38,41 @@ module Network.AWS.DMS.RefreshSchemas
     , rsrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'refreshSchemas' smart constructor.
 data RefreshSchemas = RefreshSchemas'
-    { _rsEndpointARN            :: !Text
-    , _rsReplicationInstanceARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsEndpointARN            :: !Text
+  , _rsReplicationInstanceARN :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RefreshSchemas' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsEndpointARN'
+-- * 'rsEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 --
--- * 'rsReplicationInstanceARN'
+-- * 'rsReplicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
 refreshSchemas
     :: Text -- ^ 'rsEndpointARN'
     -> Text -- ^ 'rsReplicationInstanceARN'
     -> RefreshSchemas
 refreshSchemas pEndpointARN_ pReplicationInstanceARN_ =
-    RefreshSchemas'
-    { _rsEndpointARN = pEndpointARN_
-    , _rsReplicationInstanceARN = pReplicationInstanceARN_
-    }
+  RefreshSchemas'
+  { _rsEndpointARN = pEndpointARN_
+  , _rsReplicationInstanceARN = pReplicationInstanceARN_
+  }
+
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 rsEndpointARN :: Lens' RefreshSchemas Text
@@ -86,9 +92,9 @@ instance AWSRequest RefreshSchemas where
                    (x .?> "RefreshSchemasStatus") <*>
                      (pure (fromEnum s)))
 
-instance Hashable RefreshSchemas
+instance Hashable RefreshSchemas where
 
-instance NFData RefreshSchemas
+instance NFData RefreshSchemas where
 
 instance ToHeaders RefreshSchemas where
         toHeaders
@@ -116,34 +122,36 @@ instance ToQuery RefreshSchemas where
 
 -- |
 --
+--
+--
 -- /See:/ 'refreshSchemasResponse' smart constructor.
 data RefreshSchemasResponse = RefreshSchemasResponse'
-    { _rsrsRefreshSchemasStatus :: !(Maybe RefreshSchemasStatus)
-    , _rsrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsrsRefreshSchemasStatus :: !(Maybe RefreshSchemasStatus)
+  , _rsrsResponseStatus       :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RefreshSchemasResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsrsRefreshSchemasStatus'
+-- * 'rsrsRefreshSchemasStatus' - The status of the refreshed schema.
 --
--- * 'rsrsResponseStatus'
+-- * 'rsrsResponseStatus' - -- | The response status code.
 refreshSchemasResponse
     :: Int -- ^ 'rsrsResponseStatus'
     -> RefreshSchemasResponse
 refreshSchemasResponse pResponseStatus_ =
-    RefreshSchemasResponse'
-    { _rsrsRefreshSchemasStatus = Nothing
-    , _rsrsResponseStatus = pResponseStatus_
-    }
+  RefreshSchemasResponse'
+  {_rsrsRefreshSchemasStatus = Nothing, _rsrsResponseStatus = pResponseStatus_}
+
 
 -- | The status of the refreshed schema.
 rsrsRefreshSchemasStatus :: Lens' RefreshSchemasResponse (Maybe RefreshSchemasStatus)
 rsrsRefreshSchemasStatus = lens _rsrsRefreshSchemasStatus (\ s a -> s{_rsrsRefreshSchemasStatus = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rsrsResponseStatus :: Lens' RefreshSchemasResponse Int
 rsrsResponseStatus = lens _rsrsResponseStatus (\ s a -> s{_rsrsResponseStatus = a});
 
-instance NFData RefreshSchemasResponse
+instance NFData RefreshSchemasResponse where

@@ -12,19 +12,21 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.DeleteDeliveryStream
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a delivery stream and its data.
 --
--- You can delete a delivery stream only if it is in 'ACTIVE' or 'DELETING' state, and not in the 'CREATING' state. While the deletion request is in process, the delivery stream is in the 'DELETING' state.
 --
--- To check the state of a delivery stream, use < DescribeDeliveryStream>.
+-- You can delete a delivery stream only if it is in @ACTIVE@ or @DELETING@ state, and not in the @CREATING@ state. While the deletion request is in process, the delivery stream is in the @DELETING@ state.
 --
--- While the delivery stream is 'DELETING' state, the service may continue to accept the records, but the service doesn\'t make any guarantees with respect to delivering the data. Therefore, as a best practice, you should first stop any applications that are sending records before deleting a delivery stream.
+-- To check the state of a delivery stream, use 'DescribeDeliveryStream' .
+--
+-- While the delivery stream is @DELETING@ state, the service may continue to accept the records, but the service doesn't make any guarantees with respect to delivering the data. Therefore, as a best practice, you should first stop any applications that are sending records before deleting a delivery stream.
+--
 module Network.AWS.Firehose.DeleteDeliveryStream
     (
     -- * Creating a Request
@@ -40,32 +42,30 @@ module Network.AWS.Firehose.DeleteDeliveryStream
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Firehose.Types
-import           Network.AWS.Firehose.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Firehose.Types
+import Network.AWS.Firehose.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for < DeleteDeliveryStream>.
---
--- /See:/ 'deleteDeliveryStream' smart constructor.
+-- | /See:/ 'deleteDeliveryStream' smart constructor.
 newtype DeleteDeliveryStream = DeleteDeliveryStream'
-    { _dDeliveryStreamName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dDeliveryStreamName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDeliveryStream' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dDeliveryStreamName'
+-- * 'dDeliveryStreamName' - The name of the delivery stream.
 deleteDeliveryStream
     :: Text -- ^ 'dDeliveryStreamName'
     -> DeleteDeliveryStream
 deleteDeliveryStream pDeliveryStreamName_ =
-    DeleteDeliveryStream'
-    { _dDeliveryStreamName = pDeliveryStreamName_
-    }
+  DeleteDeliveryStream' {_dDeliveryStreamName = pDeliveryStreamName_}
+
 
 -- | The name of the delivery stream.
 dDeliveryStreamName :: Lens' DeleteDeliveryStream Text
@@ -81,9 +81,9 @@ instance AWSRequest DeleteDeliveryStream where
                  DeleteDeliveryStreamResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteDeliveryStream
+instance Hashable DeleteDeliveryStream where
 
-instance NFData DeleteDeliveryStream
+instance NFData DeleteDeliveryStream where
 
 instance ToHeaders DeleteDeliveryStream where
         toHeaders
@@ -108,28 +108,26 @@ instance ToPath DeleteDeliveryStream where
 instance ToQuery DeleteDeliveryStream where
         toQuery = const mempty
 
--- | Contains the output of < DeleteDeliveryStream>.
---
--- /See:/ 'deleteDeliveryStreamResponse' smart constructor.
+-- | /See:/ 'deleteDeliveryStreamResponse' smart constructor.
 newtype DeleteDeliveryStreamResponse = DeleteDeliveryStreamResponse'
-    { _drsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDeliveryStreamResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteDeliveryStreamResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteDeliveryStreamResponse
 deleteDeliveryStreamResponse pResponseStatus_ =
-    DeleteDeliveryStreamResponse'
-    { _drsResponseStatus = pResponseStatus_
-    }
+  DeleteDeliveryStreamResponse' {_drsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteDeliveryStreamResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteDeliveryStreamResponse
+instance NFData DeleteDeliveryStreamResponse where

@@ -5,25 +5,15 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDBStreams
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon DynamoDB
+-- __Amazon DynamoDB__
 --
 -- Amazon DynamoDB Streams provides API actions for accessing streams and processing stream records. To learn more about application development with Streams, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html Capturing Table Activity with DynamoDB Streams> in the Amazon DynamoDB Developer Guide.
---
--- The following are short descriptions of each low-level DynamoDB Streams action:
---
--- -   /DescribeStream/ - Returns detailed information about a particular stream.
---
--- -   /GetRecords/ - Retrieves the stream records from within a shard.
---
--- -   /GetShardIterator/ - Returns information on how to retrieve the streams record from a shard with a given shard ID.
---
--- -   /ListStreams/ - Returns a list of all the streams associated with the current AWS account and endpoint.
 --
 module Network.AWS.DynamoDBStreams
     (
@@ -97,6 +87,12 @@ module Network.AWS.DynamoDBStreams
     , avS
     , avBOOL
 
+    -- ** Identity
+    , Identity
+    , identity
+    , iPrincipalId
+    , iType
+
     -- ** KeySchemaElement
     , KeySchemaElement
     , keySchemaElement
@@ -106,6 +102,7 @@ module Network.AWS.DynamoDBStreams
     -- ** Record
     , Record
     , record
+    , rUserIdentity
     , rEventVersion
     , rDynamodb
     , rAwsRegion
@@ -158,12 +155,12 @@ module Network.AWS.DynamoDBStreams
     , srNewImage
     ) where
 
-import           Network.AWS.DynamoDBStreams.DescribeStream
-import           Network.AWS.DynamoDBStreams.GetRecords
-import           Network.AWS.DynamoDBStreams.GetShardIterator
-import           Network.AWS.DynamoDBStreams.ListStreams
-import           Network.AWS.DynamoDBStreams.Types
-import           Network.AWS.DynamoDBStreams.Waiters
+import Network.AWS.DynamoDBStreams.DescribeStream
+import Network.AWS.DynamoDBStreams.GetRecords
+import Network.AWS.DynamoDBStreams.GetShardIterator
+import Network.AWS.DynamoDBStreams.ListStreams
+import Network.AWS.DynamoDBStreams.Types
+import Network.AWS.DynamoDBStreams.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

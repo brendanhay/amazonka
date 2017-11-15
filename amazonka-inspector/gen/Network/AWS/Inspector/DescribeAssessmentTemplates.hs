@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeAssessmentTemplates
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the assessment templates that are specified by the ARNs of the assessment templates.
+--
+--
 module Network.AWS.Inspector.DescribeAssessmentTemplates
     (
     -- * Creating a Request
@@ -36,32 +38,33 @@ module Network.AWS.Inspector.DescribeAssessmentTemplates
     , datrsFailedItems
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAssessmentTemplates' smart constructor.
 newtype DescribeAssessmentTemplates = DescribeAssessmentTemplates'
-    { _datAssessmentTemplateARNs :: List1 Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _datAssessmentTemplateARNs :: List1 Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAssessmentTemplates' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'datAssessmentTemplateARNs'
+-- * 'datAssessmentTemplateARNs' - Undocumented member.
 describeAssessmentTemplates
     :: NonEmpty Text -- ^ 'datAssessmentTemplateARNs'
     -> DescribeAssessmentTemplates
 describeAssessmentTemplates pAssessmentTemplateARNs_ =
-    DescribeAssessmentTemplates'
-    { _datAssessmentTemplateARNs = _List1 # pAssessmentTemplateARNs_
-    }
+  DescribeAssessmentTemplates'
+  {_datAssessmentTemplateARNs = _List1 # pAssessmentTemplateARNs_}
 
--- | The ARN that specifiesthe assessment templates that you want to describe.
+
+-- | Undocumented member.
 datAssessmentTemplateARNs :: Lens' DescribeAssessmentTemplates (NonEmpty Text)
 datAssessmentTemplateARNs = lens _datAssessmentTemplateARNs (\ s a -> s{_datAssessmentTemplateARNs = a}) . _List1;
 
@@ -77,9 +80,9 @@ instance AWSRequest DescribeAssessmentTemplates where
                      (x .?> "assessmentTemplates" .!@ mempty)
                      <*> (x .?> "failedItems" .!@ mempty))
 
-instance Hashable DescribeAssessmentTemplates
+instance Hashable DescribeAssessmentTemplates where
 
-instance NFData DescribeAssessmentTemplates
+instance NFData DescribeAssessmentTemplates where
 
 instance ToHeaders DescribeAssessmentTemplates where
         toHeaders
@@ -107,31 +110,33 @@ instance ToQuery DescribeAssessmentTemplates where
 
 -- | /See:/ 'describeAssessmentTemplatesResponse' smart constructor.
 data DescribeAssessmentTemplatesResponse = DescribeAssessmentTemplatesResponse'
-    { _datrsResponseStatus      :: !Int
-    , _datrsAssessmentTemplates :: ![AssessmentTemplate]
-    , _datrsFailedItems         :: !(Map Text FailedItemDetails)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _datrsResponseStatus      :: !Int
+  , _datrsAssessmentTemplates :: ![AssessmentTemplate]
+  , _datrsFailedItems         :: !(Map Text FailedItemDetails)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAssessmentTemplatesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'datrsResponseStatus'
+-- * 'datrsResponseStatus' - -- | The response status code.
 --
--- * 'datrsAssessmentTemplates'
+-- * 'datrsAssessmentTemplates' - Information about the assessment templates.
 --
--- * 'datrsFailedItems'
+-- * 'datrsFailedItems' - Assessment template details that cannot be described. An error code is provided for each failed item.
 describeAssessmentTemplatesResponse
     :: Int -- ^ 'datrsResponseStatus'
     -> DescribeAssessmentTemplatesResponse
 describeAssessmentTemplatesResponse pResponseStatus_ =
-    DescribeAssessmentTemplatesResponse'
-    { _datrsResponseStatus = pResponseStatus_
-    , _datrsAssessmentTemplates = mempty
-    , _datrsFailedItems = mempty
-    }
+  DescribeAssessmentTemplatesResponse'
+  { _datrsResponseStatus = pResponseStatus_
+  , _datrsAssessmentTemplates = mempty
+  , _datrsFailedItems = mempty
+  }
 
--- | The response status code.
+
+-- | -- | The response status code.
 datrsResponseStatus :: Lens' DescribeAssessmentTemplatesResponse Int
 datrsResponseStatus = lens _datrsResponseStatus (\ s a -> s{_datrsResponseStatus = a});
 
@@ -144,3 +149,4 @@ datrsFailedItems :: Lens' DescribeAssessmentTemplatesResponse (HashMap Text Fail
 datrsFailedItems = lens _datrsFailedItems (\ s a -> s{_datrsFailedItems = a}) . _Map;
 
 instance NFData DescribeAssessmentTemplatesResponse
+         where

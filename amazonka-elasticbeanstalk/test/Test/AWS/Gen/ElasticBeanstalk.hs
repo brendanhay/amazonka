@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.ElasticBeanstalk
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.ElasticBeanstalk where
 
 import Data.Proxy
+import Network.AWS.ElasticBeanstalk
+import Test.AWS.ElasticBeanstalk.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.ElasticBeanstalk
-import Test.AWS.ElasticBeanstalk.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -37,6 +37,12 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , requestTerminateEnvironment $
 --             terminateEnvironment
 --
+--         , requestListPlatformVersions $
+--             listPlatformVersions
+--
+--         , requestDeletePlatformVersion $
+--             deletePlatformVersion
+--
 --         , requestCreateApplicationVersion $
 --             createApplicationVersion
 --
@@ -46,8 +52,14 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , requestRequestEnvironmentInfo $
 --             requestEnvironmentInfo
 --
+--         , requestListTagsForResource $
+--             listTagsForResource
+--
 --         , requestRetrieveEnvironmentInfo $
 --             retrieveEnvironmentInfo
+--
+--         , requestDescribePlatformVersion $
+--             describePlatformVersion
 --
 --         , requestDeleteApplication $
 --             deleteApplication
@@ -73,6 +85,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , requestUpdateConfigurationTemplate $
 --             updateConfigurationTemplate
 --
+--         , requestUpdateTagsForResource $
+--             updateTagsForResource
+--
 --         , requestDescribeEnvironmentResources $
 --             describeEnvironmentResources
 --
@@ -96,6 +111,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --
 --         , requestDeleteEnvironmentConfiguration $
 --             deleteEnvironmentConfiguration
+--
+--         , requestUpdateApplicationResourceLifecycle $
+--             updateApplicationResourceLifecycle
 --
 --         , requestSwapEnvironmentCNAMEs $
 --             swapEnvironmentCNAMEs
@@ -136,6 +154,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , requestCreateEnvironment $
 --             createEnvironment
 --
+--         , requestCreatePlatformVersion $
+--             createPlatformVersion
+--
 --           ]
 
 --     , testGroup "response"
@@ -148,6 +169,12 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , responseTerminateEnvironment $
 --             environmentDescription
 --
+--         , responseListPlatformVersions $
+--             listPlatformVersionsResponse
+--
+--         , responseDeletePlatformVersion $
+--             deletePlatformVersionResponse
+--
 --         , responseCreateApplicationVersion $
 --             applicationVersionDescriptionMessage
 --
@@ -157,8 +184,14 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , responseRequestEnvironmentInfo $
 --             requestEnvironmentInfoResponse
 --
+--         , responseListTagsForResource $
+--             listTagsForResourceResponse
+--
 --         , responseRetrieveEnvironmentInfo $
 --             retrieveEnvironmentInfoResponse
+--
+--         , responseDescribePlatformVersion $
+--             describePlatformVersionResponse
 --
 --         , responseDeleteApplication $
 --             deleteApplicationResponse
@@ -184,6 +217,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , responseUpdateConfigurationTemplate $
 --             configurationSettingsDescription
 --
+--         , responseUpdateTagsForResource $
+--             updateTagsForResourceResponse
+--
 --         , responseDescribeEnvironmentResources $
 --             describeEnvironmentResourcesResponse
 --
@@ -207,6 +243,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --
 --         , responseDeleteEnvironmentConfiguration $
 --             deleteEnvironmentConfigurationResponse
+--
+--         , responseUpdateApplicationResourceLifecycle $
+--             updateApplicationResourceLifecycleResponse
 --
 --         , responseSwapEnvironmentCNAMEs $
 --             swapEnvironmentCNAMEsResponse
@@ -247,6 +286,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , responseCreateEnvironment $
 --             environmentDescription
 --
+--         , responseCreatePlatformVersion $
+--             createPlatformVersionResponse
+--
 --           ]
 --     ]
 
@@ -267,6 +309,16 @@ requestTerminateEnvironment = req
     "TerminateEnvironment"
     "fixture/TerminateEnvironment.yaml"
 
+requestListPlatformVersions :: ListPlatformVersions -> TestTree
+requestListPlatformVersions = req
+    "ListPlatformVersions"
+    "fixture/ListPlatformVersions.yaml"
+
+requestDeletePlatformVersion :: DeletePlatformVersion -> TestTree
+requestDeletePlatformVersion = req
+    "DeletePlatformVersion"
+    "fixture/DeletePlatformVersion.yaml"
+
 requestCreateApplicationVersion :: CreateApplicationVersion -> TestTree
 requestCreateApplicationVersion = req
     "CreateApplicationVersion"
@@ -282,10 +334,20 @@ requestRequestEnvironmentInfo = req
     "RequestEnvironmentInfo"
     "fixture/RequestEnvironmentInfo.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource = req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestRetrieveEnvironmentInfo :: RetrieveEnvironmentInfo -> TestTree
 requestRetrieveEnvironmentInfo = req
     "RetrieveEnvironmentInfo"
     "fixture/RetrieveEnvironmentInfo.yaml"
+
+requestDescribePlatformVersion :: DescribePlatformVersion -> TestTree
+requestDescribePlatformVersion = req
+    "DescribePlatformVersion"
+    "fixture/DescribePlatformVersion.yaml"
 
 requestDeleteApplication :: DeleteApplication -> TestTree
 requestDeleteApplication = req
@@ -327,6 +389,11 @@ requestUpdateConfigurationTemplate = req
     "UpdateConfigurationTemplate"
     "fixture/UpdateConfigurationTemplate.yaml"
 
+requestUpdateTagsForResource :: UpdateTagsForResource -> TestTree
+requestUpdateTagsForResource = req
+    "UpdateTagsForResource"
+    "fixture/UpdateTagsForResource.yaml"
+
 requestDescribeEnvironmentResources :: DescribeEnvironmentResources -> TestTree
 requestDescribeEnvironmentResources = req
     "DescribeEnvironmentResources"
@@ -366,6 +433,11 @@ requestDeleteEnvironmentConfiguration :: DeleteEnvironmentConfiguration -> TestT
 requestDeleteEnvironmentConfiguration = req
     "DeleteEnvironmentConfiguration"
     "fixture/DeleteEnvironmentConfiguration.yaml"
+
+requestUpdateApplicationResourceLifecycle :: UpdateApplicationResourceLifecycle -> TestTree
+requestUpdateApplicationResourceLifecycle = req
+    "UpdateApplicationResourceLifecycle"
+    "fixture/UpdateApplicationResourceLifecycle.yaml"
 
 requestSwapEnvironmentCNAMEs :: SwapEnvironmentCNAMEs -> TestTree
 requestSwapEnvironmentCNAMEs = req
@@ -432,6 +504,11 @@ requestCreateEnvironment = req
     "CreateEnvironment"
     "fixture/CreateEnvironment.yaml"
 
+requestCreatePlatformVersion :: CreatePlatformVersion -> TestTree
+requestCreatePlatformVersion = req
+    "CreatePlatformVersion"
+    "fixture/CreatePlatformVersion.yaml"
+
 -- Responses
 
 responseDescribeApplications :: DescribeApplicationsResponse -> TestTree
@@ -455,6 +532,20 @@ responseTerminateEnvironment = res
     elasticBeanstalk
     (Proxy :: Proxy TerminateEnvironment)
 
+responseListPlatformVersions :: ListPlatformVersionsResponse -> TestTree
+responseListPlatformVersions = res
+    "ListPlatformVersionsResponse"
+    "fixture/ListPlatformVersionsResponse.proto"
+    elasticBeanstalk
+    (Proxy :: Proxy ListPlatformVersions)
+
+responseDeletePlatformVersion :: DeletePlatformVersionResponse -> TestTree
+responseDeletePlatformVersion = res
+    "DeletePlatformVersionResponse"
+    "fixture/DeletePlatformVersionResponse.proto"
+    elasticBeanstalk
+    (Proxy :: Proxy DeletePlatformVersion)
+
 responseCreateApplicationVersion :: ApplicationVersionDescriptionMessage -> TestTree
 responseCreateApplicationVersion = res
     "CreateApplicationVersionResponse"
@@ -476,12 +567,26 @@ responseRequestEnvironmentInfo = res
     elasticBeanstalk
     (Proxy :: Proxy RequestEnvironmentInfo)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource = res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    elasticBeanstalk
+    (Proxy :: Proxy ListTagsForResource)
+
 responseRetrieveEnvironmentInfo :: RetrieveEnvironmentInfoResponse -> TestTree
 responseRetrieveEnvironmentInfo = res
     "RetrieveEnvironmentInfoResponse"
     "fixture/RetrieveEnvironmentInfoResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy RetrieveEnvironmentInfo)
+
+responseDescribePlatformVersion :: DescribePlatformVersionResponse -> TestTree
+responseDescribePlatformVersion = res
+    "DescribePlatformVersionResponse"
+    "fixture/DescribePlatformVersionResponse.proto"
+    elasticBeanstalk
+    (Proxy :: Proxy DescribePlatformVersion)
 
 responseDeleteApplication :: DeleteApplicationResponse -> TestTree
 responseDeleteApplication = res
@@ -539,6 +644,13 @@ responseUpdateConfigurationTemplate = res
     elasticBeanstalk
     (Proxy :: Proxy UpdateConfigurationTemplate)
 
+responseUpdateTagsForResource :: UpdateTagsForResourceResponse -> TestTree
+responseUpdateTagsForResource = res
+    "UpdateTagsForResourceResponse"
+    "fixture/UpdateTagsForResourceResponse.proto"
+    elasticBeanstalk
+    (Proxy :: Proxy UpdateTagsForResource)
+
 responseDescribeEnvironmentResources :: DescribeEnvironmentResourcesResponse -> TestTree
 responseDescribeEnvironmentResources = res
     "DescribeEnvironmentResourcesResponse"
@@ -594,6 +706,13 @@ responseDeleteEnvironmentConfiguration = res
     "fixture/DeleteEnvironmentConfigurationResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy DeleteEnvironmentConfiguration)
+
+responseUpdateApplicationResourceLifecycle :: UpdateApplicationResourceLifecycleResponse -> TestTree
+responseUpdateApplicationResourceLifecycle = res
+    "UpdateApplicationResourceLifecycleResponse"
+    "fixture/UpdateApplicationResourceLifecycleResponse.proto"
+    elasticBeanstalk
+    (Proxy :: Proxy UpdateApplicationResourceLifecycle)
 
 responseSwapEnvironmentCNAMEs :: SwapEnvironmentCNAMEsResponse -> TestTree
 responseSwapEnvironmentCNAMEs = res
@@ -685,3 +804,10 @@ responseCreateEnvironment = res
     "fixture/CreateEnvironmentResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy CreateEnvironment)
+
+responseCreatePlatformVersion :: CreatePlatformVersionResponse -> TestTree
+responseCreatePlatformVersion = res
+    "CreatePlatformVersionResponse"
+    "fixture/CreatePlatformVersionResponse.proto"
+    elasticBeanstalk
+    (Proxy :: Proxy CreatePlatformVersion)

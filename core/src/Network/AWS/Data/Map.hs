@@ -1,6 +1,6 @@
 {-# LANGUAGE DeriveDataTypeable         #-}
-{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DeriveFoldable             #-}
+{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE RoleAnnotations            #-}
@@ -9,9 +9,9 @@
 
 -- |
 -- Module      : Network.AWS.Data.Map
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
@@ -23,14 +23,14 @@ module Network.AWS.Data.Map
     , toQueryMap
     ) where
 
-import           Control.DeepSeq
 import           Control.Applicative
+import           Control.DeepSeq
 import           Data.Aeson
 import           Data.Bifunctor
 import qualified Data.ByteString             as BS
 import qualified Data.CaseInsensitive        as CI
 import           Data.Coerce
-import           Data.Data                   (Data,Typeable)
+import           Data.Data                   (Data, Typeable)
 import           Data.Foldable               hiding (toList)
 import           Data.Hashable
 import           Data.HashMap.Strict         (HashMap)

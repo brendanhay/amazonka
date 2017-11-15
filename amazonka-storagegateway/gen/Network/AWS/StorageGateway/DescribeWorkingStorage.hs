@@ -12,17 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeWorkingStorage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the working storage of a gateway. This operation is supported only for the gateway-stored volume architecture. This operation is deprecated in cached-volumes API version (20120630). Use DescribeUploadBuffer instead.
+-- Returns information about the working storage of a gateway. This operation is only supported in the stored volumes gateway architecture. This operation is deprecated in cached volumes API version (20120630). Use DescribeUploadBuffer instead.
 --
--- Working storage is also referred to as upload buffer. You can also use the DescribeUploadBuffer operation to add upload buffer to a stored-volume gateway.
 --
 -- The response includes disk IDs that are configured as working storage, and it includes the amount of working storage allocated and used.
+--
 module Network.AWS.StorageGateway.DescribeWorkingStorage
     (
     -- * Creating a Request
@@ -42,32 +42,34 @@ module Network.AWS.StorageGateway.DescribeWorkingStorage
     , dwsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the of the gateway.
 --
+--
+--
 -- /See:/ 'describeWorkingStorage' smart constructor.
 newtype DescribeWorkingStorage = DescribeWorkingStorage'
-    { _dwsGatewayARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwsGatewayARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeWorkingStorage' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwsGatewayARN'
+-- * 'dwsGatewayARN' - Undocumented member.
 describeWorkingStorage
     :: Text -- ^ 'dwsGatewayARN'
     -> DescribeWorkingStorage
 describeWorkingStorage pGatewayARN_ =
-    DescribeWorkingStorage'
-    { _dwsGatewayARN = pGatewayARN_
-    }
+  DescribeWorkingStorage' {_dwsGatewayARN = pGatewayARN_}
+
 
 -- | Undocumented member.
 dwsGatewayARN :: Lens' DescribeWorkingStorage Text
@@ -86,9 +88,9 @@ instance AWSRequest DescribeWorkingStorage where
                      <*> (x .?> "WorkingStorageUsedInBytes")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeWorkingStorage
+instance Hashable DescribeWorkingStorage where
 
-instance NFData DescribeWorkingStorage
+instance NFData DescribeWorkingStorage where
 
 instance ToHeaders DescribeWorkingStorage where
         toHeaders
@@ -113,45 +115,49 @@ instance ToQuery DescribeWorkingStorage where
 
 -- | A JSON object containing the following fields:
 --
+--
+--
 -- /See:/ 'describeWorkingStorageResponse' smart constructor.
 data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse'
-    { _dwsrsGatewayARN                     :: !(Maybe Text)
-    , _dwsrsDiskIds                        :: !(Maybe [Text])
-    , _dwsrsWorkingStorageAllocatedInBytes :: !(Maybe Integer)
-    , _dwsrsWorkingStorageUsedInBytes      :: !(Maybe Integer)
-    , _dwsrsResponseStatus                 :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwsrsGatewayARN                     :: !(Maybe Text)
+  , _dwsrsDiskIds                        :: !(Maybe [Text])
+  , _dwsrsWorkingStorageAllocatedInBytes :: !(Maybe Integer)
+  , _dwsrsWorkingStorageUsedInBytes      :: !(Maybe Integer)
+  , _dwsrsResponseStatus                 :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeWorkingStorageResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwsrsGatewayARN'
+-- * 'dwsrsGatewayARN' - Undocumented member.
 --
--- * 'dwsrsDiskIds'
+-- * 'dwsrsDiskIds' - An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
 --
--- * 'dwsrsWorkingStorageAllocatedInBytes'
+-- * 'dwsrsWorkingStorageAllocatedInBytes' - The total working storage in bytes allocated for the gateway. If no working storage is configured for the gateway, this field returns 0.
 --
--- * 'dwsrsWorkingStorageUsedInBytes'
+-- * 'dwsrsWorkingStorageUsedInBytes' - The total working storage in bytes in use by the gateway. If no working storage is configured for the gateway, this field returns 0.
 --
--- * 'dwsrsResponseStatus'
+-- * 'dwsrsResponseStatus' - -- | The response status code.
 describeWorkingStorageResponse
     :: Int -- ^ 'dwsrsResponseStatus'
     -> DescribeWorkingStorageResponse
 describeWorkingStorageResponse pResponseStatus_ =
-    DescribeWorkingStorageResponse'
-    { _dwsrsGatewayARN = Nothing
-    , _dwsrsDiskIds = Nothing
-    , _dwsrsWorkingStorageAllocatedInBytes = Nothing
-    , _dwsrsWorkingStorageUsedInBytes = Nothing
-    , _dwsrsResponseStatus = pResponseStatus_
-    }
+  DescribeWorkingStorageResponse'
+  { _dwsrsGatewayARN = Nothing
+  , _dwsrsDiskIds = Nothing
+  , _dwsrsWorkingStorageAllocatedInBytes = Nothing
+  , _dwsrsWorkingStorageUsedInBytes = Nothing
+  , _dwsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 dwsrsGatewayARN :: Lens' DescribeWorkingStorageResponse (Maybe Text)
 dwsrsGatewayARN = lens _dwsrsGatewayARN (\ s a -> s{_dwsrsGatewayARN = a});
 
--- | An array of the gateway\'s local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
+-- | An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
 dwsrsDiskIds :: Lens' DescribeWorkingStorageResponse [Text]
 dwsrsDiskIds = lens _dwsrsDiskIds (\ s a -> s{_dwsrsDiskIds = a}) . _Default . _Coerce;
 
@@ -163,8 +169,8 @@ dwsrsWorkingStorageAllocatedInBytes = lens _dwsrsWorkingStorageAllocatedInBytes 
 dwsrsWorkingStorageUsedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
 dwsrsWorkingStorageUsedInBytes = lens _dwsrsWorkingStorageUsedInBytes (\ s a -> s{_dwsrsWorkingStorageUsedInBytes = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dwsrsResponseStatus :: Lens' DescribeWorkingStorageResponse Int
 dwsrsResponseStatus = lens _dwsrsResponseStatus (\ s a -> s{_dwsrsResponseStatus = a});
 
-instance NFData DescribeWorkingStorageResponse
+instance NFData DescribeWorkingStorageResponse where

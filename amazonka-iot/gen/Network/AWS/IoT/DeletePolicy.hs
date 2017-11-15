@@ -12,19 +12,21 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DeletePolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified policy.
+--
 --
 -- A policy cannot be deleted if it has non-default versions or it is attached to any certificate.
 --
 -- To delete a policy, use the DeletePolicyVersion API to delete all non-default versions of the policy; use the DetachPrincipalPolicy API to detach the policy from any certificate; and then use the DeletePolicy API to delete the policy.
 --
 -- When a policy is deleted using DeletePolicy, its default version is deleted with it.
+--
 module Network.AWS.IoT.DeletePolicy
     (
     -- * Creating a Request
@@ -38,32 +40,33 @@ module Network.AWS.IoT.DeletePolicy
     , DeletePolicyResponse
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DeletePolicy operation.
 --
+--
+--
 -- /See:/ 'deletePolicy' smart constructor.
 newtype DeletePolicy = DeletePolicy'
-    { _dpPolicyName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpPolicyName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePolicy' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpPolicyName'
+-- * 'dpPolicyName' - The name of the policy to delete.
 deletePolicy
     :: Text -- ^ 'dpPolicyName'
     -> DeletePolicy
-deletePolicy pPolicyName_ =
-    DeletePolicy'
-    { _dpPolicyName = pPolicyName_
-    }
+deletePolicy pPolicyName_ = DeletePolicy' {_dpPolicyName = pPolicyName_}
+
 
 -- | The name of the policy to delete.
 dpPolicyName :: Lens' DeletePolicy Text
@@ -74,9 +77,9 @@ instance AWSRequest DeletePolicy where
         request = delete ioT
         response = receiveNull DeletePolicyResponse'
 
-instance Hashable DeletePolicy
+instance Hashable DeletePolicy where
 
-instance NFData DeletePolicy
+instance NFData DeletePolicy where
 
 instance ToHeaders DeletePolicy where
         toHeaders = const mempty
@@ -90,8 +93,9 @@ instance ToQuery DeletePolicy where
 
 -- | /See:/ 'deletePolicyResponse' smart constructor.
 data DeletePolicyResponse =
-    DeletePolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeletePolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePolicyResponse' with the minimum fields required to make a request.
 --
@@ -99,4 +103,5 @@ deletePolicyResponse
     :: DeletePolicyResponse
 deletePolicyResponse = DeletePolicyResponse'
 
-instance NFData DeletePolicyResponse
+
+instance NFData DeletePolicyResponse where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ECR.GetRepositoryPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the repository policy for a specified repository.
+--
+--
 module Network.AWS.ECR.GetRepositoryPolicy
     (
     -- * Creating a Request
@@ -38,40 +40,40 @@ module Network.AWS.ECR.GetRepositoryPolicy
     , grprsResponseStatus
     ) where
 
-import           Network.AWS.ECR.Types
-import           Network.AWS.ECR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECR.Types
+import Network.AWS.ECR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getRepositoryPolicy' smart constructor.
 data GetRepositoryPolicy = GetRepositoryPolicy'
-    { _grpRegistryId     :: !(Maybe Text)
-    , _grpRepositoryName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grpRegistryId     :: !(Maybe Text)
+  , _grpRepositoryName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRepositoryPolicy' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grpRegistryId'
+-- * 'grpRegistryId' - The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
 --
--- * 'grpRepositoryName'
+-- * 'grpRepositoryName' - The name of the repository with the policy to retrieve.
 getRepositoryPolicy
     :: Text -- ^ 'grpRepositoryName'
     -> GetRepositoryPolicy
 getRepositoryPolicy pRepositoryName_ =
-    GetRepositoryPolicy'
-    { _grpRegistryId = Nothing
-    , _grpRepositoryName = pRepositoryName_
-    }
+  GetRepositoryPolicy'
+  {_grpRegistryId = Nothing, _grpRepositoryName = pRepositoryName_}
+
 
 -- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
 grpRegistryId :: Lens' GetRepositoryPolicy (Maybe Text)
 grpRegistryId = lens _grpRegistryId (\ s a -> s{_grpRegistryId = a});
 
--- | The name of the repository whose policy you want to retrieve.
+-- | The name of the repository with the policy to retrieve.
 grpRepositoryName :: Lens' GetRepositoryPolicy Text
 grpRepositoryName = lens _grpRepositoryName (\ s a -> s{_grpRepositoryName = a});
 
@@ -87,9 +89,9 @@ instance AWSRequest GetRepositoryPolicy where
                      (x .?> "policyText")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetRepositoryPolicy
+instance Hashable GetRepositoryPolicy where
 
-instance NFData GetRepositoryPolicy
+instance NFData GetRepositoryPolicy where
 
 instance ToHeaders GetRepositoryPolicy where
         toHeaders
@@ -116,33 +118,35 @@ instance ToQuery GetRepositoryPolicy where
 
 -- | /See:/ 'getRepositoryPolicyResponse' smart constructor.
 data GetRepositoryPolicyResponse = GetRepositoryPolicyResponse'
-    { _grprsRegistryId     :: !(Maybe Text)
-    , _grprsRepositoryName :: !(Maybe Text)
-    , _grprsPolicyText     :: !(Maybe Text)
-    , _grprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grprsRegistryId     :: !(Maybe Text)
+  , _grprsRepositoryName :: !(Maybe Text)
+  , _grprsPolicyText     :: !(Maybe Text)
+  , _grprsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRepositoryPolicyResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grprsRegistryId'
+-- * 'grprsRegistryId' - The registry ID associated with the request.
 --
--- * 'grprsRepositoryName'
+-- * 'grprsRepositoryName' - The repository name associated with the request.
 --
--- * 'grprsPolicyText'
+-- * 'grprsPolicyText' - The JSON repository policy text associated with the repository.
 --
--- * 'grprsResponseStatus'
+-- * 'grprsResponseStatus' - -- | The response status code.
 getRepositoryPolicyResponse
     :: Int -- ^ 'grprsResponseStatus'
     -> GetRepositoryPolicyResponse
 getRepositoryPolicyResponse pResponseStatus_ =
-    GetRepositoryPolicyResponse'
-    { _grprsRegistryId = Nothing
-    , _grprsRepositoryName = Nothing
-    , _grprsPolicyText = Nothing
-    , _grprsResponseStatus = pResponseStatus_
-    }
+  GetRepositoryPolicyResponse'
+  { _grprsRegistryId = Nothing
+  , _grprsRepositoryName = Nothing
+  , _grprsPolicyText = Nothing
+  , _grprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The registry ID associated with the request.
 grprsRegistryId :: Lens' GetRepositoryPolicyResponse (Maybe Text)
@@ -156,8 +160,8 @@ grprsRepositoryName = lens _grprsRepositoryName (\ s a -> s{_grprsRepositoryName
 grprsPolicyText :: Lens' GetRepositoryPolicyResponse (Maybe Text)
 grprsPolicyText = lens _grprsPolicyText (\ s a -> s{_grprsPolicyText = a});
 
--- | The response status code.
+-- | -- | The response status code.
 grprsResponseStatus :: Lens' GetRepositoryPolicyResponse Int
 grprsResponseStatus = lens _grprsResponseStatus (\ s a -> s{_grprsResponseStatus = a});
 
-instance NFData GetRepositoryPolicyResponse
+instance NFData GetRepositoryPolicyResponse where

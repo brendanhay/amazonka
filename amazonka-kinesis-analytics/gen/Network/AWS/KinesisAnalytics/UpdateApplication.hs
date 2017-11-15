@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.UpdateApplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing Kinesis Analytics application. Using this API, you can update application code, input configuration, and output configuration.
+-- Updates an existing Amazon Kinesis Analytics application. Using this API, you can update application code, input configuration, and output configuration.
 --
--- Note that Kinesis Analytics updates the 'CurrentApplicationVersionId' each time you update your application.
 --
--- This opeation requires permission for the 'kinesisanalytics:UpdateApplication' action.
+-- Note that Amazon Kinesis Analytics updates the @CurrentApplicationVersionId@ each time you update your application.
+--
+-- This operation requires permission for the @kinesisanalytics:UpdateApplication@ action.
+--
 module Network.AWS.KinesisAnalytics.UpdateApplication
     (
     -- * Creating a Request
@@ -40,46 +42,48 @@ module Network.AWS.KinesisAnalytics.UpdateApplication
     , uarsResponseStatus
     ) where
 
-import           Network.AWS.KinesisAnalytics.Types
-import           Network.AWS.KinesisAnalytics.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KinesisAnalytics.Types
+import Network.AWS.KinesisAnalytics.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-    { _uaApplicationName             :: !Text
-    , _uaCurrentApplicationVersionId :: !Nat
-    , _uaApplicationUpdate           :: !ApplicationUpdate
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uaApplicationName             :: !Text
+  , _uaCurrentApplicationVersionId :: !Nat
+  , _uaApplicationUpdate           :: !ApplicationUpdate
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateApplication' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaApplicationName'
+-- * 'uaApplicationName' - Name of the Amazon Kinesis Analytics application to update.
 --
--- * 'uaCurrentApplicationVersionId'
+-- * 'uaCurrentApplicationVersionId' - The current application version ID. You can use the 'DescribeApplication' operation to get this value.
 --
--- * 'uaApplicationUpdate'
+-- * 'uaApplicationUpdate' - Describes application updates.
 updateApplication
     :: Text -- ^ 'uaApplicationName'
     -> Natural -- ^ 'uaCurrentApplicationVersionId'
     -> ApplicationUpdate -- ^ 'uaApplicationUpdate'
     -> UpdateApplication
 updateApplication pApplicationName_ pCurrentApplicationVersionId_ pApplicationUpdate_ =
-    UpdateApplication'
-    { _uaApplicationName = pApplicationName_
-    , _uaCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
-    , _uaApplicationUpdate = pApplicationUpdate_
-    }
+  UpdateApplication'
+  { _uaApplicationName = pApplicationName_
+  , _uaCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
+  , _uaApplicationUpdate = pApplicationUpdate_
+  }
 
--- | Name of the Kinesis Analytics application to update.
+
+-- | Name of the Amazon Kinesis Analytics application to update.
 uaApplicationName :: Lens' UpdateApplication Text
 uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
 
--- | The current application version ID. You can use the < DescribeApplication> operation to get this value.
+-- | The current application version ID. You can use the 'DescribeApplication' operation to get this value.
 uaCurrentApplicationVersionId :: Lens' UpdateApplication Natural
 uaCurrentApplicationVersionId = lens _uaCurrentApplicationVersionId (\ s a -> s{_uaCurrentApplicationVersionId = a}) . _Nat;
 
@@ -95,9 +99,9 @@ instance AWSRequest UpdateApplication where
               (\ s h x ->
                  UpdateApplicationResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateApplication
+instance Hashable UpdateApplication where
 
-instance NFData UpdateApplication
+instance NFData UpdateApplication where
 
 instance ToHeaders UpdateApplication where
         toHeaders
@@ -127,24 +131,24 @@ instance ToQuery UpdateApplication where
 
 -- | /See:/ 'updateApplicationResponse' smart constructor.
 newtype UpdateApplicationResponse = UpdateApplicationResponse'
-    { _uarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateApplicationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uarsResponseStatus'
+-- * 'uarsResponseStatus' - -- | The response status code.
 updateApplicationResponse
     :: Int -- ^ 'uarsResponseStatus'
     -> UpdateApplicationResponse
 updateApplicationResponse pResponseStatus_ =
-    UpdateApplicationResponse'
-    { _uarsResponseStatus = pResponseStatus_
-    }
+  UpdateApplicationResponse' {_uarsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 uarsResponseStatus :: Lens' UpdateApplicationResponse Int
 uarsResponseStatus = lens _uarsResponseStatus (\ s a -> s{_uarsResponseStatus = a});
 
-instance NFData UpdateApplicationResponse
+instance NFData UpdateApplicationResponse where

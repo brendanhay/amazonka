@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DeregisterTargets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deregisters the specified targets from the specified target group. After the targets are deregistered, they no longer receive traffic from the load balancer.
+--
+--
 module Network.AWS.ELBv2.DeregisterTargets
     (
     -- * Creating a Request
@@ -35,42 +37,39 @@ module Network.AWS.ELBv2.DeregisterTargets
     , dtsrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for DeregisterTargets.
---
--- /See:/ 'deregisterTargets' smart constructor.
+-- | /See:/ 'deregisterTargets' smart constructor.
 data DeregisterTargets = DeregisterTargets'
-    { _dtTargetGroupARN :: !Text
-    , _dtTargets        :: ![TargetDescription]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtTargetGroupARN :: !Text
+  , _dtTargets        :: ![TargetDescription]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterTargets' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtTargetGroupARN'
+-- * 'dtTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 --
--- * 'dtTargets'
+-- * 'dtTargets' - The targets. If you specified a port override when you registered a target, you must specify both the target ID and the port when you deregister it.
 deregisterTargets
     :: Text -- ^ 'dtTargetGroupARN'
     -> DeregisterTargets
 deregisterTargets pTargetGroupARN_ =
-    DeregisterTargets'
-    { _dtTargetGroupARN = pTargetGroupARN_
-    , _dtTargets = mempty
-    }
+  DeregisterTargets' {_dtTargetGroupARN = pTargetGroupARN_, _dtTargets = mempty}
+
 
 -- | The Amazon Resource Name (ARN) of the target group.
 dtTargetGroupARN :: Lens' DeregisterTargets Text
 dtTargetGroupARN = lens _dtTargetGroupARN (\ s a -> s{_dtTargetGroupARN = a});
 
--- | The targets.
+-- | The targets. If you specified a port override when you registered a target, you must specify both the target ID and the port when you deregister it.
 dtTargets :: Lens' DeregisterTargets [TargetDescription]
 dtTargets = lens _dtTargets (\ s a -> s{_dtTargets = a}) . _Coerce;
 
@@ -82,9 +81,9 @@ instance AWSRequest DeregisterTargets where
               (\ s h x ->
                  DeregisterTargetsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeregisterTargets
+instance Hashable DeregisterTargets where
 
-instance NFData DeregisterTargets
+instance NFData DeregisterTargets where
 
 instance ToHeaders DeregisterTargets where
         toHeaders = const mempty
@@ -100,28 +99,26 @@ instance ToQuery DeregisterTargets where
                "TargetGroupArn" =: _dtTargetGroupARN,
                "Targets" =: toQueryList "member" _dtTargets]
 
--- | Contains the output of DeregisterTargets.
---
--- /See:/ 'deregisterTargetsResponse' smart constructor.
+-- | /See:/ 'deregisterTargetsResponse' smart constructor.
 newtype DeregisterTargetsResponse = DeregisterTargetsResponse'
-    { _dtsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterTargetsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtsrsResponseStatus'
+-- * 'dtsrsResponseStatus' - -- | The response status code.
 deregisterTargetsResponse
     :: Int -- ^ 'dtsrsResponseStatus'
     -> DeregisterTargetsResponse
 deregisterTargetsResponse pResponseStatus_ =
-    DeregisterTargetsResponse'
-    { _dtsrsResponseStatus = pResponseStatus_
-    }
+  DeregisterTargetsResponse' {_dtsrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 dtsrsResponseStatus :: Lens' DeregisterTargetsResponse Int
 dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus = a});
 
-instance NFData DeregisterTargetsResponse
+instance NFData DeregisterTargetsResponse where

@@ -6,12 +6,12 @@
 {-# LANGUAGE TupleSections       #-}
 
 -- Module      : Gen.AST.Data
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
@@ -22,31 +22,39 @@ module Gen.AST.Data
     , waiterData
     ) where
 
-import           Control.Comonad.Cofree
-import           Control.Error
-import           Control.Lens                 hiding ((:<), List, enum, mapping,
-                                               (??))
-import           Control.Monad
-import           Control.Monad.Except
-import           Control.Monad.Trans.State
-import           Data.Bifunctor
-import           Data.Char                    (isSpace)
+import Control.Comonad.Cofree
+import Control.Error
+import Control.Lens              hiding ((:<), List, enum, mapping, (??))
+import Control.Monad
+import Control.Monad.Except
+import Control.Monad.Trans.State
+
+import Data.Bifunctor
+import Data.Char      (isSpace)
+import Data.List      (find, sort)
+import Data.Monoid    ((<>))
+import Data.String
+import Data.Text      (Text)
+
+import Gen.AST.Data.Field
+import Gen.AST.Data.Instance
+import Gen.AST.Data.Syntax
+import Gen.Formatting
+import Gen.Types
+
+import Language.Haskell.Exts.Pretty (Pretty)
+
+import qualified Data.ByteString.Builder      as Build
+import qualified Data.ByteString.Char8        as BS8
 import qualified Data.HashMap.Strict          as Map
-import           Data.List                    (find, sort)
-import           Data.Monoid                  ((<>))
-import           Data.String
-import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
+import qualified Data.Text.Encoding           as Text
 import qualified Data.Text.Lazy               as LText
-import qualified Data.Text.Lazy.Builder       as Build
-import           Gen.AST.Data.Field
-import           Gen.AST.Data.Instance
-import           Gen.AST.Data.Syntax
-import           Gen.Formatting
-import           Gen.Types
-import           HIndent
-import           Language.Haskell.Exts.Pretty
-import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit, Var)
+import qualified Data.Text.Lazy.Encoding      as LText
+import qualified HIndent
+import qualified HIndent.Types                as HIndent
+import qualified Language.Haskell.Exts.Pretty as Exts
+import qualified Language.Haskell.Exts.Syntax as Exts
 
 operationData :: HasMetadata a Identity
               => Config
@@ -95,7 +103,7 @@ shapeData :: HasMetadata a Identity
           -> Shape Solved
           -> Either Error (Maybe SData)
 shapeData m (a :< s) = case s of
-    _ | s ^. infoException -> Just <$> errorData a (s ^. info)
+    _ | s ^. infoException -> Just <$> errorData m a (s ^. info)
     Enum   i vs            -> Just <$> sumData p a i vs
     Struct st              -> do
         (d, fs) <- prodData m a st
@@ -112,12 +120,16 @@ addInstances s = f isHashable IsHashable . f isNFData IsNFData
     f g x | g s       = (x :)
           | otherwise = id
 
-errorData :: Solved -> Info -> Either Error SData
-errorData s i = Fun <$> mk
+errorData :: HasMetadata a Identity
+          => a
+          -> Solved
+          -> Info
+          -> Either Error SData
+errorData m s i = Fun <$> mk
   where
     mk = Fun' p h
         <$> pp None   (errorS p)
-        <*> pp Indent (errorD p status code)
+        <*> pp Indent (errorD m p status code)
 
     h = flip fromMaybe (i ^. infoDocumentation)
         . fromString
@@ -143,7 +155,7 @@ sumData p s i vs = Sum s <$> mk <*> (Map.keys <$> insts)
 
     decl = dataD n (map f . sort $ Map.keys bs) (derivingOf s)
       where
-        f x = conD (ConDecl (ident x) [])
+        f x = conD (Exts.ConDecl () (ident x) [])
 
     insts = renderInsts p n $ shapeInsts p (s ^. relMode) []
 
@@ -178,9 +190,9 @@ prodData m s st = (,fields) <$> mk
         <*>  pp Indent (ctorD n fields)
 
     mkHelp :: Help
-    mkHelp = Raw $
+    mkHelp = Help $
         sformat ("Creates a value of '" % itype %
-                "' with the minimum fields required to make a request.\n")
+                "' with the minimum fields required to make a request.")
                 n
 
     -- FIXME: dirty hack to render smart ctor parameter haddock comments.
@@ -207,7 +219,7 @@ serviceData :: HasMetadata a Identity
             => a
             -> Retry
             -> Either Error Fun
-serviceData m r = Fun' (m ^. serviceConfig) (Raw h)
+serviceData m r = Fun' (m ^. serviceConfig) (Help h)
     <$> pp None   (serviceS m)
     <*> pp Indent (serviceD m r)
   where
@@ -223,7 +235,7 @@ waiterData :: HasMetadata a Identity
 waiterData m os n w = do
     o  <- note (missingErr k (k, Map.map _opName os)) $ Map.lookup k os
     wf <- waiterFields m o w
-    c  <- Fun' (smartCtorId n) (Raw h)
+    c  <- Fun' (smartCtorId n) (Help h)
         <$> pp None   (waiterS n wf)
         <*> pp Indent (waiterD n wf)
     return $! WData (typeId n) (_opName o) c
@@ -235,7 +247,7 @@ waiterData m os n w = do
 
     h = sformat
         ("Polls 'Network.AWS." % stext % "." % itype %
-         "' every " % int % " seconds until a\n" %
+         "' every " % int % " seconds until a " %
          "successful state is reached. An error is returned after "
          % int % " failed checks.")
         (m ^. serviceAbbrev) k (_waitDelay w) (_waitAttempts w)
@@ -285,9 +297,10 @@ notation m = go
   where
     go :: Shape Solved -> Notation Id -> Either Error (Notation Field)
     go s = \case
-        NonEmpty k   -> NonEmpty <$> key s k
-        Choice   x y -> Choice   <$> go s x <*> go s y
-        Access   ks  -> fmap Access
+        NonEmptyList k   -> NonEmptyList <$> key s k
+        NonEmptyText k   -> NonEmptyText <$> key s k
+        Choice       x y -> Choice       <$> go s x <*> go s y
+        Access       ks  -> fmap Access
             . flip evalStateT s
             . forM ks
             $ \x -> do
@@ -297,12 +310,12 @@ notation m = go
 
     key :: Shape Solved -> Key Id -> Either Error (Key Field)
     key s = \case
-        Key  n -> Key  <$> field n s
-        Each n -> Each <$> field n s
-        Last n -> Last <$> field n s
+        Key  n -> Key  <$> field' n s
+        Each n -> Each <$> field' n s
+        Last n -> Last <$> field' n s
 
-    field :: Id -> Shape Solved -> Either Error Field
-    field n = \case
+    field' :: Id -> Shape Solved -> Either Error Field
+    field' n = \case
         a :< Struct st ->
             note (missingErr n (identifier a) (Map.keys (st ^. members)))
                 . find ((n ==) . _fieldId)
@@ -335,25 +348,35 @@ data PP
 
 pp :: Pretty a => PP -> a -> Either Error Rendered
 pp i d
-    | i == Indent = bimap e Build.toLazyText (reformat johanTibell Nothing p)
-    | otherwise   = pure p
+    | i == Indent = bimap errorMessage render (reformat printed)
+    | otherwise   = pure (LText.fromStrict (Text.decodeUtf8 printed))
   where
-    e = flip mappend (", when formatting datatype:\n\n" <> p <> "\n") . LText.pack
+    render =
+        LText.decodeUtf8 . Build.toLazyByteString
 
-    p = LText.dropWhile isSpace
-      . LText.pack
-      $ prettyPrintStyleMode s m d
+    reformat =
+        HIndent.reformat HIndent.defaultConfig Nothing Nothing
 
+    errorMessage =
+        LText.fromStrict
+            . Text.decodeUtf8
+            . flip mappend (", when formatting datatype:\n\n" <> printed <> "\n")
+            . BS8.pack
 
-    s = style
-        { mode           = PageMode
-        , lineLength     = 80
-        , ribbonsPerLine = 1.5
+    printed =
+        BS8.dropWhile isSpace . BS8.pack $
+            Exts.prettyPrintStyleMode style mode d
+
+    style = Exts.style
+        { Exts.mode           = Exts.PageMode
+        , Exts.lineLength     = 80
+        , Exts.ribbonsPerLine = 1.5
         }
 
-    m | i == Print  = defaultMode
-      | i == Indent = defaultMode -- Temporary, while hindent speed issues are considered.
-      | otherwise   = defaultMode
-          { layout  = PPNoLayout
-          , spacing = False
-          }
+    mode | i == Print  = Exts.defaultMode
+         | i == Indent = Exts.defaultMode
+         | otherwise   =
+             Exts.defaultMode
+                 { Exts.layout  = Exts.PPNoLayout
+                 , Exts.spacing = False
+                 }

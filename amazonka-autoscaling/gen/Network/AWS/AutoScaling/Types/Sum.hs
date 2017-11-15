@@ -9,31 +9,32 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.AutoScaling.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data LifecycleState
-    = Detached
-    | Detaching
-    | EnteringStandby
-    | InService
-    | Pending
-    | PendingProceed
-    | PendingWait
-    | Quarantined
-    | Standby
-    | Terminated
-    | Terminating
-    | TerminatingProceed
-    | TerminatingWait
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Detached
+  | Detaching
+  | EnteringStandby
+  | InService
+  | Pending
+  | PendingProceed
+  | PendingWait
+  | Quarantined
+  | Standby
+  | Terminated
+  | Terminating
+  | TerminatingProceed
+  | TerminatingWait
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LifecycleState where
     parser = takeLowerText >>= \case
@@ -78,20 +79,90 @@ instance ToHeader     LifecycleState
 instance FromXML LifecycleState where
     parseXML = parseXMLText "LifecycleState"
 
+data MetricStatistic
+  = Average
+  | Maximum
+  | Minimum
+  | SampleCount
+  | Sum
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText MetricStatistic where
+    parser = takeLowerText >>= \case
+        "average" -> pure Average
+        "maximum" -> pure Maximum
+        "minimum" -> pure Minimum
+        "samplecount" -> pure SampleCount
+        "sum" -> pure Sum
+        e -> fromTextError $ "Failure parsing MetricStatistic from value: '" <> e
+           <> "'. Accepted values: average, maximum, minimum, samplecount, sum"
+
+instance ToText MetricStatistic where
+    toText = \case
+        Average -> "Average"
+        Maximum -> "Maximum"
+        Minimum -> "Minimum"
+        SampleCount -> "SampleCount"
+        Sum -> "Sum"
+
+instance Hashable     MetricStatistic
+instance NFData       MetricStatistic
+instance ToByteString MetricStatistic
+instance ToQuery      MetricStatistic
+instance ToHeader     MetricStatistic
+
+instance FromXML MetricStatistic where
+    parseXML = parseXMLText "MetricStatistic"
+
+data MetricType
+  = ALBRequestCountPerTarget
+  | ASGAverageCPUUtilization
+  | ASGAverageNetworkIn
+  | ASGAverageNetworkOut
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText MetricType where
+    parser = takeLowerText >>= \case
+        "albrequestcountpertarget" -> pure ALBRequestCountPerTarget
+        "asgaveragecpuutilization" -> pure ASGAverageCPUUtilization
+        "asgaveragenetworkin" -> pure ASGAverageNetworkIn
+        "asgaveragenetworkout" -> pure ASGAverageNetworkOut
+        e -> fromTextError $ "Failure parsing MetricType from value: '" <> e
+           <> "'. Accepted values: albrequestcountpertarget, asgaveragecpuutilization, asgaveragenetworkin, asgaveragenetworkout"
+
+instance ToText MetricType where
+    toText = \case
+        ALBRequestCountPerTarget -> "ALBRequestCountPerTarget"
+        ASGAverageCPUUtilization -> "ASGAverageCPUUtilization"
+        ASGAverageNetworkIn -> "ASGAverageNetworkIn"
+        ASGAverageNetworkOut -> "ASGAverageNetworkOut"
+
+instance Hashable     MetricType
+instance NFData       MetricType
+instance ToByteString MetricType
+instance ToQuery      MetricType
+instance ToHeader     MetricType
+
+instance FromXML MetricType where
+    parseXML = parseXMLText "MetricType"
+
 data ScalingActivityStatusCode
-    = Cancelled
-    | Failed
-    | InProgress
-    | MidLifecycleAction
-    | PendingSpotBidPlacement
-    | PreInService
-    | Successful
-    | WaitingForELBConnectionDraining
-    | WaitingForInstanceId
-    | WaitingForInstanceWarmup
-    | WaitingForSpotInstanceId
-    | WaitingForSpotInstanceRequestId
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Cancelled
+  | Failed
+  | InProgress
+  | MidLifecycleAction
+  | PendingSpotBidPlacement
+  | PreInService
+  | Successful
+  | WaitingForELBConnectionDraining
+  | WaitingForInstanceId
+  | WaitingForInstanceWarmup
+  | WaitingForSpotInstanceId
+  | WaitingForSpotInstanceRequestId
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ScalingActivityStatusCode where
     parser = takeLowerText >>= \case

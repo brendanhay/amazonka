@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetDevicePool
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a device pool.
+--
+--
 module Network.AWS.DeviceFarm.GetDevicePool
     (
     -- * Creating a Request
@@ -35,34 +37,35 @@ module Network.AWS.DeviceFarm.GetDevicePool
     , gdprsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the get device pool operation.
 --
+--
+--
 -- /See:/ 'getDevicePool' smart constructor.
 newtype GetDevicePool = GetDevicePool'
-    { _gdpArn :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdpArn :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDevicePool' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdpArn'
+-- * 'gdpArn' - The device pool's ARN.
 getDevicePool
     :: Text -- ^ 'gdpArn'
     -> GetDevicePool
-getDevicePool pArn_ =
-    GetDevicePool'
-    { _gdpArn = pArn_
-    }
+getDevicePool pArn_ = GetDevicePool' {_gdpArn = pArn_}
 
--- | The device pool\'s ARN.
+
+-- | The device pool's ARN.
 gdpArn :: Lens' GetDevicePool Text
 gdpArn = lens _gdpArn (\ s a -> s{_gdpArn = a});
 
@@ -75,9 +78,9 @@ instance AWSRequest GetDevicePool where
                  GetDevicePoolResponse' <$>
                    (x .?> "devicePool") <*> (pure (fromEnum s)))
 
-instance Hashable GetDevicePool
+instance Hashable GetDevicePool where
 
-instance NFData GetDevicePool
+instance NFData GetDevicePool where
 
 instance ToHeaders GetDevicePool where
         toHeaders
@@ -100,34 +103,36 @@ instance ToQuery GetDevicePool where
 
 -- | Represents the result of a get device pool request.
 --
+--
+--
 -- /See:/ 'getDevicePoolResponse' smart constructor.
 data GetDevicePoolResponse = GetDevicePoolResponse'
-    { _gdprsDevicePool     :: !(Maybe DevicePool)
-    , _gdprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdprsDevicePool     :: !(Maybe DevicePool)
+  , _gdprsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDevicePoolResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdprsDevicePool'
+-- * 'gdprsDevicePool' - An object containing information about the requested device pool.
 --
--- * 'gdprsResponseStatus'
+-- * 'gdprsResponseStatus' - -- | The response status code.
 getDevicePoolResponse
     :: Int -- ^ 'gdprsResponseStatus'
     -> GetDevicePoolResponse
 getDevicePoolResponse pResponseStatus_ =
-    GetDevicePoolResponse'
-    { _gdprsDevicePool = Nothing
-    , _gdprsResponseStatus = pResponseStatus_
-    }
+  GetDevicePoolResponse'
+  {_gdprsDevicePool = Nothing, _gdprsResponseStatus = pResponseStatus_}
 
--- | Undocumented member.
+
+-- | An object containing information about the requested device pool.
 gdprsDevicePool :: Lens' GetDevicePoolResponse (Maybe DevicePool)
 gdprsDevicePool = lens _gdprsDevicePool (\ s a -> s{_gdprsDevicePool = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gdprsResponseStatus :: Lens' GetDevicePoolResponse Int
 gdprsResponseStatus = lens _gdprsResponseStatus (\ s a -> s{_gdprsResponseStatus = a});
 
-instance NFData GetDevicePoolResponse
+instance NFData GetDevicePoolResponse where

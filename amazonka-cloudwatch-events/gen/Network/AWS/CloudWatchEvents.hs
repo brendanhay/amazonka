@@ -5,19 +5,25 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon CloudWatch Events helps you to respond to state changes in your AWS resources. When your resources change state they automatically send events into an event stream. You can create rules that match selected events in the stream and route them to targets to take action. You can also use rules to take action on a pre-determined schedule. For example, you can configure rules to:
+-- Amazon CloudWatch Events helps you to respond to state changes in your AWS resources. When your resources change state, they automatically send events into an event stream. You can create rules that match selected events in the stream and route them to targets to take action. You can also use rules to take action on a pre-determined schedule. For example, you can configure rules to:
 --
--- -   Automatically invoke an AWS Lambda function to update DNS entries when an event notifies you that Amazon EC2 instance enters the running state.
--- -   Direct specific API records from CloudTrail to an Amazon Kinesis stream for detailed analysis of potential security or availability risks.
--- -   Periodically invoke a built-in target to create a snapshot of an Amazon EBS volume.
 --
--- For more information about Amazon CloudWatch Events features, see the <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide Amazon CloudWatch Developer Guide>.
+--     * Automatically invoke an AWS Lambda function to update DNS entries when an event notifies you that Amazon EC2 instance enters the running state.
+--
+--     * Direct specific API records from CloudTrail to an Amazon Kinesis stream for detailed analysis of potential security or availability risks.
+--
+--     * Periodically invoke a built-in target to create a snapshot of an Amazon EBS volume.
+--
+--
+--
+-- For more information about the features of Amazon CloudWatch Events, see the <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events Amazon CloudWatch Events User Guide> .
+--
 module Network.AWS.CloudWatchEvents
     (
     -- * Service Configuration
@@ -25,6 +31,9 @@ module Network.AWS.CloudWatchEvents
 
     -- * Errors
     -- $errors
+
+    -- ** PolicyLengthExceededException
+    , _PolicyLengthExceededException
 
     -- ** ConcurrentModificationException
     , _ConcurrentModificationException
@@ -62,8 +71,14 @@ module Network.AWS.CloudWatchEvents
     -- ** DisableRule
     , module Network.AWS.CloudWatchEvents.DisableRule
 
+    -- ** PutPermission
+    , module Network.AWS.CloudWatchEvents.PutPermission
+
     -- ** ListTargetsByRule
     , module Network.AWS.CloudWatchEvents.ListTargetsByRule
+
+    -- ** RemovePermission
+    , module Network.AWS.CloudWatchEvents.RemovePermission
 
     -- ** DescribeRule
     , module Network.AWS.CloudWatchEvents.DescribeRule
@@ -77,6 +92,9 @@ module Network.AWS.CloudWatchEvents
     -- ** TestEventPattern
     , module Network.AWS.CloudWatchEvents.TestEventPattern
 
+    -- ** DescribeEventBus
+    , module Network.AWS.CloudWatchEvents.DescribeEventBus
+
     -- ** PutTargets
     , module Network.AWS.CloudWatchEvents.PutTargets
 
@@ -87,6 +105,23 @@ module Network.AWS.CloudWatchEvents
 
     -- ** RuleState
     , RuleState (..)
+
+    -- ** EcsParameters
+    , EcsParameters
+    , ecsParameters
+    , epTaskCount
+    , epTaskDefinitionARN
+
+    -- ** InputTransformer
+    , InputTransformer
+    , inputTransformer
+    , itInputPathsMap
+    , itInputTemplate
+
+    -- ** KinesisParameters
+    , KinesisParameters
+    , kinesisParameters
+    , kpPartitionKeyPath
 
     -- ** PutEventsRequestEntry
     , PutEventsRequestEntry
@@ -129,29 +164,48 @@ module Network.AWS.CloudWatchEvents
     , rDescription
     , rRoleARN
 
+    -- ** RunCommandParameters
+    , RunCommandParameters
+    , runCommandParameters
+    , rcpRunCommandTargets
+
+    -- ** RunCommandTarget
+    , RunCommandTarget
+    , runCommandTarget
+    , rctKey
+    , rctValues
+
     -- ** Target
     , Target
     , target
+    , tRunCommandParameters
+    , tKinesisParameters
+    , tInputTransformer
     , tInput
+    , tEcsParameters
     , tInputPath
+    , tRoleARN
     , tId
     , tARN
     ) where
 
-import           Network.AWS.CloudWatchEvents.DeleteRule
-import           Network.AWS.CloudWatchEvents.DescribeRule
-import           Network.AWS.CloudWatchEvents.DisableRule
-import           Network.AWS.CloudWatchEvents.EnableRule
-import           Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
-import           Network.AWS.CloudWatchEvents.ListRules
-import           Network.AWS.CloudWatchEvents.ListTargetsByRule
-import           Network.AWS.CloudWatchEvents.PutEvents
-import           Network.AWS.CloudWatchEvents.PutRule
-import           Network.AWS.CloudWatchEvents.PutTargets
-import           Network.AWS.CloudWatchEvents.RemoveTargets
-import           Network.AWS.CloudWatchEvents.TestEventPattern
-import           Network.AWS.CloudWatchEvents.Types
-import           Network.AWS.CloudWatchEvents.Waiters
+import Network.AWS.CloudWatchEvents.DeleteRule
+import Network.AWS.CloudWatchEvents.DescribeEventBus
+import Network.AWS.CloudWatchEvents.DescribeRule
+import Network.AWS.CloudWatchEvents.DisableRule
+import Network.AWS.CloudWatchEvents.EnableRule
+import Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
+import Network.AWS.CloudWatchEvents.ListRules
+import Network.AWS.CloudWatchEvents.ListTargetsByRule
+import Network.AWS.CloudWatchEvents.PutEvents
+import Network.AWS.CloudWatchEvents.PutPermission
+import Network.AWS.CloudWatchEvents.PutRule
+import Network.AWS.CloudWatchEvents.PutTargets
+import Network.AWS.CloudWatchEvents.RemovePermission
+import Network.AWS.CloudWatchEvents.RemoveTargets
+import Network.AWS.CloudWatchEvents.TestEventPattern
+import Network.AWS.CloudWatchEvents.Types
+import Network.AWS.CloudWatchEvents.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

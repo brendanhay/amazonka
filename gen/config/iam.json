@@ -1,3 +1,14 @@
 {
-    "libraryName": "amazonka-iam"
+    "libraryName": "amazonka-iam",
+    "typeOverrides": {
+        "AccessKey": {
+            "renamedTo": "AccessKeyInfo"
+        },
+        "accessKeyIdType": {
+            "replacedBy": {
+                "name": "AccessKey",
+                "underive": []
+            }
+        }
+    }
 }

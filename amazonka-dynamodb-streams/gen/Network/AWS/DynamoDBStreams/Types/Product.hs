@@ -9,74 +9,78 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDBStreams.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.DynamoDBStreams.Types.Product where
 
-import           Network.AWS.DynamoDBStreams.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.DynamoDBStreams.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Represents the data for an attribute. You can set one, and only one, of the elements.
 --
+--
 -- Each attribute in an item is a name-value pair. An attribute can be single-valued or multi-valued set. For example, a book item can have title and authors attributes. Each book has one title but can have many authors. The multi-valued attribute is a set; duplicate values are not allowed.
+--
 --
 -- /See:/ 'attributeValue' smart constructor.
 data AttributeValue = AttributeValue'
-    { _avL    :: !(Maybe [AttributeValue])
-    , _avNS   :: !(Maybe [Text])
-    , _avM    :: !(Maybe (Map Text AttributeValue))
-    , _avNULL :: !(Maybe Bool)
-    , _avN    :: !(Maybe Text)
-    , _avBS   :: !(Maybe [Base64])
-    , _avB    :: !(Maybe Base64)
-    , _avSS   :: !(Maybe [Text])
-    , _avS    :: !(Maybe Text)
-    , _avBOOL :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avL    :: !(Maybe [AttributeValue])
+  , _avNS   :: !(Maybe [Text])
+  , _avM    :: !(Maybe (Map Text AttributeValue))
+  , _avNULL :: !(Maybe Bool)
+  , _avN    :: !(Maybe Text)
+  , _avBS   :: !(Maybe [Base64])
+  , _avB    :: !(Maybe Base64)
+  , _avSS   :: !(Maybe [Text])
+  , _avS    :: !(Maybe Text)
+  , _avBOOL :: !(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttributeValue' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'avL'
+-- * 'avL' - A List data type.
 --
--- * 'avNS'
+-- * 'avNS' - A Number Set data type.
 --
--- * 'avM'
+-- * 'avM' - A Map data type.
 --
--- * 'avNULL'
+-- * 'avNULL' - A Null data type.
 --
--- * 'avN'
+-- * 'avN' - A Number data type.
 --
--- * 'avBS'
+-- * 'avBS' - A Binary Set data type.
 --
--- * 'avB'
+-- * 'avB' - A Binary data type.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'avSS'
+-- * 'avSS' - A String Set data type.
 --
--- * 'avS'
+-- * 'avS' - A String data type.
 --
--- * 'avBOOL'
+-- * 'avBOOL' - A Boolean data type.
 attributeValue
     :: AttributeValue
 attributeValue =
-    AttributeValue'
-    { _avL = Nothing
-    , _avNS = Nothing
-    , _avM = Nothing
-    , _avNULL = Nothing
-    , _avN = Nothing
-    , _avBS = Nothing
-    , _avB = Nothing
-    , _avSS = Nothing
-    , _avS = Nothing
-    , _avBOOL = Nothing
-    }
+  AttributeValue'
+  { _avL = Nothing
+  , _avNS = Nothing
+  , _avM = Nothing
+  , _avNULL = Nothing
+  , _avN = Nothing
+  , _avBS = Nothing
+  , _avB = Nothing
+  , _avSS = Nothing
+  , _avS = Nothing
+  , _avBOOL = Nothing
+  }
+
 
 -- | A List data type.
 avL :: Lens' AttributeValue [AttributeValue]
@@ -102,13 +106,7 @@ avN = lens _avN (\ s a -> s{_avN = a});
 avBS :: Lens' AttributeValue [ByteString]
 avBS = lens _avBS (\ s a -> s{_avBS = a}) . _Default . _Coerce;
 
--- | A Binary data type.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- | A Binary data type.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 avB :: Lens' AttributeValue (Maybe ByteString)
 avB = lens _avB (\ s a -> s{_avB = a}) . mapping _Base64;
 
@@ -139,40 +137,80 @@ instance FromJSON AttributeValue where
                      <*> (x .:? "S")
                      <*> (x .:? "BOOL"))
 
-instance Hashable AttributeValue
+instance Hashable AttributeValue where
 
-instance NFData AttributeValue
+instance NFData AttributeValue where
+
+-- | Contains details about the type of identity that made the request.
+--
+--
+--
+-- /See:/ 'identity' smart constructor.
+data Identity = Identity'
+  { _iPrincipalId :: !(Maybe Text)
+  , _iType        :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Identity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iPrincipalId' - A unique identifier for the entity that made the call. For Time To Live, the principalId is "dynamodb.amazonaws.com".
+--
+-- * 'iType' - The type of the identity. For Time To Live, the type is "Service".
+identity
+    :: Identity
+identity = Identity' {_iPrincipalId = Nothing, _iType = Nothing}
+
+
+-- | A unique identifier for the entity that made the call. For Time To Live, the principalId is "dynamodb.amazonaws.com".
+iPrincipalId :: Lens' Identity (Maybe Text)
+iPrincipalId = lens _iPrincipalId (\ s a -> s{_iPrincipalId = a});
+
+-- | The type of the identity. For Time To Live, the type is "Service".
+iType :: Lens' Identity (Maybe Text)
+iType = lens _iType (\ s a -> s{_iType = a});
+
+instance FromJSON Identity where
+        parseJSON
+          = withObject "Identity"
+              (\ x ->
+                 Identity' <$>
+                   (x .:? "PrincipalId") <*> (x .:? "Type"))
+
+instance Hashable Identity where
+
+instance NFData Identity where
 
 -- | Represents /a single element/ of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
 --
--- A /KeySchemaElement/ represents exactly one attribute of the primary key. For example, a simple primary key (partition key) would be represented by one /KeySchemaElement/. A composite primary key (partition key and sort key) would require one /KeySchemaElement/ for the partition key, and another /KeySchemaElement/ for the sort key.
 --
--- The partition key of an item is also known as its /hash attribute/. The term \"hash attribute\" derives from DynamoDB\'s usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+-- A @KeySchemaElement@ represents exactly one attribute of the primary key. For example, a simple primary key (partition key) would be represented by one @KeySchemaElement@ . A composite primary key (partition key and sort key) would require one @KeySchemaElement@ for the partition key, and another @KeySchemaElement@ for the sort key.
 --
--- The sort key of an item is also known as its /range attribute/. The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 --
 -- /See:/ 'keySchemaElement' smart constructor.
 data KeySchemaElement = KeySchemaElement'
-    { _kseAttributeName :: !Text
-    , _kseKeyType       :: !KeyType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _kseAttributeName :: !Text
+  , _kseKeyType       :: !KeyType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'KeySchemaElement' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'kseAttributeName'
+-- * 'kseAttributeName' - The name of a key attribute.
 --
--- * 'kseKeyType'
+-- * 'kseKeyType' - The attribute data, consisting of the data type and the attribute value itself.
 keySchemaElement
     :: Text -- ^ 'kseAttributeName'
     -> KeyType -- ^ 'kseKeyType'
     -> KeySchemaElement
 keySchemaElement pAttributeName_ pKeyType_ =
-    KeySchemaElement'
-    { _kseAttributeName = pAttributeName_
-    , _kseKeyType = pKeyType_
-    }
+  KeySchemaElement'
+  {_kseAttributeName = pAttributeName_, _kseKeyType = pKeyType_}
+
 
 -- | The name of a key attribute.
 kseAttributeName :: Lens' KeySchemaElement Text
@@ -189,52 +227,62 @@ instance FromJSON KeySchemaElement where
                  KeySchemaElement' <$>
                    (x .: "AttributeName") <*> (x .: "KeyType"))
 
-instance Hashable KeySchemaElement
+instance Hashable KeySchemaElement where
 
-instance NFData KeySchemaElement
+instance NFData KeySchemaElement where
 
 -- | A description of a unique event within a stream.
 --
+--
+--
 -- /See:/ 'record' smart constructor.
 data Record = Record'
-    { _rEventVersion :: !(Maybe Text)
-    , _rDynamodb     :: !(Maybe StreamRecord)
-    , _rAwsRegion    :: !(Maybe Text)
-    , _rEventName    :: !(Maybe OperationType)
-    , _rEventSource  :: !(Maybe Text)
-    , _rEventId      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rUserIdentity :: !(Maybe Identity)
+  , _rEventVersion :: !(Maybe Text)
+  , _rDynamodb     :: !(Maybe StreamRecord)
+  , _rAwsRegion    :: !(Maybe Text)
+  , _rEventName    :: !(Maybe OperationType)
+  , _rEventSource  :: !(Maybe Text)
+  , _rEventId      :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Record' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rEventVersion'
+-- * 'rUserIdentity' - Items that are deleted by the Time to Live process after expiration have the following fields:      * Records[].userIdentity.type "Service"     * Records[].userIdentity.principalId "dynamodb.amazonaws.com"
 --
--- * 'rDynamodb'
+-- * 'rEventVersion' - The version number of the stream record format. This number is updated whenever the structure of @Record@ is modified. Client applications must not assume that @eventVersion@ will remain at a particular value, as this number is subject to change at any time. In general, @eventVersion@ will only increase as the low-level DynamoDB Streams API evolves.
 --
--- * 'rAwsRegion'
+-- * 'rDynamodb' - The main body of the stream record, containing all of the DynamoDB-specific fields.
 --
--- * 'rEventName'
+-- * 'rAwsRegion' - The region in which the @GetRecords@ request was received.
 --
--- * 'rEventSource'
+-- * 'rEventName' - The type of data modification that was performed on the DynamoDB table:     * @INSERT@ - a new item was added to the table.     * @MODIFY@ - one or more of an existing item's attributes were modified.     * @REMOVE@ - the item was deleted from the table
 --
--- * 'rEventId'
+-- * 'rEventSource' - The AWS service from which the stream record originated. For DynamoDB Streams, this is @aws:dynamodb@ .
+--
+-- * 'rEventId' - A globally unique identifier for the event that was recorded in this stream record.
 record
     :: Record
 record =
-    Record'
-    { _rEventVersion = Nothing
-    , _rDynamodb = Nothing
-    , _rAwsRegion = Nothing
-    , _rEventName = Nothing
-    , _rEventSource = Nothing
-    , _rEventId = Nothing
-    }
+  Record'
+  { _rUserIdentity = Nothing
+  , _rEventVersion = Nothing
+  , _rDynamodb = Nothing
+  , _rAwsRegion = Nothing
+  , _rEventName = Nothing
+  , _rEventSource = Nothing
+  , _rEventId = Nothing
+  }
 
--- | The version number of the stream record format. This number is updated whenever the structure of /Record/ is modified.
---
--- Client applications must not assume that /eventVersion/ will remain at a particular value, as this number is subject to change at any time. In general, /eventVersion/ will only increase as the low-level DynamoDB Streams API evolves.
+
+-- | Items that are deleted by the Time to Live process after expiration have the following fields:      * Records[].userIdentity.type "Service"     * Records[].userIdentity.principalId "dynamodb.amazonaws.com"
+rUserIdentity :: Lens' Record (Maybe Identity)
+rUserIdentity = lens _rUserIdentity (\ s a -> s{_rUserIdentity = a});
+
+-- | The version number of the stream record format. This number is updated whenever the structure of @Record@ is modified. Client applications must not assume that @eventVersion@ will remain at a particular value, as this number is subject to change at any time. In general, @eventVersion@ will only increase as the low-level DynamoDB Streams API evolves.
 rEventVersion :: Lens' Record (Maybe Text)
 rEventVersion = lens _rEventVersion (\ s a -> s{_rEventVersion = a});
 
@@ -242,22 +290,15 @@ rEventVersion = lens _rEventVersion (\ s a -> s{_rEventVersion = a});
 rDynamodb :: Lens' Record (Maybe StreamRecord)
 rDynamodb = lens _rDynamodb (\ s a -> s{_rDynamodb = a});
 
--- | The region in which the /GetRecords/ request was received.
+-- | The region in which the @GetRecords@ request was received.
 rAwsRegion :: Lens' Record (Maybe Text)
 rAwsRegion = lens _rAwsRegion (\ s a -> s{_rAwsRegion = a});
 
--- | The type of data modification that was performed on the DynamoDB table:
---
--- -   'INSERT' - a new item was added to the table.
---
--- -   'MODIFY' - one or more of an existing item\'s attributes were modified.
---
--- -   'REMOVE' - the item was deleted from the table
---
+-- | The type of data modification that was performed on the DynamoDB table:     * @INSERT@ - a new item was added to the table.     * @MODIFY@ - one or more of an existing item's attributes were modified.     * @REMOVE@ - the item was deleted from the table
 rEventName :: Lens' Record (Maybe OperationType)
 rEventName = lens _rEventName (\ s a -> s{_rEventName = a});
 
--- | The AWS service from which the stream record originated. For DynamoDB Streams, this is /aws:dynamodb/.
+-- | The AWS service from which the stream record originated. For DynamoDB Streams, this is @aws:dynamodb@ .
 rEventSource :: Lens' Record (Maybe Text)
 rEventSource = lens _rEventSource (\ s a -> s{_rEventSource = a});
 
@@ -270,38 +311,41 @@ instance FromJSON Record where
           = withObject "Record"
               (\ x ->
                  Record' <$>
-                   (x .:? "eventVersion") <*> (x .:? "dynamodb") <*>
-                     (x .:? "awsRegion")
+                   (x .:? "userIdentity") <*> (x .:? "eventVersion") <*>
+                     (x .:? "dynamodb")
+                     <*> (x .:? "awsRegion")
                      <*> (x .:? "eventName")
                      <*> (x .:? "eventSource")
                      <*> (x .:? "eventID"))
 
-instance Hashable Record
+instance Hashable Record where
 
-instance NFData Record
+instance NFData Record where
 
 -- | The beginning and ending sequence numbers for the stream records contained within a shard.
 --
+--
+--
 -- /See:/ 'sequenceNumberRange' smart constructor.
 data SequenceNumberRange = SequenceNumberRange'
-    { _snrStartingSequenceNumber :: !(Maybe Text)
-    , _snrEndingSequenceNumber   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _snrStartingSequenceNumber :: !(Maybe Text)
+  , _snrEndingSequenceNumber   :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SequenceNumberRange' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'snrStartingSequenceNumber'
+-- * 'snrStartingSequenceNumber' - The first sequence number.
 --
--- * 'snrEndingSequenceNumber'
+-- * 'snrEndingSequenceNumber' - The last sequence number.
 sequenceNumberRange
     :: SequenceNumberRange
 sequenceNumberRange =
-    SequenceNumberRange'
-    { _snrStartingSequenceNumber = Nothing
-    , _snrEndingSequenceNumber = Nothing
-    }
+  SequenceNumberRange'
+  {_snrStartingSequenceNumber = Nothing, _snrEndingSequenceNumber = Nothing}
+
 
 -- | The first sequence number.
 snrStartingSequenceNumber :: Lens' SequenceNumberRange (Maybe Text)
@@ -319,38 +363,42 @@ instance FromJSON SequenceNumberRange where
                    (x .:? "StartingSequenceNumber") <*>
                      (x .:? "EndingSequenceNumber"))
 
-instance Hashable SequenceNumberRange
+instance Hashable SequenceNumberRange where
 
-instance NFData SequenceNumberRange
+instance NFData SequenceNumberRange where
 
 -- | A uniquely identified group of stream records within a stream.
 --
+--
+--
 -- /See:/ 'shard' smart constructor.
 data Shard = Shard'
-    { _sParentShardId       :: !(Maybe Text)
-    , _sSequenceNumberRange :: !(Maybe SequenceNumberRange)
-    , _sShardId             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sParentShardId       :: !(Maybe Text)
+  , _sSequenceNumberRange :: !(Maybe SequenceNumberRange)
+  , _sShardId             :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Shard' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sParentShardId'
+-- * 'sParentShardId' - The shard ID of the current shard's parent.
 --
--- * 'sSequenceNumberRange'
+-- * 'sSequenceNumberRange' - The range of possible sequence numbers for the shard.
 --
--- * 'sShardId'
+-- * 'sShardId' - The system-generated identifier for this shard.
 shard
     :: Shard
 shard =
-    Shard'
-    { _sParentShardId = Nothing
-    , _sSequenceNumberRange = Nothing
-    , _sShardId = Nothing
-    }
+  Shard'
+  { _sParentShardId = Nothing
+  , _sSequenceNumberRange = Nothing
+  , _sShardId = Nothing
+  }
 
--- | The shard ID of the current shard\'s parent.
+
+-- | The shard ID of the current shard's parent.
 sParentShardId :: Lens' Shard (Maybe Text)
 sParentShardId = lens _sParentShardId (\ s a -> s{_sParentShardId = a});
 
@@ -371,47 +419,39 @@ instance FromJSON Shard where
                      (x .:? "SequenceNumberRange")
                      <*> (x .:? "ShardId"))
 
-instance Hashable Shard
+instance Hashable Shard where
 
-instance NFData Shard
+instance NFData Shard where
 
 -- | Represents all of the data describing a particular stream.
 --
+--
+--
 -- /See:/ 'stream' smart constructor.
 data Stream = Stream'
-    { _sStreamLabel :: !(Maybe Text)
-    , _sStreamARN   :: !(Maybe Text)
-    , _sTableName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sStreamLabel :: !(Maybe Text)
+  , _sStreamARN   :: !(Maybe Text)
+  , _sTableName   :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Stream' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sStreamLabel'
+-- * 'sStreamLabel' - A timestamp, in ISO 8601 format, for this stream. Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:     * the AWS customer ID.     * the table name     * the @StreamLabel@
 --
--- * 'sStreamARN'
+-- * 'sStreamARN' - The Amazon Resource Name (ARN) for the stream.
 --
--- * 'sTableName'
+-- * 'sTableName' - The DynamoDB table with which the stream is associated.
 stream
     :: Stream
 stream =
-    Stream'
-    { _sStreamLabel = Nothing
-    , _sStreamARN = Nothing
-    , _sTableName = Nothing
-    }
+  Stream'
+  {_sStreamLabel = Nothing, _sStreamARN = Nothing, _sTableName = Nothing}
 
--- | A timestamp, in ISO 8601 format, for this stream.
---
--- Note that /LatestStreamLabel/ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:
---
--- -   the AWS customer ID.
---
--- -   the table name
---
--- -   the /StreamLabel/
---
+
+-- | A timestamp, in ISO 8601 format, for this stream. Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:     * the AWS customer ID.     * the table name     * the @StreamLabel@
 sStreamLabel :: Lens' Stream (Maybe Text)
 sStreamLabel = lens _sStreamLabel (\ s a -> s{_sStreamLabel = a});
 
@@ -431,109 +471,82 @@ instance FromJSON Stream where
                    (x .:? "StreamLabel") <*> (x .:? "StreamArn") <*>
                      (x .:? "TableName"))
 
-instance Hashable Stream
+instance Hashable Stream where
 
-instance NFData Stream
+instance NFData Stream where
 
 -- | Represents all of the data describing a particular stream.
 --
+--
+--
 -- /See:/ 'streamDescription' smart constructor.
 data StreamDescription = StreamDescription'
-    { _sdLastEvaluatedShardId    :: !(Maybe Text)
-    , _sdStreamLabel             :: !(Maybe Text)
-    , _sdStreamStatus            :: !(Maybe StreamStatus)
-    , _sdKeySchema               :: !(Maybe (List1 KeySchemaElement))
-    , _sdStreamViewType          :: !(Maybe StreamViewType)
-    , _sdStreamARN               :: !(Maybe Text)
-    , _sdShards                  :: !(Maybe [Shard])
-    , _sdTableName               :: !(Maybe Text)
-    , _sdCreationRequestDateTime :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdLastEvaluatedShardId    :: !(Maybe Text)
+  , _sdStreamLabel             :: !(Maybe Text)
+  , _sdStreamStatus            :: !(Maybe StreamStatus)
+  , _sdKeySchema               :: !(Maybe (List1 KeySchemaElement))
+  , _sdStreamViewType          :: !(Maybe StreamViewType)
+  , _sdStreamARN               :: !(Maybe Text)
+  , _sdShards                  :: !(Maybe [Shard])
+  , _sdTableName               :: !(Maybe Text)
+  , _sdCreationRequestDateTime :: !(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StreamDescription' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdLastEvaluatedShardId'
+-- * 'sdLastEvaluatedShardId' - The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request. If @LastEvaluatedShardId@ is empty, then the "last page" of results has been processed and there is currently no more data to be retrieved. If @LastEvaluatedShardId@ is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when @LastEvaluatedShardId@ is empty.
 --
--- * 'sdStreamLabel'
+-- * 'sdStreamLabel' - A timestamp, in ISO 8601 format, for this stream. Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:     * the AWS customer ID.     * the table name     * the @StreamLabel@
 --
--- * 'sdStreamStatus'
+-- * 'sdStreamStatus' - Indicates the current status of the stream:     * @ENABLING@ - Streams is currently being enabled on the DynamoDB table.     * @ENABLED@ - the stream is enabled.     * @DISABLING@ - Streams is currently being disabled on the DynamoDB table.     * @DISABLED@ - the stream is disabled.
 --
--- * 'sdKeySchema'
+-- * 'sdKeySchema' - The key attribute(s) of the stream's DynamoDB table.
 --
--- * 'sdStreamViewType'
+-- * 'sdStreamViewType' - Indicates the format of the records within this stream:     * @KEYS_ONLY@ - only the key attributes of items that were modified in the DynamoDB table.     * @NEW_IMAGE@ - entire items from the table, as they appeared after they were modified.     * @OLD_IMAGE@ - entire items from the table, as they appeared before they were modified.     * @NEW_AND_OLD_IMAGES@ - both the new and the old images of the items from the table.
 --
--- * 'sdStreamARN'
+-- * 'sdStreamARN' - The Amazon Resource Name (ARN) for the stream.
 --
--- * 'sdShards'
+-- * 'sdShards' - The shards that comprise the stream.
 --
--- * 'sdTableName'
+-- * 'sdTableName' - The DynamoDB table with which the stream is associated.
 --
--- * 'sdCreationRequestDateTime'
+-- * 'sdCreationRequestDateTime' - The date and time when the request to create this stream was issued.
 streamDescription
     :: StreamDescription
 streamDescription =
-    StreamDescription'
-    { _sdLastEvaluatedShardId = Nothing
-    , _sdStreamLabel = Nothing
-    , _sdStreamStatus = Nothing
-    , _sdKeySchema = Nothing
-    , _sdStreamViewType = Nothing
-    , _sdStreamARN = Nothing
-    , _sdShards = Nothing
-    , _sdTableName = Nothing
-    , _sdCreationRequestDateTime = Nothing
-    }
+  StreamDescription'
+  { _sdLastEvaluatedShardId = Nothing
+  , _sdStreamLabel = Nothing
+  , _sdStreamStatus = Nothing
+  , _sdKeySchema = Nothing
+  , _sdStreamViewType = Nothing
+  , _sdStreamARN = Nothing
+  , _sdShards = Nothing
+  , _sdTableName = Nothing
+  , _sdCreationRequestDateTime = Nothing
+  }
 
--- | The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
---
--- If 'LastEvaluatedShardId' is empty, then the \"last page\" of results has been processed and there is currently no more data to be retrieved.
---
--- If 'LastEvaluatedShardId' is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when 'LastEvaluatedShardId' is empty.
+
+-- | The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request. If @LastEvaluatedShardId@ is empty, then the "last page" of results has been processed and there is currently no more data to be retrieved. If @LastEvaluatedShardId@ is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when @LastEvaluatedShardId@ is empty.
 sdLastEvaluatedShardId :: Lens' StreamDescription (Maybe Text)
 sdLastEvaluatedShardId = lens _sdLastEvaluatedShardId (\ s a -> s{_sdLastEvaluatedShardId = a});
 
--- | A timestamp, in ISO 8601 format, for this stream.
---
--- Note that /LatestStreamLabel/ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:
---
--- -   the AWS customer ID.
---
--- -   the table name
---
--- -   the /StreamLabel/
---
+-- | A timestamp, in ISO 8601 format, for this stream. Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:     * the AWS customer ID.     * the table name     * the @StreamLabel@
 sdStreamLabel :: Lens' StreamDescription (Maybe Text)
 sdStreamLabel = lens _sdStreamLabel (\ s a -> s{_sdStreamLabel = a});
 
--- | Indicates the current status of the stream:
---
--- -   'ENABLING' - Streams is currently being enabled on the DynamoDB table.
---
--- -   'ENABLED' - the stream is enabled.
---
--- -   'DISABLING' - Streams is currently being disabled on the DynamoDB table.
---
--- -   'DISABLED' - the stream is disabled.
---
+-- | Indicates the current status of the stream:     * @ENABLING@ - Streams is currently being enabled on the DynamoDB table.     * @ENABLED@ - the stream is enabled.     * @DISABLING@ - Streams is currently being disabled on the DynamoDB table.     * @DISABLED@ - the stream is disabled.
 sdStreamStatus :: Lens' StreamDescription (Maybe StreamStatus)
 sdStreamStatus = lens _sdStreamStatus (\ s a -> s{_sdStreamStatus = a});
 
--- | The key attribute(s) of the stream\'s DynamoDB table.
+-- | The key attribute(s) of the stream's DynamoDB table.
 sdKeySchema :: Lens' StreamDescription (Maybe (NonEmpty KeySchemaElement))
 sdKeySchema = lens _sdKeySchema (\ s a -> s{_sdKeySchema = a}) . mapping _List1;
 
--- | Indicates the format of the records within this stream:
---
--- -   'KEYS_ONLY' - only the key attributes of items that were modified in the DynamoDB table.
---
--- -   'NEW_IMAGE' - entire items from the table, as they appeared after they were modified.
---
--- -   'OLD_IMAGE' - entire items from the table, as they appeared before they were modified.
---
--- -   'NEW_AND_OLD_IMAGES' - both the new and the old images of the items from the table.
---
+-- | Indicates the format of the records within this stream:     * @KEYS_ONLY@ - only the key attributes of items that were modified in the DynamoDB table.     * @NEW_IMAGE@ - entire items from the table, as they appeared after they were modified.     * @OLD_IMAGE@ - entire items from the table, as they appeared before they were modified.     * @NEW_AND_OLD_IMAGES@ - both the new and the old images of the items from the table.
 sdStreamViewType :: Lens' StreamDescription (Maybe StreamViewType)
 sdStreamViewType = lens _sdStreamViewType (\ s a -> s{_sdStreamViewType = a});
 
@@ -568,52 +581,56 @@ instance FromJSON StreamDescription where
                      <*> (x .:? "TableName")
                      <*> (x .:? "CreationRequestDateTime"))
 
-instance Hashable StreamDescription
+instance Hashable StreamDescription where
 
-instance NFData StreamDescription
+instance NFData StreamDescription where
 
 -- | A description of a single data modification that was performed on an item in a DynamoDB table.
 --
+--
+--
 -- /See:/ 'streamRecord' smart constructor.
 data StreamRecord = StreamRecord'
-    { _srSizeBytes                   :: !(Maybe Nat)
-    , _srSequenceNumber              :: !(Maybe Text)
-    , _srApproximateCreationDateTime :: !(Maybe POSIX)
-    , _srStreamViewType              :: !(Maybe StreamViewType)
-    , _srKeys                        :: !(Maybe (Map Text AttributeValue))
-    , _srOldImage                    :: !(Maybe (Map Text AttributeValue))
-    , _srNewImage                    :: !(Maybe (Map Text AttributeValue))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srSizeBytes                   :: !(Maybe Nat)
+  , _srSequenceNumber              :: !(Maybe Text)
+  , _srApproximateCreationDateTime :: !(Maybe POSIX)
+  , _srStreamViewType              :: !(Maybe StreamViewType)
+  , _srKeys                        :: !(Maybe (Map Text AttributeValue))
+  , _srOldImage                    :: !(Maybe (Map Text AttributeValue))
+  , _srNewImage                    :: !(Maybe (Map Text AttributeValue))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StreamRecord' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srSizeBytes'
+-- * 'srSizeBytes' - The size of the stream record, in bytes.
 --
--- * 'srSequenceNumber'
+-- * 'srSequenceNumber' - The sequence number of the stream record.
 --
--- * 'srApproximateCreationDateTime'
+-- * 'srApproximateCreationDateTime' - The approximate date and time when the stream record was created, in <http://www.epochconverter.com/ UNIX epoch time> format.
 --
--- * 'srStreamViewType'
+-- * 'srStreamViewType' - The type of data from the modified DynamoDB item that was captured in this stream record:     * @KEYS_ONLY@ - only the key attributes of the modified item.     * @NEW_IMAGE@ - the entire item, as it appeared after it was modified.     * @OLD_IMAGE@ - the entire item, as it appeared before it was modified.     * @NEW_AND_OLD_IMAGES@ - both the new and the old item images of the item.
 --
--- * 'srKeys'
+-- * 'srKeys' - The primary key attribute(s) for the DynamoDB item that was modified.
 --
--- * 'srOldImage'
+-- * 'srOldImage' - The item in the DynamoDB table as it appeared before it was modified.
 --
--- * 'srNewImage'
+-- * 'srNewImage' - The item in the DynamoDB table as it appeared after it was modified.
 streamRecord
     :: StreamRecord
 streamRecord =
-    StreamRecord'
-    { _srSizeBytes = Nothing
-    , _srSequenceNumber = Nothing
-    , _srApproximateCreationDateTime = Nothing
-    , _srStreamViewType = Nothing
-    , _srKeys = Nothing
-    , _srOldImage = Nothing
-    , _srNewImage = Nothing
-    }
+  StreamRecord'
+  { _srSizeBytes = Nothing
+  , _srSequenceNumber = Nothing
+  , _srApproximateCreationDateTime = Nothing
+  , _srStreamViewType = Nothing
+  , _srKeys = Nothing
+  , _srOldImage = Nothing
+  , _srNewImage = Nothing
+  }
+
 
 -- | The size of the stream record, in bytes.
 srSizeBytes :: Lens' StreamRecord (Maybe Natural)
@@ -627,16 +644,7 @@ srSequenceNumber = lens _srSequenceNumber (\ s a -> s{_srSequenceNumber = a});
 srApproximateCreationDateTime :: Lens' StreamRecord (Maybe UTCTime)
 srApproximateCreationDateTime = lens _srApproximateCreationDateTime (\ s a -> s{_srApproximateCreationDateTime = a}) . mapping _Time;
 
--- | The type of data from the modified DynamoDB item that was captured in this stream record:
---
--- -   'KEYS_ONLY' - only the key attributes of the modified item.
---
--- -   'NEW_IMAGE' - the entire item, as it appeared after it was modified.
---
--- -   'OLD_IMAGE' - the entire item, as it appeared before it was modified.
---
--- -   'NEW_AND_OLD_IMAGES' - both the new and the old item images of the item.
---
+-- | The type of data from the modified DynamoDB item that was captured in this stream record:     * @KEYS_ONLY@ - only the key attributes of the modified item.     * @NEW_IMAGE@ - the entire item, as it appeared after it was modified.     * @OLD_IMAGE@ - the entire item, as it appeared before it was modified.     * @NEW_AND_OLD_IMAGES@ - both the new and the old item images of the item.
 srStreamViewType :: Lens' StreamRecord (Maybe StreamViewType)
 srStreamViewType = lens _srStreamViewType (\ s a -> s{_srStreamViewType = a});
 
@@ -664,6 +672,6 @@ instance FromJSON StreamRecord where
                      <*> (x .:? "OldImage" .!= mempty)
                      <*> (x .:? "NewImage" .!= mempty))
 
-instance Hashable StreamRecord
+instance Hashable StreamRecord where
 
-instance NFData StreamRecord
+instance NFData StreamRecord where

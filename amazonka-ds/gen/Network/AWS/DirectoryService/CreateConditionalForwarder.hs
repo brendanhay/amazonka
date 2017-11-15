@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.CreateConditionalForwarder
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a conditional forwarder associated with your AWS directory. Conditional forwarders are required in order to set up a trust relationship with another domain. The conditional forwarder points to the trusted domain.
+--
+--
 module Network.AWS.DirectoryService.CreateConditionalForwarder
     (
     -- * Creating a Request
@@ -36,41 +38,45 @@ module Network.AWS.DirectoryService.CreateConditionalForwarder
     , ccfrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Initiates the creation of a conditional forwarder for your AWS Directory Service for Microsoft Active Directory. Conditional forwarders are required in order to set up a trust relationship with another domain.
 --
+--
+--
 -- /See:/ 'createConditionalForwarder' smart constructor.
 data CreateConditionalForwarder = CreateConditionalForwarder'
-    { _ccfDirectoryId      :: !Text
-    , _ccfRemoteDomainName :: !Text
-    , _ccfDNSIPAddrs       :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccfDirectoryId      :: !Text
+  , _ccfRemoteDomainName :: !Text
+  , _ccfDNSIPAddrs       :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateConditionalForwarder' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccfDirectoryId'
+-- * 'ccfDirectoryId' - The directory ID of the AWS directory for which you are creating the conditional forwarder.
 --
--- * 'ccfRemoteDomainName'
+-- * 'ccfRemoteDomainName' - The fully qualified domain name (FQDN) of the remote domain with which you will set up a trust relationship.
 --
--- * 'ccfDNSIPAddrs'
+-- * 'ccfDNSIPAddrs' - The IP addresses of the remote DNS server associated with RemoteDomainName.
 createConditionalForwarder
     :: Text -- ^ 'ccfDirectoryId'
     -> Text -- ^ 'ccfRemoteDomainName'
     -> CreateConditionalForwarder
 createConditionalForwarder pDirectoryId_ pRemoteDomainName_ =
-    CreateConditionalForwarder'
-    { _ccfDirectoryId = pDirectoryId_
-    , _ccfRemoteDomainName = pRemoteDomainName_
-    , _ccfDNSIPAddrs = mempty
-    }
+  CreateConditionalForwarder'
+  { _ccfDirectoryId = pDirectoryId_
+  , _ccfRemoteDomainName = pRemoteDomainName_
+  , _ccfDNSIPAddrs = mempty
+  }
+
 
 -- | The directory ID of the AWS directory for which you are creating the conditional forwarder.
 ccfDirectoryId :: Lens' CreateConditionalForwarder Text
@@ -94,9 +100,9 @@ instance AWSRequest CreateConditionalForwarder where
                  CreateConditionalForwarderResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable CreateConditionalForwarder
+instance Hashable CreateConditionalForwarder where
 
-instance NFData CreateConditionalForwarder
+instance NFData CreateConditionalForwarder where
 
 instance ToHeaders CreateConditionalForwarder where
         toHeaders
@@ -124,26 +130,29 @@ instance ToQuery CreateConditionalForwarder where
 
 -- | The result of a CreateConditinalForwarder request.
 --
+--
+--
 -- /See:/ 'createConditionalForwarderResponse' smart constructor.
 newtype CreateConditionalForwarderResponse = CreateConditionalForwarderResponse'
-    { _ccfrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccfrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateConditionalForwarderResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccfrsResponseStatus'
+-- * 'ccfrsResponseStatus' - -- | The response status code.
 createConditionalForwarderResponse
     :: Int -- ^ 'ccfrsResponseStatus'
     -> CreateConditionalForwarderResponse
 createConditionalForwarderResponse pResponseStatus_ =
-    CreateConditionalForwarderResponse'
-    { _ccfrsResponseStatus = pResponseStatus_
-    }
+  CreateConditionalForwarderResponse' {_ccfrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 ccfrsResponseStatus :: Lens' CreateConditionalForwarderResponse Int
 ccfrsResponseStatus = lens _ccfrsResponseStatus (\ s a -> s{_ccfrsResponseStatus = a});
 
 instance NFData CreateConditionalForwarderResponse
+         where

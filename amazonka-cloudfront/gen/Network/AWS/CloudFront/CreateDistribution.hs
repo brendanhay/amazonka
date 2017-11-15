@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.CreateDistribution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a new distribution.
+-- Creates a new web distribution. Send a @POST@ request to the @//CloudFront API version/ /distribution@ /@distribution ID@ resource.
+--
+--
 module Network.AWS.CloudFront.CreateDistribution
     (
     -- * Creating a Request
@@ -37,34 +39,36 @@ module Network.AWS.CloudFront.CreateDistribution
     , cdrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to create a new distribution.
 --
+--
+--
 -- /See:/ 'createDistribution' smart constructor.
 newtype CreateDistribution = CreateDistribution'
-    { _cdDistributionConfig :: DistributionConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdDistributionConfig :: DistributionConfig
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDistribution' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdDistributionConfig'
+-- * 'cdDistributionConfig' - The distribution's configuration information.
 createDistribution
     :: DistributionConfig -- ^ 'cdDistributionConfig'
     -> CreateDistribution
 createDistribution pDistributionConfig_ =
-    CreateDistribution'
-    { _cdDistributionConfig = pDistributionConfig_
-    }
+  CreateDistribution' {_cdDistributionConfig = pDistributionConfig_}
 
--- | The distribution\'s configuration information.
+
+-- | The distribution's configuration information.
 cdDistributionConfig :: Lens' CreateDistribution DistributionConfig
 cdDistributionConfig = lens _cdDistributionConfig (\ s a -> s{_cdDistributionConfig = a});
 
@@ -80,14 +84,14 @@ instance AWSRequest CreateDistribution where
                      (h .#? "Location")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateDistribution
+instance Hashable CreateDistribution where
 
-instance NFData CreateDistribution
+instance NFData CreateDistribution where
 
 instance ToElement CreateDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-09-07/}DistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2017-03-25/}DistributionConfig"
               .
               _cdDistributionConfig
 
@@ -95,57 +99,61 @@ instance ToHeaders CreateDistribution where
         toHeaders = const mempty
 
 instance ToPath CreateDistribution where
-        toPath = const "/2016-09-07/distribution"
+        toPath = const "/2017-03-25/distribution"
 
 instance ToQuery CreateDistribution where
         toQuery = const mempty
 
 -- | The returned result of the corresponding request.
 --
+--
+--
 -- /See:/ 'createDistributionResponse' smart constructor.
 data CreateDistributionResponse = CreateDistributionResponse'
-    { _cdrsETag           :: !(Maybe Text)
-    , _cdrsDistribution   :: !(Maybe Distribution)
-    , _cdrsLocation       :: !(Maybe Text)
-    , _cdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdrsETag           :: !(Maybe Text)
+  , _cdrsDistribution   :: !(Maybe Distribution)
+  , _cdrsLocation       :: !(Maybe Text)
+  , _cdrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDistributionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdrsETag'
+-- * 'cdrsETag' - The current version of the distribution created.
 --
--- * 'cdrsDistribution'
+-- * 'cdrsDistribution' - The distribution's information.
 --
--- * 'cdrsLocation'
+-- * 'cdrsLocation' - The fully qualified URI of the new distribution resource just created. For example: @https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5@ .
 --
--- * 'cdrsResponseStatus'
+-- * 'cdrsResponseStatus' - -- | The response status code.
 createDistributionResponse
     :: Int -- ^ 'cdrsResponseStatus'
     -> CreateDistributionResponse
 createDistributionResponse pResponseStatus_ =
-    CreateDistributionResponse'
-    { _cdrsETag = Nothing
-    , _cdrsDistribution = Nothing
-    , _cdrsLocation = Nothing
-    , _cdrsResponseStatus = pResponseStatus_
-    }
+  CreateDistributionResponse'
+  { _cdrsETag = Nothing
+  , _cdrsDistribution = Nothing
+  , _cdrsLocation = Nothing
+  , _cdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current version of the distribution created.
 cdrsETag :: Lens' CreateDistributionResponse (Maybe Text)
 cdrsETag = lens _cdrsETag (\ s a -> s{_cdrsETag = a});
 
--- | The distribution\'s information.
+-- | The distribution's information.
 cdrsDistribution :: Lens' CreateDistributionResponse (Maybe Distribution)
 cdrsDistribution = lens _cdrsDistribution (\ s a -> s{_cdrsDistribution = a});
 
--- | The fully qualified URI of the new distribution resource just created. For example: https:\/\/cloudfront.amazonaws.com\/2010-11-01\/distribution\/EDFDVBD632BHDS5.
+-- | The fully qualified URI of the new distribution resource just created. For example: @https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5@ .
 cdrsLocation :: Lens' CreateDistributionResponse (Maybe Text)
 cdrsLocation = lens _cdrsLocation (\ s a -> s{_cdrsLocation = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdrsResponseStatus :: Lens' CreateDistributionResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
 
-instance NFData CreateDistributionResponse
+instance NFData CreateDistributionResponse where

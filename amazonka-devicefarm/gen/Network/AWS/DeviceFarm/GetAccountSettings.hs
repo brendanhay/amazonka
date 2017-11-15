@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetAccountSettings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the number of unmetered iOS and\/or unmetered Android devices that have been purchased by the account.
+-- Returns the number of unmetered iOS and/or unmetered Android devices that have been purchased by the account.
+--
+--
 module Network.AWS.DeviceFarm.GetAccountSettings
     (
     -- * Creating a Request
@@ -33,25 +35,29 @@ module Network.AWS.DeviceFarm.GetAccountSettings
     , gasrsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request sent to retrieve the account settings.
 --
+--
+--
 -- /See:/ 'getAccountSettings' smart constructor.
 data GetAccountSettings =
-    GetAccountSettings'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  GetAccountSettings'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAccountSettings' with the minimum fields required to make a request.
 --
 getAccountSettings
     :: GetAccountSettings
 getAccountSettings = GetAccountSettings'
+
 
 instance AWSRequest GetAccountSettings where
         type Rs GetAccountSettings =
@@ -63,9 +69,9 @@ instance AWSRequest GetAccountSettings where
                  GetAccountSettingsResponse' <$>
                    (x .?> "accountSettings") <*> (pure (fromEnum s)))
 
-instance Hashable GetAccountSettings
+instance Hashable GetAccountSettings where
 
-instance NFData GetAccountSettings
+instance NFData GetAccountSettings where
 
 instance ToHeaders GetAccountSettings where
         toHeaders
@@ -86,36 +92,38 @@ instance ToPath GetAccountSettings where
 instance ToQuery GetAccountSettings where
         toQuery = const mempty
 
--- | Represents the account settings return values from the 'GetAccountSettings' request.
+-- | Represents the account settings return values from the @GetAccountSettings@ request.
+--
+--
 --
 -- /See:/ 'getAccountSettingsResponse' smart constructor.
 data GetAccountSettingsResponse = GetAccountSettingsResponse'
-    { _gasrsAccountSettings :: !(Maybe AccountSettings)
-    , _gasrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gasrsAccountSettings :: !(Maybe AccountSettings)
+  , _gasrsResponseStatus  :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAccountSettingsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gasrsAccountSettings'
+-- * 'gasrsAccountSettings' - The account settings.
 --
--- * 'gasrsResponseStatus'
+-- * 'gasrsResponseStatus' - -- | The response status code.
 getAccountSettingsResponse
     :: Int -- ^ 'gasrsResponseStatus'
     -> GetAccountSettingsResponse
 getAccountSettingsResponse pResponseStatus_ =
-    GetAccountSettingsResponse'
-    { _gasrsAccountSettings = Nothing
-    , _gasrsResponseStatus = pResponseStatus_
-    }
+  GetAccountSettingsResponse'
+  {_gasrsAccountSettings = Nothing, _gasrsResponseStatus = pResponseStatus_}
 
--- | Undocumented member.
+
+-- | The account settings.
 gasrsAccountSettings :: Lens' GetAccountSettingsResponse (Maybe AccountSettings)
 gasrsAccountSettings = lens _gasrsAccountSettings (\ s a -> s{_gasrsAccountSettings = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gasrsResponseStatus :: Lens' GetAccountSettingsResponse Int
 gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a});
 
-instance NFData GetAccountSettingsResponse
+instance NFData GetAccountSettingsResponse where

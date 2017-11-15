@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.Request
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,8 +36,9 @@ module Network.AWS.Request
     -- ** Constructors
     , defaultRequest
 
-    -- ** Hashing
-    , contentMD5
+    -- ** Operation Plugins
+    , contentMD5Header
+    , expectHeader
 
     -- ** Lenses
     , requestHeaders
@@ -98,7 +99,9 @@ postQuery s x = Request
     }
 
 postBody :: (ToRequest a, ToBody a) => Service -> a -> Request a
-postBody s x = putBody s x & rqMethod .~ POST
+postBody s x = defaultRequest s x
+    & rqMethod .~ POST
+    & rqBody   .~ toBody x
 
 putXML :: (ToRequest a, ToElement a) => Service -> a -> Request a
 putXML s x = defaultRequest s x
@@ -112,9 +115,8 @@ putJSON s x = defaultRequest s x
 
 putBody :: (ToRequest a, ToBody a) => Service -> a -> Request a
 putBody s x = defaultRequest s x
-    & rqMethod  .~ PUT
-    & rqBody    .~ toBody x
-    & rqHeaders %~ hdr hExpect "100-continue"
+    & rqMethod .~ PUT
+    & rqBody   .~ toBody x
 
 defaultRequest :: ToRequest a => Service -> a -> Request a
 defaultRequest s x = Request
@@ -125,14 +127,6 @@ defaultRequest s x = Request
     , _rqHeaders = toHeaders x
     , _rqBody    = ""
     }
-
-contentMD5 :: Request a -> Request a
-contentMD5 rq
-    | missing, Just x <- md5 = rq & rqHeaders %~ hdr HTTP.hContentMD5 x
-    | otherwise              = rq
-  where
-    missing = isNothing $ lookup HTTP.hContentMD5 (_rqHeaders rq)
-    md5     = md5Base64 (_rqBody rq)
 
 queryString :: Lens' Client.Request ByteString
 queryString f x =
@@ -159,3 +153,14 @@ requestURL x = scheme
         n            -> ":" <> toBS n
 
     secure = Client.secure x
+
+contentMD5Header :: Request a -> Request a
+contentMD5Header rq
+    | missing, Just x <- md5 = rq & rqHeaders %~ hdr HTTP.hContentMD5 x
+    | otherwise              = rq
+  where
+    missing = isNothing $ lookup HTTP.hContentMD5 (_rqHeaders rq)
+    md5     = md5Base64 (_rqBody rq)
+
+expectHeader :: Request a -> Request a
+expectHeader = rqHeaders %~ hdr hExpect "100-continue"

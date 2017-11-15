@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListThings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists your things. Use the __attributeName__ and __attributeValue__ parameters to filter your things. For example, calling 'ListThings' with attributeName=Color and attributeValue=Red retrieves all things in the registry that contain an attribute __Color__ with the value __Red__.
+-- Lists your things. Use the __attributeName__ and __attributeValue__ parameters to filter your things. For example, calling @ListThings@ with attributeName=Color and attributeValue=Red retrieves all things in the registry that contain an attribute __Color__ with the value __Red__ .
+--
+--
+--
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListThings
     (
     -- * Creating a Request
@@ -40,47 +44,52 @@ module Network.AWS.IoT.ListThings
     , ltrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the ListThings operation.
 --
+--
+--
 -- /See:/ 'listThings' smart constructor.
 data ListThings = ListThings'
-    { _ltAttributeValue :: !(Maybe Text)
-    , _ltThingTypeName  :: !(Maybe Text)
-    , _ltNextToken      :: !(Maybe Text)
-    , _ltAttributeName  :: !(Maybe Text)
-    , _ltMaxResults     :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltAttributeValue :: !(Maybe Text)
+  , _ltThingTypeName  :: !(Maybe Text)
+  , _ltNextToken      :: !(Maybe Text)
+  , _ltAttributeName  :: !(Maybe Text)
+  , _ltMaxResults     :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListThings' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltAttributeValue'
+-- * 'ltAttributeValue' - The attribute value used to search for things.
 --
--- * 'ltThingTypeName'
+-- * 'ltThingTypeName' - The name of the thing type used to search for things.
 --
--- * 'ltNextToken'
+-- * 'ltNextToken' - The token for the next set of results, or __null__ if there are no additional results.
 --
--- * 'ltAttributeName'
+-- * 'ltAttributeName' - The attribute name used to search for things.
 --
--- * 'ltMaxResults'
+-- * 'ltMaxResults' - The maximum number of results to return in this operation.
 listThings
     :: ListThings
 listThings =
-    ListThings'
-    { _ltAttributeValue = Nothing
-    , _ltThingTypeName = Nothing
-    , _ltNextToken = Nothing
-    , _ltAttributeName = Nothing
-    , _ltMaxResults = Nothing
-    }
+  ListThings'
+  { _ltAttributeValue = Nothing
+  , _ltThingTypeName = Nothing
+  , _ltNextToken = Nothing
+  , _ltAttributeName = Nothing
+  , _ltMaxResults = Nothing
+  }
+
 
 -- | The attribute value used to search for things.
 ltAttributeValue :: Lens' ListThings (Maybe Text)
@@ -102,6 +111,13 @@ ltAttributeName = lens _ltAttributeName (\ s a -> s{_ltAttributeName = a});
 ltMaxResults :: Lens' ListThings (Maybe Natural)
 ltMaxResults = lens _ltMaxResults (\ s a -> s{_ltMaxResults = a}) . mapping _Nat;
 
+instance AWSPager ListThings where
+        page rq rs
+          | stop (rs ^. ltrsNextToken) = Nothing
+          | stop (rs ^. ltrsThings) = Nothing
+          | otherwise =
+            Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
+
 instance AWSRequest ListThings where
         type Rs ListThings = ListThingsResponse
         request = get ioT
@@ -112,9 +128,9 @@ instance AWSRequest ListThings where
                    (x .?> "nextToken") <*> (x .?> "things" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListThings
+instance Hashable ListThings where
 
-instance NFData ListThings
+instance NFData ListThings where
 
 instance ToHeaders ListThings where
         toHeaders = const mempty
@@ -133,31 +149,35 @@ instance ToQuery ListThings where
 
 -- | The output from the ListThings operation.
 --
+--
+--
 -- /See:/ 'listThingsResponse' smart constructor.
 data ListThingsResponse = ListThingsResponse'
-    { _ltrsNextToken      :: !(Maybe Text)
-    , _ltrsThings         :: !(Maybe [ThingAttribute])
-    , _ltrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltrsNextToken      :: !(Maybe Text)
+  , _ltrsThings         :: !(Maybe [ThingAttribute])
+  , _ltrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListThingsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltrsNextToken'
+-- * 'ltrsNextToken' - The token for the next set of results, or __null__ if there are no additional results.
 --
--- * 'ltrsThings'
+-- * 'ltrsThings' - The things.
 --
--- * 'ltrsResponseStatus'
+-- * 'ltrsResponseStatus' - -- | The response status code.
 listThingsResponse
     :: Int -- ^ 'ltrsResponseStatus'
     -> ListThingsResponse
 listThingsResponse pResponseStatus_ =
-    ListThingsResponse'
-    { _ltrsNextToken = Nothing
-    , _ltrsThings = Nothing
-    , _ltrsResponseStatus = pResponseStatus_
-    }
+  ListThingsResponse'
+  { _ltrsNextToken = Nothing
+  , _ltrsThings = Nothing
+  , _ltrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token for the next set of results, or __null__ if there are no additional results.
 ltrsNextToken :: Lens' ListThingsResponse (Maybe Text)
@@ -167,8 +187,8 @@ ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 ltrsThings :: Lens' ListThingsResponse [ThingAttribute]
 ltrsThings = lens _ltrsThings (\ s a -> s{_ltrsThings = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ltrsResponseStatus :: Lens' ListThingsResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
 
-instance NFData ListThingsResponse
+instance NFData ListThingsResponse where

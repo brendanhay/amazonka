@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateHSMConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM). After creating the HSM configuration, you can specify it as a parameter when creating a cluster. The cluster will then store its encryption keys in the HSM.
 --
+--
 -- In addition to creating an HSM configuration, you must also create an HSM client certificate. For more information, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html Hardware Security Modules> in the Amazon Redshift Cluster Management Guide.
+--
 module Network.AWS.Redshift.CreateHSMConfiguration
     (
     -- * Creating a Request
@@ -43,43 +45,46 @@ module Network.AWS.Redshift.CreateHSMConfiguration
     , chcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'createHSMConfiguration' smart constructor.
 data CreateHSMConfiguration = CreateHSMConfiguration'
-    { _chcTags                       :: !(Maybe [Tag])
-    , _chcHSMConfigurationIdentifier :: !Text
-    , _chcDescription                :: !Text
-    , _chcHSMIPAddress               :: !Text
-    , _chcHSMPartitionName           :: !Text
-    , _chcHSMPartitionPassword       :: !Text
-    , _chcHSMServerPublicCertificate :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chcTags                       :: !(Maybe [Tag])
+  , _chcHSMConfigurationIdentifier :: !Text
+  , _chcDescription                :: !Text
+  , _chcHSMIPAddress               :: !Text
+  , _chcHSMPartitionName           :: !Text
+  , _chcHSMPartitionPassword       :: !Text
+  , _chcHSMServerPublicCertificate :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHSMConfiguration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'chcTags'
+-- * 'chcTags' - A list of tag instances.
 --
--- * 'chcHSMConfigurationIdentifier'
+-- * 'chcHSMConfigurationIdentifier' - The identifier to be assigned to the new Amazon Redshift HSM configuration.
 --
--- * 'chcDescription'
+-- * 'chcDescription' - A text description of the HSM configuration to be created.
 --
--- * 'chcHSMIPAddress'
+-- * 'chcHSMIPAddress' - The IP address that the Amazon Redshift cluster must use to access the HSM.
 --
--- * 'chcHSMPartitionName'
+-- * 'chcHSMPartitionName' - The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
 --
--- * 'chcHSMPartitionPassword'
+-- * 'chcHSMPartitionPassword' - The password required to access the HSM partition.
 --
--- * 'chcHSMServerPublicCertificate'
+-- * 'chcHSMServerPublicCertificate' - The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
 createHSMConfiguration
     :: Text -- ^ 'chcHSMConfigurationIdentifier'
     -> Text -- ^ 'chcDescription'
@@ -89,15 +94,16 @@ createHSMConfiguration
     -> Text -- ^ 'chcHSMServerPublicCertificate'
     -> CreateHSMConfiguration
 createHSMConfiguration pHSMConfigurationIdentifier_ pDescription_ pHSMIPAddress_ pHSMPartitionName_ pHSMPartitionPassword_ pHSMServerPublicCertificate_ =
-    CreateHSMConfiguration'
-    { _chcTags = Nothing
-    , _chcHSMConfigurationIdentifier = pHSMConfigurationIdentifier_
-    , _chcDescription = pDescription_
-    , _chcHSMIPAddress = pHSMIPAddress_
-    , _chcHSMPartitionName = pHSMPartitionName_
-    , _chcHSMPartitionPassword = pHSMPartitionPassword_
-    , _chcHSMServerPublicCertificate = pHSMServerPublicCertificate_
-    }
+  CreateHSMConfiguration'
+  { _chcTags = Nothing
+  , _chcHSMConfigurationIdentifier = pHSMConfigurationIdentifier_
+  , _chcDescription = pDescription_
+  , _chcHSMIPAddress = pHSMIPAddress_
+  , _chcHSMPartitionName = pHSMPartitionName_
+  , _chcHSMPartitionPassword = pHSMPartitionPassword_
+  , _chcHSMServerPublicCertificate = pHSMServerPublicCertificate_
+  }
+
 
 -- | A list of tag instances.
 chcTags :: Lens' CreateHSMConfiguration [Tag]
@@ -137,9 +143,9 @@ instance AWSRequest CreateHSMConfiguration where
                  CreateHSMConfigurationResponse' <$>
                    (x .@? "HsmConfiguration") <*> (pure (fromEnum s)))
 
-instance Hashable CreateHSMConfiguration
+instance Hashable CreateHSMConfiguration where
 
-instance NFData CreateHSMConfiguration
+instance NFData CreateHSMConfiguration where
 
 instance ToHeaders CreateHSMConfiguration where
         toHeaders = const mempty
@@ -165,32 +171,32 @@ instance ToQuery CreateHSMConfiguration where
 
 -- | /See:/ 'createHSMConfigurationResponse' smart constructor.
 data CreateHSMConfigurationResponse = CreateHSMConfigurationResponse'
-    { _chcrsHSMConfiguration :: !(Maybe HSMConfiguration)
-    , _chcrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chcrsHSMConfiguration :: !(Maybe HSMConfiguration)
+  , _chcrsResponseStatus   :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHSMConfigurationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'chcrsHSMConfiguration'
+-- * 'chcrsHSMConfiguration' - Undocumented member.
 --
--- * 'chcrsResponseStatus'
+-- * 'chcrsResponseStatus' - -- | The response status code.
 createHSMConfigurationResponse
     :: Int -- ^ 'chcrsResponseStatus'
     -> CreateHSMConfigurationResponse
 createHSMConfigurationResponse pResponseStatus_ =
-    CreateHSMConfigurationResponse'
-    { _chcrsHSMConfiguration = Nothing
-    , _chcrsResponseStatus = pResponseStatus_
-    }
+  CreateHSMConfigurationResponse'
+  {_chcrsHSMConfiguration = Nothing, _chcrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 chcrsHSMConfiguration :: Lens' CreateHSMConfigurationResponse (Maybe HSMConfiguration)
 chcrsHSMConfiguration = lens _chcrsHSMConfiguration (\ s a -> s{_chcrsHSMConfiguration = a});
 
--- | The response status code.
+-- | -- | The response status code.
 chcrsResponseStatus :: Lens' CreateHSMConfigurationResponse Int
 chcrsResponseStatus = lens _chcrsResponseStatus (\ s a -> s{_chcrsResponseStatus = a});
 
-instance NFData CreateHSMConfigurationResponse
+instance NFData CreateHSMConfigurationResponse where

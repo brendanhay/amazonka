@@ -12,15 +12,21 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.ModifyHSM
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This is documentation for __AWS CloudHSM Classic__ . For more information, see <http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs> , the <http://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference> .
+--
+--
+-- __For information about the current version of AWS CloudHSM__ , see <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> , the <http://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference> .
+--
 -- Modifies an HSM.
 --
--- This operation can result in the HSM being offline for up to 15 minutes while the AWS CloudHSM service is reconfigured. If you are modifying a production HSM, you should ensure that your AWS CloudHSM service is configured for high availability, and consider executing this operation during a maintenance window.
+-- /Important:/ This operation can result in the HSM being offline for up to 15 minutes while the AWS CloudHSM service is reconfigured. If you are modifying a production HSM, you should ensure that your AWS CloudHSM service is configured for high availability, and consider executing this operation during a maintenance window.
+--
 module Network.AWS.CloudHSM.ModifyHSM
     (
     -- * Creating a Request
@@ -42,52 +48,56 @@ module Network.AWS.CloudHSM.ModifyHSM
     , mhsmrsResponseStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the inputs for the < ModifyHsm> operation.
+-- | Contains the inputs for the 'ModifyHsm' operation.
+--
+--
 --
 -- /See:/ 'modifyHSM' smart constructor.
 data ModifyHSM = ModifyHSM'
-    { _mhIAMRoleARN :: !(Maybe Text)
-    , _mhSubnetId   :: !(Maybe Text)
-    , _mhSyslogIP   :: !(Maybe Text)
-    , _mhExternalId :: !(Maybe Text)
-    , _mhEniIP      :: !(Maybe Text)
-    , _mhHSMARN     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mhIAMRoleARN :: !(Maybe Text)
+  , _mhSubnetId   :: !(Maybe Text)
+  , _mhSyslogIP   :: !(Maybe Text)
+  , _mhExternalId :: !(Maybe Text)
+  , _mhEniIP      :: !(Maybe Text)
+  , _mhHSMARN     :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyHSM' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mhIAMRoleARN'
+-- * 'mhIAMRoleARN' - The new IAM role ARN.
 --
--- * 'mhSubnetId'
+-- * 'mhSubnetId' - The new identifier of the subnet that the HSM is in. The new subnet must be in the same Availability Zone as the current subnet.
 --
--- * 'mhSyslogIP'
+-- * 'mhSyslogIP' - The new IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.
 --
--- * 'mhExternalId'
+-- * 'mhExternalId' - The new external ID.
 --
--- * 'mhEniIP'
+-- * 'mhEniIP' - The new IP address for the elastic network interface (ENI) attached to the HSM. If the HSM is moved to a different subnet, and an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the new subnet.
 --
--- * 'mhHSMARN'
+-- * 'mhHSMARN' - The ARN of the HSM to modify.
 modifyHSM
     :: Text -- ^ 'mhHSMARN'
     -> ModifyHSM
 modifyHSM pHSMARN_ =
-    ModifyHSM'
-    { _mhIAMRoleARN = Nothing
-    , _mhSubnetId = Nothing
-    , _mhSyslogIP = Nothing
-    , _mhExternalId = Nothing
-    , _mhEniIP = Nothing
-    , _mhHSMARN = pHSMARN_
-    }
+  ModifyHSM'
+  { _mhIAMRoleARN = Nothing
+  , _mhSubnetId = Nothing
+  , _mhSyslogIP = Nothing
+  , _mhExternalId = Nothing
+  , _mhEniIP = Nothing
+  , _mhHSMARN = pHSMARN_
+  }
+
 
 -- | The new IAM role ARN.
 mhIAMRoleARN :: Lens' ModifyHSM (Maybe Text)
@@ -105,9 +115,7 @@ mhSyslogIP = lens _mhSyslogIP (\ s a -> s{_mhSyslogIP = a});
 mhExternalId :: Lens' ModifyHSM (Maybe Text)
 mhExternalId = lens _mhExternalId (\ s a -> s{_mhExternalId = a});
 
--- | The new IP address for the elastic network interface (ENI) attached to the HSM.
---
--- If the HSM is moved to a different subnet, and an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the new subnet.
+-- | The new IP address for the elastic network interface (ENI) attached to the HSM. If the HSM is moved to a different subnet, and an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the new subnet.
 mhEniIP :: Lens' ModifyHSM (Maybe Text)
 mhEniIP = lens _mhEniIP (\ s a -> s{_mhEniIP = a});
 
@@ -124,9 +132,9 @@ instance AWSRequest ModifyHSM where
                  ModifyHSMResponse' <$>
                    (x .?> "HsmArn") <*> (pure (fromEnum s)))
 
-instance Hashable ModifyHSM
+instance Hashable ModifyHSM where
 
-instance NFData ModifyHSM
+instance NFData ModifyHSM where
 
 instance ToHeaders ModifyHSM where
         toHeaders
@@ -154,36 +162,38 @@ instance ToPath ModifyHSM where
 instance ToQuery ModifyHSM where
         toQuery = const mempty
 
--- | Contains the output of the < ModifyHsm> operation.
+-- | Contains the output of the 'ModifyHsm' operation.
+--
+--
 --
 -- /See:/ 'modifyHSMResponse' smart constructor.
 data ModifyHSMResponse = ModifyHSMResponse'
-    { _mhsmrsHSMARN         :: !(Maybe Text)
-    , _mhsmrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mhsmrsHSMARN         :: !(Maybe Text)
+  , _mhsmrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyHSMResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mhsmrsHSMARN'
+-- * 'mhsmrsHSMARN' - The ARN of the HSM.
 --
--- * 'mhsmrsResponseStatus'
+-- * 'mhsmrsResponseStatus' - -- | The response status code.
 modifyHSMResponse
     :: Int -- ^ 'mhsmrsResponseStatus'
     -> ModifyHSMResponse
 modifyHSMResponse pResponseStatus_ =
-    ModifyHSMResponse'
-    { _mhsmrsHSMARN = Nothing
-    , _mhsmrsResponseStatus = pResponseStatus_
-    }
+  ModifyHSMResponse'
+  {_mhsmrsHSMARN = Nothing, _mhsmrsResponseStatus = pResponseStatus_}
+
 
 -- | The ARN of the HSM.
 mhsmrsHSMARN :: Lens' ModifyHSMResponse (Maybe Text)
 mhsmrsHSMARN = lens _mhsmrsHSMARN (\ s a -> s{_mhsmrsHSMARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 mhsmrsResponseStatus :: Lens' ModifyHSMResponse Int
 mhsmrsResponseStatus = lens _mhsmrsResponseStatus (\ s a -> s{_mhsmrsResponseStatus = a});
 
-instance NFData ModifyHSMResponse
+instance NFData ModifyHSMResponse where

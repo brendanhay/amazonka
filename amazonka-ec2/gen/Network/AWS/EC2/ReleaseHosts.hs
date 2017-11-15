@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReleaseHosts
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- When you no longer want to use an On-Demand Dedicated Host it can be released. On-Demand billing is stopped and the host goes into 'released' state. The host ID of Dedicated Hosts that have been released can no longer be specified in another request, e.g., ModifyHosts. You must stop or terminate all instances on a host before it can be released.
+-- When you no longer want to use an On-Demand Dedicated Host it can be released. On-Demand billing is stopped and the host goes into @released@ state. The host ID of Dedicated Hosts that have been released can no longer be specified in another request, e.g., ModifyHosts. You must stop or terminate all instances on a host before it can be released.
+--
 --
 -- When Dedicated Hosts are released, it make take some time for them to stop counting toward your limit and you may receive capacity errors when trying to allocate new Dedicated hosts. Try waiting a few minutes, and then try again.
 --
--- Released hosts will still appear in a < DescribeHosts> response.
+-- Released hosts will still appear in a 'DescribeHosts' response.
+--
 module Network.AWS.EC2.ReleaseHosts
     (
     -- * Creating a Request
@@ -40,31 +42,32 @@ module Network.AWS.EC2.ReleaseHosts
     , rhrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ReleaseHosts.
 --
+--
+--
 -- /See:/ 'releaseHosts' smart constructor.
 newtype ReleaseHosts = ReleaseHosts'
-    { _rhHostIds :: [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rhHostIds :: [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReleaseHosts' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rhHostIds'
+-- * 'rhHostIds' - The IDs of the Dedicated Hosts you want to release.
 releaseHosts
     :: ReleaseHosts
-releaseHosts =
-    ReleaseHosts'
-    { _rhHostIds = mempty
-    }
+releaseHosts = ReleaseHosts' {_rhHostIds = mempty}
+
 
 -- | The IDs of the Dedicated Hosts you want to release.
 rhHostIds :: Lens' ReleaseHosts [Text]
@@ -84,9 +87,9 @@ instance AWSRequest ReleaseHosts where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ReleaseHosts
+instance Hashable ReleaseHosts where
 
-instance NFData ReleaseHosts
+instance NFData ReleaseHosts where
 
 instance ToHeaders ReleaseHosts where
         toHeaders = const mempty
@@ -98,36 +101,40 @@ instance ToQuery ReleaseHosts where
         toQuery ReleaseHosts'{..}
           = mconcat
               ["Action" =: ("ReleaseHosts" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                toQueryList "HostId" _rhHostIds]
 
 -- | Contains the output of ReleaseHosts.
 --
+--
+--
 -- /See:/ 'releaseHostsResponse' smart constructor.
 data ReleaseHostsResponse = ReleaseHostsResponse'
-    { _rhrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
-    , _rhrsSuccessful     :: !(Maybe [Text])
-    , _rhrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rhrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
+  , _rhrsSuccessful     :: !(Maybe [Text])
+  , _rhrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReleaseHostsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rhrsUnsuccessful'
+-- * 'rhrsUnsuccessful' - The IDs of the Dedicated Hosts that could not be released, including an error message.
 --
--- * 'rhrsSuccessful'
+-- * 'rhrsSuccessful' - The IDs of the Dedicated Hosts that were successfully released.
 --
--- * 'rhrsResponseStatus'
+-- * 'rhrsResponseStatus' - -- | The response status code.
 releaseHostsResponse
     :: Int -- ^ 'rhrsResponseStatus'
     -> ReleaseHostsResponse
 releaseHostsResponse pResponseStatus_ =
-    ReleaseHostsResponse'
-    { _rhrsUnsuccessful = Nothing
-    , _rhrsSuccessful = Nothing
-    , _rhrsResponseStatus = pResponseStatus_
-    }
+  ReleaseHostsResponse'
+  { _rhrsUnsuccessful = Nothing
+  , _rhrsSuccessful = Nothing
+  , _rhrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The IDs of the Dedicated Hosts that could not be released, including an error message.
 rhrsUnsuccessful :: Lens' ReleaseHostsResponse [UnsuccessfulItem]
@@ -137,8 +144,8 @@ rhrsUnsuccessful = lens _rhrsUnsuccessful (\ s a -> s{_rhrsUnsuccessful = a}) . 
 rhrsSuccessful :: Lens' ReleaseHostsResponse [Text]
 rhrsSuccessful = lens _rhrsSuccessful (\ s a -> s{_rhrsSuccessful = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 rhrsResponseStatus :: Lens' ReleaseHostsResponse Int
 rhrsResponseStatus = lens _rhrsResponseStatus (\ s a -> s{_rhrsResponseStatus = a});
 
-instance NFData ReleaseHostsResponse
+instance NFData ReleaseHostsResponse where

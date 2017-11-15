@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.EC2.MonitorInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables monitoring for a running instance. For more information about monitoring instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Enables detailed monitoring for a running instance. Otherwise, basic monitoring is enabled. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+--
+-- To disable detailed monitoring, see .
+--
 module Network.AWS.EC2.MonitorInstances
     (
     -- * Creating a Request
@@ -36,37 +40,38 @@ module Network.AWS.EC2.MonitorInstances
     , mirsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for MonitorInstances.
 --
+--
+--
 -- /See:/ 'monitorInstances' smart constructor.
 data MonitorInstances = MonitorInstances'
-    { _miDryRun      :: !(Maybe Bool)
-    , _miInstanceIds :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _miDryRun      :: !(Maybe Bool)
+  , _miInstanceIds :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MonitorInstances' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'miDryRun'
+-- * 'miDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'miInstanceIds'
+-- * 'miInstanceIds' - One or more instance IDs.
 monitorInstances
     :: MonitorInstances
 monitorInstances =
-    MonitorInstances'
-    { _miDryRun = Nothing
-    , _miInstanceIds = mempty
-    }
+  MonitorInstances' {_miDryRun = Nothing, _miInstanceIds = mempty}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 miDryRun :: Lens' MonitorInstances (Maybe Bool)
 miDryRun = lens _miDryRun (\ s a -> s{_miDryRun = a});
 
@@ -85,9 +90,9 @@ instance AWSRequest MonitorInstances where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable MonitorInstances
+instance Hashable MonitorInstances where
 
-instance NFData MonitorInstances
+instance NFData MonitorInstances where
 
 instance ToHeaders MonitorInstances where
         toHeaders = const mempty
@@ -99,40 +104,42 @@ instance ToQuery MonitorInstances where
         toQuery MonitorInstances'{..}
           = mconcat
               ["Action" =: ("MonitorInstances" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _miDryRun,
                toQueryList "InstanceId" _miInstanceIds]
 
 -- | Contains the output of MonitorInstances.
 --
+--
+--
 -- /See:/ 'monitorInstancesResponse' smart constructor.
 data MonitorInstancesResponse = MonitorInstancesResponse'
-    { _mirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
-    , _mirsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
+  , _mirsResponseStatus      :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MonitorInstancesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mirsInstanceMonitorings'
+-- * 'mirsInstanceMonitorings' - The monitoring information.
 --
--- * 'mirsResponseStatus'
+-- * 'mirsResponseStatus' - -- | The response status code.
 monitorInstancesResponse
     :: Int -- ^ 'mirsResponseStatus'
     -> MonitorInstancesResponse
 monitorInstancesResponse pResponseStatus_ =
-    MonitorInstancesResponse'
-    { _mirsInstanceMonitorings = Nothing
-    , _mirsResponseStatus = pResponseStatus_
-    }
+  MonitorInstancesResponse'
+  {_mirsInstanceMonitorings = Nothing, _mirsResponseStatus = pResponseStatus_}
 
--- | Monitoring information for one or more instances.
+
+-- | The monitoring information.
 mirsInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
 mirsInstanceMonitorings = lens _mirsInstanceMonitorings (\ s a -> s{_mirsInstanceMonitorings = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 mirsResponseStatus :: Lens' MonitorInstancesResponse Int
 mirsResponseStatus = lens _mirsResponseStatus (\ s a -> s{_mirsResponseStatus = a});
 
-instance NFData MonitorInstancesResponse
+instance NFData MonitorInstancesResponse where

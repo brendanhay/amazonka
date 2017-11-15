@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeHostReservations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes Dedicated Host Reservations which are associated with Dedicated Hosts in your account.
+--
+--
 module Network.AWS.EC2.DescribeHostReservations
     (
     -- * Creating a Request
@@ -39,41 +41,43 @@ module Network.AWS.EC2.DescribeHostReservations
     , dhrrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeHostReservations' smart constructor.
 data DescribeHostReservations = DescribeHostReservations'
-    { _dhrNextToken            :: !(Maybe Text)
-    , _dhrHostReservationIdSet :: !(Maybe [Text])
-    , _dhrFilter               :: !(Maybe [Filter])
-    , _dhrMaxResults           :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhrNextToken            :: !(Maybe Text)
+  , _dhrHostReservationIdSet :: !(Maybe [Text])
+  , _dhrFilter               :: !(Maybe [Filter])
+  , _dhrMaxResults           :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHostReservations' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhrNextToken'
+-- * 'dhrNextToken' - The token to use to retrieve the next page of results.
 --
--- * 'dhrHostReservationIdSet'
+-- * 'dhrHostReservationIdSet' - One or more host reservation IDs.
 --
--- * 'dhrFilter'
+-- * 'dhrFilter' - One or more filters.     * @instance-family@ - The instance family (e.g., @m4@ ).     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).     * @state@ - The state of the reservation (@payment-pending@ | @payment-failed@ | @active@ | @retired@ ).
 --
--- * 'dhrMaxResults'
+-- * 'dhrMaxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500; if @maxResults@ is given a larger value than 500, you will receive an error.
 describeHostReservations
     :: DescribeHostReservations
 describeHostReservations =
-    DescribeHostReservations'
-    { _dhrNextToken = Nothing
-    , _dhrHostReservationIdSet = Nothing
-    , _dhrFilter = Nothing
-    , _dhrMaxResults = Nothing
-    }
+  DescribeHostReservations'
+  { _dhrNextToken = Nothing
+  , _dhrHostReservationIdSet = Nothing
+  , _dhrFilter = Nothing
+  , _dhrMaxResults = Nothing
+  }
+
 
 -- | The token to use to retrieve the next page of results.
 dhrNextToken :: Lens' DescribeHostReservations (Maybe Text)
@@ -83,18 +87,11 @@ dhrNextToken = lens _dhrNextToken (\ s a -> s{_dhrNextToken = a});
 dhrHostReservationIdSet :: Lens' DescribeHostReservations [Text]
 dhrHostReservationIdSet = lens _dhrHostReservationIdSet (\ s a -> s{_dhrHostReservationIdSet = a}) . _Default . _Coerce;
 
--- | One or more filters.
---
--- -   'instance-family' - The instance family (e.g., 'm4').
---
--- -   'payment-option' - The payment option ('No Upfront' | 'Partial Upfront' | 'All Upfront').
---
--- -   'state' - The state of the reservation ('payment-pending' | 'payment-failed' | 'active' | 'retired').
---
+-- | One or more filters.     * @instance-family@ - The instance family (e.g., @m4@ ).     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).     * @state@ - The state of the reservation (@payment-pending@ | @payment-failed@ | @active@ | @retired@ ).
 dhrFilter :: Lens' DescribeHostReservations [Filter]
 dhrFilter = lens _dhrFilter (\ s a -> s{_dhrFilter = a}) . _Default . _Coerce;
 
--- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned 'nextToken' value. This value can be between 5 and 500; if 'maxResults' is given a larger value than 500, you will receive an error.
+-- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500; if @maxResults@ is given a larger value than 500, you will receive an error.
 dhrMaxResults :: Lens' DescribeHostReservations (Maybe Int)
 dhrMaxResults = lens _dhrMaxResults (\ s a -> s{_dhrMaxResults = a});
 
@@ -108,12 +105,12 @@ instance AWSRequest DescribeHostReservations where
                  DescribeHostReservationsResponse' <$>
                    (x .@? "nextToken") <*>
                      (x .@? "hostReservationSet" .!@ mempty >>=
-                        may (parseXMLList "member"))
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeHostReservations
+instance Hashable DescribeHostReservations where
 
-instance NFData DescribeHostReservations
+instance NFData DescribeHostReservations where
 
 instance ToHeaders DescribeHostReservations where
         toHeaders = const mempty
@@ -126,7 +123,7 @@ instance ToQuery DescribeHostReservations where
           = mconcat
               ["Action" =:
                  ("DescribeHostReservations" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "NextToken" =: _dhrNextToken,
                toQuery
                  (toQueryList "HostReservationIdSet" <$>
@@ -136,40 +133,43 @@ instance ToQuery DescribeHostReservations where
 
 -- | /See:/ 'describeHostReservationsResponse' smart constructor.
 data DescribeHostReservationsResponse = DescribeHostReservationsResponse'
-    { _dhrrsNextToken          :: !(Maybe Text)
-    , _dhrrsHostReservationSet :: !(Maybe [HostReservation])
-    , _dhrrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhrrsNextToken          :: !(Maybe Text)
+  , _dhrrsHostReservationSet :: !(Maybe [HostReservation])
+  , _dhrrsResponseStatus     :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHostReservationsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhrrsNextToken'
+-- * 'dhrrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
--- * 'dhrrsHostReservationSet'
+-- * 'dhrrsHostReservationSet' - Details about the reservation's configuration.
 --
--- * 'dhrrsResponseStatus'
+-- * 'dhrrsResponseStatus' - -- | The response status code.
 describeHostReservationsResponse
     :: Int -- ^ 'dhrrsResponseStatus'
     -> DescribeHostReservationsResponse
 describeHostReservationsResponse pResponseStatus_ =
-    DescribeHostReservationsResponse'
-    { _dhrrsNextToken = Nothing
-    , _dhrrsHostReservationSet = Nothing
-    , _dhrrsResponseStatus = pResponseStatus_
-    }
+  DescribeHostReservationsResponse'
+  { _dhrrsNextToken = Nothing
+  , _dhrrsHostReservationSet = Nothing
+  , _dhrrsResponseStatus = pResponseStatus_
+  }
 
--- | The token to use to retrieve the next page of results. This value is 'null' when there are no more results to return.
+
+-- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dhrrsNextToken :: Lens' DescribeHostReservationsResponse (Maybe Text)
 dhrrsNextToken = lens _dhrrsNextToken (\ s a -> s{_dhrrsNextToken = a});
 
--- | Details about the reservation\'s configuration.
+-- | Details about the reservation's configuration.
 dhrrsHostReservationSet :: Lens' DescribeHostReservationsResponse [HostReservation]
 dhrrsHostReservationSet = lens _dhrrsHostReservationSet (\ s a -> s{_dhrrsHostReservationSet = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dhrrsResponseStatus :: Lens' DescribeHostReservationsResponse Int
 dhrrsResponseStatus = lens _dhrrsResponseStatus (\ s a -> s{_dhrrsResponseStatus = a});
 
 instance NFData DescribeHostReservationsResponse
+         where

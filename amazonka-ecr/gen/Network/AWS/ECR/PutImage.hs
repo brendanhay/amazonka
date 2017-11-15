@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ECR.PutImage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates the image manifest associated with an image.
+-- Creates or updates the image manifest and tags associated with an image.
 --
--- This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers. Use the 'docker' CLI to pull, tag, and push images.
+--
 module Network.AWS.ECR.PutImage
     (
     -- * Creating a Request
@@ -28,6 +28,7 @@ module Network.AWS.ECR.PutImage
     , PutImage
     -- * Request Lenses
     , piRegistryId
+    , piImageTag
     , piRepositoryName
     , piImageManifest
 
@@ -39,43 +40,53 @@ module Network.AWS.ECR.PutImage
     , pirsResponseStatus
     ) where
 
-import           Network.AWS.ECR.Types
-import           Network.AWS.ECR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECR.Types
+import Network.AWS.ECR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putImage' smart constructor.
 data PutImage = PutImage'
-    { _piRegistryId     :: !(Maybe Text)
-    , _piRepositoryName :: !Text
-    , _piImageManifest  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _piRegistryId     :: !(Maybe Text)
+  , _piImageTag       :: !(Maybe Text)
+  , _piRepositoryName :: !Text
+  , _piImageManifest  :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutImage' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'piRegistryId'
+-- * 'piRegistryId' - The AWS account ID associated with the registry that contains the repository in which to put the image. If you do not specify a registry, the default registry is assumed.
 --
--- * 'piRepositoryName'
+-- * 'piImageTag' - The tag to associate with the image. This parameter is required for images that use the Docker Image Manifest V2 Schema 2 or OCI formats.
 --
--- * 'piImageManifest'
+-- * 'piRepositoryName' - The name of the repository in which to put the image.
+--
+-- * 'piImageManifest' - The image manifest corresponding to the image to be uploaded.
 putImage
     :: Text -- ^ 'piRepositoryName'
     -> Text -- ^ 'piImageManifest'
     -> PutImage
 putImage pRepositoryName_ pImageManifest_ =
-    PutImage'
-    { _piRegistryId = Nothing
-    , _piRepositoryName = pRepositoryName_
-    , _piImageManifest = pImageManifest_
-    }
+  PutImage'
+  { _piRegistryId = Nothing
+  , _piImageTag = Nothing
+  , _piRepositoryName = pRepositoryName_
+  , _piImageManifest = pImageManifest_
+  }
+
 
 -- | The AWS account ID associated with the registry that contains the repository in which to put the image. If you do not specify a registry, the default registry is assumed.
 piRegistryId :: Lens' PutImage (Maybe Text)
 piRegistryId = lens _piRegistryId (\ s a -> s{_piRegistryId = a});
+
+-- | The tag to associate with the image. This parameter is required for images that use the Docker Image Manifest V2 Schema 2 or OCI formats.
+piImageTag :: Lens' PutImage (Maybe Text)
+piImageTag = lens _piImageTag (\ s a -> s{_piImageTag = a});
 
 -- | The name of the repository in which to put the image.
 piRepositoryName :: Lens' PutImage Text
@@ -94,9 +105,9 @@ instance AWSRequest PutImage where
                  PutImageResponse' <$>
                    (x .?> "image") <*> (pure (fromEnum s)))
 
-instance Hashable PutImage
+instance Hashable PutImage where
 
-instance NFData PutImage
+instance NFData PutImage where
 
 instance ToHeaders PutImage where
         toHeaders
@@ -113,6 +124,7 @@ instance ToJSON PutImage where
           = object
               (catMaybes
                  [("registryId" .=) <$> _piRegistryId,
+                  ("imageTag" .=) <$> _piImageTag,
                   Just ("repositoryName" .= _piRepositoryName),
                   Just ("imageManifest" .= _piImageManifest)])
 
@@ -124,32 +136,32 @@ instance ToQuery PutImage where
 
 -- | /See:/ 'putImageResponse' smart constructor.
 data PutImageResponse = PutImageResponse'
-    { _pirsImage          :: !(Maybe Image)
-    , _pirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pirsImage          :: !(Maybe Image)
+  , _pirsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutImageResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pirsImage'
+-- * 'pirsImage' - Details of the image uploaded.
 --
--- * 'pirsResponseStatus'
+-- * 'pirsResponseStatus' - -- | The response status code.
 putImageResponse
     :: Int -- ^ 'pirsResponseStatus'
     -> PutImageResponse
 putImageResponse pResponseStatus_ =
-    PutImageResponse'
-    { _pirsImage = Nothing
-    , _pirsResponseStatus = pResponseStatus_
-    }
+  PutImageResponse'
+  {_pirsImage = Nothing, _pirsResponseStatus = pResponseStatus_}
+
 
 -- | Details of the image uploaded.
 pirsImage :: Lens' PutImageResponse (Maybe Image)
 pirsImage = lens _pirsImage (\ s a -> s{_pirsImage = a});
 
--- | The response status code.
+-- | -- | The response status code.
 pirsResponseStatus :: Lens' PutImageResponse Int
 pirsResponseStatus = lens _pirsResponseStatus (\ s a -> s{_pirsResponseStatus = a});
 
-instance NFData PutImageResponse
+instance NFData PutImageResponse where

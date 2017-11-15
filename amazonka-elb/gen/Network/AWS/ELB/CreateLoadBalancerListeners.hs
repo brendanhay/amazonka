@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.ELB.CreateLoadBalancerListeners
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates one or more listeners for the specified load balancer. If a listener with the specified port does not already exist, it is created; otherwise, the properties of the new listener must match the properties of the existing listener.
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/.
+--
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancer Guide/ .
+--
 module Network.AWS.ELB.CreateLoadBalancerListeners
     (
     -- * Creating a Request
@@ -37,36 +39,38 @@ module Network.AWS.ELB.CreateLoadBalancerListeners
     , clblrsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateLoadBalancerListeners.
 --
+--
+--
 -- /See:/ 'createLoadBalancerListeners' smart constructor.
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners'
-    { _clblLoadBalancerName :: !Text
-    , _clblListeners        :: ![Listener]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clblLoadBalancerName :: !Text
+  , _clblListeners        :: ![Listener]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLoadBalancerListeners' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clblLoadBalancerName'
+-- * 'clblLoadBalancerName' - The name of the load balancer.
 --
--- * 'clblListeners'
+-- * 'clblListeners' - The listeners.
 createLoadBalancerListeners
     :: Text -- ^ 'clblLoadBalancerName'
     -> CreateLoadBalancerListeners
 createLoadBalancerListeners pLoadBalancerName_ =
-    CreateLoadBalancerListeners'
-    { _clblLoadBalancerName = pLoadBalancerName_
-    , _clblListeners = mempty
-    }
+  CreateLoadBalancerListeners'
+  {_clblLoadBalancerName = pLoadBalancerName_, _clblListeners = mempty}
+
 
 -- | The name of the load balancer.
 clblLoadBalancerName :: Lens' CreateLoadBalancerListeners Text
@@ -87,9 +91,9 @@ instance AWSRequest CreateLoadBalancerListeners where
                  CreateLoadBalancerListenersResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable CreateLoadBalancerListeners
+instance Hashable CreateLoadBalancerListeners where
 
-instance NFData CreateLoadBalancerListeners
+instance NFData CreateLoadBalancerListeners where
 
 instance ToHeaders CreateLoadBalancerListeners where
         toHeaders = const mempty
@@ -108,26 +112,30 @@ instance ToQuery CreateLoadBalancerListeners where
 
 -- | Contains the parameters for CreateLoadBalancerListener.
 --
+--
+--
 -- /See:/ 'createLoadBalancerListenersResponse' smart constructor.
 newtype CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse'
-    { _clblrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clblrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLoadBalancerListenersResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clblrsResponseStatus'
+-- * 'clblrsResponseStatus' - -- | The response status code.
 createLoadBalancerListenersResponse
     :: Int -- ^ 'clblrsResponseStatus'
     -> CreateLoadBalancerListenersResponse
 createLoadBalancerListenersResponse pResponseStatus_ =
-    CreateLoadBalancerListenersResponse'
-    { _clblrsResponseStatus = pResponseStatus_
-    }
+  CreateLoadBalancerListenersResponse'
+  {_clblrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 clblrsResponseStatus :: Lens' CreateLoadBalancerListenersResponse Int
 clblrsResponseStatus = lens _clblrsResponseStatus (\ s a -> s{_clblrsResponseStatus = a});
 
 instance NFData CreateLoadBalancerListenersResponse
+         where

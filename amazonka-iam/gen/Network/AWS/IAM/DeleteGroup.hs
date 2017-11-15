@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified IAM group. The group must not contain any users or have any attached policies.
+--
+--
 module Network.AWS.IAM.DeleteGroup
     (
     -- * Creating a Request
@@ -32,34 +34,31 @@ module Network.AWS.IAM.DeleteGroup
     , DeleteGroupResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteGroup' smart constructor.
 newtype DeleteGroup = DeleteGroup'
-    { _dgGroupName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgGroupName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteGroup' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgGroupName'
+-- * 'dgGroupName' - The name of the IAM group to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 deleteGroup
     :: Text -- ^ 'dgGroupName'
     -> DeleteGroup
-deleteGroup pGroupName_ =
-    DeleteGroup'
-    { _dgGroupName = pGroupName_
-    }
+deleteGroup pGroupName_ = DeleteGroup' {_dgGroupName = pGroupName_}
 
--- | The name of the IAM group to delete.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+
+-- | The name of the IAM group to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 dgGroupName :: Lens' DeleteGroup Text
 dgGroupName = lens _dgGroupName (\ s a -> s{_dgGroupName = a});
 
@@ -68,9 +67,9 @@ instance AWSRequest DeleteGroup where
         request = postQuery iam
         response = receiveNull DeleteGroupResponse'
 
-instance Hashable DeleteGroup
+instance Hashable DeleteGroup where
 
-instance NFData DeleteGroup
+instance NFData DeleteGroup where
 
 instance ToHeaders DeleteGroup where
         toHeaders = const mempty
@@ -87,8 +86,9 @@ instance ToQuery DeleteGroup where
 
 -- | /See:/ 'deleteGroupResponse' smart constructor.
 data DeleteGroupResponse =
-    DeleteGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteGroupResponse' with the minimum fields required to make a request.
 --
@@ -96,4 +96,5 @@ deleteGroupResponse
     :: DeleteGroupResponse
 deleteGroupResponse = DeleteGroupResponse'
 
-instance NFData DeleteGroupResponse
+
+instance NFData DeleteGroupResponse where

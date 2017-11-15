@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeAccountAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all of the AWS DMS attributes for a customer account. The attributes include AWS DMS quotas for the account, such as the number of replication instances allowed. The description for a quota includes the quota name, current usage toward that quota, and the quota\'s maximum value.
+-- Lists all of the AWS DMS attributes for a customer account. The attributes include AWS DMS quotas for the account, such as the number of replication instances allowed. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value.
+--
 --
 -- This command does not take any parameters.
+--
 module Network.AWS.DMS.DescribeAccountAttributes
     (
     -- * Creating a Request
@@ -35,25 +37,29 @@ module Network.AWS.DMS.DescribeAccountAttributes
     , daarsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeAccountAttributes' smart constructor.
 data DescribeAccountAttributes =
-    DescribeAccountAttributes'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeAccountAttributes'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAccountAttributes' with the minimum fields required to make a request.
 --
 describeAccountAttributes
     :: DescribeAccountAttributes
 describeAccountAttributes = DescribeAccountAttributes'
+
 
 instance AWSRequest DescribeAccountAttributes where
         type Rs DescribeAccountAttributes =
@@ -66,9 +72,9 @@ instance AWSRequest DescribeAccountAttributes where
                    (x .?> "AccountQuotas" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeAccountAttributes
+instance Hashable DescribeAccountAttributes where
 
-instance NFData DescribeAccountAttributes
+instance NFData DescribeAccountAttributes where
 
 instance ToHeaders DescribeAccountAttributes where
         toHeaders
@@ -91,34 +97,37 @@ instance ToQuery DescribeAccountAttributes where
 
 -- |
 --
+--
+--
 -- /See:/ 'describeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
-    { _daarsAccountQuotas  :: !(Maybe [AccountQuota])
-    , _daarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daarsAccountQuotas  :: !(Maybe [AccountQuota])
+  , _daarsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAccountAttributesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daarsAccountQuotas'
+-- * 'daarsAccountQuotas' - Account quota information.
 --
--- * 'daarsResponseStatus'
+-- * 'daarsResponseStatus' - -- | The response status code.
 describeAccountAttributesResponse
     :: Int -- ^ 'daarsResponseStatus'
     -> DescribeAccountAttributesResponse
 describeAccountAttributesResponse pResponseStatus_ =
-    DescribeAccountAttributesResponse'
-    { _daarsAccountQuotas = Nothing
-    , _daarsResponseStatus = pResponseStatus_
-    }
+  DescribeAccountAttributesResponse'
+  {_daarsAccountQuotas = Nothing, _daarsResponseStatus = pResponseStatus_}
+
 
 -- | Account quota information.
 daarsAccountQuotas :: Lens' DescribeAccountAttributesResponse [AccountQuota]
 daarsAccountQuotas = lens _daarsAccountQuotas (\ s a -> s{_daarsAccountQuotas = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 daarsResponseStatus :: Lens' DescribeAccountAttributesResponse Int
 daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});
 
 instance NFData DescribeAccountAttributesResponse
+         where

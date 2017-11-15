@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.Kinesis
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.Kinesis where
 
 import Data.Proxy
+import Network.AWS.Kinesis
 import Test.AWS.Fixture
+import Test.AWS.Kinesis.Internal
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.Kinesis
-import Test.AWS.Kinesis.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -43,11 +43,20 @@ import Test.AWS.Kinesis.Internal
 --         , requestGetRecords $
 --             getRecords
 --
+--         , requestStopStreamEncryption $
+--             stopStreamEncryption
+--
 --         , requestEnableEnhancedMonitoring $
 --             enableEnhancedMonitoring
 --
+--         , requestDescribeLimits $
+--             describeLimits
+--
 --         , requestDisableEnhancedMonitoring $
 --             disableEnhancedMonitoring
+--
+--         , requestUpdateShardCount $
+--             updateShardCount
 --
 --         , requestListTagsForStream $
 --             listTagsForStream
@@ -69,6 +78,9 @@ import Test.AWS.Kinesis.Internal
 --
 --         , requestCreateStream $
 --             createStream
+--
+--         , requestStartStreamEncryption $
+--             startStreamEncryption
 --
 --         , requestSplitShard $
 --             splitShard
@@ -97,11 +109,20 @@ import Test.AWS.Kinesis.Internal
 --         , responseGetRecords $
 --             getRecordsResponse
 --
+--         , responseStopStreamEncryption $
+--             stopStreamEncryptionResponse
+--
 --         , responseEnableEnhancedMonitoring $
 --             enhancedMonitoringOutput
 --
+--         , responseDescribeLimits $
+--             describeLimitsResponse
+--
 --         , responseDisableEnhancedMonitoring $
 --             enhancedMonitoringOutput
+--
+--         , responseUpdateShardCount $
+--             updateShardCountResponse
 --
 --         , responseListTagsForStream $
 --             listTagsForStreamResponse
@@ -123,6 +144,9 @@ import Test.AWS.Kinesis.Internal
 --
 --         , responseCreateStream $
 --             createStreamResponse
+--
+--         , responseStartStreamEncryption $
+--             startStreamEncryptionResponse
 --
 --         , responseSplitShard $
 --             splitShardResponse
@@ -163,15 +187,30 @@ requestGetRecords = req
     "GetRecords"
     "fixture/GetRecords.yaml"
 
+requestStopStreamEncryption :: StopStreamEncryption -> TestTree
+requestStopStreamEncryption = req
+    "StopStreamEncryption"
+    "fixture/StopStreamEncryption.yaml"
+
 requestEnableEnhancedMonitoring :: EnableEnhancedMonitoring -> TestTree
 requestEnableEnhancedMonitoring = req
     "EnableEnhancedMonitoring"
     "fixture/EnableEnhancedMonitoring.yaml"
 
+requestDescribeLimits :: DescribeLimits -> TestTree
+requestDescribeLimits = req
+    "DescribeLimits"
+    "fixture/DescribeLimits.yaml"
+
 requestDisableEnhancedMonitoring :: DisableEnhancedMonitoring -> TestTree
 requestDisableEnhancedMonitoring = req
     "DisableEnhancedMonitoring"
     "fixture/DisableEnhancedMonitoring.yaml"
+
+requestUpdateShardCount :: UpdateShardCount -> TestTree
+requestUpdateShardCount = req
+    "UpdateShardCount"
+    "fixture/UpdateShardCount.yaml"
 
 requestListTagsForStream :: ListTagsForStream -> TestTree
 requestListTagsForStream = req
@@ -207,6 +246,11 @@ requestCreateStream :: CreateStream -> TestTree
 requestCreateStream = req
     "CreateStream"
     "fixture/CreateStream.yaml"
+
+requestStartStreamEncryption :: StartStreamEncryption -> TestTree
+requestStartStreamEncryption = req
+    "StartStreamEncryption"
+    "fixture/StartStreamEncryption.yaml"
 
 requestSplitShard :: SplitShard -> TestTree
 requestSplitShard = req
@@ -260,6 +304,13 @@ responseGetRecords = res
     kinesis
     (Proxy :: Proxy GetRecords)
 
+responseStopStreamEncryption :: StopStreamEncryptionResponse -> TestTree
+responseStopStreamEncryption = res
+    "StopStreamEncryptionResponse"
+    "fixture/StopStreamEncryptionResponse.proto"
+    kinesis
+    (Proxy :: Proxy StopStreamEncryption)
+
 responseEnableEnhancedMonitoring :: EnhancedMonitoringOutput -> TestTree
 responseEnableEnhancedMonitoring = res
     "EnableEnhancedMonitoringResponse"
@@ -267,12 +318,26 @@ responseEnableEnhancedMonitoring = res
     kinesis
     (Proxy :: Proxy EnableEnhancedMonitoring)
 
+responseDescribeLimits :: DescribeLimitsResponse -> TestTree
+responseDescribeLimits = res
+    "DescribeLimitsResponse"
+    "fixture/DescribeLimitsResponse.proto"
+    kinesis
+    (Proxy :: Proxy DescribeLimits)
+
 responseDisableEnhancedMonitoring :: EnhancedMonitoringOutput -> TestTree
 responseDisableEnhancedMonitoring = res
     "DisableEnhancedMonitoringResponse"
     "fixture/DisableEnhancedMonitoringResponse.proto"
     kinesis
     (Proxy :: Proxy DisableEnhancedMonitoring)
+
+responseUpdateShardCount :: UpdateShardCountResponse -> TestTree
+responseUpdateShardCount = res
+    "UpdateShardCountResponse"
+    "fixture/UpdateShardCountResponse.proto"
+    kinesis
+    (Proxy :: Proxy UpdateShardCount)
 
 responseListTagsForStream :: ListTagsForStreamResponse -> TestTree
 responseListTagsForStream = res
@@ -322,6 +387,13 @@ responseCreateStream = res
     "fixture/CreateStreamResponse.proto"
     kinesis
     (Proxy :: Proxy CreateStream)
+
+responseStartStreamEncryption :: StartStreamEncryptionResponse -> TestTree
+responseStartStreamEncryption = res
+    "StartStreamEncryptionResponse"
+    "fixture/StartStreamEncryptionResponse.proto"
+    kinesis
+    (Proxy :: Proxy StartStreamEncryption)
 
 responseSplitShard :: SplitShardResponse -> TestTree
 responseSplitShard = res

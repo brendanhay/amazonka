@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CreateTopicRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.
+--
+--
 module Network.AWS.IoT.CreateTopicRule
     (
     -- * Creating a Request
@@ -33,37 +35,39 @@ module Network.AWS.IoT.CreateTopicRule
     , CreateTopicRuleResponse
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the CreateTopicRule operation.
 --
+--
+--
 -- /See:/ 'createTopicRule' smart constructor.
 data CreateTopicRule = CreateTopicRule'
-    { _ctrRuleName         :: !Text
-    , _ctrTopicRulePayload :: !TopicRulePayload
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctrRuleName         :: !Text
+  , _ctrTopicRulePayload :: !TopicRulePayload
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTopicRule' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctrRuleName'
+-- * 'ctrRuleName' - The name of the rule.
 --
--- * 'ctrTopicRulePayload'
+-- * 'ctrTopicRulePayload' - The rule payload.
 createTopicRule
     :: Text -- ^ 'ctrRuleName'
     -> TopicRulePayload -- ^ 'ctrTopicRulePayload'
     -> CreateTopicRule
 createTopicRule pRuleName_ pTopicRulePayload_ =
-    CreateTopicRule'
-    { _ctrRuleName = pRuleName_
-    , _ctrTopicRulePayload = pTopicRulePayload_
-    }
+  CreateTopicRule'
+  {_ctrRuleName = pRuleName_, _ctrTopicRulePayload = pTopicRulePayload_}
+
 
 -- | The name of the rule.
 ctrRuleName :: Lens' CreateTopicRule Text
@@ -78,9 +82,9 @@ instance AWSRequest CreateTopicRule where
         request = postJSON ioT
         response = receiveNull CreateTopicRuleResponse'
 
-instance Hashable CreateTopicRule
+instance Hashable CreateTopicRule where
 
-instance NFData CreateTopicRule
+instance NFData CreateTopicRule where
 
 instance ToHeaders CreateTopicRule where
         toHeaders = const mempty
@@ -100,8 +104,9 @@ instance ToQuery CreateTopicRule where
 
 -- | /See:/ 'createTopicRuleResponse' smart constructor.
 data CreateTopicRuleResponse =
-    CreateTopicRuleResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CreateTopicRuleResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTopicRuleResponse' with the minimum fields required to make a request.
 --
@@ -109,4 +114,5 @@ createTopicRuleResponse
     :: CreateTopicRuleResponse
 createTopicRuleResponse = CreateTopicRuleResponse'
 
-instance NFData CreateTopicRuleResponse
+
+instance NFData CreateTopicRuleResponse where

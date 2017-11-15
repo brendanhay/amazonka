@@ -12,13 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminListDevices
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists devices, as an administrator.
+--
+--
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminListDevices
     (
     -- * Creating a Request
@@ -39,45 +43,49 @@ module Network.AWS.CognitoIdentityProvider.AdminListDevices
     , aldrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to list devices, as an administrator.
 --
+--
+--
 -- /See:/ 'adminListDevices' smart constructor.
 data AdminListDevices = AdminListDevices'
-    { _aldPaginationToken :: !(Maybe Text)
-    , _aldLimit           :: !(Maybe Nat)
-    , _aldUserPoolId      :: !Text
-    , _aldUsername        :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aldPaginationToken :: !(Maybe Text)
+  , _aldLimit           :: !(Maybe Nat)
+  , _aldUserPoolId      :: !Text
+  , _aldUsername        :: !(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminListDevices' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aldPaginationToken'
+-- * 'aldPaginationToken' - The pagination token.
 --
--- * 'aldLimit'
+-- * 'aldLimit' - The limit of the devices request.
 --
--- * 'aldUserPoolId'
+-- * 'aldUserPoolId' - The user pool ID.
 --
--- * 'aldUsername'
+-- * 'aldUsername' - The user name.
 adminListDevices
     :: Text -- ^ 'aldUserPoolId'
     -> Text -- ^ 'aldUsername'
     -> AdminListDevices
 adminListDevices pUserPoolId_ pUsername_ =
-    AdminListDevices'
-    { _aldPaginationToken = Nothing
-    , _aldLimit = Nothing
-    , _aldUserPoolId = pUserPoolId_
-    , _aldUsername = _Sensitive # pUsername_
-    }
+  AdminListDevices'
+  { _aldPaginationToken = Nothing
+  , _aldLimit = Nothing
+  , _aldUserPoolId = pUserPoolId_
+  , _aldUsername = _Sensitive # pUsername_
+  }
+
 
 -- | The pagination token.
 aldPaginationToken :: Lens' AdminListDevices (Maybe Text)
@@ -106,9 +114,9 @@ instance AWSRequest AdminListDevices where
                      (x .?> "Devices" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable AdminListDevices
+instance Hashable AdminListDevices where
 
-instance NFData AdminListDevices
+instance NFData AdminListDevices where
 
 instance ToHeaders AdminListDevices where
         toHeaders
@@ -135,33 +143,37 @@ instance ToPath AdminListDevices where
 instance ToQuery AdminListDevices where
         toQuery = const mempty
 
--- | Lists the device\'s response, as an administrator.
+-- | Lists the device's response, as an administrator.
+--
+--
 --
 -- /See:/ 'adminListDevicesResponse' smart constructor.
 data AdminListDevicesResponse = AdminListDevicesResponse'
-    { _aldrsPaginationToken :: !(Maybe Text)
-    , _aldrsDevices         :: !(Maybe [DeviceType])
-    , _aldrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aldrsPaginationToken :: !(Maybe Text)
+  , _aldrsDevices         :: !(Maybe [DeviceType])
+  , _aldrsResponseStatus  :: !Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminListDevicesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aldrsPaginationToken'
+-- * 'aldrsPaginationToken' - The pagination token.
 --
--- * 'aldrsDevices'
+-- * 'aldrsDevices' - The devices in the list of devices response.
 --
--- * 'aldrsResponseStatus'
+-- * 'aldrsResponseStatus' - -- | The response status code.
 adminListDevicesResponse
     :: Int -- ^ 'aldrsResponseStatus'
     -> AdminListDevicesResponse
 adminListDevicesResponse pResponseStatus_ =
-    AdminListDevicesResponse'
-    { _aldrsPaginationToken = Nothing
-    , _aldrsDevices = Nothing
-    , _aldrsResponseStatus = pResponseStatus_
-    }
+  AdminListDevicesResponse'
+  { _aldrsPaginationToken = Nothing
+  , _aldrsDevices = Nothing
+  , _aldrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The pagination token.
 aldrsPaginationToken :: Lens' AdminListDevicesResponse (Maybe Text)
@@ -171,8 +183,8 @@ aldrsPaginationToken = lens _aldrsPaginationToken (\ s a -> s{_aldrsPaginationTo
 aldrsDevices :: Lens' AdminListDevicesResponse [DeviceType]
 aldrsDevices = lens _aldrsDevices (\ s a -> s{_aldrsDevices = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 aldrsResponseStatus :: Lens' AdminListDevicesResponse Int
 aldrsResponseStatus = lens _aldrsResponseStatus (\ s a -> s{_aldrsResponseStatus = a});
 
-instance NFData AdminListDevicesResponse
+instance NFData AdminListDevicesResponse where

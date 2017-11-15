@@ -5,13 +5,15 @@
 
 -- |
 -- Module      : Network.AWS.EMR
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy to process large amounts of data efficiently. Amazon EMR uses Hadoop processing combined with several AWS products to do tasks such as web indexing, data mining, log file analysis, machine learning, scientific simulation, and data warehousing.
+-- Amazon EMR is a web service that makes it easy to process large amounts of data efficiently. Amazon EMR uses Hadoop processing combined with several AWS products to do tasks such as web indexing, data mining, log file analysis, machine learning, scientific simulation, and data warehousing.
+--
+--
 module Network.AWS.EMR
     (
     -- * Service Configuration
@@ -32,6 +34,9 @@ module Network.AWS.EMR
     -- * Waiters
     -- $waiters
 
+    -- ** ClusterTerminated
+    , clusterTerminated
+
     -- ** ClusterRunning
     , clusterRunning
 
@@ -40,6 +45,9 @@ module Network.AWS.EMR
 
     -- ** RunJobFlow
     , module Network.AWS.EMR.RunJobFlow
+
+    -- ** RemoveAutoScalingPolicy
+    , module Network.AWS.EMR.RemoveAutoScalingPolicy
 
     -- ** SetVisibleToAllUsers
     , module Network.AWS.EMR.SetVisibleToAllUsers
@@ -56,6 +64,15 @@ module Network.AWS.EMR
     -- ** DescribeCluster
     , module Network.AWS.EMR.DescribeCluster
 
+    -- ** ListSecurityConfigurations
+    , module Network.AWS.EMR.ListSecurityConfigurations
+
+    -- ** CancelSteps
+    , module Network.AWS.EMR.CancelSteps
+
+    -- ** CreateSecurityConfiguration
+    , module Network.AWS.EMR.CreateSecurityConfiguration
+
     -- ** SetTerminationProtection
     , module Network.AWS.EMR.SetTerminationProtection
 
@@ -68,8 +85,17 @@ module Network.AWS.EMR
     -- ** ListSteps (Paginated)
     , module Network.AWS.EMR.ListSteps
 
+    -- ** AddInstanceFleet
+    , module Network.AWS.EMR.AddInstanceFleet
+
     -- ** AddInstanceGroups
     , module Network.AWS.EMR.AddInstanceGroups
+
+    -- ** DeleteSecurityConfiguration
+    , module Network.AWS.EMR.DeleteSecurityConfiguration
+
+    -- ** ModifyInstanceFleet
+    , module Network.AWS.EMR.ModifyInstanceFleet
 
     -- ** ListInstanceGroups (Paginated)
     , module Network.AWS.EMR.ListInstanceGroups
@@ -83,19 +109,55 @@ module Network.AWS.EMR
     -- ** ListInstances (Paginated)
     , module Network.AWS.EMR.ListInstances
 
+    -- ** PutAutoScalingPolicy
+    , module Network.AWS.EMR.PutAutoScalingPolicy
+
     -- ** ListClusters (Paginated)
     , module Network.AWS.EMR.ListClusters
+
+    -- ** DescribeSecurityConfiguration
+    , module Network.AWS.EMR.DescribeSecurityConfiguration
+
+    -- ** ListInstanceFleets (Paginated)
+    , module Network.AWS.EMR.ListInstanceFleets
 
     -- * Types
 
     -- ** ActionOnFailure
     , ActionOnFailure (..)
 
+    -- ** AdjustmentType
+    , AdjustmentType (..)
+
+    -- ** AutoScalingPolicyState
+    , AutoScalingPolicyState (..)
+
+    -- ** AutoScalingPolicyStateChangeReasonCode
+    , AutoScalingPolicyStateChangeReasonCode (..)
+
+    -- ** CancelStepsRequestStatus
+    , CancelStepsRequestStatus (..)
+
     -- ** ClusterState
     , ClusterState (..)
 
     -- ** ClusterStateChangeReasonCode
     , ClusterStateChangeReasonCode (..)
+
+    -- ** ComparisonOperator
+    , ComparisonOperator (..)
+
+    -- ** InstanceCollectionType
+    , InstanceCollectionType (..)
+
+    -- ** InstanceFleetState
+    , InstanceFleetState (..)
+
+    -- ** InstanceFleetStateChangeReasonCode
+    , InstanceFleetStateChangeReasonCode (..)
+
+    -- ** InstanceFleetType
+    , InstanceFleetType (..)
 
     -- ** InstanceGroupState
     , InstanceGroupState (..)
@@ -118,11 +180,26 @@ module Network.AWS.EMR
     -- ** MarketType
     , MarketType (..)
 
+    -- ** RepoUpgradeOnBoot
+    , RepoUpgradeOnBoot (..)
+
+    -- ** ScaleDownBehavior
+    , ScaleDownBehavior (..)
+
+    -- ** SpotProvisioningTimeoutAction
+    , SpotProvisioningTimeoutAction (..)
+
+    -- ** Statistic
+    , Statistic (..)
+
     -- ** StepState
     , StepState (..)
 
     -- ** StepStateChangeReasonCode
     , StepStateChangeReasonCode (..)
+
+    -- ** Unit
+    , Unit (..)
 
     -- ** Application
     , Application
@@ -132,20 +209,72 @@ module Network.AWS.EMR
     , aName
     , aVersion
 
+    -- ** AutoScalingPolicy
+    , AutoScalingPolicy
+    , autoScalingPolicy
+    , aspConstraints
+    , aspRules
+
+    -- ** AutoScalingPolicyDescription
+    , AutoScalingPolicyDescription
+    , autoScalingPolicyDescription
+    , aspdStatus
+    , aspdRules
+    , aspdConstraints
+
+    -- ** AutoScalingPolicyStateChangeReason
+    , AutoScalingPolicyStateChangeReason
+    , autoScalingPolicyStateChangeReason
+    , aspscrCode
+    , aspscrMessage
+
+    -- ** AutoScalingPolicyStatus
+    , AutoScalingPolicyStatus
+    , autoScalingPolicyStatus
+    , aspsState
+    , aspsStateChangeReason
+
     -- ** BootstrapActionConfig
     , BootstrapActionConfig
     , bootstrapActionConfig
     , bacName
     , bacScriptBootstrapAction
 
+    -- ** CancelStepsInfo
+    , CancelStepsInfo
+    , cancelStepsInfo
+    , csiStatus
+    , csiStepId
+    , csiReason
+
+    -- ** CloudWatchAlarmDefinition
+    , CloudWatchAlarmDefinition
+    , cloudWatchAlarmDefinition
+    , cwadEvaluationPeriods
+    , cwadNamespace
+    , cwadDimensions
+    , cwadUnit
+    , cwadStatistic
+    , cwadComparisonOperator
+    , cwadMetricName
+    , cwadPeriod
+    , cwadThreshold
+
     -- ** Cluster
     , Cluster
     , cluster
     , cluRequestedAMIVersion
+    , cluEBSRootVolumeSize
     , cluEC2InstanceAttributes
     , cluNormalizedInstanceHours
     , cluConfigurations
+    , cluCustomAMIId
+    , cluAutoScalingRole
+    , cluSecurityConfiguration
+    , cluScaleDownBehavior
+    , cluInstanceCollectionType
     , cluReleaseLabel
+    , cluRepoUpgradeOnBoot
     , cluLogURI
     , cluRunningAMIVersion
     , cluMasterPublicDNSName
@@ -231,10 +360,12 @@ module Network.AWS.EMR
     , eiaEC2KeyName
     , eiaEmrManagedSlaveSecurityGroup
     , eiaAdditionalSlaveSecurityGroups
+    , eiaRequestedEC2SubnetIds
     , eiaAdditionalMasterSecurityGroups
     , eiaIAMInstanceProfile
     , eiaEmrManagedMasterSecurityGroup
     , eiaEC2SubnetId
+    , eiaRequestedEC2AvailabilityZones
     , eiaServiceAccessSecurityGroup
     , eiaEC2AvailabilityZone
 
@@ -268,11 +399,70 @@ module Network.AWS.EMR
     , iPublicDNSName
     , iEBSVolumes
     , iEC2InstanceId
+    , iInstanceType
+    , iMarket
     , iPrivateIPAddress
+    , iInstanceFleetId
     , iId
     , iInstanceGroupId
     , iPrivateDNSName
     , iPublicIPAddress
+
+    -- ** InstanceFleet
+    , InstanceFleet
+    , instanceFleet
+    , ifProvisionedSpotCapacity
+    , ifStatus
+    , ifTargetOnDemandCapacity
+    , ifInstanceFleetType
+    , ifInstanceTypeSpecifications
+    , ifName
+    , ifProvisionedOnDemandCapacity
+    , ifTargetSpotCapacity
+    , ifId
+    , ifLaunchSpecifications
+
+    -- ** InstanceFleetConfig
+    , InstanceFleetConfig
+    , instanceFleetConfig
+    , ifcInstanceTypeConfigs
+    , ifcTargetOnDemandCapacity
+    , ifcName
+    , ifcTargetSpotCapacity
+    , ifcLaunchSpecifications
+    , ifcInstanceFleetType
+
+    -- ** InstanceFleetModifyConfig
+    , InstanceFleetModifyConfig
+    , instanceFleetModifyConfig
+    , ifmcTargetOnDemandCapacity
+    , ifmcTargetSpotCapacity
+    , ifmcInstanceFleetId
+
+    -- ** InstanceFleetProvisioningSpecifications
+    , InstanceFleetProvisioningSpecifications
+    , instanceFleetProvisioningSpecifications
+    , ifpsSpotSpecification
+
+    -- ** InstanceFleetStateChangeReason
+    , InstanceFleetStateChangeReason
+    , instanceFleetStateChangeReason
+    , ifscrCode
+    , ifscrMessage
+
+    -- ** InstanceFleetStatus
+    , InstanceFleetStatus
+    , instanceFleetStatus
+    , ifsState
+    , ifsStateChangeReason
+    , ifsTimeline
+
+    -- ** InstanceFleetTimeline
+    , InstanceFleetTimeline
+    , instanceFleetTimeline
+    , iftReadyDateTime
+    , iftCreationDateTime
+    , iftEndDateTime
 
     -- ** InstanceGroup
     , InstanceGroup
@@ -288,6 +478,7 @@ module Network.AWS.EMR
     , igEBSOptimized
     , igMarket
     , igName
+    , igAutoScalingPolicy
     , igShrinkPolicy
     , igId
 
@@ -299,6 +490,7 @@ module Network.AWS.EMR
     , igcConfigurations
     , igcMarket
     , igcName
+    , igcAutoScalingPolicy
     , igcInstanceRole
     , igcInstanceType
     , igcInstanceCount
@@ -358,14 +550,37 @@ module Network.AWS.EMR
     , itCreationDateTime
     , itEndDateTime
 
+    -- ** InstanceTypeConfig
+    , InstanceTypeConfig
+    , instanceTypeConfig
+    , itcEBSConfiguration
+    , itcBidPrice
+    , itcWeightedCapacity
+    , itcConfigurations
+    , itcBidPriceAsPercentageOfOnDemandPrice
+    , itcInstanceType
+
+    -- ** InstanceTypeSpecification
+    , InstanceTypeSpecification
+    , instanceTypeSpecification
+    , itsBidPrice
+    , itsWeightedCapacity
+    , itsConfigurations
+    , itsEBSBlockDevices
+    , itsInstanceType
+    , itsEBSOptimized
+    , itsBidPriceAsPercentageOfOnDemandPrice
+
     -- ** JobFlowInstancesConfig
     , JobFlowInstancesConfig
     , jobFlowInstancesConfig
+    , jficInstanceFleets
     , jficEC2KeyName
     , jficSlaveInstanceType
     , jficInstanceCount
     , jficEmrManagedSlaveSecurityGroup
     , jficAdditionalSlaveSecurityGroups
+    , jficEC2SubnetIds
     , jficHadoopVersion
     , jficAdditionalMasterSecurityGroups
     , jficEmrManagedMasterSecurityGroup
@@ -383,10 +598,42 @@ module Network.AWS.EMR
     , kvValue
     , kvKey
 
+    -- ** MetricDimension
+    , MetricDimension
+    , metricDimension
+    , mdValue
+    , mdKey
+
     -- ** PlacementType
     , PlacementType
     , placementType
+    , ptAvailabilityZones
     , ptAvailabilityZone
+
+    -- ** ScalingAction
+    , ScalingAction
+    , scalingAction
+    , saMarket
+    , saSimpleScalingPolicyConfiguration
+
+    -- ** ScalingConstraints
+    , ScalingConstraints
+    , scalingConstraints
+    , scMinCapacity
+    , scMaxCapacity
+
+    -- ** ScalingRule
+    , ScalingRule
+    , scalingRule
+    , srDescription
+    , srName
+    , srAction
+    , srTrigger
+
+    -- ** ScalingTrigger
+    , ScalingTrigger
+    , scalingTrigger
+    , stCloudWatchAlarmDefinition
 
     -- ** ScriptBootstrapActionConfig
     , ScriptBootstrapActionConfig
@@ -394,11 +641,31 @@ module Network.AWS.EMR
     , sbacArgs
     , sbacPath
 
+    -- ** SecurityConfigurationSummary
+    , SecurityConfigurationSummary
+    , securityConfigurationSummary
+    , scsName
+    , scsCreationDateTime
+
     -- ** ShrinkPolicy
     , ShrinkPolicy
     , shrinkPolicy
     , spDecommissionTimeout
     , spInstanceResizePolicy
+
+    -- ** SimpleScalingPolicyConfiguration
+    , SimpleScalingPolicyConfiguration
+    , simpleScalingPolicyConfiguration
+    , sspcAdjustmentType
+    , sspcCoolDown
+    , sspcScalingAdjustment
+
+    -- ** SpotProvisioningSpecification
+    , SpotProvisioningSpecification
+    , spotProvisioningSpecification
+    , spsBlockDurationMinutes
+    , spsTimeoutDurationMinutes
+    , spsTimeoutAction
 
     -- ** Step
     , Step
@@ -466,24 +733,34 @@ module Network.AWS.EMR
     , vsSizeInGB
     ) where
 
-import           Network.AWS.EMR.AddInstanceGroups
-import           Network.AWS.EMR.AddJobFlowSteps
-import           Network.AWS.EMR.AddTags
-import           Network.AWS.EMR.DescribeCluster
-import           Network.AWS.EMR.DescribeStep
-import           Network.AWS.EMR.ListBootstrapActions
-import           Network.AWS.EMR.ListClusters
-import           Network.AWS.EMR.ListInstanceGroups
-import           Network.AWS.EMR.ListInstances
-import           Network.AWS.EMR.ListSteps
-import           Network.AWS.EMR.ModifyInstanceGroups
-import           Network.AWS.EMR.RemoveTags
-import           Network.AWS.EMR.RunJobFlow
-import           Network.AWS.EMR.SetTerminationProtection
-import           Network.AWS.EMR.SetVisibleToAllUsers
-import           Network.AWS.EMR.TerminateJobFlows
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Waiters
+import Network.AWS.EMR.AddInstanceFleet
+import Network.AWS.EMR.AddInstanceGroups
+import Network.AWS.EMR.AddJobFlowSteps
+import Network.AWS.EMR.AddTags
+import Network.AWS.EMR.CancelSteps
+import Network.AWS.EMR.CreateSecurityConfiguration
+import Network.AWS.EMR.DeleteSecurityConfiguration
+import Network.AWS.EMR.DescribeCluster
+import Network.AWS.EMR.DescribeSecurityConfiguration
+import Network.AWS.EMR.DescribeStep
+import Network.AWS.EMR.ListBootstrapActions
+import Network.AWS.EMR.ListClusters
+import Network.AWS.EMR.ListInstanceFleets
+import Network.AWS.EMR.ListInstanceGroups
+import Network.AWS.EMR.ListInstances
+import Network.AWS.EMR.ListSecurityConfigurations
+import Network.AWS.EMR.ListSteps
+import Network.AWS.EMR.ModifyInstanceFleet
+import Network.AWS.EMR.ModifyInstanceGroups
+import Network.AWS.EMR.PutAutoScalingPolicy
+import Network.AWS.EMR.RemoveAutoScalingPolicy
+import Network.AWS.EMR.RemoveTags
+import Network.AWS.EMR.RunJobFlow
+import Network.AWS.EMR.SetTerminationProtection
+import Network.AWS.EMR.SetVisibleToAllUsers
+import Network.AWS.EMR.TerminateJobFlows
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

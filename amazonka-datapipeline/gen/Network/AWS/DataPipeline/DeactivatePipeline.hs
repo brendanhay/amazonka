@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.DeactivatePipeline
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deactivates the specified running pipeline. The pipeline is set to the 'DEACTIVATING' state until the deactivation process completes.
+-- Deactivates the specified running pipeline. The pipeline is set to the @DEACTIVATING@ state until the deactivation process completes.
 --
--- To resume a deactivated pipeline, use < ActivatePipeline>. By default, the pipeline resumes from the last completed execution. Optionally, you can specify the date and time to resume the pipeline.
+--
+-- To resume a deactivated pipeline, use 'ActivatePipeline' . By default, the pipeline resumes from the last completed execution. Optionally, you can specify the date and time to resume the pipeline.
+--
 module Network.AWS.DataPipeline.DeactivatePipeline
     (
     -- * Creating a Request
@@ -37,38 +39,39 @@ module Network.AWS.DataPipeline.DeactivatePipeline
     , drsResponseStatus
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.DataPipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeactivatePipeline.
 --
+--
+--
 -- /See:/ 'deactivatePipeline' smart constructor.
 data DeactivatePipeline = DeactivatePipeline'
-    { _dCancelActive :: !(Maybe Bool)
-    , _dPipelineId   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dCancelActive :: !(Maybe Bool)
+  , _dPipelineId   :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeactivatePipeline' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dCancelActive'
+-- * 'dCancelActive' - Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to @CANCELED@ . If this value is false, the pipeline is deactivated after all running objects finish.
 --
--- * 'dPipelineId'
+-- * 'dPipelineId' - The ID of the pipeline.
 deactivatePipeline
     :: Text -- ^ 'dPipelineId'
     -> DeactivatePipeline
 deactivatePipeline pPipelineId_ =
-    DeactivatePipeline'
-    { _dCancelActive = Nothing
-    , _dPipelineId = pPipelineId_
-    }
+  DeactivatePipeline' {_dCancelActive = Nothing, _dPipelineId = pPipelineId_}
 
--- | Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to 'CANCELED'. If this value is false, the pipeline is deactivated after all running objects finish.
+
+-- | Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to @CANCELED@ . If this value is false, the pipeline is deactivated after all running objects finish.
 dCancelActive :: Lens' DeactivatePipeline (Maybe Bool)
 dCancelActive = lens _dCancelActive (\ s a -> s{_dCancelActive = a});
 
@@ -85,9 +88,9 @@ instance AWSRequest DeactivatePipeline where
               (\ s h x ->
                  DeactivatePipelineResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeactivatePipeline
+instance Hashable DeactivatePipeline where
 
-instance NFData DeactivatePipeline
+instance NFData DeactivatePipeline where
 
 instance ToHeaders DeactivatePipeline where
         toHeaders
@@ -113,26 +116,28 @@ instance ToQuery DeactivatePipeline where
 
 -- | Contains the output of DeactivatePipeline.
 --
+--
+--
 -- /See:/ 'deactivatePipelineResponse' smart constructor.
 newtype DeactivatePipelineResponse = DeactivatePipelineResponse'
-    { _drsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeactivatePipelineResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deactivatePipelineResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeactivatePipelineResponse
 deactivatePipelineResponse pResponseStatus_ =
-    DeactivatePipelineResponse'
-    { _drsResponseStatus = pResponseStatus_
-    }
+  DeactivatePipelineResponse' {_drsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeactivatePipelineResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeactivatePipelineResponse
+instance NFData DeactivatePipelineResponse where

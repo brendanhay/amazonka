@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.S3.AbortMultipartUpload
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Aborts a multipart upload.
 --
--- To verify that all parts have been removed, so you don\'t get charged for the part storage, you should call the List Parts operation and ensure the parts list is empty.
+--
+-- To verify that all parts have been removed, so you don't get charged for the part storage, you should call the List Parts operation and ensure the parts list is empty.
+--
 module Network.AWS.S3.AbortMultipartUpload
     (
     -- * Creating a Request
@@ -40,44 +42,46 @@ module Network.AWS.S3.AbortMultipartUpload
     , amursResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'abortMultipartUpload' smart constructor.
 data AbortMultipartUpload = AbortMultipartUpload'
-    { _amuRequestPayer :: !(Maybe RequestPayer)
-    , _amuBucket       :: !BucketName
-    , _amuKey          :: !ObjectKey
-    , _amuUploadId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _amuRequestPayer :: !(Maybe RequestPayer)
+  , _amuBucket       :: !BucketName
+  , _amuKey          :: !ObjectKey
+  , _amuUploadId     :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AbortMultipartUpload' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'amuRequestPayer'
+-- * 'amuRequestPayer' - Undocumented member.
 --
--- * 'amuBucket'
+-- * 'amuBucket' - Undocumented member.
 --
--- * 'amuKey'
+-- * 'amuKey' - Undocumented member.
 --
--- * 'amuUploadId'
+-- * 'amuUploadId' - Undocumented member.
 abortMultipartUpload
     :: BucketName -- ^ 'amuBucket'
     -> ObjectKey -- ^ 'amuKey'
     -> Text -- ^ 'amuUploadId'
     -> AbortMultipartUpload
 abortMultipartUpload pBucket_ pKey_ pUploadId_ =
-    AbortMultipartUpload'
-    { _amuRequestPayer = Nothing
-    , _amuBucket = pBucket_
-    , _amuKey = pKey_
-    , _amuUploadId = pUploadId_
-    }
+  AbortMultipartUpload'
+  { _amuRequestPayer = Nothing
+  , _amuBucket = pBucket_
+  , _amuKey = pKey_
+  , _amuUploadId = pUploadId_
+  }
+
 
 -- | Undocumented member.
 amuRequestPayer :: Lens' AbortMultipartUpload (Maybe RequestPayer)
@@ -106,9 +110,9 @@ instance AWSRequest AbortMultipartUpload where
                    (h .#? "x-amz-request-charged") <*>
                      (pure (fromEnum s)))
 
-instance Hashable AbortMultipartUpload
+instance Hashable AbortMultipartUpload where
 
-instance NFData AbortMultipartUpload
+instance NFData AbortMultipartUpload where
 
 instance ToHeaders AbortMultipartUpload where
         toHeaders AbortMultipartUpload'{..}
@@ -124,32 +128,32 @@ instance ToQuery AbortMultipartUpload where
 
 -- | /See:/ 'abortMultipartUploadResponse' smart constructor.
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse'
-    { _amursRequestCharged :: !(Maybe RequestCharged)
-    , _amursResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _amursRequestCharged :: !(Maybe RequestCharged)
+  , _amursResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AbortMultipartUploadResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'amursRequestCharged'
+-- * 'amursRequestCharged' - Undocumented member.
 --
--- * 'amursResponseStatus'
+-- * 'amursResponseStatus' - -- | The response status code.
 abortMultipartUploadResponse
     :: Int -- ^ 'amursResponseStatus'
     -> AbortMultipartUploadResponse
 abortMultipartUploadResponse pResponseStatus_ =
-    AbortMultipartUploadResponse'
-    { _amursRequestCharged = Nothing
-    , _amursResponseStatus = pResponseStatus_
-    }
+  AbortMultipartUploadResponse'
+  {_amursRequestCharged = Nothing, _amursResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 amursRequestCharged :: Lens' AbortMultipartUploadResponse (Maybe RequestCharged)
 amursRequestCharged = lens _amursRequestCharged (\ s a -> s{_amursRequestCharged = a});
 
--- | The response status code.
+-- | -- | The response status code.
 amursResponseStatus :: Lens' AbortMultipartUploadResponse Int
 amursResponseStatus = lens _amursResponseStatus (\ s a -> s{_amursResponseStatus = a});
 
-instance NFData AbortMultipartUploadResponse
+instance NFData AbortMultipartUploadResponse where

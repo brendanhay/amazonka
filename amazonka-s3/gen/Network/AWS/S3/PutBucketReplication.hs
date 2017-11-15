@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketReplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,39 +34,41 @@ module Network.AWS.S3.PutBucketReplication
     , PutBucketReplicationResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketReplication' smart constructor.
 data PutBucketReplication = PutBucketReplication'
-    { _pbrContentMD5               :: !(Maybe Text)
-    , _pbrBucket                   :: !BucketName
-    , _pbrReplicationConfiguration :: !ReplicationConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pbrContentMD5               :: !(Maybe Text)
+  , _pbrBucket                   :: !BucketName
+  , _pbrReplicationConfiguration :: !ReplicationConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketReplication' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbrContentMD5'
+-- * 'pbrContentMD5' - Undocumented member.
 --
--- * 'pbrBucket'
+-- * 'pbrBucket' - Undocumented member.
 --
--- * 'pbrReplicationConfiguration'
+-- * 'pbrReplicationConfiguration' - Undocumented member.
 putBucketReplication
     :: BucketName -- ^ 'pbrBucket'
     -> ReplicationConfiguration -- ^ 'pbrReplicationConfiguration'
     -> PutBucketReplication
 putBucketReplication pBucket_ pReplicationConfiguration_ =
-    PutBucketReplication'
-    { _pbrContentMD5 = Nothing
-    , _pbrBucket = pBucket_
-    , _pbrReplicationConfiguration = pReplicationConfiguration_
-    }
+  PutBucketReplication'
+  { _pbrContentMD5 = Nothing
+  , _pbrBucket = pBucket_
+  , _pbrReplicationConfiguration = pReplicationConfiguration_
+  }
+
 
 -- | Undocumented member.
 pbrContentMD5 :: Lens' PutBucketReplication (Maybe Text)
@@ -86,9 +88,9 @@ instance AWSRequest PutBucketReplication where
         request = putXML s3
         response = receiveNull PutBucketReplicationResponse'
 
-instance Hashable PutBucketReplication
+instance Hashable PutBucketReplication where
 
-instance NFData PutBucketReplication
+instance NFData PutBucketReplication where
 
 instance ToElement PutBucketReplication where
         toElement
@@ -110,8 +112,9 @@ instance ToQuery PutBucketReplication where
 
 -- | /See:/ 'putBucketReplicationResponse' smart constructor.
 data PutBucketReplicationResponse =
-    PutBucketReplicationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutBucketReplicationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketReplicationResponse' with the minimum fields required to make a request.
 --
@@ -119,4 +122,5 @@ putBucketReplicationResponse
     :: PutBucketReplicationResponse
 putBucketReplicationResponse = PutBucketReplicationResponse'
 
-instance NFData PutBucketReplicationResponse
+
+instance NFData PutBucketReplicationResponse where

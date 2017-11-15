@@ -1,55 +1,59 @@
 name:                  amazonka-dms
-version:               1.4.4
+version:               1.5.0
 synopsis:              Amazon Database Migration Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               OtherLicense
+license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2016 Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2017 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-    AWS Database Migration Service
-
-    AWS Database Migration Service (AWS DMS) can migrate your data to and from the most widely used commercial and open-source databases such as Oracle, PostgreSQL, Microsoft SQL Server, Amazon Redshift, MariaDB, Amazon Aurora, and MySQL. The service supports homogeneous migrations such as Oracle to Oracle, as well as heterogeneous migrations between different database platforms, such as Oracle to MySQL or SQL Server to PostgreSQL.
-    .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information and sending requests.
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
     .
-    Use of lenses is required for constructing and manipulating types.
-    This is due to the amount of nesting of AWS types and transparency regarding
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
     de/serialisation into more palatable Haskell values.
     The provided lenses should be compatible with any of the major lens libraries
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
     .
-    See "Network.AWS.DMS" or <https://aws.amazon.com/documentation/ the AWS Documentation>
+    See "Network.AWS.DMS" or <https://aws.amazon.com/documentation/ the AWS documentation>
     to get started.
 
 source-repository head
-    type:     git
-    location: git://github.com/brendanhay/amazonka.git
+    type:              git
+    location:          git://github.com/brendanhay/amazonka.git
+    subdir:            amazonka-dms
 
 library
     default-language:  Haskell2010
     hs-source-dirs:    src gen
 
-    ghc-options:       -Wall
+    ghc-options:
+        -Wall
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updates
+        -funbox-strict-fields
 
     exposed-modules:
           Network.AWS.DMS
         , Network.AWS.DMS.AddTagsToResource
         , Network.AWS.DMS.CreateEndpoint
+        , Network.AWS.DMS.CreateEventSubscription
         , Network.AWS.DMS.CreateReplicationInstance
         , Network.AWS.DMS.CreateReplicationSubnetGroup
         , Network.AWS.DMS.CreateReplicationTask
         , Network.AWS.DMS.DeleteCertificate
         , Network.AWS.DMS.DeleteEndpoint
+        , Network.AWS.DMS.DeleteEventSubscription
         , Network.AWS.DMS.DeleteReplicationInstance
         , Network.AWS.DMS.DeleteReplicationSubnetGroup
         , Network.AWS.DMS.DeleteReplicationTask
@@ -58,6 +62,9 @@ library
         , Network.AWS.DMS.DescribeConnections
         , Network.AWS.DMS.DescribeEndpointTypes
         , Network.AWS.DMS.DescribeEndpoints
+        , Network.AWS.DMS.DescribeEventCategories
+        , Network.AWS.DMS.DescribeEventSubscriptions
+        , Network.AWS.DMS.DescribeEvents
         , Network.AWS.DMS.DescribeOrderableReplicationInstances
         , Network.AWS.DMS.DescribeRefreshSchemasStatus
         , Network.AWS.DMS.DescribeReplicationInstances
@@ -68,9 +75,12 @@ library
         , Network.AWS.DMS.ImportCertificate
         , Network.AWS.DMS.ListTagsForResource
         , Network.AWS.DMS.ModifyEndpoint
+        , Network.AWS.DMS.ModifyEventSubscription
         , Network.AWS.DMS.ModifyReplicationInstance
         , Network.AWS.DMS.ModifyReplicationSubnetGroup
+        , Network.AWS.DMS.ModifyReplicationTask
         , Network.AWS.DMS.RefreshSchemas
+        , Network.AWS.DMS.ReloadTables
         , Network.AWS.DMS.RemoveTagsFromResource
         , Network.AWS.DMS.StartReplicationTask
         , Network.AWS.DMS.StopReplicationTask
@@ -83,7 +93,7 @@ library
         , Network.AWS.DMS.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.4.*
+          amazonka-core == 1.5.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-dms-test
@@ -103,9 +113,9 @@ test-suite amazonka-dms-test
         , Test.AWS.DMS.Internal
 
     build-depends:
-          amazonka-core == 1.4.4.*
-        , amazonka-test == 1.4.4.*
-        , amazonka-dms == 1.4.4.*
+          amazonka-core == 1.5.0.*
+        , amazonka-test == 1.5.0.*
+        , amazonka-dms == 1.5.0.*
         , base
         , bytestring
         , tasty

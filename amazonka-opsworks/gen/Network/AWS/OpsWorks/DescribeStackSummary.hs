@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeStackSummary
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the number of layers and apps in a specified stack, and the number of instances in each state, such as 'running_setup' or 'online'.
+-- Describes the number of layers and apps in a specified stack, and the number of instances in each state, such as @running_setup@ or @online@ .
 --
--- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DescribeStackSummary
     (
     -- * Creating a Request
@@ -37,30 +39,29 @@ module Network.AWS.OpsWorks.DescribeStackSummary
     , dssrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeStackSummary' smart constructor.
 newtype DescribeStackSummary = DescribeStackSummary'
-    { _dssStackId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dssStackId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStackSummary' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssStackId'
+-- * 'dssStackId' - The stack ID.
 describeStackSummary
     :: Text -- ^ 'dssStackId'
     -> DescribeStackSummary
-describeStackSummary pStackId_ =
-    DescribeStackSummary'
-    { _dssStackId = pStackId_
-    }
+describeStackSummary pStackId_ = DescribeStackSummary' {_dssStackId = pStackId_}
+
 
 -- | The stack ID.
 dssStackId :: Lens' DescribeStackSummary Text
@@ -76,9 +77,9 @@ instance AWSRequest DescribeStackSummary where
                  DescribeStackSummaryResponse' <$>
                    (x .?> "StackSummary") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeStackSummary
+instance Hashable DescribeStackSummary where
 
-instance NFData DescribeStackSummary
+instance NFData DescribeStackSummary where
 
 instance ToHeaders DescribeStackSummary where
         toHeaders
@@ -101,36 +102,38 @@ instance ToPath DescribeStackSummary where
 instance ToQuery DescribeStackSummary where
         toQuery = const mempty
 
--- | Contains the response to a 'DescribeStackSummary' request.
+-- | Contains the response to a @DescribeStackSummary@ request.
+--
+--
 --
 -- /See:/ 'describeStackSummaryResponse' smart constructor.
 data DescribeStackSummaryResponse = DescribeStackSummaryResponse'
-    { _dssrsStackSummary   :: !(Maybe StackSummary)
-    , _dssrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dssrsStackSummary   :: !(Maybe StackSummary)
+  , _dssrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStackSummaryResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssrsStackSummary'
+-- * 'dssrsStackSummary' - A @StackSummary@ object that contains the results.
 --
--- * 'dssrsResponseStatus'
+-- * 'dssrsResponseStatus' - -- | The response status code.
 describeStackSummaryResponse
     :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeStackSummaryResponse
 describeStackSummaryResponse pResponseStatus_ =
-    DescribeStackSummaryResponse'
-    { _dssrsStackSummary = Nothing
-    , _dssrsResponseStatus = pResponseStatus_
-    }
+  DescribeStackSummaryResponse'
+  {_dssrsStackSummary = Nothing, _dssrsResponseStatus = pResponseStatus_}
 
--- | A 'StackSummary' object that contains the results.
+
+-- | A @StackSummary@ object that contains the results.
 dssrsStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
 dssrsStackSummary = lens _dssrsStackSummary (\ s a -> s{_dssrsStackSummary = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeStackSummaryResponse Int
 dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
 
-instance NFData DescribeStackSummaryResponse
+instance NFData DescribeStackSummaryResponse where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DisableTopicRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables the specified rule.
+--
+--
 module Network.AWS.IoT.DisableTopicRule
     (
     -- * Creating a Request
@@ -32,32 +34,33 @@ module Network.AWS.IoT.DisableTopicRule
     , DisableTopicRuleResponse
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DisableTopicRuleRequest operation.
 --
+--
+--
 -- /See:/ 'disableTopicRule' smart constructor.
 newtype DisableTopicRule = DisableTopicRule'
-    { _dtrRuleName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrRuleName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableTopicRule' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrRuleName'
+-- * 'dtrRuleName' - The name of the rule to disable.
 disableTopicRule
     :: Text -- ^ 'dtrRuleName'
     -> DisableTopicRule
-disableTopicRule pRuleName_ =
-    DisableTopicRule'
-    { _dtrRuleName = pRuleName_
-    }
+disableTopicRule pRuleName_ = DisableTopicRule' {_dtrRuleName = pRuleName_}
+
 
 -- | The name of the rule to disable.
 dtrRuleName :: Lens' DisableTopicRule Text
@@ -68,9 +71,9 @@ instance AWSRequest DisableTopicRule where
         request = postJSON ioT
         response = receiveNull DisableTopicRuleResponse'
 
-instance Hashable DisableTopicRule
+instance Hashable DisableTopicRule where
 
-instance NFData DisableTopicRule
+instance NFData DisableTopicRule where
 
 instance ToHeaders DisableTopicRule where
         toHeaders = const mempty
@@ -87,8 +90,9 @@ instance ToQuery DisableTopicRule where
 
 -- | /See:/ 'disableTopicRuleResponse' smart constructor.
 data DisableTopicRuleResponse =
-    DisableTopicRuleResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DisableTopicRuleResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableTopicRuleResponse' with the minimum fields required to make a request.
 --
@@ -96,4 +100,5 @@ disableTopicRuleResponse
     :: DisableTopicRuleResponse
 disableTopicRuleResponse = DisableTopicRuleResponse'
 
-instance NFData DisableTopicRuleResponse
+
+instance NFData DisableTopicRuleResponse where

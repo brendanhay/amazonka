@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateSigningCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes the status of the specified user signing certificate from active to disabled, or vice versa. This action can be used to disable an IAM user\'s signing certificate as part of a certificate rotation work flow.
+-- Changes the status of the specified user signing certificate from active to disabled, or vice versa. This action can be used to disable an IAM user's signing certificate as part of a certificate rotation work flow.
 --
--- If the 'UserName' field is not specified, the UserName is determined implicitly based on the AWS access key ID used to sign the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users.
+--
+-- If the @UserName@ field is not specified, the UserName is determined implicitly based on the AWS access key ID used to sign the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users.
+--
 module Network.AWS.IAM.UpdateSigningCertificate
     (
     -- * Creating a Request
@@ -36,53 +38,51 @@ module Network.AWS.IAM.UpdateSigningCertificate
     , UpdateSigningCertificateResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateSigningCertificate' smart constructor.
 data UpdateSigningCertificate = UpdateSigningCertificate'
-    { _uscUserName      :: !(Maybe Text)
-    , _uscCertificateId :: !Text
-    , _uscStatus        :: !StatusType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uscUserName      :: !(Maybe Text)
+  , _uscCertificateId :: !Text
+  , _uscStatus        :: !StatusType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSigningCertificate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uscUserName'
+-- * 'uscUserName' - The name of the IAM user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'uscCertificateId'
+-- * 'uscCertificateId' - The ID of the signing certificate you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 --
--- * 'uscStatus'
+-- * 'uscStatus' - The status you want to assign to the certificate. @Active@ means the certificate can be used for API calls to AWS, while @Inactive@ means the certificate cannot be used.
 updateSigningCertificate
     :: Text -- ^ 'uscCertificateId'
     -> StatusType -- ^ 'uscStatus'
     -> UpdateSigningCertificate
 updateSigningCertificate pCertificateId_ pStatus_ =
-    UpdateSigningCertificate'
-    { _uscUserName = Nothing
-    , _uscCertificateId = pCertificateId_
-    , _uscStatus = pStatus_
-    }
+  UpdateSigningCertificate'
+  { _uscUserName = Nothing
+  , _uscCertificateId = pCertificateId_
+  , _uscStatus = pStatus_
+  }
 
--- | The name of the IAM user the signing certificate belongs to.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+
+-- | The name of the IAM user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 uscUserName :: Lens' UpdateSigningCertificate (Maybe Text)
 uscUserName = lens _uscUserName (\ s a -> s{_uscUserName = a});
 
--- | The ID of the signing certificate you want to update.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
+-- | The ID of the signing certificate you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 uscCertificateId :: Lens' UpdateSigningCertificate Text
 uscCertificateId = lens _uscCertificateId (\ s a -> s{_uscCertificateId = a});
 
--- | The status you want to assign to the certificate. 'Active' means the certificate can be used for API calls to AWS, while 'Inactive' means the certificate cannot be used.
+-- | The status you want to assign to the certificate. @Active@ means the certificate can be used for API calls to AWS, while @Inactive@ means the certificate cannot be used.
 uscStatus :: Lens' UpdateSigningCertificate StatusType
 uscStatus = lens _uscStatus (\ s a -> s{_uscStatus = a});
 
@@ -93,9 +93,9 @@ instance AWSRequest UpdateSigningCertificate where
         response
           = receiveNull UpdateSigningCertificateResponse'
 
-instance Hashable UpdateSigningCertificate
+instance Hashable UpdateSigningCertificate where
 
-instance NFData UpdateSigningCertificate
+instance NFData UpdateSigningCertificate where
 
 instance ToHeaders UpdateSigningCertificate where
         toHeaders = const mempty
@@ -115,8 +115,9 @@ instance ToQuery UpdateSigningCertificate where
 
 -- | /See:/ 'updateSigningCertificateResponse' smart constructor.
 data UpdateSigningCertificateResponse =
-    UpdateSigningCertificateResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateSigningCertificateResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSigningCertificateResponse' with the minimum fields required to make a request.
 --
@@ -124,4 +125,6 @@ updateSigningCertificateResponse
     :: UpdateSigningCertificateResponse
 updateSigningCertificateResponse = UpdateSigningCertificateResponse'
 
+
 instance NFData UpdateSigningCertificateResponse
+         where

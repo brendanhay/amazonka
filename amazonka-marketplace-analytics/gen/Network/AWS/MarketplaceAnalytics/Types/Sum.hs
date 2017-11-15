@@ -9,36 +9,40 @@
 
 -- |
 -- Module      : Network.AWS.MarketplaceAnalytics.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.MarketplaceAnalytics.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data DataSetType
-    = CustomerProfileByGeography
-    | CustomerProfileByIndustry
-    | CustomerProfileByRevenue
-    | CustomerSubscriberAnnualSubscriptions
-    | CustomerSubscriberHourlyMonthlySubscriptions
-    | DailyBusinessCanceledProductSubscribers
-    | DailyBusinessFees
-    | DailyBusinessFreeTrialConversions
-    | DailyBusinessNewInstances
-    | DailyBusinessNewProductSubscribers
-    | DailyBusinessUsageByInstanceType
-    | DisbursedAmountByAgeOfDisbursedFunds
-    | DisbursedAmountByAgeOfUncollectedFunds
-    | DisbursedAmountByCustomerGeo
-    | DisbursedAmountByProduct
-    | DisbursedAmountByProductWithUncollectedFunds
-    | MonthlyRevenueAnnualSubscriptions
-    | MonthlyRevenueBillingAndRevenueData
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CustomerProfileByGeography
+  | CustomerProfileByIndustry
+  | CustomerProfileByRevenue
+  | CustomerSubscriberAnnualSubscriptions
+  | CustomerSubscriberHourlyMonthlySubscriptions
+  | DailyBusinessCanceledProductSubscribers
+  | DailyBusinessFees
+  | DailyBusinessFreeTrialConversions
+  | DailyBusinessNewInstances
+  | DailyBusinessNewProductSubscribers
+  | DailyBusinessUsageByInstanceType
+  | DisbursedAmountByAgeOfDisbursedFunds
+  | DisbursedAmountByAgeOfUncollectedFunds
+  | DisbursedAmountByCustomerGeo
+  | DisbursedAmountByInstanceHours
+  | DisbursedAmountByProduct
+  | DisbursedAmountByProductWithUncollectedFunds
+  | MonthlyRevenueAnnualSubscriptions
+  | MonthlyRevenueBillingAndRevenueData
+  | SalesCompensationBilledRevenue
+  | UsSalesAndUseTaxRecords
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DataSetType where
     parser = takeLowerText >>= \case
@@ -56,12 +60,15 @@ instance FromText DataSetType where
         "disbursed_amount_by_age_of_disbursed_funds" -> pure DisbursedAmountByAgeOfDisbursedFunds
         "disbursed_amount_by_age_of_uncollected_funds" -> pure DisbursedAmountByAgeOfUncollectedFunds
         "disbursed_amount_by_customer_geo" -> pure DisbursedAmountByCustomerGeo
+        "disbursed_amount_by_instance_hours" -> pure DisbursedAmountByInstanceHours
         "disbursed_amount_by_product" -> pure DisbursedAmountByProduct
         "disbursed_amount_by_product_with_uncollected_funds" -> pure DisbursedAmountByProductWithUncollectedFunds
         "monthly_revenue_annual_subscriptions" -> pure MonthlyRevenueAnnualSubscriptions
         "monthly_revenue_billing_and_revenue_data" -> pure MonthlyRevenueBillingAndRevenueData
+        "sales_compensation_billed_revenue" -> pure SalesCompensationBilledRevenue
+        "us_sales_and_use_tax_records" -> pure UsSalesAndUseTaxRecords
         e -> fromTextError $ "Failure parsing DataSetType from value: '" <> e
-           <> "'. Accepted values: customer_profile_by_geography, customer_profile_by_industry, customer_profile_by_revenue, customer_subscriber_annual_subscriptions, customer_subscriber_hourly_monthly_subscriptions, daily_business_canceled_product_subscribers, daily_business_fees, daily_business_free_trial_conversions, daily_business_new_instances, daily_business_new_product_subscribers, daily_business_usage_by_instance_type, disbursed_amount_by_age_of_disbursed_funds, disbursed_amount_by_age_of_uncollected_funds, disbursed_amount_by_customer_geo, disbursed_amount_by_product, disbursed_amount_by_product_with_uncollected_funds, monthly_revenue_annual_subscriptions, monthly_revenue_billing_and_revenue_data"
+           <> "'. Accepted values: customer_profile_by_geography, customer_profile_by_industry, customer_profile_by_revenue, customer_subscriber_annual_subscriptions, customer_subscriber_hourly_monthly_subscriptions, daily_business_canceled_product_subscribers, daily_business_fees, daily_business_free_trial_conversions, daily_business_new_instances, daily_business_new_product_subscribers, daily_business_usage_by_instance_type, disbursed_amount_by_age_of_disbursed_funds, disbursed_amount_by_age_of_uncollected_funds, disbursed_amount_by_customer_geo, disbursed_amount_by_instance_hours, disbursed_amount_by_product, disbursed_amount_by_product_with_uncollected_funds, monthly_revenue_annual_subscriptions, monthly_revenue_billing_and_revenue_data, sales_compensation_billed_revenue, us_sales_and_use_tax_records"
 
 instance ToText DataSetType where
     toText = \case
@@ -79,10 +86,13 @@ instance ToText DataSetType where
         DisbursedAmountByAgeOfDisbursedFunds -> "disbursed_amount_by_age_of_disbursed_funds"
         DisbursedAmountByAgeOfUncollectedFunds -> "disbursed_amount_by_age_of_uncollected_funds"
         DisbursedAmountByCustomerGeo -> "disbursed_amount_by_customer_geo"
+        DisbursedAmountByInstanceHours -> "disbursed_amount_by_instance_hours"
         DisbursedAmountByProduct -> "disbursed_amount_by_product"
         DisbursedAmountByProductWithUncollectedFunds -> "disbursed_amount_by_product_with_uncollected_funds"
         MonthlyRevenueAnnualSubscriptions -> "monthly_revenue_annual_subscriptions"
         MonthlyRevenueBillingAndRevenueData -> "monthly_revenue_billing_and_revenue_data"
+        SalesCompensationBilledRevenue -> "sales_compensation_billed_revenue"
+        UsSalesAndUseTaxRecords -> "us_sales_and_use_tax_records"
 
 instance Hashable     DataSetType
 instance NFData       DataSetType
@@ -94,9 +104,10 @@ instance ToJSON DataSetType where
     toJSON = toJSONText
 
 data SupportDataSetType
-    = CustomerSupportContactsData
-    | TestCustomerSupportContactsData
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CustomerSupportContactsData
+  | TestCustomerSupportContactsData
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SupportDataSetType where
     parser = takeLowerText >>= \case

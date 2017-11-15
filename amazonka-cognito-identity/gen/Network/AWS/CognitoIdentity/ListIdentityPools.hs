@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.ListIdentityPools
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all of the Cognito identity pools registered for your account.
 --
+--
 -- You must use AWS Developer credentials to call this API.
+--
 module Network.AWS.CognitoIdentity.ListIdentityPools
     (
     -- * Creating a Request
@@ -39,36 +41,38 @@ module Network.AWS.CognitoIdentity.ListIdentityPools
     , liprsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the ListIdentityPools action.
 --
+--
+--
 -- /See:/ 'listIdentityPools' smart constructor.
 data ListIdentityPools = ListIdentityPools'
-    { _lipNextToken  :: !(Maybe Text)
-    , _lipMaxResults :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lipNextToken  :: !(Maybe Text)
+  , _lipMaxResults :: !Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListIdentityPools' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lipNextToken'
+-- * 'lipNextToken' - A pagination token.
 --
--- * 'lipMaxResults'
+-- * 'lipMaxResults' - The maximum number of identities to return.
 listIdentityPools
     :: Natural -- ^ 'lipMaxResults'
     -> ListIdentityPools
 listIdentityPools pMaxResults_ =
-    ListIdentityPools'
-    { _lipNextToken = Nothing
-    , _lipMaxResults = _Nat # pMaxResults_
-    }
+  ListIdentityPools'
+  {_lipNextToken = Nothing, _lipMaxResults = _Nat # pMaxResults_}
+
 
 -- | A pagination token.
 lipNextToken :: Lens' ListIdentityPools (Maybe Text)
@@ -89,9 +93,9 @@ instance AWSRequest ListIdentityPools where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListIdentityPools
+instance Hashable ListIdentityPools where
 
-instance NFData ListIdentityPools
+instance NFData ListIdentityPools where
 
 instance ToHeaders ListIdentityPools where
         toHeaders
@@ -118,31 +122,35 @@ instance ToQuery ListIdentityPools where
 
 -- | The result of a successful ListIdentityPools action.
 --
+--
+--
 -- /See:/ 'listIdentityPoolsResponse' smart constructor.
 data ListIdentityPoolsResponse = ListIdentityPoolsResponse'
-    { _liprsIdentityPools  :: !(Maybe [IdentityPoolShortDescription])
-    , _liprsNextToken      :: !(Maybe Text)
-    , _liprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _liprsIdentityPools  :: !(Maybe [IdentityPoolShortDescription])
+  , _liprsNextToken      :: !(Maybe Text)
+  , _liprsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListIdentityPoolsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'liprsIdentityPools'
+-- * 'liprsIdentityPools' - The identity pools returned by the ListIdentityPools action.
 --
--- * 'liprsNextToken'
+-- * 'liprsNextToken' - A pagination token.
 --
--- * 'liprsResponseStatus'
+-- * 'liprsResponseStatus' - -- | The response status code.
 listIdentityPoolsResponse
     :: Int -- ^ 'liprsResponseStatus'
     -> ListIdentityPoolsResponse
 listIdentityPoolsResponse pResponseStatus_ =
-    ListIdentityPoolsResponse'
-    { _liprsIdentityPools = Nothing
-    , _liprsNextToken = Nothing
-    , _liprsResponseStatus = pResponseStatus_
-    }
+  ListIdentityPoolsResponse'
+  { _liprsIdentityPools = Nothing
+  , _liprsNextToken = Nothing
+  , _liprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The identity pools returned by the ListIdentityPools action.
 liprsIdentityPools :: Lens' ListIdentityPoolsResponse [IdentityPoolShortDescription]
@@ -152,8 +160,8 @@ liprsIdentityPools = lens _liprsIdentityPools (\ s a -> s{_liprsIdentityPools = 
 liprsNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
 liprsNextToken = lens _liprsNextToken (\ s a -> s{_liprsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 liprsResponseStatus :: Lens' ListIdentityPoolsResponse Int
 liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus = a});
 
-instance NFData ListIdentityPoolsResponse
+instance NFData ListIdentityPoolsResponse where

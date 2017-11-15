@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeDeliveryChannelStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the current status of the specified delivery channel. If a delivery channel is not specified, this action returns the current status of all delivery channels associated with the account.
 --
--- Currently, you can specify only one delivery channel per account.
+--
 module Network.AWS.Config.DescribeDeliveryChannelStatus
     (
     -- * Creating a Request
@@ -37,31 +37,33 @@ module Network.AWS.Config.DescribeDeliveryChannelStatus
     , ddcsrsResponseStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | The input for the < DeliveryChannelStatus> action.
+-- | The input for the 'DeliveryChannelStatus' action.
+--
+--
 --
 -- /See:/ 'describeDeliveryChannelStatus' smart constructor.
 newtype DescribeDeliveryChannelStatus = DescribeDeliveryChannelStatus'
-    { _ddcsDeliveryChannelNames :: Maybe [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddcsDeliveryChannelNames :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDeliveryChannelStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcsDeliveryChannelNames'
+-- * 'ddcsDeliveryChannelNames' - A list of delivery channel names.
 describeDeliveryChannelStatus
     :: DescribeDeliveryChannelStatus
 describeDeliveryChannelStatus =
-    DescribeDeliveryChannelStatus'
-    { _ddcsDeliveryChannelNames = Nothing
-    }
+  DescribeDeliveryChannelStatus' {_ddcsDeliveryChannelNames = Nothing}
+
 
 -- | A list of delivery channel names.
 ddcsDeliveryChannelNames :: Lens' DescribeDeliveryChannelStatus [Text]
@@ -79,9 +81,9 @@ instance AWSRequest DescribeDeliveryChannelStatus
                    (x .?> "DeliveryChannelsStatus" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeDeliveryChannelStatus
+instance Hashable DescribeDeliveryChannelStatus where
 
-instance NFData DescribeDeliveryChannelStatus
+instance NFData DescribeDeliveryChannelStatus where
 
 instance ToHeaders DescribeDeliveryChannelStatus
          where
@@ -107,36 +109,41 @@ instance ToPath DescribeDeliveryChannelStatus where
 instance ToQuery DescribeDeliveryChannelStatus where
         toQuery = const mempty
 
--- | The output for the < DescribeDeliveryChannelStatus> action.
+-- | The output for the 'DescribeDeliveryChannelStatus' action.
+--
+--
 --
 -- /See:/ 'describeDeliveryChannelStatusResponse' smart constructor.
 data DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'
-    { _ddcsrsDeliveryChannelsStatus :: !(Maybe [DeliveryChannelStatus])
-    , _ddcsrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddcsrsDeliveryChannelsStatus :: !(Maybe [DeliveryChannelStatus])
+  , _ddcsrsResponseStatus         :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDeliveryChannelStatusResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcsrsDeliveryChannelsStatus'
+-- * 'ddcsrsDeliveryChannelsStatus' - A list that contains the status of a specified delivery channel.
 --
--- * 'ddcsrsResponseStatus'
+-- * 'ddcsrsResponseStatus' - -- | The response status code.
 describeDeliveryChannelStatusResponse
     :: Int -- ^ 'ddcsrsResponseStatus'
     -> DescribeDeliveryChannelStatusResponse
 describeDeliveryChannelStatusResponse pResponseStatus_ =
-    DescribeDeliveryChannelStatusResponse'
-    { _ddcsrsDeliveryChannelsStatus = Nothing
-    , _ddcsrsResponseStatus = pResponseStatus_
-    }
+  DescribeDeliveryChannelStatusResponse'
+  { _ddcsrsDeliveryChannelsStatus = Nothing
+  , _ddcsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list that contains the status of a specified delivery channel.
 ddcsrsDeliveryChannelsStatus :: Lens' DescribeDeliveryChannelStatusResponse [DeliveryChannelStatus]
 ddcsrsDeliveryChannelsStatus = lens _ddcsrsDeliveryChannelsStatus (\ s a -> s{_ddcsrsDeliveryChannelsStatus = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ddcsrsResponseStatus :: Lens' DescribeDeliveryChannelStatusResponse Int
 ddcsrsResponseStatus = lens _ddcsrsResponseStatus (\ s a -> s{_ddcsrsResponseStatus = a});
 
 instance NFData DescribeDeliveryChannelStatusResponse
+         where

@@ -1,3 +1,10 @@
 {
-    "libraryName": "amazonka-cloudformation"
+    "libraryName": "amazonka-cloudformation",
+    "typeOverrides": {
+        "DescribeChangeSetOutput": {
+            "requiredFields": [
+                "Status"
+            ]
+        }
+    }
 }

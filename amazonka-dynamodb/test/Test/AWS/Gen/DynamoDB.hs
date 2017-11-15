@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.DynamoDB
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.DynamoDB where
 
 import Data.Proxy
+import Network.AWS.DynamoDB
+import Test.AWS.DynamoDB.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.DynamoDB
-import Test.AWS.DynamoDB.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -46,6 +46,9 @@ import Test.AWS.DynamoDB.Internal
 --         , requestBatchGetItem $
 --             batchGetItem
 --
+--         , requestListTagsOfResource $
+--             listTagsOfResource
+--
 --         , requestDescribeTable $
 --             describeTable
 --
@@ -70,6 +73,18 @@ import Test.AWS.DynamoDB.Internal
 --         , requestCreateTable $
 --             createTable
 --
+--         , requestDescribeTimeToLive $
+--             describeTimeToLive
+--
+--         , requestTagResource $
+--             tagResource
+--
+--         , requestUntagResource $
+--             untagResource
+--
+--         , requestUpdateTimeToLive $
+--             updateTimeToLive
+--
 --           ]
 
 --     , testGroup "response"
@@ -90,6 +105,9 @@ import Test.AWS.DynamoDB.Internal
 --
 --         , responseBatchGetItem $
 --             batchGetItemResponse
+--
+--         , responseListTagsOfResource $
+--             listTagsOfResourceResponse
 --
 --         , responseDescribeTable $
 --             describeTableResponse
@@ -114,6 +132,18 @@ import Test.AWS.DynamoDB.Internal
 --
 --         , responseCreateTable $
 --             createTableResponse
+--
+--         , responseDescribeTimeToLive $
+--             describeTimeToLiveResponse
+--
+--         , responseTagResource $
+--             tagResourceResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
+--
+--         , responseUpdateTimeToLive $
+--             updateTimeToLiveResponse
 --
 --           ]
 --     ]
@@ -149,6 +179,11 @@ requestBatchGetItem :: BatchGetItem -> TestTree
 requestBatchGetItem = req
     "BatchGetItem"
     "fixture/BatchGetItem.yaml"
+
+requestListTagsOfResource :: ListTagsOfResource -> TestTree
+requestListTagsOfResource = req
+    "ListTagsOfResource"
+    "fixture/ListTagsOfResource.yaml"
 
 requestDescribeTable :: DescribeTable -> TestTree
 requestDescribeTable = req
@@ -189,6 +224,26 @@ requestCreateTable :: CreateTable -> TestTree
 requestCreateTable = req
     "CreateTable"
     "fixture/CreateTable.yaml"
+
+requestDescribeTimeToLive :: DescribeTimeToLive -> TestTree
+requestDescribeTimeToLive = req
+    "DescribeTimeToLive"
+    "fixture/DescribeTimeToLive.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateTimeToLive :: UpdateTimeToLive -> TestTree
+requestUpdateTimeToLive = req
+    "UpdateTimeToLive"
+    "fixture/UpdateTimeToLive.yaml"
 
 -- Responses
 
@@ -233,6 +288,13 @@ responseBatchGetItem = res
     "fixture/BatchGetItemResponse.proto"
     dynamoDB
     (Proxy :: Proxy BatchGetItem)
+
+responseListTagsOfResource :: ListTagsOfResourceResponse -> TestTree
+responseListTagsOfResource = res
+    "ListTagsOfResourceResponse"
+    "fixture/ListTagsOfResourceResponse.proto"
+    dynamoDB
+    (Proxy :: Proxy ListTagsOfResource)
 
 responseDescribeTable :: DescribeTableResponse -> TestTree
 responseDescribeTable = res
@@ -289,3 +351,31 @@ responseCreateTable = res
     "fixture/CreateTableResponse.proto"
     dynamoDB
     (Proxy :: Proxy CreateTable)
+
+responseDescribeTimeToLive :: DescribeTimeToLiveResponse -> TestTree
+responseDescribeTimeToLive = res
+    "DescribeTimeToLiveResponse"
+    "fixture/DescribeTimeToLiveResponse.proto"
+    dynamoDB
+    (Proxy :: Proxy DescribeTimeToLive)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    dynamoDB
+    (Proxy :: Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    dynamoDB
+    (Proxy :: Proxy UntagResource)
+
+responseUpdateTimeToLive :: UpdateTimeToLiveResponse -> TestTree
+responseUpdateTimeToLive = res
+    "UpdateTimeToLiveResponse"
+    "fixture/UpdateTimeToLiveResponse.proto"
+    dynamoDB
+    (Proxy :: Proxy UpdateTimeToLive)

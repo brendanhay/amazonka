@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketRequestPayment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person requesting the download will be charged for the download. Documentation on requester pays buckets can be found at http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/RequesterPaysBuckets.html
+-- Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person requesting the download will be charged for the download. Documentation on requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html
 module Network.AWS.S3.PutBucketRequestPayment
     (
     -- * Creating a Request
@@ -34,39 +34,41 @@ module Network.AWS.S3.PutBucketRequestPayment
     , PutBucketRequestPaymentResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketRequestPayment' smart constructor.
 data PutBucketRequestPayment = PutBucketRequestPayment'
-    { _pbrpContentMD5                  :: !(Maybe Text)
-    , _pbrpBucket                      :: !BucketName
-    , _pbrpRequestPaymentConfiguration :: !RequestPaymentConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pbrpContentMD5                  :: !(Maybe Text)
+  , _pbrpBucket                      :: !BucketName
+  , _pbrpRequestPaymentConfiguration :: !RequestPaymentConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketRequestPayment' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbrpContentMD5'
+-- * 'pbrpContentMD5' - Undocumented member.
 --
--- * 'pbrpBucket'
+-- * 'pbrpBucket' - Undocumented member.
 --
--- * 'pbrpRequestPaymentConfiguration'
+-- * 'pbrpRequestPaymentConfiguration' - Undocumented member.
 putBucketRequestPayment
     :: BucketName -- ^ 'pbrpBucket'
     -> RequestPaymentConfiguration -- ^ 'pbrpRequestPaymentConfiguration'
     -> PutBucketRequestPayment
 putBucketRequestPayment pBucket_ pRequestPaymentConfiguration_ =
-    PutBucketRequestPayment'
-    { _pbrpContentMD5 = Nothing
-    , _pbrpBucket = pBucket_
-    , _pbrpRequestPaymentConfiguration = pRequestPaymentConfiguration_
-    }
+  PutBucketRequestPayment'
+  { _pbrpContentMD5 = Nothing
+  , _pbrpBucket = pBucket_
+  , _pbrpRequestPaymentConfiguration = pRequestPaymentConfiguration_
+  }
+
 
 -- | Undocumented member.
 pbrpContentMD5 :: Lens' PutBucketRequestPayment (Maybe Text)
@@ -87,9 +89,9 @@ instance AWSRequest PutBucketRequestPayment where
         response
           = receiveNull PutBucketRequestPaymentResponse'
 
-instance Hashable PutBucketRequestPayment
+instance Hashable PutBucketRequestPayment where
 
-instance NFData PutBucketRequestPayment
+instance NFData PutBucketRequestPayment where
 
 instance ToElement PutBucketRequestPayment where
         toElement
@@ -111,8 +113,9 @@ instance ToQuery PutBucketRequestPayment where
 
 -- | /See:/ 'putBucketRequestPaymentResponse' smart constructor.
 data PutBucketRequestPaymentResponse =
-    PutBucketRequestPaymentResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutBucketRequestPaymentResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketRequestPaymentResponse' with the minimum fields required to make a request.
 --
@@ -120,4 +123,5 @@ putBucketRequestPaymentResponse
     :: PutBucketRequestPaymentResponse
 putBucketRequestPaymentResponse = PutBucketRequestPaymentResponse'
 
-instance NFData PutBucketRequestPaymentResponse
+
+instance NFData PutBucketRequestPaymentResponse where

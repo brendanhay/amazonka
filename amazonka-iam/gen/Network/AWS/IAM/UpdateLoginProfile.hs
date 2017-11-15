@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateLoginProfile
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes the password for the specified IAM user.
 --
--- IAM users can change their own passwords by calling < ChangePassword>. For more information about modifying passwords, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords> in the /IAM User Guide/.
+--
+-- IAM users can change their own passwords by calling 'ChangePassword' . For more information about modifying passwords, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.UpdateLoginProfile
     (
     -- * Creating a Request
@@ -36,42 +38,42 @@ module Network.AWS.IAM.UpdateLoginProfile
     , UpdateLoginProfileResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateLoginProfile' smart constructor.
 data UpdateLoginProfile = UpdateLoginProfile'
-    { _ulpPassword              :: !(Maybe (Sensitive Text))
-    , _ulpPasswordResetRequired :: !(Maybe Bool)
-    , _ulpUserName              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ulpPassword              :: !(Maybe (Sensitive Text))
+  , _ulpPasswordResetRequired :: !(Maybe Bool)
+  , _ulpUserName              :: !Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateLoginProfile' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ulpPassword'
+-- * 'ulpPassword' - The new password for the specified IAM user. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). However, the format can be further restricted by the account administrator by setting a password policy on the AWS account. For more information, see 'UpdateAccountPasswordPolicy' .
 --
--- * 'ulpPasswordResetRequired'
+-- * 'ulpPasswordResetRequired' - Allows this new password to be used only once by requiring the specified IAM user to set a new password on next sign-in.
 --
--- * 'ulpUserName'
+-- * 'ulpUserName' - The name of the user whose password you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 updateLoginProfile
     :: Text -- ^ 'ulpUserName'
     -> UpdateLoginProfile
 updateLoginProfile pUserName_ =
-    UpdateLoginProfile'
-    { _ulpPassword = Nothing
-    , _ulpPasswordResetRequired = Nothing
-    , _ulpUserName = pUserName_
-    }
+  UpdateLoginProfile'
+  { _ulpPassword = Nothing
+  , _ulpPasswordResetRequired = Nothing
+  , _ulpUserName = pUserName_
+  }
 
--- | The new password for the specified IAM user.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\\u0020) through end of the ASCII character range (\\u00FF). It also includes the special characters tab (\\u0009), line feed (\\u000A), and carriage return (\\u000D). However, the format can be further restricted by the account administrator by setting a password policy on the AWS account. For more information, see < UpdateAccountPasswordPolicy>.
+
+-- | The new password for the specified IAM user. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). However, the format can be further restricted by the account administrator by setting a password policy on the AWS account. For more information, see 'UpdateAccountPasswordPolicy' .
 ulpPassword :: Lens' UpdateLoginProfile (Maybe Text)
 ulpPassword = lens _ulpPassword (\ s a -> s{_ulpPassword = a}) . mapping _Sensitive;
 
@@ -79,9 +81,7 @@ ulpPassword = lens _ulpPassword (\ s a -> s{_ulpPassword = a}) . mapping _Sensit
 ulpPasswordResetRequired :: Lens' UpdateLoginProfile (Maybe Bool)
 ulpPasswordResetRequired = lens _ulpPasswordResetRequired (\ s a -> s{_ulpPasswordResetRequired = a});
 
--- | The name of the user whose password you want to update.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the user whose password you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 ulpUserName :: Lens' UpdateLoginProfile Text
 ulpUserName = lens _ulpUserName (\ s a -> s{_ulpUserName = a});
 
@@ -91,9 +91,9 @@ instance AWSRequest UpdateLoginProfile where
         request = postQuery iam
         response = receiveNull UpdateLoginProfileResponse'
 
-instance Hashable UpdateLoginProfile
+instance Hashable UpdateLoginProfile where
 
-instance NFData UpdateLoginProfile
+instance NFData UpdateLoginProfile where
 
 instance ToHeaders UpdateLoginProfile where
         toHeaders = const mempty
@@ -112,8 +112,9 @@ instance ToQuery UpdateLoginProfile where
 
 -- | /See:/ 'updateLoginProfileResponse' smart constructor.
 data UpdateLoginProfileResponse =
-    UpdateLoginProfileResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateLoginProfileResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateLoginProfileResponse' with the minimum fields required to make a request.
 --
@@ -121,4 +122,5 @@ updateLoginProfileResponse
     :: UpdateLoginProfileResponse
 updateLoginProfileResponse = UpdateLoginProfileResponse'
 
-instance NFData UpdateLoginProfileResponse
+
+instance NFData UpdateLoginProfileResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.ListObjectVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,55 +55,57 @@ module Network.AWS.S3.ListObjectVersions
     , lovrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'listObjectVersions' smart constructor.
 data ListObjectVersions = ListObjectVersions'
-    { _lovKeyMarker       :: !(Maybe Text)
-    , _lovPrefix          :: !(Maybe Text)
-    , _lovEncodingType    :: !(Maybe EncodingType)
-    , _lovVersionIdMarker :: !(Maybe Text)
-    , _lovMaxKeys         :: !(Maybe Int)
-    , _lovDelimiter       :: !(Maybe Delimiter)
-    , _lovBucket          :: !BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lovKeyMarker       :: !(Maybe Text)
+  , _lovPrefix          :: !(Maybe Text)
+  , _lovEncodingType    :: !(Maybe EncodingType)
+  , _lovVersionIdMarker :: !(Maybe Text)
+  , _lovMaxKeys         :: !(Maybe Int)
+  , _lovDelimiter       :: !(Maybe Delimiter)
+  , _lovBucket          :: !BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListObjectVersions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lovKeyMarker'
+-- * 'lovKeyMarker' - Specifies the key to start with when listing objects in a bucket.
 --
--- * 'lovPrefix'
+-- * 'lovPrefix' - Limits the response to keys that begin with the specified prefix.
 --
--- * 'lovEncodingType'
+-- * 'lovEncodingType' - Undocumented member.
 --
--- * 'lovVersionIdMarker'
+-- * 'lovVersionIdMarker' - Specifies the object version you want to start listing from.
 --
--- * 'lovMaxKeys'
+-- * 'lovMaxKeys' - Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
 --
--- * 'lovDelimiter'
+-- * 'lovDelimiter' - A delimiter is a character you use to group keys.
 --
--- * 'lovBucket'
+-- * 'lovBucket' - Undocumented member.
 listObjectVersions
     :: BucketName -- ^ 'lovBucket'
     -> ListObjectVersions
 listObjectVersions pBucket_ =
-    ListObjectVersions'
-    { _lovKeyMarker = Nothing
-    , _lovPrefix = Nothing
-    , _lovEncodingType = Nothing
-    , _lovVersionIdMarker = Nothing
-    , _lovMaxKeys = Nothing
-    , _lovDelimiter = Nothing
-    , _lovBucket = pBucket_
-    }
+  ListObjectVersions'
+  { _lovKeyMarker = Nothing
+  , _lovPrefix = Nothing
+  , _lovEncodingType = Nothing
+  , _lovVersionIdMarker = Nothing
+  , _lovMaxKeys = Nothing
+  , _lovDelimiter = Nothing
+  , _lovBucket = pBucket_
+  }
+
 
 -- | Specifies the key to start with when listing objects in a bucket.
 lovKeyMarker :: Lens' ListObjectVersions (Maybe Text)
@@ -166,9 +168,9 @@ instance AWSRequest ListObjectVersions where
                      <*> (x .@? "Delimiter")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListObjectVersions
+instance Hashable ListObjectVersions where
 
-instance NFData ListObjectVersions
+instance NFData ListObjectVersions where
 
 instance ToHeaders ListObjectVersions where
         toHeaders = const mempty
@@ -189,73 +191,75 @@ instance ToQuery ListObjectVersions where
 
 -- | /See:/ 'listObjectVersionsResponse' smart constructor.
 data ListObjectVersionsResponse = ListObjectVersionsResponse'
-    { _lovrsNextVersionIdMarker :: !(Maybe Text)
-    , _lovrsKeyMarker           :: !(Maybe Text)
-    , _lovrsDeleteMarkers       :: !(Maybe [DeleteMarkerEntry])
-    , _lovrsPrefix              :: !(Maybe Text)
-    , _lovrsCommonPrefixes      :: !(Maybe [CommonPrefix])
-    , _lovrsEncodingType        :: !(Maybe EncodingType)
-    , _lovrsVersions            :: !(Maybe [ObjectVersion])
-    , _lovrsName                :: !(Maybe BucketName)
-    , _lovrsNextKeyMarker       :: !(Maybe Text)
-    , _lovrsVersionIdMarker     :: !(Maybe Text)
-    , _lovrsMaxKeys             :: !(Maybe Int)
-    , _lovrsIsTruncated         :: !(Maybe Bool)
-    , _lovrsDelimiter           :: !(Maybe Delimiter)
-    , _lovrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lovrsNextVersionIdMarker :: !(Maybe Text)
+  , _lovrsKeyMarker           :: !(Maybe Text)
+  , _lovrsDeleteMarkers       :: !(Maybe [DeleteMarkerEntry])
+  , _lovrsPrefix              :: !(Maybe Text)
+  , _lovrsCommonPrefixes      :: !(Maybe [CommonPrefix])
+  , _lovrsEncodingType        :: !(Maybe EncodingType)
+  , _lovrsVersions            :: !(Maybe [ObjectVersion])
+  , _lovrsName                :: !(Maybe BucketName)
+  , _lovrsNextKeyMarker       :: !(Maybe Text)
+  , _lovrsVersionIdMarker     :: !(Maybe Text)
+  , _lovrsMaxKeys             :: !(Maybe Int)
+  , _lovrsIsTruncated         :: !(Maybe Bool)
+  , _lovrsDelimiter           :: !(Maybe Delimiter)
+  , _lovrsResponseStatus      :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListObjectVersionsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lovrsNextVersionIdMarker'
+-- * 'lovrsNextVersionIdMarker' - Use this value for the next version id marker parameter in a subsequent request.
 --
--- * 'lovrsKeyMarker'
+-- * 'lovrsKeyMarker' - Marks the last Key returned in a truncated response.
 --
--- * 'lovrsDeleteMarkers'
+-- * 'lovrsDeleteMarkers' - Undocumented member.
 --
--- * 'lovrsPrefix'
+-- * 'lovrsPrefix' - Undocumented member.
 --
--- * 'lovrsCommonPrefixes'
+-- * 'lovrsCommonPrefixes' - Undocumented member.
 --
--- * 'lovrsEncodingType'
+-- * 'lovrsEncodingType' - Encoding type used by Amazon S3 to encode object keys in the response.
 --
--- * 'lovrsVersions'
+-- * 'lovrsVersions' - Undocumented member.
 --
--- * 'lovrsName'
+-- * 'lovrsName' - Undocumented member.
 --
--- * 'lovrsNextKeyMarker'
+-- * 'lovrsNextKeyMarker' - Use this value for the key marker request parameter in a subsequent request.
 --
--- * 'lovrsVersionIdMarker'
+-- * 'lovrsVersionIdMarker' - Undocumented member.
 --
--- * 'lovrsMaxKeys'
+-- * 'lovrsMaxKeys' - Undocumented member.
 --
--- * 'lovrsIsTruncated'
+-- * 'lovrsIsTruncated' - A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request using the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in another request to return the rest of the results.
 --
--- * 'lovrsDelimiter'
+-- * 'lovrsDelimiter' - Undocumented member.
 --
--- * 'lovrsResponseStatus'
+-- * 'lovrsResponseStatus' - -- | The response status code.
 listObjectVersionsResponse
     :: Int -- ^ 'lovrsResponseStatus'
     -> ListObjectVersionsResponse
 listObjectVersionsResponse pResponseStatus_ =
-    ListObjectVersionsResponse'
-    { _lovrsNextVersionIdMarker = Nothing
-    , _lovrsKeyMarker = Nothing
-    , _lovrsDeleteMarkers = Nothing
-    , _lovrsPrefix = Nothing
-    , _lovrsCommonPrefixes = Nothing
-    , _lovrsEncodingType = Nothing
-    , _lovrsVersions = Nothing
-    , _lovrsName = Nothing
-    , _lovrsNextKeyMarker = Nothing
-    , _lovrsVersionIdMarker = Nothing
-    , _lovrsMaxKeys = Nothing
-    , _lovrsIsTruncated = Nothing
-    , _lovrsDelimiter = Nothing
-    , _lovrsResponseStatus = pResponseStatus_
-    }
+  ListObjectVersionsResponse'
+  { _lovrsNextVersionIdMarker = Nothing
+  , _lovrsKeyMarker = Nothing
+  , _lovrsDeleteMarkers = Nothing
+  , _lovrsPrefix = Nothing
+  , _lovrsCommonPrefixes = Nothing
+  , _lovrsEncodingType = Nothing
+  , _lovrsVersions = Nothing
+  , _lovrsName = Nothing
+  , _lovrsNextKeyMarker = Nothing
+  , _lovrsVersionIdMarker = Nothing
+  , _lovrsMaxKeys = Nothing
+  , _lovrsIsTruncated = Nothing
+  , _lovrsDelimiter = Nothing
+  , _lovrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Use this value for the next version id marker parameter in a subsequent request.
 lovrsNextVersionIdMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
@@ -309,8 +313,8 @@ lovrsIsTruncated = lens _lovrsIsTruncated (\ s a -> s{_lovrsIsTruncated = a});
 lovrsDelimiter :: Lens' ListObjectVersionsResponse (Maybe Delimiter)
 lovrsDelimiter = lens _lovrsDelimiter (\ s a -> s{_lovrsDelimiter = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lovrsResponseStatus :: Lens' ListObjectVersionsResponse Int
 lovrsResponseStatus = lens _lovrsResponseStatus (\ s a -> s{_lovrsResponseStatus = a});
 
-instance NFData ListObjectVersionsResponse
+instance NFData ListObjectVersionsResponse where

@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -19,6 +19,7 @@ module Network.AWS.CloudFront.Types
     , _TooManyOriginCustomHeaders
     , _InvalidTagging
     , _InvalidErrorCode
+    , _InvalidOriginReadTimeout
     , _TooManyCacheBehaviors
     , _TooManyCloudFrontOriginAccessIdentities
     , _InvalidOriginAccessIdentity
@@ -26,6 +27,7 @@ module Network.AWS.CloudFront.Types
     , _NoSuchStreamingDistribution
     , _InconsistentQuantities
     , _InvalidArgument
+    , _InvalidOriginKeepaliveTimeout
     , _TooManyInvalidationsInProgress
     , _InvalidWebACLId
     , _TooManyQueryStringParameters
@@ -35,6 +37,7 @@ module Network.AWS.CloudFront.Types
     , _TooManyStreamingDistributions
     , _BatchTooLarge
     , _TooManyCookieNamesInWhiteList
+    , _InvalidLambdaFunctionAssociation
     , _InvalidForwardCookies
     , _TooManyTrustedSigners
     , _InvalidOrigin
@@ -45,6 +48,7 @@ module Network.AWS.CloudFront.Types
     , _TooManyHeadersInForwardedValues
     , _NoSuchResource
     , _TooManyStreamingDistributionCNAMEs
+    , _ResourceInUse
     , _InvalidRequiredProtocol
     , _TooManyDistributions
     , _TooManyCertificates
@@ -59,6 +63,7 @@ module Network.AWS.CloudFront.Types
     , _CNAMEAlreadyExists
     , _TrustedSignerDoesNotExist
     , _InvalidProtocolSettings
+    , _TooManyLambdaFunctionAssociations
     , _CloudFrontOriginAccessIdentityAlreadyExists
     , _TooManyOrigins
     , _InvalidRelativePath
@@ -68,11 +73,15 @@ module Network.AWS.CloudFront.Types
     , _InvalidViewerCertificate
     , _NoSuchDistribution
     , _InvalidDefaultRootObject
+    , _TooManyDistributionsWithLambdaAssociations
     , _InvalidGeoRestrictionParameter
     , _InvalidLocationCode
 
     -- * CertificateSource
     , CertificateSource (..)
+
+    -- * EventType
+    , EventType (..)
 
     -- * GeoRestrictionType
     , GeoRestrictionType (..)
@@ -128,6 +137,7 @@ module Network.AWS.CloudFront.Types
     , CacheBehavior
     , cacheBehavior
     , cbAllowedMethods
+    , cbLambdaFunctionAssociations
     , cbMaxTTL
     , cbCompress
     , cbSmoothStreaming
@@ -216,6 +226,8 @@ module Network.AWS.CloudFront.Types
     -- * CustomOriginConfig
     , CustomOriginConfig
     , customOriginConfig
+    , cocOriginKeepaliveTimeout
+    , cocOriginReadTimeout
     , cocOriginSSLProtocols
     , cocHTTPPort
     , cocHTTPSPort
@@ -225,6 +237,7 @@ module Network.AWS.CloudFront.Types
     , DefaultCacheBehavior
     , defaultCacheBehavior
     , dcbAllowedMethods
+    , dcbLambdaFunctionAssociations
     , dcbMaxTTL
     , dcbCompress
     , dcbSmoothStreaming
@@ -260,6 +273,7 @@ module Network.AWS.CloudFront.Types
     , dcRestrictions
     , dcLogging
     , dcCacheBehaviors
+    , dcIsIPV6Enabled
     , dcCallerReference
     , dcOrigins
     , dcDefaultCacheBehavior
@@ -302,6 +316,7 @@ module Network.AWS.CloudFront.Types
     , dsRestrictions
     , dsWebACLId
     , dsHTTPVersion
+    , dsIsIPV6Enabled
 
     -- * ForwardedValues
     , ForwardedValues
@@ -360,6 +375,18 @@ module Network.AWS.CloudFront.Types
     , keyPairIds
     , kpiItems
     , kpiQuantity
+
+    -- * LambdaFunctionAssociation
+    , LambdaFunctionAssociation
+    , lambdaFunctionAssociation
+    , lfaLambdaFunctionARN
+    , lfaEventType
+
+    -- * LambdaFunctionAssociations
+    , LambdaFunctionAssociations
+    , lambdaFunctionAssociations
+    , lfaItems
+    , lfaQuantity
 
     -- * LoggingConfig
     , LoggingConfig
@@ -527,38 +554,40 @@ module Network.AWS.CloudFront.Types
     , vcCloudFrontDefaultCertificate
     ) where
 
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.CloudFront.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.CloudFront.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
--- | API version '2016-09-07' of the Amazon CloudFront SDK configuration.
+-- | API version @2017-03-25@ of the Amazon CloudFront SDK configuration.
 cloudFront :: Service
 cloudFront =
-    Service
-    { _svcAbbrev = "CloudFront"
-    , _svcSigner = v4
-    , _svcPrefix = "cloudfront"
-    , _svcVersion = "2016-09-07"
-    , _svcEndpoint = defaultEndpoint cloudFront
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseXMLError "CloudFront"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "CloudFront"
+  , _svcSigner = v4
+  , _svcPrefix = "cloudfront"
+  , _svcVersion = "2017-03-25"
+  , _svcEndpoint = defaultEndpoint cloudFront
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseXMLError "CloudFront"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -567,265 +596,434 @@ cloudFront =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | Prism for TooManyOriginCustomHeaders' errors.
 _TooManyOriginCustomHeaders :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyOriginCustomHeaders =
-    _ServiceError . hasStatus 400 . hasCode "TooManyOriginCustomHeaders"
+  _MatchServiceError cloudFront "TooManyOriginCustomHeaders" . hasStatus 400
 
--- | The specified tagging for a CloudFront resource is invalid. For more information, see the error text.
+
+-- | Prism for InvalidTagging' errors.
 _InvalidTagging :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidTagging = _ServiceError . hasStatus 400 . hasCode "InvalidTagging"
+_InvalidTagging = _MatchServiceError cloudFront "InvalidTagging" . hasStatus 400
+
 
 -- | Prism for InvalidErrorCode' errors.
 _InvalidErrorCode :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidErrorCode = _ServiceError . hasStatus 400 . hasCode "InvalidErrorCode"
+_InvalidErrorCode =
+  _MatchServiceError cloudFront "InvalidErrorCode" . hasStatus 400
 
--- | You cannot create anymore cache behaviors for the distribution.
+
+-- | Prism for InvalidOriginReadTimeout' errors.
+_InvalidOriginReadTimeout :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidOriginReadTimeout =
+  _MatchServiceError cloudFront "InvalidOriginReadTimeout" . hasStatus 400
+
+
+-- | You cannot create more cache behaviors for the distribution.
+--
+--
 _TooManyCacheBehaviors :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyCacheBehaviors =
-    _ServiceError . hasStatus 400 . hasCode "TooManyCacheBehaviors"
+  _MatchServiceError cloudFront "TooManyCacheBehaviors" . hasStatus 400
+
 
 -- | Processing your request would cause you to exceed the maximum number of origin access identities allowed.
+--
+--
 _TooManyCloudFrontOriginAccessIdentities :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyCloudFrontOriginAccessIdentities =
-    _ServiceError .
-    hasStatus 400 . hasCode "TooManyCloudFrontOriginAccessIdentities"
+  _MatchServiceError cloudFront "TooManyCloudFrontOriginAccessIdentities" .
+  hasStatus 400
 
--- | The origin access identity is not valid or doesn\'t exist.
+
+-- | The origin access identity is not valid or doesn't exist.
+--
+--
 _InvalidOriginAccessIdentity :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidOriginAccessIdentity =
-    _ServiceError . hasStatus 400 . hasCode "InvalidOriginAccessIdentity"
+  _MatchServiceError cloudFront "InvalidOriginAccessIdentity" . hasStatus 400
+
 
 -- | Prism for DistributionNotDisabled' errors.
 _DistributionNotDisabled :: AsError a => Getting (First ServiceError) a ServiceError
 _DistributionNotDisabled =
-    _ServiceError . hasStatus 409 . hasCode "DistributionNotDisabled"
+  _MatchServiceError cloudFront "DistributionNotDisabled" . hasStatus 409
+
 
 -- | The specified streaming distribution does not exist.
+--
+--
 _NoSuchStreamingDistribution :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchStreamingDistribution =
-    _ServiceError . hasStatus 404 . hasCode "NoSuchStreamingDistribution"
+  _MatchServiceError cloudFront "NoSuchStreamingDistribution" . hasStatus 404
 
--- | The value of Quantity and the size of Items do not match.
+
+-- | The value of @Quantity@ and the size of @Items@ don't match.
+--
+--
 _InconsistentQuantities :: AsError a => Getting (First ServiceError) a ServiceError
 _InconsistentQuantities =
-    _ServiceError . hasStatus 400 . hasCode "InconsistentQuantities"
+  _MatchServiceError cloudFront "InconsistentQuantities" . hasStatus 400
+
 
 -- | The argument is invalid.
+--
+--
 _InvalidArgument :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidArgument = _ServiceError . hasStatus 400 . hasCode "InvalidArgument"
+_InvalidArgument =
+  _MatchServiceError cloudFront "InvalidArgument" . hasStatus 400
+
+
+-- | Prism for InvalidOriginKeepaliveTimeout' errors.
+_InvalidOriginKeepaliveTimeout :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidOriginKeepaliveTimeout =
+  _MatchServiceError cloudFront "InvalidOriginKeepaliveTimeout" . hasStatus 400
+
 
 -- | You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.
+--
+--
 _TooManyInvalidationsInProgress :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyInvalidationsInProgress =
-    _ServiceError . hasStatus 400 . hasCode "TooManyInvalidationsInProgress"
+  _MatchServiceError cloudFront "TooManyInvalidationsInProgress" . hasStatus 400
+
 
 -- | Prism for InvalidWebACLId' errors.
 _InvalidWebACLId :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidWebACLId = _ServiceError . hasStatus 400 . hasCode "InvalidWebACLId"
+_InvalidWebACLId =
+  _MatchServiceError cloudFront "InvalidWebACLId" . hasStatus 400
+
 
 -- | Prism for TooManyQueryStringParameters' errors.
 _TooManyQueryStringParameters :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyQueryStringParameters =
-    _ServiceError . hasStatus 400 . hasCode "TooManyQueryStringParameters"
+  _MatchServiceError cloudFront "TooManyQueryStringParameters" . hasStatus 400
+
 
 -- | Your request contains more CNAMEs than are allowed per distribution.
+--
+--
 _TooManyDistributionCNAMEs :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyDistributionCNAMEs =
-    _ServiceError . hasStatus 400 . hasCode "TooManyDistributionCNAMEs"
+  _MatchServiceError cloudFront "TooManyDistributionCNAMEs" . hasStatus 400
+
 
 -- | The specified origin access identity does not exist.
+--
+--
 _NoSuchCloudFrontOriginAccessIdentity :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchCloudFrontOriginAccessIdentity =
-    _ServiceError .
-    hasStatus 404 . hasCode "NoSuchCloudFrontOriginAccessIdentity"
+  _MatchServiceError cloudFront "NoSuchCloudFrontOriginAccessIdentity" .
+  hasStatus 404
+
 
 -- | Prism for CloudFrontOriginAccessIdentityInUse' errors.
 _CloudFrontOriginAccessIdentityInUse :: AsError a => Getting (First ServiceError) a ServiceError
 _CloudFrontOriginAccessIdentityInUse =
-    _ServiceError .
-    hasStatus 409 . hasCode "CloudFrontOriginAccessIdentityInUse"
+  _MatchServiceError cloudFront "CloudFrontOriginAccessIdentityInUse" .
+  hasStatus 409
+
 
 -- | Processing your request would cause you to exceed the maximum number of streaming distributions allowed.
+--
+--
 _TooManyStreamingDistributions :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyStreamingDistributions =
-    _ServiceError . hasStatus 400 . hasCode "TooManyStreamingDistributions"
+  _MatchServiceError cloudFront "TooManyStreamingDistributions" . hasStatus 400
+
 
 -- | Prism for BatchTooLarge' errors.
 _BatchTooLarge :: AsError a => Getting (First ServiceError) a ServiceError
-_BatchTooLarge = _ServiceError . hasStatus 413 . hasCode "BatchTooLarge"
+_BatchTooLarge = _MatchServiceError cloudFront "BatchTooLarge" . hasStatus 413
+
 
 -- | Your request contains more cookie names in the whitelist than are allowed per cache behavior.
+--
+--
 _TooManyCookieNamesInWhiteList :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyCookieNamesInWhiteList =
-    _ServiceError . hasStatus 400 . hasCode "TooManyCookieNamesInWhiteList"
+  _MatchServiceError cloudFront "TooManyCookieNamesInWhiteList" . hasStatus 400
 
--- | Your request contains forward cookies option which doesn\'t match with the expectation for the whitelisted list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.
+
+-- | The specified Lambda function association is invalid.
+--
+--
+_InvalidLambdaFunctionAssociation :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidLambdaFunctionAssociation =
+  _MatchServiceError cloudFront "InvalidLambdaFunctionAssociation" .
+  hasStatus 400
+
+
+-- | Your request contains forward cookies option which doesn't match with the expectation for the @whitelisted@ list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.
+--
+--
 _InvalidForwardCookies :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidForwardCookies =
-    _ServiceError . hasStatus 400 . hasCode "InvalidForwardCookies"
+  _MatchServiceError cloudFront "InvalidForwardCookies" . hasStatus 400
+
 
 -- | Your request contains more trusted signers than are allowed per distribution.
+--
+--
 _TooManyTrustedSigners :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyTrustedSigners =
-    _ServiceError . hasStatus 400 . hasCode "TooManyTrustedSigners"
+  _MatchServiceError cloudFront "TooManyTrustedSigners" . hasStatus 400
+
 
 -- | The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.
+--
+--
 _InvalidOrigin :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidOrigin = _ServiceError . hasStatus 400 . hasCode "InvalidOrigin"
+_InvalidOrigin = _MatchServiceError cloudFront "InvalidOrigin" . hasStatus 400
+
 
 -- | The specified invalidation does not exist.
+--
+--
 _NoSuchInvalidation :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchInvalidation =
-    _ServiceError . hasStatus 404 . hasCode "NoSuchInvalidation"
+  _MatchServiceError cloudFront "NoSuchInvalidation" . hasStatus 404
 
--- | No origin exists with the specified Origin Id.
+
+-- | No origin exists with the specified @Origin Id@ .
+--
+--
 _NoSuchOrigin :: AsError a => Getting (First ServiceError) a ServiceError
-_NoSuchOrigin = _ServiceError . hasStatus 404 . hasCode "NoSuchOrigin"
+_NoSuchOrigin = _MatchServiceError cloudFront "NoSuchOrigin" . hasStatus 404
+
 
 -- | Prism for InvalidTTLOrder' errors.
 _InvalidTTLOrder :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidTTLOrder = _ServiceError . hasStatus 400 . hasCode "InvalidTTLOrder"
+_InvalidTTLOrder =
+  _MatchServiceError cloudFront "InvalidTTLOrder" . hasStatus 400
+
 
 -- | Prism for StreamingDistributionNotDisabled' errors.
 _StreamingDistributionNotDisabled :: AsError a => Getting (First ServiceError) a ServiceError
 _StreamingDistributionNotDisabled =
-    _ServiceError . hasStatus 409 . hasCode "StreamingDistributionNotDisabled"
+  _MatchServiceError cloudFront "StreamingDistributionNotDisabled" .
+  hasStatus 409
+
 
 -- | Prism for TooManyHeadersInForwardedValues' errors.
 _TooManyHeadersInForwardedValues :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyHeadersInForwardedValues =
-    _ServiceError . hasStatus 400 . hasCode "TooManyHeadersInForwardedValues"
+  _MatchServiceError cloudFront "TooManyHeadersInForwardedValues" .
+  hasStatus 400
 
--- | The specified CloudFront resource does not exist.
+
+-- | Prism for NoSuchResource' errors.
 _NoSuchResource :: AsError a => Getting (First ServiceError) a ServiceError
-_NoSuchResource = _ServiceError . hasStatus 404 . hasCode "NoSuchResource"
+_NoSuchResource = _MatchServiceError cloudFront "NoSuchResource" . hasStatus 404
+
 
 -- | Prism for TooManyStreamingDistributionCNAMEs' errors.
 _TooManyStreamingDistributionCNAMEs :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyStreamingDistributionCNAMEs =
-    _ServiceError .
-    hasStatus 400 . hasCode "TooManyStreamingDistributionCNAMEs"
+  _MatchServiceError cloudFront "TooManyStreamingDistributionCNAMEs" .
+  hasStatus 400
 
--- | This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the RequiredProtocols element from your distribution configuration.
+
+-- | Prism for ResourceInUse' errors.
+_ResourceInUse :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceInUse = _MatchServiceError cloudFront "ResourceInUse" . hasStatus 409
+
+
+-- | This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the @RequiredProtocols@ element from your distribution configuration.
+--
+--
 _InvalidRequiredProtocol :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequiredProtocol =
-    _ServiceError . hasStatus 400 . hasCode "InvalidRequiredProtocol"
+  _MatchServiceError cloudFront "InvalidRequiredProtocol" . hasStatus 400
+
 
 -- | Processing your request would cause you to exceed the maximum number of distributions allowed.
+--
+--
 _TooManyDistributions :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyDistributions =
-    _ServiceError . hasStatus 400 . hasCode "TooManyDistributions"
+  _MatchServiceError cloudFront "TooManyDistributions" . hasStatus 400
 
--- | You cannot create anymore custom ssl certificates.
+
+-- | You cannot create anymore custom SSL/TLS certificates.
+--
+--
 _TooManyCertificates :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyCertificates =
-    _ServiceError . hasStatus 400 . hasCode "TooManyCertificates"
+  _MatchServiceError cloudFront "TooManyCertificates" . hasStatus 400
+
 
 -- | The caller reference you attempted to create the distribution with is associated with another distribution.
+--
+--
 _DistributionAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _DistributionAlreadyExists =
-    _ServiceError . hasStatus 409 . hasCode "DistributionAlreadyExists"
+  _MatchServiceError cloudFront "DistributionAlreadyExists" . hasStatus 409
+
 
 -- | Prism for InvalidQueryStringParameters' errors.
 _InvalidQueryStringParameters :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidQueryStringParameters =
-    _ServiceError . hasStatus 400 . hasCode "InvalidQueryStringParameters"
+  _MatchServiceError cloudFront "InvalidQueryStringParameters" . hasStatus 400
 
--- | This operation requires a body. Ensure that the body is present and the Content-Type header is set.
+
+-- | This operation requires a body. Ensure that the body is present and the @Content-Type@ header is set.
+--
+--
 _MissingBody :: AsError a => Getting (First ServiceError) a ServiceError
-_MissingBody = _ServiceError . hasStatus 400 . hasCode "MissingBody"
+_MissingBody = _MatchServiceError cloudFront "MissingBody" . hasStatus 400
 
--- | Origin and CallerReference cannot be updated.
+
+-- | Origin and @CallerReference@ cannot be updated.
+--
+--
 _IllegalUpdate :: AsError a => Getting (First ServiceError) a ServiceError
-_IllegalUpdate = _ServiceError . hasStatus 400 . hasCode "IllegalUpdate"
+_IllegalUpdate = _MatchServiceError cloudFront "IllegalUpdate" . hasStatus 400
 
--- | The If-Match version is missing or not valid for the distribution.
+
+-- | The @If-Match@ version is missing or not valid for the distribution.
+--
+--
 _InvalidIfMatchVersion :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidIfMatchVersion =
-    _ServiceError . hasStatus 400 . hasCode "InvalidIfMatchVersion"
+  _MatchServiceError cloudFront "InvalidIfMatchVersion" . hasStatus 400
 
--- | The precondition given in one or more of the request-header fields evaluated to false.
+
+-- | The precondition given in one or more of the request-header fields evaluated to @false@ .
+--
+--
 _PreconditionFailed :: AsError a => Getting (First ServiceError) a ServiceError
 _PreconditionFailed =
-    _ServiceError . hasStatus 412 . hasCode "PreconditionFailed"
+  _MatchServiceError cloudFront "PreconditionFailed" . hasStatus 412
+
 
 -- | Prism for InvalidResponseCode' errors.
 _InvalidResponseCode :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidResponseCode =
-    _ServiceError . hasStatus 400 . hasCode "InvalidResponseCode"
+  _MatchServiceError cloudFront "InvalidResponseCode" . hasStatus 400
+
 
 -- | Prism for InvalidHeadersForS3Origin' errors.
 _InvalidHeadersForS3Origin :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidHeadersForS3Origin =
-    _ServiceError . hasStatus 400 . hasCode "InvalidHeadersForS3Origin"
+  _MatchServiceError cloudFront "InvalidHeadersForS3Origin" . hasStatus 400
+
 
 -- | Prism for CNAMEAlreadyExists' errors.
 _CNAMEAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _CNAMEAlreadyExists =
-    _ServiceError . hasStatus 409 . hasCode "CNAMEAlreadyExists"
+  _MatchServiceError cloudFront "CNAMEAlreadyExists" . hasStatus 409
 
--- | One or more of your trusted signers do not exist.
+
+-- | One or more of your trusted signers don't exist.
+--
+--
 _TrustedSignerDoesNotExist :: AsError a => Getting (First ServiceError) a ServiceError
 _TrustedSignerDoesNotExist =
-    _ServiceError . hasStatus 400 . hasCode "TrustedSignerDoesNotExist"
+  _MatchServiceError cloudFront "TrustedSignerDoesNotExist" . hasStatus 400
 
--- | You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that Support Server Name Indication (SNI).
+
+-- | You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that support Server Name Indication (SNI).
+--
+--
 _InvalidProtocolSettings :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidProtocolSettings =
-    _ServiceError . hasStatus 400 . hasCode "InvalidProtocolSettings"
+  _MatchServiceError cloudFront "InvalidProtocolSettings" . hasStatus 400
 
--- | If the CallerReference is a value you already sent in a previous request to create an identity but the content of the CloudFrontOriginAccessIdentityConfig is different from the original request, CloudFront returns a CloudFrontOriginAccessIdentityAlreadyExists error.
+
+-- | Your request contains more Lambda function associations than are allowed per distribution.
+--
+--
+_TooManyLambdaFunctionAssociations :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyLambdaFunctionAssociations =
+  _MatchServiceError cloudFront "TooManyLambdaFunctionAssociations" .
+  hasStatus 400
+
+
+-- | If the @CallerReference@ is a value you already sent in a previous request to create an identity but the content of the @CloudFrontOriginAccessIdentityConfig@ is different from the original request, CloudFront returns a @CloudFrontOriginAccessIdentityAlreadyExists@ error.
+--
+--
 _CloudFrontOriginAccessIdentityAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _CloudFrontOriginAccessIdentityAlreadyExists =
-    _ServiceError .
-    hasStatus 409 . hasCode "CloudFrontOriginAccessIdentityAlreadyExists"
+  _MatchServiceError cloudFront "CloudFrontOriginAccessIdentityAlreadyExists" .
+  hasStatus 409
 
--- | You cannot create anymore origins for the distribution.
+
+-- | You cannot create more origins for the distribution.
+--
+--
 _TooManyOrigins :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyOrigins = _ServiceError . hasStatus 400 . hasCode "TooManyOrigins"
+_TooManyOrigins = _MatchServiceError cloudFront "TooManyOrigins" . hasStatus 400
 
--- | The relative path is too big, is not URL-encoded, or does not begin with a slash (\/).
+
+-- | The relative path is too big, is not URL-encoded, or does not begin with a slash (/).
+--
+--
 _InvalidRelativePath :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRelativePath =
-    _ServiceError . hasStatus 400 . hasCode "InvalidRelativePath"
+  _MatchServiceError cloudFront "InvalidRelativePath" . hasStatus 400
+
 
 -- | Prism for StreamingDistributionAlreadyExists' errors.
 _StreamingDistributionAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _StreamingDistributionAlreadyExists =
-    _ServiceError .
-    hasStatus 409 . hasCode "StreamingDistributionAlreadyExists"
+  _MatchServiceError cloudFront "StreamingDistributionAlreadyExists" .
+  hasStatus 409
+
 
 -- | Prism for InvalidMinimumProtocolVersion' errors.
 _InvalidMinimumProtocolVersion :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidMinimumProtocolVersion =
-    _ServiceError . hasStatus 400 . hasCode "InvalidMinimumProtocolVersion"
+  _MatchServiceError cloudFront "InvalidMinimumProtocolVersion" . hasStatus 400
+
 
 -- | Access denied.
+--
+--
 _AccessDenied :: AsError a => Getting (First ServiceError) a ServiceError
-_AccessDenied = _ServiceError . hasStatus 403 . hasCode "AccessDenied"
+_AccessDenied = _MatchServiceError cloudFront "AccessDenied" . hasStatus 403
+
 
 -- | Prism for InvalidViewerCertificate' errors.
 _InvalidViewerCertificate :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidViewerCertificate =
-    _ServiceError . hasStatus 400 . hasCode "InvalidViewerCertificate"
+  _MatchServiceError cloudFront "InvalidViewerCertificate" . hasStatus 400
+
 
 -- | The specified distribution does not exist.
+--
+--
 _NoSuchDistribution :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchDistribution =
-    _ServiceError . hasStatus 404 . hasCode "NoSuchDistribution"
+  _MatchServiceError cloudFront "NoSuchDistribution" . hasStatus 404
+
 
 -- | The default root object file name is too big or contains an invalid character.
+--
+--
 _InvalidDefaultRootObject :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDefaultRootObject =
-    _ServiceError . hasStatus 400 . hasCode "InvalidDefaultRootObject"
+  _MatchServiceError cloudFront "InvalidDefaultRootObject" . hasStatus 400
+
+
+-- | Processing your request would cause the maximum number of distributions with Lambda function associations per owner to be exceeded.
+--
+--
+_TooManyDistributionsWithLambdaAssociations :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyDistributionsWithLambdaAssociations =
+  _MatchServiceError cloudFront "TooManyDistributionsWithLambdaAssociations" .
+  hasStatus 400
+
 
 -- | Prism for InvalidGeoRestrictionParameter' errors.
 _InvalidGeoRestrictionParameter :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidGeoRestrictionParameter =
-    _ServiceError . hasStatus 400 . hasCode "InvalidGeoRestrictionParameter"
+  _MatchServiceError cloudFront "InvalidGeoRestrictionParameter" . hasStatus 400
+
 
 -- | Prism for InvalidLocationCode' errors.
 _InvalidLocationCode :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidLocationCode =
-    _ServiceError . hasStatus 400 . hasCode "InvalidLocationCode"
+  _MatchServiceError cloudFront "InvalidLocationCode" . hasStatus 400
+

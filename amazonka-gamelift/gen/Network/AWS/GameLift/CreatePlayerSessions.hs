@@ -12,21 +12,46 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.CreatePlayerSessions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a group of players to a game session. Similar to < CreatePlayerSession>, this action allows you to add multiple players in a single call, which is useful for games that provide party and\/or matchmaking features. A game session must be in an 'ACTIVE' status, have a creation policy of 'ALLOW_ALL', and have an open player slot before players can be added to the session.
+-- Adds a group of players to a game session. This action is useful with a team matching feature. Before players can be added, a game session must have an @ACTIVE@ status, have a creation policy of @ALLOW_ALL@ , and have an open player slot. To add a single player to a game session, use 'CreatePlayerSession' .
 --
--- To create player sessions, specify a game session ID and a list of player IDs. If successful, the players are added to the game session and a set of new < PlayerSession> objects is returned.
+--
+-- To create player sessions, specify a game session ID, a list of player IDs, and optionally a set of player data strings. If successful, the players are added to the game session and a set of new 'PlayerSession' objects is returned. Player sessions cannot be updated.
+--
+-- /Available in Amazon GameLift Local./
+--
+-- Player-session-related operations include:
+--
+--     * 'CreatePlayerSession'
+--
+--     * 'CreatePlayerSessions'
+--
+--     * 'DescribePlayerSessions'
+--
+--     * Game session placements
+--
+--     * 'StartGameSessionPlacement'
+--
+--     * 'DescribeGameSessionPlacement'
+--
+--     * 'StopGameSessionPlacement'
+--
+--
+--
+--
+--
 module Network.AWS.GameLift.CreatePlayerSessions
     (
     -- * Creating a Request
       createPlayerSessions
     , CreatePlayerSessions
     -- * Request Lenses
+    , cpsPlayerDataMap
     , cpsGameSessionId
     , cpsPlayerIds
 
@@ -38,39 +63,51 @@ module Network.AWS.GameLift.CreatePlayerSessions
     , crsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'createPlayerSessions' smart constructor.
 data CreatePlayerSessions = CreatePlayerSessions'
-    { _cpsGameSessionId :: !Text
-    , _cpsPlayerIds     :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpsPlayerDataMap :: !(Maybe (Map Text Text))
+  , _cpsGameSessionId :: !Text
+  , _cpsPlayerIds     :: !(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePlayerSessions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpsGameSessionId'
+-- * 'cpsPlayerDataMap' - Map of string pairs, each specifying a player ID and a set of developer-defined information related to the player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game. Player data strings for player IDs not included in the @PlayerIds@ parameter are ignored.
 --
--- * 'cpsPlayerIds'
+-- * 'cpsGameSessionId' - Unique identifier for the game session to add players to.
+--
+-- * 'cpsPlayerIds' - List of unique identifiers for the players to be added.
 createPlayerSessions
     :: Text -- ^ 'cpsGameSessionId'
     -> NonEmpty Text -- ^ 'cpsPlayerIds'
     -> CreatePlayerSessions
 createPlayerSessions pGameSessionId_ pPlayerIds_ =
-    CreatePlayerSessions'
-    { _cpsGameSessionId = pGameSessionId_
-    , _cpsPlayerIds = _List1 # pPlayerIds_
-    }
+  CreatePlayerSessions'
+  { _cpsPlayerDataMap = Nothing
+  , _cpsGameSessionId = pGameSessionId_
+  , _cpsPlayerIds = _List1 # pPlayerIds_
+  }
 
--- | Unique identifier for a game session.
+
+-- | Map of string pairs, each specifying a player ID and a set of developer-defined information related to the player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game. Player data strings for player IDs not included in the @PlayerIds@ parameter are ignored.
+cpsPlayerDataMap :: Lens' CreatePlayerSessions (HashMap Text Text)
+cpsPlayerDataMap = lens _cpsPlayerDataMap (\ s a -> s{_cpsPlayerDataMap = a}) . _Default . _Map;
+
+-- | Unique identifier for the game session to add players to.
 cpsGameSessionId :: Lens' CreatePlayerSessions Text
 cpsGameSessionId = lens _cpsGameSessionId (\ s a -> s{_cpsGameSessionId = a});
 
@@ -89,9 +126,9 @@ instance AWSRequest CreatePlayerSessions where
                    (x .?> "PlayerSessions" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreatePlayerSessions
+instance Hashable CreatePlayerSessions where
 
-instance NFData CreatePlayerSessions
+instance NFData CreatePlayerSessions where
 
 instance ToHeaders CreatePlayerSessions where
         toHeaders
@@ -106,7 +143,8 @@ instance ToJSON CreatePlayerSessions where
         toJSON CreatePlayerSessions'{..}
           = object
               (catMaybes
-                 [Just ("GameSessionId" .= _cpsGameSessionId),
+                 [("PlayerDataMap" .=) <$> _cpsPlayerDataMap,
+                  Just ("GameSessionId" .= _cpsGameSessionId),
                   Just ("PlayerIds" .= _cpsPlayerIds)])
 
 instance ToPath CreatePlayerSessions where
@@ -117,34 +155,36 @@ instance ToQuery CreatePlayerSessions where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'createPlayerSessionsResponse' smart constructor.
 data CreatePlayerSessionsResponse = CreatePlayerSessionsResponse'
-    { _crsPlayerSessions :: !(Maybe [PlayerSession])
-    , _crsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crsPlayerSessions :: !(Maybe [PlayerSession])
+  , _crsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePlayerSessionsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsPlayerSessions'
+-- * 'crsPlayerSessions' - Collection of player session objects created for the added players.
 --
--- * 'crsResponseStatus'
+-- * 'crsResponseStatus' - -- | The response status code.
 createPlayerSessionsResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CreatePlayerSessionsResponse
 createPlayerSessionsResponse pResponseStatus_ =
-    CreatePlayerSessionsResponse'
-    { _crsPlayerSessions = Nothing
-    , _crsResponseStatus = pResponseStatus_
-    }
+  CreatePlayerSessionsResponse'
+  {_crsPlayerSessions = Nothing, _crsResponseStatus = pResponseStatus_}
+
 
 -- | Collection of player session objects created for the added players.
 crsPlayerSessions :: Lens' CreatePlayerSessionsResponse [PlayerSession]
 crsPlayerSessions = lens _crsPlayerSessions (\ s a -> s{_crsPlayerSessions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 crsResponseStatus :: Lens' CreatePlayerSessionsResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 
-instance NFData CreatePlayerSessionsResponse
+instance NFData CreatePlayerSessionsResponse where

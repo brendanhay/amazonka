@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateGatewayInformation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a gateway\'s metadata, which includes the gateway\'s name and time zone. To specify which gateway to update, use the Amazon Resource Name (ARN) of the gateway in your request.
+-- Updates a gateway's metadata, which includes the gateway's name and time zone. To specify which gateway to update, use the Amazon Resource Name (ARN) of the gateway in your request.
 --
--- For Gateways activated after September 2, 2015, the gateway\'s ARN contains the gateway ID rather than the gateway name. However, changing the name of the gateway has no effect on the gateway\'s ARN.
+--
 module Network.AWS.StorageGateway.UpdateGatewayInformation
     (
     -- * Creating a Request
@@ -40,38 +40,40 @@ module Network.AWS.StorageGateway.UpdateGatewayInformation
     , ugirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'updateGatewayInformation' smart constructor.
 data UpdateGatewayInformation = UpdateGatewayInformation'
-    { _ugiGatewayName     :: !(Maybe Text)
-    , _ugiGatewayTimezone :: !(Maybe Text)
-    , _ugiGatewayARN      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ugiGatewayName     :: !(Maybe Text)
+  , _ugiGatewayTimezone :: !(Maybe Text)
+  , _ugiGatewayARN      :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateGatewayInformation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ugiGatewayName'
+-- * 'ugiGatewayName' - Undocumented member.
 --
--- * 'ugiGatewayTimezone'
+-- * 'ugiGatewayTimezone' - Undocumented member.
 --
--- * 'ugiGatewayARN'
+-- * 'ugiGatewayARN' - Undocumented member.
 updateGatewayInformation
     :: Text -- ^ 'ugiGatewayARN'
     -> UpdateGatewayInformation
 updateGatewayInformation pGatewayARN_ =
-    UpdateGatewayInformation'
-    { _ugiGatewayName = Nothing
-    , _ugiGatewayTimezone = Nothing
-    , _ugiGatewayARN = pGatewayARN_
-    }
+  UpdateGatewayInformation'
+  { _ugiGatewayName = Nothing
+  , _ugiGatewayTimezone = Nothing
+  , _ugiGatewayARN = pGatewayARN_
+  }
+
 
 -- | Undocumented member.
 ugiGatewayName :: Lens' UpdateGatewayInformation (Maybe Text)
@@ -96,9 +98,9 @@ instance AWSRequest UpdateGatewayInformation where
                    (x .?> "GatewayARN") <*> (x .?> "GatewayName") <*>
                      (pure (fromEnum s)))
 
-instance Hashable UpdateGatewayInformation
+instance Hashable UpdateGatewayInformation where
 
-instance NFData UpdateGatewayInformation
+instance NFData UpdateGatewayInformation where
 
 instance ToHeaders UpdateGatewayInformation where
         toHeaders
@@ -126,31 +128,35 @@ instance ToQuery UpdateGatewayInformation where
 
 -- | A JSON object containing the ARN of the gateway that was updated.
 --
+--
+--
 -- /See:/ 'updateGatewayInformationResponse' smart constructor.
 data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
-    { _ugirsGatewayARN     :: !(Maybe Text)
-    , _ugirsGatewayName    :: !(Maybe Text)
-    , _ugirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ugirsGatewayARN     :: !(Maybe Text)
+  , _ugirsGatewayName    :: !(Maybe Text)
+  , _ugirsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateGatewayInformationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ugirsGatewayARN'
+-- * 'ugirsGatewayARN' - Undocumented member.
 --
--- * 'ugirsGatewayName'
+-- * 'ugirsGatewayName' - Undocumented member.
 --
--- * 'ugirsResponseStatus'
+-- * 'ugirsResponseStatus' - -- | The response status code.
 updateGatewayInformationResponse
     :: Int -- ^ 'ugirsResponseStatus'
     -> UpdateGatewayInformationResponse
 updateGatewayInformationResponse pResponseStatus_ =
-    UpdateGatewayInformationResponse'
-    { _ugirsGatewayARN = Nothing
-    , _ugirsGatewayName = Nothing
-    , _ugirsResponseStatus = pResponseStatus_
-    }
+  UpdateGatewayInformationResponse'
+  { _ugirsGatewayARN = Nothing
+  , _ugirsGatewayName = Nothing
+  , _ugirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 ugirsGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
@@ -160,8 +166,9 @@ ugirsGatewayARN = lens _ugirsGatewayARN (\ s a -> s{_ugirsGatewayARN = a});
 ugirsGatewayName :: Lens' UpdateGatewayInformationResponse (Maybe Text)
 ugirsGatewayName = lens _ugirsGatewayName (\ s a -> s{_ugirsGatewayName = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ugirsResponseStatus :: Lens' UpdateGatewayInformationResponse Int
 ugirsResponseStatus = lens _ugirsResponseStatus (\ s a -> s{_ugirsResponseStatus = a});
 
 instance NFData UpdateGatewayInformationResponse
+         where

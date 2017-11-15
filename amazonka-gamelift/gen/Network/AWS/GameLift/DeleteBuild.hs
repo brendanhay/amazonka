@@ -12,15 +12,31 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DeleteBuild
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a build. This action permanently deletes the build record and any uploaded build files.
 --
+--
 -- To delete a build, specify its ID. Deleting a build does not affect the status of any active fleets using the build, but you can no longer create new fleets with the deleted build.
+--
+-- Build-related operations include:
+--
+--     * 'CreateBuild'
+--
+--     * 'ListBuilds'
+--
+--     * 'DescribeBuild'
+--
+--     * 'UpdateBuild'
+--
+--     * 'DeleteBuild'
+--
+--
+--
 module Network.AWS.GameLift.DeleteBuild
     (
     -- * Creating a Request
@@ -34,34 +50,35 @@ module Network.AWS.GameLift.DeleteBuild
     , DeleteBuildResponse
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'deleteBuild' smart constructor.
 newtype DeleteBuild = DeleteBuild'
-    { _dbBuildId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbBuildId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBuild' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbBuildId'
+-- * 'dbBuildId' - Unique identifier for a build to delete.
 deleteBuild
     :: Text -- ^ 'dbBuildId'
     -> DeleteBuild
-deleteBuild pBuildId_ =
-    DeleteBuild'
-    { _dbBuildId = pBuildId_
-    }
+deleteBuild pBuildId_ = DeleteBuild' {_dbBuildId = pBuildId_}
 
--- | Unique identifier for the build you want to delete.
+
+-- | Unique identifier for a build to delete.
 dbBuildId :: Lens' DeleteBuild Text
 dbBuildId = lens _dbBuildId (\ s a -> s{_dbBuildId = a});
 
@@ -70,9 +87,9 @@ instance AWSRequest DeleteBuild where
         request = postJSON gameLift
         response = receiveNull DeleteBuildResponse'
 
-instance Hashable DeleteBuild
+instance Hashable DeleteBuild where
 
-instance NFData DeleteBuild
+instance NFData DeleteBuild where
 
 instance ToHeaders DeleteBuild where
         toHeaders
@@ -95,8 +112,9 @@ instance ToQuery DeleteBuild where
 
 -- | /See:/ 'deleteBuildResponse' smart constructor.
 data DeleteBuildResponse =
-    DeleteBuildResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteBuildResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBuildResponse' with the minimum fields required to make a request.
 --
@@ -104,4 +122,5 @@ deleteBuildResponse
     :: DeleteBuildResponse
 deleteBuildResponse = DeleteBuildResponse'
 
-instance NFData DeleteBuildResponse
+
+instance NFData DeleteBuildResponse where

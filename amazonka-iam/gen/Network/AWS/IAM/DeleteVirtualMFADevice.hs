@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteVirtualMFADevice
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a virtual MFA device.
 --
--- You must deactivate a user\'s virtual MFA device before you can delete it. For information about deactivating MFA devices, see < DeactivateMFADevice>.
+--
 module Network.AWS.IAM.DeleteVirtualMFADevice
     (
     -- * Creating a Request
@@ -34,34 +34,32 @@ module Network.AWS.IAM.DeleteVirtualMFADevice
     , DeleteVirtualMFADeviceResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteVirtualMFADevice' smart constructor.
 newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice'
-    { _dvmdSerialNumber :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvmdSerialNumber :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVirtualMFADevice' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvmdSerialNumber'
+-- * 'dvmdSerialNumber' - The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the same as the ARN. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
 deleteVirtualMFADevice
     :: Text -- ^ 'dvmdSerialNumber'
     -> DeleteVirtualMFADevice
 deleteVirtualMFADevice pSerialNumber_ =
-    DeleteVirtualMFADevice'
-    { _dvmdSerialNumber = pSerialNumber_
-    }
+  DeleteVirtualMFADevice' {_dvmdSerialNumber = pSerialNumber_}
 
--- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the same as the ARN.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =\/:,.\'-
+
+-- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the same as the ARN. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
 dvmdSerialNumber :: Lens' DeleteVirtualMFADevice Text
 dvmdSerialNumber = lens _dvmdSerialNumber (\ s a -> s{_dvmdSerialNumber = a});
 
@@ -72,9 +70,9 @@ instance AWSRequest DeleteVirtualMFADevice where
         response
           = receiveNull DeleteVirtualMFADeviceResponse'
 
-instance Hashable DeleteVirtualMFADevice
+instance Hashable DeleteVirtualMFADevice where
 
-instance NFData DeleteVirtualMFADevice
+instance NFData DeleteVirtualMFADevice where
 
 instance ToHeaders DeleteVirtualMFADevice where
         toHeaders = const mempty
@@ -92,8 +90,9 @@ instance ToQuery DeleteVirtualMFADevice where
 
 -- | /See:/ 'deleteVirtualMFADeviceResponse' smart constructor.
 data DeleteVirtualMFADeviceResponse =
-    DeleteVirtualMFADeviceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteVirtualMFADeviceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVirtualMFADeviceResponse' with the minimum fields required to make a request.
 --
@@ -101,4 +100,5 @@ deleteVirtualMFADeviceResponse
     :: DeleteVirtualMFADeviceResponse
 deleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse'
 
-instance NFData DeleteVirtualMFADeviceResponse
+
+instance NFData DeleteVirtualMFADeviceResponse where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.ListTargetsByRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists of targets assigned to the rule.
+-- Lists the targets assigned to the specified rule.
+--
+--
 module Network.AWS.CloudWatchEvents.ListTargetsByRule
     (
     -- * Creating a Request
@@ -38,42 +40,39 @@ module Network.AWS.CloudWatchEvents.ListTargetsByRule
     , ltbrrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchEvents.Types
-import           Network.AWS.CloudWatchEvents.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchEvents.Types
+import Network.AWS.CloudWatchEvents.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Container for the parameters to the < ListTargetsByRule> operation.
---
--- /See:/ 'listTargetsByRule' smart constructor.
+-- | /See:/ 'listTargetsByRule' smart constructor.
 data ListTargetsByRule = ListTargetsByRule'
-    { _ltbrNextToken :: !(Maybe Text)
-    , _ltbrLimit     :: !(Maybe Nat)
-    , _ltbrRule      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltbrNextToken :: !(Maybe Text)
+  , _ltbrLimit     :: !(Maybe Nat)
+  , _ltbrRule      :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTargetsByRule' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltbrNextToken'
+-- * 'ltbrNextToken' - The token returned by a previous call to retrieve the next set of results.
 --
--- * 'ltbrLimit'
+-- * 'ltbrLimit' - The maximum number of results to return.
 --
--- * 'ltbrRule'
+-- * 'ltbrRule' - The name of the rule.
 listTargetsByRule
     :: Text -- ^ 'ltbrRule'
     -> ListTargetsByRule
 listTargetsByRule pRule_ =
-    ListTargetsByRule'
-    { _ltbrNextToken = Nothing
-    , _ltbrLimit = Nothing
-    , _ltbrRule = pRule_
-    }
+  ListTargetsByRule'
+  {_ltbrNextToken = Nothing, _ltbrLimit = Nothing, _ltbrRule = pRule_}
 
--- | The token returned by a previous call to indicate that there is more data available.
+
+-- | The token returned by a previous call to retrieve the next set of results.
 ltbrNextToken :: Lens' ListTargetsByRule (Maybe Text)
 ltbrNextToken = lens _ltbrNextToken (\ s a -> s{_ltbrNextToken = a});
 
@@ -81,7 +80,7 @@ ltbrNextToken = lens _ltbrNextToken (\ s a -> s{_ltbrNextToken = a});
 ltbrLimit :: Lens' ListTargetsByRule (Maybe Natural)
 ltbrLimit = lens _ltbrLimit (\ s a -> s{_ltbrLimit = a}) . mapping _Nat;
 
--- | The name of the rule whose targets you want to list.
+-- | The name of the rule.
 ltbrRule :: Lens' ListTargetsByRule Text
 ltbrRule = lens _ltbrRule (\ s a -> s{_ltbrRule = a});
 
@@ -92,12 +91,12 @@ instance AWSRequest ListTargetsByRule where
           = receiveJSON
               (\ s h x ->
                  ListTargetsByRuleResponse' <$>
-                   (x .?> "NextToken") <*> (x .?> "Targets" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                   (x .?> "NextToken") <*> (x .?> "Targets") <*>
+                     (pure (fromEnum s)))
 
-instance Hashable ListTargetsByRule
+instance Hashable ListTargetsByRule where
 
-instance NFData ListTargetsByRule
+instance NFData ListTargetsByRule where
 
 instance ToHeaders ListTargetsByRule where
         toHeaders
@@ -122,44 +121,44 @@ instance ToPath ListTargetsByRule where
 instance ToQuery ListTargetsByRule where
         toQuery = const mempty
 
--- | The result of the < ListTargetsByRule> operation.
---
--- /See:/ 'listTargetsByRuleResponse' smart constructor.
+-- | /See:/ 'listTargetsByRuleResponse' smart constructor.
 data ListTargetsByRuleResponse = ListTargetsByRuleResponse'
-    { _ltbrrsNextToken      :: !(Maybe Text)
-    , _ltbrrsTargets        :: !(Maybe [Target])
-    , _ltbrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltbrrsNextToken      :: !(Maybe Text)
+  , _ltbrrsTargets        :: !(Maybe (List1 Target))
+  , _ltbrrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTargetsByRuleResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltbrrsNextToken'
+-- * 'ltbrrsNextToken' - Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
 --
--- * 'ltbrrsTargets'
+-- * 'ltbrrsTargets' - The targets assigned to the rule.
 --
--- * 'ltbrrsResponseStatus'
+-- * 'ltbrrsResponseStatus' - -- | The response status code.
 listTargetsByRuleResponse
     :: Int -- ^ 'ltbrrsResponseStatus'
     -> ListTargetsByRuleResponse
 listTargetsByRuleResponse pResponseStatus_ =
-    ListTargetsByRuleResponse'
-    { _ltbrrsNextToken = Nothing
-    , _ltbrrsTargets = Nothing
-    , _ltbrrsResponseStatus = pResponseStatus_
-    }
+  ListTargetsByRuleResponse'
+  { _ltbrrsNextToken = Nothing
+  , _ltbrrsTargets = Nothing
+  , _ltbrrsResponseStatus = pResponseStatus_
+  }
 
--- | Indicates that there are additional results to retrieve.
+
+-- | Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
 ltbrrsNextToken :: Lens' ListTargetsByRuleResponse (Maybe Text)
 ltbrrsNextToken = lens _ltbrrsNextToken (\ s a -> s{_ltbrrsNextToken = a});
 
--- | Lists the targets assigned to the rule.
-ltbrrsTargets :: Lens' ListTargetsByRuleResponse [Target]
-ltbrrsTargets = lens _ltbrrsTargets (\ s a -> s{_ltbrrsTargets = a}) . _Default . _Coerce;
+-- | The targets assigned to the rule.
+ltbrrsTargets :: Lens' ListTargetsByRuleResponse (Maybe (NonEmpty Target))
+ltbrrsTargets = lens _ltbrrsTargets (\ s a -> s{_ltbrrsTargets = a}) . mapping _List1;
 
--- | The response status code.
+-- | -- | The response status code.
 ltbrrsResponseStatus :: Lens' ListTargetsByRuleResponse Int
 ltbrrsResponseStatus = lens _ltbrrsResponseStatus (\ s a -> s{_ltbrrsResponseStatus = a});
 
-instance NFData ListTargetsByRuleResponse
+instance NFData ListTargetsByRuleResponse where

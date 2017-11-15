@@ -12,19 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.TerminateWorkspaces
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Terminates the specified WorkSpaces.
 --
--- Terminating a WorkSpace is a permanent action and cannot be undone. The user\'s data is not maintained and will be destroyed. If you need to archive any user data, contact Amazon Web Services before terminating the WorkSpace.
 --
--- You can terminate a WorkSpace that is in any state except 'SUSPENDED'.
+-- Terminating a WorkSpace is a permanent action and cannot be undone. The user's data is not maintained and will be destroyed. If you need to archive any user data, contact Amazon Web Services before terminating the WorkSpace.
 --
--- This operation is asynchronous and returns before the WorkSpaces have been completely terminated.
+-- You can terminate a WorkSpace that is in any state except @SUSPENDED@ .
+--
 module Network.AWS.WorkSpaces.TerminateWorkspaces
     (
     -- * Creating a Request
@@ -41,32 +41,35 @@ module Network.AWS.WorkSpaces.TerminateWorkspaces
     , twrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkSpaces.Types
-import           Network.AWS.WorkSpaces.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkSpaces.Types
+import Network.AWS.WorkSpaces.Types.Product
 
--- | Contains the inputs for the < TerminateWorkspaces> operation.
+-- | Contains the inputs for the 'TerminateWorkspaces' operation.
+--
+--
 --
 -- /See:/ 'terminateWorkspaces' smart constructor.
 newtype TerminateWorkspaces = TerminateWorkspaces'
-    { _twTerminateWorkspaceRequests :: List1 TerminateRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _twTerminateWorkspaceRequests :: List1 TerminateRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TerminateWorkspaces' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'twTerminateWorkspaceRequests'
+-- * 'twTerminateWorkspaceRequests' - An array of structures that specify the WorkSpaces to terminate.
 terminateWorkspaces
     :: NonEmpty TerminateRequest -- ^ 'twTerminateWorkspaceRequests'
     -> TerminateWorkspaces
 terminateWorkspaces pTerminateWorkspaceRequests_ =
-    TerminateWorkspaces'
-    { _twTerminateWorkspaceRequests = _List1 # pTerminateWorkspaceRequests_
-    }
+  TerminateWorkspaces'
+  {_twTerminateWorkspaceRequests = _List1 # pTerminateWorkspaceRequests_}
+
 
 -- | An array of structures that specify the WorkSpaces to terminate.
 twTerminateWorkspaceRequests :: Lens' TerminateWorkspaces (NonEmpty TerminateRequest)
@@ -83,9 +86,9 @@ instance AWSRequest TerminateWorkspaces where
                    (x .?> "FailedRequests" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable TerminateWorkspaces
+instance Hashable TerminateWorkspaces where
 
-instance NFData TerminateWorkspaces
+instance NFData TerminateWorkspaces where
 
 instance ToHeaders TerminateWorkspaces where
         toHeaders
@@ -111,36 +114,38 @@ instance ToPath TerminateWorkspaces where
 instance ToQuery TerminateWorkspaces where
         toQuery = const mempty
 
--- | Contains the results of the < TerminateWorkspaces> operation.
+-- | Contains the results of the 'TerminateWorkspaces' operation.
+--
+--
 --
 -- /See:/ 'terminateWorkspacesResponse' smart constructor.
 data TerminateWorkspacesResponse = TerminateWorkspacesResponse'
-    { _twrsFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
-    , _twrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _twrsFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
+  , _twrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TerminateWorkspacesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'twrsFailedRequests'
+-- * 'twrsFailedRequests' - An array of structures representing any WorkSpaces that could not be terminated.
 --
--- * 'twrsResponseStatus'
+-- * 'twrsResponseStatus' - -- | The response status code.
 terminateWorkspacesResponse
     :: Int -- ^ 'twrsResponseStatus'
     -> TerminateWorkspacesResponse
 terminateWorkspacesResponse pResponseStatus_ =
-    TerminateWorkspacesResponse'
-    { _twrsFailedRequests = Nothing
-    , _twrsResponseStatus = pResponseStatus_
-    }
+  TerminateWorkspacesResponse'
+  {_twrsFailedRequests = Nothing, _twrsResponseStatus = pResponseStatus_}
+
 
 -- | An array of structures representing any WorkSpaces that could not be terminated.
 twrsFailedRequests :: Lens' TerminateWorkspacesResponse [FailedWorkspaceChangeRequest]
 twrsFailedRequests = lens _twrsFailedRequests (\ s a -> s{_twrsFailedRequests = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 twrsResponseStatus :: Lens' TerminateWorkspacesResponse Int
 twrsResponseStatus = lens _twrsResponseStatus (\ s a -> s{_twrsResponseStatus = a});
 
-instance NFData TerminateWorkspacesResponse
+instance NFData TerminateWorkspacesResponse where

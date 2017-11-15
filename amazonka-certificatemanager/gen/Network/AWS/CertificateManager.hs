@@ -5,15 +5,18 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS Certificate Manager
+-- __AWS Certificate Manager__
 --
--- Welcome to the AWS Certificate Manager (ACM) Command Reference. This guide provides descriptions, syntax, and usage examples for each ACM command. You can use AWS Certificate Manager to request ACM Certificates for your AWS-based websites and applications. For general information about using ACM and for more information about using the console, see the <http://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html AWS Certificate Manager User Guide>. For more information about using the ACM API, see the <http://docs.aws.amazon.com/acm/latest/APIReference/Welcome.html AWS Certificate Manager API Reference>.
+-- Welcome to the AWS Certificate Manager (ACM) API documentation.
+--
+-- You can use ACM to manage SSL/TLS certificates for your AWS-based websites and applications. For general information about using ACM, see the <http://docs.aws.amazon.com/acm/latest/userguide/ /AWS Certificate Manager User Guide/ > .
+--
 module Network.AWS.CertificateManager
     (
     -- * Service Configuration
@@ -79,6 +82,9 @@ module Network.AWS.CertificateManager
     -- ** RemoveTagsFromCertificate
     , module Network.AWS.CertificateManager.RemoveTagsFromCertificate
 
+    -- ** ImportCertificate
+    , module Network.AWS.CertificateManager.ImportCertificate
+
     -- ** DescribeCertificate
     , module Network.AWS.CertificateManager.DescribeCertificate
 
@@ -87,11 +93,20 @@ module Network.AWS.CertificateManager
     -- ** CertificateStatus
     , CertificateStatus (..)
 
+    -- ** CertificateType
+    , CertificateType (..)
+
+    -- ** DomainStatus
+    , DomainStatus (..)
+
     -- ** FailureReason
     , FailureReason (..)
 
     -- ** KeyAlgorithm
     , KeyAlgorithm (..)
+
+    -- ** RenewalStatus
+    , RenewalStatus (..)
 
     -- ** RevocationReason
     , RevocationReason (..)
@@ -107,11 +122,14 @@ module Network.AWS.CertificateManager
     , cdCreatedAt
     , cdCertificateARN
     , cdSerial
+    , cdImportedAt
     , cdRevokedAt
     , cdNotBefore
     , cdRevocationReason
     , cdDomainName
+    , cdRenewalSummary
     , cdKeyAlgorithm
+    , cdType
     , cdIssuedAt
     , cdSignatureAlgorithm
     , cdDomainValidationOptions
@@ -128,6 +146,7 @@ module Network.AWS.CertificateManager
     , DomainValidation
     , domainValidation
     , dvValidationEmails
+    , dvValidationStatus
     , dvValidationDomain
     , dvDomainName
 
@@ -137,6 +156,12 @@ module Network.AWS.CertificateManager
     , dvoDomainName
     , dvoValidationDomain
 
+    -- ** RenewalSummary
+    , RenewalSummary
+    , renewalSummary
+    , rsRenewalStatus
+    , rsDomainValidationOptions
+
     -- ** Tag
     , Tag
     , tag
@@ -144,17 +169,18 @@ module Network.AWS.CertificateManager
     , tagKey
     ) where
 
-import           Network.AWS.CertificateManager.AddTagsToCertificate
-import           Network.AWS.CertificateManager.DeleteCertificate
-import           Network.AWS.CertificateManager.DescribeCertificate
-import           Network.AWS.CertificateManager.GetCertificate
-import           Network.AWS.CertificateManager.ListCertificates
-import           Network.AWS.CertificateManager.ListTagsForCertificate
-import           Network.AWS.CertificateManager.RemoveTagsFromCertificate
-import           Network.AWS.CertificateManager.RequestCertificate
-import           Network.AWS.CertificateManager.ResendValidationEmail
-import           Network.AWS.CertificateManager.Types
-import           Network.AWS.CertificateManager.Waiters
+import Network.AWS.CertificateManager.AddTagsToCertificate
+import Network.AWS.CertificateManager.DeleteCertificate
+import Network.AWS.CertificateManager.DescribeCertificate
+import Network.AWS.CertificateManager.GetCertificate
+import Network.AWS.CertificateManager.ImportCertificate
+import Network.AWS.CertificateManager.ListCertificates
+import Network.AWS.CertificateManager.ListTagsForCertificate
+import Network.AWS.CertificateManager.RemoveTagsFromCertificate
+import Network.AWS.CertificateManager.RequestCertificate
+import Network.AWS.CertificateManager.ResendValidationEmail
+import Network.AWS.CertificateManager.Types
+import Network.AWS.CertificateManager.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

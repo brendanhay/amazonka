@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.ListDistributions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- List distributions.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudFront.ListDistributions
@@ -38,42 +40,43 @@ module Network.AWS.CloudFront.ListDistributions
     , ldrsDistributionList
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to list your distributions.
 --
+--
+--
 -- /See:/ 'listDistributions' smart constructor.
 data ListDistributions = ListDistributions'
-    { _ldMarker   :: !(Maybe Text)
-    , _ldMaxItems :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldMarker   :: !(Maybe Text)
+  , _ldMaxItems :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDistributions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldMarker'
+-- * 'ldMarker' - Use this when paginating results to indicate where to begin in your list of distributions. The results include distributions in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last distribution on that page).
 --
--- * 'ldMaxItems'
+-- * 'ldMaxItems' - The maximum number of distributions you want in the response body.
 listDistributions
     :: ListDistributions
 listDistributions =
-    ListDistributions'
-    { _ldMarker = Nothing
-    , _ldMaxItems = Nothing
-    }
+  ListDistributions' {_ldMarker = Nothing, _ldMaxItems = Nothing}
 
--- | Use Marker and MaxItems to control pagination of results. If you have more than MaxItems distributions that satisfy the request, the response includes a NextMarker element. To get the next page of results, submit another request. For the value of Marker, specify the value of NextMarker from the last response. (For the first request, omit Marker.)
+
+-- | Use this when paginating results to indicate where to begin in your list of distributions. The results include distributions in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last distribution on that page).
 ldMarker :: Lens' ListDistributions (Maybe Text)
 ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a});
 
--- | The maximum number of distributions that you want CloudFront to return in the response body. The maximum and default values are both 100.
+-- | The maximum number of distributions you want in the response body.
 ldMaxItems :: Lens' ListDistributions (Maybe Text)
 ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a});
 
@@ -98,15 +101,15 @@ instance AWSRequest ListDistributions where
                  ListDistributionsResponse' <$>
                    (pure (fromEnum s)) <*> (parseXML x))
 
-instance Hashable ListDistributions
+instance Hashable ListDistributions where
 
-instance NFData ListDistributions
+instance NFData ListDistributions where
 
 instance ToHeaders ListDistributions where
         toHeaders = const mempty
 
 instance ToPath ListDistributions where
-        toPath = const "/2016-09-07/distribution"
+        toPath = const "/2017-03-25/distribution"
 
 instance ToQuery ListDistributions where
         toQuery ListDistributions'{..}
@@ -115,35 +118,39 @@ instance ToQuery ListDistributions where
 
 -- | The returned result of the corresponding request.
 --
+--
+--
 -- /See:/ 'listDistributionsResponse' smart constructor.
 data ListDistributionsResponse = ListDistributionsResponse'
-    { _ldrsResponseStatus   :: !Int
-    , _ldrsDistributionList :: !DistributionList
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldrsResponseStatus   :: !Int
+  , _ldrsDistributionList :: !DistributionList
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDistributionsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldrsResponseStatus'
+-- * 'ldrsResponseStatus' - -- | The response status code.
 --
--- * 'ldrsDistributionList'
+-- * 'ldrsDistributionList' - The @DistributionList@ type.
 listDistributionsResponse
     :: Int -- ^ 'ldrsResponseStatus'
     -> DistributionList -- ^ 'ldrsDistributionList'
     -> ListDistributionsResponse
 listDistributionsResponse pResponseStatus_ pDistributionList_ =
-    ListDistributionsResponse'
-    { _ldrsResponseStatus = pResponseStatus_
-    , _ldrsDistributionList = pDistributionList_
-    }
+  ListDistributionsResponse'
+  { _ldrsResponseStatus = pResponseStatus_
+  , _ldrsDistributionList = pDistributionList_
+  }
 
--- | The response status code.
+
+-- | -- | The response status code.
 ldrsResponseStatus :: Lens' ListDistributionsResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 
--- | The DistributionList type.
+-- | The @DistributionList@ type.
 ldrsDistributionList :: Lens' ListDistributionsResponse DistributionList
 ldrsDistributionList = lens _ldrsDistributionList (\ s a -> s{_ldrsDistributionList = a});
 
-instance NFData ListDistributionsResponse
+instance NFData ListDistributionsResponse where

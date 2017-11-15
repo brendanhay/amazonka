@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.PutApprovalResult
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides the response to a manual approval request to AWS CodePipeline. Valid responses include Approved and Rejected.
+--
+--
 module Network.AWS.CodePipeline.PutApprovalResult
     (
     -- * Creating a Request
@@ -39,37 +41,40 @@ module Network.AWS.CodePipeline.PutApprovalResult
     , parrsResponseStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a put approval result action.
+-- | Represents the input of a PutApprovalResult action.
+--
+--
 --
 -- /See:/ 'putApprovalResult' smart constructor.
 data PutApprovalResult = PutApprovalResult'
-    { _parPipelineName :: !Text
-    , _parStageName    :: !Text
-    , _parActionName   :: !Text
-    , _parResult       :: !ApprovalResult
-    , _parToken        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _parPipelineName :: !Text
+  , _parStageName    :: !Text
+  , _parActionName   :: !Text
+  , _parResult       :: !ApprovalResult
+  , _parToken        :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutApprovalResult' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'parPipelineName'
+-- * 'parPipelineName' - The name of the pipeline that contains the action.
 --
--- * 'parStageName'
+-- * 'parStageName' - The name of the stage that contains the action.
 --
--- * 'parActionName'
+-- * 'parActionName' - The name of the action for which approval is requested.
 --
--- * 'parResult'
+-- * 'parResult' - Represents information about the result of the approval request.
 --
--- * 'parToken'
+-- * 'parToken' - The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the 'GetPipelineState' action and is used to validate that the approval request corresponding to this token is still valid.
 putApprovalResult
     :: Text -- ^ 'parPipelineName'
     -> Text -- ^ 'parStageName'
@@ -78,13 +83,14 @@ putApprovalResult
     -> Text -- ^ 'parToken'
     -> PutApprovalResult
 putApprovalResult pPipelineName_ pStageName_ pActionName_ pResult_ pToken_ =
-    PutApprovalResult'
-    { _parPipelineName = pPipelineName_
-    , _parStageName = pStageName_
-    , _parActionName = pActionName_
-    , _parResult = pResult_
-    , _parToken = pToken_
-    }
+  PutApprovalResult'
+  { _parPipelineName = pPipelineName_
+  , _parStageName = pStageName_
+  , _parActionName = pActionName_
+  , _parResult = pResult_
+  , _parToken = pToken_
+  }
+
 
 -- | The name of the pipeline that contains the action.
 parPipelineName :: Lens' PutApprovalResult Text
@@ -102,7 +108,7 @@ parActionName = lens _parActionName (\ s a -> s{_parActionName = a});
 parResult :: Lens' PutApprovalResult ApprovalResult
 parResult = lens _parResult (\ s a -> s{_parResult = a});
 
--- | The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the < GetPipelineState> action and is used to validate that the approval request corresponding to this token is still valid.
+-- | The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the 'GetPipelineState' action and is used to validate that the approval request corresponding to this token is still valid.
 parToken :: Lens' PutApprovalResult Text
 parToken = lens _parToken (\ s a -> s{_parToken = a});
 
@@ -115,9 +121,9 @@ instance AWSRequest PutApprovalResult where
                  PutApprovalResultResponse' <$>
                    (x .?> "approvedAt") <*> (pure (fromEnum s)))
 
-instance Hashable PutApprovalResult
+instance Hashable PutApprovalResult where
 
-instance NFData PutApprovalResult
+instance NFData PutApprovalResult where
 
 instance ToHeaders PutApprovalResult where
         toHeaders
@@ -145,36 +151,38 @@ instance ToPath PutApprovalResult where
 instance ToQuery PutApprovalResult where
         toQuery = const mempty
 
--- | Represents the output of a put approval result action.
+-- | Represents the output of a PutApprovalResult action.
+--
+--
 --
 -- /See:/ 'putApprovalResultResponse' smart constructor.
 data PutApprovalResultResponse = PutApprovalResultResponse'
-    { _parrsApprovedAt     :: !(Maybe POSIX)
-    , _parrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _parrsApprovedAt     :: !(Maybe POSIX)
+  , _parrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutApprovalResultResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'parrsApprovedAt'
+-- * 'parrsApprovedAt' - The timestamp showing when the approval or rejection was submitted.
 --
--- * 'parrsResponseStatus'
+-- * 'parrsResponseStatus' - -- | The response status code.
 putApprovalResultResponse
     :: Int -- ^ 'parrsResponseStatus'
     -> PutApprovalResultResponse
 putApprovalResultResponse pResponseStatus_ =
-    PutApprovalResultResponse'
-    { _parrsApprovedAt = Nothing
-    , _parrsResponseStatus = pResponseStatus_
-    }
+  PutApprovalResultResponse'
+  {_parrsApprovedAt = Nothing, _parrsResponseStatus = pResponseStatus_}
+
 
 -- | The timestamp showing when the approval or rejection was submitted.
 parrsApprovedAt :: Lens' PutApprovalResultResponse (Maybe UTCTime)
 parrsApprovedAt = lens _parrsApprovedAt (\ s a -> s{_parrsApprovedAt = a}) . mapping _Time;
 
--- | The response status code.
+-- | -- | The response status code.
 parrsResponseStatus :: Lens' PutApprovalResultResponse Int
 parrsResponseStatus = lens _parrsResponseStatus (\ s a -> s{_parrsResponseStatus = a});
 
-instance NFData PutApprovalResultResponse
+instance NFData PutApprovalResultResponse where

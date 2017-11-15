@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AttachInternetGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches an Internet gateway to a VPC, enabling connectivity between the Internet and the VPC. For more information about your VPC and Internet gateway, see the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/ Amazon Virtual Private Cloud User Guide>.
+-- Attaches an Internet gateway to a VPC, enabling connectivity between the Internet and the VPC. For more information about your VPC and Internet gateway, see the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/ Amazon Virtual Private Cloud User Guide> .
+--
+--
 module Network.AWS.EC2.AttachInternetGateway
     (
     -- * Creating a Request
@@ -34,43 +36,47 @@ module Network.AWS.EC2.AttachInternetGateway
     , AttachInternetGatewayResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AttachInternetGateway.
 --
+--
+--
 -- /See:/ 'attachInternetGateway' smart constructor.
 data AttachInternetGateway = AttachInternetGateway'
-    { _aigDryRun            :: !(Maybe Bool)
-    , _aigInternetGatewayId :: !Text
-    , _aigVPCId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aigDryRun            :: !(Maybe Bool)
+  , _aigInternetGatewayId :: !Text
+  , _aigVPCId             :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachInternetGateway' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aigDryRun'
+-- * 'aigDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'aigInternetGatewayId'
+-- * 'aigInternetGatewayId' - The ID of the Internet gateway.
 --
--- * 'aigVPCId'
+-- * 'aigVPCId' - The ID of the VPC.
 attachInternetGateway
     :: Text -- ^ 'aigInternetGatewayId'
     -> Text -- ^ 'aigVPCId'
     -> AttachInternetGateway
 attachInternetGateway pInternetGatewayId_ pVPCId_ =
-    AttachInternetGateway'
-    { _aigDryRun = Nothing
-    , _aigInternetGatewayId = pInternetGatewayId_
-    , _aigVPCId = pVPCId_
-    }
+  AttachInternetGateway'
+  { _aigDryRun = Nothing
+  , _aigInternetGatewayId = pInternetGatewayId_
+  , _aigVPCId = pVPCId_
+  }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 aigDryRun :: Lens' AttachInternetGateway (Maybe Bool)
 aigDryRun = lens _aigDryRun (\ s a -> s{_aigDryRun = a});
 
@@ -88,9 +94,9 @@ instance AWSRequest AttachInternetGateway where
         request = postQuery ec2
         response = receiveNull AttachInternetGatewayResponse'
 
-instance Hashable AttachInternetGateway
+instance Hashable AttachInternetGateway where
 
-instance NFData AttachInternetGateway
+instance NFData AttachInternetGateway where
 
 instance ToHeaders AttachInternetGateway where
         toHeaders = const mempty
@@ -102,15 +108,16 @@ instance ToQuery AttachInternetGateway where
         toQuery AttachInternetGateway'{..}
           = mconcat
               ["Action" =: ("AttachInternetGateway" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _aigDryRun,
                "InternetGatewayId" =: _aigInternetGatewayId,
                "VpcId" =: _aigVPCId]
 
 -- | /See:/ 'attachInternetGatewayResponse' smart constructor.
 data AttachInternetGatewayResponse =
-    AttachInternetGatewayResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AttachInternetGatewayResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachInternetGatewayResponse' with the minimum fields required to make a request.
 --
@@ -118,4 +125,5 @@ attachInternetGatewayResponse
     :: AttachInternetGatewayResponse
 attachInternetGatewayResponse = AttachInternetGatewayResponse'
 
-instance NFData AttachInternetGatewayResponse
+
+instance NFData AttachInternetGatewayResponse where

@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.SetUserSettings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the user settings like multi-factor authentication (MFA). If MFA is to be removed for a particular attribute pass the attribute with code delivery as null. If null list is passed, all MFA options are removed.
+--
+--
 module Network.AWS.CognitoIdentityProvider.SetUserSettings
     (
     -- * Creating a Request
@@ -35,36 +37,38 @@ module Network.AWS.CognitoIdentityProvider.SetUserSettings
     , susrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to set user settings.
 --
+--
+--
 -- /See:/ 'setUserSettings' smart constructor.
 data SetUserSettings = SetUserSettings'
-    { _susAccessToken :: !(Sensitive Text)
-    , _susMFAOptions  :: ![MFAOptionType]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _susAccessToken :: !(Sensitive Text)
+  , _susMFAOptions  :: ![MFAOptionType]
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetUserSettings' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'susAccessToken'
+-- * 'susAccessToken' - The access token for the set user settings request.
 --
--- * 'susMFAOptions'
+-- * 'susMFAOptions' - Specifies the options for MFA (e.g., email or phone number).
 setUserSettings
     :: Text -- ^ 'susAccessToken'
     -> SetUserSettings
 setUserSettings pAccessToken_ =
-    SetUserSettings'
-    { _susAccessToken = _Sensitive # pAccessToken_
-    , _susMFAOptions = mempty
-    }
+  SetUserSettings'
+  {_susAccessToken = _Sensitive # pAccessToken_, _susMFAOptions = mempty}
+
 
 -- | The access token for the set user settings request.
 susAccessToken :: Lens' SetUserSettings Text
@@ -82,9 +86,9 @@ instance AWSRequest SetUserSettings where
               (\ s h x ->
                  SetUserSettingsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable SetUserSettings
+instance Hashable SetUserSettings where
 
-instance NFData SetUserSettings
+instance NFData SetUserSettings where
 
 instance ToHeaders SetUserSettings where
         toHeaders
@@ -111,26 +115,28 @@ instance ToQuery SetUserSettings where
 
 -- | The response from the server for a set user settings request.
 --
+--
+--
 -- /See:/ 'setUserSettingsResponse' smart constructor.
 newtype SetUserSettingsResponse = SetUserSettingsResponse'
-    { _susrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _susrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetUserSettingsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'susrsResponseStatus'
+-- * 'susrsResponseStatus' - -- | The response status code.
 setUserSettingsResponse
     :: Int -- ^ 'susrsResponseStatus'
     -> SetUserSettingsResponse
 setUserSettingsResponse pResponseStatus_ =
-    SetUserSettingsResponse'
-    { _susrsResponseStatus = pResponseStatus_
-    }
+  SetUserSettingsResponse' {_susrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 susrsResponseStatus :: Lens' SetUserSettingsResponse Int
 susrsResponseStatus = lens _susrsResponseStatus (\ s a -> s{_susrsResponseStatus = a});
 
-instance NFData SetUserSettingsResponse
+instance NFData SetUserSettingsResponse where

@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.CertificateManager
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.CertificateManager where
 
 import Data.Proxy
+import Network.AWS.CertificateManager
+import Test.AWS.CertificateManager.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.CertificateManager
-import Test.AWS.CertificateManager.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -52,6 +52,9 @@ import Test.AWS.CertificateManager.Internal
 --         , requestRemoveTagsFromCertificate $
 --             removeTagsFromCertificate
 --
+--         , requestImportCertificate $
+--             importCertificate
+--
 --         , requestDescribeCertificate $
 --             describeCertificate
 --
@@ -81,6 +84,9 @@ import Test.AWS.CertificateManager.Internal
 --
 --         , responseRemoveTagsFromCertificate $
 --             removeTagsFromCertificateResponse
+--
+--         , responseImportCertificate $
+--             importCertificateResponse
 --
 --         , responseDescribeCertificate $
 --             describeCertificateResponse
@@ -129,6 +135,11 @@ requestRemoveTagsFromCertificate :: RemoveTagsFromCertificate -> TestTree
 requestRemoveTagsFromCertificate = req
     "RemoveTagsFromCertificate"
     "fixture/RemoveTagsFromCertificate.yaml"
+
+requestImportCertificate :: ImportCertificate -> TestTree
+requestImportCertificate = req
+    "ImportCertificate"
+    "fixture/ImportCertificate.yaml"
 
 requestDescribeCertificate :: DescribeCertificate -> TestTree
 requestDescribeCertificate = req
@@ -192,6 +203,13 @@ responseRemoveTagsFromCertificate = res
     "fixture/RemoveTagsFromCertificateResponse.proto"
     certificateManager
     (Proxy :: Proxy RemoveTagsFromCertificate)
+
+responseImportCertificate :: ImportCertificateResponse -> TestTree
+responseImportCertificate = res
+    "ImportCertificateResponse"
+    "fixture/ImportCertificateResponse.proto"
+    certificateManager
+    (Proxy :: Proxy ImportCertificate)
 
 responseDescribeCertificate :: DescribeCertificateResponse -> TestTree
 responseDescribeCertificate = res

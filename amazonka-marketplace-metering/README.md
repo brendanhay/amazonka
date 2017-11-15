@@ -8,32 +8,27 @@
 
 ## Version
 
-`1.4.4`
+`1.5.0`
 
 
 ## Description
-
-AWS Marketplace Metering Service
-
-This reference provides descriptions of the low-level AWS Marketplace Metering Service API.
-
-AWS Marketplace sellers can use this API to submit usage data for custom usage dimensions.
-
-__Submitting Metering Records__
-
--   /MeterUsage/- Submits the metering record for a Marketplace product.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-marketplace-metering)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).
 
 The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
-which provides mechanisms for specifying AuthN/AuthZ information and sending requests.
+which provides mechanisms for specifying AuthN/AuthZ information, sending requests,
+and receiving responses.
 
-Use of lenses is required for constructing and manipulating types.
-This is due to the amount of nesting of AWS types and transparency regarding
+Lenses are used for constructing and manipulating types,
+due to the depth of nesting of AWS types and transparency regarding
 de/serialisation into more palatable Haskell values.
 The provided lenses should be compatible with any of the major lens libraries
 [lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
+
+See [Network.AWS.MarketplaceMetering](http://hackage.haskell.org/package/amazonka-marketplace-metering/docs/Network-AWS-MarketplaceMetering.html)
+or [the AWS documentation](https://aws.amazon.com/documentation/) to get started.
+
 
 ## Contribute
 

@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.ELB.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,6 +37,9 @@ module Network.AWS.ELB.Types
     , _TooManyAccessPointsException
     , _TooManyPoliciesException
     , _CertificateNotFoundException
+
+    -- * Re-exported Types
+    , module Network.AWS.ELB.Internal
 
     -- * AccessLog
     , AccessLog
@@ -107,6 +110,12 @@ module Network.AWS.ELB.Types
     , lBCookieStickinessPolicy
     , lbcspPolicyName
     , lbcspCookieExpirationPeriod
+
+    -- * Limit
+    , Limit
+    , limit
+    , lMax
+    , lName
 
     -- * Listener
     , Listener
@@ -218,38 +227,41 @@ module Network.AWS.ELB.Types
     , tkoKey
     ) where
 
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.ELB.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.ELB.Internal
+import Network.AWS.ELB.Types.Product
+import Network.AWS.ELB.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
--- | API version '2012-06-01' of the Amazon Elastic Load Balancing SDK configuration.
+-- | API version @2012-06-01@ of the Amazon Elastic Load Balancing SDK configuration.
 elb :: Service
 elb =
-    Service
-    { _svcAbbrev = "ELB"
-    , _svcSigner = v4
-    , _svcPrefix = "elasticloadbalancing"
-    , _svcVersion = "2012-06-01"
-    , _svcEndpoint = defaultEndpoint elb
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseXMLError "ELB"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "ELB"
+  , _svcSigner = v4
+  , _svcPrefix = "elasticloadbalancing"
+  , _svcVersion = "2012-06-01"
+  , _svcEndpoint = defaultEndpoint elb
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseXMLError "ELB"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -258,106 +270,166 @@ elb =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | One or more of the specified policies do not exist.
+--
+--
 _PolicyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _PolicyNotFoundException =
-    _ServiceError . hasStatus 400 . hasCode "PolicyNotFound"
+  _MatchServiceError elb "PolicyNotFound" . hasStatus 400
+
 
 -- | The specified load balancer does not exist.
+--
+--
 _AccessPointNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _AccessPointNotFoundException =
-    _ServiceError . hasStatus 400 . hasCode "LoadBalancerNotFound"
+  _MatchServiceError elb "LoadBalancerNotFound" . hasStatus 400
+
 
 -- | A policy with the specified name already exists for this load balancer.
+--
+--
 _DuplicatePolicyNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicatePolicyNameException =
-    _ServiceError . hasStatus 400 . hasCode "DuplicatePolicyName"
+  _MatchServiceError elb "DuplicatePolicyName" . hasStatus 400
+
 
 -- | The requested configuration change is not valid.
+--
+--
 _InvalidConfigurationRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidConfigurationRequestException =
-    _ServiceError . hasStatus 409 . hasCode "InvalidConfigurationRequest"
+  _MatchServiceError elb "InvalidConfigurationRequest" . hasStatus 409
+
 
 -- | One or more of the specified subnets do not exist.
+--
+--
 _SubnetNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _SubnetNotFoundException =
-    _ServiceError . hasStatus 400 . hasCode "SubnetNotFound"
+  _MatchServiceError elb "SubnetNotFound" . hasStatus 400
+
 
 -- | The specified load balancer attribute does not exist.
+--
+--
 _LoadBalancerAttributeNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _LoadBalancerAttributeNotFoundException =
-    _ServiceError . hasStatus 400 . hasCode "LoadBalancerAttributeNotFound"
+  _MatchServiceError elb "LoadBalancerAttributeNotFound" . hasStatus 400
+
 
 -- | The specified VPC has no associated Internet gateway.
+--
+--
 _InvalidSubnetException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidSubnetException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidSubnet"
+_InvalidSubnetException = _MatchServiceError elb "InvalidSubnet" . hasStatus 400
+
 
 -- | A tag key was specified more than once.
+--
+--
 _DuplicateTagKeysException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateTagKeysException =
-    _ServiceError . hasStatus 400 . hasCode "DuplicateTagKeys"
+  _MatchServiceError elb "DuplicateTagKeys" . hasStatus 400
+
 
 -- | A listener already exists for the specified load balancer name and port, but with a different instance port, protocol, or SSL certificate.
+--
+--
 _DuplicateListenerException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateListenerException =
-    _ServiceError . hasStatus 400 . hasCode "DuplicateListener"
+  _MatchServiceError elb "DuplicateListener" . hasStatus 400
+
 
 -- | The quota for the number of tags that can be assigned to a load balancer has been reached.
+--
+--
 _TooManyTagsException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyTagsException = _ServiceError . hasStatus 400 . hasCode "TooManyTags"
+_TooManyTagsException = _MatchServiceError elb "TooManyTags" . hasStatus 400
+
 
 -- | One or more of the specified policy types do not exist.
+--
+--
 _PolicyTypeNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _PolicyTypeNotFoundException =
-    _ServiceError . hasStatus 400 . hasCode "PolicyTypeNotFound"
+  _MatchServiceError elb "PolicyTypeNotFound" . hasStatus 400
 
--- | Prism for UnsupportedProtocolException' errors.
+
+-- | The specified protocol or signature version is not supported.
+--
+--
 _UnsupportedProtocolException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedProtocolException =
-    _ServiceError . hasStatus 400 . hasCode "UnsupportedProtocol"
+  _MatchServiceError elb "UnsupportedProtocol" . hasStatus 400
+
 
 -- | The specified load balancer name already exists for this account.
+--
+--
 _DuplicateAccessPointNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateAccessPointNameException =
-    _ServiceError . hasStatus 400 . hasCode "DuplicateLoadBalancerName"
+  _MatchServiceError elb "DuplicateLoadBalancerName" . hasStatus 400
+
 
 -- | One or more of the specified security groups do not exist.
+--
+--
 _InvalidSecurityGroupException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSecurityGroupException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidSecurityGroup"
+  _MatchServiceError elb "InvalidSecurityGroup" . hasStatus 400
+
 
 -- | The load balancer does not have a listener configured at the specified port.
+--
+--
 _ListenerNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ListenerNotFoundException =
-    _ServiceError . hasStatus 400 . hasCode "ListenerNotFound"
+  _MatchServiceError elb "ListenerNotFound" . hasStatus 400
+
 
 -- | The specified endpoint is not valid.
+--
+--
 _InvalidEndPointException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidEndPointException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidInstance"
+  _MatchServiceError elb "InvalidInstance" . hasStatus 400
+
 
 -- | Prism for DependencyThrottleException' errors.
 _DependencyThrottleException :: AsError a => Getting (First ServiceError) a ServiceError
 _DependencyThrottleException =
-    _ServiceError . hasStatus 400 . hasCode "DependencyThrottle"
+  _MatchServiceError elb "DependencyThrottle" . hasStatus 400
+
 
 -- | The specified value for the schema is not valid. You can only specify a scheme for load balancers in a VPC.
+--
+--
 _InvalidSchemeException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidSchemeException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidScheme"
+_InvalidSchemeException = _MatchServiceError elb "InvalidScheme" . hasStatus 400
+
 
 -- | The quota for the number of load balancers has been reached.
+--
+--
 _TooManyAccessPointsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyAccessPointsException =
-    _ServiceError . hasStatus 400 . hasCode "TooManyLoadBalancers"
+  _MatchServiceError elb "TooManyLoadBalancers" . hasStatus 400
+
 
 -- | The quota for the number of policies for this load balancer has been reached.
+--
+--
 _TooManyPoliciesException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyPoliciesException =
-    _ServiceError . hasStatus 400 . hasCode "TooManyPolicies"
+  _MatchServiceError elb "TooManyPolicies" . hasStatus 400
+
 
 -- | The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM) or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might indicate that the certificate is not fully available yet.
+--
+--
 _CertificateNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _CertificateNotFoundException =
-    _ServiceError . hasStatus 400 . hasCode "CertificateNotFound"
+  _MatchServiceError elb "CertificateNotFound" . hasStatus 400
+

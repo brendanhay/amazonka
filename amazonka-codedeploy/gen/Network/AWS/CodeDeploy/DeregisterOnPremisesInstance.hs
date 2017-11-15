@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deregisters an on-premises instance.
+--
+--
 module Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
     (
     -- * Creating a Request
@@ -32,32 +34,34 @@ module Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
     , DeregisterOnPremisesInstanceResponse
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a deregister on-premises instance operation.
+-- | Represents the input of a DeregisterOnPremisesInstance operation.
+--
+--
 --
 -- /See:/ 'deregisterOnPremisesInstance' smart constructor.
 newtype DeregisterOnPremisesInstance = DeregisterOnPremisesInstance'
-    { _dopiInstanceName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dopiInstanceName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterOnPremisesInstance' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dopiInstanceName'
+-- * 'dopiInstanceName' - The name of the on-premises instance to deregister.
 deregisterOnPremisesInstance
     :: Text -- ^ 'dopiInstanceName'
     -> DeregisterOnPremisesInstance
 deregisterOnPremisesInstance pInstanceName_ =
-    DeregisterOnPremisesInstance'
-    { _dopiInstanceName = pInstanceName_
-    }
+  DeregisterOnPremisesInstance' {_dopiInstanceName = pInstanceName_}
+
 
 -- | The name of the on-premises instance to deregister.
 dopiInstanceName :: Lens' DeregisterOnPremisesInstance Text
@@ -71,9 +75,9 @@ instance AWSRequest DeregisterOnPremisesInstance
         response
           = receiveNull DeregisterOnPremisesInstanceResponse'
 
-instance Hashable DeregisterOnPremisesInstance
+instance Hashable DeregisterOnPremisesInstance where
 
-instance NFData DeregisterOnPremisesInstance
+instance NFData DeregisterOnPremisesInstance where
 
 instance ToHeaders DeregisterOnPremisesInstance where
         toHeaders
@@ -99,8 +103,9 @@ instance ToQuery DeregisterOnPremisesInstance where
 
 -- | /See:/ 'deregisterOnPremisesInstanceResponse' smart constructor.
 data DeregisterOnPremisesInstanceResponse =
-    DeregisterOnPremisesInstanceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeregisterOnPremisesInstanceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterOnPremisesInstanceResponse' with the minimum fields required to make a request.
 --
@@ -108,4 +113,6 @@ deregisterOnPremisesInstanceResponse
     :: DeregisterOnPremisesInstanceResponse
 deregisterOnPremisesInstanceResponse = DeregisterOnPremisesInstanceResponse'
 
+
 instance NFData DeregisterOnPremisesInstanceResponse
+         where

@@ -12,13 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.DescribeLunaClient
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This is documentation for __AWS CloudHSM Classic__ . For more information, see <http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs> , the <http://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference> .
+--
+--
+-- __For information about the current version of AWS CloudHSM__ , see <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> , the <http://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference> .
+--
 -- Retrieves information about an HSM client.
+--
 module Network.AWS.CloudHSM.DescribeLunaClient
     (
     -- * Creating a Request
@@ -40,33 +46,33 @@ module Network.AWS.CloudHSM.DescribeLunaClient
     , drsResponseStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeLunaClient' smart constructor.
 data DescribeLunaClient = DescribeLunaClient'
-    { _dlcClientARN              :: !(Maybe Text)
-    , _dlcCertificateFingerprint :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlcClientARN              :: !(Maybe Text)
+  , _dlcCertificateFingerprint :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLunaClient' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlcClientARN'
+-- * 'dlcClientARN' - The ARN of the client.
 --
--- * 'dlcCertificateFingerprint'
+-- * 'dlcCertificateFingerprint' - The certificate fingerprint.
 describeLunaClient
     :: DescribeLunaClient
 describeLunaClient =
-    DescribeLunaClient'
-    { _dlcClientARN = Nothing
-    , _dlcCertificateFingerprint = Nothing
-    }
+  DescribeLunaClient'
+  {_dlcClientARN = Nothing, _dlcCertificateFingerprint = Nothing}
+
 
 -- | The ARN of the client.
 dlcClientARN :: Lens' DescribeLunaClient (Maybe Text)
@@ -91,9 +97,9 @@ instance AWSRequest DescribeLunaClient where
                      <*> (x .?> "Label")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeLunaClient
+instance Hashable DescribeLunaClient where
 
-instance NFData DescribeLunaClient
+instance NFData DescribeLunaClient where
 
 instance ToHeaders DescribeLunaClient where
         toHeaders
@@ -121,41 +127,43 @@ instance ToQuery DescribeLunaClient where
 
 -- | /See:/ 'describeLunaClientResponse' smart constructor.
 data DescribeLunaClientResponse = DescribeLunaClientResponse'
-    { _drsClientARN              :: !(Maybe Text)
-    , _drsLastModifiedTimestamp  :: !(Maybe Text)
-    , _drsCertificateFingerprint :: !(Maybe Text)
-    , _drsCertificate            :: !(Maybe Text)
-    , _drsLabel                  :: !(Maybe Text)
-    , _drsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsClientARN              :: !(Maybe Text)
+  , _drsLastModifiedTimestamp  :: !(Maybe Text)
+  , _drsCertificateFingerprint :: !(Maybe Text)
+  , _drsCertificate            :: !(Maybe Text)
+  , _drsLabel                  :: !(Maybe Text)
+  , _drsResponseStatus         :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLunaClientResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsClientARN'
+-- * 'drsClientARN' - The ARN of the client.
 --
--- * 'drsLastModifiedTimestamp'
+-- * 'drsLastModifiedTimestamp' - The date and time the client was last modified.
 --
--- * 'drsCertificateFingerprint'
+-- * 'drsCertificateFingerprint' - The certificate fingerprint.
 --
--- * 'drsCertificate'
+-- * 'drsCertificate' - The certificate installed on the HSMs used by this client.
 --
--- * 'drsLabel'
+-- * 'drsLabel' - The label of the client.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 describeLunaClientResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeLunaClientResponse
 describeLunaClientResponse pResponseStatus_ =
-    DescribeLunaClientResponse'
-    { _drsClientARN = Nothing
-    , _drsLastModifiedTimestamp = Nothing
-    , _drsCertificateFingerprint = Nothing
-    , _drsCertificate = Nothing
-    , _drsLabel = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeLunaClientResponse'
+  { _drsClientARN = Nothing
+  , _drsLastModifiedTimestamp = Nothing
+  , _drsCertificateFingerprint = Nothing
+  , _drsCertificate = Nothing
+  , _drsLabel = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ARN of the client.
 drsClientARN :: Lens' DescribeLunaClientResponse (Maybe Text)
@@ -177,8 +185,8 @@ drsCertificate = lens _drsCertificate (\ s a -> s{_drsCertificate = a});
 drsLabel :: Lens' DescribeLunaClientResponse (Maybe Text)
 drsLabel = lens _drsLabel (\ s a -> s{_drsLabel = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeLunaClientResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DescribeLunaClientResponse
+instance NFData DescribeLunaClientResponse where

@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.PollForThirdPartyJobs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Determines whether there are any third party jobs for a job worker to act on. Only used for partner actions.
 --
--- When this API is called, AWS CodePipeline returns temporary credentials for the Amazon S3 bucket used to store artifacts for the pipeline, if the action requires access to that Amazon S3 bucket for input or output artifacts.
+--
+-- /Important:/ When this API is called, AWS CodePipeline returns temporary credentials for the Amazon S3 bucket used to store artifacts for the pipeline, if the action requires access to that Amazon S3 bucket for input or output artifacts.
+--
 module Network.AWS.CodePipeline.PollForThirdPartyJobs
     (
     -- * Creating a Request
@@ -38,42 +40,44 @@ module Network.AWS.CodePipeline.PollForThirdPartyJobs
     , pftpjrsResponseStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Represents the input of a poll for third party jobs action.
+-- | Represents the input of a PollForThirdPartyJobs action.
+--
+--
 --
 -- /See:/ 'pollForThirdPartyJobs' smart constructor.
 data PollForThirdPartyJobs = PollForThirdPartyJobs'
-    { _pftpjMaxBatchSize :: !(Maybe Nat)
-    , _pftpjActionTypeId :: !ActionTypeId
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pftpjMaxBatchSize :: !(Maybe Nat)
+  , _pftpjActionTypeId :: !ActionTypeId
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PollForThirdPartyJobs' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pftpjMaxBatchSize'
+-- * 'pftpjMaxBatchSize' - The maximum number of jobs to return in a poll for jobs call.
 --
--- * 'pftpjActionTypeId'
+-- * 'pftpjActionTypeId' - Represents information about an action type.
 pollForThirdPartyJobs
     :: ActionTypeId -- ^ 'pftpjActionTypeId'
     -> PollForThirdPartyJobs
 pollForThirdPartyJobs pActionTypeId_ =
-    PollForThirdPartyJobs'
-    { _pftpjMaxBatchSize = Nothing
-    , _pftpjActionTypeId = pActionTypeId_
-    }
+  PollForThirdPartyJobs'
+  {_pftpjMaxBatchSize = Nothing, _pftpjActionTypeId = pActionTypeId_}
+
 
 -- | The maximum number of jobs to return in a poll for jobs call.
 pftpjMaxBatchSize :: Lens' PollForThirdPartyJobs (Maybe Natural)
 pftpjMaxBatchSize = lens _pftpjMaxBatchSize (\ s a -> s{_pftpjMaxBatchSize = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | Represents information about an action type.
 pftpjActionTypeId :: Lens' PollForThirdPartyJobs ActionTypeId
 pftpjActionTypeId = lens _pftpjActionTypeId (\ s a -> s{_pftpjActionTypeId = a});
 
@@ -87,9 +91,9 @@ instance AWSRequest PollForThirdPartyJobs where
                  PollForThirdPartyJobsResponse' <$>
                    (x .?> "jobs" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable PollForThirdPartyJobs
+instance Hashable PollForThirdPartyJobs where
 
-instance NFData PollForThirdPartyJobs
+instance NFData PollForThirdPartyJobs where
 
 instance ToHeaders PollForThirdPartyJobs where
         toHeaders
@@ -114,36 +118,38 @@ instance ToPath PollForThirdPartyJobs where
 instance ToQuery PollForThirdPartyJobs where
         toQuery = const mempty
 
--- | Represents the output of a poll for third party jobs action.
+-- | Represents the output of a PollForThirdPartyJobs action.
+--
+--
 --
 -- /See:/ 'pollForThirdPartyJobsResponse' smart constructor.
 data PollForThirdPartyJobsResponse = PollForThirdPartyJobsResponse'
-    { _pftpjrsJobs           :: !(Maybe [ThirdPartyJob])
-    , _pftpjrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pftpjrsJobs           :: !(Maybe [ThirdPartyJob])
+  , _pftpjrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PollForThirdPartyJobsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pftpjrsJobs'
+-- * 'pftpjrsJobs' - Information about the jobs to take action on.
 --
--- * 'pftpjrsResponseStatus'
+-- * 'pftpjrsResponseStatus' - -- | The response status code.
 pollForThirdPartyJobsResponse
     :: Int -- ^ 'pftpjrsResponseStatus'
     -> PollForThirdPartyJobsResponse
 pollForThirdPartyJobsResponse pResponseStatus_ =
-    PollForThirdPartyJobsResponse'
-    { _pftpjrsJobs = Nothing
-    , _pftpjrsResponseStatus = pResponseStatus_
-    }
+  PollForThirdPartyJobsResponse'
+  {_pftpjrsJobs = Nothing, _pftpjrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the jobs to take action on.
 pftpjrsJobs :: Lens' PollForThirdPartyJobsResponse [ThirdPartyJob]
 pftpjrsJobs = lens _pftpjrsJobs (\ s a -> s{_pftpjrsJobs = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 pftpjrsResponseStatus :: Lens' PollForThirdPartyJobsResponse Int
 pftpjrsResponseStatus = lens _pftpjrsResponseStatus (\ s a -> s{_pftpjrsResponseStatus = a});
 
-instance NFData PollForThirdPartyJobsResponse
+instance NFData PollForThirdPartyJobsResponse where

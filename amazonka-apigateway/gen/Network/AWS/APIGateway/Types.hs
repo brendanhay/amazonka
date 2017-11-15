@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,6 +36,18 @@ module Network.AWS.APIGateway.Types
     -- * CacheClusterStatus
     , CacheClusterStatus (..)
 
+    -- * ContentHandlingStrategy
+    , ContentHandlingStrategy (..)
+
+    -- * DocumentationPartType
+    , DocumentationPartType (..)
+
+    -- * EndpointType
+    , EndpointType (..)
+
+    -- * GatewayResponseType
+    , GatewayResponseType (..)
+
     -- * IntegrationType
     , IntegrationType (..)
 
@@ -56,6 +68,7 @@ module Network.AWS.APIGateway.Types
     , apiKey
     , akEnabled
     , akValue
+    , akCustomerId
     , akCreatedDate
     , akName
     , akId
@@ -115,13 +128,55 @@ module Network.AWS.APIGateway.Types
     , dId
     , dDescription
 
+    -- * DocumentationPart
+    , DocumentationPart
+    , documentationPart
+    , dpLocation
+    , dpId
+    , dpProperties
+
+    -- * DocumentationPartLocation
+    , DocumentationPartLocation
+    , documentationPartLocation
+    , dplPath
+    , dplName
+    , dplMethod
+    , dplStatusCode
+    , dplType
+
+    -- * DocumentationVersion
+    , DocumentationVersion
+    , documentationVersion
+    , dvCreatedDate
+    , dvVersion
+    , dvDescription
+
     -- * DomainName
     , DomainName
     , domainName
     , dnCertificateName
+    , dnRegionalCertificateARN
+    , dnCertificateARN
     , dnDomainName
+    , dnRegionalCertificateName
+    , dnRegionalDomainName
     , dnCertificateUploadDate
     , dnDistributionDomainName
+    , dnEndpointConfiguration
+
+    -- * EndpointConfiguration
+    , EndpointConfiguration
+    , endpointConfiguration
+    , ecTypes
+
+    -- * GatewayResponse
+    , GatewayResponse
+    , gatewayResponse
+    , gDefaultResponse
+    , gResponseTemplates
+    , gResponseType
+    , gStatusCode
+    , gResponseParameters
 
     -- * Integration
     , Integration
@@ -130,6 +185,7 @@ module Network.AWS.APIGateway.Types
     , iRequestTemplates
     , iCredentials
     , iRequestParameters
+    , iContentHandling
     , iPassthroughBehavior
     , iUri
     , iIntegrationResponses
@@ -140,19 +196,22 @@ module Network.AWS.APIGateway.Types
     -- * IntegrationResponse
     , IntegrationResponse
     , integrationResponse
-    , iResponseTemplates
-    , iSelectionPattern
-    , iStatusCode
-    , iResponseParameters
+    , intContentHandling
+    , intResponseTemplates
+    , intSelectionPattern
+    , intStatusCode
+    , intResponseParameters
 
     -- * Method
     , Method
     , method
     , mMethodResponses
     , mHttpMethod
+    , mRequestValidatorId
     , mRequestModels
     , mRequestParameters
     , mAuthorizerId
+    , mOperationName
     , mAuthorizationType
     , mApiKeyRequired
     , mMethodIntegration
@@ -208,6 +267,14 @@ module Network.AWS.APIGateway.Types
     , qsPeriod
     , qsLimit
 
+    -- * RequestValidator
+    , RequestValidator
+    , requestValidator
+    , rvValidateRequestParameters
+    , rvName
+    , rvValidateRequestBody
+    , rvId
+
     -- * Resource
     , Resource
     , resource
@@ -220,17 +287,38 @@ module Network.AWS.APIGateway.Types
     -- * RestAPI
     , RestAPI
     , restAPI
+    , raBinaryMediaTypes
     , raWarnings
     , raCreatedDate
     , raName
+    , raVersion
     , raId
+    , raEndpointConfiguration
     , raDescription
+
+    -- * SDKConfigurationProperty
+    , SDKConfigurationProperty
+    , sdkConfigurationProperty
+    , scpFriendlyName
+    , scpRequired
+    , scpName
+    , scpDefaultValue
+    , scpDescription
+
+    -- * SDKType
+    , SDKType
+    , sdkType
+    , stFriendlyName
+    , stConfigurationProperties
+    , stId
+    , stDescription
 
     -- * Stage
     , Stage
     , stage
     , sDeploymentId
     , sVariables
+    , sDocumentationVersion
     , sClientCertificateId
     , sCreatedDate
     , sCacheClusterStatus
@@ -271,6 +359,7 @@ module Network.AWS.APIGateway.Types
     , upThrottle
     , upQuota
     , upDescription
+    , upProductCode
 
     -- * UsagePlanKey
     , UsagePlanKey
@@ -281,38 +370,40 @@ module Network.AWS.APIGateway.Types
     , upkType
     ) where
 
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.APIGateway.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.APIGateway.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
--- | API version '2015-07-09' of the Amazon API Gateway SDK configuration.
+-- | API version @2015-07-09@ of the Amazon API Gateway SDK configuration.
 apiGateway :: Service
 apiGateway =
-    Service
-    { _svcAbbrev = "APIGateway"
-    , _svcSigner = v4
-    , _svcPrefix = "apigateway"
-    , _svcVersion = "2015-07-09"
-    , _svcEndpoint = defaultEndpoint apiGateway
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "APIGateway"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "APIGateway"
+  , _svcSigner = v4
+  , _svcPrefix = "apigateway"
+  , _svcVersion = "2015-07-09"
+  , _svcEndpoint = defaultEndpoint apiGateway
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "APIGateway"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -321,37 +412,59 @@ apiGateway =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Prism for ConflictException' errors.
+
+-- | The request configuration has conflicts. For details, see the accompanying error message.
+--
+--
 _ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConflictException =
-    _ServiceError . hasStatus 409 . hasCode "ConflictException"
+  _MatchServiceError apiGateway "ConflictException" . hasStatus 409
 
--- | Prism for NotFoundException' errors.
+
+-- | The requested resource is not found. Make sure that the request URI is correct.
+--
+--
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotFoundException =
-    _ServiceError . hasStatus 404 . hasCode "NotFoundException"
+  _MatchServiceError apiGateway "NotFoundException" . hasStatus 404
 
--- | Prism for TooManyRequestsException' errors.
+
+-- | The request has reached its throttling limit. Retry after the specified time period.
+--
+--
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyRequestsException =
-    _ServiceError . hasStatus 429 . hasCode "TooManyRequestsException"
+  _MatchServiceError apiGateway "TooManyRequestsException" . hasStatus 429
 
--- | Prism for ServiceUnavailableException' errors.
+
+-- | The requested service is not available. For details see the accompanying error message. Retry after the specified time period.
+--
+--
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
-    _ServiceError . hasStatus 503 . hasCode "ServiceUnavailableException"
+  _MatchServiceError apiGateway "ServiceUnavailableException" . hasStatus 503
 
--- | Prism for UnauthorizedException' errors.
+
+-- | The request is denied because the caller has insufficient permissions.
+--
+--
 _UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnauthorizedException =
-    _ServiceError . hasStatus 401 . hasCode "UnauthorizedException"
+  _MatchServiceError apiGateway "UnauthorizedException" . hasStatus 401
 
--- | Prism for BadRequestException' errors.
+
+-- | The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.
+--
+--
 _BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _BadRequestException =
-    _ServiceError . hasStatus 400 . hasCode "BadRequestException"
+  _MatchServiceError apiGateway "BadRequestException" . hasStatus 400
 
--- | Prism for LimitExceededException' errors.
+
+-- | The request exceeded the rate limit. Retry after the specified time period.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
-    _ServiceError . hasStatus 429 . hasCode "LimitExceededException"
+  _MatchServiceError apiGateway "LimitExceededException" . hasStatus 429
+

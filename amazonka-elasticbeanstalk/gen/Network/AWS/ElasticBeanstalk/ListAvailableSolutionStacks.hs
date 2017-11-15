@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the available solution stack names.
+-- Returns a list of the available solution stack names, with the public version first and then in reverse chronological order.
+--
+--
 module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     (
     -- * Creating a Request
@@ -34,23 +36,25 @@ module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     , lassrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAvailableSolutionStacks' smart constructor.
 data ListAvailableSolutionStacks =
-    ListAvailableSolutionStacks'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ListAvailableSolutionStacks'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAvailableSolutionStacks' with the minimum fields required to make a request.
 --
 listAvailableSolutionStacks
     :: ListAvailableSolutionStacks
 listAvailableSolutionStacks = ListAvailableSolutionStacks'
+
 
 instance AWSRequest ListAvailableSolutionStacks where
         type Rs ListAvailableSolutionStacks =
@@ -68,9 +72,9 @@ instance AWSRequest ListAvailableSolutionStacks where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListAvailableSolutionStacks
+instance Hashable ListAvailableSolutionStacks where
 
-instance NFData ListAvailableSolutionStacks
+instance NFData ListAvailableSolutionStacks where
 
 instance ToHeaders ListAvailableSolutionStacks where
         toHeaders = const mempty
@@ -88,42 +92,47 @@ instance ToQuery ListAvailableSolutionStacks where
 
 -- | A list of available AWS Elastic Beanstalk solution stacks.
 --
+--
+--
 -- /See:/ 'listAvailableSolutionStacksResponse' smart constructor.
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
-    { _lassrsSolutionStacks       :: !(Maybe [Text])
-    , _lassrsSolutionStackDetails :: !(Maybe [SolutionStackDescription])
-    , _lassrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lassrsSolutionStacks       :: !(Maybe [Text])
+  , _lassrsSolutionStackDetails :: !(Maybe [SolutionStackDescription])
+  , _lassrsResponseStatus       :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAvailableSolutionStacksResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lassrsSolutionStacks'
+-- * 'lassrsSolutionStacks' - A list of available solution stacks.
 --
--- * 'lassrsSolutionStackDetails'
+-- * 'lassrsSolutionStackDetails' - A list of available solution stacks and their 'SolutionStackDescription' .
 --
--- * 'lassrsResponseStatus'
+-- * 'lassrsResponseStatus' - -- | The response status code.
 listAvailableSolutionStacksResponse
     :: Int -- ^ 'lassrsResponseStatus'
     -> ListAvailableSolutionStacksResponse
 listAvailableSolutionStacksResponse pResponseStatus_ =
-    ListAvailableSolutionStacksResponse'
-    { _lassrsSolutionStacks = Nothing
-    , _lassrsSolutionStackDetails = Nothing
-    , _lassrsResponseStatus = pResponseStatus_
-    }
+  ListAvailableSolutionStacksResponse'
+  { _lassrsSolutionStacks = Nothing
+  , _lassrsSolutionStackDetails = Nothing
+  , _lassrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of available solution stacks.
 lassrsSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
 lassrsSolutionStacks = lens _lassrsSolutionStacks (\ s a -> s{_lassrsSolutionStacks = a}) . _Default . _Coerce;
 
--- | A list of available solution stacks and their < SolutionStackDescription>.
+-- | A list of available solution stacks and their 'SolutionStackDescription' .
 lassrsSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
 lassrsSolutionStackDetails = lens _lassrsSolutionStackDetails (\ s a -> s{_lassrsSolutionStackDetails = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lassrsResponseStatus :: Lens' ListAvailableSolutionStacksResponse Int
 lassrsResponseStatus = lens _lassrsResponseStatus (\ s a -> s{_lassrsResponseStatus = a});
 
 instance NFData ListAvailableSolutionStacksResponse
+         where

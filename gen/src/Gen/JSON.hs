@@ -2,30 +2,33 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Gen.JSON
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
 module Gen.JSON where
 
-import           Control.Error
-import           Control.Monad.Except
-import           Data.Aeson           hiding (decode)
-import           Data.Aeson.Types
-import           Data.Bifunctor
-import           Data.ByteString      (ByteString)
+import Control.Error
+import Control.Monad.Except
+
+import Data.Aeson       hiding (decode)
+import Data.Aeson.Types
+import Data.Bifunctor
+import Data.ByteString  (ByteString)
+import Data.List
+
+import Gen.Formatting
+import Gen.IO
+import Gen.Types
+
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.HashMap.Strict  as Map
-import           Data.List
 import qualified Data.Text.Lazy       as LText
-import           Gen.Formatting
-import           Gen.IO
-import           Gen.Types
 import qualified Text.EDE             as EDE
 
 required :: MonadIO m => Path -> ExceptT Error m Object

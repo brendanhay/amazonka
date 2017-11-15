@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.SDB.Select
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The 'Select' operation returns a set of attributes for 'ItemNames' that match the select expression. 'Select' is similar to the standard SQL SELECT statement.
+-- The @Select@ operation returns a set of attributes for @ItemNames@ that match the select expression. @Select@ is similar to the standard SQL SELECT statement.
 --
--- The total size of the response cannot exceed 1 MB in total size. Amazon SimpleDB automatically adjusts the number of items returned per page to enforce this limit. For example, if the client asks to retrieve 2500 items, but each individual item is 10 kB in size, the system returns 100 items and an appropriate 'NextToken' so the client can access the next page of results.
+--
+-- The total size of the response cannot exceed 1 MB in total size. Amazon SimpleDB automatically adjusts the number of items returned per page to enforce this limit. For example, if the client asks to retrieve 2500 items, but each individual item is 10 kB in size, the system returns 100 items and an appropriate @NextToken@ so the client can access the next page of results.
 --
 -- For information on how to construct select expressions, see Using Select to Create Amazon SimpleDB Queries in the Developer Guide.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.SDB.Select
@@ -44,45 +46,47 @@ module Network.AWS.SDB.Select
     , srsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SDB.Types
-import           Network.AWS.SDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SDB.Types
+import Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'select' smart constructor.
 data Select = Select'
-    { _sConsistentRead   :: !(Maybe Bool)
-    , _sNextToken        :: !(Maybe Text)
-    , _sSelectExpression :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sConsistentRead   :: !(Maybe Bool)
+  , _sNextToken        :: !(Maybe Text)
+  , _sSelectExpression :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Select' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sConsistentRead'
+-- * 'sConsistentRead' - @true@
 --
--- * 'sNextToken'
+-- * 'sNextToken' - @ItemNames@
 --
--- * 'sSelectExpression'
+-- * 'sSelectExpression' - The expression used to query the domain.
 select
     :: Text -- ^ 'sSelectExpression'
     -> Select
 select pSelectExpression_ =
-    Select'
-    { _sConsistentRead = Nothing
-    , _sNextToken = Nothing
-    , _sSelectExpression = pSelectExpression_
-    }
+  Select'
+  { _sConsistentRead = Nothing
+  , _sNextToken = Nothing
+  , _sSelectExpression = pSelectExpression_
+  }
 
--- | Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If 'true', any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read.
+
+-- | @true@
 sConsistentRead :: Lens' Select (Maybe Bool)
 sConsistentRead = lens _sConsistentRead (\ s a -> s{_sConsistentRead = a});
 
--- | A string informing Amazon SimpleDB where to start the next list of 'ItemNames'.
+-- | @ItemNames@
 sNextToken :: Lens' Select (Maybe Text)
 sNextToken = lens _sNextToken (\ s a -> s{_sNextToken = a});
 
@@ -107,9 +111,9 @@ instance AWSRequest Select where
                    (may (parseXMLList "Item") x) <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable Select
+instance Hashable Select where
 
-instance NFData Select
+instance NFData Select where
 
 instance ToHeaders Select where
         toHeaders = const mempty
@@ -128,40 +132,42 @@ instance ToQuery Select where
 
 -- | /See:/ 'selectResponse' smart constructor.
 data SelectResponse = SelectResponse'
-    { _srsItems          :: !(Maybe [Item])
-    , _srsNextToken      :: !(Maybe Text)
-    , _srsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsItems          :: !(Maybe [Item])
+  , _srsNextToken      :: !(Maybe Text)
+  , _srsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SelectResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsItems'
+-- * 'srsItems' - A list of items that match the select expression.
 --
--- * 'srsNextToken'
+-- * 'srsNextToken' - @MaxNumberOfItems@
 --
--- * 'srsResponseStatus'
+-- * 'srsResponseStatus' - -- | The response status code.
 selectResponse
     :: Int -- ^ 'srsResponseStatus'
     -> SelectResponse
 selectResponse pResponseStatus_ =
-    SelectResponse'
-    { _srsItems = Nothing
-    , _srsNextToken = Nothing
-    , _srsResponseStatus = pResponseStatus_
-    }
+  SelectResponse'
+  { _srsItems = Nothing
+  , _srsNextToken = Nothing
+  , _srsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of items that match the select expression.
 srsItems :: Lens' SelectResponse [Item]
 srsItems = lens _srsItems (\ s a -> s{_srsItems = a}) . _Default . _Coerce;
 
--- | An opaque token indicating that more items than 'MaxNumberOfItems' were matched, the response size exceeded 1 megabyte, or the execution time exceeded 5 seconds.
+-- | @MaxNumberOfItems@
 srsNextToken :: Lens' SelectResponse (Maybe Text)
 srsNextToken = lens _srsNextToken (\ s a -> s{_srsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 srsResponseStatus :: Lens' SelectResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 
-instance NFData SelectResponse
+instance NFData SelectResponse where

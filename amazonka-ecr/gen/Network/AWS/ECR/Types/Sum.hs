@@ -9,23 +9,48 @@
 
 -- |
 -- Module      : Network.AWS.ECR.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.ECR.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
+
+data ImageActionType =
+  Expire
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ImageActionType where
+    parser = takeLowerText >>= \case
+        "expire" -> pure Expire
+        e -> fromTextError $ "Failure parsing ImageActionType from value: '" <> e
+           <> "'. Accepted values: expire"
+
+instance ToText ImageActionType where
+    toText = \case
+        Expire -> "EXPIRE"
+
+instance Hashable     ImageActionType
+instance NFData       ImageActionType
+instance ToByteString ImageActionType
+instance ToQuery      ImageActionType
+instance ToHeader     ImageActionType
+
+instance FromJSON ImageActionType where
+    parseJSON = parseJSONText "ImageActionType"
 
 data ImageFailureCode
-    = ImageNotFound
-    | ImageTagDoesNotMatchDigest
-    | InvalidImageDigest
-    | InvalidImageTag
-    | MissingDigestAndTag
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ImageNotFound
+  | ImageTagDoesNotMatchDigest
+  | InvalidImageDigest
+  | InvalidImageTag
+  | MissingDigestAndTag
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ImageFailureCode where
     parser = takeLowerText >>= \case
@@ -55,9 +80,10 @@ instance FromJSON ImageFailureCode where
     parseJSON = parseJSONText "ImageFailureCode"
 
 data LayerAvailability
-    = Available
-    | Unavailable
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Available
+  | Unavailable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LayerAvailability where
     parser = takeLowerText >>= \case
@@ -81,9 +107,10 @@ instance FromJSON LayerAvailability where
     parseJSON = parseJSONText "LayerAvailability"
 
 data LayerFailureCode
-    = InvalidLayerDigest
-    | MissingLayerDigest
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = InvalidLayerDigest
+  | MissingLayerDigest
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LayerFailureCode where
     parser = takeLowerText >>= \case
@@ -106,10 +133,44 @@ instance ToHeader     LayerFailureCode
 instance FromJSON LayerFailureCode where
     parseJSON = parseJSONText "LayerFailureCode"
 
+data LifecyclePolicyPreviewStatus
+  = Complete
+  | Expired
+  | Failed
+  | InProgress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText LifecyclePolicyPreviewStatus where
+    parser = takeLowerText >>= \case
+        "complete" -> pure Complete
+        "expired" -> pure Expired
+        "failed" -> pure Failed
+        "in_progress" -> pure InProgress
+        e -> fromTextError $ "Failure parsing LifecyclePolicyPreviewStatus from value: '" <> e
+           <> "'. Accepted values: complete, expired, failed, in_progress"
+
+instance ToText LifecyclePolicyPreviewStatus where
+    toText = \case
+        Complete -> "COMPLETE"
+        Expired -> "EXPIRED"
+        Failed -> "FAILED"
+        InProgress -> "IN_PROGRESS"
+
+instance Hashable     LifecyclePolicyPreviewStatus
+instance NFData       LifecyclePolicyPreviewStatus
+instance ToByteString LifecyclePolicyPreviewStatus
+instance ToQuery      LifecyclePolicyPreviewStatus
+instance ToHeader     LifecyclePolicyPreviewStatus
+
+instance FromJSON LifecyclePolicyPreviewStatus where
+    parseJSON = parseJSONText "LifecyclePolicyPreviewStatus"
+
 data TagStatus
-    = Tagged
-    | Untagged
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Tagged
+  | Untagged
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TagStatus where
     parser = takeLowerText >>= \case

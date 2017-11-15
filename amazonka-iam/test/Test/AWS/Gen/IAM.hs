@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.IAM
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.IAM where
 
 import Data.Proxy
+import Network.AWS.IAM
 import Test.AWS.Fixture
+import Test.AWS.IAM.Internal
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.IAM
-import Test.AWS.IAM.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -72,6 +72,12 @@ import Test.AWS.IAM.Internal
 --
 --         , requestGetUserPolicy $
 --             getUserPolicy
+--
+--         , requestUpdateServiceSpecificCredential $
+--             updateServiceSpecificCredential
+--
+--         , requestDeleteServiceSpecificCredential $
+--             deleteServiceSpecificCredential
 --
 --         , requestListAttachedRolePolicies $
 --             listAttachedRolePolicies
@@ -127,6 +133,9 @@ import Test.AWS.IAM.Internal
 --         , requestCreateRole $
 --             createRole
 --
+--         , requestResetServiceSpecificCredential $
+--             resetServiceSpecificCredential
+--
 --         , requestGetCredentialReport $
 --             getCredentialReport
 --
@@ -160,6 +169,9 @@ import Test.AWS.IAM.Internal
 --         , requestGetAccountAuthorizationDetails $
 --             getAccountAuthorizationDetails
 --
+--         , requestGetServiceLinkedRoleDeletionStatus $
+--             getServiceLinkedRoleDeletionStatus
+--
 --         , requestDeleteAccountAlias $
 --             deleteAccountAlias
 --
@@ -186,6 +198,9 @@ import Test.AWS.IAM.Internal
 --
 --         , requestListServerCertificates $
 --             listServerCertificates
+--
+--         , requestDeleteServiceLinkedRole $
+--             deleteServiceLinkedRole
 --
 --         , requestDeletePolicy $
 --             deletePolicy
@@ -220,6 +235,12 @@ import Test.AWS.IAM.Internal
 --         , requestGetPolicyVersion $
 --             getPolicyVersion
 --
+--         , requestCreateServiceLinkedRole $
+--             createServiceLinkedRole
+--
+--         , requestListServiceSpecificCredentials $
+--             listServiceSpecificCredentials
+--
 --         , requestDeleteOpenIdConnectProvider $
 --             deleteOpenIdConnectProvider
 --
@@ -243,6 +264,9 @@ import Test.AWS.IAM.Internal
 --
 --         , requestAttachUserPolicy $
 --             attachUserPolicy
+--
+--         , requestCreateServiceSpecificCredential $
+--             createServiceSpecificCredential
 --
 --         , requestListVirtualMFADevices $
 --             listVirtualMFADevices
@@ -327,6 +351,9 @@ import Test.AWS.IAM.Internal
 --
 --         , requestListPolicyVersions $
 --             listPolicyVersions
+--
+--         , requestUpdateRoleDescription $
+--             updateRoleDescription
 --
 --         , requestListSAMLProviders $
 --             listSAMLProviders
@@ -415,6 +442,12 @@ import Test.AWS.IAM.Internal
 --         , responseGetUserPolicy $
 --             getUserPolicyResponse
 --
+--         , responseUpdateServiceSpecificCredential $
+--             updateServiceSpecificCredentialResponse
+--
+--         , responseDeleteServiceSpecificCredential $
+--             deleteServiceSpecificCredentialResponse
+--
 --         , responseListAttachedRolePolicies $
 --             listAttachedRolePoliciesResponse
 --
@@ -469,6 +502,9 @@ import Test.AWS.IAM.Internal
 --         , responseCreateRole $
 --             createRoleResponse
 --
+--         , responseResetServiceSpecificCredential $
+--             resetServiceSpecificCredentialResponse
+--
 --         , responseGetCredentialReport $
 --             getCredentialReportResponse
 --
@@ -502,6 +538,9 @@ import Test.AWS.IAM.Internal
 --         , responseGetAccountAuthorizationDetails $
 --             getAccountAuthorizationDetailsResponse
 --
+--         , responseGetServiceLinkedRoleDeletionStatus $
+--             getServiceLinkedRoleDeletionStatusResponse
+--
 --         , responseDeleteAccountAlias $
 --             deleteAccountAliasResponse
 --
@@ -528,6 +567,9 @@ import Test.AWS.IAM.Internal
 --
 --         , responseListServerCertificates $
 --             listServerCertificatesResponse
+--
+--         , responseDeleteServiceLinkedRole $
+--             deleteServiceLinkedRoleResponse
 --
 --         , responseDeletePolicy $
 --             deletePolicyResponse
@@ -562,6 +604,12 @@ import Test.AWS.IAM.Internal
 --         , responseGetPolicyVersion $
 --             getPolicyVersionResponse
 --
+--         , responseCreateServiceLinkedRole $
+--             createServiceLinkedRoleResponse
+--
+--         , responseListServiceSpecificCredentials $
+--             listServiceSpecificCredentialsResponse
+--
 --         , responseDeleteOpenIdConnectProvider $
 --             deleteOpenIdConnectProviderResponse
 --
@@ -585,6 +633,9 @@ import Test.AWS.IAM.Internal
 --
 --         , responseAttachUserPolicy $
 --             attachUserPolicyResponse
+--
+--         , responseCreateServiceSpecificCredential $
+--             createServiceSpecificCredentialResponse
 --
 --         , responseListVirtualMFADevices $
 --             listVirtualMFADevicesResponse
@@ -669,6 +720,9 @@ import Test.AWS.IAM.Internal
 --
 --         , responseListPolicyVersions $
 --             listPolicyVersionsResponse
+--
+--         , responseUpdateRoleDescription $
+--             updateRoleDescriptionResponse
 --
 --         , responseListSAMLProviders $
 --             listSAMLProvidersResponse
@@ -789,6 +843,16 @@ requestGetUserPolicy = req
     "GetUserPolicy"
     "fixture/GetUserPolicy.yaml"
 
+requestUpdateServiceSpecificCredential :: UpdateServiceSpecificCredential -> TestTree
+requestUpdateServiceSpecificCredential = req
+    "UpdateServiceSpecificCredential"
+    "fixture/UpdateServiceSpecificCredential.yaml"
+
+requestDeleteServiceSpecificCredential :: DeleteServiceSpecificCredential -> TestTree
+requestDeleteServiceSpecificCredential = req
+    "DeleteServiceSpecificCredential"
+    "fixture/DeleteServiceSpecificCredential.yaml"
+
 requestListAttachedRolePolicies :: ListAttachedRolePolicies -> TestTree
 requestListAttachedRolePolicies = req
     "ListAttachedRolePolicies"
@@ -879,6 +943,11 @@ requestCreateRole = req
     "CreateRole"
     "fixture/CreateRole.yaml"
 
+requestResetServiceSpecificCredential :: ResetServiceSpecificCredential -> TestTree
+requestResetServiceSpecificCredential = req
+    "ResetServiceSpecificCredential"
+    "fixture/ResetServiceSpecificCredential.yaml"
+
 requestGetCredentialReport :: GetCredentialReport -> TestTree
 requestGetCredentialReport = req
     "GetCredentialReport"
@@ -934,6 +1003,11 @@ requestGetAccountAuthorizationDetails = req
     "GetAccountAuthorizationDetails"
     "fixture/GetAccountAuthorizationDetails.yaml"
 
+requestGetServiceLinkedRoleDeletionStatus :: GetServiceLinkedRoleDeletionStatus -> TestTree
+requestGetServiceLinkedRoleDeletionStatus = req
+    "GetServiceLinkedRoleDeletionStatus"
+    "fixture/GetServiceLinkedRoleDeletionStatus.yaml"
+
 requestDeleteAccountAlias :: DeleteAccountAlias -> TestTree
 requestDeleteAccountAlias = req
     "DeleteAccountAlias"
@@ -978,6 +1052,11 @@ requestListServerCertificates :: ListServerCertificates -> TestTree
 requestListServerCertificates = req
     "ListServerCertificates"
     "fixture/ListServerCertificates.yaml"
+
+requestDeleteServiceLinkedRole :: DeleteServiceLinkedRole -> TestTree
+requestDeleteServiceLinkedRole = req
+    "DeleteServiceLinkedRole"
+    "fixture/DeleteServiceLinkedRole.yaml"
 
 requestDeletePolicy :: DeletePolicy -> TestTree
 requestDeletePolicy = req
@@ -1034,6 +1113,16 @@ requestGetPolicyVersion = req
     "GetPolicyVersion"
     "fixture/GetPolicyVersion.yaml"
 
+requestCreateServiceLinkedRole :: CreateServiceLinkedRole -> TestTree
+requestCreateServiceLinkedRole = req
+    "CreateServiceLinkedRole"
+    "fixture/CreateServiceLinkedRole.yaml"
+
+requestListServiceSpecificCredentials :: ListServiceSpecificCredentials -> TestTree
+requestListServiceSpecificCredentials = req
+    "ListServiceSpecificCredentials"
+    "fixture/ListServiceSpecificCredentials.yaml"
+
 requestDeleteOpenIdConnectProvider :: DeleteOpenIdConnectProvider -> TestTree
 requestDeleteOpenIdConnectProvider = req
     "DeleteOpenIdConnectProvider"
@@ -1073,6 +1162,11 @@ requestAttachUserPolicy :: AttachUserPolicy -> TestTree
 requestAttachUserPolicy = req
     "AttachUserPolicy"
     "fixture/AttachUserPolicy.yaml"
+
+requestCreateServiceSpecificCredential :: CreateServiceSpecificCredential -> TestTree
+requestCreateServiceSpecificCredential = req
+    "CreateServiceSpecificCredential"
+    "fixture/CreateServiceSpecificCredential.yaml"
 
 requestListVirtualMFADevices :: ListVirtualMFADevices -> TestTree
 requestListVirtualMFADevices = req
@@ -1213,6 +1307,11 @@ requestListPolicyVersions :: ListPolicyVersions -> TestTree
 requestListPolicyVersions = req
     "ListPolicyVersions"
     "fixture/ListPolicyVersions.yaml"
+
+requestUpdateRoleDescription :: UpdateRoleDescription -> TestTree
+requestUpdateRoleDescription = req
+    "UpdateRoleDescription"
+    "fixture/UpdateRoleDescription.yaml"
 
 requestListSAMLProviders :: ListSAMLProviders -> TestTree
 requestListSAMLProviders = req
@@ -1386,6 +1485,20 @@ responseGetUserPolicy = res
     iam
     (Proxy :: Proxy GetUserPolicy)
 
+responseUpdateServiceSpecificCredential :: UpdateServiceSpecificCredentialResponse -> TestTree
+responseUpdateServiceSpecificCredential = res
+    "UpdateServiceSpecificCredentialResponse"
+    "fixture/UpdateServiceSpecificCredentialResponse.proto"
+    iam
+    (Proxy :: Proxy UpdateServiceSpecificCredential)
+
+responseDeleteServiceSpecificCredential :: DeleteServiceSpecificCredentialResponse -> TestTree
+responseDeleteServiceSpecificCredential = res
+    "DeleteServiceSpecificCredentialResponse"
+    "fixture/DeleteServiceSpecificCredentialResponse.proto"
+    iam
+    (Proxy :: Proxy DeleteServiceSpecificCredential)
+
 responseListAttachedRolePolicies :: ListAttachedRolePoliciesResponse -> TestTree
 responseListAttachedRolePolicies = res
     "ListAttachedRolePoliciesResponse"
@@ -1512,6 +1625,13 @@ responseCreateRole = res
     iam
     (Proxy :: Proxy CreateRole)
 
+responseResetServiceSpecificCredential :: ResetServiceSpecificCredentialResponse -> TestTree
+responseResetServiceSpecificCredential = res
+    "ResetServiceSpecificCredentialResponse"
+    "fixture/ResetServiceSpecificCredentialResponse.proto"
+    iam
+    (Proxy :: Proxy ResetServiceSpecificCredential)
+
 responseGetCredentialReport :: GetCredentialReportResponse -> TestTree
 responseGetCredentialReport = res
     "GetCredentialReportResponse"
@@ -1589,6 +1709,13 @@ responseGetAccountAuthorizationDetails = res
     iam
     (Proxy :: Proxy GetAccountAuthorizationDetails)
 
+responseGetServiceLinkedRoleDeletionStatus :: GetServiceLinkedRoleDeletionStatusResponse -> TestTree
+responseGetServiceLinkedRoleDeletionStatus = res
+    "GetServiceLinkedRoleDeletionStatusResponse"
+    "fixture/GetServiceLinkedRoleDeletionStatusResponse.proto"
+    iam
+    (Proxy :: Proxy GetServiceLinkedRoleDeletionStatus)
+
 responseDeleteAccountAlias :: DeleteAccountAliasResponse -> TestTree
 responseDeleteAccountAlias = res
     "DeleteAccountAliasResponse"
@@ -1651,6 +1778,13 @@ responseListServerCertificates = res
     "fixture/ListServerCertificatesResponse.proto"
     iam
     (Proxy :: Proxy ListServerCertificates)
+
+responseDeleteServiceLinkedRole :: DeleteServiceLinkedRoleResponse -> TestTree
+responseDeleteServiceLinkedRole = res
+    "DeleteServiceLinkedRoleResponse"
+    "fixture/DeleteServiceLinkedRoleResponse.proto"
+    iam
+    (Proxy :: Proxy DeleteServiceLinkedRole)
 
 responseDeletePolicy :: DeletePolicyResponse -> TestTree
 responseDeletePolicy = res
@@ -1729,6 +1863,20 @@ responseGetPolicyVersion = res
     iam
     (Proxy :: Proxy GetPolicyVersion)
 
+responseCreateServiceLinkedRole :: CreateServiceLinkedRoleResponse -> TestTree
+responseCreateServiceLinkedRole = res
+    "CreateServiceLinkedRoleResponse"
+    "fixture/CreateServiceLinkedRoleResponse.proto"
+    iam
+    (Proxy :: Proxy CreateServiceLinkedRole)
+
+responseListServiceSpecificCredentials :: ListServiceSpecificCredentialsResponse -> TestTree
+responseListServiceSpecificCredentials = res
+    "ListServiceSpecificCredentialsResponse"
+    "fixture/ListServiceSpecificCredentialsResponse.proto"
+    iam
+    (Proxy :: Proxy ListServiceSpecificCredentials)
+
 responseDeleteOpenIdConnectProvider :: DeleteOpenIdConnectProviderResponse -> TestTree
 responseDeleteOpenIdConnectProvider = res
     "DeleteOpenIdConnectProviderResponse"
@@ -1784,6 +1932,13 @@ responseAttachUserPolicy = res
     "fixture/AttachUserPolicyResponse.proto"
     iam
     (Proxy :: Proxy AttachUserPolicy)
+
+responseCreateServiceSpecificCredential :: CreateServiceSpecificCredentialResponse -> TestTree
+responseCreateServiceSpecificCredential = res
+    "CreateServiceSpecificCredentialResponse"
+    "fixture/CreateServiceSpecificCredentialResponse.proto"
+    iam
+    (Proxy :: Proxy CreateServiceSpecificCredential)
 
 responseListVirtualMFADevices :: ListVirtualMFADevicesResponse -> TestTree
 responseListVirtualMFADevices = res
@@ -1980,6 +2135,13 @@ responseListPolicyVersions = res
     "fixture/ListPolicyVersionsResponse.proto"
     iam
     (Proxy :: Proxy ListPolicyVersions)
+
+responseUpdateRoleDescription :: UpdateRoleDescriptionResponse -> TestTree
+responseUpdateRoleDescription = res
+    "UpdateRoleDescriptionResponse"
+    "fixture/UpdateRoleDescriptionResponse.proto"
+    iam
+    (Proxy :: Proxy UpdateRoleDescription)
 
 responseListSAMLProviders :: ListSAMLProvidersResponse -> TestTree
 responseListSAMLProviders = res

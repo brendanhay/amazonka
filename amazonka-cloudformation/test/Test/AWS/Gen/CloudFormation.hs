@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.CloudFormation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.CloudFormation where
 
 import Data.Proxy
+import Network.AWS.CloudFormation
+import Test.AWS.CloudFormation.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.CloudFormation
-import Test.AWS.CloudFormation.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -28,7 +28,10 @@ import Test.AWS.CloudFormation.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDeleteStack $
+--         [ requestDescribeStackSetOperation $
+--             describeStackSetOperation
+--
+--         , requestDeleteStack $
 --             deleteStack
 --
 --         , requestUpdateStack $
@@ -43,6 +46,12 @@ import Test.AWS.CloudFormation.Internal
 --         , requestListStackResources $
 --             listStackResources
 --
+--         , requestDeleteStackInstances $
+--             deleteStackInstances
+--
+--         , requestCreateStackInstances $
+--             createStackInstances
+--
 --         , requestGetStackPolicy $
 --             getStackPolicy
 --
@@ -52,8 +61,14 @@ import Test.AWS.CloudFormation.Internal
 --         , requestCreateChangeSet $
 --             createChangeSet
 --
+--         , requestListStackSetOperations $
+--             listStackSetOperations
+--
 --         , requestExecuteChangeSet $
 --             executeChangeSet
+--
+--         , requestListStackInstances $
+--             listStackInstances
 --
 --         , requestContinueUpdateRollback $
 --             continueUpdateRollback
@@ -73,6 +88,9 @@ import Test.AWS.CloudFormation.Internal
 --         , requestSetStackPolicy $
 --             setStackPolicy
 --
+--         , requestListImports $
+--             listImports
+--
 --         , requestListStacks $
 --             listStacks
 --
@@ -82,8 +100,17 @@ import Test.AWS.CloudFormation.Internal
 --         , requestDescribeStackResources $
 --             describeStackResources
 --
+--         , requestDescribeStackInstance $
+--             describeStackInstance
+--
 --         , requestCreateStack $
 --             createStack
+--
+--         , requestUpdateStackSet $
+--             updateStackSet
+--
+--         , requestDeleteStackSet $
+--             deleteStackSet
 --
 --         , requestEstimateTemplateCost $
 --             estimateTemplateCost
@@ -91,11 +118,32 @@ import Test.AWS.CloudFormation.Internal
 --         , requestDeleteChangeSet $
 --             deleteChangeSet
 --
+--         , requestListStackSets $
+--             listStackSets
+--
+--         , requestListExports $
+--             listExports
+--
+--         , requestCreateStackSet $
+--             createStackSet
+--
+--         , requestUpdateTerminationProtection $
+--             updateTerminationProtection
+--
 --         , requestGetTemplate $
 --             getTemplate
 --
 --         , requestDescribeChangeSet $
 --             describeChangeSet
+--
+--         , requestDescribeStackSet $
+--             describeStackSet
+--
+--         , requestListStackSetOperationResults $
+--             listStackSetOperationResults
+--
+--         , requestStopStackSetOperation $
+--             stopStackSetOperation
 --
 --         , requestDescribeStackResource $
 --             describeStackResource
@@ -103,7 +151,10 @@ import Test.AWS.CloudFormation.Internal
 --           ]
 
 --     , testGroup "response"
---         [ responseDeleteStack $
+--         [ responseDescribeStackSetOperation $
+--             describeStackSetOperationResponse
+--
+--         , responseDeleteStack $
 --             deleteStackResponse
 --
 --         , responseUpdateStack $
@@ -118,6 +169,12 @@ import Test.AWS.CloudFormation.Internal
 --         , responseListStackResources $
 --             listStackResourcesResponse
 --
+--         , responseDeleteStackInstances $
+--             deleteStackInstancesResponse
+--
+--         , responseCreateStackInstances $
+--             createStackInstancesResponse
+--
 --         , responseGetStackPolicy $
 --             getStackPolicyResponse
 --
@@ -127,8 +184,14 @@ import Test.AWS.CloudFormation.Internal
 --         , responseCreateChangeSet $
 --             createChangeSetResponse
 --
+--         , responseListStackSetOperations $
+--             listStackSetOperationsResponse
+--
 --         , responseExecuteChangeSet $
 --             executeChangeSetResponse
+--
+--         , responseListStackInstances $
+--             listStackInstancesResponse
 --
 --         , responseContinueUpdateRollback $
 --             continueUpdateRollbackResponse
@@ -148,6 +211,9 @@ import Test.AWS.CloudFormation.Internal
 --         , responseSetStackPolicy $
 --             setStackPolicyResponse
 --
+--         , responseListImports $
+--             listImportsResponse
+--
 --         , responseListStacks $
 --             listStacksResponse
 --
@@ -157,8 +223,17 @@ import Test.AWS.CloudFormation.Internal
 --         , responseDescribeStackResources $
 --             describeStackResourcesResponse
 --
+--         , responseDescribeStackInstance $
+--             describeStackInstanceResponse
+--
 --         , responseCreateStack $
 --             createStackResponse
+--
+--         , responseUpdateStackSet $
+--             updateStackSetResponse
+--
+--         , responseDeleteStackSet $
+--             deleteStackSetResponse
 --
 --         , responseEstimateTemplateCost $
 --             estimateTemplateCostResponse
@@ -166,11 +241,32 @@ import Test.AWS.CloudFormation.Internal
 --         , responseDeleteChangeSet $
 --             deleteChangeSetResponse
 --
+--         , responseListStackSets $
+--             listStackSetsResponse
+--
+--         , responseListExports $
+--             listExportsResponse
+--
+--         , responseCreateStackSet $
+--             createStackSetResponse
+--
+--         , responseUpdateTerminationProtection $
+--             updateTerminationProtectionResponse
+--
 --         , responseGetTemplate $
 --             getTemplateResponse
 --
 --         , responseDescribeChangeSet $
 --             describeChangeSetResponse
+--
+--         , responseDescribeStackSet $
+--             describeStackSetResponse
+--
+--         , responseListStackSetOperationResults $
+--             listStackSetOperationResultsResponse
+--
+--         , responseStopStackSetOperation $
+--             stopStackSetOperationResponse
 --
 --         , responseDescribeStackResource $
 --             describeStackResourceResponse
@@ -179,6 +275,11 @@ import Test.AWS.CloudFormation.Internal
 --     ]
 
 -- Requests
+
+requestDescribeStackSetOperation :: DescribeStackSetOperation -> TestTree
+requestDescribeStackSetOperation = req
+    "DescribeStackSetOperation"
+    "fixture/DescribeStackSetOperation.yaml"
 
 requestDeleteStack :: DeleteStack -> TestTree
 requestDeleteStack = req
@@ -205,6 +306,16 @@ requestListStackResources = req
     "ListStackResources"
     "fixture/ListStackResources.yaml"
 
+requestDeleteStackInstances :: DeleteStackInstances -> TestTree
+requestDeleteStackInstances = req
+    "DeleteStackInstances"
+    "fixture/DeleteStackInstances.yaml"
+
+requestCreateStackInstances :: CreateStackInstances -> TestTree
+requestCreateStackInstances = req
+    "CreateStackInstances"
+    "fixture/CreateStackInstances.yaml"
+
 requestGetStackPolicy :: GetStackPolicy -> TestTree
 requestGetStackPolicy = req
     "GetStackPolicy"
@@ -220,10 +331,20 @@ requestCreateChangeSet = req
     "CreateChangeSet"
     "fixture/CreateChangeSet.yaml"
 
+requestListStackSetOperations :: ListStackSetOperations -> TestTree
+requestListStackSetOperations = req
+    "ListStackSetOperations"
+    "fixture/ListStackSetOperations.yaml"
+
 requestExecuteChangeSet :: ExecuteChangeSet -> TestTree
 requestExecuteChangeSet = req
     "ExecuteChangeSet"
     "fixture/ExecuteChangeSet.yaml"
+
+requestListStackInstances :: ListStackInstances -> TestTree
+requestListStackInstances = req
+    "ListStackInstances"
+    "fixture/ListStackInstances.yaml"
 
 requestContinueUpdateRollback :: ContinueUpdateRollback -> TestTree
 requestContinueUpdateRollback = req
@@ -255,6 +376,11 @@ requestSetStackPolicy = req
     "SetStackPolicy"
     "fixture/SetStackPolicy.yaml"
 
+requestListImports :: ListImports -> TestTree
+requestListImports = req
+    "ListImports"
+    "fixture/ListImports.yaml"
+
 requestListStacks :: ListStacks -> TestTree
 requestListStacks = req
     "ListStacks"
@@ -270,10 +396,25 @@ requestDescribeStackResources = req
     "DescribeStackResources"
     "fixture/DescribeStackResources.yaml"
 
+requestDescribeStackInstance :: DescribeStackInstance -> TestTree
+requestDescribeStackInstance = req
+    "DescribeStackInstance"
+    "fixture/DescribeStackInstance.yaml"
+
 requestCreateStack :: CreateStack -> TestTree
 requestCreateStack = req
     "CreateStack"
     "fixture/CreateStack.yaml"
+
+requestUpdateStackSet :: UpdateStackSet -> TestTree
+requestUpdateStackSet = req
+    "UpdateStackSet"
+    "fixture/UpdateStackSet.yaml"
+
+requestDeleteStackSet :: DeleteStackSet -> TestTree
+requestDeleteStackSet = req
+    "DeleteStackSet"
+    "fixture/DeleteStackSet.yaml"
 
 requestEstimateTemplateCost :: EstimateTemplateCost -> TestTree
 requestEstimateTemplateCost = req
@@ -285,6 +426,26 @@ requestDeleteChangeSet = req
     "DeleteChangeSet"
     "fixture/DeleteChangeSet.yaml"
 
+requestListStackSets :: ListStackSets -> TestTree
+requestListStackSets = req
+    "ListStackSets"
+    "fixture/ListStackSets.yaml"
+
+requestListExports :: ListExports -> TestTree
+requestListExports = req
+    "ListExports"
+    "fixture/ListExports.yaml"
+
+requestCreateStackSet :: CreateStackSet -> TestTree
+requestCreateStackSet = req
+    "CreateStackSet"
+    "fixture/CreateStackSet.yaml"
+
+requestUpdateTerminationProtection :: UpdateTerminationProtection -> TestTree
+requestUpdateTerminationProtection = req
+    "UpdateTerminationProtection"
+    "fixture/UpdateTerminationProtection.yaml"
+
 requestGetTemplate :: GetTemplate -> TestTree
 requestGetTemplate = req
     "GetTemplate"
@@ -295,12 +456,34 @@ requestDescribeChangeSet = req
     "DescribeChangeSet"
     "fixture/DescribeChangeSet.yaml"
 
+requestDescribeStackSet :: DescribeStackSet -> TestTree
+requestDescribeStackSet = req
+    "DescribeStackSet"
+    "fixture/DescribeStackSet.yaml"
+
+requestListStackSetOperationResults :: ListStackSetOperationResults -> TestTree
+requestListStackSetOperationResults = req
+    "ListStackSetOperationResults"
+    "fixture/ListStackSetOperationResults.yaml"
+
+requestStopStackSetOperation :: StopStackSetOperation -> TestTree
+requestStopStackSetOperation = req
+    "StopStackSetOperation"
+    "fixture/StopStackSetOperation.yaml"
+
 requestDescribeStackResource :: DescribeStackResource -> TestTree
 requestDescribeStackResource = req
     "DescribeStackResource"
     "fixture/DescribeStackResource.yaml"
 
 -- Responses
+
+responseDescribeStackSetOperation :: DescribeStackSetOperationResponse -> TestTree
+responseDescribeStackSetOperation = res
+    "DescribeStackSetOperationResponse"
+    "fixture/DescribeStackSetOperationResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy DescribeStackSetOperation)
 
 responseDeleteStack :: DeleteStackResponse -> TestTree
 responseDeleteStack = res
@@ -337,6 +520,20 @@ responseListStackResources = res
     cloudFormation
     (Proxy :: Proxy ListStackResources)
 
+responseDeleteStackInstances :: DeleteStackInstancesResponse -> TestTree
+responseDeleteStackInstances = res
+    "DeleteStackInstancesResponse"
+    "fixture/DeleteStackInstancesResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy DeleteStackInstances)
+
+responseCreateStackInstances :: CreateStackInstancesResponse -> TestTree
+responseCreateStackInstances = res
+    "CreateStackInstancesResponse"
+    "fixture/CreateStackInstancesResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy CreateStackInstances)
+
 responseGetStackPolicy :: GetStackPolicyResponse -> TestTree
 responseGetStackPolicy = res
     "GetStackPolicyResponse"
@@ -358,12 +555,26 @@ responseCreateChangeSet = res
     cloudFormation
     (Proxy :: Proxy CreateChangeSet)
 
+responseListStackSetOperations :: ListStackSetOperationsResponse -> TestTree
+responseListStackSetOperations = res
+    "ListStackSetOperationsResponse"
+    "fixture/ListStackSetOperationsResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy ListStackSetOperations)
+
 responseExecuteChangeSet :: ExecuteChangeSetResponse -> TestTree
 responseExecuteChangeSet = res
     "ExecuteChangeSetResponse"
     "fixture/ExecuteChangeSetResponse.proto"
     cloudFormation
     (Proxy :: Proxy ExecuteChangeSet)
+
+responseListStackInstances :: ListStackInstancesResponse -> TestTree
+responseListStackInstances = res
+    "ListStackInstancesResponse"
+    "fixture/ListStackInstancesResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy ListStackInstances)
 
 responseContinueUpdateRollback :: ContinueUpdateRollbackResponse -> TestTree
 responseContinueUpdateRollback = res
@@ -407,6 +618,13 @@ responseSetStackPolicy = res
     cloudFormation
     (Proxy :: Proxy SetStackPolicy)
 
+responseListImports :: ListImportsResponse -> TestTree
+responseListImports = res
+    "ListImportsResponse"
+    "fixture/ListImportsResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy ListImports)
+
 responseListStacks :: ListStacksResponse -> TestTree
 responseListStacks = res
     "ListStacksResponse"
@@ -428,12 +646,33 @@ responseDescribeStackResources = res
     cloudFormation
     (Proxy :: Proxy DescribeStackResources)
 
+responseDescribeStackInstance :: DescribeStackInstanceResponse -> TestTree
+responseDescribeStackInstance = res
+    "DescribeStackInstanceResponse"
+    "fixture/DescribeStackInstanceResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy DescribeStackInstance)
+
 responseCreateStack :: CreateStackResponse -> TestTree
 responseCreateStack = res
     "CreateStackResponse"
     "fixture/CreateStackResponse.proto"
     cloudFormation
     (Proxy :: Proxy CreateStack)
+
+responseUpdateStackSet :: UpdateStackSetResponse -> TestTree
+responseUpdateStackSet = res
+    "UpdateStackSetResponse"
+    "fixture/UpdateStackSetResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy UpdateStackSet)
+
+responseDeleteStackSet :: DeleteStackSetResponse -> TestTree
+responseDeleteStackSet = res
+    "DeleteStackSetResponse"
+    "fixture/DeleteStackSetResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy DeleteStackSet)
 
 responseEstimateTemplateCost :: EstimateTemplateCostResponse -> TestTree
 responseEstimateTemplateCost = res
@@ -449,6 +688,34 @@ responseDeleteChangeSet = res
     cloudFormation
     (Proxy :: Proxy DeleteChangeSet)
 
+responseListStackSets :: ListStackSetsResponse -> TestTree
+responseListStackSets = res
+    "ListStackSetsResponse"
+    "fixture/ListStackSetsResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy ListStackSets)
+
+responseListExports :: ListExportsResponse -> TestTree
+responseListExports = res
+    "ListExportsResponse"
+    "fixture/ListExportsResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy ListExports)
+
+responseCreateStackSet :: CreateStackSetResponse -> TestTree
+responseCreateStackSet = res
+    "CreateStackSetResponse"
+    "fixture/CreateStackSetResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy CreateStackSet)
+
+responseUpdateTerminationProtection :: UpdateTerminationProtectionResponse -> TestTree
+responseUpdateTerminationProtection = res
+    "UpdateTerminationProtectionResponse"
+    "fixture/UpdateTerminationProtectionResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy UpdateTerminationProtection)
+
 responseGetTemplate :: GetTemplateResponse -> TestTree
 responseGetTemplate = res
     "GetTemplateResponse"
@@ -462,6 +729,27 @@ responseDescribeChangeSet = res
     "fixture/DescribeChangeSetResponse.proto"
     cloudFormation
     (Proxy :: Proxy DescribeChangeSet)
+
+responseDescribeStackSet :: DescribeStackSetResponse -> TestTree
+responseDescribeStackSet = res
+    "DescribeStackSetResponse"
+    "fixture/DescribeStackSetResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy DescribeStackSet)
+
+responseListStackSetOperationResults :: ListStackSetOperationResultsResponse -> TestTree
+responseListStackSetOperationResults = res
+    "ListStackSetOperationResultsResponse"
+    "fixture/ListStackSetOperationResultsResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy ListStackSetOperationResults)
+
+responseStopStackSetOperation :: StopStackSetOperationResponse -> TestTree
+responseStopStackSetOperation = res
+    "StopStackSetOperationResponse"
+    "fixture/StopStackSetOperationResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy StopStackSetOperation)
 
 responseDescribeStackResource :: DescribeStackResourceResponse -> TestTree
 responseDescribeStackResource = res

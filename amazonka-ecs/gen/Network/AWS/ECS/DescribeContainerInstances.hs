@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DescribeContainerInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes Amazon EC2 Container Service container instances. Returns metadata about registered and remaining resources on each container instance requested.
+--
+--
 module Network.AWS.ECS.DescribeContainerInstances
     (
     -- * Creating a Request
@@ -37,39 +39,39 @@ module Network.AWS.ECS.DescribeContainerInstances
     , dcisrsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeContainerInstances' smart constructor.
 data DescribeContainerInstances = DescribeContainerInstances'
-    { _dciCluster            :: !(Maybe Text)
-    , _dciContainerInstances :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dciCluster            :: !(Maybe Text)
+  , _dciContainerInstances :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeContainerInstances' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dciCluster'
+-- * 'dciCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to describe. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'dciContainerInstances'
+-- * 'dciContainerInstances' - A list of container instance IDs or full Amazon Resource Name (ARN) entries.
 describeContainerInstances
     :: DescribeContainerInstances
 describeContainerInstances =
-    DescribeContainerInstances'
-    { _dciCluster = Nothing
-    , _dciContainerInstances = mempty
-    }
+  DescribeContainerInstances'
+  {_dciCluster = Nothing, _dciContainerInstances = mempty}
+
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to describe. If you do not specify a cluster, the default cluster is assumed.
 dciCluster :: Lens' DescribeContainerInstances (Maybe Text)
 dciCluster = lens _dciCluster (\ s a -> s{_dciCluster = a});
 
--- | A space-separated list of container instance IDs or full Amazon Resource Name (ARN) entries.
+-- | A list of container instance IDs or full Amazon Resource Name (ARN) entries.
 dciContainerInstances :: Lens' DescribeContainerInstances [Text]
 dciContainerInstances = lens _dciContainerInstances (\ s a -> s{_dciContainerInstances = a}) . _Coerce;
 
@@ -85,9 +87,9 @@ instance AWSRequest DescribeContainerInstances where
                      (x .?> "containerInstances" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeContainerInstances
+instance Hashable DescribeContainerInstances where
 
-instance NFData DescribeContainerInstances
+instance NFData DescribeContainerInstances where
 
 instance ToHeaders DescribeContainerInstances where
         toHeaders
@@ -115,29 +117,31 @@ instance ToQuery DescribeContainerInstances where
 
 -- | /See:/ 'describeContainerInstancesResponse' smart constructor.
 data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'
-    { _dcisrsFailures           :: !(Maybe [Failure])
-    , _dcisrsContainerInstances :: !(Maybe [ContainerInstance])
-    , _dcisrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcisrsFailures           :: !(Maybe [Failure])
+  , _dcisrsContainerInstances :: !(Maybe [ContainerInstance])
+  , _dcisrsResponseStatus     :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeContainerInstancesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcisrsFailures'
+-- * 'dcisrsFailures' - Any failures associated with the call.
 --
--- * 'dcisrsContainerInstances'
+-- * 'dcisrsContainerInstances' - The list of container instances.
 --
--- * 'dcisrsResponseStatus'
+-- * 'dcisrsResponseStatus' - -- | The response status code.
 describeContainerInstancesResponse
     :: Int -- ^ 'dcisrsResponseStatus'
     -> DescribeContainerInstancesResponse
 describeContainerInstancesResponse pResponseStatus_ =
-    DescribeContainerInstancesResponse'
-    { _dcisrsFailures = Nothing
-    , _dcisrsContainerInstances = Nothing
-    , _dcisrsResponseStatus = pResponseStatus_
-    }
+  DescribeContainerInstancesResponse'
+  { _dcisrsFailures = Nothing
+  , _dcisrsContainerInstances = Nothing
+  , _dcisrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Any failures associated with the call.
 dcisrsFailures :: Lens' DescribeContainerInstancesResponse [Failure]
@@ -147,8 +151,9 @@ dcisrsFailures = lens _dcisrsFailures (\ s a -> s{_dcisrsFailures = a}) . _Defau
 dcisrsContainerInstances :: Lens' DescribeContainerInstancesResponse [ContainerInstance]
 dcisrsContainerInstances = lens _dcisrsContainerInstances (\ s a -> s{_dcisrsContainerInstances = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dcisrsResponseStatus :: Lens' DescribeContainerInstancesResponse Int
 dcisrsResponseStatus = lens _dcisrsResponseStatus (\ s a -> s{_dcisrsResponseStatus = a});
 
 instance NFData DescribeContainerInstancesResponse
+         where

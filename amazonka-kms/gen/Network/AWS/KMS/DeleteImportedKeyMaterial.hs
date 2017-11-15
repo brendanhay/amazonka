@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.KMS.DeleteImportedKeyMaterial
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes key material that you previously imported and makes the specified customer master key (CMK) unusable. For more information about importing key material into AWS KMS, see <http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material> in the /AWS Key Management Service Developer Guide/.
+-- Deletes key material that you previously imported. This operation makes the specified customer master key (CMK) unusable. For more information about importing key material into AWS KMS, see <http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material> in the /AWS Key Management Service Developer Guide/ . You cannot perform this operation on a CMK in a different AWS account.
 --
--- When the specified CMK is in the 'PendingDeletion' state, this operation does not change the CMK\'s state. Otherwise, it changes the CMK\'s state to 'PendingImport'.
 --
--- After you delete key material, you can use < ImportKeyMaterial> to reimport the same key material into the CMK.
+-- When the specified CMK is in the @PendingDeletion@ state, this operation does not change the CMK's state. Otherwise, it changes the CMK's state to @PendingImport@ .
+--
+-- After you delete key material, you can use 'ImportKeyMaterial' to reimport the same key material into the CMK.
+--
 module Network.AWS.KMS.DeleteImportedKeyMaterial
     (
     -- * Creating a Request
@@ -36,39 +38,32 @@ module Network.AWS.KMS.DeleteImportedKeyMaterial
     , DeleteImportedKeyMaterialResponse
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteImportedKeyMaterial' smart constructor.
 newtype DeleteImportedKeyMaterial = DeleteImportedKeyMaterial'
-    { _dikmKeyId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dikmKeyId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteImportedKeyMaterial' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dikmKeyId'
+-- * 'dikmKeyId' - The identifier of the CMK whose key material to delete. The CMK's @Origin@ must be @EXTERNAL@ . Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 deleteImportedKeyMaterial
     :: Text -- ^ 'dikmKeyId'
     -> DeleteImportedKeyMaterial
 deleteImportedKeyMaterial pKeyId_ =
-    DeleteImportedKeyMaterial'
-    { _dikmKeyId = pKeyId_
-    }
+  DeleteImportedKeyMaterial' {_dikmKeyId = pKeyId_}
 
--- | The identifier of the CMK whose key material to delete. The CMK\'s 'Origin' must be 'EXTERNAL'.
---
--- A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:
---
--- -   Unique key ID: '1234abcd-12ab-34cd-56ef-1234567890ab'
---
--- -   Key ARN: 'arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab'
---
+
+-- | The identifier of the CMK whose key material to delete. The CMK's @Origin@ must be @EXTERNAL@ . Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 dikmKeyId :: Lens' DeleteImportedKeyMaterial Text
 dikmKeyId = lens _dikmKeyId (\ s a -> s{_dikmKeyId = a});
 
@@ -79,9 +74,9 @@ instance AWSRequest DeleteImportedKeyMaterial where
         response
           = receiveNull DeleteImportedKeyMaterialResponse'
 
-instance Hashable DeleteImportedKeyMaterial
+instance Hashable DeleteImportedKeyMaterial where
 
-instance NFData DeleteImportedKeyMaterial
+instance NFData DeleteImportedKeyMaterial where
 
 instance ToHeaders DeleteImportedKeyMaterial where
         toHeaders
@@ -105,8 +100,9 @@ instance ToQuery DeleteImportedKeyMaterial where
 
 -- | /See:/ 'deleteImportedKeyMaterialResponse' smart constructor.
 data DeleteImportedKeyMaterialResponse =
-    DeleteImportedKeyMaterialResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteImportedKeyMaterialResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteImportedKeyMaterialResponse' with the minimum fields required to make a request.
 --
@@ -114,4 +110,6 @@ deleteImportedKeyMaterialResponse
     :: DeleteImportedKeyMaterialResponse
 deleteImportedKeyMaterialResponse = DeleteImportedKeyMaterialResponse'
 
+
 instance NFData DeleteImportedKeyMaterialResponse
+         where

@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.ActivatePipeline
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Validates the specified pipeline and starts processing pipeline tasks. If the pipeline does not pass validation, activation fails.
 --
--- If you need to pause the pipeline to investigate an issue with a component, such as a data source or script, call < DeactivatePipeline>.
+--
+-- If you need to pause the pipeline to investigate an issue with a component, such as a data source or script, call 'DeactivatePipeline' .
 --
 -- To activate a finished pipeline, modify the end date for the pipeline and then activate it.
+--
 module Network.AWS.DataPipeline.ActivatePipeline
     (
     -- * Creating a Request
@@ -40,40 +42,44 @@ module Network.AWS.DataPipeline.ActivatePipeline
     , aprsResponseStatus
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.DataPipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ActivatePipeline.
 --
+--
+--
 -- /See:/ 'activatePipeline' smart constructor.
 data ActivatePipeline = ActivatePipeline'
-    { _apStartTimestamp  :: !(Maybe POSIX)
-    , _apParameterValues :: !(Maybe [ParameterValue])
-    , _apPipelineId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _apStartTimestamp  :: !(Maybe POSIX)
+  , _apParameterValues :: !(Maybe [ParameterValue])
+  , _apPipelineId      :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActivatePipeline' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'apStartTimestamp'
+-- * 'apStartTimestamp' - The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.
 --
--- * 'apParameterValues'
+-- * 'apParameterValues' - A list of parameter values to pass to the pipeline at activation.
 --
--- * 'apPipelineId'
+-- * 'apPipelineId' - The ID of the pipeline.
 activatePipeline
     :: Text -- ^ 'apPipelineId'
     -> ActivatePipeline
 activatePipeline pPipelineId_ =
-    ActivatePipeline'
-    { _apStartTimestamp = Nothing
-    , _apParameterValues = Nothing
-    , _apPipelineId = pPipelineId_
-    }
+  ActivatePipeline'
+  { _apStartTimestamp = Nothing
+  , _apParameterValues = Nothing
+  , _apPipelineId = pPipelineId_
+  }
+
 
 -- | The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.
 apStartTimestamp :: Lens' ActivatePipeline (Maybe UTCTime)
@@ -95,9 +101,9 @@ instance AWSRequest ActivatePipeline where
               (\ s h x ->
                  ActivatePipelineResponse' <$> (pure (fromEnum s)))
 
-instance Hashable ActivatePipeline
+instance Hashable ActivatePipeline where
 
-instance NFData ActivatePipeline
+instance NFData ActivatePipeline where
 
 instance ToHeaders ActivatePipeline where
         toHeaders
@@ -124,26 +130,28 @@ instance ToQuery ActivatePipeline where
 
 -- | Contains the output of ActivatePipeline.
 --
+--
+--
 -- /See:/ 'activatePipelineResponse' smart constructor.
 newtype ActivatePipelineResponse = ActivatePipelineResponse'
-    { _aprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActivatePipelineResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aprsResponseStatus'
+-- * 'aprsResponseStatus' - -- | The response status code.
 activatePipelineResponse
     :: Int -- ^ 'aprsResponseStatus'
     -> ActivatePipelineResponse
 activatePipelineResponse pResponseStatus_ =
-    ActivatePipelineResponse'
-    { _aprsResponseStatus = pResponseStatus_
-    }
+  ActivatePipelineResponse' {_aprsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 aprsResponseStatus :: Lens' ActivatePipelineResponse Int
 aprsResponseStatus = lens _aprsResponseStatus (\ s a -> s{_aprsResponseStatus = a});
 
-instance NFData ActivatePipelineResponse
+instance NFData ActivatePipelineResponse where

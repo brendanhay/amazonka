@@ -5,13 +5,15 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- AWS Device Farm is a service that enables mobile app developers to test Android, iOS, and Fire OS apps on physical phones, tablets, and other devices in the cloud.
+--
+--
 module Network.AWS.DeviceFarm
     (
     -- * Service Configuration
@@ -53,6 +55,12 @@ module Network.AWS.DeviceFarm
     -- ** UpdateProject
     , module Network.AWS.DeviceFarm.UpdateProject
 
+    -- ** UpdateNetworkProfile
+    , module Network.AWS.DeviceFarm.UpdateNetworkProfile
+
+    -- ** DeleteNetworkProfile
+    , module Network.AWS.DeviceFarm.DeleteNetworkProfile
+
     -- ** GetDevicePoolCompatibility
     , module Network.AWS.DeviceFarm.GetDevicePoolCompatibility
 
@@ -89,7 +97,7 @@ module Network.AWS.DeviceFarm
     -- ** GetUpload
     , module Network.AWS.DeviceFarm.GetUpload
 
-    -- ** ListOfferingTransactions
+    -- ** ListOfferingTransactions (Paginated)
     , module Network.AWS.DeviceFarm.ListOfferingTransactions
 
     -- ** CreateDevicePool
@@ -104,6 +112,9 @@ module Network.AWS.DeviceFarm
     -- ** GetTest
     , module Network.AWS.DeviceFarm.GetTest
 
+    -- ** GetNetworkProfile
+    , module Network.AWS.DeviceFarm.GetNetworkProfile
+
     -- ** RenewOffering
     , module Network.AWS.DeviceFarm.RenewOffering
 
@@ -116,8 +127,14 @@ module Network.AWS.DeviceFarm
     -- ** StopRemoteAccessSession
     , module Network.AWS.DeviceFarm.StopRemoteAccessSession
 
+    -- ** CreateNetworkProfile
+    , module Network.AWS.DeviceFarm.CreateNetworkProfile
+
     -- ** GetJob
     , module Network.AWS.DeviceFarm.GetJob
+
+    -- ** ListNetworkProfiles
+    , module Network.AWS.DeviceFarm.ListNetworkProfiles
 
     -- ** ScheduleRun
     , module Network.AWS.DeviceFarm.ScheduleRun
@@ -140,7 +157,10 @@ module Network.AWS.DeviceFarm
     -- ** CreateRemoteAccessSession
     , module Network.AWS.DeviceFarm.CreateRemoteAccessSession
 
-    -- ** GetOfferingStatus
+    -- ** ListOfferingPromotions
+    , module Network.AWS.DeviceFarm.ListOfferingPromotions
+
+    -- ** GetOfferingStatus (Paginated)
     , module Network.AWS.DeviceFarm.GetOfferingStatus
 
     -- ** ListUploads (Paginated)
@@ -170,7 +190,7 @@ module Network.AWS.DeviceFarm
     -- ** CreateProject
     , module Network.AWS.DeviceFarm.CreateProject
 
-    -- ** ListOfferings
+    -- ** ListOfferings (Paginated)
     , module Network.AWS.DeviceFarm.ListOfferings
 
     -- * Types
@@ -202,8 +222,14 @@ module Network.AWS.DeviceFarm
     -- ** ExecutionResult
     , ExecutionResult (..)
 
+    -- ** ExecutionResultCode
+    , ExecutionResultCode (..)
+
     -- ** ExecutionStatus
     , ExecutionStatus (..)
+
+    -- ** NetworkProfileType
+    , NetworkProfileType (..)
 
     -- ** OfferingTransactionType
     , OfferingTransactionType (..)
@@ -233,8 +259,12 @@ module Network.AWS.DeviceFarm
     , AccountSettings
     , accountSettings
     , asAwsAccountNumber
+    , asMaxJobTimeoutMinutes
+    , asMaxSlots
+    , asTrialMinutes
     , asUnmeteredDevices
     , asUnmeteredRemoteAccessDevices
+    , asDefaultJobTimeoutMinutes
 
     -- ** Artifact
     , Artifact
@@ -268,6 +298,13 @@ module Network.AWS.DeviceFarm
     , createRemoteAccessSessionConfiguration
     , crascBillingMethod
 
+    -- ** CustomerArtifactPaths
+    , CustomerArtifactPaths
+    , customerArtifactPaths
+    , capAndroidPaths
+    , capDeviceHostPaths
+    , capIosPaths
+
     -- ** Device
     , Device
     , device
@@ -285,6 +322,7 @@ module Network.AWS.DeviceFarm
     , devOs
     , devName
     , devModel
+    , devRemoteDebugEnabled
     , devCpu
     , devHeapSize
     , devFleetName
@@ -311,6 +349,13 @@ module Network.AWS.DeviceFarm
     , dpcrDevice
     , dpcrCompatible
     , dpcrIncompatibilityMessages
+
+    -- ** ExecutionConfiguration
+    , ExecutionConfiguration
+    , executionConfiguration
+    , ecAccountsCleanup
+    , ecAppPackagesCleanup
+    , ecJobTimeoutMinutes
 
     -- ** IncompatibilityMessage
     , IncompatibilityMessage
@@ -346,6 +391,22 @@ module Network.AWS.DeviceFarm
     , maAmount
     , maCurrencyCode
 
+    -- ** NetworkProfile
+    , NetworkProfile
+    , networkProfile
+    , npUplinkJitterMs
+    , npArn
+    , npUplinkLossPercent
+    , npDownlinkJitterMs
+    , npName
+    , npDownlinkLossPercent
+    , npType
+    , npUplinkDelayMs
+    , npUplinkBandwidthBits
+    , npDescription
+    , npDownlinkDelayMs
+    , npDownlinkBandwidthBits
+
     -- ** Offering
     , Offering
     , offering
@@ -354,6 +415,12 @@ module Network.AWS.DeviceFarm
     , oRecurringCharges
     , oType
     , oDescription
+
+    -- ** OfferingPromotion
+    , OfferingPromotion
+    , offeringPromotion
+    , opId
+    , opDescription
 
     -- ** OfferingStatus
     , OfferingStatus
@@ -369,6 +436,7 @@ module Network.AWS.DeviceFarm
     , otOfferingStatus
     , otCost
     , otTransactionId
+    , otOfferingPromotionId
     , otCreatedOn
 
     -- ** Problem
@@ -394,6 +462,7 @@ module Network.AWS.DeviceFarm
     , pArn
     , pCreated
     , pName
+    , pDefaultJobTimeoutMinutes
 
     -- ** Radios
     , Radios
@@ -413,6 +482,8 @@ module Network.AWS.DeviceFarm
     , RemoteAccessSession
     , remoteAccessSession
     , rasBillingMethod
+    , rasClientId
+    , rasDeviceUdid
     , rasStatus
     , rasArn
     , rasCreated
@@ -421,8 +492,10 @@ module Network.AWS.DeviceFarm
     , rasResult
     , rasName
     , rasDeviceMinutes
+    , rasRemoteDebugEnabled
     , rasEndpoint
     , rasMessage
+    , rasHostAddress
     , rasStarted
 
     -- ** Resolution
@@ -443,6 +516,7 @@ module Network.AWS.DeviceFarm
     , run
     , runBillingMethod
     , runStatus
+    , runCustomerArtifactPaths
     , runCounters
     , runPlatform
     , runArn
@@ -450,7 +524,10 @@ module Network.AWS.DeviceFarm
     , runStopped
     , runResult
     , runCompletedJobs
+    , runResultCode
     , runName
+    , runParsingResultURL
+    , runNetworkProfile
     , runDeviceMinutes
     , runType
     , runMessage
@@ -468,6 +545,7 @@ module Network.AWS.DeviceFarm
     , ScheduleRunConfiguration
     , scheduleRunConfiguration
     , srcBillingMethod
+    , srcCustomerArtifactPaths
     , srcRadios
     , srcLocation
     , srcLocale
@@ -513,6 +591,12 @@ module Network.AWS.DeviceFarm
     , tMessage
     , tStarted
 
+    -- ** TrialMinutes
+    , TrialMinutes
+    , trialMinutes
+    , tmRemaining
+    , tmTotal
+
     -- ** UniqueProblem
     , UniqueProblem
     , uniqueProblem
@@ -533,51 +617,57 @@ module Network.AWS.DeviceFarm
     , uContentType
     ) where
 
-import           Network.AWS.DeviceFarm.CreateDevicePool
-import           Network.AWS.DeviceFarm.CreateProject
-import           Network.AWS.DeviceFarm.CreateRemoteAccessSession
-import           Network.AWS.DeviceFarm.CreateUpload
-import           Network.AWS.DeviceFarm.DeleteDevicePool
-import           Network.AWS.DeviceFarm.DeleteProject
-import           Network.AWS.DeviceFarm.DeleteRemoteAccessSession
-import           Network.AWS.DeviceFarm.DeleteRun
-import           Network.AWS.DeviceFarm.DeleteUpload
-import           Network.AWS.DeviceFarm.GetAccountSettings
-import           Network.AWS.DeviceFarm.GetDevice
-import           Network.AWS.DeviceFarm.GetDevicePool
-import           Network.AWS.DeviceFarm.GetDevicePoolCompatibility
-import           Network.AWS.DeviceFarm.GetJob
-import           Network.AWS.DeviceFarm.GetOfferingStatus
-import           Network.AWS.DeviceFarm.GetProject
-import           Network.AWS.DeviceFarm.GetRemoteAccessSession
-import           Network.AWS.DeviceFarm.GetRun
-import           Network.AWS.DeviceFarm.GetSuite
-import           Network.AWS.DeviceFarm.GetTest
-import           Network.AWS.DeviceFarm.GetUpload
-import           Network.AWS.DeviceFarm.InstallToRemoteAccessSession
-import           Network.AWS.DeviceFarm.ListArtifacts
-import           Network.AWS.DeviceFarm.ListDevicePools
-import           Network.AWS.DeviceFarm.ListDevices
-import           Network.AWS.DeviceFarm.ListJobs
-import           Network.AWS.DeviceFarm.ListOfferings
-import           Network.AWS.DeviceFarm.ListOfferingTransactions
-import           Network.AWS.DeviceFarm.ListProjects
-import           Network.AWS.DeviceFarm.ListRemoteAccessSessions
-import           Network.AWS.DeviceFarm.ListRuns
-import           Network.AWS.DeviceFarm.ListSamples
-import           Network.AWS.DeviceFarm.ListSuites
-import           Network.AWS.DeviceFarm.ListTests
-import           Network.AWS.DeviceFarm.ListUniqueProblems
-import           Network.AWS.DeviceFarm.ListUploads
-import           Network.AWS.DeviceFarm.PurchaseOffering
-import           Network.AWS.DeviceFarm.RenewOffering
-import           Network.AWS.DeviceFarm.ScheduleRun
-import           Network.AWS.DeviceFarm.StopRemoteAccessSession
-import           Network.AWS.DeviceFarm.StopRun
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.UpdateDevicePool
-import           Network.AWS.DeviceFarm.UpdateProject
-import           Network.AWS.DeviceFarm.Waiters
+import Network.AWS.DeviceFarm.CreateDevicePool
+import Network.AWS.DeviceFarm.CreateNetworkProfile
+import Network.AWS.DeviceFarm.CreateProject
+import Network.AWS.DeviceFarm.CreateRemoteAccessSession
+import Network.AWS.DeviceFarm.CreateUpload
+import Network.AWS.DeviceFarm.DeleteDevicePool
+import Network.AWS.DeviceFarm.DeleteNetworkProfile
+import Network.AWS.DeviceFarm.DeleteProject
+import Network.AWS.DeviceFarm.DeleteRemoteAccessSession
+import Network.AWS.DeviceFarm.DeleteRun
+import Network.AWS.DeviceFarm.DeleteUpload
+import Network.AWS.DeviceFarm.GetAccountSettings
+import Network.AWS.DeviceFarm.GetDevice
+import Network.AWS.DeviceFarm.GetDevicePool
+import Network.AWS.DeviceFarm.GetDevicePoolCompatibility
+import Network.AWS.DeviceFarm.GetJob
+import Network.AWS.DeviceFarm.GetNetworkProfile
+import Network.AWS.DeviceFarm.GetOfferingStatus
+import Network.AWS.DeviceFarm.GetProject
+import Network.AWS.DeviceFarm.GetRemoteAccessSession
+import Network.AWS.DeviceFarm.GetRun
+import Network.AWS.DeviceFarm.GetSuite
+import Network.AWS.DeviceFarm.GetTest
+import Network.AWS.DeviceFarm.GetUpload
+import Network.AWS.DeviceFarm.InstallToRemoteAccessSession
+import Network.AWS.DeviceFarm.ListArtifacts
+import Network.AWS.DeviceFarm.ListDevicePools
+import Network.AWS.DeviceFarm.ListDevices
+import Network.AWS.DeviceFarm.ListJobs
+import Network.AWS.DeviceFarm.ListNetworkProfiles
+import Network.AWS.DeviceFarm.ListOfferingPromotions
+import Network.AWS.DeviceFarm.ListOfferings
+import Network.AWS.DeviceFarm.ListOfferingTransactions
+import Network.AWS.DeviceFarm.ListProjects
+import Network.AWS.DeviceFarm.ListRemoteAccessSessions
+import Network.AWS.DeviceFarm.ListRuns
+import Network.AWS.DeviceFarm.ListSamples
+import Network.AWS.DeviceFarm.ListSuites
+import Network.AWS.DeviceFarm.ListTests
+import Network.AWS.DeviceFarm.ListUniqueProblems
+import Network.AWS.DeviceFarm.ListUploads
+import Network.AWS.DeviceFarm.PurchaseOffering
+import Network.AWS.DeviceFarm.RenewOffering
+import Network.AWS.DeviceFarm.ScheduleRun
+import Network.AWS.DeviceFarm.StopRemoteAccessSession
+import Network.AWS.DeviceFarm.StopRun
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.UpdateDevicePool
+import Network.AWS.DeviceFarm.UpdateNetworkProfile
+import Network.AWS.DeviceFarm.UpdateProject
+import Network.AWS.DeviceFarm.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

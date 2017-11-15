@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DeleteLogStream
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a log stream and permanently deletes all the archived log events associated with it.
+-- Deletes the specified log stream and permanently deletes all the archived log events associated with the log stream.
+--
+--
 module Network.AWS.CloudWatchLogs.DeleteLogStream
     (
     -- * Creating a Request
@@ -33,41 +35,41 @@ module Network.AWS.CloudWatchLogs.DeleteLogStream
     , DeleteLogStreamResponse
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteLogStream' smart constructor.
 data DeleteLogStream = DeleteLogStream'
-    { _dlsLogGroupName  :: !Text
-    , _dlsLogStreamName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlsLogGroupName  :: !Text
+  , _dlsLogStreamName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLogStream' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlsLogGroupName'
+-- * 'dlsLogGroupName' - The name of the log group.
 --
--- * 'dlsLogStreamName'
+-- * 'dlsLogStreamName' - The name of the log stream.
 deleteLogStream
     :: Text -- ^ 'dlsLogGroupName'
     -> Text -- ^ 'dlsLogStreamName'
     -> DeleteLogStream
 deleteLogStream pLogGroupName_ pLogStreamName_ =
-    DeleteLogStream'
-    { _dlsLogGroupName = pLogGroupName_
-    , _dlsLogStreamName = pLogStreamName_
-    }
+  DeleteLogStream'
+  {_dlsLogGroupName = pLogGroupName_, _dlsLogStreamName = pLogStreamName_}
 
--- | The name of the log group under which the log stream to delete belongs.
+
+-- | The name of the log group.
 dlsLogGroupName :: Lens' DeleteLogStream Text
 dlsLogGroupName = lens _dlsLogGroupName (\ s a -> s{_dlsLogGroupName = a});
 
--- | The name of the log stream to delete.
+-- | The name of the log stream.
 dlsLogStreamName :: Lens' DeleteLogStream Text
 dlsLogStreamName = lens _dlsLogStreamName (\ s a -> s{_dlsLogStreamName = a});
 
@@ -76,9 +78,9 @@ instance AWSRequest DeleteLogStream where
         request = postJSON cloudWatchLogs
         response = receiveNull DeleteLogStreamResponse'
 
-instance Hashable DeleteLogStream
+instance Hashable DeleteLogStream where
 
-instance NFData DeleteLogStream
+instance NFData DeleteLogStream where
 
 instance ToHeaders DeleteLogStream where
         toHeaders
@@ -104,8 +106,9 @@ instance ToQuery DeleteLogStream where
 
 -- | /See:/ 'deleteLogStreamResponse' smart constructor.
 data DeleteLogStreamResponse =
-    DeleteLogStreamResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteLogStreamResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLogStreamResponse' with the minimum fields required to make a request.
 --
@@ -113,4 +116,5 @@ deleteLogStreamResponse
     :: DeleteLogStreamResponse
 deleteLogStreamResponse = DeleteLogStreamResponse'
 
-instance NFData DeleteLogStreamResponse
+
+instance NFData DeleteLogStreamResponse where

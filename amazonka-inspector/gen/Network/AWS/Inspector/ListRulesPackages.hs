@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.ListRulesPackages
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all available Amazon Inspector rules packages.
+--
+--
 module Network.AWS.Inspector.ListRulesPackages
     (
     -- * Creating a Request
@@ -37,33 +39,32 @@ module Network.AWS.Inspector.ListRulesPackages
     , lrprsRulesPackageARNs
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listRulesPackages' smart constructor.
 data ListRulesPackages = ListRulesPackages'
-    { _lrpNextToken  :: !(Maybe Text)
-    , _lrpMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrpNextToken  :: !(Maybe Text)
+  , _lrpMaxResults :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRulesPackages' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrpNextToken'
+-- * 'lrpNextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListRulesPackages__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 --
--- * 'lrpMaxResults'
+-- * 'lrpMaxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
 listRulesPackages
     :: ListRulesPackages
 listRulesPackages =
-    ListRulesPackages'
-    { _lrpNextToken = Nothing
-    , _lrpMaxResults = Nothing
-    }
+  ListRulesPackages' {_lrpNextToken = Nothing, _lrpMaxResults = Nothing}
+
 
 -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListRulesPackages__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 lrpNextToken :: Lens' ListRulesPackages (Maybe Text)
@@ -83,9 +84,9 @@ instance AWSRequest ListRulesPackages where
                    (x .?> "nextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "rulesPackageArns" .!@ mempty))
 
-instance Hashable ListRulesPackages
+instance Hashable ListRulesPackages where
 
-instance NFData ListRulesPackages
+instance NFData ListRulesPackages where
 
 instance ToHeaders ListRulesPackages where
         toHeaders
@@ -111,35 +112,37 @@ instance ToQuery ListRulesPackages where
 
 -- | /See:/ 'listRulesPackagesResponse' smart constructor.
 data ListRulesPackagesResponse = ListRulesPackagesResponse'
-    { _lrprsNextToken        :: !(Maybe Text)
-    , _lrprsResponseStatus   :: !Int
-    , _lrprsRulesPackageARNs :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrprsNextToken        :: !(Maybe Text)
+  , _lrprsResponseStatus   :: !Int
+  , _lrprsRulesPackageARNs :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRulesPackagesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrprsNextToken'
+-- * 'lrprsNextToken' - When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 --
--- * 'lrprsResponseStatus'
+-- * 'lrprsResponseStatus' - -- | The response status code.
 --
--- * 'lrprsRulesPackageARNs'
+-- * 'lrprsRulesPackageARNs' - The list of ARNs that specifies the rules packages returned by the action.
 listRulesPackagesResponse
     :: Int -- ^ 'lrprsResponseStatus'
     -> ListRulesPackagesResponse
 listRulesPackagesResponse pResponseStatus_ =
-    ListRulesPackagesResponse'
-    { _lrprsNextToken = Nothing
-    , _lrprsResponseStatus = pResponseStatus_
-    , _lrprsRulesPackageARNs = mempty
-    }
+  ListRulesPackagesResponse'
+  { _lrprsNextToken = Nothing
+  , _lrprsResponseStatus = pResponseStatus_
+  , _lrprsRulesPackageARNs = mempty
+  }
+
 
 -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 lrprsNextToken :: Lens' ListRulesPackagesResponse (Maybe Text)
 lrprsNextToken = lens _lrprsNextToken (\ s a -> s{_lrprsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lrprsResponseStatus :: Lens' ListRulesPackagesResponse Int
 lrprsResponseStatus = lens _lrprsResponseStatus (\ s a -> s{_lrprsResponseStatus = a});
 
@@ -147,4 +150,4 @@ lrprsResponseStatus = lens _lrprsResponseStatus (\ s a -> s{_lrprsResponseStatus
 lrprsRulesPackageARNs :: Lens' ListRulesPackagesResponse [Text]
 lrprsRulesPackageARNs = lens _lrprsRulesPackageARNs (\ s a -> s{_lrprsRulesPackageARNs = a}) . _Coerce;
 
-instance NFData ListRulesPackagesResponse
+instance NFData ListRulesPackagesResponse where

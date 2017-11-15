@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.RemoveTagsFromResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes tags from an Amazon Directory Services directory.
+-- Removes tags from a directory.
+--
+--
 module Network.AWS.DirectoryService.RemoveTagsFromResource
     (
     -- * Creating a Request
@@ -35,34 +37,34 @@ module Network.AWS.DirectoryService.RemoveTagsFromResource
     , rtfrrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'removeTagsFromResource' smart constructor.
 data RemoveTagsFromResource = RemoveTagsFromResource'
-    { _rtfrResourceId :: !Text
-    , _rtfrTagKeys    :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtfrResourceId :: !Text
+  , _rtfrTagKeys    :: ![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTagsFromResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfrResourceId'
+-- * 'rtfrResourceId' - Identifier (ID) of the directory from which to remove the tag.
 --
--- * 'rtfrTagKeys'
+-- * 'rtfrTagKeys' - The tag key (name) of the tag to be removed.
 removeTagsFromResource
     :: Text -- ^ 'rtfrResourceId'
     -> RemoveTagsFromResource
 removeTagsFromResource pResourceId_ =
-    RemoveTagsFromResource'
-    { _rtfrResourceId = pResourceId_
-    , _rtfrTagKeys = mempty
-    }
+  RemoveTagsFromResource'
+  {_rtfrResourceId = pResourceId_, _rtfrTagKeys = mempty}
+
 
 -- | Identifier (ID) of the directory from which to remove the tag.
 rtfrResourceId :: Lens' RemoveTagsFromResource Text
@@ -82,9 +84,9 @@ instance AWSRequest RemoveTagsFromResource where
                  RemoveTagsFromResourceResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable RemoveTagsFromResource
+instance Hashable RemoveTagsFromResource where
 
-instance NFData RemoveTagsFromResource
+instance NFData RemoveTagsFromResource where
 
 instance ToHeaders RemoveTagsFromResource where
         toHeaders
@@ -111,24 +113,24 @@ instance ToQuery RemoveTagsFromResource where
 
 -- | /See:/ 'removeTagsFromResourceResponse' smart constructor.
 newtype RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
-    { _rtfrrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtfrrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTagsFromResourceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfrrsResponseStatus'
+-- * 'rtfrrsResponseStatus' - -- | The response status code.
 removeTagsFromResourceResponse
     :: Int -- ^ 'rtfrrsResponseStatus'
     -> RemoveTagsFromResourceResponse
 removeTagsFromResourceResponse pResponseStatus_ =
-    RemoveTagsFromResourceResponse'
-    { _rtfrrsResponseStatus = pResponseStatus_
-    }
+  RemoveTagsFromResourceResponse' {_rtfrrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 rtfrrsResponseStatus :: Lens' RemoveTagsFromResourceResponse Int
 rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a});
 
-instance NFData RemoveTagsFromResourceResponse
+instance NFData RemoveTagsFromResourceResponse where

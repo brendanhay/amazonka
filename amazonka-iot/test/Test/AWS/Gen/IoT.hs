@@ -5,20 +5,20 @@
 
 -- |
 -- Module      : Test.AWS.Gen.IoT
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Test.AWS.Gen.IoT where
 
 import Data.Proxy
+import Network.AWS.IoT
 import Test.AWS.Fixture
+import Test.AWS.IoT.Internal
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.IoT
-import Test.AWS.IoT.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -49,8 +49,8 @@ import Test.AWS.IoT.Internal
 --         , requestListThingTypes $
 --             listThingTypes
 --
---         , requestCreateCertificateFromCsr $
---             createCertificateFromCsr
+--         , requestCreateCertificateFromCSR $
+--             createCertificateFromCSR
 --
 --         , requestDeleteThing $
 --             deleteThing
@@ -223,8 +223,8 @@ import Test.AWS.IoT.Internal
 --         , responseListThingTypes $
 --             listThingTypesResponse
 --
---         , responseCreateCertificateFromCsr $
---             createCertificateFromCsrResponse
+--         , responseCreateCertificateFromCSR $
+--             createCertificateFromCSRResponse
 --
 --         , responseDeleteThing $
 --             deleteThingResponse
@@ -413,10 +413,10 @@ requestListThingTypes = req
     "ListThingTypes"
     "fixture/ListThingTypes.yaml"
 
-requestCreateCertificateFromCsr :: CreateCertificateFromCsr -> TestTree
-requestCreateCertificateFromCsr = req
-    "CreateCertificateFromCsr"
-    "fixture/CreateCertificateFromCsr.yaml"
+requestCreateCertificateFromCSR :: CreateCertificateFromCSR -> TestTree
+requestCreateCertificateFromCSR = req
+    "CreateCertificateFromCSR"
+    "fixture/CreateCertificateFromCSR.yaml"
 
 requestDeleteThing :: DeleteThing -> TestTree
 requestDeleteThing = req
@@ -714,12 +714,12 @@ responseListThingTypes = res
     ioT
     (Proxy :: Proxy ListThingTypes)
 
-responseCreateCertificateFromCsr :: CreateCertificateFromCsrResponse -> TestTree
-responseCreateCertificateFromCsr = res
-    "CreateCertificateFromCsrResponse"
-    "fixture/CreateCertificateFromCsrResponse.proto"
+responseCreateCertificateFromCSR :: CreateCertificateFromCSRResponse -> TestTree
+responseCreateCertificateFromCSR = res
+    "CreateCertificateFromCSRResponse"
+    "fixture/CreateCertificateFromCSRResponse.proto"
     ioT
-    (Proxy :: Proxy CreateCertificateFromCsr)
+    (Proxy :: Proxy CreateCertificateFromCSR)
 
 responseDeleteThing :: DeleteThingResponse -> TestTree
 responseDeleteThing = res

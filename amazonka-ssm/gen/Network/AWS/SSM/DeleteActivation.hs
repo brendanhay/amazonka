@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeleteActivation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an activation. You are not required to delete an activation. If you delete an activation, you can no longer use it to register additional managed instances. Deleting an activation does not de-register managed instances. You must manually de-register managed instances.
+--
+--
 module Network.AWS.SSM.DeleteActivation
     (
     -- * Creating a Request
@@ -31,33 +33,33 @@ module Network.AWS.SSM.DeleteActivation
     , deleteActivationResponse
     , DeleteActivationResponse
     -- * Response Lenses
-    , daarsResponseStatus
+    , delersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'deleteActivation' smart constructor.
 newtype DeleteActivation = DeleteActivation'
-    { _daActivationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daActivationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteActivation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daActivationId'
+-- * 'daActivationId' - The ID of the activation that you want to delete.
 deleteActivation
     :: Text -- ^ 'daActivationId'
     -> DeleteActivation
 deleteActivation pActivationId_ =
-    DeleteActivation'
-    { _daActivationId = pActivationId_
-    }
+  DeleteActivation' {_daActivationId = pActivationId_}
+
 
 -- | The ID of the activation that you want to delete.
 daActivationId :: Lens' DeleteActivation Text
@@ -71,9 +73,9 @@ instance AWSRequest DeleteActivation where
               (\ s h x ->
                  DeleteActivationResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteActivation
+instance Hashable DeleteActivation where
 
-instance NFData DeleteActivation
+instance NFData DeleteActivation where
 
 instance ToHeaders DeleteActivation where
         toHeaders
@@ -98,24 +100,24 @@ instance ToQuery DeleteActivation where
 
 -- | /See:/ 'deleteActivationResponse' smart constructor.
 newtype DeleteActivationResponse = DeleteActivationResponse'
-    { _daarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delersResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteActivationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daarsResponseStatus'
+-- * 'delersResponseStatus' - -- | The response status code.
 deleteActivationResponse
-    :: Int -- ^ 'daarsResponseStatus'
+    :: Int -- ^ 'delersResponseStatus'
     -> DeleteActivationResponse
 deleteActivationResponse pResponseStatus_ =
-    DeleteActivationResponse'
-    { _daarsResponseStatus = pResponseStatus_
-    }
+  DeleteActivationResponse' {_delersResponseStatus = pResponseStatus_}
 
--- | The response status code.
-daarsResponseStatus :: Lens' DeleteActivationResponse Int
-daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});
 
-instance NFData DeleteActivationResponse
+-- | -- | The response status code.
+delersResponseStatus :: Lens' DeleteActivationResponse Int
+delersResponseStatus = lens _delersResponseStatus (\ s a -> s{_delersResponseStatus = a});
+
+instance NFData DeleteActivationResponse where

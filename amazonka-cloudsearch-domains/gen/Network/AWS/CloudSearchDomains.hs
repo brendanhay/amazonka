@@ -5,17 +5,19 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearchDomains
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- You use the AmazonCloudSearch2013 API to upload documents to a search domain and search those documents.
 --
--- The endpoints for submitting 'UploadDocuments', 'Search', and 'Suggest' requests are domain-specific. To get the endpoints for your domain, use the Amazon CloudSearch configuration service 'DescribeDomains' action. The domain endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. You submit suggest requests to the search endpoint.
 --
--- For more information, see the <http://docs.aws.amazon.com/cloudsearch/latest/developerguide Amazon CloudSearch Developer Guide>.
+-- The endpoints for submitting @UploadDocuments@ , @Search@ , and @Suggest@ requests are domain-specific. To get the endpoints for your domain, use the Amazon CloudSearch configuration service @DescribeDomains@ action. The domain endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. You submit suggest requests to the search endpoint.
+--
+-- For more information, see the <http://docs.aws.amazon.com/cloudsearch/latest/developerguide Amazon CloudSearch Developer Guide> .
+--
 module Network.AWS.CloudSearchDomains
     (
     -- * Service Configuration
@@ -124,11 +126,11 @@ module Network.AWS.CloudSearchDomains
     , smId
     ) where
 
-import           Network.AWS.CloudSearchDomains.Search
-import           Network.AWS.CloudSearchDomains.Suggest
-import           Network.AWS.CloudSearchDomains.Types
-import           Network.AWS.CloudSearchDomains.UploadDocuments
-import           Network.AWS.CloudSearchDomains.Waiters
+import Network.AWS.CloudSearchDomains.Search
+import Network.AWS.CloudSearchDomains.Suggest
+import Network.AWS.CloudSearchDomains.Types
+import Network.AWS.CloudSearchDomains.UploadDocuments
+import Network.AWS.CloudSearchDomains.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

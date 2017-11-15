@@ -5,33 +5,35 @@
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Gen.AST
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
 module Gen.AST where
 
-import           Control.Arrow
-import           Control.Error
-import           Control.Lens
-import           Control.Monad.Except (throwError)
-import           Control.Monad.State
-import qualified Data.HashMap.Strict  as Map
-import qualified Data.HashSet         as Set
-import           Data.Monoid
-import           Gen.AST.Cofree
-import           Gen.AST.Data
-import           Gen.AST.Override
-import           Gen.AST.Prefix
-import           Gen.AST.Subst
-import           Gen.Types.TypeOf
-import           Gen.Formatting
-import           Gen.Types
+import Control.Arrow
+import Control.Error
+import Control.Lens
+import Control.Monad.Except (throwError)
+import Control.Monad.State
+
+import Data.Monoid
+
+import Gen.AST.Cofree
+import Gen.AST.Data
+import Gen.AST.Override
+import Gen.AST.Prefix
+import Gen.AST.Subst
+import Gen.Formatting
+import Gen.Types
+
+import qualified Data.HashMap.Strict as Map
+import qualified Data.HashSet        as Set
 
 -- FIXME: Relations need to be updated by the solving step.
 
@@ -145,13 +147,14 @@ relations os ss = fst <$> execStateT (traverse go os) (mempty, mempty)
         (Map.lookup n ss)
 
 -- FIXME: Necessary to update the Relation?
-solve :: (Traversable t)
+solve :: Traversable t
       => Config
       -> t (Shape Prefixed)
       -> t (Shape Solved)
-solve cfg = (`evalState` replaced typeOf cfg)
-    . traverse (annotate Solved id (pure . typeOf))
+solve cfg ss = evalState (go ss) (replaced typeOf cfg)
  where
+    go = traverse (annotate Solved id (pure . typeOf))
+
     replaced :: (Replace -> a) -> Config -> Map Id a
     replaced f =
           Map.fromList

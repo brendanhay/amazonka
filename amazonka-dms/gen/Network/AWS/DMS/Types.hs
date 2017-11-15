@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -21,8 +21,10 @@ module Network.AWS.DMS.Types
     , _ReplicationSubnetGroupDoesNotCoverEnoughAZs
     , _InvalidResourceStateFault
     , _InvalidCertificateFault
+    , _SNSNoAuthorizationFault
     , _ResourceAlreadyExistsFault
     , _InsufficientResourceCapacityFault
+    , _SNSInvalidTopicFault
     , _ResourceQuotaExceededFault
     , _UpgradeDependencyFailureFault
     , _ResourceNotFoundFault
@@ -30,17 +32,32 @@ module Network.AWS.DMS.Types
     , _AccessDeniedFault
     , _SubnetAlreadyInUse
 
+    -- * AuthMechanismValue
+    , AuthMechanismValue (..)
+
+    -- * AuthTypeValue
+    , AuthTypeValue (..)
+
+    -- * CompressionTypeValue
+    , CompressionTypeValue (..)
+
     -- * DmsSSLModeValue
     , DmsSSLModeValue (..)
 
     -- * MigrationTypeValue
     , MigrationTypeValue (..)
 
+    -- * NestingLevelValue
+    , NestingLevelValue (..)
+
     -- * RefreshSchemasStatusTypeValue
     , RefreshSchemasStatusTypeValue (..)
 
     -- * ReplicationEndpointTypeValue
     , ReplicationEndpointTypeValue (..)
+
+    -- * SourceType
+    , SourceType (..)
 
     -- * StartReplicationTaskTypeValue
     , StartReplicationTaskTypeValue (..)
@@ -67,6 +84,7 @@ module Network.AWS.DMS.Types
     , cCertificateARN
     , cCertificateCreationDate
     , cCertificateIdentifier
+    , cCertificateWallet
     , cKeyLength
     , cValidToDate
 
@@ -80,6 +98,11 @@ module Network.AWS.DMS.Types
     , cEndpointARN
     , cLastFailureMessage
 
+    -- * DynamoDBSettings
+    , DynamoDBSettings
+    , dynamoDBSettings
+    , ddsServiceAccessRoleARN
+
     -- * Endpoint
     , Endpoint
     , endpoint
@@ -91,17 +114,64 @@ module Network.AWS.DMS.Types
     , eUsername
     , eEngineName
     , eKMSKeyId
+    , eMongoDBSettings
     , eSSLMode
     , eDatabaseName
+    , eS3Settings
     , eEndpointIdentifier
+    , eExternalId
+    , eDynamoDBSettings
     , eEndpointARN
     , ePort
+
+    -- * Event
+    , Event
+    , event
+    , eSourceType
+    , eSourceIdentifier
+    , eDate
+    , eEventCategories
+    , eMessage
+
+    -- * EventCategoryGroup
+    , EventCategoryGroup
+    , eventCategoryGroup
+    , ecgSourceType
+    , ecgEventCategories
+
+    -- * EventSubscription
+    , EventSubscription
+    , eventSubscription
+    , esStatus
+    , esCustomerAWSId
+    , esCustSubscriptionId
+    , esSNSTopicARN
+    , esEnabled
+    , esSourceType
+    , esSubscriptionCreationTime
+    , esEventCategoriesList
+    , esSourceIdsList
 
     -- * Filter
     , Filter
     , filter'
     , fName
     , fValues
+
+    -- * MongoDBSettings
+    , MongoDBSettings
+    , mongoDBSettings
+    , mdsServerName
+    , mdsAuthMechanism
+    , mdsUsername
+    , mdsPassword
+    , mdsNestingLevel
+    , mdsDatabaseName
+    , mdsDocsToInvestigate
+    , mdsAuthSource
+    , mdsExtractDocId
+    , mdsAuthType
+    , mdsPort
 
     -- * OrderableReplicationInstance
     , OrderableReplicationInstance
@@ -140,6 +210,7 @@ module Network.AWS.DMS.Types
     , riAvailabilityZone
     , riVPCSecurityGroups
     , riMultiAZ
+    , riSecondaryAvailabilityZone
     , riReplicationInstanceARN
     , riAllocatedStorage
     , riReplicationInstancePublicIPAddress
@@ -167,19 +238,20 @@ module Network.AWS.DMS.Types
     -- * ReplicationTask
     , ReplicationTask
     , replicationTask
-    , rtReplicationTaskSettings
-    , rtStatus
-    , rtTargetEndpointARN
-    , rtReplicationTaskIdentifier
-    , rtReplicationTaskStartDate
-    , rtSourceEndpointARN
-    , rtTableMappings
-    , rtReplicationTaskCreationDate
-    , rtMigrationType
-    , rtReplicationTaskARN
-    , rtReplicationTaskStats
-    , rtReplicationInstanceARN
-    , rtLastFailureMessage
+    , rReplicationTaskSettings
+    , rStatus
+    , rStopReason
+    , rTargetEndpointARN
+    , rReplicationTaskIdentifier
+    , rReplicationTaskStartDate
+    , rSourceEndpointARN
+    , rTableMappings
+    , rReplicationTaskCreationDate
+    , rMigrationType
+    , rReplicationTaskARN
+    , rReplicationTaskStats
+    , rReplicationInstanceARN
+    , rLastFailureMessage
 
     -- * ReplicationTaskStats
     , ReplicationTaskStats
@@ -190,6 +262,17 @@ module Network.AWS.DMS.Types
     , rtsTablesLoaded
     , rtsTablesQueued
     , rtsTablesLoading
+
+    -- * S3Settings
+    , S3Settings
+    , s3Settings
+    , ssCSVDelimiter
+    , ssServiceAccessRoleARN
+    , ssBucketFolder
+    , ssExternalTableDefinition
+    , ssBucketName
+    , ssCSVRowDelimiter
+    , ssCompressionType
 
     -- * Subnet
     , Subnet
@@ -210,13 +293,21 @@ module Network.AWS.DMS.Types
     , tableStatistics
     , tsFullLoadRows
     , tsInserts
+    , tsFullLoadCondtnlChkFailedRows
     , tsSchemaName
     , tsTableState
+    , tsFullLoadErrorRows
     , tsDdls
     , tsDeletes
     , tsUpdates
     , tsLastUpdateTime
     , tsTableName
+
+    -- * TableToReload
+    , TableToReload
+    , tableToReload
+    , ttrSchemaName
+    , ttrTableName
 
     -- * Tag
     , Tag
@@ -231,38 +322,40 @@ module Network.AWS.DMS.Types
     , vsgmVPCSecurityGroupId
     ) where
 
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.DMS.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.DMS.Types.Product
+import Network.AWS.DMS.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
--- | API version '2016-01-01' of the Amazon Database Migration Service SDK configuration.
+-- | API version @2016-01-01@ of the Amazon Database Migration Service SDK configuration.
 dms :: Service
 dms =
-    Service
-    { _svcAbbrev = "DMS"
-    , _svcSigner = v4
-    , _svcPrefix = "dms"
-    , _svcVersion = "2016-01-01"
-    , _svcEndpoint = defaultEndpoint dms
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "DMS"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "DMS"
+  , _svcSigner = v4
+  , _svcPrefix = "dms"
+  , _svcVersion = "2016-01-01"
+  , _svcEndpoint = defaultEndpoint dms
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "DMS"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -271,61 +364,113 @@ dms =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | The subnet provided is invalid.
+--
+--
 _InvalidSubnet :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidSubnet = _ServiceError . hasCode "InvalidSubnet"
+_InvalidSubnet = _MatchServiceError dms "InvalidSubnet"
+
 
 -- | AWS DMS cannot access the KMS key.
+--
+--
 _KMSKeyNotAccessibleFault :: AsError a => Getting (First ServiceError) a ServiceError
-_KMSKeyNotAccessibleFault = _ServiceError . hasCode "KMSKeyNotAccessibleFault"
+_KMSKeyNotAccessibleFault = _MatchServiceError dms "KMSKeyNotAccessibleFault"
+
 
 -- | The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.
+--
+--
 _ReplicationSubnetGroupDoesNotCoverEnoughAZs :: AsError a => Getting (First ServiceError) a ServiceError
 _ReplicationSubnetGroupDoesNotCoverEnoughAZs =
-    _ServiceError . hasCode "ReplicationSubnetGroupDoesNotCoverEnoughAZs"
+  _MatchServiceError dms "ReplicationSubnetGroupDoesNotCoverEnoughAZs"
+
 
 -- | The resource is in a state that prevents it from being used for database migration.
+--
+--
 _InvalidResourceStateFault :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidResourceStateFault =
-    _ServiceError . hasCode "InvalidResourceStateFault"
+_InvalidResourceStateFault = _MatchServiceError dms "InvalidResourceStateFault"
+
 
 -- | The certificate was not valid.
+--
+--
 _InvalidCertificateFault :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidCertificateFault = _ServiceError . hasCode "InvalidCertificateFault"
+_InvalidCertificateFault = _MatchServiceError dms "InvalidCertificateFault"
+
+
+-- | You are not authorized for the SNS subscription.
+--
+--
+_SNSNoAuthorizationFault :: AsError a => Getting (First ServiceError) a ServiceError
+_SNSNoAuthorizationFault = _MatchServiceError dms "SNSNoAuthorizationFault"
+
 
 -- | The resource you are attempting to create already exists.
+--
+--
 _ResourceAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceAlreadyExistsFault =
-    _ServiceError . hasCode "ResourceAlreadyExistsFault"
+  _MatchServiceError dms "ResourceAlreadyExistsFault"
+
 
 -- | There are not enough resources allocated to the database migration.
+--
+--
 _InsufficientResourceCapacityFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientResourceCapacityFault =
-    _ServiceError . hasCode "InsufficientResourceCapacityFault"
+  _MatchServiceError dms "InsufficientResourceCapacityFault"
+
+
+-- | The SNS topic is invalid.
+--
+--
+_SNSInvalidTopicFault :: AsError a => Getting (First ServiceError) a ServiceError
+_SNSInvalidTopicFault = _MatchServiceError dms "SNSInvalidTopicFault"
+
 
 -- | The quota for this resource quota has been exceeded.
+--
+--
 _ResourceQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceQuotaExceededFault =
-    _ServiceError . hasCode "ResourceQuotaExceededFault"
+  _MatchServiceError dms "ResourceQuotaExceededFault"
+
 
 -- | An upgrade dependency is preventing the database migration.
+--
+--
 _UpgradeDependencyFailureFault :: AsError a => Getting (First ServiceError) a ServiceError
 _UpgradeDependencyFailureFault =
-    _ServiceError . hasCode "UpgradeDependencyFailureFault"
+  _MatchServiceError dms "UpgradeDependencyFailureFault"
+
 
 -- | The resource could not be found.
+--
+--
 _ResourceNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFoundFault = _ServiceError . hasCode "ResourceNotFoundFault"
+_ResourceNotFoundFault = _MatchServiceError dms "ResourceNotFoundFault"
+
 
 -- | The storage quota has been exceeded.
+--
+--
 _StorageQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
-_StorageQuotaExceededFault =
-    _ServiceError . hasCode "StorageQuotaExceededFault"
+_StorageQuotaExceededFault = _MatchServiceError dms "StorageQuotaExceededFault"
+
 
 -- | AWS DMS was denied access to the endpoint.
+--
+--
 _AccessDeniedFault :: AsError a => Getting (First ServiceError) a ServiceError
-_AccessDeniedFault = _ServiceError . hasCode "AccessDeniedFault"
+_AccessDeniedFault = _MatchServiceError dms "AccessDeniedFault"
+
 
 -- | The specified subnet is already in use.
+--
+--
 _SubnetAlreadyInUse :: AsError a => Getting (First ServiceError) a ServiceError
-_SubnetAlreadyInUse = _ServiceError . hasCode "SubnetAlreadyInUse"
+_SubnetAlreadyInUse = _MatchServiceError dms "SubnetAlreadyInUse"
+

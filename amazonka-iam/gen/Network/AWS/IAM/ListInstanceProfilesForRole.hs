@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListInstanceProfilesForRole
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the instance profiles that have the specified associated IAM role. If there are none, the action returns an empty list. For more information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
+-- Lists the instance profiles that have the specified associated IAM role. If there are none, the action returns an empty list. For more information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles> .
 --
--- You can paginate the results using the 'MaxItems' and 'Marker' parameters.
+--
+-- You can paginate the results using the @MaxItems@ and @Marker@ parameters.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListInstanceProfilesForRole
@@ -43,53 +45,51 @@ module Network.AWS.IAM.ListInstanceProfilesForRole
     , lipfrrsInstanceProfiles
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listInstanceProfilesForRole' smart constructor.
 data ListInstanceProfilesForRole = ListInstanceProfilesForRole'
-    { _lipfrMarker   :: !(Maybe Text)
-    , _lipfrMaxItems :: !(Maybe Nat)
-    , _lipfrRoleName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lipfrMarker   :: !(Maybe Text)
+  , _lipfrMaxItems :: !(Maybe Nat)
+  , _lipfrRoleName :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListInstanceProfilesForRole' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lipfrMarker'
+-- * 'lipfrMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 --
--- * 'lipfrMaxItems'
+-- * 'lipfrMaxItems' - (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 --
--- * 'lipfrRoleName'
+-- * 'lipfrRoleName' - The name of the role to list instance profiles for. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 listInstanceProfilesForRole
     :: Text -- ^ 'lipfrRoleName'
     -> ListInstanceProfilesForRole
 listInstanceProfilesForRole pRoleName_ =
-    ListInstanceProfilesForRole'
-    { _lipfrMarker = Nothing
-    , _lipfrMaxItems = Nothing
-    , _lipfrRoleName = pRoleName_
-    }
+  ListInstanceProfilesForRole'
+  { _lipfrMarker = Nothing
+  , _lipfrMaxItems = Nothing
+  , _lipfrRoleName = pRoleName_
+  }
 
--- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the 'Marker' element in the response that you received to indicate where the next call should start.
+
+-- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 lipfrMarker :: Lens' ListInstanceProfilesForRole (Maybe Text)
 lipfrMarker = lens _lipfrMarker (\ s a -> s{_lipfrMarker = a});
 
--- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the 'IsTruncated' response element is 'true'.
---
--- This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the 'IsTruncated' response element returns 'true' and 'Marker' contains a value to include in the subsequent call that tells the service where to continue from.
+-- | (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 lipfrMaxItems :: Lens' ListInstanceProfilesForRole (Maybe Natural)
 lipfrMaxItems = lens _lipfrMaxItems (\ s a -> s{_lipfrMaxItems = a}) . mapping _Nat;
 
--- | The name of the role to list instance profiles for.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the role to list instance profiles for. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 lipfrRoleName :: Lens' ListInstanceProfilesForRole Text
 lipfrRoleName = lens _lipfrRoleName (\ s a -> s{_lipfrRoleName = a});
 
@@ -115,9 +115,9 @@ instance AWSRequest ListInstanceProfilesForRole where
                      (x .@? "InstanceProfiles" .!@ mempty >>=
                         parseXMLList "member"))
 
-instance Hashable ListInstanceProfilesForRole
+instance Hashable ListInstanceProfilesForRole where
 
-instance NFData ListInstanceProfilesForRole
+instance NFData ListInstanceProfilesForRole where
 
 instance ToHeaders ListInstanceProfilesForRole where
         toHeaders = const mempty
@@ -135,47 +135,51 @@ instance ToQuery ListInstanceProfilesForRole where
                "MaxItems" =: _lipfrMaxItems,
                "RoleName" =: _lipfrRoleName]
 
--- | Contains the response to a successful < ListInstanceProfilesForRole> request.
+-- | Contains the response to a successful 'ListInstanceProfilesForRole' request.
+--
+--
 --
 -- /See:/ 'listInstanceProfilesForRoleResponse' smart constructor.
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
-    { _lipfrrsMarker           :: !(Maybe Text)
-    , _lipfrrsIsTruncated      :: !(Maybe Bool)
-    , _lipfrrsResponseStatus   :: !Int
-    , _lipfrrsInstanceProfiles :: ![InstanceProfile]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lipfrrsMarker           :: !(Maybe Text)
+  , _lipfrrsIsTruncated      :: !(Maybe Bool)
+  , _lipfrrsResponseStatus   :: !Int
+  , _lipfrrsInstanceProfiles :: ![InstanceProfile]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListInstanceProfilesForRoleResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lipfrrsMarker'
+-- * 'lipfrrsMarker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 --
--- * 'lipfrrsIsTruncated'
+-- * 'lipfrrsIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
 --
--- * 'lipfrrsResponseStatus'
+-- * 'lipfrrsResponseStatus' - -- | The response status code.
 --
--- * 'lipfrrsInstanceProfiles'
+-- * 'lipfrrsInstanceProfiles' - A list of instance profiles.
 listInstanceProfilesForRoleResponse
     :: Int -- ^ 'lipfrrsResponseStatus'
     -> ListInstanceProfilesForRoleResponse
 listInstanceProfilesForRoleResponse pResponseStatus_ =
-    ListInstanceProfilesForRoleResponse'
-    { _lipfrrsMarker = Nothing
-    , _lipfrrsIsTruncated = Nothing
-    , _lipfrrsResponseStatus = pResponseStatus_
-    , _lipfrrsInstanceProfiles = mempty
-    }
+  ListInstanceProfilesForRoleResponse'
+  { _lipfrrsMarker = Nothing
+  , _lipfrrsIsTruncated = Nothing
+  , _lipfrrsResponseStatus = pResponseStatus_
+  , _lipfrrsInstanceProfiles = mempty
+  }
 
--- | When 'IsTruncated' is 'true', this element is present and contains the value to use for the 'Marker' parameter in a subsequent pagination request.
+
+-- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 lipfrrsMarker :: Lens' ListInstanceProfilesForRoleResponse (Maybe Text)
 lipfrrsMarker = lens _lipfrrsMarker (\ s a -> s{_lipfrrsMarker = a});
 
--- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the 'Marker' request parameter to retrieve more items. Note that IAM might return fewer than the 'MaxItems' number of results even when there are more results available. We recommend that you check 'IsTruncated' after every call to ensure that you receive all of your results.
+-- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
 lipfrrsIsTruncated :: Lens' ListInstanceProfilesForRoleResponse (Maybe Bool)
 lipfrrsIsTruncated = lens _lipfrrsIsTruncated (\ s a -> s{_lipfrrsIsTruncated = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lipfrrsResponseStatus :: Lens' ListInstanceProfilesForRoleResponse Int
 lipfrrsResponseStatus = lens _lipfrrsResponseStatus (\ s a -> s{_lipfrrsResponseStatus = a});
 
@@ -184,3 +188,4 @@ lipfrrsInstanceProfiles :: Lens' ListInstanceProfilesForRoleResponse [InstancePr
 lipfrrsInstanceProfiles = lens _lipfrrsInstanceProfiles (\ s a -> s{_lipfrrsInstanceProfiles = a}) . _Coerce;
 
 instance NFData ListInstanceProfilesForRoleResponse
+         where

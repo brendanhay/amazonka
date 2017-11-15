@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetProject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a project.
+--
+--
 module Network.AWS.DeviceFarm.GetProject
     (
     -- * Creating a Request
@@ -35,34 +37,35 @@ module Network.AWS.DeviceFarm.GetProject
     , gprsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the get project operation.
 --
+--
+--
 -- /See:/ 'getProject' smart constructor.
 newtype GetProject = GetProject'
-    { _gpArn :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpArn :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetProject' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpArn'
+-- * 'gpArn' - The project's ARN.
 getProject
     :: Text -- ^ 'gpArn'
     -> GetProject
-getProject pArn_ =
-    GetProject'
-    { _gpArn = pArn_
-    }
+getProject pArn_ = GetProject' {_gpArn = pArn_}
 
--- | The project\'s ARN.
+
+-- | The project's ARN.
 gpArn :: Lens' GetProject Text
 gpArn = lens _gpArn (\ s a -> s{_gpArn = a});
 
@@ -75,9 +78,9 @@ instance AWSRequest GetProject where
                  GetProjectResponse' <$>
                    (x .?> "project") <*> (pure (fromEnum s)))
 
-instance Hashable GetProject
+instance Hashable GetProject where
 
-instance NFData GetProject
+instance NFData GetProject where
 
 instance ToHeaders GetProject where
         toHeaders
@@ -100,34 +103,36 @@ instance ToQuery GetProject where
 
 -- | Represents the result of a get project request.
 --
+--
+--
 -- /See:/ 'getProjectResponse' smart constructor.
 data GetProjectResponse = GetProjectResponse'
-    { _gprsProject        :: !(Maybe Project)
-    , _gprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gprsProject        :: !(Maybe Project)
+  , _gprsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetProjectResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gprsProject'
+-- * 'gprsProject' - The project you wish to get information about.
 --
--- * 'gprsResponseStatus'
+-- * 'gprsResponseStatus' - -- | The response status code.
 getProjectResponse
     :: Int -- ^ 'gprsResponseStatus'
     -> GetProjectResponse
 getProjectResponse pResponseStatus_ =
-    GetProjectResponse'
-    { _gprsProject = Nothing
-    , _gprsResponseStatus = pResponseStatus_
-    }
+  GetProjectResponse'
+  {_gprsProject = Nothing, _gprsResponseStatus = pResponseStatus_}
 
--- | Undocumented member.
+
+-- | The project you wish to get information about.
 gprsProject :: Lens' GetProjectResponse (Maybe Project)
 gprsProject = lens _gprsProject (\ s a -> s{_gprsProject = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gprsResponseStatus :: Lens' GetProjectResponse Int
 gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
 
-instance NFData GetProjectResponse
+instance NFData GetProjectResponse where

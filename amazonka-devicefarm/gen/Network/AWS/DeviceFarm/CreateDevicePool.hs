@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.CreateDevicePool
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a device pool.
+--
+--
 module Network.AWS.DeviceFarm.CreateDevicePool
     (
     -- * Creating a Request
@@ -38,47 +40,51 @@ module Network.AWS.DeviceFarm.CreateDevicePool
     , cdprsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the create device pool operation.
 --
+--
+--
 -- /See:/ 'createDevicePool' smart constructor.
 data CreateDevicePool = CreateDevicePool'
-    { _cdpDescription :: !(Maybe Text)
-    , _cdpProjectARN  :: !Text
-    , _cdpName        :: !Text
-    , _cdpRules       :: ![Rule]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdpDescription :: !(Maybe Text)
+  , _cdpProjectARN  :: !Text
+  , _cdpName        :: !Text
+  , _cdpRules       :: ![Rule]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDevicePool' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdpDescription'
+-- * 'cdpDescription' - The device pool's description.
 --
--- * 'cdpProjectARN'
+-- * 'cdpProjectARN' - The ARN of the project for the device pool.
 --
--- * 'cdpName'
+-- * 'cdpName' - The device pool's name.
 --
--- * 'cdpRules'
+-- * 'cdpRules' - The device pool's rules.
 createDevicePool
     :: Text -- ^ 'cdpProjectARN'
     -> Text -- ^ 'cdpName'
     -> CreateDevicePool
 createDevicePool pProjectARN_ pName_ =
-    CreateDevicePool'
-    { _cdpDescription = Nothing
-    , _cdpProjectARN = pProjectARN_
-    , _cdpName = pName_
-    , _cdpRules = mempty
-    }
+  CreateDevicePool'
+  { _cdpDescription = Nothing
+  , _cdpProjectARN = pProjectARN_
+  , _cdpName = pName_
+  , _cdpRules = mempty
+  }
 
--- | The device pool\'s description.
+
+-- | The device pool's description.
 cdpDescription :: Lens' CreateDevicePool (Maybe Text)
 cdpDescription = lens _cdpDescription (\ s a -> s{_cdpDescription = a});
 
@@ -86,11 +92,11 @@ cdpDescription = lens _cdpDescription (\ s a -> s{_cdpDescription = a});
 cdpProjectARN :: Lens' CreateDevicePool Text
 cdpProjectARN = lens _cdpProjectARN (\ s a -> s{_cdpProjectARN = a});
 
--- | The device pool\'s name.
+-- | The device pool's name.
 cdpName :: Lens' CreateDevicePool Text
 cdpName = lens _cdpName (\ s a -> s{_cdpName = a});
 
--- | The device pool\'s rules.
+-- | The device pool's rules.
 cdpRules :: Lens' CreateDevicePool [Rule]
 cdpRules = lens _cdpRules (\ s a -> s{_cdpRules = a}) . _Coerce;
 
@@ -103,9 +109,9 @@ instance AWSRequest CreateDevicePool where
                  CreateDevicePoolResponse' <$>
                    (x .?> "devicePool") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDevicePool
+instance Hashable CreateDevicePool where
 
-instance NFData CreateDevicePool
+instance NFData CreateDevicePool where
 
 instance ToHeaders CreateDevicePool where
         toHeaders
@@ -134,34 +140,36 @@ instance ToQuery CreateDevicePool where
 
 -- | Represents the result of a create device pool request.
 --
+--
+--
 -- /See:/ 'createDevicePoolResponse' smart constructor.
 data CreateDevicePoolResponse = CreateDevicePoolResponse'
-    { _cdprsDevicePool     :: !(Maybe DevicePool)
-    , _cdprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdprsDevicePool     :: !(Maybe DevicePool)
+  , _cdprsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDevicePoolResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdprsDevicePool'
+-- * 'cdprsDevicePool' - The newly created device pool.
 --
--- * 'cdprsResponseStatus'
+-- * 'cdprsResponseStatus' - -- | The response status code.
 createDevicePoolResponse
     :: Int -- ^ 'cdprsResponseStatus'
     -> CreateDevicePoolResponse
 createDevicePoolResponse pResponseStatus_ =
-    CreateDevicePoolResponse'
-    { _cdprsDevicePool = Nothing
-    , _cdprsResponseStatus = pResponseStatus_
-    }
+  CreateDevicePoolResponse'
+  {_cdprsDevicePool = Nothing, _cdprsResponseStatus = pResponseStatus_}
+
 
 -- | The newly created device pool.
 cdprsDevicePool :: Lens' CreateDevicePoolResponse (Maybe DevicePool)
 cdprsDevicePool = lens _cdprsDevicePool (\ s a -> s{_cdprsDevicePool = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdprsResponseStatus :: Lens' CreateDevicePoolResponse Int
 cdprsResponseStatus = lens _cdprsResponseStatus (\ s a -> s{_cdprsResponseStatus = a});
 
-instance NFData CreateDevicePoolResponse
+instance NFData CreateDevicePoolResponse where

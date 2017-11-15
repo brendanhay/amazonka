@@ -5,17 +5,19 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon CloudWatch monitors your Amazon Web Services (AWS) resources and the applications you run on AWS in real-time. You can use CloudWatch to collect and track metrics, which are the variables you want to measure for your resources and applications.
+-- Amazon CloudWatch monitors your Amazon Web Services (AWS) resources and the applications you run on AWS in real time. You can use CloudWatch to collect and track metrics, which are the variables you want to measure for your resources and applications.
 --
--- CloudWatch alarms send notifications or automatically make changes to the resources you are monitoring based on rules that you define. For example, you can monitor the CPU usage and disk reads and writes of your Amazon Elastic Compute Cloud (Amazon EC2) instances and then use this data to determine whether you should launch additional instances to handle increased load. You can also use this data to stop under-used instances to save money.
+--
+-- CloudWatch alarms send notifications or automatically change the resources you are monitoring based on rules that you define. For example, you can monitor the CPU usage and disk reads and writes of your Amazon EC2 instances. Then, use this data to determine whether you should launch additional instances to handle increased load. You can also use this data to stop under-used instances to save money.
 --
 -- In addition to monitoring the built-in metrics that come with AWS, you can monitor your own custom metrics. With CloudWatch, you gain system-wide visibility into resource utilization, application performance, and operational health.
+--
 module Network.AWS.CloudWatch
     (
     -- * Service Configuration
@@ -27,11 +29,17 @@ module Network.AWS.CloudWatch
     -- ** LimitExceededFault
     , _LimitExceededFault
 
+    -- ** DashboardNotFoundError
+    , _DashboardNotFoundError
+
     -- ** InvalidNextToken
     , _InvalidNextToken
 
     -- ** InternalServiceFault
     , _InternalServiceFault
+
+    -- ** DashboardInvalidInputError
+    , _DashboardInvalidInputError
 
     -- ** InvalidParameterValueException
     , _InvalidParameterValueException
@@ -51,20 +59,32 @@ module Network.AWS.CloudWatch
     -- * Waiters
     -- $waiters
 
+    -- ** AlarmExists
+    , alarmExists
+
     -- * Operations
     -- $operations
 
     -- ** EnableAlarmActions
     , module Network.AWS.CloudWatch.EnableAlarmActions
 
+    -- ** GetDashboard
+    , module Network.AWS.CloudWatch.GetDashboard
+
     -- ** PutMetricData
     , module Network.AWS.CloudWatch.PutMetricData
+
+    -- ** ListDashboards
+    , module Network.AWS.CloudWatch.ListDashboards
 
     -- ** DescribeAlarms (Paginated)
     , module Network.AWS.CloudWatch.DescribeAlarms
 
     -- ** ListMetrics (Paginated)
     , module Network.AWS.CloudWatch.ListMetrics
+
+    -- ** DeleteDashboards
+    , module Network.AWS.CloudWatch.DeleteDashboards
 
     -- ** DeleteAlarms
     , module Network.AWS.CloudWatch.DeleteAlarms
@@ -80,6 +100,9 @@ module Network.AWS.CloudWatch
 
     -- ** DisableAlarmActions
     , module Network.AWS.CloudWatch.DisableAlarmActions
+
+    -- ** PutDashboard
+    , module Network.AWS.CloudWatch.PutDashboard
 
     -- ** PutMetricAlarm
     , module Network.AWS.CloudWatch.PutMetricAlarm
@@ -113,6 +136,20 @@ module Network.AWS.CloudWatch
     , ahiHistorySummary
     , ahiTimestamp
 
+    -- ** DashboardEntry
+    , DashboardEntry
+    , dashboardEntry
+    , deSize
+    , deDashboardName
+    , deLastModified
+    , deDashboardARN
+
+    -- ** DashboardValidationMessage
+    , DashboardValidationMessage
+    , dashboardValidationMessage
+    , dvmDataPath
+    , dvmMessage
+
     -- ** Datapoint
     , Datapoint
     , datapoint
@@ -120,6 +157,7 @@ module Network.AWS.CloudWatch
     , dMaximum
     , dAverage
     , dMinimum
+    , dExtendedStatistics
     , dSum
     , dUnit
     , dTimestamp
@@ -148,6 +186,7 @@ module Network.AWS.CloudWatch
     , metricAlarm
     , maAlarmName
     , maStateUpdatedTimestamp
+    , maTreatMissingData
     , maPeriod
     , maAlarmDescription
     , maEvaluationPeriods
@@ -155,6 +194,7 @@ module Network.AWS.CloudWatch
     , maNamespace
     , maComparisonOperator
     , maOKActions
+    , maEvaluateLowSampleCountPercentile
     , maStateValue
     , maThreshold
     , maAlarmConfigurationUpdatedTimestamp
@@ -167,11 +207,13 @@ module Network.AWS.CloudWatch
     , maAlarmActions
     , maUnit
     , maStatistic
+    , maExtendedStatistic
 
     -- ** MetricDatum
     , MetricDatum
     , metricDatum
     , mdValue
+    , mdStorageResolution
     , mdDimensions
     , mdUnit
     , mdTimestamp
@@ -187,19 +229,23 @@ module Network.AWS.CloudWatch
     , ssMaximum
     ) where
 
-import           Network.AWS.CloudWatch.DeleteAlarms
-import           Network.AWS.CloudWatch.DescribeAlarmHistory
-import           Network.AWS.CloudWatch.DescribeAlarms
-import           Network.AWS.CloudWatch.DescribeAlarmsForMetric
-import           Network.AWS.CloudWatch.DisableAlarmActions
-import           Network.AWS.CloudWatch.EnableAlarmActions
-import           Network.AWS.CloudWatch.GetMetricStatistics
-import           Network.AWS.CloudWatch.ListMetrics
-import           Network.AWS.CloudWatch.PutMetricAlarm
-import           Network.AWS.CloudWatch.PutMetricData
-import           Network.AWS.CloudWatch.SetAlarmState
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Waiters
+import Network.AWS.CloudWatch.DeleteAlarms
+import Network.AWS.CloudWatch.DeleteDashboards
+import Network.AWS.CloudWatch.DescribeAlarmHistory
+import Network.AWS.CloudWatch.DescribeAlarms
+import Network.AWS.CloudWatch.DescribeAlarmsForMetric
+import Network.AWS.CloudWatch.DisableAlarmActions
+import Network.AWS.CloudWatch.EnableAlarmActions
+import Network.AWS.CloudWatch.GetDashboard
+import Network.AWS.CloudWatch.GetMetricStatistics
+import Network.AWS.CloudWatch.ListDashboards
+import Network.AWS.CloudWatch.ListMetrics
+import Network.AWS.CloudWatch.PutDashboard
+import Network.AWS.CloudWatch.PutMetricAlarm
+import Network.AWS.CloudWatch.PutMetricData
+import Network.AWS.CloudWatch.SetAlarmState
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

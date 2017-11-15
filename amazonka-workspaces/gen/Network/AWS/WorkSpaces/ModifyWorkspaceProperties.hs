@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.ModifyWorkspaceProperties
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the WorkSpace properties, including the RunningMode and AutoStop time.
+-- Modifies the WorkSpace properties, including the running mode and AutoStop time.
+--
+--
 module Network.AWS.WorkSpaces.ModifyWorkspaceProperties
     (
     -- * Creating a Request
@@ -35,35 +37,37 @@ module Network.AWS.WorkSpaces.ModifyWorkspaceProperties
     , mwprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkSpaces.Types
-import           Network.AWS.WorkSpaces.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkSpaces.Types
+import Network.AWS.WorkSpaces.Types.Product
 
 -- | /See:/ 'modifyWorkspaceProperties' smart constructor.
 data ModifyWorkspaceProperties = ModifyWorkspaceProperties'
-    { _mwpWorkspaceId         :: !Text
-    , _mwpWorkspaceProperties :: !WorkspaceProperties
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mwpWorkspaceId         :: !Text
+  , _mwpWorkspaceProperties :: !WorkspaceProperties
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyWorkspaceProperties' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mwpWorkspaceId'
+-- * 'mwpWorkspaceId' - The ID of the WorkSpace.
 --
--- * 'mwpWorkspaceProperties'
+-- * 'mwpWorkspaceProperties' - The WorkSpace properties of the request.
 modifyWorkspaceProperties
     :: Text -- ^ 'mwpWorkspaceId'
     -> WorkspaceProperties -- ^ 'mwpWorkspaceProperties'
     -> ModifyWorkspaceProperties
 modifyWorkspaceProperties pWorkspaceId_ pWorkspaceProperties_ =
-    ModifyWorkspaceProperties'
-    { _mwpWorkspaceId = pWorkspaceId_
-    , _mwpWorkspaceProperties = pWorkspaceProperties_
-    }
+  ModifyWorkspaceProperties'
+  { _mwpWorkspaceId = pWorkspaceId_
+  , _mwpWorkspaceProperties = pWorkspaceProperties_
+  }
+
 
 -- | The ID of the WorkSpace.
 mwpWorkspaceId :: Lens' ModifyWorkspaceProperties Text
@@ -83,9 +87,9 @@ instance AWSRequest ModifyWorkspaceProperties where
                  ModifyWorkspacePropertiesResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable ModifyWorkspaceProperties
+instance Hashable ModifyWorkspaceProperties where
 
-instance NFData ModifyWorkspaceProperties
+instance NFData ModifyWorkspaceProperties where
 
 instance ToHeaders ModifyWorkspaceProperties where
         toHeaders
@@ -113,24 +117,25 @@ instance ToQuery ModifyWorkspaceProperties where
 
 -- | /See:/ 'modifyWorkspacePropertiesResponse' smart constructor.
 newtype ModifyWorkspacePropertiesResponse = ModifyWorkspacePropertiesResponse'
-    { _mwprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mwprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyWorkspacePropertiesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mwprsResponseStatus'
+-- * 'mwprsResponseStatus' - -- | The response status code.
 modifyWorkspacePropertiesResponse
     :: Int -- ^ 'mwprsResponseStatus'
     -> ModifyWorkspacePropertiesResponse
 modifyWorkspacePropertiesResponse pResponseStatus_ =
-    ModifyWorkspacePropertiesResponse'
-    { _mwprsResponseStatus = pResponseStatus_
-    }
+  ModifyWorkspacePropertiesResponse' {_mwprsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 mwprsResponseStatus :: Lens' ModifyWorkspacePropertiesResponse Int
 mwprsResponseStatus = lens _mwprsResponseStatus (\ s a -> s{_mwprsResponseStatus = a});
 
 instance NFData ModifyWorkspacePropertiesResponse
+         where

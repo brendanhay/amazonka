@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.CreateTrail
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. A maximum of five trails can exist in a region, irrespective of the region in which they were created.
+--
+--
 module Network.AWS.CloudTrail.CreateTrail
     (
     -- * Creating a Request
@@ -55,71 +57,75 @@ module Network.AWS.CloudTrail.CreateTrail
     , ctrsResponseStatus
     ) where
 
-import           Network.AWS.CloudTrail.Types
-import           Network.AWS.CloudTrail.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudTrail.Types
+import Network.AWS.CloudTrail.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Specifies the settings for each trail.
 --
+--
+--
 -- /See:/ 'createTrail' smart constructor.
 data CreateTrail = CreateTrail'
-    { _ctS3KeyPrefix                :: !(Maybe Text)
-    , _ctSNSTopicName               :: !(Maybe Text)
-    , _ctEnableLogFileValidation    :: !(Maybe Bool)
-    , _ctCloudWatchLogsLogGroupARN  :: !(Maybe Text)
-    , _ctKMSKeyId                   :: !(Maybe Text)
-    , _ctIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _ctCloudWatchLogsRoleARN      :: !(Maybe Text)
-    , _ctIsMultiRegionTrail         :: !(Maybe Bool)
-    , _ctName                       :: !Text
-    , _ctS3BucketName               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctS3KeyPrefix                :: !(Maybe Text)
+  , _ctSNSTopicName               :: !(Maybe Text)
+  , _ctEnableLogFileValidation    :: !(Maybe Bool)
+  , _ctCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+  , _ctKMSKeyId                   :: !(Maybe Text)
+  , _ctIncludeGlobalServiceEvents :: !(Maybe Bool)
+  , _ctCloudWatchLogsRoleARN      :: !(Maybe Text)
+  , _ctIsMultiRegionTrail         :: !(Maybe Bool)
+  , _ctName                       :: !Text
+  , _ctS3BucketName               :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTrail' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctS3KeyPrefix'
+-- * 'ctS3KeyPrefix' - Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files> . The maximum length is 200 characters.
 --
--- * 'ctSNSTopicName'
+-- * 'ctSNSTopicName' - Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
 --
--- * 'ctEnableLogFileValidation'
+-- * 'ctEnableLogFileValidation' - Specifies whether log file integrity validation is enabled. The default is false.
 --
--- * 'ctCloudWatchLogsLogGroupARN'
+-- * 'ctCloudWatchLogsLogGroupARN' - Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
 --
--- * 'ctKMSKeyId'
+-- * 'ctKMSKeyId' - Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier. Examples:     * alias/MyAliasName     * arn:aws:kms:us-east-1:123456789012:alias/MyAliasName     * arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * 12345678-1234-1234-1234-123456789012
 --
--- * 'ctIncludeGlobalServiceEvents'
+-- * 'ctIncludeGlobalServiceEvents' - Specifies whether the trail is publishing events from global services such as IAM to the log files.
 --
--- * 'ctCloudWatchLogsRoleARN'
+-- * 'ctCloudWatchLogsRoleARN' - Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
 --
--- * 'ctIsMultiRegionTrail'
+-- * 'ctIsMultiRegionTrail' - Specifies whether the trail is created in the current region or in all regions. The default is false.
 --
--- * 'ctName'
+-- * 'ctName' - Specifies the name of the trail. The name must meet the following requirements:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)     * Start with a letter or number, and end with a letter or number     * Be between 3 and 128 characters     * Have no adjacent periods, underscores or dashes. Names like @my-_namespace@ and @my--namespace@ are invalid.     * Not be in IP address format (for example, 192.168.5.4)
 --
--- * 'ctS3BucketName'
+-- * 'ctS3BucketName' - Specifies the name of the Amazon S3 bucket designated for publishing log files. See <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html Amazon S3 Bucket Naming Requirements> .
 createTrail
     :: Text -- ^ 'ctName'
     -> Text -- ^ 'ctS3BucketName'
     -> CreateTrail
 createTrail pName_ pS3BucketName_ =
-    CreateTrail'
-    { _ctS3KeyPrefix = Nothing
-    , _ctSNSTopicName = Nothing
-    , _ctEnableLogFileValidation = Nothing
-    , _ctCloudWatchLogsLogGroupARN = Nothing
-    , _ctKMSKeyId = Nothing
-    , _ctIncludeGlobalServiceEvents = Nothing
-    , _ctCloudWatchLogsRoleARN = Nothing
-    , _ctIsMultiRegionTrail = Nothing
-    , _ctName = pName_
-    , _ctS3BucketName = pS3BucketName_
-    }
+  CreateTrail'
+  { _ctS3KeyPrefix = Nothing
+  , _ctSNSTopicName = Nothing
+  , _ctEnableLogFileValidation = Nothing
+  , _ctCloudWatchLogsLogGroupARN = Nothing
+  , _ctKMSKeyId = Nothing
+  , _ctIncludeGlobalServiceEvents = Nothing
+  , _ctCloudWatchLogsRoleARN = Nothing
+  , _ctIsMultiRegionTrail = Nothing
+  , _ctName = pName_
+  , _ctS3BucketName = pS3BucketName_
+  }
 
--- | Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files>. The maximum length is 200 characters.
+
+-- | Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files> . The maximum length is 200 characters.
 ctS3KeyPrefix :: Lens' CreateTrail (Maybe Text)
 ctS3KeyPrefix = lens _ctS3KeyPrefix (\ s a -> s{_ctS3KeyPrefix = a});
 
@@ -128,8 +134,6 @@ ctSNSTopicName :: Lens' CreateTrail (Maybe Text)
 ctSNSTopicName = lens _ctSNSTopicName (\ s a -> s{_ctSNSTopicName = a});
 
 -- | Specifies whether log file integrity validation is enabled. The default is false.
---
--- When you disable log file integrity validation, the chain of digest files is broken after one hour. CloudTrail will not create digest files for log files that were delivered during a period in which log file integrity validation was disabled. For example, if you enable log file integrity validation at noon on January 1, disable it at noon on January 2, and re-enable it at noon on January 10, digest files will not be created for the log files delivered from noon on January 2 to noon on January 10. The same applies whenever you stop CloudTrail logging or delete a trail.
 ctEnableLogFileValidation :: Lens' CreateTrail (Maybe Bool)
 ctEnableLogFileValidation = lens _ctEnableLogFileValidation (\ s a -> s{_ctEnableLogFileValidation = a});
 
@@ -137,18 +141,7 @@ ctEnableLogFileValidation = lens _ctEnableLogFileValidation (\ s a -> s{_ctEnabl
 ctCloudWatchLogsLogGroupARN :: Lens' CreateTrail (Maybe Text)
 ctCloudWatchLogsLogGroupARN = lens _ctCloudWatchLogsLogGroupARN (\ s a -> s{_ctCloudWatchLogsLogGroupARN = a});
 
--- | Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be a an alias name prefixed by \"alias\/\", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
---
--- Examples:
---
--- -   alias\/MyAliasName
---
--- -   arn:aws:kms:us-east-1:123456789012:alias\/MyAliasName
---
--- -   arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
---
--- -   12345678-1234-1234-1234-123456789012
---
+-- | Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier. Examples:     * alias/MyAliasName     * arn:aws:kms:us-east-1:123456789012:alias/MyAliasName     * arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * 12345678-1234-1234-1234-123456789012
 ctKMSKeyId :: Lens' CreateTrail (Maybe Text)
 ctKMSKeyId = lens _ctKMSKeyId (\ s a -> s{_ctKMSKeyId = a});
 
@@ -156,7 +149,7 @@ ctKMSKeyId = lens _ctKMSKeyId (\ s a -> s{_ctKMSKeyId = a});
 ctIncludeGlobalServiceEvents :: Lens' CreateTrail (Maybe Bool)
 ctIncludeGlobalServiceEvents = lens _ctIncludeGlobalServiceEvents (\ s a -> s{_ctIncludeGlobalServiceEvents = a});
 
--- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a user\'s log group.
+-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
 ctCloudWatchLogsRoleARN :: Lens' CreateTrail (Maybe Text)
 ctCloudWatchLogsRoleARN = lens _ctCloudWatchLogsRoleARN (\ s a -> s{_ctCloudWatchLogsRoleARN = a});
 
@@ -164,22 +157,11 @@ ctCloudWatchLogsRoleARN = lens _ctCloudWatchLogsRoleARN (\ s a -> s{_ctCloudWatc
 ctIsMultiRegionTrail :: Lens' CreateTrail (Maybe Bool)
 ctIsMultiRegionTrail = lens _ctIsMultiRegionTrail (\ s a -> s{_ctIsMultiRegionTrail = a});
 
--- | Specifies the name of the trail. The name must meet the following requirements:
---
--- -   Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
---
--- -   Start with a letter or number, and end with a letter or number
---
--- -   Be between 3 and 128 characters
---
--- -   Have no adjacent periods, underscores or dashes. Names like 'my-_namespace' and 'my--namespace' are invalid.
---
--- -   Not be in IP address format (for example, 192.168.5.4)
---
+-- | Specifies the name of the trail. The name must meet the following requirements:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)     * Start with a letter or number, and end with a letter or number     * Be between 3 and 128 characters     * Have no adjacent periods, underscores or dashes. Names like @my-_namespace@ and @my--namespace@ are invalid.     * Not be in IP address format (for example, 192.168.5.4)
 ctName :: Lens' CreateTrail Text
 ctName = lens _ctName (\ s a -> s{_ctName = a});
 
--- | Specifies the name of the Amazon S3 bucket designated for publishing log files. See <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html Amazon S3 Bucket Naming Requirements>.
+-- | Specifies the name of the Amazon S3 bucket designated for publishing log files. See <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html Amazon S3 Bucket Naming Requirements> .
 ctS3BucketName :: Lens' CreateTrail Text
 ctS3BucketName = lens _ctS3BucketName (\ s a -> s{_ctS3BucketName = a});
 
@@ -204,9 +186,9 @@ instance AWSRequest CreateTrail where
                      <*> (x .?> "IsMultiRegionTrail")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateTrail
+instance Hashable CreateTrail where
 
-instance NFData CreateTrail
+instance NFData CreateTrail where
 
 instance ToHeaders CreateTrail where
         toHeaders
@@ -245,89 +227,89 @@ instance ToQuery CreateTrail where
 
 -- | Returns the objects or data listed below if successful. Otherwise, returns an error.
 --
+--
+--
 -- /See:/ 'createTrailResponse' smart constructor.
 data CreateTrailResponse = CreateTrailResponse'
-    { _ctrsLogFileValidationEnabled   :: !(Maybe Bool)
-    , _ctrsTrailARN                   :: !(Maybe Text)
-    , _ctrsS3KeyPrefix                :: !(Maybe Text)
-    , _ctrsSNSTopicARN                :: !(Maybe Text)
-    , _ctrsSNSTopicName               :: !(Maybe Text)
-    , _ctrsCloudWatchLogsLogGroupARN  :: !(Maybe Text)
-    , _ctrsKMSKeyId                   :: !(Maybe Text)
-    , _ctrsName                       :: !(Maybe Text)
-    , _ctrsIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _ctrsCloudWatchLogsRoleARN      :: !(Maybe Text)
-    , _ctrsS3BucketName               :: !(Maybe Text)
-    , _ctrsIsMultiRegionTrail         :: !(Maybe Bool)
-    , _ctrsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctrsLogFileValidationEnabled   :: !(Maybe Bool)
+  , _ctrsTrailARN                   :: !(Maybe Text)
+  , _ctrsS3KeyPrefix                :: !(Maybe Text)
+  , _ctrsSNSTopicARN                :: !(Maybe Text)
+  , _ctrsSNSTopicName               :: !(Maybe Text)
+  , _ctrsCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+  , _ctrsKMSKeyId                   :: !(Maybe Text)
+  , _ctrsName                       :: !(Maybe Text)
+  , _ctrsIncludeGlobalServiceEvents :: !(Maybe Bool)
+  , _ctrsCloudWatchLogsRoleARN      :: !(Maybe Text)
+  , _ctrsS3BucketName               :: !(Maybe Text)
+  , _ctrsIsMultiRegionTrail         :: !(Maybe Bool)
+  , _ctrsResponseStatus             :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTrailResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctrsLogFileValidationEnabled'
+-- * 'ctrsLogFileValidationEnabled' - Specifies whether log file integrity validation is enabled.
 --
--- * 'ctrsTrailARN'
+-- * 'ctrsTrailARN' - Specifies the ARN of the trail that was created. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 --
--- * 'ctrsS3KeyPrefix'
+-- * 'ctrsS3KeyPrefix' - Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files> .
 --
--- * 'ctrsSNSTopicARN'
+-- * 'ctrsSNSTopicARN' - Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is: @arn:aws:sns:us-east-1:123456789012:MyTopic@
 --
--- * 'ctrsSNSTopicName'
+-- * 'ctrsSNSTopicName' - This field is deprecated. Use SnsTopicARN.
 --
--- * 'ctrsCloudWatchLogsLogGroupARN'
+-- * 'ctrsCloudWatchLogsLogGroupARN' - Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail logs will be delivered.
 --
--- * 'ctrsKMSKeyId'
+-- * 'ctrsKMSKeyId' - Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@
 --
--- * 'ctrsName'
+-- * 'ctrsName' - Specifies the name of the trail.
 --
--- * 'ctrsIncludeGlobalServiceEvents'
+-- * 'ctrsIncludeGlobalServiceEvents' - Specifies whether the trail is publishing events from global services such as IAM to the log files.
 --
--- * 'ctrsCloudWatchLogsRoleARN'
+-- * 'ctrsCloudWatchLogsRoleARN' - Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
 --
--- * 'ctrsS3BucketName'
+-- * 'ctrsS3BucketName' - Specifies the name of the Amazon S3 bucket designated for publishing log files.
 --
--- * 'ctrsIsMultiRegionTrail'
+-- * 'ctrsIsMultiRegionTrail' - Specifies whether the trail exists in one region or in all regions.
 --
--- * 'ctrsResponseStatus'
+-- * 'ctrsResponseStatus' - -- | The response status code.
 createTrailResponse
     :: Int -- ^ 'ctrsResponseStatus'
     -> CreateTrailResponse
 createTrailResponse pResponseStatus_ =
-    CreateTrailResponse'
-    { _ctrsLogFileValidationEnabled = Nothing
-    , _ctrsTrailARN = Nothing
-    , _ctrsS3KeyPrefix = Nothing
-    , _ctrsSNSTopicARN = Nothing
-    , _ctrsSNSTopicName = Nothing
-    , _ctrsCloudWatchLogsLogGroupARN = Nothing
-    , _ctrsKMSKeyId = Nothing
-    , _ctrsName = Nothing
-    , _ctrsIncludeGlobalServiceEvents = Nothing
-    , _ctrsCloudWatchLogsRoleARN = Nothing
-    , _ctrsS3BucketName = Nothing
-    , _ctrsIsMultiRegionTrail = Nothing
-    , _ctrsResponseStatus = pResponseStatus_
-    }
+  CreateTrailResponse'
+  { _ctrsLogFileValidationEnabled = Nothing
+  , _ctrsTrailARN = Nothing
+  , _ctrsS3KeyPrefix = Nothing
+  , _ctrsSNSTopicARN = Nothing
+  , _ctrsSNSTopicName = Nothing
+  , _ctrsCloudWatchLogsLogGroupARN = Nothing
+  , _ctrsKMSKeyId = Nothing
+  , _ctrsName = Nothing
+  , _ctrsIncludeGlobalServiceEvents = Nothing
+  , _ctrsCloudWatchLogsRoleARN = Nothing
+  , _ctrsS3BucketName = Nothing
+  , _ctrsIsMultiRegionTrail = Nothing
+  , _ctrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Specifies whether log file integrity validation is enabled.
 ctrsLogFileValidationEnabled :: Lens' CreateTrailResponse (Maybe Bool)
 ctrsLogFileValidationEnabled = lens _ctrsLogFileValidationEnabled (\ s a -> s{_ctrsLogFileValidationEnabled = a});
 
--- | Specifies the ARN of the trail that was created. The format of a trail ARN is:
---
--- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'
+-- | Specifies the ARN of the trail that was created. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 ctrsTrailARN :: Lens' CreateTrailResponse (Maybe Text)
 ctrsTrailARN = lens _ctrsTrailARN (\ s a -> s{_ctrsTrailARN = a});
 
--- | Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files>.
+-- | Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files> .
 ctrsS3KeyPrefix :: Lens' CreateTrailResponse (Maybe Text)
 ctrsS3KeyPrefix = lens _ctrsS3KeyPrefix (\ s a -> s{_ctrsS3KeyPrefix = a});
 
--- | Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is:
---
--- 'arn:aws:sns:us-east-1:123456789012:MyTopic'
+-- | Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is: @arn:aws:sns:us-east-1:123456789012:MyTopic@
 ctrsSNSTopicARN :: Lens' CreateTrailResponse (Maybe Text)
 ctrsSNSTopicARN = lens _ctrsSNSTopicARN (\ s a -> s{_ctrsSNSTopicARN = a});
 
@@ -339,9 +321,7 @@ ctrsSNSTopicName = lens _ctrsSNSTopicName (\ s a -> s{_ctrsSNSTopicName = a});
 ctrsCloudWatchLogsLogGroupARN :: Lens' CreateTrailResponse (Maybe Text)
 ctrsCloudWatchLogsLogGroupARN = lens _ctrsCloudWatchLogsLogGroupARN (\ s a -> s{_ctrsCloudWatchLogsLogGroupARN = a});
 
--- | Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:
---
--- 'arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012'
+-- | Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@
 ctrsKMSKeyId :: Lens' CreateTrailResponse (Maybe Text)
 ctrsKMSKeyId = lens _ctrsKMSKeyId (\ s a -> s{_ctrsKMSKeyId = a});
 
@@ -353,7 +333,7 @@ ctrsName = lens _ctrsName (\ s a -> s{_ctrsName = a});
 ctrsIncludeGlobalServiceEvents :: Lens' CreateTrailResponse (Maybe Bool)
 ctrsIncludeGlobalServiceEvents = lens _ctrsIncludeGlobalServiceEvents (\ s a -> s{_ctrsIncludeGlobalServiceEvents = a});
 
--- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a user\'s log group.
+-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
 ctrsCloudWatchLogsRoleARN :: Lens' CreateTrailResponse (Maybe Text)
 ctrsCloudWatchLogsRoleARN = lens _ctrsCloudWatchLogsRoleARN (\ s a -> s{_ctrsCloudWatchLogsRoleARN = a});
 
@@ -365,8 +345,8 @@ ctrsS3BucketName = lens _ctrsS3BucketName (\ s a -> s{_ctrsS3BucketName = a});
 ctrsIsMultiRegionTrail :: Lens' CreateTrailResponse (Maybe Bool)
 ctrsIsMultiRegionTrail = lens _ctrsIsMultiRegionTrail (\ s a -> s{_ctrsIsMultiRegionTrail = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTrailResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
 
-instance NFData CreateTrailResponse
+instance NFData CreateTrailResponse where

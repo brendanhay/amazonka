@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.CreateSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a snapshot of a Simple AD or Microsoft AD directory in the AWS cloud.
 --
--- You cannot take snapshots of AD Connector directories.
+--
 module Network.AWS.DirectoryService.CreateSnapshot
     (
     -- * Creating a Request
@@ -38,36 +38,37 @@ module Network.AWS.DirectoryService.CreateSnapshot
     , csrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the inputs for the < CreateSnapshot> operation.
+-- | Contains the inputs for the 'CreateSnapshot' operation.
+--
+--
 --
 -- /See:/ 'createSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
-    { _csName        :: !(Maybe Text)
-    , _csDirectoryId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csName        :: !(Maybe Text)
+  , _csDirectoryId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSnapshot' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csName'
+-- * 'csName' - The descriptive name to apply to the snapshot.
 --
--- * 'csDirectoryId'
+-- * 'csDirectoryId' - The identifier of the directory of which to take a snapshot.
 createSnapshot
     :: Text -- ^ 'csDirectoryId'
     -> CreateSnapshot
 createSnapshot pDirectoryId_ =
-    CreateSnapshot'
-    { _csName = Nothing
-    , _csDirectoryId = pDirectoryId_
-    }
+  CreateSnapshot' {_csName = Nothing, _csDirectoryId = pDirectoryId_}
+
 
 -- | The descriptive name to apply to the snapshot.
 csName :: Lens' CreateSnapshot (Maybe Text)
@@ -86,9 +87,9 @@ instance AWSRequest CreateSnapshot where
                  CreateSnapshotResponse' <$>
                    (x .?> "SnapshotId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateSnapshot
+instance Hashable CreateSnapshot where
 
-instance NFData CreateSnapshot
+instance NFData CreateSnapshot where
 
 instance ToHeaders CreateSnapshot where
         toHeaders
@@ -113,36 +114,38 @@ instance ToPath CreateSnapshot where
 instance ToQuery CreateSnapshot where
         toQuery = const mempty
 
--- | Contains the results of the < CreateSnapshot> operation.
+-- | Contains the results of the 'CreateSnapshot' operation.
+--
+--
 --
 -- /See:/ 'createSnapshotResponse' smart constructor.
 data CreateSnapshotResponse = CreateSnapshotResponse'
-    { _csrsSnapshotId     :: !(Maybe Text)
-    , _csrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csrsSnapshotId     :: !(Maybe Text)
+  , _csrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSnapshotResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csrsSnapshotId'
+-- * 'csrsSnapshotId' - The identifier of the snapshot that was created.
 --
--- * 'csrsResponseStatus'
+-- * 'csrsResponseStatus' - -- | The response status code.
 createSnapshotResponse
     :: Int -- ^ 'csrsResponseStatus'
     -> CreateSnapshotResponse
 createSnapshotResponse pResponseStatus_ =
-    CreateSnapshotResponse'
-    { _csrsSnapshotId = Nothing
-    , _csrsResponseStatus = pResponseStatus_
-    }
+  CreateSnapshotResponse'
+  {_csrsSnapshotId = Nothing, _csrsResponseStatus = pResponseStatus_}
+
 
 -- | The identifier of the snapshot that was created.
 csrsSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 csrsResponseStatus :: Lens' CreateSnapshotResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
 
-instance NFData CreateSnapshotResponse
+instance NFData CreateSnapshotResponse where

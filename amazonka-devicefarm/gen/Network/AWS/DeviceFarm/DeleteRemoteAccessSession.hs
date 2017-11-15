@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.DeleteRemoteAccessSession
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a completed remote access session and its results.
+--
+--
 module Network.AWS.DeviceFarm.DeleteRemoteAccessSession
     (
     -- * Creating a Request
@@ -34,32 +36,33 @@ module Network.AWS.DeviceFarm.DeleteRemoteAccessSession
     , drasrsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to delete the specified remote access session.
 --
+--
+--
 -- /See:/ 'deleteRemoteAccessSession' smart constructor.
 newtype DeleteRemoteAccessSession = DeleteRemoteAccessSession'
-    { _drasArn :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drasArn :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRemoteAccessSession' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drasArn'
+-- * 'drasArn' - The Amazon Resource Name (ARN) of the sesssion for which you want to delete remote access.
 deleteRemoteAccessSession
     :: Text -- ^ 'drasArn'
     -> DeleteRemoteAccessSession
-deleteRemoteAccessSession pArn_ =
-    DeleteRemoteAccessSession'
-    { _drasArn = pArn_
-    }
+deleteRemoteAccessSession pArn_ = DeleteRemoteAccessSession' {_drasArn = pArn_}
+
 
 -- | The Amazon Resource Name (ARN) of the sesssion for which you want to delete remote access.
 drasArn :: Lens' DeleteRemoteAccessSession Text
@@ -75,9 +78,9 @@ instance AWSRequest DeleteRemoteAccessSession where
                  DeleteRemoteAccessSessionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteRemoteAccessSession
+instance Hashable DeleteRemoteAccessSession where
 
-instance NFData DeleteRemoteAccessSession
+instance NFData DeleteRemoteAccessSession where
 
 instance ToHeaders DeleteRemoteAccessSession where
         toHeaders
@@ -101,26 +104,29 @@ instance ToQuery DeleteRemoteAccessSession where
 
 -- | The response from the server when a request is made to delete the remote access session.
 --
+--
+--
 -- /See:/ 'deleteRemoteAccessSessionResponse' smart constructor.
 newtype DeleteRemoteAccessSessionResponse = DeleteRemoteAccessSessionResponse'
-    { _drasrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drasrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRemoteAccessSessionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drasrsResponseStatus'
+-- * 'drasrsResponseStatus' - -- | The response status code.
 deleteRemoteAccessSessionResponse
     :: Int -- ^ 'drasrsResponseStatus'
     -> DeleteRemoteAccessSessionResponse
 deleteRemoteAccessSessionResponse pResponseStatus_ =
-    DeleteRemoteAccessSessionResponse'
-    { _drasrsResponseStatus = pResponseStatus_
-    }
+  DeleteRemoteAccessSessionResponse' {_drasrsResponseStatus = pResponseStatus_}
 
--- | The response status code.
+
+-- | -- | The response status code.
 drasrsResponseStatus :: Lens' DeleteRemoteAccessSessionResponse Int
 drasrsResponseStatus = lens _drasrsResponseStatus (\ s a -> s{_drasrsResponseStatus = a});
 
 instance NFData DeleteRemoteAccessSessionResponse
+         where

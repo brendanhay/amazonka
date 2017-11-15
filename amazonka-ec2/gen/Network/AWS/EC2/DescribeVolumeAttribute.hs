@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVolumeAttribute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the specified attribute of the specified volume. You can specify only one attribute at a time.
 --
--- For more information about EBS volumes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html Amazon EBS Volumes> in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- For more information about EBS volumes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html Amazon EBS Volumes> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.DescribeVolumeAttribute
     (
     -- * Creating a Request
@@ -41,46 +43,47 @@ module Network.AWS.EC2.DescribeVolumeAttribute
     , dvarsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeVolumeAttribute.
 --
+--
+--
 -- /See:/ 'describeVolumeAttribute' smart constructor.
 data DescribeVolumeAttribute = DescribeVolumeAttribute'
-    { _dvaAttribute :: !(Maybe VolumeAttributeName)
-    , _dvaDryRun    :: !(Maybe Bool)
-    , _dvaVolumeId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvaAttribute :: !(Maybe VolumeAttributeName)
+  , _dvaDryRun    :: !(Maybe Bool)
+  , _dvaVolumeId  :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVolumeAttribute' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvaAttribute'
+-- * 'dvaAttribute' - The attribute of the volume. This parameter is required.
 --
--- * 'dvaDryRun'
+-- * 'dvaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dvaVolumeId'
+-- * 'dvaVolumeId' - The ID of the volume.
 describeVolumeAttribute
     :: Text -- ^ 'dvaVolumeId'
     -> DescribeVolumeAttribute
 describeVolumeAttribute pVolumeId_ =
-    DescribeVolumeAttribute'
-    { _dvaAttribute = Nothing
-    , _dvaDryRun = Nothing
-    , _dvaVolumeId = pVolumeId_
-    }
+  DescribeVolumeAttribute'
+  {_dvaAttribute = Nothing, _dvaDryRun = Nothing, _dvaVolumeId = pVolumeId_}
 
--- | The instance attribute.
+
+-- | The attribute of the volume. This parameter is required.
 dvaAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
 dvaAttribute = lens _dvaAttribute (\ s a -> s{_dvaAttribute = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvaDryRun :: Lens' DescribeVolumeAttribute (Maybe Bool)
 dvaDryRun = lens _dvaDryRun (\ s a -> s{_dvaDryRun = a});
 
@@ -102,9 +105,9 @@ instance AWSRequest DescribeVolumeAttribute where
                      <*> (x .@? "autoEnableIO")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeVolumeAttribute
+instance Hashable DescribeVolumeAttribute where
 
-instance NFData DescribeVolumeAttribute
+instance NFData DescribeVolumeAttribute where
 
 instance ToHeaders DescribeVolumeAttribute where
         toHeaders = const mempty
@@ -117,41 +120,45 @@ instance ToQuery DescribeVolumeAttribute where
           = mconcat
               ["Action" =:
                  ("DescribeVolumeAttribute" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "Attribute" =: _dvaAttribute, "DryRun" =: _dvaDryRun,
                "VolumeId" =: _dvaVolumeId]
 
 -- | Contains the output of DescribeVolumeAttribute.
 --
+--
+--
 -- /See:/ 'describeVolumeAttributeResponse' smart constructor.
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
-    { _dvarsVolumeId       :: !(Maybe Text)
-    , _dvarsProductCodes   :: !(Maybe [ProductCode])
-    , _dvarsAutoEnableIO   :: !(Maybe AttributeBooleanValue)
-    , _dvarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvarsVolumeId       :: !(Maybe Text)
+  , _dvarsProductCodes   :: !(Maybe [ProductCode])
+  , _dvarsAutoEnableIO   :: !(Maybe AttributeBooleanValue)
+  , _dvarsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVolumeAttributeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvarsVolumeId'
+-- * 'dvarsVolumeId' - The ID of the volume.
 --
--- * 'dvarsProductCodes'
+-- * 'dvarsProductCodes' - A list of product codes.
 --
--- * 'dvarsAutoEnableIO'
+-- * 'dvarsAutoEnableIO' - The state of @autoEnableIO@ attribute.
 --
--- * 'dvarsResponseStatus'
+-- * 'dvarsResponseStatus' - -- | The response status code.
 describeVolumeAttributeResponse
     :: Int -- ^ 'dvarsResponseStatus'
     -> DescribeVolumeAttributeResponse
 describeVolumeAttributeResponse pResponseStatus_ =
-    DescribeVolumeAttributeResponse'
-    { _dvarsVolumeId = Nothing
-    , _dvarsProductCodes = Nothing
-    , _dvarsAutoEnableIO = Nothing
-    , _dvarsResponseStatus = pResponseStatus_
-    }
+  DescribeVolumeAttributeResponse'
+  { _dvarsVolumeId = Nothing
+  , _dvarsProductCodes = Nothing
+  , _dvarsAutoEnableIO = Nothing
+  , _dvarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the volume.
 dvarsVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
@@ -161,12 +168,12 @@ dvarsVolumeId = lens _dvarsVolumeId (\ s a -> s{_dvarsVolumeId = a});
 dvarsProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
 dvarsProductCodes = lens _dvarsProductCodes (\ s a -> s{_dvarsProductCodes = a}) . _Default . _Coerce;
 
--- | The state of 'autoEnableIO' attribute.
+-- | The state of @autoEnableIO@ attribute.
 dvarsAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
 dvarsAutoEnableIO = lens _dvarsAutoEnableIO (\ s a -> s{_dvarsAutoEnableIO = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dvarsResponseStatus :: Lens' DescribeVolumeAttributeResponse Int
 dvarsResponseStatus = lens _dvarsResponseStatus (\ s a -> s{_dvarsResponseStatus = a});
 
-instance NFData DescribeVolumeAttributeResponse
+instance NFData DescribeVolumeAttributeResponse where

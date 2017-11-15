@@ -12,15 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager.RemoveTagsFromCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Remove one or more tags from an ACM Certificate. A tag consists of a key-value pair. If you do not specify the value portion of the tag when calling this function, the tag will be removed regardless of value. If you specify a value, the tag is removed only if it is associated with the specified value.
 --
--- To add tags to a certificate, use the < AddTagsToCertificate> action. To view all of the tags that have been applied to a specific ACM Certificate, use the < ListTagsForCertificate> action.
+--
+-- To add tags to a certificate, use the 'AddTagsToCertificate' action. To view all of the tags that have been applied to a specific ACM Certificate, use the 'ListTagsForCertificate' action.
+--
 module Network.AWS.CertificateManager.RemoveTagsFromCertificate
     (
     -- * Creating a Request
@@ -35,41 +37,37 @@ module Network.AWS.CertificateManager.RemoveTagsFromCertificate
     , RemoveTagsFromCertificateResponse
     ) where
 
-import           Network.AWS.CertificateManager.Types
-import           Network.AWS.CertificateManager.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CertificateManager.Types
+import Network.AWS.CertificateManager.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'removeTagsFromCertificate' smart constructor.
 data RemoveTagsFromCertificate = RemoveTagsFromCertificate'
-    { _rtfcCertificateARN :: !Text
-    , _rtfcTags           :: !(List1 Tag)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtfcCertificateARN :: !Text
+  , _rtfcTags           :: !(List1 Tag)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTagsFromCertificate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfcCertificateARN'
+-- * 'rtfcCertificateARN' - String that contains the ARN of the ACM Certificate with one or more tags that you want to remove. This must be of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 --
--- * 'rtfcTags'
+-- * 'rtfcTags' - The key-value pair that defines the tag to remove.
 removeTagsFromCertificate
     :: Text -- ^ 'rtfcCertificateARN'
     -> NonEmpty Tag -- ^ 'rtfcTags'
     -> RemoveTagsFromCertificate
 removeTagsFromCertificate pCertificateARN_ pTags_ =
-    RemoveTagsFromCertificate'
-    { _rtfcCertificateARN = pCertificateARN_
-    , _rtfcTags = _List1 # pTags_
-    }
+  RemoveTagsFromCertificate'
+  {_rtfcCertificateARN = pCertificateARN_, _rtfcTags = _List1 # pTags_}
 
--- | String that contains the ARN of the ACM Certificate with one or more tags that you want to remove. This must be of the form:
---
--- 'arn:aws:acm:region:123456789012:certificate\/12345678-1234-1234-1234-123456789012'
---
--- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+
+-- | String that contains the ARN of the ACM Certificate with one or more tags that you want to remove. This must be of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 rtfcCertificateARN :: Lens' RemoveTagsFromCertificate Text
 rtfcCertificateARN = lens _rtfcCertificateARN (\ s a -> s{_rtfcCertificateARN = a});
 
@@ -84,9 +82,9 @@ instance AWSRequest RemoveTagsFromCertificate where
         response
           = receiveNull RemoveTagsFromCertificateResponse'
 
-instance Hashable RemoveTagsFromCertificate
+instance Hashable RemoveTagsFromCertificate where
 
-instance NFData RemoveTagsFromCertificate
+instance NFData RemoveTagsFromCertificate where
 
 instance ToHeaders RemoveTagsFromCertificate where
         toHeaders
@@ -113,8 +111,9 @@ instance ToQuery RemoveTagsFromCertificate where
 
 -- | /See:/ 'removeTagsFromCertificateResponse' smart constructor.
 data RemoveTagsFromCertificateResponse =
-    RemoveTagsFromCertificateResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RemoveTagsFromCertificateResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTagsFromCertificateResponse' with the minimum fields required to make a request.
 --
@@ -122,4 +121,6 @@ removeTagsFromCertificateResponse
     :: RemoveTagsFromCertificateResponse
 removeTagsFromCertificateResponse = RemoveTagsFromCertificateResponse'
 
+
 instance NFData RemoveTagsFromCertificateResponse
+         where

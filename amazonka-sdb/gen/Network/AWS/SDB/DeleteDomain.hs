@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.SDB.DeleteDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The 'DeleteDomain' operation deletes a domain. Any items (and their attributes) in the domain are deleted as well. The 'DeleteDomain' operation might take 10 or more seconds to complete.
+-- The @DeleteDomain@ operation deletes a domain. Any items (and their attributes) in the domain are deleted as well. The @DeleteDomain@ operation might take 10 or more seconds to complete.
+--
+--
 module Network.AWS.SDB.DeleteDomain
     (
     -- * Creating a Request
@@ -32,30 +34,29 @@ module Network.AWS.SDB.DeleteDomain
     , DeleteDomainResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SDB.Types
-import           Network.AWS.SDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SDB.Types
+import Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'deleteDomain' smart constructor.
 newtype DeleteDomain = DeleteDomain'
-    { _ddDomainName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddDomainName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDomain' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddDomainName'
+-- * 'ddDomainName' - The name of the domain to delete.
 deleteDomain
     :: Text -- ^ 'ddDomainName'
     -> DeleteDomain
-deleteDomain pDomainName_ =
-    DeleteDomain'
-    { _ddDomainName = pDomainName_
-    }
+deleteDomain pDomainName_ = DeleteDomain' {_ddDomainName = pDomainName_}
+
 
 -- | The name of the domain to delete.
 ddDomainName :: Lens' DeleteDomain Text
@@ -66,9 +67,9 @@ instance AWSRequest DeleteDomain where
         request = postQuery sdb
         response = receiveNull DeleteDomainResponse'
 
-instance Hashable DeleteDomain
+instance Hashable DeleteDomain where
 
-instance NFData DeleteDomain
+instance NFData DeleteDomain where
 
 instance ToHeaders DeleteDomain where
         toHeaders = const mempty
@@ -85,8 +86,9 @@ instance ToQuery DeleteDomain where
 
 -- | /See:/ 'deleteDomainResponse' smart constructor.
 data DeleteDomainResponse =
-    DeleteDomainResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteDomainResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDomainResponse' with the minimum fields required to make a request.
 --
@@ -94,4 +96,5 @@ deleteDomainResponse
     :: DeleteDomainResponse
 deleteDomainResponse = DeleteDomainResponse'
 
-instance NFData DeleteDomainResponse
+
+instance NFData DeleteDomainResponse where

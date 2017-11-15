@@ -7,28 +7,32 @@
 {-# LANGUAGE TupleSections              #-}
 
 -- Module      : Gen.Types.Retry
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
 module Gen.Types.Retry where
 
-import           Control.Applicative
-import           Control.Lens
-import           Data.Aeson
-import           Data.Aeson.Types
-import           Data.Maybe
-import           Data.Monoid
-import           Data.Text            (Text)
-import qualified Data.Text            as Text
-import           Data.Text.Manipulate
-import           Gen.Types.Map
-import           GHC.Generics
+import Control.Applicative
+import Control.Lens
+
+import Data.Aeson
+import Data.Aeson.Types
+import Data.Maybe
+import Data.Monoid
+import Data.Text            (Text)
+import Data.Text.Manipulate
+
+import Gen.Types.Map
+
+import GHC.Generics
+
+import qualified Data.Text as Text
 
 defKey :: Text
 defKey = "__default__"

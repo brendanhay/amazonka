@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DescribeThingType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified thing type.
+--
+--
 module Network.AWS.IoT.DescribeThingType
     (
     -- * Creating a Request
@@ -37,32 +39,34 @@ module Network.AWS.IoT.DescribeThingType
     , drsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DescribeThingType operation.
 --
+--
+--
 -- /See:/ 'describeThingType' smart constructor.
 newtype DescribeThingType = DescribeThingType'
-    { _dThingTypeName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dThingTypeName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeThingType' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dThingTypeName'
+-- * 'dThingTypeName' - The name of the thing type.
 describeThingType
     :: Text -- ^ 'dThingTypeName'
     -> DescribeThingType
 describeThingType pThingTypeName_ =
-    DescribeThingType'
-    { _dThingTypeName = pThingTypeName_
-    }
+  DescribeThingType' {_dThingTypeName = pThingTypeName_}
+
 
 -- | The name of the thing type.
 dThingTypeName :: Lens' DescribeThingType Text
@@ -80,9 +84,9 @@ instance AWSRequest DescribeThingType where
                      <*> (x .?> "thingTypeMetadata")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeThingType
+instance Hashable DescribeThingType where
 
-instance NFData DescribeThingType
+instance NFData DescribeThingType where
 
 instance ToHeaders DescribeThingType where
         toHeaders = const mempty
@@ -96,35 +100,39 @@ instance ToQuery DescribeThingType where
 
 -- | The output for the DescribeThingType operation.
 --
+--
+--
 -- /See:/ 'describeThingTypeResponse' smart constructor.
 data DescribeThingTypeResponse = DescribeThingTypeResponse'
-    { _drsThingTypeProperties :: !(Maybe ThingTypeProperties)
-    , _drsThingTypeName       :: !(Maybe Text)
-    , _drsThingTypeMetadata   :: !(Maybe ThingTypeMetadata)
-    , _drsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsThingTypeProperties :: !(Maybe ThingTypeProperties)
+  , _drsThingTypeName       :: !(Maybe Text)
+  , _drsThingTypeMetadata   :: !(Maybe ThingTypeMetadata)
+  , _drsResponseStatus      :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeThingTypeResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsThingTypeProperties'
+-- * 'drsThingTypeProperties' - The ThingTypeProperties contains information about the thing type including description, and a list of searchable thing attribute names.
 --
--- * 'drsThingTypeName'
+-- * 'drsThingTypeName' - The name of the thing type.
 --
--- * 'drsThingTypeMetadata'
+-- * 'drsThingTypeMetadata' - The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 describeThingTypeResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeThingTypeResponse
 describeThingTypeResponse pResponseStatus_ =
-    DescribeThingTypeResponse'
-    { _drsThingTypeProperties = Nothing
-    , _drsThingTypeName = Nothing
-    , _drsThingTypeMetadata = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeThingTypeResponse'
+  { _drsThingTypeProperties = Nothing
+  , _drsThingTypeName = Nothing
+  , _drsThingTypeMetadata = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ThingTypeProperties contains information about the thing type including description, and a list of searchable thing attribute names.
 drsThingTypeProperties :: Lens' DescribeThingTypeResponse (Maybe ThingTypeProperties)
@@ -134,12 +142,12 @@ drsThingTypeProperties = lens _drsThingTypeProperties (\ s a -> s{_drsThingTypeP
 drsThingTypeName :: Lens' DescribeThingTypeResponse (Maybe Text)
 drsThingTypeName = lens _drsThingTypeName (\ s a -> s{_drsThingTypeName = a});
 
--- | Undocumented member.
+-- | The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
 drsThingTypeMetadata :: Lens' DescribeThingTypeResponse (Maybe ThingTypeMetadata)
 drsThingTypeMetadata = lens _drsThingTypeMetadata (\ s a -> s{_drsThingTypeMetadata = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeThingTypeResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DescribeThingTypeResponse
+instance NFData DescribeThingTypeResponse where

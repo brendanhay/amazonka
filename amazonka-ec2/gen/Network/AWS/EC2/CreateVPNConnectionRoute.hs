@@ -12,68 +12,74 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateVPNConnectionRoute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.
 --
--- For more information about VPN connections, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- For more information about VPN connections, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html AWS Managed VPN Connections> in the /Amazon Virtual Private Cloud User Guide/ .
+--
 module Network.AWS.EC2.CreateVPNConnectionRoute
     (
     -- * Creating a Request
       createVPNConnectionRoute
     , CreateVPNConnectionRoute
     -- * Request Lenses
+    , cvcrDestinationCidrBlock
     , cvcrVPNConnectionId
-    , cvcrDestinationCIdRBlock
 
     -- * Destructuring the Response
     , createVPNConnectionRouteResponse
     , CreateVPNConnectionRouteResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateVpnConnectionRoute.
 --
+--
+--
 -- /See:/ 'createVPNConnectionRoute' smart constructor.
 data CreateVPNConnectionRoute = CreateVPNConnectionRoute'
-    { _cvcrVPNConnectionId      :: !Text
-    , _cvcrDestinationCIdRBlock :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cvcrDestinationCidrBlock :: !Text
+  , _cvcrVPNConnectionId      :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateVPNConnectionRoute' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvcrVPNConnectionId'
+-- * 'cvcrDestinationCidrBlock' - The CIDR block associated with the local subnet of the customer network.
 --
--- * 'cvcrDestinationCIdRBlock'
+-- * 'cvcrVPNConnectionId' - The ID of the VPN connection.
 createVPNConnectionRoute
-    :: Text -- ^ 'cvcrVPNConnectionId'
-    -> Text -- ^ 'cvcrDestinationCIdRBlock'
+    :: Text -- ^ 'cvcrDestinationCidrBlock'
+    -> Text -- ^ 'cvcrVPNConnectionId'
     -> CreateVPNConnectionRoute
-createVPNConnectionRoute pVPNConnectionId_ pDestinationCIdRBlock_ =
-    CreateVPNConnectionRoute'
-    { _cvcrVPNConnectionId = pVPNConnectionId_
-    , _cvcrDestinationCIdRBlock = pDestinationCIdRBlock_
-    }
+createVPNConnectionRoute pDestinationCidrBlock_ pVPNConnectionId_ =
+  CreateVPNConnectionRoute'
+  { _cvcrDestinationCidrBlock = pDestinationCidrBlock_
+  , _cvcrVPNConnectionId = pVPNConnectionId_
+  }
+
+
+-- | The CIDR block associated with the local subnet of the customer network.
+cvcrDestinationCidrBlock :: Lens' CreateVPNConnectionRoute Text
+cvcrDestinationCidrBlock = lens _cvcrDestinationCidrBlock (\ s a -> s{_cvcrDestinationCidrBlock = a});
 
 -- | The ID of the VPN connection.
 cvcrVPNConnectionId :: Lens' CreateVPNConnectionRoute Text
 cvcrVPNConnectionId = lens _cvcrVPNConnectionId (\ s a -> s{_cvcrVPNConnectionId = a});
-
--- | The CIDR block associated with the local subnet of the customer network.
-cvcrDestinationCIdRBlock :: Lens' CreateVPNConnectionRoute Text
-cvcrDestinationCIdRBlock = lens _cvcrDestinationCIdRBlock (\ s a -> s{_cvcrDestinationCIdRBlock = a});
 
 instance AWSRequest CreateVPNConnectionRoute where
         type Rs CreateVPNConnectionRoute =
@@ -82,9 +88,9 @@ instance AWSRequest CreateVPNConnectionRoute where
         response
           = receiveNull CreateVPNConnectionRouteResponse'
 
-instance Hashable CreateVPNConnectionRoute
+instance Hashable CreateVPNConnectionRoute where
 
-instance NFData CreateVPNConnectionRoute
+instance NFData CreateVPNConnectionRoute where
 
 instance ToHeaders CreateVPNConnectionRoute where
         toHeaders = const mempty
@@ -97,14 +103,15 @@ instance ToQuery CreateVPNConnectionRoute where
           = mconcat
               ["Action" =:
                  ("CreateVpnConnectionRoute" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
-               "VpnConnectionId" =: _cvcrVPNConnectionId,
-               "DestinationCidrBlock" =: _cvcrDestinationCIdRBlock]
+               "Version" =: ("2016-11-15" :: ByteString),
+               "DestinationCidrBlock" =: _cvcrDestinationCidrBlock,
+               "VpnConnectionId" =: _cvcrVPNConnectionId]
 
 -- | /See:/ 'createVPNConnectionRouteResponse' smart constructor.
 data CreateVPNConnectionRouteResponse =
-    CreateVPNConnectionRouteResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CreateVPNConnectionRouteResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateVPNConnectionRouteResponse' with the minimum fields required to make a request.
 --
@@ -112,4 +119,6 @@ createVPNConnectionRouteResponse
     :: CreateVPNConnectionRouteResponse
 createVPNConnectionRouteResponse = CreateVPNConnectionRouteResponse'
 
+
 instance NFData CreateVPNConnectionRouteResponse
+         where

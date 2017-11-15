@@ -12,17 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DisableGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables a gateway when the gateway is no longer functioning. For example, if your gateway VM is damaged, you can disable the gateway so you can recover virtual tapes.
+-- Disables a tape gateway when the gateway is no longer functioning. For example, if your gateway VM is damaged, you can disable the gateway so you can recover virtual tapes.
 --
--- Use this operation for a gateway-VTL that is not reachable or not functioning.
 --
--- Once a gateway is disabled it cannot be enabled.
+-- Use this operation for a tape gateway that is not reachable or not functioning. This operation is only supported in the tape gateway architectures.
+--
+-- /Important:/ Once a gateway is disabled it cannot be enabled.
+--
 module Network.AWS.StorageGateway.DisableGateway
     (
     -- * Creating a Request
@@ -39,32 +41,33 @@ module Network.AWS.StorageGateway.DisableGateway
     , disrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | DisableGatewayInput
 --
+--
+--
 -- /See:/ 'disableGateway' smart constructor.
 newtype DisableGateway = DisableGateway'
-    { _dGatewayARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dGatewayARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableGateway' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dGatewayARN'
+-- * 'dGatewayARN' - Undocumented member.
 disableGateway
     :: Text -- ^ 'dGatewayARN'
     -> DisableGateway
-disableGateway pGatewayARN_ =
-    DisableGateway'
-    { _dGatewayARN = pGatewayARN_
-    }
+disableGateway pGatewayARN_ = DisableGateway' {_dGatewayARN = pGatewayARN_}
+
 
 -- | Undocumented member.
 dGatewayARN :: Lens' DisableGateway Text
@@ -79,9 +82,9 @@ instance AWSRequest DisableGateway where
                  DisableGatewayResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-instance Hashable DisableGateway
+instance Hashable DisableGateway where
 
-instance NFData DisableGateway
+instance NFData DisableGateway where
 
 instance ToHeaders DisableGateway where
         toHeaders
@@ -106,34 +109,36 @@ instance ToQuery DisableGateway where
 
 -- | DisableGatewayOutput
 --
+--
+--
 -- /See:/ 'disableGatewayResponse' smart constructor.
 data DisableGatewayResponse = DisableGatewayResponse'
-    { _disrsGatewayARN     :: !(Maybe Text)
-    , _disrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _disrsGatewayARN     :: !(Maybe Text)
+  , _disrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableGatewayResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'disrsGatewayARN'
+-- * 'disrsGatewayARN' - The unique Amazon Resource Name of the disabled gateway.
 --
--- * 'disrsResponseStatus'
+-- * 'disrsResponseStatus' - -- | The response status code.
 disableGatewayResponse
     :: Int -- ^ 'disrsResponseStatus'
     -> DisableGatewayResponse
 disableGatewayResponse pResponseStatus_ =
-    DisableGatewayResponse'
-    { _disrsGatewayARN = Nothing
-    , _disrsResponseStatus = pResponseStatus_
-    }
+  DisableGatewayResponse'
+  {_disrsGatewayARN = Nothing, _disrsResponseStatus = pResponseStatus_}
+
 
 -- | The unique Amazon Resource Name of the disabled gateway.
 disrsGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
 disrsGatewayARN = lens _disrsGatewayARN (\ s a -> s{_disrsGatewayARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 disrsResponseStatus :: Lens' DisableGatewayResponse Int
 disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a});
 
-instance NFData DisableGatewayResponse
+instance NFData DisableGatewayResponse where

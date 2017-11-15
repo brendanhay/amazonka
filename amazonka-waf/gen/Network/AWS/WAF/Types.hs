@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.WAF.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -18,6 +18,7 @@ module Network.AWS.WAF.Types
     -- * Errors
     , _WAFInvalidAccountException
     , _WAFReferencedItemException
+    , _WAFInvalidRegexPatternException
     , _WAFInvalidOperationException
     , _WAFNonexistentItemException
     , _WAFInvalidParameterException
@@ -37,6 +38,12 @@ module Network.AWS.WAF.Types
     -- * ComparisonOperator
     , ComparisonOperator (..)
 
+    -- * GeoMatchConstraintType
+    , GeoMatchConstraintType (..)
+
+    -- * GeoMatchConstraintValue
+    , GeoMatchConstraintValue (..)
+
     -- * IPSetDescriptorType
     , IPSetDescriptorType (..)
 
@@ -49,15 +56,22 @@ module Network.AWS.WAF.Types
     -- * PredicateType
     , PredicateType (..)
 
+    -- * RateKey
+    , RateKey (..)
+
     -- * TextTransformation
     , TextTransformation (..)
 
     -- * WafActionType
     , WafActionType (..)
 
+    -- * WafRuleType
+    , WafRuleType (..)
+
     -- * ActivatedRule
     , ActivatedRule
     , activatedRule
+    , arType
     , arPriority
     , arRuleId
     , arAction
@@ -94,6 +108,31 @@ module Network.AWS.WAF.Types
     , fieldToMatch
     , ftmData
     , ftmType
+
+    -- * GeoMatchConstraint
+    , GeoMatchConstraint
+    , geoMatchConstraint
+    , gmcType
+    , gmcValue
+
+    -- * GeoMatchSet
+    , GeoMatchSet
+    , geoMatchSet
+    , gmsName
+    , gmsGeoMatchSetId
+    , gmsGeoMatchConstraints
+
+    -- * GeoMatchSetSummary
+    , GeoMatchSetSummary
+    , geoMatchSetSummary
+    , gmssGeoMatchSetId
+    , gmssName
+
+    -- * GeoMatchSetUpdate
+    , GeoMatchSetUpdate
+    , geoMatchSetUpdate
+    , gmsuAction
+    , gmsuGeoMatchConstraint
 
     -- * HTTPHeader
     , HTTPHeader
@@ -142,6 +181,61 @@ module Network.AWS.WAF.Types
     , pNegated
     , pType
     , pDataId
+
+    -- * RateBasedRule
+    , RateBasedRule
+    , rateBasedRule
+    , rbrMetricName
+    , rbrName
+    , rbrRuleId
+    , rbrMatchPredicates
+    , rbrRateKey
+    , rbrRateLimit
+
+    -- * RegexMatchSet
+    , RegexMatchSet
+    , regexMatchSet
+    , rmsName
+    , rmsRegexMatchTuples
+    , rmsRegexMatchSetId
+
+    -- * RegexMatchSetSummary
+    , RegexMatchSetSummary
+    , regexMatchSetSummary
+    , rmssRegexMatchSetId
+    , rmssName
+
+    -- * RegexMatchSetUpdate
+    , RegexMatchSetUpdate
+    , regexMatchSetUpdate
+    , rmsuAction
+    , rmsuRegexMatchTuple
+
+    -- * RegexMatchTuple
+    , RegexMatchTuple
+    , regexMatchTuple
+    , rmtFieldToMatch
+    , rmtTextTransformation
+    , rmtRegexPatternSetId
+
+    -- * RegexPatternSet
+    , RegexPatternSet
+    , regexPatternSet
+    , rpsName
+    , rpsRegexPatternSetId
+    , rpsRegexPatternStrings
+
+    -- * RegexPatternSetSummary
+    , RegexPatternSetSummary
+    , regexPatternSetSummary
+    , rpssRegexPatternSetId
+    , rpssName
+
+    -- * RegexPatternSetUpdate
+    , RegexPatternSetUpdate
+    , regexPatternSetUpdate
+    , rpsuAction
+    , rpsuRegexPatternString
 
     -- * Rule
     , Rule
@@ -281,38 +375,40 @@ module Network.AWS.WAF.Types
     , xmtTextTransformation
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
-import           Network.AWS.WAF.Types.Product
-import           Network.AWS.WAF.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
+import Network.AWS.WAF.Types.Product
+import Network.AWS.WAF.Types.Sum
 
--- | API version '2015-08-24' of the Amazon WAF SDK configuration.
+-- | API version @2015-08-24@ of the Amazon WAF SDK configuration.
 waf :: Service
 waf =
-    Service
-    { _svcAbbrev = "WAF"
-    , _svcSigner = v4
-    , _svcPrefix = "waf"
-    , _svcVersion = "2015-08-24"
-    , _svcEndpoint = defaultEndpoint waf
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "WAF"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "WAF"
+  , _svcSigner = v4
+  , _svcPrefix = "waf"
+  , _svcVersion = "2015-08-24"
+  , _svcEndpoint = defaultEndpoint waf
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "WAF"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -321,84 +417,157 @@ waf =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.
+--
+--
 _WAFInvalidAccountException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFInvalidAccountException =
-    _ServiceError . hasCode "WAFInvalidAccountException"
+  _MatchServiceError waf "WAFInvalidAccountException"
+
 
 -- | The operation failed because you tried to delete an object that is still in use. For example:
 --
--- -   You tried to delete a 'ByteMatchSet' that is still referenced by a 'Rule'.
--- -   You tried to delete a 'Rule' that is still referenced by a 'WebACL'.
+--
+--     * You tried to delete a @ByteMatchSet@ that is still referenced by a @Rule@ .
+--
+--     * You tried to delete a @Rule@ that is still referenced by a @WebACL@ .
+--
+--
+--
 _WAFReferencedItemException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFReferencedItemException =
-    _ServiceError . hasCode "WAFReferencedItemException"
+  _MatchServiceError waf "WAFReferencedItemException"
+
+
+-- | The regular expression (regex) you specified in @RegexPatternString@ is invalid.
+--
+--
+_WAFInvalidRegexPatternException :: AsError a => Getting (First ServiceError) a ServiceError
+_WAFInvalidRegexPatternException =
+  _MatchServiceError waf "WAFInvalidRegexPatternException"
+
 
 -- | The operation failed because there was nothing to do. For example:
 --
--- -   You tried to remove a 'Rule' from a 'WebACL', but the 'Rule' isn\'t in the specified 'WebACL'.
--- -   You tried to remove an IP address from an 'IPSet', but the IP address isn\'t in the specified 'IPSet'.
--- -   You tried to remove a 'ByteMatchTuple' from a 'ByteMatchSet', but the 'ByteMatchTuple' isn\'t in the specified 'WebACL'.
--- -   You tried to add a 'Rule' to a 'WebACL', but the 'Rule' already exists in the specified 'WebACL'.
--- -   You tried to add an IP address to an 'IPSet', but the IP address already exists in the specified 'IPSet'.
--- -   You tried to add a 'ByteMatchTuple' to a 'ByteMatchSet', but the 'ByteMatchTuple' already exists in the specified 'WebACL'.
+--
+--     * You tried to remove a @Rule@ from a @WebACL@ , but the @Rule@ isn't in the specified @WebACL@ .
+--
+--     * You tried to remove an IP address from an @IPSet@ , but the IP address isn't in the specified @IPSet@ .
+--
+--     * You tried to remove a @ByteMatchTuple@ from a @ByteMatchSet@ , but the @ByteMatchTuple@ isn't in the specified @WebACL@ .
+--
+--     * You tried to add a @Rule@ to a @WebACL@ , but the @Rule@ already exists in the specified @WebACL@ .
+--
+--     * You tried to add an IP address to an @IPSet@ , but the IP address already exists in the specified @IPSet@ .
+--
+--     * You tried to add a @ByteMatchTuple@ to a @ByteMatchSet@ , but the @ByteMatchTuple@ already exists in the specified @WebACL@ .
+--
+--
+--
 _WAFInvalidOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFInvalidOperationException =
-    _ServiceError . hasCode "WAFInvalidOperationException"
+  _MatchServiceError waf "WAFInvalidOperationException"
 
--- | The operation failed because the referenced object doesn\'t exist.
+
+-- | The operation failed because the referenced object doesn't exist.
+--
+--
 _WAFNonexistentItemException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFNonexistentItemException =
-    _ServiceError . hasCode "WAFNonexistentItemException"
+  _MatchServiceError waf "WAFNonexistentItemException"
 
--- | The operation failed because AWS WAF didn\'t recognize a parameter in the request. For example:
+
+-- | The operation failed because AWS WAF didn't recognize a parameter in the request. For example:
 --
--- -   You specified an invalid parameter name.
--- -   You specified an invalid value.
--- -   You tried to update an object ('ByteMatchSet', 'IPSet', 'Rule', or 'WebACL') using an action other than 'INSERT' or 'DELETE'.
--- -   You tried to create a 'WebACL' with a 'DefaultAction' 'Type' other than 'ALLOW', 'BLOCK', or 'COUNT'.
--- -   You tried to update a 'WebACL' with a 'WafAction' 'Type' other than 'ALLOW', 'BLOCK', or 'COUNT'.
--- -   You tried to update a 'ByteMatchSet' with a 'FieldToMatch' 'Type' other than HEADER, QUERY_STRING, or URI.
--- -   You tried to update a 'ByteMatchSet' with a 'Field' of 'HEADER' but no value for 'Data'.
+--
+--     * You specified an invalid parameter name.
+--
+--     * You specified an invalid value.
+--
+--     * You tried to update an object (@ByteMatchSet@ , @IPSet@ , @Rule@ , or @WebACL@ ) using an action other than @INSERT@ or @DELETE@ .
+--
+--     * You tried to create a @WebACL@ with a @DefaultAction@ @Type@ other than @ALLOW@ , @BLOCK@ , or @COUNT@ .
+--
+--     * You tried to create a @RateBasedRule@ with a @RateKey@ value other than @IP@ .
+--
+--     * You tried to update a @WebACL@ with a @WafAction@ @Type@ other than @ALLOW@ , @BLOCK@ , or @COUNT@ .
+--
+--     * You tried to update a @ByteMatchSet@ with a @FieldToMatch@ @Type@ other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
+--
+--     * You tried to update a @ByteMatchSet@ with a @Field@ of @HEADER@ but no value for @Data@ .
+--
+--     * Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.
+--
+--
+--
 _WAFInvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFInvalidParameterException =
-    _ServiceError . hasCode "WAFInvalidParameterException"
+  _MatchServiceError waf "WAFInvalidParameterException"
 
--- | The operation exceeds a resource limit, for example, the maximum number of 'WebACL' objects that you can create for an AWS account. For more information, see <http://docs.aws.amazon.com/waf/latest/developerguide/limits.html Limits> in the /AWS WAF Developer Guide/.
+
+-- | The operation exceeds a resource limit, for example, the maximum number of @WebACL@ objects that you can create for an AWS account. For more information, see <http://docs.aws.amazon.com/waf/latest/developerguide/limits.html Limits> in the /AWS WAF Developer Guide/ .
+--
+--
 _WAFLimitsExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFLimitsExceededException =
-    _ServiceError . hasCode "WAFLimitsExceededException"
+  _MatchServiceError waf "WAFLimitsExceededException"
+
 
 -- | The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.
+--
+--
 _WAFStaleDataException :: AsError a => Getting (First ServiceError) a ServiceError
-_WAFStaleDataException = _ServiceError . hasCode "WAFStaleDataException"
+_WAFStaleDataException = _MatchServiceError waf "WAFStaleDataException"
+
 
 -- | The operation failed because of a system problem, even though the request was valid. Retry your request.
-_WAFInternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
-_WAFInternalErrorException =
-    _ServiceError . hasCode "WAFInternalErrorException"
-
--- | The operation failed because you tried to add an object to or delete an object from another object that doesn\'t exist. For example:
 --
--- -   You tried to add a 'Rule' to or delete a 'Rule' from a 'WebACL' that doesn\'t exist.
--- -   You tried to add a 'ByteMatchSet' to or delete a 'ByteMatchSet' from a 'Rule' that doesn\'t exist.
--- -   You tried to add an IP address to or delete an IP address from an 'IPSet' that doesn\'t exist.
--- -   You tried to add a 'ByteMatchTuple' to or delete a 'ByteMatchTuple' from a 'ByteMatchSet' that doesn\'t exist.
+--
+_WAFInternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
+_WAFInternalErrorException = _MatchServiceError waf "WAFInternalErrorException"
+
+
+-- | The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:
+--
+--
+--     * You tried to add a @Rule@ to or delete a @Rule@ from a @WebACL@ that doesn't exist.
+--
+--     * You tried to add a @ByteMatchSet@ to or delete a @ByteMatchSet@ from a @Rule@ that doesn't exist.
+--
+--     * You tried to add an IP address to or delete an IP address from an @IPSet@ that doesn't exist.
+--
+--     * You tried to add a @ByteMatchTuple@ to or delete a @ByteMatchTuple@ from a @ByteMatchSet@ that doesn't exist.
+--
+--
+--
 _WAFNonexistentContainerException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFNonexistentContainerException =
-    _ServiceError . hasCode "WAFNonexistentContainerException"
+  _MatchServiceError waf "WAFNonexistentContainerException"
+
 
 -- | The name specified is invalid.
+--
+--
 _WAFDisallowedNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFDisallowedNameException =
-    _ServiceError . hasCode "WAFDisallowedNameException"
+  _MatchServiceError waf "WAFDisallowedNameException"
 
--- | The operation failed because you tried to delete an object that isn\'t empty. For example:
+
+-- | The operation failed because you tried to delete an object that isn't empty. For example:
 --
--- -   You tried to delete a 'WebACL' that still contains one or more 'Rule' objects.
--- -   You tried to delete a 'Rule' that still contains one or more 'ByteMatchSet' objects or other predicates.
--- -   You tried to delete a 'ByteMatchSet' that contains one or more 'ByteMatchTuple' objects.
--- -   You tried to delete an 'IPSet' that references one or more IP addresses.
+--
+--     * You tried to delete a @WebACL@ that still contains one or more @Rule@ objects.
+--
+--     * You tried to delete a @Rule@ that still contains one or more @ByteMatchSet@ objects or other predicates.
+--
+--     * You tried to delete a @ByteMatchSet@ that contains one or more @ByteMatchTuple@ objects.
+--
+--     * You tried to delete an @IPSet@ that references one or more IP addresses.
+--
+--
+--
 _WAFNonEmptyEntityException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFNonEmptyEntityException =
-    _ServiceError . hasCode "WAFNonEmptyEntityException"
+  _MatchServiceError waf "WAFNonEmptyEntityException"
+

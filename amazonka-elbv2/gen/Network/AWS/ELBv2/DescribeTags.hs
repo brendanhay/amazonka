@@ -12,13 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the tags for the specified resources.
+-- Describes the tags for the specified resources. You can describe the tags for one or more Application Load Balancers, Network Load Balancers, and target groups.
+--
+--
 module Network.AWS.ELBv2.DescribeTags
     (
     -- * Creating a Request
@@ -35,31 +37,28 @@ module Network.AWS.ELBv2.DescribeTags
     , dtrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
--- | Contains the parameters for DescribeTags.
---
--- /See:/ 'describeTags' smart constructor.
+-- | /See:/ 'describeTags' smart constructor.
 newtype DescribeTags = DescribeTags'
-    { _dtResourceARNs :: [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtResourceARNs :: [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtResourceARNs'
+-- * 'dtResourceARNs' - The Amazon Resource Names (ARN) of the resources.
 describeTags
     :: DescribeTags
-describeTags =
-    DescribeTags'
-    { _dtResourceARNs = mempty
-    }
+describeTags = DescribeTags' {_dtResourceARNs = mempty}
+
 
 -- | The Amazon Resource Names (ARN) of the resources.
 dtResourceARNs :: Lens' DescribeTags [Text]
@@ -76,9 +75,9 @@ instance AWSRequest DescribeTags where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeTags
+instance Hashable DescribeTags where
 
-instance NFData DescribeTags
+instance NFData DescribeTags where
 
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
@@ -94,36 +93,34 @@ instance ToQuery DescribeTags where
                "ResourceArns" =:
                  toQueryList "member" _dtResourceARNs]
 
--- | Contains the output of DescribeTags.
---
--- /See:/ 'describeTagsResponse' smart constructor.
+-- | /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrsTagDescriptions :: !(Maybe [TagDescription])
-    , _dtrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrsTagDescriptions :: !(Maybe [TagDescription])
+  , _dtrsResponseStatus  :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrsTagDescriptions'
+-- * 'dtrsTagDescriptions' - Information about the tags.
 --
--- * 'dtrsResponseStatus'
+-- * 'dtrsResponseStatus' - -- | The response status code.
 describeTagsResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
 describeTagsResponse pResponseStatus_ =
-    DescribeTagsResponse'
-    { _dtrsTagDescriptions = Nothing
-    , _dtrsResponseStatus = pResponseStatus_
-    }
+  DescribeTagsResponse'
+  {_dtrsTagDescriptions = Nothing, _dtrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the tags.
 dtrsTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
 dtrsTagDescriptions = lens _dtrsTagDescriptions (\ s a -> s{_dtrsTagDescriptions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 
-instance NFData DescribeTagsResponse
+instance NFData DescribeTagsResponse where

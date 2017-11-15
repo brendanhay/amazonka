@@ -191,6 +191,9 @@ matrix:
     - env: LIBRARY=amazonka-ds GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-ds-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-dynamodb-dax GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-dynamodb-dax-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-dynamodb-streams GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-dynamodb-streams-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}

@@ -89,7 +89,7 @@ test-suite amazonka-rekognition-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-rekognition == 1.5.0.*
+        , amazonka-rekognition
         , base
         , bytestring
         , tasty

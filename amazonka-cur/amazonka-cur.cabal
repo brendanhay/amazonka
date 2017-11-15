@@ -78,7 +78,7 @@ test-suite amazonka-cur-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-cur == 1.5.0.*
+        , amazonka-cur
         , base
         , bytestring
         , tasty

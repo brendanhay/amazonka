@@ -78,7 +78,7 @@ test-suite amazonka-cloudsearch-domains-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-cloudsearch-domains == 1.5.0.*
+        , amazonka-cloudsearch-domains
         , base
         , bytestring
         , tasty

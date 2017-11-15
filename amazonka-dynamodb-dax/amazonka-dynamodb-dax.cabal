@@ -96,7 +96,7 @@ test-suite amazonka-dynamodb-dax-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-dynamodb-dax == 1.5.0.*
+        , amazonka-dynamodb-dax
         , base
         , bytestring
         , tasty

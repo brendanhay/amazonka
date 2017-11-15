@@ -115,7 +115,7 @@ test-suite amazonka-directconnect-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-directconnect == 1.5.0.*
+        , amazonka-directconnect
         , base
         , bytestring
         , tasty

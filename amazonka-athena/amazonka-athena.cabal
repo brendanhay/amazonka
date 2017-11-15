@@ -86,7 +86,7 @@ test-suite amazonka-athena-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-athena == 1.5.0.*
+        , amazonka-athena
         , base
         , bytestring
         , tasty

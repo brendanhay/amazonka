@@ -93,7 +93,7 @@ test-suite amazonka-cognito-identity-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-cognito-identity == 1.5.0.*
+        , amazonka-cognito-identity
         , base
         , bytestring
         , tasty

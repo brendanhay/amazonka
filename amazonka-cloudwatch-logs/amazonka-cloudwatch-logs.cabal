@@ -108,7 +108,7 @@ test-suite amazonka-cloudwatch-logs-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-cloudwatch-logs == 1.5.0.*
+        , amazonka-cloudwatch-logs
         , base
         , bytestring
         , tasty

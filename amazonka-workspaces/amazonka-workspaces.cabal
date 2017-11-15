@@ -89,7 +89,7 @@ test-suite amazonka-workspaces-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-workspaces == 1.5.0.*
+        , amazonka-workspaces
         , base
         , bytestring
         , tasty

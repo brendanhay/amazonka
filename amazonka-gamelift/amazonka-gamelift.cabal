@@ -139,7 +139,7 @@ test-suite amazonka-gamelift-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-gamelift == 1.5.0.*
+        , amazonka-gamelift
         , base
         , bytestring
         , tasty

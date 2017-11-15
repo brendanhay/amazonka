@@ -88,7 +88,7 @@ test-suite amazonka-budgets-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-budgets == 1.5.0.*
+        , amazonka-budgets
         , base
         , bytestring
         , tasty

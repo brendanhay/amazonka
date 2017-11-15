@@ -140,7 +140,7 @@ test-suite amazonka-greengrass-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-greengrass == 1.5.0.*
+        , amazonka-greengrass
         , base
         , bytestring
         , tasty

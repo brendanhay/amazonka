@@ -171,7 +171,7 @@ test-suite amazonka-ssm-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-ssm == 1.5.0.*
+        , amazonka-ssm
         , base
         , bytestring
         , tasty

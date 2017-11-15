@@ -128,7 +128,7 @@ test-suite amazonka-servicecatalog-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-servicecatalog == 1.5.0.*
+        , amazonka-servicecatalog
         , base
         , bytestring
         , tasty

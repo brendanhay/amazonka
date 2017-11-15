@@ -78,7 +78,7 @@ test-suite amazonka-pricing-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-pricing == 1.5.0.*
+        , amazonka-pricing
         , base
         , bytestring
         , tasty

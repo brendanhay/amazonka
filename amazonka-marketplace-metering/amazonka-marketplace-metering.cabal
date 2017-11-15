@@ -78,7 +78,7 @@ test-suite amazonka-marketplace-metering-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-marketplace-metering == 1.5.0.*
+        , amazonka-marketplace-metering
         , base
         , bytestring
         , tasty

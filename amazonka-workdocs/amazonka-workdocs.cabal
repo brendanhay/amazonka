@@ -114,7 +114,7 @@ test-suite amazonka-workdocs-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-workdocs == 1.5.0.*
+        , amazonka-workdocs
         , base
         , bytestring
         , tasty

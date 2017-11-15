@@ -197,7 +197,7 @@ test-suite amazonka-iam-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-iam == 1.5.0.*
+        , amazonka-iam
         , base
         , bytestring
         , tasty

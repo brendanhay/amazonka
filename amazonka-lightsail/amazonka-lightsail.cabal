@@ -123,7 +123,7 @@ test-suite amazonka-lightsail-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-lightsail == 1.5.0.*
+        , amazonka-lightsail
         , base
         , bytestring
         , tasty

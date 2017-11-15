@@ -85,7 +85,7 @@ test-suite amazonka-certificatemanager-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-certificatemanager == 1.5.0.*
+        , amazonka-certificatemanager
         , base
         , bytestring
         , tasty

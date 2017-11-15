@@ -106,7 +106,7 @@ test-suite amazonka-swf-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-swf == 1.5.0.*
+        , amazonka-swf
         , base
         , bytestring
         , tasty

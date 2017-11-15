@@ -90,7 +90,7 @@ test-suite amazonka-cloudwatch-events-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-cloudwatch-events == 1.5.0.*
+        , amazonka-cloudwatch-events
         , base
         , bytestring
         , tasty

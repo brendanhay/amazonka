@@ -118,7 +118,7 @@ test-suite amazonka-elasticbeanstalk-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-elasticbeanstalk == 1.5.0.*
+        , amazonka-elasticbeanstalk
         , base
         , bytestring
         , tasty

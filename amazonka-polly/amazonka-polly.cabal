@@ -81,7 +81,7 @@ test-suite amazonka-polly-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-polly == 1.5.0.*
+        , amazonka-polly
         , base
         , bytestring
         , tasty

@@ -124,7 +124,7 @@ test-suite amazonka-devicefarm-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-devicefarm == 1.5.0.*
+        , amazonka-devicefarm
         , base
         , bytestring
         , tasty

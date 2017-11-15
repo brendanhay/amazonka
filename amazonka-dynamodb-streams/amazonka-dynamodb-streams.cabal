@@ -79,7 +79,7 @@ test-suite amazonka-dynamodb-streams-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-dynamodb-streams == 1.5.0.*
+        , amazonka-dynamodb-streams
         , base
         , bytestring
         , tasty

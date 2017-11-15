@@ -148,7 +148,7 @@ test-suite amazonka-opsworks-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-opsworks == 1.5.0.*
+        , amazonka-opsworks
         , base
         , bytestring
         , tasty

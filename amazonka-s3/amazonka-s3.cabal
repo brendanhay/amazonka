@@ -151,7 +151,7 @@ test-suite amazonka-s3-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-s3 == 1.5.0.*
+        , amazonka-s3
         , base
         , bytestring
         , tasty

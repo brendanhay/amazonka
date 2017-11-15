@@ -134,7 +134,7 @@ test-suite amazonka-clouddirectory-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-clouddirectory == 1.5.0.*
+        , amazonka-clouddirectory
         , base
         , bytestring
         , tasty

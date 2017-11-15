@@ -89,7 +89,7 @@ test-suite amazonka-support-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-support == 1.5.0.*
+        , amazonka-support
         , base
         , bytestring
         , tasty

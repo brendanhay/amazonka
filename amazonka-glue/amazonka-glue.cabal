@@ -150,7 +150,7 @@ test-suite amazonka-glue-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-glue == 1.5.0.*
+        , amazonka-glue
         , base
         , bytestring
         , tasty

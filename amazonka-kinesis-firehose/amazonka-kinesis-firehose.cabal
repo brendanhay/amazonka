@@ -83,7 +83,7 @@ test-suite amazonka-kinesis-firehose-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-kinesis-firehose == 1.5.0.*
+        , amazonka-kinesis-firehose
         , base
         , bytestring
         , tasty

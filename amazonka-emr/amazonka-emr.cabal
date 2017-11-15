@@ -101,7 +101,7 @@ test-suite amazonka-emr-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-emr == 1.5.0.*
+        , amazonka-emr
         , base
         , bytestring
         , tasty

@@ -103,7 +103,7 @@ test-suite amazonka-cloudfront-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-cloudfront == 1.5.0.*
+        , amazonka-cloudfront
         , base
         , bytestring
         , tasty

@@ -114,7 +114,7 @@ test-suite amazonka-mechanicalturk-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-mechanicalturk == 1.5.0.*
+        , amazonka-mechanicalturk
         , base
         , bytestring
         , tasty

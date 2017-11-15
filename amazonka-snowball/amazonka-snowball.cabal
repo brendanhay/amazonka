@@ -92,7 +92,7 @@ test-suite amazonka-snowball-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-snowball == 1.5.0.*
+        , amazonka-snowball
         , base
         , bytestring
         , tasty

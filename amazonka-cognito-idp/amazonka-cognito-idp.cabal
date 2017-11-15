@@ -158,7 +158,7 @@ test-suite amazonka-cognito-idp-test
     build-depends:
           amazonka-core == 1.5.0.*
         , amazonka-test == 1.5.0.*
-        , amazonka-cognito-idp == 1.5.0.*
+        , amazonka-cognito-idp
         , base
         , bytestring
         , tasty

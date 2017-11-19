@@ -342,8 +342,8 @@ userdata m = do
 -- will need to be manually parsed using 'fromText' when the relevant types
 -- from a library such as "Network.AWS.EC2" are brought into scope.
 data IdentityDocument = IdentityDocument
-    { _devpayProductCodes :: Maybe Text
-    , _billingProducts    :: Maybe Text
+    { _devpayProductCodes :: Maybe [Text]
+    , _billingProducts    :: Maybe [Text]
     , _version            :: Maybe Text
     , _privateIp          :: Maybe Text
     , _availabilityZone   :: Text
@@ -358,10 +358,10 @@ data IdentityDocument = IdentityDocument
     , _pendingTime        :: Maybe ISO8601
     } deriving (Eq, Show)
 
-devpayProductCodes :: Lens' IdentityDocument (Maybe Text)
+devpayProductCodes :: Lens' IdentityDocument (Maybe [Text])
 devpayProductCodes = lens _devpayProductCodes (\s a -> s { _devpayProductCodes = a })
 
-billingProducts :: Lens' IdentityDocument (Maybe Text)
+billingProducts :: Lens' IdentityDocument (Maybe [Text])
 billingProducts = lens _billingProducts (\s a -> s { _billingProducts = a })
 
 version :: Lens' IdentityDocument (Maybe Text)

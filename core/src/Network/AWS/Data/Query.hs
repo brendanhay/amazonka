@@ -1,3 +1,4 @@
+{-# LANGUAGE CPP                 #-}
 {-# LANGUAGE DefaultSignatures   #-}
 {-# LANGUAGE DeriveDataTypeable  #-}
 {-# LANGUAGE FlexibleContexts    #-}
@@ -70,7 +71,16 @@ parseQueryString bs
         case x of
             ""  -> QValue Nothing
             "=" -> QValue Nothing
-            _   -> QValue (Just (fromMaybe x (BS8.stripPrefix "=" x)))
+            _   -> QValue (Just (fromMaybe x (stripPrefix "=" x)))
+
+stripPrefix :: ByteString -> ByteString -> Maybe ByteString
+#if MIN_VERSION_bytestring(0,10,8)
+stripPrefix = BS8.stripPrefix
+#else
+stripPrefix bs1 bs2
+   | bs1 `BS8.isPrefixOf` bs2 = Just (BS8.drop (BS8.length bs1) bs2)
+   | otherwise = Nothing
+#endif
 
 -- FIXME: use Builder
 instance ToByteString QueryString where

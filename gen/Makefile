@@ -36,12 +36,11 @@ gen: $(MODEL_DIR) $(GENERATE)
 format: $(STYLISH)
 	@echo -e '\nFormatting...'
 	@find \
- $(wildcard $(OUT_DIR)/amazonka-*/gen) \
- $(wildcard $(OUT_DIR)/amazonka-*/test/Test/AWS/Gen) \
- -type f \
- -name '*.hs' \
- -printf ' -> %p\n' \
- -exec $(STYLISH) -i {} \;
+	$(wildcard $(OUT_DIR)/amazonka-*/gen) \
+ 	$(wildcard $(OUT_DIR)/amazonka-*/test/Test/AWS/Gen) \
+	-type f \
+	-name '*.hs' \
+	-exec sh -c "printf ' -> %s\n\' $1 {}; $(STYLISH) -i {}" \;
 
 $(GENERATE): $(BIN_DIR)
 	stack install amazonka-gen

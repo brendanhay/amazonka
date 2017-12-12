@@ -4,6 +4,7 @@
 {-# LANGUAGE LambdaCase         #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE CPP                #-}
 
 -- |
 -- Module      : Network.AWS.EC2.Metadata
@@ -330,9 +331,15 @@ userdata :: (MonadIO m, MonadCatch m) => Manager -> m (Maybe ByteString)
 userdata m = do
     x <- try $ get m (latest <> "user-data")
     case x of
+#if MIN_VERSION_http_client(0,5,0)
         Left (HttpExceptionRequest _ (StatusCodeException rs _))
             | fromEnum (responseStatus rs) == 404
                 -> return Nothing
+#else
+        Left (StatusCodeException s _ _)
+            | fromEnum s == 404
+                -> return Nothing
+#endif
         Left  e -> throwM e
         Right b -> return (Just b)
 
@@ -456,6 +463,10 @@ get m url = liftIO (strip `liftM` request m url)
 
 request :: Manager -> Text -> IO ByteString
 request m url = do
+#if MIN_VERSION_http_client(0,4,30)
     rq <- parseUrlThrow (Text.unpack url)
+#else
+    rq <- parseUrl (Text.unpack url)
+#endif
     rs <- httpLbs rq m
     return . LBS.toStrict $ responseBody rs

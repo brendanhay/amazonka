@@ -4,6 +4,7 @@
 {-# LANGUAGE RankNTypes        #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE ViewPatterns      #-}
+{-# LANGUAGE CPP               #-}
 
 -- |
 -- Module      : Network.AWS.Env
@@ -216,6 +217,7 @@ newEnvWith c p m = do
 -- | Retry the subset of transport specific errors encompassing connection
 -- failure up to the specific number of times.
 retryConnectionFailure :: Int -> Int -> HttpException -> Bool
+#if MIN_VERSION_http_client(0,5,0)
 retryConnectionFailure _     _ InvalidUrlException {}      = False
 retryConnectionFailure limit n (HttpExceptionRequest _ ex)
     | n >= limit = False
@@ -227,3 +229,12 @@ retryConnectionFailure limit n (HttpExceptionRequest _ ex)
             ConnectionFailure {}   -> True
             InternalException {}   -> True
             _                      -> False
+#else
+retryConnectionFailure limit n = \case
+    _ | n >= limit                -> False
+    NoResponseDataReceived        -> True
+    FailedConnectionException  {} -> True
+    FailedConnectionException2 {} -> True
+    TlsException               {} -> True
+    _                             -> False
+#endif

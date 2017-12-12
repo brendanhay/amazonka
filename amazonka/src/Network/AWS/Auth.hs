@@ -4,6 +4,7 @@
 {-# LANGUAGE LambdaCase         #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE TupleSections      #-}
+{-# LANGUAGE CPP      #-}
 
 -- |
 -- Module      : Network.AWS.Auth
@@ -566,7 +567,11 @@ fromContainer m = do
         p  <- maybe (throwM . MissingEnvError $ "Unable to read ENV variable: " <> envContainerCredentialsURI)
                     return
                     mp
+#if MIN_VERSION_http_client(0,4,30)
         parseUrlThrow $ "http://169.254.170.2" <> p
+#else
+        parseUrl $ "http://169.254.170.2" <> p
+#endif
 
     renew :: HTTP.Request -> IO AuthEnv
     renew req = do

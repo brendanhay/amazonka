@@ -8,6 +8,7 @@
 {-# LANGUAGE RankNTypes                 #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE CPP                        #-}
 
 -- |
 -- Module      : Network.AWS.Types
@@ -167,6 +168,10 @@ import Network.HTTP.Types.Status   (Status)
 
 import qualified Data.Text            as Text
 import qualified Network.HTTP.Conduit as Client
+
+#if ! MIN_VERSION_http_client(0,4,30)
+import           Text.XML                     (def)
+#endif
 
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request
@@ -451,15 +456,24 @@ serviceRetry = lens _svcRetry (\s a -> s { _svcRetry = a })
 -- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
 -- throwing errors when receiving erroneous status codes in respones.
 clientRequest :: Endpoint -> Maybe Seconds -> ClientRequest
-clientRequest e t = Client.defaultRequest
+clientRequest e t =
+#if MIN_VERSION_http_client(0,4,30)
+  Client.defaultRequest
+#else
+  def
+#endif
     { Client.secure          = _endpointSecure e
     , Client.host            = _endpointHost   e
     , Client.port            = _endpointPort   e
     , Client.redirectCount   = 0
     , Client.responseTimeout =
+#if MIN_VERSION_http_client(0,5,0)
         case t of
             Nothing -> Client.responseTimeoutNone
             Just x  -> Client.responseTimeoutMicro (microseconds x)
+#else
+        microseconds <$> t
+#endif
     }
 
 -- | An unsigned request.

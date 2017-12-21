@@ -15,7 +15,8 @@ fetch_stack_linux() {
 }
 
 setup_project() {
-    stack --no-terminal --skip-ghc-check setup
+    stack --no-terminal --skip-ghc-check setup && \
+        stack update
 }
 
 travis_retry fetch_stack_linux

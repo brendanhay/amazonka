@@ -3223,7 +3223,7 @@ data Stack = Stack'
   , _sCustomJSON                :: !(Maybe Text)
   , _sCustomCookbooksSource     :: !(Maybe Source)
   , _sDefaultAvailabilityZone   :: !(Maybe Text)
-  , _sAttributes                :: !(Maybe (Map StackAttributesKeys Text))
+  , _sAttributes                :: !(Maybe (Map StackAttributesKeys (Maybe Text)))
   , _sName                      :: !(Maybe Text)
   , _sDefaultOS                 :: !(Maybe Text)
   , _sUseOpsworksSecurityGroups :: !(Maybe Bool)
@@ -3361,7 +3361,7 @@ sDefaultAvailabilityZone :: Lens' Stack (Maybe Text)
 sDefaultAvailabilityZone = lens _sDefaultAvailabilityZone (\ s a -> s{_sDefaultAvailabilityZone = a});
 
 -- | The stack's attributes.
-sAttributes :: Lens' Stack (HashMap StackAttributesKeys Text)
+sAttributes :: Lens' Stack (HashMap StackAttributesKeys (Maybe Text))
 sAttributes = lens _sAttributes (\ s a -> s{_sAttributes = a}) . _Default . _Map;
 
 -- | The stack name.

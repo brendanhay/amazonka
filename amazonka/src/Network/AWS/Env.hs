@@ -193,7 +193,7 @@ newEnv :: (Applicative m, MonadIO m, MonadCatch m)
        => Credentials -- ^ Credential discovery mechanism.
        -> m Env
 newEnv c =
-    liftIO (newManager conduitManagerSettings)
+    liftIO (newManager tlsManagerSettings)
         >>= newEnvWith c Nothing
 
 -- | /See:/ 'newEnv'

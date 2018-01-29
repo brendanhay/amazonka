@@ -11,6 +11,8 @@ cabal.config
 # Dirs
 .cabal-sandbox
 dist
+dist-newstyle
+.ghc.environment.*
 vendor
 .vagrant.d
 .stack-work

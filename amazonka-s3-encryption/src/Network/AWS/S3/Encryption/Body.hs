@@ -11,10 +11,15 @@
 module Network.AWS.S3.Encryption.Body where
 
 import           Conduit
-import           Data.ByteString       (ByteString)
-import qualified Data.ByteString       as BS
-import qualified Data.ByteString.Lazy  as LBS
+import           Control.Lens
+import           Control.Monad
+import           Data.ByteString (ByteString)
+import qualified Data.ByteString as BS
+import qualified Data.ByteString.Lazy as LBS
+import           Data.Monoid ((<>))
 import           Network.AWS.Data.Body
+
+
 
 -- Resides here since it's unsafe without the use of enforceChunks,
 -- which incurs extra dependencies not desired in core.
@@ -39,10 +44,35 @@ enforceChunks :: Integral a
               -> Source (ResourceT IO) ByteString
               -> ChunkedBody
 enforceChunks sz =
-    ChunkedBody defaultChunkSize (fromIntegral sz) . flip fuse go
-  where
-    go = awaitForever (\i -> leftover i >> sinkLazy >>= yield)
-      =$= takeCE n
-      =$= mapC LBS.toStrict
+  let n = fromIntegral defaultChunkSize
+   in ChunkedBody defaultChunkSize (fromIntegral sz) . flip fuse (forceChunkSize n)
 
-    n = fromIntegral defaultChunkSize
+
+forceChunkSize :: Monad m
+               => Int
+               -> Conduit ByteString m ByteString
+forceChunkSize bSize = alignChunksBy splitChunk
+  where
+    splitChunk b | l >  bSize = Just $ (_2 %~ Just) (BS.splitAt bSize b)
+                 | l == bSize = Just (b, Nothing)
+                 | otherwise  =  Nothing
+                 where l = BS.length b
+
+
+alignChunksBy :: Monad m
+              => (ByteString -> Maybe (ByteString, Maybe ByteString))
+              -> Conduit ByteString m ByteString
+alignChunksBy cSplit = goChunk Nothing
+  where
+    goChunk bCarry = do
+      nextB <- await
+      case nextB
+        of Nothing -> forM_ bCarry yield
+           Just b' -> case bCarry
+                        of Nothing -> goSplit b'
+                           Just b  -> goSplit (b <> b')
+
+    goSplit b = case cSplit b
+                  of Nothing      -> (goChunk . Just) b
+                     Just (c, c') -> do yield c
+                                        goChunk c'

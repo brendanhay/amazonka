@@ -132,6 +132,7 @@ import Control.DeepSeq
 import Control.Exception
 import Control.Monad.IO.Class
 import Control.Monad.Trans.Resource
+import Control.Monad.Catch (MonadThrow)
 
 import Data.Aeson              hiding (Error)
 import Data.ByteString.Builder (Builder)
@@ -180,7 +181,7 @@ type ClientRequest = Client.Request
 type ClientResponse = Client.Response ResponseBody
 
 -- | A convenience alias encapsulating the common 'Response' body.
-type ResponseBody = ResumableSource (ResourceT IO) ByteString
+type ResponseBody = ConduitT () ByteString (ResourceT IO) ()
 
 -- | Abbreviated service name.
 newtype Abbrev = Abbrev Text
@@ -518,7 +519,7 @@ class AWSRequest a where
     type Rs a :: *
 
     request  :: a -> Request a
-    response :: MonadResource m
+    response :: (MonadResource m, MonadThrow m)
              => Logger
              -> Service
              -> Proxy a -- For injectivity reasons.

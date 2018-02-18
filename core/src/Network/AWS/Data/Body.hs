@@ -48,16 +48,16 @@ default (Builder)
 
 -- | A streaming, exception safe response body.
 newtype RsBody = RsBody
-    { _streamBody :: ResumableSource (ResourceT IO) ByteString
+    { _streamBody :: ConduitT () ByteString (ResourceT IO) ()
     } -- newtype for show/orhpan instance purposes.
 
 instance Show RsBody where
-    show = const "RsBody { ResumableSource (ResourceT IO) ByteString }"
+    show = const "RsBody { ConduitT () ByteString (ResourceT IO) () }"
 
 fuseStream :: RsBody
            -> Conduit ByteString (ResourceT IO) ByteString
            -> RsBody
-fuseStream b f = b { _streamBody = _streamBody b $=+ f }
+fuseStream b f = b { _streamBody = _streamBody b .| f }
 
 -- | Specifies the transmitted size of the 'Transfer-Encoding' chunks.
 --

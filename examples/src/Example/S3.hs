@@ -59,7 +59,7 @@ listAll r = do
         forM_ bs $ \(view bName -> b) -> do
             say $ "Listing Object Versions in: " <> toText b
             paginate (listObjectVersions b)
-                =$= CL.concatMap (view lovrsVersions)
+                =$= CL.concatMap (view lrsVersions)
                  $$ CL.mapM_     (say . mappend " -> " . key)
 
 getFile :: Region     -- ^ Region to operate in.

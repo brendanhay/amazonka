@@ -88,8 +88,8 @@ import Test.Tasty
 --         , requestDeleteBucketMetricsConfiguration $
 --             deleteBucketMetricsConfiguration
 --
---         , requestListObjectsV $
---             listObjectsV
+--         , requestListObjectsV2 $
+--             listObjectsV2
 --
 --         , requestGetObject $
 --             getObject
@@ -310,8 +310,8 @@ import Test.Tasty
 --         , responseDeleteBucketMetricsConfiguration $
 --             deleteBucketMetricsConfigurationResponse
 --
---         , responseListObjectsV $
---             listObjectsVResponse
+--         , responseListObjectsV2 $
+--             listObjectsV2Response
 --
 --         , responseGetObject $
 --             getObjectResponse
@@ -569,10 +569,10 @@ requestDeleteBucketMetricsConfiguration = req
     "DeleteBucketMetricsConfiguration"
     "fixture/DeleteBucketMetricsConfiguration.yaml"
 
-requestListObjectsV :: ListObjectsV -> TestTree
-requestListObjectsV = req
-    "ListObjectsV"
-    "fixture/ListObjectsV.yaml"
+requestListObjectsV2 :: ListObjectsV2 -> TestTree
+requestListObjectsV2 = req
+    "ListObjectsV2"
+    "fixture/ListObjectsV2.yaml"
 
 requestGetObject :: GetObject -> TestTree
 requestGetObject = req
@@ -971,12 +971,12 @@ responseDeleteBucketMetricsConfiguration = res
     s3
     (Proxy :: Proxy DeleteBucketMetricsConfiguration)
 
-responseListObjectsV :: ListObjectsVResponse -> TestTree
-responseListObjectsV = res
-    "ListObjectsVResponse"
-    "fixture/ListObjectsVResponse.proto"
+responseListObjectsV2 :: ListObjectsV2Response -> TestTree
+responseListObjectsV2 = res
+    "ListObjectsV2Response"
+    "fixture/ListObjectsV2Response.proto"
     s3
-    (Proxy :: Proxy ListObjectsV)
+    (Proxy :: Proxy ListObjectsV2)
 
 responsePutBucketReplication :: PutBucketReplicationResponse -> TestTree
 responsePutBucketReplication = res

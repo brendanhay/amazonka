@@ -56,6 +56,7 @@ stripSuffix s t = Text.strip . fromMaybe t $ s `Text.stripSuffix` t
 renameOperation :: Text -> Text
 renameOperation t
     | "S3" `Text.isSuffixOf` t = t
+    | "V2" `Text.isSuffixOf` t = t -- Allow "ListObjectsV2"
     | otherwise                = Text.dropWhileEnd f (Text.strip t)
   where
     f x = x == '_'

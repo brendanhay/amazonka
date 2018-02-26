@@ -119,8 +119,8 @@ module Network.AWS.S3
     -- ** DeleteBucketMetricsConfiguration
     , module Network.AWS.S3.DeleteBucketMetricsConfiguration
 
-    -- ** ListObjectsV
-    , module Network.AWS.S3.ListObjectsV
+    -- ** ListObjectsV2 (Paginated)
+    , module Network.AWS.S3.ListObjectsV2
 
     -- ** GetObject
     , module Network.AWS.S3.GetObject
@@ -983,7 +983,7 @@ import Network.AWS.S3.ListBucketMetricsConfigurations
 import Network.AWS.S3.ListBuckets
 import Network.AWS.S3.ListMultipartUploads
 import Network.AWS.S3.ListObjects
-import Network.AWS.S3.ListObjectsV
+import Network.AWS.S3.ListObjectsV2
 import Network.AWS.S3.ListObjectVersions
 import Network.AWS.S3.ListParts
 import Network.AWS.S3.PutBucketAccelerateConfiguration

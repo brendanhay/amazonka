@@ -19,7 +19,7 @@
 --
 module Network.AWS.Sign.V4.Base where
 
-import           Control.Applicative
+-- import           Control.Applicative
 
 import           Data.Bifunctor
 import           Data.Function               (on)

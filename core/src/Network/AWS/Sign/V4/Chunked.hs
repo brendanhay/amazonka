@@ -24,7 +24,7 @@ module Network.AWS.Sign.V4.Chunked
     ( chunked
     ) where
 
-import Control.Applicative
+-- import Control.Applicative
 
 import Data.ByteString.Builder
 import Data.Conduit
@@ -62,7 +62,7 @@ chunked c rq a r ts = signRequest meta (toRequestBody body) auth
 
     body = Chunked (c `fuseChunks` sign (metaSignature meta))
 
-    sign :: Monad m => Signature -> Conduit ByteString m ByteString
+    sign :: Monad m => Signature -> ConduitT ByteString ByteString m ()
     sign prev = do
         mx <- await
         let next = chunkSignature prev (fromMaybe mempty mx)

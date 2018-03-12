@@ -16,7 +16,7 @@ module Network.AWS.Sign.V2
     ( v2
     ) where
 
-import           Control.Applicative
+-- import           Control.Applicative
 import qualified Data.ByteString.Char8       as BS8
 import           Data.Monoid
 import           Data.Time

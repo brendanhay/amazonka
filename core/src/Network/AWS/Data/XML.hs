@@ -16,7 +16,7 @@
 --
 module Network.AWS.Data.XML where
 
-import           Control.Applicative
+-- import           Control.Applicative
 import           Control.Monad
 
 import           Data.Bifunctor
@@ -77,9 +77,9 @@ decodeXML lbs =
 --    by the process.'
 encodeXML :: ToElement a => a -> LazyByteString
 encodeXML x = LBS.fromChunks . unsafePerformIO . lazyConsume
-     $  Conduit.sourceList (toEvents doc)
-    =$= Conduit.map rename
-    =$= Stream.renderBytes def
+     $ Conduit.sourceList (toEvents doc)
+    .| Conduit.map rename
+    .| Stream.renderBytes def
   where
     doc = toXMLDocument $ Document
         { documentRoot     = root

@@ -55,7 +55,7 @@ instance Show RsBody where
     show = const "RsBody { ConduitT () ByteString (ResourceT IO) () }"
 
 fuseStream :: RsBody
-           -> Conduit ByteString (ResourceT IO) ByteString
+           -> ConduitT ByteString ByteString (ResourceT IO) ()
            -> RsBody
 fuseStream b f = b { _streamBody = _streamBody b .| f }
 
@@ -84,7 +84,7 @@ defaultChunkSize = 128 * 1024
 data ChunkedBody = ChunkedBody
     { _chunkedSize   :: !ChunkSize
     , _chunkedLength :: !Integer
-    , _chunkedBody   :: Source (ResourceT IO) ByteString
+    , _chunkedBody   :: ConduitT () ByteString (ResourceT IO) ()
     }
 
 chunkedLength :: Lens' ChunkedBody Integer
@@ -106,9 +106,9 @@ instance Show ChunkedBody where
         <> "}"
 
 fuseChunks :: ChunkedBody
-           -> Conduit ByteString (ResourceT IO) ByteString
+           -> ConduitT ByteString ByteString (ResourceT IO) ()
            -> ChunkedBody
-fuseChunks c f = c { _chunkedBody = _chunkedBody c =$= f }
+fuseChunks c f = c { _chunkedBody = _chunkedBody c .| f }
 
 fullChunks :: ChunkedBody -> Integer
 fullChunks c = _chunkedLength c `div` fromIntegral (_chunkedSize c)
@@ -121,7 +121,7 @@ remainderBytes c =
 
 -- | An opaque request body containing a 'SHA256' hash.
 data HashedBody
-    = HashedStream (Digest SHA256) !Integer (Source (ResourceT IO) ByteString)
+    = HashedStream (Digest SHA256) !Integer (ConduitT () ByteString (ResourceT IO) ())
     | HashedBytes  (Digest SHA256) ByteString
 
 instance Show HashedBody where

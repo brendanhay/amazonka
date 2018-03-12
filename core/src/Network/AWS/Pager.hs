@@ -19,7 +19,6 @@ module Network.AWS.Pager
 import           Control.Applicative
 import           Data.HashMap.Strict   (HashMap)
 import qualified Data.HashMap.Strict   as Map
-import           Data.List.NonEmpty    (NonEmpty)
 import           Data.Maybe            (isJust, fromMaybe)
 import           Data.Text             (Text)
 import           Network.AWS.Data.Text (ToText (..))

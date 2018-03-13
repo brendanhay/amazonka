@@ -65,6 +65,7 @@ newtype BucketName = BucketName Text
         , ToXML
         , ToQuery
         , ToLog
+        , FromJSON
         )
 
 instance Hashable BucketName

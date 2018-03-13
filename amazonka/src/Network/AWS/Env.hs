@@ -39,7 +39,7 @@ module Network.AWS.Env
     , retryConnectionFailure
     ) where
 
-import Control.Applicative
+-- import Control.Applicative
 import Control.Monad.Catch
 import Control.Monad.IO.Class
 import Control.Monad.Reader
@@ -193,7 +193,7 @@ newEnv :: (Applicative m, MonadIO m, MonadCatch m)
        => Credentials -- ^ Credential discovery mechanism.
        -> m Env
 newEnv c =
-    liftIO (newManager conduitManagerSettings)
+    liftIO (newManager tlsManagerSettings)
         >>= newEnvWith c Nothing
 
 -- | /See:/ 'newEnv'

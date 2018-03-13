@@ -393,7 +393,7 @@ fromEnvKeys :: (Applicative m, MonadIO m, MonadThrow m)
             -> Maybe Text -- ^ Session token environment variable.
             -> Maybe Text -- ^ Region environment variable.
             -> m (Auth, Maybe Region)
-fromEnvKeys access secret session region =
+fromEnvKeys access secret session region' =
     (,) <$> fmap Auth lookupKeys <*> lookupRegion
   where
     lookupKeys = AuthEnv
@@ -404,8 +404,8 @@ fromEnvKeys access secret session region =
 
     lookupRegion :: (MonadIO m, MonadThrow m) => m (Maybe Region)
     lookupRegion = runMaybeT $ do
-        k <- MaybeT (return region)
-        r <- MaybeT (opt region)
+        k <- MaybeT (return region')
+        r <- MaybeT (opt region')
         case fromText (Text.pack r) of
             Right x -> return x
             Left  e -> throwM . InvalidEnvError $

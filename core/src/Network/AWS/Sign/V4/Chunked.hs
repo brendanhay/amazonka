@@ -62,7 +62,7 @@ chunked c rq a r ts = signRequest meta (toRequestBody body) auth
 
     body = Chunked (c `fuseChunks` sign (metaSignature meta))
 
-    sign :: Monad m => Signature -> ConduitT ByteString ByteString m ()
+    sign :: Monad m => Signature -> ConduitM ByteString ByteString m ()
     sign prev = do
         mx <- await
         let next = chunkSignature prev (fromMaybe mempty mx)

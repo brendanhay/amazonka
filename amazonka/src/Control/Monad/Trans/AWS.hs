@@ -282,7 +282,7 @@ send = retrier >=> fmap snd . hoistError
 -- Throws 'Error'.
 paginate :: (AWSConstraint r m, AWSPager a)
          => a
-         -> ConduitT () (Rs a) m ()
+         -> ConduitM () (Rs a) m ()
 paginate = go
   where
     go !x = do

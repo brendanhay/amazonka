@@ -48,14 +48,14 @@ default (Builder)
 
 -- | A streaming, exception safe response body.
 newtype RsBody = RsBody
-    { _streamBody :: ConduitT () ByteString (ResourceT IO) ()
+    { _streamBody :: ConduitM () ByteString (ResourceT IO) ()
     } -- newtype for show/orhpan instance purposes.
 
 instance Show RsBody where
-    show = const "RsBody { ConduitT () ByteString (ResourceT IO) () }"
+    show = const "RsBody { ConduitM () ByteString (ResourceT IO) () }"
 
 fuseStream :: RsBody
-           -> ConduitT ByteString ByteString (ResourceT IO) ()
+           -> ConduitM ByteString ByteString (ResourceT IO) ()
            -> RsBody
 fuseStream b f = b { _streamBody = _streamBody b .| f }
 
@@ -84,7 +84,7 @@ defaultChunkSize = 128 * 1024
 data ChunkedBody = ChunkedBody
     { _chunkedSize   :: !ChunkSize
     , _chunkedLength :: !Integer
-    , _chunkedBody   :: ConduitT () ByteString (ResourceT IO) ()
+    , _chunkedBody   :: ConduitM () ByteString (ResourceT IO) ()
     }
 
 chunkedLength :: Lens' ChunkedBody Integer
@@ -106,7 +106,7 @@ instance Show ChunkedBody where
         <> "}"
 
 fuseChunks :: ChunkedBody
-           -> ConduitT ByteString ByteString (ResourceT IO) ()
+           -> ConduitM ByteString ByteString (ResourceT IO) ()
            -> ChunkedBody
 fuseChunks c f = c { _chunkedBody = _chunkedBody c .| f }
 
@@ -121,7 +121,7 @@ remainderBytes c =
 
 -- | An opaque request body containing a 'SHA256' hash.
 data HashedBody
-    = HashedStream (Digest SHA256) !Integer (ConduitT () ByteString (ResourceT IO) ())
+    = HashedStream (Digest SHA256) !Integer (ConduitM () ByteString (ResourceT IO) ())
     | HashedBytes  (Digest SHA256) ByteString
 
 instance Show HashedBody where

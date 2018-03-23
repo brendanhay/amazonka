@@ -165,7 +165,7 @@ import Control.Monad.Trans.Maybe    (MaybeT)
 import Control.Monad.Trans.Reader   (ReaderT)
 import Control.Monad.Trans.Resource
 
-import Data.Conduit (ConduitT, transPipe)
+import Data.Conduit (ConduitM, transPipe)
 
 import Network.AWS.Auth
 import Network.AWS.Env             (Env, HasEnv (..), newEnv)
@@ -262,7 +262,7 @@ send = liftAWS . AWST.send
 
 -- | Repeatedly send a request, automatically setting markers and
 -- paginating over multiple responses while available.
-paginate :: (MonadAWS m, AWSPager a) => a -> ConduitT () (Rs a) m ()
+paginate :: (MonadAWS m, AWSPager a) => a -> ConduitM () (Rs a) m ()
 paginate x = transPipe liftAWS $ AWST.paginate x
 
 -- | Poll the API with the supplied request until a specific 'Wait' condition

@@ -68,7 +68,7 @@ hashedFileRange path (Just -> offset) (Just -> len) =
 -- /See:/ 'ToHashedBody'.
 hashedBody :: Digest SHA256 -- ^ A SHA256 hash of the file contents.
            -> Integer       -- ^ The size of the stream in bytes.
-           -> ConduitT () ByteString (ResourceT IO) ()
+           -> ConduitM () ByteString (ResourceT IO) ()
            -> HashedBody
 hashedBody = HashedStream
 
@@ -124,14 +124,14 @@ unsafeChunkedBody :: ChunkSize
                      -- ^ The idealized size of chunks that will be yielded downstream.
                   -> Integer
                      -- ^ The size of the stream in bytes.
-                  -> ConduitT () ByteString (ResourceT IO) ()
+                  -> ConduitM () ByteString (ResourceT IO) ()
                   -> RqBody
 unsafeChunkedBody chunk size = Chunked . ChunkedBody chunk size
 
 sourceFileChunks :: MonadResource m
                  => ChunkSize
                  -> FilePath
-                 -> ConduitT () ByteString m ()
+                 -> ConduitM () ByteString m ()
 sourceFileChunks (ChunkSize chunk) path =
     bracketP (openBinaryFile path ReadMode) hClose go
   where
@@ -151,7 +151,7 @@ sourceFileRangeChunks :: MonadResource m
                          -- ^ The byte offset at which to start reading.
                       -> Integer
                          -- ^ The maximum number of bytes to read.
-                      -> ConduitT () ByteString m ()
+                      -> ConduitM () ByteString m ()
 sourceFileRangeChunks (ChunkSize chunk) path offset len =
     bracketP acquire hClose seek
   where
@@ -171,15 +171,15 @@ sourceFileRangeChunks (ChunkSize chunk) path offset len =
                 go (remainder - chunk) hd
 
 -- | Incrementally calculate a 'MD5' 'Digest'.
-sinkMD5 :: Monad m => ConduitT ByteString o m (Digest MD5)
+sinkMD5 :: Monad m => ConduitM ByteString o m (Digest MD5)
 sinkMD5 = sinkHash
 
 -- | Incrementally calculate a 'SHA256' 'Digest'.
-sinkSHA256 :: Monad m => ConduitT ByteString o m (Digest SHA256)
+sinkSHA256 :: Monad m => ConduitM ByteString o m (Digest SHA256)
 sinkSHA256 = sinkHash
 
 -- | A cryptonite compatible incremental hash sink.
-sinkHash :: (Monad m, HashAlgorithm a) => ConduitT ByteString o m (Digest a)
+sinkHash :: (Monad m, HashAlgorithm a) => ConduitM ByteString o m (Digest a)
 sinkHash = sink hashInit
   where
     sink ctx = do

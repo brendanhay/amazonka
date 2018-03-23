@@ -180,7 +180,7 @@ type ClientRequest = Client.Request
 type ClientResponse = Client.Response ResponseBody
 
 -- | A convenience alias encapsulating the common 'Response' body.
-type ResponseBody = ConduitT () ByteString (ResourceT IO) ()
+type ResponseBody = ConduitM () ByteString (ResourceT IO) ()
 
 -- | Abbreviated service name.
 newtype Abbrev = Abbrev Text

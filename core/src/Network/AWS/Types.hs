@@ -518,7 +518,7 @@ class AWSRequest a where
     type Rs a :: *
 
     request  :: a -> Request a
-    response :: MonadResource m
+    response :: (MonadResource m, MonadThrow m)
              => Logger
              -> Service
              -> Proxy a -- For injectivity reasons.

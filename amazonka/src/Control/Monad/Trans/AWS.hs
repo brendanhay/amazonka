@@ -262,7 +262,7 @@ runAWST r (AWST' m) = runReaderT m r
 -- | An alias for the constraints required to send requests,
 -- which 'AWST' implicitly fulfils.
 type AWSConstraint r m =
-    ( MonadCatch     m
+    ( MonadThrow     m
     , MonadResource  m
     , MonadReader  r m
     , HasEnv       r
@@ -282,7 +282,7 @@ send = retrier >=> fmap snd . hoistError
 -- Throws 'Error'.
 paginate :: (AWSConstraint r m, AWSPager a)
          => a
-         -> Source m (Rs a)
+         -> ConduitT () (Rs a) m ()
 paginate = go
   where
     go !x = do

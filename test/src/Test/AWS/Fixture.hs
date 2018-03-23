@@ -97,7 +97,7 @@ testResponse s p lbs = do
         { responseStatus    = status200
         , responseVersion   = http11
         , responseHeaders   = mempty
-        , responseBody      = newResumableSource (Conduit.sourceLbs lbs)
+        , responseBody      = Conduit.sourceLbs lbs
         , responseCookieJar = mempty
         , responseClose'    = ResponseClose (pure ())
         }

@@ -22,10 +22,11 @@ module Network.AWS.Internal.HTTP
 
 import Control.Arrow                (first)
 import Control.Monad
-import Control.Monad.Catch
+import Control.Monad.Catch (MonadThrow)
 import Control.Monad.Reader
 import Control.Monad.Trans.Resource
 import Control.Retry
+import Control.Exception (Handler(Handler), catches)
 
 import Data.List   (intersperse)
 import Data.Monoid
@@ -40,7 +41,7 @@ import Network.AWS.Prelude
 import Network.AWS.Waiter
 import Network.HTTP.Conduit        hiding (Proxy, Request, Response)
 
-retrier :: ( MonadCatch m
+retrier :: ( MonadThrow m
            , MonadResource m
            , MonadReader r m
            , HasEnv r
@@ -76,7 +77,7 @@ retrier x = do
           , "attempts."
           ]
 
-waiter :: ( MonadCatch m
+waiter :: ( MonadThrow m
           , MonadResource m
           , MonadReader r m
           , HasEnv r
@@ -116,11 +117,11 @@ waiter w@Wait{..} x = do
           ]
 
 -- | The 'Service' is configured + unwrapped at this point.
-perform :: (MonadCatch m, MonadResource m, AWSRequest a)
+perform :: (MonadThrow m, MonadResource m, AWSRequest a)
         => Env
         -> Request a
         -> m (Either Error (Response a))
-perform Env{..} x = catches go handlers
+perform Env{..} x = liftIO $ catches (runResourceT go) handlers
   where
     go = do
         t           <- liftIO getCurrentTime

@@ -15,7 +15,7 @@
 module Network.AWS.S3.Encryption.Instructions where
 
 import           Control.Arrow
-import           Control.Lens                       hiding (coerce)
+import           Control.Lens (Lens', lens, view, (&), (%~))
 import           Control.Monad.Trans.AWS
 import           Data.Aeson.Types                   (parseEither)
 import           Data.Coerce

@@ -13,7 +13,7 @@
 --
 module Network.AWS.S3.Encryption.Decrypt where
 
-import           Control.Lens                           hiding (coerce)
+import           Control.Lens (view, (^.), (&), (%~))
 import           Control.Monad.Trans.AWS
 import           Data.Coerce
 import           Data.Proxy

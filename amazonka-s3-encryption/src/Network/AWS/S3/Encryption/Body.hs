@@ -36,13 +36,13 @@ instance ToChunkedBody RqBody where
 
 enforceChunks :: Integral a
               => a
-              -> Source (ResourceT IO) ByteString
+              -> ConduitM () ByteString (ResourceT IO) ()
               -> ChunkedBody
 enforceChunks sz =
     ChunkedBody defaultChunkSize (fromIntegral sz) . flip fuse go
   where
     go = awaitForever (\i -> leftover i >> sinkLazy >>= yield)
-      =$= takeCE n
-      =$= mapC LBS.toStrict
+      .| takeCE n
+      .| mapC LBS.toStrict
 
     n = fromIntegral defaultChunkSize

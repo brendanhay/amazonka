@@ -14,7 +14,7 @@
 --
 module Network.AWS.S3.Encryption.Encrypt where
 
-import           Control.Lens                           hiding (coerce)
+import           Control.Lens (Setter', lens, view, (&), (%~), (<>~), (^.), to)
 import           Control.Monad
 import           Control.Monad.Trans.AWS
 import           Data.Coerce

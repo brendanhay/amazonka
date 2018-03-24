@@ -15,8 +15,6 @@ module Test.AWS.ElasticBeanstalk
     , fixtures
     ) where
 
-import           Network.AWS.ElasticBeanstalk
-import           Test.AWS.Gen.ElasticBeanstalk
 import           Test.Tasty
 
 tests :: [TestTree]

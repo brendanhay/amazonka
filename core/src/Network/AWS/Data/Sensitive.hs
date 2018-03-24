@@ -16,7 +16,6 @@ module Network.AWS.Data.Sensitive where
 import           Control.DeepSeq
 import           Data.Data                   (Data, Typeable)
 import           Data.Hashable
--- import           Data.Monoid
 import           Data.String
 
 import           GHC.Generics                (Generic)

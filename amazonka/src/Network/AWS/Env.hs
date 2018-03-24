@@ -39,7 +39,6 @@ module Network.AWS.Env
     , retryConnectionFailure
     ) where
 
--- import Control.Applicative
 import Control.Monad.Catch
 import Control.Monad.IO.Class
 import Control.Monad.Reader

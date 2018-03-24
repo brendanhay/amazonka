@@ -22,7 +22,6 @@ module Network.AWS.Sign.V4
     , v4
     ) where
 
--- import           Control.Applicative
 import qualified Data.CaseInsensitive        as CI
 import           Data.Monoid
 import           Network.AWS.Data.Body

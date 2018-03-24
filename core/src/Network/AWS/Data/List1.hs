@@ -15,7 +15,6 @@
 --
 module Network.AWS.Data.List1 where
 
--- import           Control.Applicative
 import           Control.DeepSeq
 import           Control.Monad
 import           Data.Aeson

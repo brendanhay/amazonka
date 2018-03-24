@@ -32,7 +32,6 @@ module Network.AWS.Waiter
     , nonEmptyText
     ) where
 
--- import           Control.Applicative
 import           Control.Lens                (Fold, allOf, anyOf, to, (^..),
                                               (^?))
 import           Data.Maybe

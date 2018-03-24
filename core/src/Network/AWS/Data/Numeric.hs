@@ -18,7 +18,6 @@ import           Control.Monad
 import           Data.Aeson.Types
 import           Data.Data                   (Data, Typeable)
 import           Data.Hashable
--- import           Data.Monoid
 import           Data.Scientific
 import           GHC.Generics                (Generic)
 import           Network.AWS.Data.ByteString

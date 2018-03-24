@@ -28,7 +28,6 @@ module Network.AWS.Data.Text
     , showText
     ) where
 
--- import           Control.Applicative
 import           Data.Attoparsec.Text              (Parser)
 import qualified Data.Attoparsec.Text              as A
 import           Data.ByteString                   (ByteString)

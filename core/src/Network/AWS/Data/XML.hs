@@ -16,7 +16,6 @@
 --
 module Network.AWS.Data.XML where
 
--- import           Control.Applicative
 import           Control.Monad
 
 import           Data.Bifunctor

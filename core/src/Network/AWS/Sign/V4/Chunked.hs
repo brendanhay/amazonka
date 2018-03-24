@@ -24,8 +24,6 @@ module Network.AWS.Sign.V4.Chunked
     ( chunked
     ) where
 
--- import Control.Applicative
-
 import Data.ByteString.Builder
 import Data.Conduit
 import Data.Maybe

@@ -6,6 +6,7 @@
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
 {-# LANGUAGE ViewPatterns      #-}
+{-# LANGUAGE CPP #-} -- b/w compat for http-client < 2.3.0
 
 -- |
 -- Module      : Network.AWS.Internal.HTTP
@@ -40,6 +41,10 @@ import Network.AWS.Lens            (to, view, _Just)
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 import Network.HTTP.Conduit        hiding (Proxy, Request, Response)
+#if MIN_VERSION_http_conduit(2, 3, 0)
+#else
+import Data.Conduit (unwrapResumable, addCleanup)
+#endif
 
 retrier :: ( MonadThrow m
            , MonadResource m
@@ -132,8 +137,15 @@ perform Env{..} x = liftIO $ catches (runResourceT go) handlers
         logTrace _envLogger m  -- trace:Signing:Meta
         logDebug _envLogger rq -- debug:ClientRequest
 
+#if MIN_VERSION_http_conduit(2, 3, 0)
         rs          <- liftResourceT (http rq _envManager)
-
+#else
+        rs'         <- liftResourceT (http rq _envManager)
+        let resSrc   = responseBody rs'
+        (src', fin) <- unwrapResumable resSrc
+        let src = addCleanup (const fin) src'
+        let rs  = src <$ rs'
+#endif
         logDebug _envLogger rs -- debug:ClientResponse
 
         Right <$> response _envLogger (_rqService x) (p x) rs

@@ -27,7 +27,8 @@ import qualified Data.ByteString.Lazy        as LBS
 import           Data.Data
 import           Data.List                   (sort)
 import           Data.Maybe                  (fromMaybe)
-import           Data.Monoid
+import           Data.Monoid                 (Monoid)
+import           Data.Semigroup              (Semigroup, (<>))
 import           Data.String
 import qualified Data.Text.Encoding          as Text
 import           GHC.Exts
@@ -42,14 +43,16 @@ data QueryString
     | QValue (Maybe ByteString)
       deriving (Eq, Show, Data, Typeable)
 
+instance Semigroup QueryString where
+  a <> b = case (a, b) of
+    (QList l, QList r) -> QList (l ++ r)
+    (QList l, r)       -> QList (r : l)
+    (l,       QList r) -> QList (l : r)
+    (l,       r)       -> QList [l, r]
+
 instance Monoid QueryString where
     mempty = QList []
-
-    mappend a b = case (a, b) of
-        (QList l, QList r) -> QList (l ++ r)
-        (QList l, r)       -> QList (r : l)
-        (l,       QList r) -> QList (l : r)
-        (l,       r)       -> QList [l, r]
+    mappend = (<>)
 
 instance IsString QueryString where
     fromString = parseQueryString . fromString

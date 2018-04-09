@@ -22,7 +22,8 @@ import           Data.Bifunctor
 import           Data.Conduit
 import           Data.Conduit.Lazy           (lazyConsume)
 import           Data.Maybe
-import           Data.Monoid
+import           Data.Monoid                 (Monoid)
+import           Data.Semigroup              (Semigroup, (<>))
 import           Data.Traversable            (traverse)
 import           Data.XML.Types              (Event (..))
 
@@ -146,14 +147,17 @@ data XML
     | XMany [(Name, Text)] [Node]
       deriving (Show)
 
-instance Monoid XML where
-    mempty              = XNull
-    mappend XNull XNull = XNull
-    mappend a     XNull = a
-    mappend XNull b     = b
-    mappend a     b     =
+instance Semigroup XML where
+    XNull <> XNull = XNull
+    a     <> XNull = a
+    XNull <> b     = b
+    a     <> b     =
         XMany (listXMLAttributes a <> listXMLAttributes b)
               (listXMLNodes      a <> listXMLNodes      b)
+
+instance Monoid XML where
+    mempty = XNull
+    mappend = (<>)
 
 listXMLNodes :: XML -> [Node]
 listXMLNodes = \case

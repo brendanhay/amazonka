@@ -63,7 +63,7 @@ getHIT pHITId_ = GetHIT' {_ghitHITId = pHITId_}
 
 -- | The ID of the HIT to be retrieved.
 ghitHITId :: Lens' GetHIT Text
-ghitHITId = lens _ghitHITId (\ s a -> s{_ghitHITId = a});
+ghitHITId = lens _ghitHITId (\ s a -> s{_ghitHITId = a})
 
 instance AWSRequest GetHIT where
         type Rs GetHIT = GetHITResponse
@@ -117,15 +117,15 @@ getHITResponse
     -> GetHITResponse
 getHITResponse pResponseStatus_ =
   GetHITResponse'
-  {_ghitrsHIT = Nothing, _ghitrsResponseStatus = pResponseStatus_}
+    {_ghitrsHIT = Nothing, _ghitrsResponseStatus = pResponseStatus_}
 
 
 -- | Contains the requested HIT data.
 ghitrsHIT :: Lens' GetHITResponse (Maybe HIT)
-ghitrsHIT = lens _ghitrsHIT (\ s a -> s{_ghitrsHIT = a});
+ghitrsHIT = lens _ghitrsHIT (\ s a -> s{_ghitrsHIT = a})
 
 -- | -- | The response status code.
 ghitrsResponseStatus :: Lens' GetHITResponse Int
-ghitrsResponseStatus = lens _ghitrsResponseStatus (\ s a -> s{_ghitrsResponseStatus = a});
+ghitrsResponseStatus = lens _ghitrsResponseStatus (\ s a -> s{_ghitrsResponseStatus = a})
 
 instance NFData GetHITResponse where

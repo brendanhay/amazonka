@@ -65,7 +65,7 @@ deleteQualificationType pQualificationTypeId_ =
 
 -- | The ID of the QualificationType to dispose.
 dqtQualificationTypeId :: Lens' DeleteQualificationType Text
-dqtQualificationTypeId = lens _dqtQualificationTypeId (\ s a -> s{_dqtQualificationTypeId = a});
+dqtQualificationTypeId = lens _dqtQualificationTypeId (\ s a -> s{_dqtQualificationTypeId = a})
 
 instance AWSRequest DeleteQualificationType where
         type Rs DeleteQualificationType =
@@ -124,6 +124,6 @@ deleteQualificationTypeResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dqtrsResponseStatus :: Lens' DeleteQualificationTypeResponse Int
-dqtrsResponseStatus = lens _dqtrsResponseStatus (\ s a -> s{_dqtrsResponseStatus = a});
+dqtrsResponseStatus = lens _dqtrsResponseStatus (\ s a -> s{_dqtrsResponseStatus = a})
 
 instance NFData DeleteQualificationTypeResponse where

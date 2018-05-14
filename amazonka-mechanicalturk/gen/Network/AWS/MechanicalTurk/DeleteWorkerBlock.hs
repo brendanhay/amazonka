@@ -67,11 +67,11 @@ deleteWorkerBlock pWorkerId_ =
 
 -- | A message that explains the reason for unblocking the Worker. The Worker does not see this message.
 dwbReason :: Lens' DeleteWorkerBlock (Maybe Text)
-dwbReason = lens _dwbReason (\ s a -> s{_dwbReason = a});
+dwbReason = lens _dwbReason (\ s a -> s{_dwbReason = a})
 
 -- | The ID of the Worker to unblock.
 dwbWorkerId :: Lens' DeleteWorkerBlock Text
-dwbWorkerId = lens _dwbWorkerId (\ s a -> s{_dwbWorkerId = a});
+dwbWorkerId = lens _dwbWorkerId (\ s a -> s{_dwbWorkerId = a})
 
 instance AWSRequest DeleteWorkerBlock where
         type Rs DeleteWorkerBlock = DeleteWorkerBlockResponse
@@ -128,6 +128,6 @@ deleteWorkerBlockResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dwbrsResponseStatus :: Lens' DeleteWorkerBlockResponse Int
-dwbrsResponseStatus = lens _dwbrsResponseStatus (\ s a -> s{_dwbrsResponseStatus = a});
+dwbrsResponseStatus = lens _dwbrsResponseStatus (\ s a -> s{_dwbrsResponseStatus = a})
 
 instance NFData DeleteWorkerBlockResponse where

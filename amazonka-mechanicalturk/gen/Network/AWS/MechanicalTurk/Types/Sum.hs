@@ -163,6 +163,39 @@ instance ToHeader     EventType
 instance ToJSON EventType where
     toJSON = toJSONText
 
+data HITAccessActions
+  = Accept
+  | DiscoverPreviewAndAccept
+  | PreviewAndAccept
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText HITAccessActions where
+    parser = takeLowerText >>= \case
+        "accept" -> pure Accept
+        "discoverpreviewandaccept" -> pure DiscoverPreviewAndAccept
+        "previewandaccept" -> pure PreviewAndAccept
+        e -> fromTextError $ "Failure parsing HITAccessActions from value: '" <> e
+           <> "'. Accepted values: accept, discoverpreviewandaccept, previewandaccept"
+
+instance ToText HITAccessActions where
+    toText = \case
+        Accept -> "Accept"
+        DiscoverPreviewAndAccept -> "DiscoverPreviewAndAccept"
+        PreviewAndAccept -> "PreviewAndAccept"
+
+instance Hashable     HITAccessActions
+instance NFData       HITAccessActions
+instance ToByteString HITAccessActions
+instance ToQuery      HITAccessActions
+instance ToHeader     HITAccessActions
+
+instance ToJSON HITAccessActions where
+    toJSON = toJSONText
+
+instance FromJSON HITAccessActions where
+    parseJSON = parseJSONText "HITAccessActions"
+
 data HITReviewStatus
   = MarkedForReview
   | NotReviewed

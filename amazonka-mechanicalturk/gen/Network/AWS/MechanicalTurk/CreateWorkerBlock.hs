@@ -68,11 +68,11 @@ createWorkerBlock pWorkerId_ pReason_ =
 
 -- | The ID of the Worker to block.
 cwbWorkerId :: Lens' CreateWorkerBlock Text
-cwbWorkerId = lens _cwbWorkerId (\ s a -> s{_cwbWorkerId = a});
+cwbWorkerId = lens _cwbWorkerId (\ s a -> s{_cwbWorkerId = a})
 
 -- | A message explaining the reason for blocking the Worker. This parameter enables you to keep track of your Workers. The Worker does not see this message.
 cwbReason :: Lens' CreateWorkerBlock Text
-cwbReason = lens _cwbReason (\ s a -> s{_cwbReason = a});
+cwbReason = lens _cwbReason (\ s a -> s{_cwbReason = a})
 
 instance AWSRequest CreateWorkerBlock where
         type Rs CreateWorkerBlock = CreateWorkerBlockResponse
@@ -129,6 +129,6 @@ createWorkerBlockResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 cwbrsResponseStatus :: Lens' CreateWorkerBlockResponse Int
-cwbrsResponseStatus = lens _cwbrsResponseStatus (\ s a -> s{_cwbrsResponseStatus = a});
+cwbrsResponseStatus = lens _cwbrsResponseStatus (\ s a -> s{_cwbrsResponseStatus = a})
 
 instance NFData CreateWorkerBlockResponse where

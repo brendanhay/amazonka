@@ -64,7 +64,7 @@ deleteDirectory pDirectoryARN_ =
 
 -- | The ARN of the directory to delete.
 delDirectoryARN :: Lens' DeleteDirectory Text
-delDirectoryARN = lens _delDirectoryARN (\ s a -> s{_delDirectoryARN = a});
+delDirectoryARN = lens _delDirectoryARN (\ s a -> s{_delDirectoryARN = a})
 
 instance AWSRequest DeleteDirectory where
         type Rs DeleteDirectory = DeleteDirectoryResponse
@@ -114,15 +114,15 @@ deleteDirectoryResponse
     -> DeleteDirectoryResponse
 deleteDirectoryResponse pResponseStatus_ pDirectoryARN_ =
   DeleteDirectoryResponse'
-  {_ddrsResponseStatus = pResponseStatus_, _ddrsDirectoryARN = pDirectoryARN_}
+    {_ddrsResponseStatus = pResponseStatus_, _ddrsDirectoryARN = pDirectoryARN_}
 
 
 -- | -- | The response status code.
 ddrsResponseStatus :: Lens' DeleteDirectoryResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a})
 
 -- | The ARN of the deleted directory.
 ddrsDirectoryARN :: Lens' DeleteDirectoryResponse Text
-ddrsDirectoryARN = lens _ddrsDirectoryARN (\ s a -> s{_ddrsDirectoryARN = a});
+ddrsDirectoryARN = lens _ddrsDirectoryARN (\ s a -> s{_ddrsDirectoryARN = a})
 
 instance NFData DeleteDirectoryResponse where

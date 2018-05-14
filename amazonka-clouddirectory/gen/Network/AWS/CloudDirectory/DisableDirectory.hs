@@ -64,7 +64,7 @@ disableDirectory pDirectoryARN_ =
 
 -- | The ARN of the directory to disable.
 ddDirectoryARN :: Lens' DisableDirectory Text
-ddDirectoryARN = lens _ddDirectoryARN (\ s a -> s{_ddDirectoryARN = a});
+ddDirectoryARN = lens _ddDirectoryARN (\ s a -> s{_ddDirectoryARN = a})
 
 instance AWSRequest DisableDirectory where
         type Rs DisableDirectory = DisableDirectoryResponse
@@ -114,15 +114,15 @@ disableDirectoryResponse
     -> DisableDirectoryResponse
 disableDirectoryResponse pResponseStatus_ pDirectoryARN_ =
   DisableDirectoryResponse'
-  {_drsResponseStatus = pResponseStatus_, _drsDirectoryARN = pDirectoryARN_}
+    {_drsResponseStatus = pResponseStatus_, _drsDirectoryARN = pDirectoryARN_}
 
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DisableDirectoryResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 -- | The ARN of the directory that has been disabled.
 drsDirectoryARN :: Lens' DisableDirectoryResponse Text
-drsDirectoryARN = lens _drsDirectoryARN (\ s a -> s{_drsDirectoryARN = a});
+drsDirectoryARN = lens _drsDirectoryARN (\ s a -> s{_drsDirectoryARN = a})
 
 instance NFData DisableDirectoryResponse where

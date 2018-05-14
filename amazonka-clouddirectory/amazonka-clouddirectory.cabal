@@ -70,8 +70,10 @@ library
         , Network.AWS.CloudDirectory.DetachTypedLink
         , Network.AWS.CloudDirectory.DisableDirectory
         , Network.AWS.CloudDirectory.EnableDirectory
+        , Network.AWS.CloudDirectory.GetAppliedSchemaVersion
         , Network.AWS.CloudDirectory.GetDirectory
         , Network.AWS.CloudDirectory.GetFacet
+        , Network.AWS.CloudDirectory.GetObjectAttributes
         , Network.AWS.CloudDirectory.GetObjectInformation
         , Network.AWS.CloudDirectory.GetSchemaAsJSON
         , Network.AWS.CloudDirectory.GetTypedLinkFacetInformation
@@ -105,6 +107,8 @@ library
         , Network.AWS.CloudDirectory.UpdateObjectAttributes
         , Network.AWS.CloudDirectory.UpdateSchema
         , Network.AWS.CloudDirectory.UpdateTypedLinkFacet
+        , Network.AWS.CloudDirectory.UpgradeAppliedSchema
+        , Network.AWS.CloudDirectory.UpgradePublishedSchema
         , Network.AWS.CloudDirectory.Waiters
 
     other-modules:

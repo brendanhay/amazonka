@@ -1,5 +1,11 @@
 {
   "pagination": {
+    "DescribeIamInstanceProfileAssociations": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "IamInstanceProfileAssociations"
+    },
     "DescribeInstanceStatus": {
       "input_token": "NextToken",
       "output_token": "NextToken",
@@ -34,6 +40,12 @@
       "output_token": "NextToken",
       "limit_key": "MaxResults",
       "result_key": "Snapshots"
+    },
+    "DescribeSpotFleetInstances": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "ActiveInstances"
     },
     "DescribeSpotFleetRequests": {
       "input_token": "NextToken",

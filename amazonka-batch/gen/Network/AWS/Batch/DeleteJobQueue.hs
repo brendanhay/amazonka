@@ -64,7 +64,7 @@ deleteJobQueue pJobQueue_ = DeleteJobQueue' {_djqJobQueue = pJobQueue_}
 
 -- | The short name or full Amazon Resource Name (ARN) of the queue to delete.
 djqJobQueue :: Lens' DeleteJobQueue Text
-djqJobQueue = lens _djqJobQueue (\ s a -> s{_djqJobQueue = a});
+djqJobQueue = lens _djqJobQueue (\ s a -> s{_djqJobQueue = a})
 
 instance AWSRequest DeleteJobQueue where
         type Rs DeleteJobQueue = DeleteJobQueueResponse
@@ -116,6 +116,6 @@ deleteJobQueueResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 djqrsResponseStatus :: Lens' DeleteJobQueueResponse Int
-djqrsResponseStatus = lens _djqrsResponseStatus (\ s a -> s{_djqrsResponseStatus = a});
+djqrsResponseStatus = lens _djqrsResponseStatus (\ s a -> s{_djqrsResponseStatus = a})
 
 instance NFData DeleteJobQueueResponse where

@@ -62,7 +62,7 @@ describeJobs = DescribeJobs' {_djJobs = mempty}
 
 -- | A space-separated list of up to 100 job IDs.
 djJobs :: Lens' DescribeJobs [Text]
-djJobs = lens _djJobs (\ s a -> s{_djJobs = a}) . _Coerce;
+djJobs = lens _djJobs (\ s a -> s{_djJobs = a}) . _Coerce
 
 instance AWSRequest DescribeJobs where
         type Rs DescribeJobs = DescribeJobsResponse
@@ -113,15 +113,15 @@ describeJobsResponse
     -> DescribeJobsResponse
 describeJobsResponse pResponseStatus_ =
   DescribeJobsResponse'
-  {_djrsJobs = Nothing, _djrsResponseStatus = pResponseStatus_}
+    {_djrsJobs = Nothing, _djrsResponseStatus = pResponseStatus_}
 
 
 -- | The list of jobs.
 djrsJobs :: Lens' DescribeJobsResponse [JobDetail]
-djrsJobs = lens _djrsJobs (\ s a -> s{_djrsJobs = a}) . _Default . _Coerce;
+djrsJobs = lens _djrsJobs (\ s a -> s{_djrsJobs = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 djrsResponseStatus :: Lens' DescribeJobsResponse Int
-djrsResponseStatus = lens _djrsResponseStatus (\ s a -> s{_djrsResponseStatus = a});
+djrsResponseStatus = lens _djrsResponseStatus (\ s a -> s{_djrsResponseStatus = a})
 
 instance NFData DescribeJobsResponse where

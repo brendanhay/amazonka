@@ -70,23 +70,23 @@ importMigrationTask
     -> ImportMigrationTask
 importMigrationTask pProgressUpdateStream_ pMigrationTaskName_ =
   ImportMigrationTask'
-  { _imtDryRun = Nothing
-  , _imtProgressUpdateStream = pProgressUpdateStream_
-  , _imtMigrationTaskName = pMigrationTaskName_
-  }
+    { _imtDryRun = Nothing
+    , _imtProgressUpdateStream = pProgressUpdateStream_
+    , _imtMigrationTaskName = pMigrationTaskName_
+    }
 
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 imtDryRun :: Lens' ImportMigrationTask (Maybe Bool)
-imtDryRun = lens _imtDryRun (\ s a -> s{_imtDryRun = a});
+imtDryRun = lens _imtDryRun (\ s a -> s{_imtDryRun = a})
 
 -- | The name of the ProgressUpdateStream.
 imtProgressUpdateStream :: Lens' ImportMigrationTask Text
-imtProgressUpdateStream = lens _imtProgressUpdateStream (\ s a -> s{_imtProgressUpdateStream = a});
+imtProgressUpdateStream = lens _imtProgressUpdateStream (\ s a -> s{_imtProgressUpdateStream = a})
 
 -- | Unique identifier that references the migration task.
 imtMigrationTaskName :: Lens' ImportMigrationTask Text
-imtMigrationTaskName = lens _imtMigrationTaskName (\ s a -> s{_imtMigrationTaskName = a});
+imtMigrationTaskName = lens _imtMigrationTaskName (\ s a -> s{_imtMigrationTaskName = a})
 
 instance AWSRequest ImportMigrationTask where
         type Rs ImportMigrationTask =
@@ -146,6 +146,6 @@ importMigrationTaskResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 imtrsResponseStatus :: Lens' ImportMigrationTaskResponse Int
-imtrsResponseStatus = lens _imtrsResponseStatus (\ s a -> s{_imtrsResponseStatus = a});
+imtrsResponseStatus = lens _imtrsResponseStatus (\ s a -> s{_imtrsResponseStatus = a})
 
 instance NFData ImportMigrationTaskResponse where

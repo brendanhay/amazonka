@@ -11,7 +11,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
---
+-- The AWS Migration Hub API methods help to obtain server and application migration status and integrate your resource-specific migration tool by providing a programmatic interface to Migration Hub.
 --
 --
 module Network.AWS.MigrationHub

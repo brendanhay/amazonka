@@ -64,7 +64,7 @@ deleteQueryLoggingConfig pId_ = DeleteQueryLoggingConfig' {_dqlcId = pId_}
 
 -- | The ID of the configuration that you want to delete.
 dqlcId :: Lens' DeleteQueryLoggingConfig Text
-dqlcId = lens _dqlcId (\ s a -> s{_dqlcId = a});
+dqlcId = lens _dqlcId (\ s a -> s{_dqlcId = a})
 
 instance AWSRequest DeleteQueryLoggingConfig where
         type Rs DeleteQueryLoggingConfig =
@@ -111,7 +111,7 @@ deleteQueryLoggingConfigResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dqlcrsResponseStatus :: Lens' DeleteQueryLoggingConfigResponse Int
-dqlcrsResponseStatus = lens _dqlcrsResponseStatus (\ s a -> s{_dqlcrsResponseStatus = a});
+dqlcrsResponseStatus = lens _dqlcrsResponseStatus (\ s a -> s{_dqlcrsResponseStatus = a})
 
 instance NFData DeleteQueryLoggingConfigResponse
          where

@@ -72,11 +72,11 @@ deleteTrafficPolicy pId_ pVersion_ =
 
 -- | The ID of the traffic policy that you want to delete.
 dtpId :: Lens' DeleteTrafficPolicy Text
-dtpId = lens _dtpId (\ s a -> s{_dtpId = a});
+dtpId = lens _dtpId (\ s a -> s{_dtpId = a})
 
 -- | The version number of the traffic policy that you want to delete.
 dtpVersion :: Lens' DeleteTrafficPolicy Natural
-dtpVersion = lens _dtpVersion (\ s a -> s{_dtpVersion = a}) . _Nat;
+dtpVersion = lens _dtpVersion (\ s a -> s{_dtpVersion = a}) . _Nat
 
 instance AWSRequest DeleteTrafficPolicy where
         type Rs DeleteTrafficPolicy =
@@ -127,6 +127,6 @@ deleteTrafficPolicyResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dtprsResponseStatus :: Lens' DeleteTrafficPolicyResponse Int
-dtprsResponseStatus = lens _dtprsResponseStatus (\ s a -> s{_dtprsResponseStatus = a});
+dtprsResponseStatus = lens _dtprsResponseStatus (\ s a -> s{_dtprsResponseStatus = a})
 
 instance NFData DeleteTrafficPolicyResponse where

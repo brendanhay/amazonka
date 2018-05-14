@@ -25,14 +25,14 @@ import Network.AWS.Waiter
 resourceRecordSetsChanged :: Wait GetChange
 resourceRecordSetsChanged =
   Wait
-  { _waitName = "ResourceRecordSetsChanged"
-  , _waitAttempts = 60
-  , _waitDelay = 30
-  , _waitAcceptors =
-      [ matchAll
-          "INSYNC"
-          AcceptSuccess
-          (gcrsChangeInfo . ciStatus . to toTextCI)
-      ]
-  }
+    { _waitName = "ResourceRecordSetsChanged"
+    , _waitAttempts = 60
+    , _waitDelay = 30
+    , _waitAcceptors =
+        [ matchAll
+            "INSYNC"
+            AcceptSuccess
+            (gcrsChangeInfo . ciStatus . to toTextCI)
+        ]
+    }
 

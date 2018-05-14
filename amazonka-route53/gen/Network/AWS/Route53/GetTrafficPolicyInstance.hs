@@ -67,7 +67,7 @@ getTrafficPolicyInstance pId_ = GetTrafficPolicyInstance' {_gtpiId = pId_}
 
 -- | The ID of the traffic policy instance that you want to get information about.
 gtpiId :: Lens' GetTrafficPolicyInstance Text
-gtpiId = lens _gtpiId (\ s a -> s{_gtpiId = a});
+gtpiId = lens _gtpiId (\ s a -> s{_gtpiId = a})
 
 instance AWSRequest GetTrafficPolicyInstance where
         type Rs GetTrafficPolicyInstance =
@@ -119,18 +119,18 @@ getTrafficPolicyInstanceResponse
     -> GetTrafficPolicyInstanceResponse
 getTrafficPolicyInstanceResponse pResponseStatus_ pTrafficPolicyInstance_ =
   GetTrafficPolicyInstanceResponse'
-  { _gtpirsResponseStatus = pResponseStatus_
-  , _gtpirsTrafficPolicyInstance = pTrafficPolicyInstance_
-  }
+    { _gtpirsResponseStatus = pResponseStatus_
+    , _gtpirsTrafficPolicyInstance = pTrafficPolicyInstance_
+    }
 
 
 -- | -- | The response status code.
 gtpirsResponseStatus :: Lens' GetTrafficPolicyInstanceResponse Int
-gtpirsResponseStatus = lens _gtpirsResponseStatus (\ s a -> s{_gtpirsResponseStatus = a});
+gtpirsResponseStatus = lens _gtpirsResponseStatus (\ s a -> s{_gtpirsResponseStatus = a})
 
 -- | A complex type that contains settings for the traffic policy instance.
 gtpirsTrafficPolicyInstance :: Lens' GetTrafficPolicyInstanceResponse TrafficPolicyInstance
-gtpirsTrafficPolicyInstance = lens _gtpirsTrafficPolicyInstance (\ s a -> s{_gtpirsTrafficPolicyInstance = a});
+gtpirsTrafficPolicyInstance = lens _gtpirsTrafficPolicyInstance (\ s a -> s{_gtpirsTrafficPolicyInstance = a})
 
 instance NFData GetTrafficPolicyInstanceResponse
          where

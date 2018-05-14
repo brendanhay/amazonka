@@ -99,15 +99,15 @@ getCheckerIPRangesResponse
     -> GetCheckerIPRangesResponse
 getCheckerIPRangesResponse pResponseStatus_ =
   GetCheckerIPRangesResponse'
-  {_gcirrsResponseStatus = pResponseStatus_, _gcirrsCheckerIPRanges = mempty}
+    {_gcirrsResponseStatus = pResponseStatus_, _gcirrsCheckerIPRanges = mempty}
 
 
 -- | -- | The response status code.
 gcirrsResponseStatus :: Lens' GetCheckerIPRangesResponse Int
-gcirrsResponseStatus = lens _gcirrsResponseStatus (\ s a -> s{_gcirrsResponseStatus = a});
+gcirrsResponseStatus = lens _gcirrsResponseStatus (\ s a -> s{_gcirrsResponseStatus = a})
 
 -- | Undocumented member.
 gcirrsCheckerIPRanges :: Lens' GetCheckerIPRangesResponse [Text]
-gcirrsCheckerIPRanges = lens _gcirrsCheckerIPRanges (\ s a -> s{_gcirrsCheckerIPRanges = a}) . _Coerce;
+gcirrsCheckerIPRanges = lens _gcirrsCheckerIPRanges (\ s a -> s{_gcirrsCheckerIPRanges = a}) . _Coerce
 
 instance NFData GetCheckerIPRangesResponse where

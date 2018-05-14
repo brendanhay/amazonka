@@ -67,7 +67,7 @@ stopRun pArn_ = StopRun' {_srArn = pArn_}
 
 -- | Represents the Amazon Resource Name (ARN) of the Device Farm run you wish to stop.
 srArn :: Lens' StopRun Text
-srArn = lens _srArn (\ s a -> s{_srArn = a});
+srArn = lens _srArn (\ s a -> s{_srArn = a})
 
 instance AWSRequest StopRun where
         type Rs StopRun = StopRunResponse
@@ -128,10 +128,10 @@ stopRunResponse pResponseStatus_ =
 
 -- | The run that was stopped.
 srsRun :: Lens' StopRunResponse (Maybe Run)
-srsRun = lens _srsRun (\ s a -> s{_srsRun = a});
+srsRun = lens _srsRun (\ s a -> s{_srsRun = a})
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' StopRunResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a})
 
 instance NFData StopRunResponse where

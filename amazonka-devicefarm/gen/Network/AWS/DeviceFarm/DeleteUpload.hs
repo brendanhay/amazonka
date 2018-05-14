@@ -66,7 +66,7 @@ deleteUpload pArn_ = DeleteUpload' {_duArn = pArn_}
 
 -- | Represents the Amazon Resource Name (ARN) of the Device Farm upload you wish to delete.
 duArn :: Lens' DeleteUpload Text
-duArn = lens _duArn (\ s a -> s{_duArn = a});
+duArn = lens _duArn (\ s a -> s{_duArn = a})
 
 instance AWSRequest DeleteUpload where
         type Rs DeleteUpload = DeleteUploadResponse
@@ -123,6 +123,6 @@ deleteUploadResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dursResponseStatus :: Lens' DeleteUploadResponse Int
-dursResponseStatus = lens _dursResponseStatus (\ s a -> s{_dursResponseStatus = a});
+dursResponseStatus = lens _dursResponseStatus (\ s a -> s{_dursResponseStatus = a})
 
 instance NFData DeleteUploadResponse where

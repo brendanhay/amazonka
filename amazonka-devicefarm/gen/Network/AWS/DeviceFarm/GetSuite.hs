@@ -67,7 +67,7 @@ getSuite pArn_ = GetSuite' {_gsArn = pArn_}
 
 -- | The suite's ARN.
 gsArn :: Lens' GetSuite Text
-gsArn = lens _gsArn (\ s a -> s{_gsArn = a});
+gsArn = lens _gsArn (\ s a -> s{_gsArn = a})
 
 instance AWSRequest GetSuite where
         type Rs GetSuite = GetSuiteResponse
@@ -124,15 +124,15 @@ getSuiteResponse
     -> GetSuiteResponse
 getSuiteResponse pResponseStatus_ =
   GetSuiteResponse'
-  {_gsrsSuite = Nothing, _gsrsResponseStatus = pResponseStatus_}
+    {_gsrsSuite = Nothing, _gsrsResponseStatus = pResponseStatus_}
 
 
 -- | A collection of one or more tests.
 gsrsSuite :: Lens' GetSuiteResponse (Maybe Suite)
-gsrsSuite = lens _gsrsSuite (\ s a -> s{_gsrsSuite = a});
+gsrsSuite = lens _gsrsSuite (\ s a -> s{_gsrsSuite = a})
 
 -- | -- | The response status code.
 gsrsResponseStatus :: Lens' GetSuiteResponse Int
-gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a});
+gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a})
 
 instance NFData GetSuiteResponse where

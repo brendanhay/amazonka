@@ -67,7 +67,7 @@ getUpload pArn_ = GetUpload' {_guArn = pArn_}
 
 -- | The upload's ARN.
 guArn :: Lens' GetUpload Text
-guArn = lens _guArn (\ s a -> s{_guArn = a});
+guArn = lens _guArn (\ s a -> s{_guArn = a})
 
 instance AWSRequest GetUpload where
         type Rs GetUpload = GetUploadResponse
@@ -124,15 +124,15 @@ getUploadResponse
     -> GetUploadResponse
 getUploadResponse pResponseStatus_ =
   GetUploadResponse'
-  {_gursUpload = Nothing, _gursResponseStatus = pResponseStatus_}
+    {_gursUpload = Nothing, _gursResponseStatus = pResponseStatus_}
 
 
 -- | An app or a set of one or more tests to upload or that have been uploaded.
 gursUpload :: Lens' GetUploadResponse (Maybe Upload)
-gursUpload = lens _gursUpload (\ s a -> s{_gursUpload = a});
+gursUpload = lens _gursUpload (\ s a -> s{_gursUpload = a})
 
 -- | -- | The response status code.
 gursResponseStatus :: Lens' GetUploadResponse Int
-gursResponseStatus = lens _gursResponseStatus (\ s a -> s{_gursResponseStatus = a});
+gursResponseStatus = lens _gursResponseStatus (\ s a -> s{_gursResponseStatus = a})
 
 instance NFData GetUploadResponse where

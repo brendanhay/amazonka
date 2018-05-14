@@ -67,7 +67,7 @@ getJob pArn_ = GetJob' {_gjArn = pArn_}
 
 -- | The job's ARN.
 gjArn :: Lens' GetJob Text
-gjArn = lens _gjArn (\ s a -> s{_gjArn = a});
+gjArn = lens _gjArn (\ s a -> s{_gjArn = a})
 
 instance AWSRequest GetJob where
         type Rs GetJob = GetJobResponse
@@ -128,10 +128,10 @@ getJobResponse pResponseStatus_ =
 
 -- | An object containing information about the requested job.
 gjrsJob :: Lens' GetJobResponse (Maybe Job)
-gjrsJob = lens _gjrsJob (\ s a -> s{_gjrsJob = a});
+gjrsJob = lens _gjrsJob (\ s a -> s{_gjrsJob = a})
 
 -- | -- | The response status code.
 gjrsResponseStatus :: Lens' GetJobResponse Int
-gjrsResponseStatus = lens _gjrsResponseStatus (\ s a -> s{_gjrsResponseStatus = a});
+gjrsResponseStatus = lens _gjrsResponseStatus (\ s a -> s{_gjrsResponseStatus = a})
 
 instance NFData GetJobResponse where

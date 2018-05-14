@@ -115,15 +115,15 @@ getAccountSettingsResponse
     -> GetAccountSettingsResponse
 getAccountSettingsResponse pResponseStatus_ =
   GetAccountSettingsResponse'
-  {_gasrsAccountSettings = Nothing, _gasrsResponseStatus = pResponseStatus_}
+    {_gasrsAccountSettings = Nothing, _gasrsResponseStatus = pResponseStatus_}
 
 
 -- | The account settings.
 gasrsAccountSettings :: Lens' GetAccountSettingsResponse (Maybe AccountSettings)
-gasrsAccountSettings = lens _gasrsAccountSettings (\ s a -> s{_gasrsAccountSettings = a});
+gasrsAccountSettings = lens _gasrsAccountSettings (\ s a -> s{_gasrsAccountSettings = a})
 
 -- | -- | The response status code.
 gasrsResponseStatus :: Lens' GetAccountSettingsResponse Int
-gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a});
+gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a})
 
 instance NFData GetAccountSettingsResponse where

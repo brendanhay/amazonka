@@ -68,7 +68,7 @@ deleteProject pArn_ = DeleteProject' {_dpArn = pArn_}
 
 -- | Represents the Amazon Resource Name (ARN) of the Device Farm project you wish to delete.
 dpArn :: Lens' DeleteProject Text
-dpArn = lens _dpArn (\ s a -> s{_dpArn = a});
+dpArn = lens _dpArn (\ s a -> s{_dpArn = a})
 
 instance AWSRequest DeleteProject where
         type Rs DeleteProject = DeleteProjectResponse
@@ -125,6 +125,6 @@ deleteProjectResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dprsResponseStatus :: Lens' DeleteProjectResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
+dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a})
 
 instance NFData DeleteProjectResponse where

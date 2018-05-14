@@ -65,7 +65,7 @@ verifyEmailAddress pEmailAddress_ =
 
 -- | The email address to be verified.
 veaEmailAddress :: Lens' VerifyEmailAddress Text
-veaEmailAddress = lens _veaEmailAddress (\ s a -> s{_veaEmailAddress = a});
+veaEmailAddress = lens _veaEmailAddress (\ s a -> s{_veaEmailAddress = a})
 
 instance AWSRequest VerifyEmailAddress where
         type Rs VerifyEmailAddress =

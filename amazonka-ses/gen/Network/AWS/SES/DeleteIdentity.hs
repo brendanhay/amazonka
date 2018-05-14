@@ -68,7 +68,7 @@ deleteIdentity pIdentity_ = DeleteIdentity' {_diIdentity = pIdentity_}
 
 -- | The identity to be removed from the list of identities for the AWS Account.
 diIdentity :: Lens' DeleteIdentity Text
-diIdentity = lens _diIdentity (\ s a -> s{_diIdentity = a});
+diIdentity = lens _diIdentity (\ s a -> s{_diIdentity = a})
 
 instance AWSRequest DeleteIdentity where
         type Rs DeleteIdentity = DeleteIdentityResponse
@@ -119,6 +119,6 @@ deleteIdentityResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dirsResponseStatus :: Lens' DeleteIdentityResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
+dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a})
 
 instance NFData DeleteIdentityResponse where

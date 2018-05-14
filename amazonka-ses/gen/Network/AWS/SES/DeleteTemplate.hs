@@ -69,7 +69,7 @@ deleteTemplate pTemplateName_ =
 
 -- | The name of the template to be deleted.
 dtTemplateName :: Lens' DeleteTemplate Text
-dtTemplateName = lens _dtTemplateName (\ s a -> s{_dtTemplateName = a});
+dtTemplateName = lens _dtTemplateName (\ s a -> s{_dtTemplateName = a})
 
 instance AWSRequest DeleteTemplate where
         type Rs DeleteTemplate = DeleteTemplateResponse
@@ -116,6 +116,6 @@ deleteTemplateResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dtrsResponseStatus :: Lens' DeleteTemplateResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a})
 
 instance NFData DeleteTemplateResponse where

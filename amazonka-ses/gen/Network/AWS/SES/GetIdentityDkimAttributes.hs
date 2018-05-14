@@ -81,7 +81,7 @@ getIdentityDkimAttributes =
 
 -- | A list of one or more verified identities - email addresses, domains, or both.
 gidaIdentities :: Lens' GetIdentityDkimAttributes [Text]
-gidaIdentities = lens _gidaIdentities (\ s a -> s{_gidaIdentities = a}) . _Coerce;
+gidaIdentities = lens _gidaIdentities (\ s a -> s{_gidaIdentities = a}) . _Coerce
 
 instance AWSRequest GetIdentityDkimAttributes where
         type Rs GetIdentityDkimAttributes =
@@ -136,16 +136,16 @@ getIdentityDkimAttributesResponse
     -> GetIdentityDkimAttributesResponse
 getIdentityDkimAttributesResponse pResponseStatus_ =
   GetIdentityDkimAttributesResponse'
-  {_gidarsResponseStatus = pResponseStatus_, _gidarsDkimAttributes = mempty}
+    {_gidarsResponseStatus = pResponseStatus_, _gidarsDkimAttributes = mempty}
 
 
 -- | -- | The response status code.
 gidarsResponseStatus :: Lens' GetIdentityDkimAttributesResponse Int
-gidarsResponseStatus = lens _gidarsResponseStatus (\ s a -> s{_gidarsResponseStatus = a});
+gidarsResponseStatus = lens _gidarsResponseStatus (\ s a -> s{_gidarsResponseStatus = a})
 
 -- | The DKIM attributes for an email address or a domain.
 gidarsDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text IdentityDkimAttributes)
-gidarsDkimAttributes = lens _gidarsDkimAttributes (\ s a -> s{_gidarsDkimAttributes = a}) . _Map;
+gidarsDkimAttributes = lens _gidarsDkimAttributes (\ s a -> s{_gidarsDkimAttributes = a}) . _Map
 
 instance NFData GetIdentityDkimAttributesResponse
          where

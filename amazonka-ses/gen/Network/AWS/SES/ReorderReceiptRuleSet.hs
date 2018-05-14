@@ -71,16 +71,16 @@ reorderReceiptRuleSet
     -> ReorderReceiptRuleSet
 reorderReceiptRuleSet pRuleSetName_ =
   ReorderReceiptRuleSet'
-  {_rrrsRuleSetName = pRuleSetName_, _rrrsRuleNames = mempty}
+    {_rrrsRuleSetName = pRuleSetName_, _rrrsRuleNames = mempty}
 
 
 -- | The name of the receipt rule set to reorder.
 rrrsRuleSetName :: Lens' ReorderReceiptRuleSet Text
-rrrsRuleSetName = lens _rrrsRuleSetName (\ s a -> s{_rrrsRuleSetName = a});
+rrrsRuleSetName = lens _rrrsRuleSetName (\ s a -> s{_rrrsRuleSetName = a})
 
 -- | A list of the specified receipt rule set's receipt rules in the order that you want to put them.
 rrrsRuleNames :: Lens' ReorderReceiptRuleSet [Text]
-rrrsRuleNames = lens _rrrsRuleNames (\ s a -> s{_rrrsRuleNames = a}) . _Coerce;
+rrrsRuleNames = lens _rrrsRuleNames (\ s a -> s{_rrrsRuleNames = a}) . _Coerce
 
 instance AWSRequest ReorderReceiptRuleSet where
         type Rs ReorderReceiptRuleSet =
@@ -134,6 +134,6 @@ reorderReceiptRuleSetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 rrrsrsResponseStatus :: Lens' ReorderReceiptRuleSetResponse Int
-rrrsrsResponseStatus = lens _rrrsrsResponseStatus (\ s a -> s{_rrrsrsResponseStatus = a});
+rrrsrsResponseStatus = lens _rrrsrsResponseStatus (\ s a -> s{_rrrsrsResponseStatus = a})
 
 instance NFData ReorderReceiptRuleSetResponse where

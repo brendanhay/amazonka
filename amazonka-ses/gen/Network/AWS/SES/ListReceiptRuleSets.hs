@@ -71,7 +71,7 @@ listReceiptRuleSets = ListReceiptRuleSets' {_lrrsNextToken = Nothing}
 
 -- | A token returned from a previous call to @ListReceiptRuleSets@ to indicate the position in the receipt rule set list.
 lrrsNextToken :: Lens' ListReceiptRuleSets (Maybe Text)
-lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
+lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a})
 
 instance AWSRequest ListReceiptRuleSets where
         type Rs ListReceiptRuleSets =
@@ -129,22 +129,22 @@ listReceiptRuleSetsResponse
     -> ListReceiptRuleSetsResponse
 listReceiptRuleSetsResponse pResponseStatus_ =
   ListReceiptRuleSetsResponse'
-  { _lrrsrsRuleSets = Nothing
-  , _lrrsrsNextToken = Nothing
-  , _lrrsrsResponseStatus = pResponseStatus_
-  }
+    { _lrrsrsRuleSets = Nothing
+    , _lrrsrsNextToken = Nothing
+    , _lrrsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The metadata for the currently active receipt rule set. The metadata consists of the rule set name and the timestamp of when the rule set was created.
 lrrsrsRuleSets :: Lens' ListReceiptRuleSetsResponse [ReceiptRuleSetMetadata]
-lrrsrsRuleSets = lens _lrrsrsRuleSets (\ s a -> s{_lrrsrsRuleSets = a}) . _Default . _Coerce;
+lrrsrsRuleSets = lens _lrrsrsRuleSets (\ s a -> s{_lrrsrsRuleSets = a}) . _Default . _Coerce
 
 -- | A token indicating that there are additional receipt rule sets available to be listed. Pass this token to successive calls of @ListReceiptRuleSets@ to retrieve up to 100 receipt rule sets at a time.
 lrrsrsNextToken :: Lens' ListReceiptRuleSetsResponse (Maybe Text)
-lrrsrsNextToken = lens _lrrsrsNextToken (\ s a -> s{_lrrsrsNextToken = a});
+lrrsrsNextToken = lens _lrrsrsNextToken (\ s a -> s{_lrrsrsNextToken = a})
 
 -- | -- | The response status code.
 lrrsrsResponseStatus :: Lens' ListReceiptRuleSetsResponse Int
-lrrsrsResponseStatus = lens _lrrsrsResponseStatus (\ s a -> s{_lrrsrsResponseStatus = a});
+lrrsrsResponseStatus = lens _lrrsrsResponseStatus (\ s a -> s{_lrrsrsResponseStatus = a})
 
 instance NFData ListReceiptRuleSetsResponse where

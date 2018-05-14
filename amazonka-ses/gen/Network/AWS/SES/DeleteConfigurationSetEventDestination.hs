@@ -70,18 +70,18 @@ deleteConfigurationSetEventDestination
     -> DeleteConfigurationSetEventDestination
 deleteConfigurationSetEventDestination pConfigurationSetName_ pEventDestinationName_ =
   DeleteConfigurationSetEventDestination'
-  { _dcsedConfigurationSetName = pConfigurationSetName_
-  , _dcsedEventDestinationName = pEventDestinationName_
-  }
+    { _dcsedConfigurationSetName = pConfigurationSetName_
+    , _dcsedEventDestinationName = pEventDestinationName_
+    }
 
 
 -- | The name of the configuration set from which to delete the event destination.
 dcsedConfigurationSetName :: Lens' DeleteConfigurationSetEventDestination Text
-dcsedConfigurationSetName = lens _dcsedConfigurationSetName (\ s a -> s{_dcsedConfigurationSetName = a});
+dcsedConfigurationSetName = lens _dcsedConfigurationSetName (\ s a -> s{_dcsedConfigurationSetName = a})
 
 -- | The name of the event destination to delete.
 dcsedEventDestinationName :: Lens' DeleteConfigurationSetEventDestination Text
-dcsedEventDestinationName = lens _dcsedEventDestinationName (\ s a -> s{_dcsedEventDestinationName = a});
+dcsedEventDestinationName = lens _dcsedEventDestinationName (\ s a -> s{_dcsedEventDestinationName = a})
 
 instance AWSRequest
            DeleteConfigurationSetEventDestination
@@ -146,12 +146,12 @@ deleteConfigurationSetEventDestinationResponse
     -> DeleteConfigurationSetEventDestinationResponse
 deleteConfigurationSetEventDestinationResponse pResponseStatus_ =
   DeleteConfigurationSetEventDestinationResponse'
-  {_dcsedrsResponseStatus = pResponseStatus_}
+    {_dcsedrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 dcsedrsResponseStatus :: Lens' DeleteConfigurationSetEventDestinationResponse Int
-dcsedrsResponseStatus = lens _dcsedrsResponseStatus (\ s a -> s{_dcsedrsResponseStatus = a});
+dcsedrsResponseStatus = lens _dcsedrsResponseStatus (\ s a -> s{_dcsedrsResponseStatus = a})
 
 instance NFData
            DeleteConfigurationSetEventDestinationResponse

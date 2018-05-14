@@ -72,18 +72,18 @@ createConfigurationSetEventDestination
     -> CreateConfigurationSetEventDestination
 createConfigurationSetEventDestination pConfigurationSetName_ pEventDestination_ =
   CreateConfigurationSetEventDestination'
-  { _ccsedConfigurationSetName = pConfigurationSetName_
-  , _ccsedEventDestination = pEventDestination_
-  }
+    { _ccsedConfigurationSetName = pConfigurationSetName_
+    , _ccsedEventDestination = pEventDestination_
+    }
 
 
 -- | The name of the configuration set that the event destination should be associated with.
 ccsedConfigurationSetName :: Lens' CreateConfigurationSetEventDestination Text
-ccsedConfigurationSetName = lens _ccsedConfigurationSetName (\ s a -> s{_ccsedConfigurationSetName = a});
+ccsedConfigurationSetName = lens _ccsedConfigurationSetName (\ s a -> s{_ccsedConfigurationSetName = a})
 
 -- | An object that describes the AWS service that email sending event information will be published to.
 ccsedEventDestination :: Lens' CreateConfigurationSetEventDestination EventDestination
-ccsedEventDestination = lens _ccsedEventDestination (\ s a -> s{_ccsedEventDestination = a});
+ccsedEventDestination = lens _ccsedEventDestination (\ s a -> s{_ccsedEventDestination = a})
 
 instance AWSRequest
            CreateConfigurationSetEventDestination
@@ -148,12 +148,12 @@ createConfigurationSetEventDestinationResponse
     -> CreateConfigurationSetEventDestinationResponse
 createConfigurationSetEventDestinationResponse pResponseStatus_ =
   CreateConfigurationSetEventDestinationResponse'
-  {_ccsedrsResponseStatus = pResponseStatus_}
+    {_ccsedrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 ccsedrsResponseStatus :: Lens' CreateConfigurationSetEventDestinationResponse Int
-ccsedrsResponseStatus = lens _ccsedrsResponseStatus (\ s a -> s{_ccsedrsResponseStatus = a});
+ccsedrsResponseStatus = lens _ccsedrsResponseStatus (\ s a -> s{_ccsedrsResponseStatus = a})
 
 instance NFData
            CreateConfigurationSetEventDestinationResponse

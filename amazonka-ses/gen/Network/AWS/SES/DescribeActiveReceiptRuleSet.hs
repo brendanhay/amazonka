@@ -123,23 +123,23 @@ describeActiveReceiptRuleSetResponse
     -> DescribeActiveReceiptRuleSetResponse
 describeActiveReceiptRuleSetResponse pResponseStatus_ =
   DescribeActiveReceiptRuleSetResponse'
-  { _darrsrsRules = Nothing
-  , _darrsrsMetadata = Nothing
-  , _darrsrsResponseStatus = pResponseStatus_
-  }
+    { _darrsrsRules = Nothing
+    , _darrsrsMetadata = Nothing
+    , _darrsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The receipt rules that belong to the active rule set.
 darrsrsRules :: Lens' DescribeActiveReceiptRuleSetResponse [ReceiptRule]
-darrsrsRules = lens _darrsrsRules (\ s a -> s{_darrsrsRules = a}) . _Default . _Coerce;
+darrsrsRules = lens _darrsrsRules (\ s a -> s{_darrsrsRules = a}) . _Default . _Coerce
 
 -- | The metadata for the currently active receipt rule set. The metadata consists of the rule set name and a timestamp of when the rule set was created.
 darrsrsMetadata :: Lens' DescribeActiveReceiptRuleSetResponse (Maybe ReceiptRuleSetMetadata)
-darrsrsMetadata = lens _darrsrsMetadata (\ s a -> s{_darrsrsMetadata = a});
+darrsrsMetadata = lens _darrsrsMetadata (\ s a -> s{_darrsrsMetadata = a})
 
 -- | -- | The response status code.
 darrsrsResponseStatus :: Lens' DescribeActiveReceiptRuleSetResponse Int
-darrsrsResponseStatus = lens _darrsrsResponseStatus (\ s a -> s{_darrsrsResponseStatus = a});
+darrsrsResponseStatus = lens _darrsrsResponseStatus (\ s a -> s{_darrsrsResponseStatus = a})
 
 instance NFData DescribeActiveReceiptRuleSetResponse
          where

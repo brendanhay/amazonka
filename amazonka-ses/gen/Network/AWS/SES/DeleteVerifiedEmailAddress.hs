@@ -65,7 +65,7 @@ deleteVerifiedEmailAddress pEmailAddress_ =
 
 -- | An email address to be removed from the list of verified addresses.
 dveaEmailAddress :: Lens' DeleteVerifiedEmailAddress Text
-dveaEmailAddress = lens _dveaEmailAddress (\ s a -> s{_dveaEmailAddress = a});
+dveaEmailAddress = lens _dveaEmailAddress (\ s a -> s{_dveaEmailAddress = a})
 
 instance AWSRequest DeleteVerifiedEmailAddress where
         type Rs DeleteVerifiedEmailAddress =

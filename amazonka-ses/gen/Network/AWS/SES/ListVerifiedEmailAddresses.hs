@@ -109,18 +109,18 @@ listVerifiedEmailAddressesResponse
     -> ListVerifiedEmailAddressesResponse
 listVerifiedEmailAddressesResponse pResponseStatus_ =
   ListVerifiedEmailAddressesResponse'
-  { _lvearsVerifiedEmailAddresses = Nothing
-  , _lvearsResponseStatus = pResponseStatus_
-  }
+    { _lvearsVerifiedEmailAddresses = Nothing
+    , _lvearsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of email addresses that have been verified.
 lvearsVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
-lvearsVerifiedEmailAddresses = lens _lvearsVerifiedEmailAddresses (\ s a -> s{_lvearsVerifiedEmailAddresses = a}) . _Default . _Coerce;
+lvearsVerifiedEmailAddresses = lens _lvearsVerifiedEmailAddresses (\ s a -> s{_lvearsVerifiedEmailAddresses = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lvearsResponseStatus :: Lens' ListVerifiedEmailAddressesResponse Int
-lvearsResponseStatus = lens _lvearsResponseStatus (\ s a -> s{_lvearsResponseStatus = a});
+lvearsResponseStatus = lens _lvearsResponseStatus (\ s a -> s{_lvearsResponseStatus = a})
 
 instance NFData ListVerifiedEmailAddressesResponse
          where

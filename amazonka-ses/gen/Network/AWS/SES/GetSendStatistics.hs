@@ -108,15 +108,15 @@ getSendStatisticsResponse
     -> GetSendStatisticsResponse
 getSendStatisticsResponse pResponseStatus_ =
   GetSendStatisticsResponse'
-  {_gssrsSendDataPoints = Nothing, _gssrsResponseStatus = pResponseStatus_}
+    {_gssrsSendDataPoints = Nothing, _gssrsResponseStatus = pResponseStatus_}
 
 
 -- | A list of data points, each of which represents 15 minutes of activity.
 gssrsSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
-gssrsSendDataPoints = lens _gssrsSendDataPoints (\ s a -> s{_gssrsSendDataPoints = a}) . _Default . _Coerce;
+gssrsSendDataPoints = lens _gssrsSendDataPoints (\ s a -> s{_gssrsSendDataPoints = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gssrsResponseStatus :: Lens' GetSendStatisticsResponse Int
-gssrsResponseStatus = lens _gssrsResponseStatus (\ s a -> s{_gssrsResponseStatus = a});
+gssrsResponseStatus = lens _gssrsResponseStatus (\ s a -> s{_gssrsResponseStatus = a})
 
 instance NFData GetSendStatisticsResponse where

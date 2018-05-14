@@ -64,7 +64,7 @@ updateTemplate pTemplate_ = UpdateTemplate' {_utTemplate = pTemplate_}
 
 -- | Undocumented member.
 utTemplate :: Lens' UpdateTemplate Template
-utTemplate = lens _utTemplate (\ s a -> s{_utTemplate = a});
+utTemplate = lens _utTemplate (\ s a -> s{_utTemplate = a})
 
 instance AWSRequest UpdateTemplate where
         type Rs UpdateTemplate = UpdateTemplateResponse
@@ -111,6 +111,6 @@ updateTemplateResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 utrsResponseStatus :: Lens' UpdateTemplateResponse Int
-utrsResponseStatus = lens _utrsResponseStatus (\ s a -> s{_utrsResponseStatus = a});
+utrsResponseStatus = lens _utrsResponseStatus (\ s a -> s{_utrsResponseStatus = a})
 
 instance NFData UpdateTemplateResponse where

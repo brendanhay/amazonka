@@ -68,7 +68,7 @@ createTemplate pTemplate_ = CreateTemplate' {_ctTemplate = pTemplate_}
 
 -- | The content of the email, composed of a subject line, an HTML part, and a text-only part.
 ctTemplate :: Lens' CreateTemplate Template
-ctTemplate = lens _ctTemplate (\ s a -> s{_ctTemplate = a});
+ctTemplate = lens _ctTemplate (\ s a -> s{_ctTemplate = a})
 
 instance AWSRequest CreateTemplate where
         type Rs CreateTemplate = CreateTemplateResponse
@@ -115,6 +115,6 @@ createTemplateResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTemplateResponse Int
-ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
+ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a})
 
 instance NFData CreateTemplateResponse where

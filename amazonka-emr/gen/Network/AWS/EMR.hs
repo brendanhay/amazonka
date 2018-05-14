@@ -34,6 +34,9 @@ module Network.AWS.EMR
     -- * Waiters
     -- $waiters
 
+    -- ** StepComplete
+    , stepComplete
+
     -- ** ClusterTerminated
     , clusterTerminated
 
@@ -276,6 +279,7 @@ module Network.AWS.EMR
     , cluReleaseLabel
     , cluRepoUpgradeOnBoot
     , cluLogURI
+    , cluKerberosAttributes
     , cluRunningAMIVersion
     , cluMasterPublicDNSName
     , cluTerminationProtected
@@ -591,6 +595,15 @@ module Network.AWS.EMR
     , jficServiceAccessSecurityGroup
     , jficTerminationProtected
     , jficPlacement
+
+    -- ** KerberosAttributes
+    , KerberosAttributes
+    , kerberosAttributes
+    , kaADDomainJoinPassword
+    , kaCrossRealmTrustPrincipalPassword
+    , kaADDomainJoinUser
+    , kaRealm
+    , kaKdcAdminPassword
 
     -- ** KeyValue
     , KeyValue

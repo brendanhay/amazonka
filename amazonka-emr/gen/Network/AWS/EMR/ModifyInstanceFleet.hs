@@ -62,16 +62,16 @@ modifyInstanceFleet
     -> ModifyInstanceFleet
 modifyInstanceFleet pClusterId_ pInstanceFleet_ =
   ModifyInstanceFleet'
-  {_mifClusterId = pClusterId_, _mifInstanceFleet = pInstanceFleet_}
+    {_mifClusterId = pClusterId_, _mifInstanceFleet = pInstanceFleet_}
 
 
 -- | The unique identifier of the cluster.
 mifClusterId :: Lens' ModifyInstanceFleet Text
-mifClusterId = lens _mifClusterId (\ s a -> s{_mifClusterId = a});
+mifClusterId = lens _mifClusterId (\ s a -> s{_mifClusterId = a})
 
 -- | The unique identifier of the instance fleet.
 mifInstanceFleet :: Lens' ModifyInstanceFleet InstanceFleetModifyConfig
-mifInstanceFleet = lens _mifInstanceFleet (\ s a -> s{_mifInstanceFleet = a});
+mifInstanceFleet = lens _mifInstanceFleet (\ s a -> s{_mifInstanceFleet = a})
 
 instance AWSRequest ModifyInstanceFleet where
         type Rs ModifyInstanceFleet =

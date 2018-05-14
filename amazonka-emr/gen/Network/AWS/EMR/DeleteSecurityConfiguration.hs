@@ -63,7 +63,7 @@ deleteSecurityConfiguration pName_ =
 
 -- | The name of the security configuration.
 dscName :: Lens' DeleteSecurityConfiguration Text
-dscName = lens _dscName (\ s a -> s{_dscName = a});
+dscName = lens _dscName (\ s a -> s{_dscName = a})
 
 instance AWSRequest DeleteSecurityConfiguration where
         type Rs DeleteSecurityConfiguration =
@@ -119,7 +119,7 @@ deleteSecurityConfigurationResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dscrsResponseStatus :: Lens' DeleteSecurityConfigurationResponse Int
-dscrsResponseStatus = lens _dscrsResponseStatus (\ s a -> s{_dscrsResponseStatus = a});
+dscrsResponseStatus = lens _dscrsResponseStatus (\ s a -> s{_dscrsResponseStatus = a})
 
 instance NFData DeleteSecurityConfigurationResponse
          where

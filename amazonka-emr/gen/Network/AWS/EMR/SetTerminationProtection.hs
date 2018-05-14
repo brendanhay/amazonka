@@ -71,16 +71,16 @@ setTerminationProtection
     -> SetTerminationProtection
 setTerminationProtection pTerminationProtected_ =
   SetTerminationProtection'
-  {_stpJobFlowIds = mempty, _stpTerminationProtected = pTerminationProtected_}
+    {_stpJobFlowIds = mempty, _stpTerminationProtected = pTerminationProtected_}
 
 
 -- | A list of strings that uniquely identify the clusters to protect. This identifier is returned by 'RunJobFlow' and can also be obtained from 'DescribeJobFlows' .
 stpJobFlowIds :: Lens' SetTerminationProtection [Text]
-stpJobFlowIds = lens _stpJobFlowIds (\ s a -> s{_stpJobFlowIds = a}) . _Coerce;
+stpJobFlowIds = lens _stpJobFlowIds (\ s a -> s{_stpJobFlowIds = a}) . _Coerce
 
 -- | A Boolean that indicates whether to protect the cluster and prevent the Amazon EC2 instances in the cluster from shutting down due to API calls, user intervention, or job-flow error.
 stpTerminationProtected :: Lens' SetTerminationProtection Bool
-stpTerminationProtected = lens _stpTerminationProtected (\ s a -> s{_stpTerminationProtected = a});
+stpTerminationProtected = lens _stpTerminationProtected (\ s a -> s{_stpTerminationProtected = a})
 
 instance AWSRequest SetTerminationProtection where
         type Rs SetTerminationProtection =

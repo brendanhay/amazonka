@@ -76,11 +76,11 @@ listInstanceGroups pClusterId_ =
 
 -- | The pagination token that indicates the next set of results to retrieve.
 ligMarker :: Lens' ListInstanceGroups (Maybe Text)
-ligMarker = lens _ligMarker (\ s a -> s{_ligMarker = a});
+ligMarker = lens _ligMarker (\ s a -> s{_ligMarker = a})
 
 -- | The identifier of the cluster for which to list the instance groups.
 ligClusterId :: Lens' ListInstanceGroups Text
-ligClusterId = lens _ligClusterId (\ s a -> s{_ligClusterId = a});
+ligClusterId = lens _ligClusterId (\ s a -> s{_ligClusterId = a})
 
 instance AWSPager ListInstanceGroups where
         page rq rs
@@ -154,22 +154,22 @@ listInstanceGroupsResponse
     -> ListInstanceGroupsResponse
 listInstanceGroupsResponse pResponseStatus_ =
   ListInstanceGroupsResponse'
-  { _ligrsMarker = Nothing
-  , _ligrsInstanceGroups = Nothing
-  , _ligrsResponseStatus = pResponseStatus_
-  }
+    { _ligrsMarker = Nothing
+    , _ligrsInstanceGroups = Nothing
+    , _ligrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The pagination token that indicates the next set of results to retrieve.
 ligrsMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
-ligrsMarker = lens _ligrsMarker (\ s a -> s{_ligrsMarker = a});
+ligrsMarker = lens _ligrsMarker (\ s a -> s{_ligrsMarker = a})
 
 -- | The list of instance groups for the cluster and given filters.
 ligrsInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
-ligrsInstanceGroups = lens _ligrsInstanceGroups (\ s a -> s{_ligrsInstanceGroups = a}) . _Default . _Coerce;
+ligrsInstanceGroups = lens _ligrsInstanceGroups (\ s a -> s{_ligrsInstanceGroups = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ligrsResponseStatus :: Lens' ListInstanceGroupsResponse Int
-ligrsResponseStatus = lens _ligrsResponseStatus (\ s a -> s{_ligrsResponseStatus = a});
+ligrsResponseStatus = lens _ligrsResponseStatus (\ s a -> s{_ligrsResponseStatus = a})
 
 instance NFData ListInstanceGroupsResponse where

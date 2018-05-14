@@ -68,7 +68,7 @@ getRepository pRepositoryName_ =
 
 -- | The name of the repository to get information about.
 grRepositoryName :: Lens' GetRepository Text
-grRepositoryName = lens _grRepositoryName (\ s a -> s{_grRepositoryName = a});
+grRepositoryName = lens _grRepositoryName (\ s a -> s{_grRepositoryName = a})
 
 instance AWSRequest GetRepository where
         type Rs GetRepository = GetRepositoryResponse
@@ -127,15 +127,15 @@ getRepositoryResponse
     -> GetRepositoryResponse
 getRepositoryResponse pResponseStatus_ =
   GetRepositoryResponse'
-  {_grrsRepositoryMetadata = Nothing, _grrsResponseStatus = pResponseStatus_}
+    {_grrsRepositoryMetadata = Nothing, _grrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the repository.
 grrsRepositoryMetadata :: Lens' GetRepositoryResponse (Maybe RepositoryMetadata)
-grrsRepositoryMetadata = lens _grrsRepositoryMetadata (\ s a -> s{_grrsRepositoryMetadata = a});
+grrsRepositoryMetadata = lens _grrsRepositoryMetadata (\ s a -> s{_grrsRepositoryMetadata = a})
 
 -- | -- | The response status code.
 grrsResponseStatus :: Lens' GetRepositoryResponse Int
-grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
+grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a})
 
 instance NFData GetRepositoryResponse where

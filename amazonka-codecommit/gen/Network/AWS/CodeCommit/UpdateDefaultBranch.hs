@@ -66,18 +66,18 @@ updateDefaultBranch
     -> UpdateDefaultBranch
 updateDefaultBranch pRepositoryName_ pDefaultBranchName_ =
   UpdateDefaultBranch'
-  { _udbRepositoryName = pRepositoryName_
-  , _udbDefaultBranchName = pDefaultBranchName_
-  }
+    { _udbRepositoryName = pRepositoryName_
+    , _udbDefaultBranchName = pDefaultBranchName_
+    }
 
 
 -- | The name of the repository to set or change the default branch for.
 udbRepositoryName :: Lens' UpdateDefaultBranch Text
-udbRepositoryName = lens _udbRepositoryName (\ s a -> s{_udbRepositoryName = a});
+udbRepositoryName = lens _udbRepositoryName (\ s a -> s{_udbRepositoryName = a})
 
 -- | The name of the branch to set as the default.
 udbDefaultBranchName :: Lens' UpdateDefaultBranch Text
-udbDefaultBranchName = lens _udbDefaultBranchName (\ s a -> s{_udbDefaultBranchName = a});
+udbDefaultBranchName = lens _udbDefaultBranchName (\ s a -> s{_udbDefaultBranchName = a})
 
 instance AWSRequest UpdateDefaultBranch where
         type Rs UpdateDefaultBranch =

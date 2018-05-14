@@ -48,11 +48,13 @@ library
         , Network.AWS.Firehose.CreateDeliveryStream
         , Network.AWS.Firehose.DeleteDeliveryStream
         , Network.AWS.Firehose.DescribeDeliveryStream
-        , Network.AWS.Firehose.GetKinesisStream
         , Network.AWS.Firehose.ListDeliveryStreams
+        , Network.AWS.Firehose.ListTagsForDeliveryStream
         , Network.AWS.Firehose.PutRecord
         , Network.AWS.Firehose.PutRecordBatch
+        , Network.AWS.Firehose.TagDeliveryStream
         , Network.AWS.Firehose.Types
+        , Network.AWS.Firehose.UntagDeliveryStream
         , Network.AWS.Firehose.UpdateDestination
         , Network.AWS.Firehose.Waiters
 

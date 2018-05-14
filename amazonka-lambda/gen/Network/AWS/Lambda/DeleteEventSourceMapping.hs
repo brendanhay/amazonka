@@ -75,7 +75,7 @@ deleteEventSourceMapping pUUId_ = DeleteEventSourceMapping' {_desmUUId = pUUId_}
 
 -- | The event source mapping ID.
 desmUUId :: Lens' DeleteEventSourceMapping Text
-desmUUId = lens _desmUUId (\ s a -> s{_desmUUId = a});
+desmUUId = lens _desmUUId (\ s a -> s{_desmUUId = a})
 
 instance AWSRequest DeleteEventSourceMapping where
         type Rs DeleteEventSourceMapping =

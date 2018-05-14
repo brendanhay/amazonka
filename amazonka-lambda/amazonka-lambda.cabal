@@ -52,6 +52,7 @@ library
         , Network.AWS.Lambda.DeleteAlias
         , Network.AWS.Lambda.DeleteEventSourceMapping
         , Network.AWS.Lambda.DeleteFunction
+        , Network.AWS.Lambda.DeleteFunctionConcurrency
         , Network.AWS.Lambda.GetAccountSettings
         , Network.AWS.Lambda.GetAlias
         , Network.AWS.Lambda.GetEventSourceMapping
@@ -65,6 +66,7 @@ library
         , Network.AWS.Lambda.ListTags
         , Network.AWS.Lambda.ListVersionsByFunction
         , Network.AWS.Lambda.PublishVersion
+        , Network.AWS.Lambda.PutFunctionConcurrency
         , Network.AWS.Lambda.RemovePermission
         , Network.AWS.Lambda.TagResource
         , Network.AWS.Lambda.Types

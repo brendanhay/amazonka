@@ -104,22 +104,22 @@ getAccountSettingsResponse
     -> GetAccountSettingsResponse
 getAccountSettingsResponse pResponseStatus_ =
   GetAccountSettingsResponse'
-  { _gasrsAccountLimit = Nothing
-  , _gasrsAccountUsage = Nothing
-  , _gasrsResponseStatus = pResponseStatus_
-  }
+    { _gasrsAccountLimit = Nothing
+    , _gasrsAccountUsage = Nothing
+    , _gasrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 gasrsAccountLimit :: Lens' GetAccountSettingsResponse (Maybe AccountLimit)
-gasrsAccountLimit = lens _gasrsAccountLimit (\ s a -> s{_gasrsAccountLimit = a});
+gasrsAccountLimit = lens _gasrsAccountLimit (\ s a -> s{_gasrsAccountLimit = a})
 
 -- | Undocumented member.
 gasrsAccountUsage :: Lens' GetAccountSettingsResponse (Maybe AccountUsage)
-gasrsAccountUsage = lens _gasrsAccountUsage (\ s a -> s{_gasrsAccountUsage = a});
+gasrsAccountUsage = lens _gasrsAccountUsage (\ s a -> s{_gasrsAccountUsage = a})
 
 -- | -- | The response status code.
 gasrsResponseStatus :: Lens' GetAccountSettingsResponse Int
-gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a});
+gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a})
 
 instance NFData GetAccountSettingsResponse where

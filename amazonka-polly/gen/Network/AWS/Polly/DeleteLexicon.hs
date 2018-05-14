@@ -64,7 +64,7 @@ deleteLexicon pName_ = DeleteLexicon' {_dlName = _Sensitive # pName_}
 
 -- | The name of the lexicon to delete. Must be an existing lexicon in the region.
 dlName :: Lens' DeleteLexicon Text
-dlName = lens _dlName (\ s a -> s{_dlName = a}) . _Sensitive;
+dlName = lens _dlName (\ s a -> s{_dlName = a}) . _Sensitive
 
 instance AWSRequest DeleteLexicon where
         type Rs DeleteLexicon = DeleteLexiconResponse
@@ -108,6 +108,6 @@ deleteLexiconResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dlrsResponseStatus :: Lens' DeleteLexiconResponse Int
-dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
+dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a})
 
 instance NFData DeleteLexiconResponse where

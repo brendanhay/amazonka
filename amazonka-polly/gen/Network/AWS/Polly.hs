@@ -75,7 +75,7 @@ module Network.AWS.Polly
     -- ** GetLexicon
     , module Network.AWS.Polly.GetLexicon
 
-    -- ** DescribeVoices
+    -- ** DescribeVoices (Paginated)
     , module Network.AWS.Polly.DescribeVoices
 
     -- ** ListLexicons

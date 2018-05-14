@@ -68,11 +68,11 @@ tagResource pResourceId_ pTagList_ =
 
 -- | The cluster identifier (ID) for the cluster that you are tagging. To find the cluster ID, use 'DescribeClusters' .
 trResourceId :: Lens' TagResource Text
-trResourceId = lens _trResourceId (\ s a -> s{_trResourceId = a});
+trResourceId = lens _trResourceId (\ s a -> s{_trResourceId = a})
 
 -- | A list of one or more tags.
 trTagList :: Lens' TagResource (NonEmpty Tag)
-trTagList = lens _trTagList (\ s a -> s{_trTagList = a}) . _List1;
+trTagList = lens _trTagList (\ s a -> s{_trTagList = a}) . _List1
 
 instance AWSRequest TagResource where
         type Rs TagResource = TagResourceResponse
@@ -128,6 +128,6 @@ tagResourceResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 trrsResponseStatus :: Lens' TagResourceResponse Int
-trrsResponseStatus = lens _trrsResponseStatus (\ s a -> s{_trrsResponseStatus = a});
+trrsResponseStatus = lens _trrsResponseStatus (\ s a -> s{_trrsResponseStatus = a})
 
 instance NFData TagResourceResponse where

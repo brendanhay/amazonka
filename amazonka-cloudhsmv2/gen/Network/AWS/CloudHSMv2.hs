@@ -43,7 +43,7 @@ module Network.AWS.CloudHSMv2
     -- * Operations
     -- $operations
 
-    -- ** DescribeClusters
+    -- ** DescribeClusters (Paginated)
     , module Network.AWS.CloudHSMv2.DescribeClusters
 
     -- ** InitializeCluster
@@ -52,7 +52,7 @@ module Network.AWS.CloudHSMv2
     -- ** CreateHSM
     , module Network.AWS.CloudHSMv2.CreateHSM
 
-    -- ** DescribeBackups
+    -- ** DescribeBackups (Paginated)
     , module Network.AWS.CloudHSMv2.DescribeBackups
 
     -- ** DeleteCluster
@@ -67,7 +67,7 @@ module Network.AWS.CloudHSMv2
     -- ** TagResource
     , module Network.AWS.CloudHSMv2.TagResource
 
-    -- ** ListTags
+    -- ** ListTags (Paginated)
     , module Network.AWS.CloudHSMv2.ListTags
 
     -- ** UntagResource

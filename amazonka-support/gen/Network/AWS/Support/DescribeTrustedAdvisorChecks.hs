@@ -68,7 +68,7 @@ describeTrustedAdvisorChecks pLanguage_ =
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 dtacLanguage :: Lens' DescribeTrustedAdvisorChecks Text
-dtacLanguage = lens _dtacLanguage (\ s a -> s{_dtacLanguage = a});
+dtacLanguage = lens _dtacLanguage (\ s a -> s{_dtacLanguage = a})
 
 instance AWSRequest DescribeTrustedAdvisorChecks
          where
@@ -129,16 +129,16 @@ describeTrustedAdvisorChecksResponse
     -> DescribeTrustedAdvisorChecksResponse
 describeTrustedAdvisorChecksResponse pResponseStatus_ =
   DescribeTrustedAdvisorChecksResponse'
-  {_dtacrsResponseStatus = pResponseStatus_, _dtacrsChecks = mempty}
+    {_dtacrsResponseStatus = pResponseStatus_, _dtacrsChecks = mempty}
 
 
 -- | -- | The response status code.
 dtacrsResponseStatus :: Lens' DescribeTrustedAdvisorChecksResponse Int
-dtacrsResponseStatus = lens _dtacrsResponseStatus (\ s a -> s{_dtacrsResponseStatus = a});
+dtacrsResponseStatus = lens _dtacrsResponseStatus (\ s a -> s{_dtacrsResponseStatus = a})
 
 -- | Information about all available Trusted Advisor checks.
 dtacrsChecks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]
-dtacrsChecks = lens _dtacrsChecks (\ s a -> s{_dtacrsChecks = a}) . _Coerce;
+dtacrsChecks = lens _dtacrsChecks (\ s a -> s{_dtacrsChecks = a}) . _Coerce
 
 instance NFData DescribeTrustedAdvisorChecksResponse
          where

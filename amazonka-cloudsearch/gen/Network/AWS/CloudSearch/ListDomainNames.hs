@@ -106,15 +106,15 @@ listDomainNamesResponse
     -> ListDomainNamesResponse
 listDomainNamesResponse pResponseStatus_ =
   ListDomainNamesResponse'
-  {_ldnrsDomainNames = Nothing, _ldnrsResponseStatus = pResponseStatus_}
+    {_ldnrsDomainNames = Nothing, _ldnrsResponseStatus = pResponseStatus_}
 
 
 -- | The names of the search domains owned by an account.
 ldnrsDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
-ldnrsDomainNames = lens _ldnrsDomainNames (\ s a -> s{_ldnrsDomainNames = a}) . _Default . _Map;
+ldnrsDomainNames = lens _ldnrsDomainNames (\ s a -> s{_ldnrsDomainNames = a}) . _Default . _Map
 
 -- | -- | The response status code.
 ldnrsResponseStatus :: Lens' ListDomainNamesResponse Int
-ldnrsResponseStatus = lens _ldnrsResponseStatus (\ s a -> s{_ldnrsResponseStatus = a});
+ldnrsResponseStatus = lens _ldnrsResponseStatus (\ s a -> s{_ldnrsResponseStatus = a})
 
 instance NFData ListDomainNamesResponse where

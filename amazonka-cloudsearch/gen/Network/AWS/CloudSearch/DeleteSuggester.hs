@@ -69,16 +69,16 @@ deleteSuggester
     -> DeleteSuggester
 deleteSuggester pDomainName_ pSuggesterName_ =
   DeleteSuggester'
-  {_ddDomainName = pDomainName_, _ddSuggesterName = pSuggesterName_}
+    {_ddDomainName = pDomainName_, _ddSuggesterName = pSuggesterName_}
 
 
 -- | Undocumented member.
 ddDomainName :: Lens' DeleteSuggester Text
-ddDomainName = lens _ddDomainName (\ s a -> s{_ddDomainName = a});
+ddDomainName = lens _ddDomainName (\ s a -> s{_ddDomainName = a})
 
 -- | Specifies the name of the suggester you want to delete.
 ddSuggesterName :: Lens' DeleteSuggester Text
-ddSuggesterName = lens _ddSuggesterName (\ s a -> s{_ddSuggesterName = a});
+ddSuggesterName = lens _ddSuggesterName (\ s a -> s{_ddSuggesterName = a})
 
 instance AWSRequest DeleteSuggester where
         type Rs DeleteSuggester = DeleteSuggesterResponse
@@ -131,15 +131,15 @@ deleteSuggesterResponse
     -> DeleteSuggesterResponse
 deleteSuggesterResponse pResponseStatus_ pSuggester_ =
   DeleteSuggesterResponse'
-  {_delersResponseStatus = pResponseStatus_, _delersSuggester = pSuggester_}
+    {_delersResponseStatus = pResponseStatus_, _delersSuggester = pSuggester_}
 
 
 -- | -- | The response status code.
 delersResponseStatus :: Lens' DeleteSuggesterResponse Int
-delersResponseStatus = lens _delersResponseStatus (\ s a -> s{_delersResponseStatus = a});
+delersResponseStatus = lens _delersResponseStatus (\ s a -> s{_delersResponseStatus = a})
 
 -- | The status of the suggester being deleted.
 delersSuggester :: Lens' DeleteSuggesterResponse SuggesterStatus
-delersSuggester = lens _delersSuggester (\ s a -> s{_delersSuggester = a});
+delersSuggester = lens _delersSuggester (\ s a -> s{_delersSuggester = a})
 
 instance NFData DeleteSuggesterResponse where

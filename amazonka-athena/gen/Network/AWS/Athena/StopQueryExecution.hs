@@ -65,7 +65,7 @@ stopQueryExecution pQueryExecutionId_ =
 
 -- | The unique ID of the query execution to stop.
 sqeQueryExecutionId :: Lens' StopQueryExecution Text
-sqeQueryExecutionId = lens _sqeQueryExecutionId (\ s a -> s{_sqeQueryExecutionId = a});
+sqeQueryExecutionId = lens _sqeQueryExecutionId (\ s a -> s{_sqeQueryExecutionId = a})
 
 instance AWSRequest StopQueryExecution where
         type Rs StopQueryExecution =
@@ -121,6 +121,6 @@ stopQueryExecutionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' StopQueryExecutionResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a})
 
 instance NFData StopQueryExecutionResponse where

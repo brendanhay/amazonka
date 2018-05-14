@@ -79,23 +79,23 @@ addApplicationInput
     -> AddApplicationInput
 addApplicationInput pApplicationName_ pCurrentApplicationVersionId_ pInput_ =
   AddApplicationInput'
-  { _aaiApplicationName = pApplicationName_
-  , _aaiCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
-  , _aaiInput = pInput_
-  }
+    { _aaiApplicationName = pApplicationName_
+    , _aaiCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
+    , _aaiInput = pInput_
+    }
 
 
 -- | Name of your existing Amazon Kinesis Analytics application to which you want to add the streaming source.
 aaiApplicationName :: Lens' AddApplicationInput Text
-aaiApplicationName = lens _aaiApplicationName (\ s a -> s{_aaiApplicationName = a});
+aaiApplicationName = lens _aaiApplicationName (\ s a -> s{_aaiApplicationName = a})
 
 -- | Current version of your Amazon Kinesis Analytics application. You can use the 'DescribeApplication' operation to find the current application version.
 aaiCurrentApplicationVersionId :: Lens' AddApplicationInput Natural
-aaiCurrentApplicationVersionId = lens _aaiCurrentApplicationVersionId (\ s a -> s{_aaiCurrentApplicationVersionId = a}) . _Nat;
+aaiCurrentApplicationVersionId = lens _aaiCurrentApplicationVersionId (\ s a -> s{_aaiCurrentApplicationVersionId = a}) . _Nat
 
 -- | The 'Input' to add.
 aaiInput :: Lens' AddApplicationInput Input
-aaiInput = lens _aaiInput (\ s a -> s{_aaiInput = a});
+aaiInput = lens _aaiInput (\ s a -> s{_aaiInput = a})
 
 instance AWSRequest AddApplicationInput where
         type Rs AddApplicationInput =
@@ -160,6 +160,6 @@ addApplicationInputResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 aairsResponseStatus :: Lens' AddApplicationInputResponse Int
-aairsResponseStatus = lens _aairsResponseStatus (\ s a -> s{_aairsResponseStatus = a});
+aairsResponseStatus = lens _aairsResponseStatus (\ s a -> s{_aairsResponseStatus = a})
 
 instance NFData AddApplicationInputResponse where

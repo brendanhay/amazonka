@@ -69,7 +69,7 @@ stopApplication pApplicationName_ =
 
 -- | Name of the running application to stop.
 sApplicationName :: Lens' StopApplication Text
-sApplicationName = lens _sApplicationName (\ s a -> s{_sApplicationName = a});
+sApplicationName = lens _sApplicationName (\ s a -> s{_sApplicationName = a})
 
 instance AWSRequest StopApplication where
         type Rs StopApplication = StopApplicationResponse
@@ -129,6 +129,6 @@ stopApplicationResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' StopApplicationResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a})
 
 instance NFData StopApplicationResponse where

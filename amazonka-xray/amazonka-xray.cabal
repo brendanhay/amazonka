@@ -1,5 +1,5 @@
 name:                  amazonka-xray
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon X-Ray SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -61,7 +61,7 @@ library
         , Network.AWS.XRay.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-xray-test
@@ -81,8 +81,8 @@ test-suite amazonka-xray-test
         , Test.AWS.XRay.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-xray
         , base
         , bytestring

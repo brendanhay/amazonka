@@ -1,5 +1,5 @@
 name:                  amazonka-cloud9
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Cloud9 SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -63,7 +63,7 @@ library
         , Network.AWS.Cloud9.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cloud9-test
@@ -83,8 +83,8 @@ test-suite amazonka-cloud9-test
         , Test.AWS.Cloud9.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-cloud9
         , base
         , bytestring

@@ -1,5 +1,5 @@
 name:                  amazonka-workspaces
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon WorkSpaces SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -76,7 +76,7 @@ library
         , Network.AWS.WorkSpaces.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-workspaces-test
@@ -96,8 +96,8 @@ test-suite amazonka-workspaces-test
         , Test.AWS.WorkSpaces.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-workspaces
         , base
         , bytestring

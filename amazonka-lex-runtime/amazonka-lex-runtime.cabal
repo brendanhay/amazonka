@@ -1,5 +1,5 @@
 name:                  amazonka-lex-runtime
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Lex Runtime Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -55,7 +55,7 @@ library
         , Network.AWS.LexRuntime.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-lex-runtime-test
@@ -75,8 +75,8 @@ test-suite amazonka-lex-runtime-test
         , Test.AWS.LexRuntime.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-lex-runtime
         , base
         , bytestring

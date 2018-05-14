@@ -1,5 +1,5 @@
 name:                  amazonka-resourcegroupstagging
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Resource Groups Tagging API SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -58,7 +58,7 @@ library
         , Network.AWS.ResourceGroupsTagging.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-resourcegroupstagging-test
@@ -78,8 +78,8 @@ test-suite amazonka-resourcegroupstagging-test
         , Test.AWS.ResourceGroupsTagging.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-resourcegroupstagging
         , base
         , bytestring

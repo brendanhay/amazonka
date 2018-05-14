@@ -1,5 +1,5 @@
 name:                  amazonka-connect
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Connect Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -55,7 +55,7 @@ library
         , Network.AWS.Connect.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-connect-test
@@ -75,8 +75,8 @@ test-suite amazonka-connect-test
         , Test.AWS.Connect.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-connect
         , base
         , bytestring

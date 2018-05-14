@@ -1,5 +1,5 @@
 name:                  amazonka-lex-models
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Lex Model Building Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -89,7 +89,7 @@ library
         , Network.AWS.LexModels.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-lex-models-test
@@ -109,8 +109,8 @@ test-suite amazonka-lex-models-test
         , Test.AWS.LexModels.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-lex-models
         , base
         , bytestring

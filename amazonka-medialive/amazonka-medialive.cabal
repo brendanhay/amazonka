@@ -1,5 +1,5 @@
 name:                  amazonka-medialive
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazon Elemental MediaLive SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -70,7 +70,7 @@ library
         , Network.AWS.MediaLive.Types.Sum
 
     build-depends:
-          amazonka-core == 1.5.0.*
+          amazonka-core == 1.6.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-medialive-test
@@ -90,8 +90,8 @@ test-suite amazonka-medialive-test
         , Test.AWS.MediaLive.Internal
 
     build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
+          amazonka-core == 1.6.0.*
+        , amazonka-test == 1.6.0.*
         , amazonka-medialive
         , base
         , bytestring

@@ -28,78 +28,78 @@ import Network.AWS.Waiter
 mLModelAvailable :: Wait DescribeMLModels
 mLModelAvailable =
   Wait
-  { _waitName = "MLModelAvailable"
-  , _waitAttempts = 60
-  , _waitDelay = 30
-  , _waitAcceptors =
-      [ matchAll
-          "COMPLETED"
-          AcceptSuccess
-          (folding (concatOf dmlmsrsResults) . mlmStatus . _Just . to toTextCI)
-      , matchAny
-          "FAILED"
-          AcceptFailure
-          (folding (concatOf dmlmsrsResults) . mlmStatus . _Just . to toTextCI)
-      ]
-  }
+    { _waitName = "MLModelAvailable"
+    , _waitAttempts = 60
+    , _waitDelay = 30
+    , _waitAcceptors =
+        [ matchAll
+            "COMPLETED"
+            AcceptSuccess
+            (folding (concatOf dmlmsrsResults) . mlmStatus . _Just . to toTextCI)
+        , matchAny
+            "FAILED"
+            AcceptFailure
+            (folding (concatOf dmlmsrsResults) . mlmStatus . _Just . to toTextCI)
+        ]
+    }
 
 
 -- | Polls 'Network.AWS.MachineLearning.DescribeBatchPredictions' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 batchPredictionAvailable :: Wait DescribeBatchPredictions
 batchPredictionAvailable =
   Wait
-  { _waitName = "BatchPredictionAvailable"
-  , _waitAttempts = 60
-  , _waitDelay = 30
-  , _waitAcceptors =
-      [ matchAll
-          "COMPLETED"
-          AcceptSuccess
-          (folding (concatOf dbpsrsResults) . bpStatus . _Just . to toTextCI)
-      , matchAny
-          "FAILED"
-          AcceptFailure
-          (folding (concatOf dbpsrsResults) . bpStatus . _Just . to toTextCI)
-      ]
-  }
+    { _waitName = "BatchPredictionAvailable"
+    , _waitAttempts = 60
+    , _waitDelay = 30
+    , _waitAcceptors =
+        [ matchAll
+            "COMPLETED"
+            AcceptSuccess
+            (folding (concatOf dbpsrsResults) . bpStatus . _Just . to toTextCI)
+        , matchAny
+            "FAILED"
+            AcceptFailure
+            (folding (concatOf dbpsrsResults) . bpStatus . _Just . to toTextCI)
+        ]
+    }
 
 
 -- | Polls 'Network.AWS.MachineLearning.DescribeDataSources' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 dataSourceAvailable :: Wait DescribeDataSources
 dataSourceAvailable =
   Wait
-  { _waitName = "DataSourceAvailable"
-  , _waitAttempts = 60
-  , _waitDelay = 30
-  , _waitAcceptors =
-      [ matchAll
-          "COMPLETED"
-          AcceptSuccess
-          (folding (concatOf ddssrsResults) . dsStatus . _Just . to toTextCI)
-      , matchAny
-          "FAILED"
-          AcceptFailure
-          (folding (concatOf ddssrsResults) . dsStatus . _Just . to toTextCI)
-      ]
-  }
+    { _waitName = "DataSourceAvailable"
+    , _waitAttempts = 60
+    , _waitDelay = 30
+    , _waitAcceptors =
+        [ matchAll
+            "COMPLETED"
+            AcceptSuccess
+            (folding (concatOf ddssrsResults) . dsStatus . _Just . to toTextCI)
+        , matchAny
+            "FAILED"
+            AcceptFailure
+            (folding (concatOf ddssrsResults) . dsStatus . _Just . to toTextCI)
+        ]
+    }
 
 
 -- | Polls 'Network.AWS.MachineLearning.DescribeEvaluations' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 evaluationAvailable :: Wait DescribeEvaluations
 evaluationAvailable =
   Wait
-  { _waitName = "EvaluationAvailable"
-  , _waitAttempts = 60
-  , _waitDelay = 30
-  , _waitAcceptors =
-      [ matchAll
-          "COMPLETED"
-          AcceptSuccess
-          (folding (concatOf desrsResults) . eStatus . _Just . to toTextCI)
-      , matchAny
-          "FAILED"
-          AcceptFailure
-          (folding (concatOf desrsResults) . eStatus . _Just . to toTextCI)
-      ]
-  }
+    { _waitName = "EvaluationAvailable"
+    , _waitAttempts = 60
+    , _waitDelay = 30
+    , _waitAcceptors =
+        [ matchAll
+            "COMPLETED"
+            AcceptSuccess
+            (folding (concatOf desrsResults) . eStatus . _Just . to toTextCI)
+        , matchAny
+            "FAILED"
+            AcceptFailure
+            (folding (concatOf desrsResults) . eStatus . _Just . to toTextCI)
+        ]
+    }
 

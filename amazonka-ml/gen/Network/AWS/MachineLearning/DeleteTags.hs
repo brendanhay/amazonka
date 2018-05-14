@@ -72,23 +72,23 @@ deleteTags
     -> DeleteTags
 deleteTags pResourceId_ pResourceType_ =
   DeleteTags'
-  { _dTagKeys = mempty
-  , _dResourceId = pResourceId_
-  , _dResourceType = pResourceType_
-  }
+    { _dTagKeys = mempty
+    , _dResourceId = pResourceId_
+    , _dResourceType = pResourceType_
+    }
 
 
 -- | One or more tags to delete.
 dTagKeys :: Lens' DeleteTags [Text]
-dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a}) . _Coerce;
+dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a}) . _Coerce
 
 -- | The ID of the tagged ML object. For example, @exampleModelId@ .
 dResourceId :: Lens' DeleteTags Text
-dResourceId = lens _dResourceId (\ s a -> s{_dResourceId = a});
+dResourceId = lens _dResourceId (\ s a -> s{_dResourceId = a})
 
 -- | The type of the tagged ML object.
 dResourceType :: Lens' DeleteTags TaggableResourceType
-dResourceType = lens _dResourceType (\ s a -> s{_dResourceType = a});
+dResourceType = lens _dResourceType (\ s a -> s{_dResourceType = a})
 
 instance AWSRequest DeleteTags where
         type Rs DeleteTags = DeleteTagsResponse
@@ -153,22 +153,22 @@ deleteTagsResponse
     -> DeleteTagsResponse
 deleteTagsResponse pResponseStatus_ =
   DeleteTagsResponse'
-  { _drsResourceId = Nothing
-  , _drsResourceType = Nothing
-  , _drsResponseStatus = pResponseStatus_
-  }
+    { _drsResourceId = Nothing
+    , _drsResourceType = Nothing
+    , _drsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The ID of the ML object from which tags were deleted.
 drsResourceId :: Lens' DeleteTagsResponse (Maybe Text)
-drsResourceId = lens _drsResourceId (\ s a -> s{_drsResourceId = a});
+drsResourceId = lens _drsResourceId (\ s a -> s{_drsResourceId = a})
 
 -- | The type of the ML object from which tags were deleted.
 drsResourceType :: Lens' DeleteTagsResponse (Maybe TaggableResourceType)
-drsResourceType = lens _drsResourceType (\ s a -> s{_drsResourceType = a});
+drsResourceType = lens _drsResourceType (\ s a -> s{_drsResourceType = a})
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteTagsResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteTagsResponse where

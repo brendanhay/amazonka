@@ -70,7 +70,7 @@ deleteEvaluation pEvaluationId_ =
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@ to delete.
 deEvaluationId :: Lens' DeleteEvaluation Text
-deEvaluationId = lens _deEvaluationId (\ s a -> s{_deEvaluationId = a});
+deEvaluationId = lens _deEvaluationId (\ s a -> s{_deEvaluationId = a})
 
 instance AWSRequest DeleteEvaluation where
         type Rs DeleteEvaluation = DeleteEvaluationResponse
@@ -131,15 +131,15 @@ deleteEvaluationResponse
     -> DeleteEvaluationResponse
 deleteEvaluationResponse pResponseStatus_ =
   DeleteEvaluationResponse'
-  {_dersEvaluationId = Nothing, _dersResponseStatus = pResponseStatus_}
+    {_dersEvaluationId = Nothing, _dersResponseStatus = pResponseStatus_}
 
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@ . This value should be identical to the value of the @EvaluationId@ in the request.
 dersEvaluationId :: Lens' DeleteEvaluationResponse (Maybe Text)
-dersEvaluationId = lens _dersEvaluationId (\ s a -> s{_dersEvaluationId = a});
+dersEvaluationId = lens _dersEvaluationId (\ s a -> s{_dersEvaluationId = a})
 
 -- | -- | The response status code.
 dersResponseStatus :: Lens' DeleteEvaluationResponse Int
-dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
+dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a})
 
 instance NFData DeleteEvaluationResponse where

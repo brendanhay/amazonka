@@ -68,7 +68,7 @@ deleteDataSource pDataSourceId_ =
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@ .
 ddsDataSourceId :: Lens' DeleteDataSource Text
-ddsDataSourceId = lens _ddsDataSourceId (\ s a -> s{_ddsDataSourceId = a});
+ddsDataSourceId = lens _ddsDataSourceId (\ s a -> s{_ddsDataSourceId = a})
 
 instance AWSRequest DeleteDataSource where
         type Rs DeleteDataSource = DeleteDataSourceResponse
@@ -127,15 +127,15 @@ deleteDataSourceResponse
     -> DeleteDataSourceResponse
 deleteDataSourceResponse pResponseStatus_ =
   DeleteDataSourceResponse'
-  {_ddsrsDataSourceId = Nothing, _ddsrsResponseStatus = pResponseStatus_}
+    {_ddsrsDataSourceId = Nothing, _ddsrsResponseStatus = pResponseStatus_}
 
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@ . This value should be identical to the value of the @DataSourceID@ in the request.
 ddsrsDataSourceId :: Lens' DeleteDataSourceResponse (Maybe Text)
-ddsrsDataSourceId = lens _ddsrsDataSourceId (\ s a -> s{_ddsrsDataSourceId = a});
+ddsrsDataSourceId = lens _ddsrsDataSourceId (\ s a -> s{_ddsrsDataSourceId = a})
 
 -- | -- | The response status code.
 ddsrsResponseStatus :: Lens' DeleteDataSourceResponse Int
-ddsrsResponseStatus = lens _ddsrsResponseStatus (\ s a -> s{_ddsrsResponseStatus = a});
+ddsrsResponseStatus = lens _ddsrsResponseStatus (\ s a -> s{_ddsrsResponseStatus = a})
 
 instance NFData DeleteDataSourceResponse where

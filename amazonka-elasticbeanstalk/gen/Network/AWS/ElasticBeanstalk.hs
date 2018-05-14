@@ -203,6 +203,9 @@ module Network.AWS.ElasticBeanstalk
     -- ** ValidateConfigurationSettings
     , module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
 
+    -- ** DescribeAccountAttributes
+    , module Network.AWS.ElasticBeanstalk.DescribeAccountAttributes
+
     -- ** RestartAppServer
     , module Network.AWS.ElasticBeanstalk.RestartAppServer
 
@@ -283,6 +286,7 @@ module Network.AWS.ElasticBeanstalk
     -- ** ApplicationDescription
     , ApplicationDescription
     , applicationDescription
+    , adApplicationARN
     , adVersions
     , adDateUpdated
     , adDateCreated
@@ -320,6 +324,7 @@ module Network.AWS.ElasticBeanstalk
     , avdVersionLabel
     , avdSourceBuildInformation
     , avdApplicationName
+    , avdApplicationVersionARN
     , avdBuildARN
     , avdDescription
 
@@ -654,6 +659,20 @@ module Network.AWS.ElasticBeanstalk
     , qURL
     , qName
 
+    -- ** ResourceQuota
+    , ResourceQuota
+    , resourceQuota
+    , rqMaximum
+
+    -- ** ResourceQuotas
+    , ResourceQuotas
+    , resourceQuotas
+    , rqApplicationQuota
+    , rqCustomPlatformQuota
+    , rqApplicationVersionQuota
+    , rqEnvironmentQuota
+    , rqConfigurationTemplateQuota
+
     -- ** S3Location
     , S3Location
     , s3Location
@@ -742,6 +761,7 @@ import Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
 import Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
 import Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
 import Network.AWS.ElasticBeanstalk.DeletePlatformVersion
+import Network.AWS.ElasticBeanstalk.DescribeAccountAttributes
 import Network.AWS.ElasticBeanstalk.DescribeApplications
 import Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
 import Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions

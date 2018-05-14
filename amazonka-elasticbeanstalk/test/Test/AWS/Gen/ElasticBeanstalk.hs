@@ -139,6 +139,9 @@ import Test.Tasty
 --         , requestValidateConfigurationSettings $
 --             validateConfigurationSettings
 --
+--         , requestDescribeAccountAttributes $
+--             describeAccountAttributes
+--
 --         , requestRestartAppServer $
 --             restartAppServer
 --
@@ -270,6 +273,9 @@ import Test.Tasty
 --
 --         , responseValidateConfigurationSettings $
 --             validateConfigurationSettingsResponse
+--
+--         , responseDescribeAccountAttributes $
+--             describeAccountAttributesResponse
 --
 --         , responseRestartAppServer $
 --             restartAppServerResponse
@@ -478,6 +484,11 @@ requestValidateConfigurationSettings :: ValidateConfigurationSettings -> TestTre
 requestValidateConfigurationSettings = req
     "ValidateConfigurationSettings"
     "fixture/ValidateConfigurationSettings.yaml"
+
+requestDescribeAccountAttributes :: DescribeAccountAttributes -> TestTree
+requestDescribeAccountAttributes = req
+    "DescribeAccountAttributes"
+    "fixture/DescribeAccountAttributes.yaml"
 
 requestRestartAppServer :: RestartAppServer -> TestTree
 requestRestartAppServer = req
@@ -769,6 +780,13 @@ responseValidateConfigurationSettings = res
     "fixture/ValidateConfigurationSettingsResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy ValidateConfigurationSettings)
+
+responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
+responseDescribeAccountAttributes = res
+    "DescribeAccountAttributesResponse"
+    "fixture/DescribeAccountAttributesResponse.proto"
+    elasticBeanstalk
+    (Proxy :: Proxy DescribeAccountAttributes)
 
 responseRestartAppServer :: RestartAppServerResponse -> TestTree
 responseRestartAppServer = res

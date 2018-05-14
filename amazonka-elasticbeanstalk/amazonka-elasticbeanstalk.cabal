@@ -60,6 +60,7 @@ library
         , Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
         , Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
         , Network.AWS.ElasticBeanstalk.DeletePlatformVersion
+        , Network.AWS.ElasticBeanstalk.DescribeAccountAttributes
         , Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
         , Network.AWS.ElasticBeanstalk.DescribeApplications
         , Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions

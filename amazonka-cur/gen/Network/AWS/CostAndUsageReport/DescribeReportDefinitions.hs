@@ -71,11 +71,11 @@ describeReportDefinitions =
 
 -- | Undocumented member.
 drdNextToken :: Lens' DescribeReportDefinitions (Maybe Text)
-drdNextToken = lens _drdNextToken (\ s a -> s{_drdNextToken = a});
+drdNextToken = lens _drdNextToken (\ s a -> s{_drdNextToken = a})
 
 -- | Undocumented member.
 drdMaxResults :: Lens' DescribeReportDefinitions (Maybe Natural)
-drdMaxResults = lens _drdMaxResults (\ s a -> s{_drdMaxResults = a}) . mapping _Nat;
+drdMaxResults = lens _drdMaxResults (\ s a -> s{_drdMaxResults = a}) . mapping _Nat
 
 instance AWSPager DescribeReportDefinitions where
         page rq rs
@@ -147,23 +147,23 @@ describeReportDefinitionsResponse
     -> DescribeReportDefinitionsResponse
 describeReportDefinitionsResponse pResponseStatus_ =
   DescribeReportDefinitionsResponse'
-  { _drdrsNextToken = Nothing
-  , _drdrsReportDefinitions = Nothing
-  , _drdrsResponseStatus = pResponseStatus_
-  }
+    { _drdrsNextToken = Nothing
+    , _drdrsReportDefinitions = Nothing
+    , _drdrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 drdrsNextToken :: Lens' DescribeReportDefinitionsResponse (Maybe Text)
-drdrsNextToken = lens _drdrsNextToken (\ s a -> s{_drdrsNextToken = a});
+drdrsNextToken = lens _drdrsNextToken (\ s a -> s{_drdrsNextToken = a})
 
 -- | Undocumented member.
 drdrsReportDefinitions :: Lens' DescribeReportDefinitionsResponse [ReportDefinition]
-drdrsReportDefinitions = lens _drdrsReportDefinitions (\ s a -> s{_drdrsReportDefinitions = a}) . _Default . _Coerce;
+drdrsReportDefinitions = lens _drdrsReportDefinitions (\ s a -> s{_drdrsReportDefinitions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 drdrsResponseStatus :: Lens' DescribeReportDefinitionsResponse Int
-drdrsResponseStatus = lens _drdrsResponseStatus (\ s a -> s{_drdrsResponseStatus = a});
+drdrsResponseStatus = lens _drdrsResponseStatus (\ s a -> s{_drdrsResponseStatus = a})
 
 instance NFData DescribeReportDefinitionsResponse
          where

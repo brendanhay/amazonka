@@ -86,11 +86,11 @@ deprecateWorkflowType pDomain_ pWorkflowType_ =
 
 -- | The name of the domain in which the workflow type is registered.
 dDomain :: Lens' DeprecateWorkflowType Text
-dDomain = lens _dDomain (\ s a -> s{_dDomain = a});
+dDomain = lens _dDomain (\ s a -> s{_dDomain = a})
 
 -- | The workflow type to deprecate.
 dWorkflowType :: Lens' DeprecateWorkflowType WorkflowType
-dWorkflowType = lens _dWorkflowType (\ s a -> s{_dWorkflowType = a});
+dWorkflowType = lens _dWorkflowType (\ s a -> s{_dWorkflowType = a})
 
 instance AWSRequest DeprecateWorkflowType where
         type Rs DeprecateWorkflowType =

@@ -74,7 +74,7 @@ deprecateDomain pName_ = DeprecateDomain' {_dName = pName_}
 
 -- | The name of the domain to deprecate.
 dName :: Lens' DeprecateDomain Text
-dName = lens _dName (\ s a -> s{_dName = a});
+dName = lens _dName (\ s a -> s{_dName = a})
 
 instance AWSRequest DeprecateDomain where
         type Rs DeprecateDomain = DeprecateDomainResponse

@@ -25,18 +25,18 @@ import Network.AWS.Waiter
 nodeAssociated :: Wait DescribeNodeAssociationStatus
 nodeAssociated =
   Wait
-  { _waitName = "NodeAssociated"
-  , _waitAttempts = 15
-  , _waitDelay = 15
-  , _waitAcceptors =
-      [ matchAll
-          "SUCCESS"
-          AcceptSuccess
-          (dnasrsNodeAssociationStatus . to toTextCI)
-      , matchAll
-          "FAILED"
-          AcceptFailure
-          (dnasrsNodeAssociationStatus . to toTextCI)
-      ]
-  }
+    { _waitName = "NodeAssociated"
+    , _waitAttempts = 15
+    , _waitDelay = 15
+    , _waitAcceptors =
+        [ matchAll
+            "SUCCESS"
+            AcceptSuccess
+            (dnasrsNodeAssociationStatus . to toTextCI)
+        , matchAll
+            "FAILED"
+            AcceptFailure
+            (dnasrsNodeAssociationStatus . to toTextCI)
+        ]
+    }
 

@@ -69,18 +69,18 @@ getUserAttributeVerificationCode
     -> GetUserAttributeVerificationCode
 getUserAttributeVerificationCode pAccessToken_ pAttributeName_ =
   GetUserAttributeVerificationCode'
-  { _guavcAccessToken = _Sensitive # pAccessToken_
-  , _guavcAttributeName = pAttributeName_
-  }
+    { _guavcAccessToken = _Sensitive # pAccessToken_
+    , _guavcAttributeName = pAttributeName_
+    }
 
 
 -- | The access token returned by the server response to get the user attribute verification code.
 guavcAccessToken :: Lens' GetUserAttributeVerificationCode Text
-guavcAccessToken = lens _guavcAccessToken (\ s a -> s{_guavcAccessToken = a}) . _Sensitive;
+guavcAccessToken = lens _guavcAccessToken (\ s a -> s{_guavcAccessToken = a}) . _Sensitive
 
 -- | The attribute name returned by the server response to get the user attribute verification code.
 guavcAttributeName :: Lens' GetUserAttributeVerificationCode Text
-guavcAttributeName = lens _guavcAttributeName (\ s a -> s{_guavcAttributeName = a});
+guavcAttributeName = lens _guavcAttributeName (\ s a -> s{_guavcAttributeName = a})
 
 instance AWSRequest GetUserAttributeVerificationCode
          where
@@ -150,18 +150,18 @@ getUserAttributeVerificationCodeResponse
     -> GetUserAttributeVerificationCodeResponse
 getUserAttributeVerificationCodeResponse pResponseStatus_ =
   GetUserAttributeVerificationCodeResponse'
-  { _guavcrsCodeDeliveryDetails = Nothing
-  , _guavcrsResponseStatus = pResponseStatus_
-  }
+    { _guavcrsCodeDeliveryDetails = Nothing
+    , _guavcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The code delivery details returned by the server in response to the request to get the user attribute verification code.
 guavcrsCodeDeliveryDetails :: Lens' GetUserAttributeVerificationCodeResponse (Maybe CodeDeliveryDetailsType)
-guavcrsCodeDeliveryDetails = lens _guavcrsCodeDeliveryDetails (\ s a -> s{_guavcrsCodeDeliveryDetails = a});
+guavcrsCodeDeliveryDetails = lens _guavcrsCodeDeliveryDetails (\ s a -> s{_guavcrsCodeDeliveryDetails = a})
 
 -- | -- | The response status code.
 guavcrsResponseStatus :: Lens' GetUserAttributeVerificationCodeResponse Int
-guavcrsResponseStatus = lens _guavcrsResponseStatus (\ s a -> s{_guavcrsResponseStatus = a});
+guavcrsResponseStatus = lens _guavcrsResponseStatus (\ s a -> s{_guavcrsResponseStatus = a})
 
 instance NFData
            GetUserAttributeVerificationCodeResponse

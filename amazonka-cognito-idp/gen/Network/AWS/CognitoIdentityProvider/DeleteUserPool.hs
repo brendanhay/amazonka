@@ -64,7 +64,7 @@ deleteUserPool pUserPoolId_ = DeleteUserPool' {_dupUserPoolId = pUserPoolId_}
 
 -- | The user pool ID for the user pool you want to delete.
 dupUserPoolId :: Lens' DeleteUserPool Text
-dupUserPoolId = lens _dupUserPoolId (\ s a -> s{_dupUserPoolId = a});
+dupUserPoolId = lens _dupUserPoolId (\ s a -> s{_dupUserPoolId = a})
 
 instance AWSRequest DeleteUserPool where
         type Rs DeleteUserPool = DeleteUserPoolResponse

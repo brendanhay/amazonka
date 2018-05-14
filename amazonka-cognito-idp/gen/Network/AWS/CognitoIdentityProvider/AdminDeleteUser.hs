@@ -68,16 +68,16 @@ adminDeleteUser
     -> AdminDeleteUser
 adminDeleteUser pUserPoolId_ pUsername_ =
   AdminDeleteUser'
-  {_aUserPoolId = pUserPoolId_, _aUsername = _Sensitive # pUsername_}
+    {_aUserPoolId = pUserPoolId_, _aUsername = _Sensitive # pUsername_}
 
 
 -- | The user pool ID for the user pool where you want to delete the user.
 aUserPoolId :: Lens' AdminDeleteUser Text
-aUserPoolId = lens _aUserPoolId (\ s a -> s{_aUserPoolId = a});
+aUserPoolId = lens _aUserPoolId (\ s a -> s{_aUserPoolId = a})
 
 -- | The user name of the user you wish to delete.
 aUsername :: Lens' AdminDeleteUser Text
-aUsername = lens _aUsername (\ s a -> s{_aUsername = a}) . _Sensitive;
+aUsername = lens _aUsername (\ s a -> s{_aUsername = a}) . _Sensitive
 
 instance AWSRequest AdminDeleteUser where
         type Rs AdminDeleteUser = AdminDeleteUserResponse

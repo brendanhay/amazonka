@@ -62,16 +62,16 @@ deleteIdentityProvider
     -> DeleteIdentityProvider
 deleteIdentityProvider pUserPoolId_ pProviderName_ =
   DeleteIdentityProvider'
-  {_delUserPoolId = pUserPoolId_, _delProviderName = pProviderName_}
+    {_delUserPoolId = pUserPoolId_, _delProviderName = pProviderName_}
 
 
 -- | The user pool ID.
 delUserPoolId :: Lens' DeleteIdentityProvider Text
-delUserPoolId = lens _delUserPoolId (\ s a -> s{_delUserPoolId = a});
+delUserPoolId = lens _delUserPoolId (\ s a -> s{_delUserPoolId = a})
 
 -- | The identity provider name.
 delProviderName :: Lens' DeleteIdentityProvider Text
-delProviderName = lens _delProviderName (\ s a -> s{_delProviderName = a});
+delProviderName = lens _delProviderName (\ s a -> s{_delProviderName = a})
 
 instance AWSRequest DeleteIdentityProvider where
         type Rs DeleteIdentityProvider =

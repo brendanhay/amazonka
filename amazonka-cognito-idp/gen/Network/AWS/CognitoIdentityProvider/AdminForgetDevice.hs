@@ -73,23 +73,23 @@ adminForgetDevice
     -> AdminForgetDevice
 adminForgetDevice pUserPoolId_ pUsername_ pDeviceKey_ =
   AdminForgetDevice'
-  { _afdUserPoolId = pUserPoolId_
-  , _afdUsername = _Sensitive # pUsername_
-  , _afdDeviceKey = pDeviceKey_
-  }
+    { _afdUserPoolId = pUserPoolId_
+    , _afdUsername = _Sensitive # pUsername_
+    , _afdDeviceKey = pDeviceKey_
+    }
 
 
 -- | The user pool ID.
 afdUserPoolId :: Lens' AdminForgetDevice Text
-afdUserPoolId = lens _afdUserPoolId (\ s a -> s{_afdUserPoolId = a});
+afdUserPoolId = lens _afdUserPoolId (\ s a -> s{_afdUserPoolId = a})
 
 -- | The user name.
 afdUsername :: Lens' AdminForgetDevice Text
-afdUsername = lens _afdUsername (\ s a -> s{_afdUsername = a}) . _Sensitive;
+afdUsername = lens _afdUsername (\ s a -> s{_afdUsername = a}) . _Sensitive
 
 -- | The device key.
 afdDeviceKey :: Lens' AdminForgetDevice Text
-afdDeviceKey = lens _afdDeviceKey (\ s a -> s{_afdDeviceKey = a});
+afdDeviceKey = lens _afdDeviceKey (\ s a -> s{_afdDeviceKey = a})
 
 instance AWSRequest AdminForgetDevice where
         type Rs AdminForgetDevice = AdminForgetDeviceResponse

@@ -65,7 +65,7 @@ deleteUser pAccessToken_ =
 
 -- | The access token from a request to delete a user.
 duAccessToken :: Lens' DeleteUser Text
-duAccessToken = lens _duAccessToken (\ s a -> s{_duAccessToken = a}) . _Sensitive;
+duAccessToken = lens _duAccessToken (\ s a -> s{_duAccessToken = a}) . _Sensitive
 
 instance AWSRequest DeleteUser where
         type Rs DeleteUser = DeleteUserResponse

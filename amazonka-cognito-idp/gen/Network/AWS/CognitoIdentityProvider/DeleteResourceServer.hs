@@ -62,16 +62,16 @@ deleteResourceServer
     -> DeleteResourceServer
 deleteResourceServer pUserPoolId_ pIdentifier_ =
   DeleteResourceServer'
-  {_drsUserPoolId = pUserPoolId_, _drsIdentifier = pIdentifier_}
+    {_drsUserPoolId = pUserPoolId_, _drsIdentifier = pIdentifier_}
 
 
 -- | The user pool ID for the user pool that hosts the resource server.
 drsUserPoolId :: Lens' DeleteResourceServer Text
-drsUserPoolId = lens _drsUserPoolId (\ s a -> s{_drsUserPoolId = a});
+drsUserPoolId = lens _drsUserPoolId (\ s a -> s{_drsUserPoolId = a})
 
 -- | The identifier for the resource server.
 drsIdentifier :: Lens' DeleteResourceServer Text
-drsIdentifier = lens _drsIdentifier (\ s a -> s{_drsIdentifier = a});
+drsIdentifier = lens _drsIdentifier (\ s a -> s{_drsIdentifier = a})
 
 instance AWSRequest DeleteResourceServer where
         type Rs DeleteResourceServer =

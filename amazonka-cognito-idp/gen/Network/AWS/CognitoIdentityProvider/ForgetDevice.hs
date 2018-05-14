@@ -69,11 +69,11 @@ forgetDevice pDeviceKey_ =
 
 -- | The access token for the forgotten device request.
 fdAccessToken :: Lens' ForgetDevice (Maybe Text)
-fdAccessToken = lens _fdAccessToken (\ s a -> s{_fdAccessToken = a}) . mapping _Sensitive;
+fdAccessToken = lens _fdAccessToken (\ s a -> s{_fdAccessToken = a}) . mapping _Sensitive
 
 -- | The device key.
 fdDeviceKey :: Lens' ForgetDevice Text
-fdDeviceKey = lens _fdDeviceKey (\ s a -> s{_fdDeviceKey = a});
+fdDeviceKey = lens _fdDeviceKey (\ s a -> s{_fdDeviceKey = a})
 
 instance AWSRequest ForgetDevice where
         type Rs ForgetDevice = ForgetDeviceResponse

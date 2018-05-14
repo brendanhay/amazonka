@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a logger definition. The logger definition must not have been used in a deployment.
+-- Deletes a logger definition.
 module Network.AWS.Greengrass.DeleteLoggerDefinition
     (
     -- * Creating a Request
@@ -51,7 +51,7 @@ newtype DeleteLoggerDefinition = DeleteLoggerDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dldLoggerDefinitionId' - logger definition Id
+-- * 'dldLoggerDefinitionId' - The ID of the logger definition.
 deleteLoggerDefinition
     :: Text -- ^ 'dldLoggerDefinitionId'
     -> DeleteLoggerDefinition
@@ -59,9 +59,9 @@ deleteLoggerDefinition pLoggerDefinitionId_ =
   DeleteLoggerDefinition' {_dldLoggerDefinitionId = pLoggerDefinitionId_}
 
 
--- | logger definition Id
+-- | The ID of the logger definition.
 dldLoggerDefinitionId :: Lens' DeleteLoggerDefinition Text
-dldLoggerDefinitionId = lens _dldLoggerDefinitionId (\ s a -> s{_dldLoggerDefinitionId = a});
+dldLoggerDefinitionId = lens _dldLoggerDefinitionId (\ s a -> s{_dldLoggerDefinitionId = a})
 
 instance AWSRequest DeleteLoggerDefinition where
         type Rs DeleteLoggerDefinition =
@@ -113,6 +113,6 @@ deleteLoggerDefinitionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dldrsResponseStatus :: Lens' DeleteLoggerDefinitionResponse Int
-dldrsResponseStatus = lens _dldrsResponseStatus (\ s a -> s{_dldrsResponseStatus = a});
+dldrsResponseStatus = lens _dldrsResponseStatus (\ s a -> s{_dldrsResponseStatus = a})
 
 instance NFData DeleteLoggerDefinitionResponse where

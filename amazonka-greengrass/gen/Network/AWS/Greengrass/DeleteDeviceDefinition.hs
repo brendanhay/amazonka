@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a device definition. The device definition must not have been used in a deployment.
+-- Deletes a device definition.
 module Network.AWS.Greengrass.DeleteDeviceDefinition
     (
     -- * Creating a Request
@@ -51,7 +51,7 @@ newtype DeleteDeviceDefinition = DeleteDeviceDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dddDeviceDefinitionId' - device definition Id
+-- * 'dddDeviceDefinitionId' - The ID of the device definition.
 deleteDeviceDefinition
     :: Text -- ^ 'dddDeviceDefinitionId'
     -> DeleteDeviceDefinition
@@ -59,9 +59,9 @@ deleteDeviceDefinition pDeviceDefinitionId_ =
   DeleteDeviceDefinition' {_dddDeviceDefinitionId = pDeviceDefinitionId_}
 
 
--- | device definition Id
+-- | The ID of the device definition.
 dddDeviceDefinitionId :: Lens' DeleteDeviceDefinition Text
-dddDeviceDefinitionId = lens _dddDeviceDefinitionId (\ s a -> s{_dddDeviceDefinitionId = a});
+dddDeviceDefinitionId = lens _dddDeviceDefinitionId (\ s a -> s{_dddDeviceDefinitionId = a})
 
 instance AWSRequest DeleteDeviceDefinition where
         type Rs DeleteDeviceDefinition =
@@ -113,6 +113,6 @@ deleteDeviceDefinitionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dddrsResponseStatus :: Lens' DeleteDeviceDefinitionResponse Int
-dddrsResponseStatus = lens _dddrsResponseStatus (\ s a -> s{_dddrsResponseStatus = a});
+dddrsResponseStatus = lens _dddrsResponseStatus (\ s a -> s{_dddrsResponseStatus = a})
 
 instance NFData DeleteDeviceDefinitionResponse where

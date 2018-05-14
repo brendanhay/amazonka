@@ -53,26 +53,26 @@ data UpdateSubscriptionDefinition = UpdateSubscriptionDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usdName' - name of the definition
+-- * 'usdName' - The name of the definition.
 --
--- * 'usdSubscriptionDefinitionId' - subscription definition Id
+-- * 'usdSubscriptionDefinitionId' - The ID of the subscription definition.
 updateSubscriptionDefinition
     :: Text -- ^ 'usdSubscriptionDefinitionId'
     -> UpdateSubscriptionDefinition
 updateSubscriptionDefinition pSubscriptionDefinitionId_ =
   UpdateSubscriptionDefinition'
-  { _usdName = Nothing
-  , _usdSubscriptionDefinitionId = pSubscriptionDefinitionId_
-  }
+    { _usdName = Nothing
+    , _usdSubscriptionDefinitionId = pSubscriptionDefinitionId_
+    }
 
 
--- | name of the definition
+-- | The name of the definition.
 usdName :: Lens' UpdateSubscriptionDefinition (Maybe Text)
-usdName = lens _usdName (\ s a -> s{_usdName = a});
+usdName = lens _usdName (\ s a -> s{_usdName = a})
 
--- | subscription definition Id
+-- | The ID of the subscription definition.
 usdSubscriptionDefinitionId :: Lens' UpdateSubscriptionDefinition Text
-usdSubscriptionDefinitionId = lens _usdSubscriptionDefinitionId (\ s a -> s{_usdSubscriptionDefinitionId = a});
+usdSubscriptionDefinitionId = lens _usdSubscriptionDefinitionId (\ s a -> s{_usdSubscriptionDefinitionId = a})
 
 instance AWSRequest UpdateSubscriptionDefinition
          where
@@ -125,12 +125,12 @@ updateSubscriptionDefinitionResponse
     -> UpdateSubscriptionDefinitionResponse
 updateSubscriptionDefinitionResponse pResponseStatus_ =
   UpdateSubscriptionDefinitionResponse'
-  {_usdrsResponseStatus = pResponseStatus_}
+    {_usdrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 usdrsResponseStatus :: Lens' UpdateSubscriptionDefinitionResponse Int
-usdrsResponseStatus = lens _usdrsResponseStatus (\ s a -> s{_usdrsResponseStatus = a});
+usdrsResponseStatus = lens _usdrsResponseStatus (\ s a -> s{_usdrsResponseStatus = a})
 
 instance NFData UpdateSubscriptionDefinitionResponse
          where

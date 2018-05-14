@@ -64,23 +64,23 @@ putBucketLogging
     -> PutBucketLogging
 putBucketLogging pBucket_ pBucketLoggingStatus_ =
   PutBucketLogging'
-  { _pblContentMD5 = Nothing
-  , _pblBucket = pBucket_
-  , _pblBucketLoggingStatus = pBucketLoggingStatus_
-  }
+    { _pblContentMD5 = Nothing
+    , _pblBucket = pBucket_
+    , _pblBucketLoggingStatus = pBucketLoggingStatus_
+    }
 
 
 -- | Undocumented member.
 pblContentMD5 :: Lens' PutBucketLogging (Maybe Text)
-pblContentMD5 = lens _pblContentMD5 (\ s a -> s{_pblContentMD5 = a});
+pblContentMD5 = lens _pblContentMD5 (\ s a -> s{_pblContentMD5 = a})
 
 -- | Undocumented member.
 pblBucket :: Lens' PutBucketLogging BucketName
-pblBucket = lens _pblBucket (\ s a -> s{_pblBucket = a});
+pblBucket = lens _pblBucket (\ s a -> s{_pblBucket = a})
 
 -- | Undocumented member.
 pblBucketLoggingStatus :: Lens' PutBucketLogging BucketLoggingStatus
-pblBucketLoggingStatus = lens _pblBucketLoggingStatus (\ s a -> s{_pblBucketLoggingStatus = a});
+pblBucketLoggingStatus = lens _pblBucketLoggingStatus (\ s a -> s{_pblBucketLoggingStatus = a})
 
 instance AWSRequest PutBucketLogging where
         type Rs PutBucketLogging = PutBucketLoggingResponse

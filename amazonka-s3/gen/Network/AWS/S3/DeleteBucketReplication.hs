@@ -59,7 +59,7 @@ deleteBucketReplication pBucket_ =
 
 -- | Undocumented member.
 dbrBucket :: Lens' DeleteBucketReplication BucketName
-dbrBucket = lens _dbrBucket (\ s a -> s{_dbrBucket = a});
+dbrBucket = lens _dbrBucket (\ s a -> s{_dbrBucket = a})
 
 instance AWSRequest DeleteBucketReplication where
         type Rs DeleteBucketReplication =

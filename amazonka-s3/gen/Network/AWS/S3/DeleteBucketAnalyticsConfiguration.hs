@@ -64,11 +64,11 @@ deleteBucketAnalyticsConfiguration pBucket_ pId_ =
 
 -- | The name of the bucket from which an analytics configuration is deleted.
 dbacBucket :: Lens' DeleteBucketAnalyticsConfiguration BucketName
-dbacBucket = lens _dbacBucket (\ s a -> s{_dbacBucket = a});
+dbacBucket = lens _dbacBucket (\ s a -> s{_dbacBucket = a})
 
 -- | The identifier used to represent an analytics configuration.
 dbacId :: Lens' DeleteBucketAnalyticsConfiguration Text
-dbacId = lens _dbacId (\ s a -> s{_dbacId = a});
+dbacId = lens _dbacId (\ s a -> s{_dbacId = a})
 
 instance AWSRequest
            DeleteBucketAnalyticsConfiguration

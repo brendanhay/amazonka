@@ -64,11 +64,11 @@ deleteBucketMetricsConfiguration pBucket_ pId_ =
 
 -- | The name of the bucket containing the metrics configuration to delete.
 dbmcBucket :: Lens' DeleteBucketMetricsConfiguration BucketName
-dbmcBucket = lens _dbmcBucket (\ s a -> s{_dbmcBucket = a});
+dbmcBucket = lens _dbmcBucket (\ s a -> s{_dbmcBucket = a})
 
 -- | The ID used to identify the metrics configuration.
 dbmcId :: Lens' DeleteBucketMetricsConfiguration Text
-dbmcId = lens _dbmcId (\ s a -> s{_dbmcId = a});
+dbmcId = lens _dbmcId (\ s a -> s{_dbmcId = a})
 
 instance AWSRequest DeleteBucketMetricsConfiguration
          where

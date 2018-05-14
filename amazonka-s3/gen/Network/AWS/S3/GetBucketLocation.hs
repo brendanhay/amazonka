@@ -61,7 +61,7 @@ getBucketLocation pBucket_ = GetBucketLocation' {_gblBucket = pBucket_}
 
 -- | Undocumented member.
 gblBucket :: Lens' GetBucketLocation BucketName
-gblBucket = lens _gblBucket (\ s a -> s{_gblBucket = a});
+gblBucket = lens _gblBucket (\ s a -> s{_gblBucket = a})
 
 instance AWSRequest GetBucketLocation where
         type Rs GetBucketLocation = GetBucketLocationResponse
@@ -106,17 +106,17 @@ getBucketLocationResponse
     -> GetBucketLocationResponse
 getBucketLocationResponse pResponseStatus_ pLocationConstraint_ =
   GetBucketLocationResponse'
-  { _gblbrsResponseStatus = pResponseStatus_
-  , _gblbrsLocationConstraint = pLocationConstraint_
-  }
+    { _gblbrsResponseStatus = pResponseStatus_
+    , _gblbrsLocationConstraint = pLocationConstraint_
+    }
 
 
 -- | -- | The response status code.
 gblbrsResponseStatus :: Lens' GetBucketLocationResponse Int
-gblbrsResponseStatus = lens _gblbrsResponseStatus (\ s a -> s{_gblbrsResponseStatus = a});
+gblbrsResponseStatus = lens _gblbrsResponseStatus (\ s a -> s{_gblbrsResponseStatus = a})
 
 -- | Undocumented member.
 gblbrsLocationConstraint :: Lens' GetBucketLocationResponse LocationConstraint
-gblbrsLocationConstraint = lens _gblbrsLocationConstraint (\ s a -> s{_gblbrsLocationConstraint = a});
+gblbrsLocationConstraint = lens _gblbrsLocationConstraint (\ s a -> s{_gblbrsLocationConstraint = a})
 
 instance NFData GetBucketLocationResponse where

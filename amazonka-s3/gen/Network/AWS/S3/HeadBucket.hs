@@ -58,7 +58,7 @@ headBucket pBucket_ = HeadBucket' {_hbBucket = pBucket_}
 
 -- | Undocumented member.
 hbBucket :: Lens' HeadBucket BucketName
-hbBucket = lens _hbBucket (\ s a -> s{_hbBucket = a});
+hbBucket = lens _hbBucket (\ s a -> s{_hbBucket = a})
 
 instance AWSRequest HeadBucket where
         type Rs HeadBucket = HeadBucketResponse

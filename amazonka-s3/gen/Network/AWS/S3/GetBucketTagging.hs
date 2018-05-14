@@ -61,7 +61,7 @@ getBucketTagging pBucket_ = GetBucketTagging' {_gbtBucket = pBucket_}
 
 -- | Undocumented member.
 gbtBucket :: Lens' GetBucketTagging BucketName
-gbtBucket = lens _gbtBucket (\ s a -> s{_gbtBucket = a});
+gbtBucket = lens _gbtBucket (\ s a -> s{_gbtBucket = a})
 
 instance AWSRequest GetBucketTagging where
         type Rs GetBucketTagging = GetBucketTaggingResponse
@@ -106,15 +106,15 @@ getBucketTaggingResponse
     -> GetBucketTaggingResponse
 getBucketTaggingResponse pResponseStatus_ =
   GetBucketTaggingResponse'
-  {_gbtrsResponseStatus = pResponseStatus_, _gbtrsTagSet = mempty}
+    {_gbtrsResponseStatus = pResponseStatus_, _gbtrsTagSet = mempty}
 
 
 -- | -- | The response status code.
 gbtrsResponseStatus :: Lens' GetBucketTaggingResponse Int
-gbtrsResponseStatus = lens _gbtrsResponseStatus (\ s a -> s{_gbtrsResponseStatus = a});
+gbtrsResponseStatus = lens _gbtrsResponseStatus (\ s a -> s{_gbtrsResponseStatus = a})
 
 -- | Undocumented member.
 gbtrsTagSet :: Lens' GetBucketTaggingResponse [Tag]
-gbtrsTagSet = lens _gbtrsTagSet (\ s a -> s{_gbtrsTagSet = a}) . _Coerce;
+gbtrsTagSet = lens _gbtrsTagSet (\ s a -> s{_gbtrsTagSet = a}) . _Coerce
 
 instance NFData GetBucketTaggingResponse where

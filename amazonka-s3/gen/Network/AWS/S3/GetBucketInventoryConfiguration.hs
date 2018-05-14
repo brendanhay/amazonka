@@ -67,11 +67,11 @@ getBucketInventoryConfiguration pBucket_ pId_ =
 
 -- | The name of the bucket containing the inventory configuration to retrieve.
 gbicBucket :: Lens' GetBucketInventoryConfiguration BucketName
-gbicBucket = lens _gbicBucket (\ s a -> s{_gbicBucket = a});
+gbicBucket = lens _gbicBucket (\ s a -> s{_gbicBucket = a})
 
 -- | The ID used to identify the inventory configuration.
 gbicId :: Lens' GetBucketInventoryConfiguration Text
-gbicId = lens _gbicId (\ s a -> s{_gbicId = a});
+gbicId = lens _gbicId (\ s a -> s{_gbicId = a})
 
 instance AWSRequest GetBucketInventoryConfiguration
          where
@@ -121,18 +121,18 @@ getBucketInventoryConfigurationResponse
     -> GetBucketInventoryConfigurationResponse
 getBucketInventoryConfigurationResponse pResponseStatus_ =
   GetBucketInventoryConfigurationResponse'
-  { _gbicrsInventoryConfiguration = Nothing
-  , _gbicrsResponseStatus = pResponseStatus_
-  }
+    { _gbicrsInventoryConfiguration = Nothing
+    , _gbicrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Specifies the inventory configuration.
 gbicrsInventoryConfiguration :: Lens' GetBucketInventoryConfigurationResponse (Maybe InventoryConfiguration)
-gbicrsInventoryConfiguration = lens _gbicrsInventoryConfiguration (\ s a -> s{_gbicrsInventoryConfiguration = a});
+gbicrsInventoryConfiguration = lens _gbicrsInventoryConfiguration (\ s a -> s{_gbicrsInventoryConfiguration = a})
 
 -- | -- | The response status code.
 gbicrsResponseStatus :: Lens' GetBucketInventoryConfigurationResponse Int
-gbicrsResponseStatus = lens _gbicrsResponseStatus (\ s a -> s{_gbicrsResponseStatus = a});
+gbicrsResponseStatus = lens _gbicrsResponseStatus (\ s a -> s{_gbicrsResponseStatus = a})
 
 instance NFData
            GetBucketInventoryConfigurationResponse

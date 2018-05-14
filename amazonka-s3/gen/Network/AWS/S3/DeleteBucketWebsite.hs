@@ -58,7 +58,7 @@ deleteBucketWebsite pBucket_ = DeleteBucketWebsite' {_dbwBucket = pBucket_}
 
 -- | Undocumented member.
 dbwBucket :: Lens' DeleteBucketWebsite BucketName
-dbwBucket = lens _dbwBucket (\ s a -> s{_dbwBucket = a});
+dbwBucket = lens _dbwBucket (\ s a -> s{_dbwBucket = a})
 
 instance AWSRequest DeleteBucketWebsite where
         type Rs DeleteBucketWebsite =

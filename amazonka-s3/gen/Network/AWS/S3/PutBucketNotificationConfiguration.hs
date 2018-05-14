@@ -60,18 +60,18 @@ putBucketNotificationConfiguration
     -> PutBucketNotificationConfiguration
 putBucketNotificationConfiguration pBucket_ pNotificationConfiguration_ =
   PutBucketNotificationConfiguration'
-  { _pbncBucket = pBucket_
-  , _pbncNotificationConfiguration = pNotificationConfiguration_
-  }
+    { _pbncBucket = pBucket_
+    , _pbncNotificationConfiguration = pNotificationConfiguration_
+    }
 
 
 -- | Undocumented member.
 pbncBucket :: Lens' PutBucketNotificationConfiguration BucketName
-pbncBucket = lens _pbncBucket (\ s a -> s{_pbncBucket = a});
+pbncBucket = lens _pbncBucket (\ s a -> s{_pbncBucket = a})
 
 -- | Undocumented member.
 pbncNotificationConfiguration :: Lens' PutBucketNotificationConfiguration NotificationConfiguration
-pbncNotificationConfiguration = lens _pbncNotificationConfiguration (\ s a -> s{_pbncNotificationConfiguration = a});
+pbncNotificationConfiguration = lens _pbncNotificationConfiguration (\ s a -> s{_pbncNotificationConfiguration = a})
 
 instance AWSRequest
            PutBucketNotificationConfiguration

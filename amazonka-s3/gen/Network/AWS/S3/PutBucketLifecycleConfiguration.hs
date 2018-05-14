@@ -59,16 +59,16 @@ putBucketLifecycleConfiguration
     -> PutBucketLifecycleConfiguration
 putBucketLifecycleConfiguration pBucket_ =
   PutBucketLifecycleConfiguration'
-  {_pblcLifecycleConfiguration = Nothing, _pblcBucket = pBucket_}
+    {_pblcLifecycleConfiguration = Nothing, _pblcBucket = pBucket_}
 
 
 -- | Undocumented member.
 pblcLifecycleConfiguration :: Lens' PutBucketLifecycleConfiguration (Maybe BucketLifecycleConfiguration)
-pblcLifecycleConfiguration = lens _pblcLifecycleConfiguration (\ s a -> s{_pblcLifecycleConfiguration = a});
+pblcLifecycleConfiguration = lens _pblcLifecycleConfiguration (\ s a -> s{_pblcLifecycleConfiguration = a})
 
 -- | Undocumented member.
 pblcBucket :: Lens' PutBucketLifecycleConfiguration BucketName
-pblcBucket = lens _pblcBucket (\ s a -> s{_pblcBucket = a});
+pblcBucket = lens _pblcBucket (\ s a -> s{_pblcBucket = a})
 
 instance AWSRequest PutBucketLifecycleConfiguration
          where

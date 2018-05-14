@@ -63,7 +63,7 @@ getBucketNotificationConfiguration pBucket_ =
 
 -- | Name of the bucket to get the notification configuration for.
 gbncBucket :: Lens' GetBucketNotificationConfiguration BucketName
-gbncBucket = lens _gbncBucket (\ s a -> s{_gbncBucket = a});
+gbncBucket = lens _gbncBucket (\ s a -> s{_gbncBucket = a})
 
 instance AWSRequest
            GetBucketNotificationConfiguration

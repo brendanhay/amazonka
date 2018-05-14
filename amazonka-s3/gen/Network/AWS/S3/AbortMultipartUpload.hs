@@ -76,28 +76,28 @@ abortMultipartUpload
     -> AbortMultipartUpload
 abortMultipartUpload pBucket_ pKey_ pUploadId_ =
   AbortMultipartUpload'
-  { _amuRequestPayer = Nothing
-  , _amuBucket = pBucket_
-  , _amuKey = pKey_
-  , _amuUploadId = pUploadId_
-  }
+    { _amuRequestPayer = Nothing
+    , _amuBucket = pBucket_
+    , _amuKey = pKey_
+    , _amuUploadId = pUploadId_
+    }
 
 
 -- | Undocumented member.
 amuRequestPayer :: Lens' AbortMultipartUpload (Maybe RequestPayer)
-amuRequestPayer = lens _amuRequestPayer (\ s a -> s{_amuRequestPayer = a});
+amuRequestPayer = lens _amuRequestPayer (\ s a -> s{_amuRequestPayer = a})
 
 -- | Undocumented member.
 amuBucket :: Lens' AbortMultipartUpload BucketName
-amuBucket = lens _amuBucket (\ s a -> s{_amuBucket = a});
+amuBucket = lens _amuBucket (\ s a -> s{_amuBucket = a})
 
 -- | Undocumented member.
 amuKey :: Lens' AbortMultipartUpload ObjectKey
-amuKey = lens _amuKey (\ s a -> s{_amuKey = a});
+amuKey = lens _amuKey (\ s a -> s{_amuKey = a})
 
 -- | Undocumented member.
 amuUploadId :: Lens' AbortMultipartUpload Text
-amuUploadId = lens _amuUploadId (\ s a -> s{_amuUploadId = a});
+amuUploadId = lens _amuUploadId (\ s a -> s{_amuUploadId = a})
 
 instance AWSRequest AbortMultipartUpload where
         type Rs AbortMultipartUpload =
@@ -145,15 +145,15 @@ abortMultipartUploadResponse
     -> AbortMultipartUploadResponse
 abortMultipartUploadResponse pResponseStatus_ =
   AbortMultipartUploadResponse'
-  {_amursRequestCharged = Nothing, _amursResponseStatus = pResponseStatus_}
+    {_amursRequestCharged = Nothing, _amursResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 amursRequestCharged :: Lens' AbortMultipartUploadResponse (Maybe RequestCharged)
-amursRequestCharged = lens _amursRequestCharged (\ s a -> s{_amursRequestCharged = a});
+amursRequestCharged = lens _amursRequestCharged (\ s a -> s{_amursRequestCharged = a})
 
 -- | -- | The response status code.
 amursResponseStatus :: Lens' AbortMultipartUploadResponse Int
-amursResponseStatus = lens _amursResponseStatus (\ s a -> s{_amursResponseStatus = a});
+amursResponseStatus = lens _amursResponseStatus (\ s a -> s{_amursResponseStatus = a})
 
 instance NFData AbortMultipartUploadResponse where

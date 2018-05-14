@@ -60,18 +60,18 @@ putBucketAccelerateConfiguration
     -> PutBucketAccelerateConfiguration
 putBucketAccelerateConfiguration pBucket_ pAccelerateConfiguration_ =
   PutBucketAccelerateConfiguration'
-  { _pbacBucket = pBucket_
-  , _pbacAccelerateConfiguration = pAccelerateConfiguration_
-  }
+    { _pbacBucket = pBucket_
+    , _pbacAccelerateConfiguration = pAccelerateConfiguration_
+    }
 
 
 -- | Name of the bucket for which the accelerate configuration is set.
 pbacBucket :: Lens' PutBucketAccelerateConfiguration BucketName
-pbacBucket = lens _pbacBucket (\ s a -> s{_pbacBucket = a});
+pbacBucket = lens _pbacBucket (\ s a -> s{_pbacBucket = a})
 
 -- | Specifies the Accelerate Configuration you want to set for the bucket.
 pbacAccelerateConfiguration :: Lens' PutBucketAccelerateConfiguration AccelerateConfiguration
-pbacAccelerateConfiguration = lens _pbacAccelerateConfiguration (\ s a -> s{_pbacAccelerateConfiguration = a});
+pbacAccelerateConfiguration = lens _pbacAccelerateConfiguration (\ s a -> s{_pbacAccelerateConfiguration = a})
 
 instance AWSRequest PutBucketAccelerateConfiguration
          where

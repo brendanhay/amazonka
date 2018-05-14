@@ -64,20 +64,20 @@ putBucketTagging
     -> PutBucketTagging
 putBucketTagging pBucket_ pTagging_ =
   PutBucketTagging'
-  {_pbtContentMD5 = Nothing, _pbtBucket = pBucket_, _pbtTagging = pTagging_}
+    {_pbtContentMD5 = Nothing, _pbtBucket = pBucket_, _pbtTagging = pTagging_}
 
 
 -- | Undocumented member.
 pbtContentMD5 :: Lens' PutBucketTagging (Maybe Text)
-pbtContentMD5 = lens _pbtContentMD5 (\ s a -> s{_pbtContentMD5 = a});
+pbtContentMD5 = lens _pbtContentMD5 (\ s a -> s{_pbtContentMD5 = a})
 
 -- | Undocumented member.
 pbtBucket :: Lens' PutBucketTagging BucketName
-pbtBucket = lens _pbtBucket (\ s a -> s{_pbtBucket = a});
+pbtBucket = lens _pbtBucket (\ s a -> s{_pbtBucket = a})
 
 -- | Undocumented member.
 pbtTagging :: Lens' PutBucketTagging Tagging
-pbtTagging = lens _pbtTagging (\ s a -> s{_pbtTagging = a});
+pbtTagging = lens _pbtTagging (\ s a -> s{_pbtTagging = a})
 
 instance AWSRequest PutBucketTagging where
         type Rs PutBucketTagging = PutBucketTaggingResponse

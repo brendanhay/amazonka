@@ -116,6 +116,7 @@ library
         , Network.AWS.S3.PutObjectACL
         , Network.AWS.S3.PutObjectTagging
         , Network.AWS.S3.RestoreObject
+        , Network.AWS.S3.SelectObjectContent
         , Network.AWS.S3.Types
         , Network.AWS.S3.UploadPart
         , Network.AWS.S3.UploadPartCopy

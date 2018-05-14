@@ -58,7 +58,7 @@ deleteBucketLifecycle pBucket_ = DeleteBucketLifecycle' {_dblBucket = pBucket_}
 
 -- | Undocumented member.
 dblBucket :: Lens' DeleteBucketLifecycle BucketName
-dblBucket = lens _dblBucket (\ s a -> s{_dblBucket = a});
+dblBucket = lens _dblBucket (\ s a -> s{_dblBucket = a})
 
 instance AWSRequest DeleteBucketLifecycle where
         type Rs DeleteBucketLifecycle =

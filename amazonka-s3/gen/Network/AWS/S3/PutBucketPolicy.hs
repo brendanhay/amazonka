@@ -68,28 +68,28 @@ putBucketPolicy
     -> PutBucketPolicy
 putBucketPolicy pBucket_ pPolicy_ =
   PutBucketPolicy'
-  { _pbpConfirmRemoveSelfBucketAccess = Nothing
-  , _pbpContentMD5 = Nothing
-  , _pbpBucket = pBucket_
-  , _pbpPolicy = pPolicy_
-  }
+    { _pbpConfirmRemoveSelfBucketAccess = Nothing
+    , _pbpContentMD5 = Nothing
+    , _pbpBucket = pBucket_
+    , _pbpPolicy = pPolicy_
+    }
 
 
 -- | Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.
 pbpConfirmRemoveSelfBucketAccess :: Lens' PutBucketPolicy (Maybe Bool)
-pbpConfirmRemoveSelfBucketAccess = lens _pbpConfirmRemoveSelfBucketAccess (\ s a -> s{_pbpConfirmRemoveSelfBucketAccess = a});
+pbpConfirmRemoveSelfBucketAccess = lens _pbpConfirmRemoveSelfBucketAccess (\ s a -> s{_pbpConfirmRemoveSelfBucketAccess = a})
 
 -- | Undocumented member.
 pbpContentMD5 :: Lens' PutBucketPolicy (Maybe Text)
-pbpContentMD5 = lens _pbpContentMD5 (\ s a -> s{_pbpContentMD5 = a});
+pbpContentMD5 = lens _pbpContentMD5 (\ s a -> s{_pbpContentMD5 = a})
 
 -- | Undocumented member.
 pbpBucket :: Lens' PutBucketPolicy BucketName
-pbpBucket = lens _pbpBucket (\ s a -> s{_pbpBucket = a});
+pbpBucket = lens _pbpBucket (\ s a -> s{_pbpBucket = a})
 
 -- | The bucket policy as a JSON document.
 pbpPolicy :: Lens' PutBucketPolicy (HashMap Text Value)
-pbpPolicy = lens _pbpPolicy (\ s a -> s{_pbpPolicy = a});
+pbpPolicy = lens _pbpPolicy (\ s a -> s{_pbpPolicy = a})
 
 instance AWSRequest PutBucketPolicy where
         type Rs PutBucketPolicy = PutBucketPolicyResponse

@@ -61,7 +61,7 @@ getBucketReplication pBucket_ = GetBucketReplication' {_gbrBucket = pBucket_}
 
 -- | Undocumented member.
 gbrBucket :: Lens' GetBucketReplication BucketName
-gbrBucket = lens _gbrBucket (\ s a -> s{_gbrBucket = a});
+gbrBucket = lens _gbrBucket (\ s a -> s{_gbrBucket = a})
 
 instance AWSRequest GetBucketReplication where
         type Rs GetBucketReplication =
@@ -106,17 +106,17 @@ getBucketReplicationResponse
     -> GetBucketReplicationResponse
 getBucketReplicationResponse pResponseStatus_ =
   GetBucketReplicationResponse'
-  { _gbrrsReplicationConfiguration = Nothing
-  , _gbrrsResponseStatus = pResponseStatus_
-  }
+    { _gbrrsReplicationConfiguration = Nothing
+    , _gbrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 gbrrsReplicationConfiguration :: Lens' GetBucketReplicationResponse (Maybe ReplicationConfiguration)
-gbrrsReplicationConfiguration = lens _gbrrsReplicationConfiguration (\ s a -> s{_gbrrsReplicationConfiguration = a});
+gbrrsReplicationConfiguration = lens _gbrrsReplicationConfiguration (\ s a -> s{_gbrrsReplicationConfiguration = a})
 
 -- | -- | The response status code.
 gbrrsResponseStatus :: Lens' GetBucketReplicationResponse Int
-gbrrsResponseStatus = lens _gbrrsResponseStatus (\ s a -> s{_gbrrsResponseStatus = a});
+gbrrsResponseStatus = lens _gbrrsResponseStatus (\ s a -> s{_gbrrsResponseStatus = a})
 
 instance NFData GetBucketReplicationResponse where

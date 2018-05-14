@@ -58,7 +58,7 @@ deleteBucket pBucket_ = DeleteBucket' {_dbBucket = pBucket_}
 
 -- | Undocumented member.
 dbBucket :: Lens' DeleteBucket BucketName
-dbBucket = lens _dbBucket (\ s a -> s{_dbBucket = a});
+dbBucket = lens _dbBucket (\ s a -> s{_dbBucket = a})
 
 instance AWSRequest DeleteBucket where
         type Rs DeleteBucket = DeleteBucketResponse

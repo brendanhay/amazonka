@@ -64,23 +64,24 @@ putBucketEncryption
     -> PutBucketEncryption
 putBucketEncryption pBucket_ pServerSideEncryptionConfiguration_ =
   PutBucketEncryption'
-  { _pbeContentMD5 = Nothing
-  , _pbeBucket = pBucket_
-  , _pbeServerSideEncryptionConfiguration = pServerSideEncryptionConfiguration_
-  }
+    { _pbeContentMD5 = Nothing
+    , _pbeBucket = pBucket_
+    , _pbeServerSideEncryptionConfiguration =
+        pServerSideEncryptionConfiguration_
+    }
 
 
 -- | The base64-encoded 128-bit MD5 digest of the server-side encryption configuration.
 pbeContentMD5 :: Lens' PutBucketEncryption (Maybe Text)
-pbeContentMD5 = lens _pbeContentMD5 (\ s a -> s{_pbeContentMD5 = a});
+pbeContentMD5 = lens _pbeContentMD5 (\ s a -> s{_pbeContentMD5 = a})
 
 -- | The name of the bucket for which the server-side encryption configuration is set.
 pbeBucket :: Lens' PutBucketEncryption BucketName
-pbeBucket = lens _pbeBucket (\ s a -> s{_pbeBucket = a});
+pbeBucket = lens _pbeBucket (\ s a -> s{_pbeBucket = a})
 
 -- | Undocumented member.
 pbeServerSideEncryptionConfiguration :: Lens' PutBucketEncryption ServerSideEncryptionConfiguration
-pbeServerSideEncryptionConfiguration = lens _pbeServerSideEncryptionConfiguration (\ s a -> s{_pbeServerSideEncryptionConfiguration = a});
+pbeServerSideEncryptionConfiguration = lens _pbeServerSideEncryptionConfiguration (\ s a -> s{_pbeServerSideEncryptionConfiguration = a})
 
 instance AWSRequest PutBucketEncryption where
         type Rs PutBucketEncryption =

@@ -59,7 +59,7 @@ deleteBucketEncryption pBucket_ =
 
 -- | The name of the bucket containing the server-side encryption configuration to delete.
 dbeBucket :: Lens' DeleteBucketEncryption BucketName
-dbeBucket = lens _dbeBucket (\ s a -> s{_dbeBucket = a});
+dbeBucket = lens _dbeBucket (\ s a -> s{_dbeBucket = a})
 
 instance AWSRequest DeleteBucketEncryption where
         type Rs DeleteBucketEncryption =

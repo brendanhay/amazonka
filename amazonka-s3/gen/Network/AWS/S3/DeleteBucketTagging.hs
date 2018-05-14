@@ -58,7 +58,7 @@ deleteBucketTagging pBucket_ = DeleteBucketTagging' {_dbtBucket = pBucket_}
 
 -- | Undocumented member.
 dbtBucket :: Lens' DeleteBucketTagging BucketName
-dbtBucket = lens _dbtBucket (\ s a -> s{_dbtBucket = a});
+dbtBucket = lens _dbtBucket (\ s a -> s{_dbtBucket = a})
 
 instance AWSRequest DeleteBucketTagging where
         type Rs DeleteBucketTagging =

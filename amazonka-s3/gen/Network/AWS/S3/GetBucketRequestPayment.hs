@@ -62,7 +62,7 @@ getBucketRequestPayment pBucket_ =
 
 -- | Undocumented member.
 gbrpBucket :: Lens' GetBucketRequestPayment BucketName
-gbrpBucket = lens _gbrpBucket (\ s a -> s{_gbrpBucket = a});
+gbrpBucket = lens _gbrpBucket (\ s a -> s{_gbrpBucket = a})
 
 instance AWSRequest GetBucketRequestPayment where
         type Rs GetBucketRequestPayment =
@@ -107,15 +107,15 @@ getBucketRequestPaymentResponse
     -> GetBucketRequestPaymentResponse
 getBucketRequestPaymentResponse pResponseStatus_ =
   GetBucketRequestPaymentResponse'
-  {_gbrprsPayer = Nothing, _gbrprsResponseStatus = pResponseStatus_}
+    {_gbrprsPayer = Nothing, _gbrprsResponseStatus = pResponseStatus_}
 
 
 -- | Specifies who pays for the download and request fees.
 gbrprsPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
-gbrprsPayer = lens _gbrprsPayer (\ s a -> s{_gbrprsPayer = a});
+gbrprsPayer = lens _gbrprsPayer (\ s a -> s{_gbrprsPayer = a})
 
 -- | -- | The response status code.
 gbrprsResponseStatus :: Lens' GetBucketRequestPaymentResponse Int
-gbrprsResponseStatus = lens _gbrprsResponseStatus (\ s a -> s{_gbrprsResponseStatus = a});
+gbrprsResponseStatus = lens _gbrprsResponseStatus (\ s a -> s{_gbrprsResponseStatus = a})
 
 instance NFData GetBucketRequestPaymentResponse where

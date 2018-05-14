@@ -64,11 +64,11 @@ deleteBucketInventoryConfiguration pBucket_ pId_ =
 
 -- | The name of the bucket containing the inventory configuration to delete.
 dbicBucket :: Lens' DeleteBucketInventoryConfiguration BucketName
-dbicBucket = lens _dbicBucket (\ s a -> s{_dbicBucket = a});
+dbicBucket = lens _dbicBucket (\ s a -> s{_dbicBucket = a})
 
 -- | The ID used to identify the inventory configuration.
 dbicId :: Lens' DeleteBucketInventoryConfiguration Text
-dbicId = lens _dbicId (\ s a -> s{_dbicId = a});
+dbicId = lens _dbicId (\ s a -> s{_dbicId = a})
 
 instance AWSRequest
            DeleteBucketInventoryConfiguration

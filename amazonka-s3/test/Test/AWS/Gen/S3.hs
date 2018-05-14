@@ -133,6 +133,9 @@ import Test.Tasty
 --         , requestUploadPart $
 --             uploadPart
 --
+--         , requestSelectObjectContent $
+--             selectObjectContent
+--
 --         , requestGetBucketReplication $
 --             getBucketReplication
 --
@@ -354,6 +357,9 @@ import Test.Tasty
 --
 --         , responseUploadPart $
 --             uploadPartResponse
+--
+--         , responseSelectObjectContent $
+--             selectObjectContentResponse
 --
 --         , responseGetBucketReplication $
 --             getBucketReplicationResponse
@@ -638,6 +644,11 @@ requestCreateMultipartUpload :: CreateMultipartUpload -> TestTree
 requestCreateMultipartUpload = req
     "CreateMultipartUpload"
     "fixture/CreateMultipartUpload.yaml"
+
+requestSelectObjectContent :: SelectObjectContent -> TestTree
+requestSelectObjectContent = req
+    "SelectObjectContent"
+    "fixture/SelectObjectContent.yaml"
 
 requestGetBucketReplication :: GetBucketReplication -> TestTree
 requestGetBucketReplication = req
@@ -1068,6 +1079,13 @@ responseUploadPart = res
     "fixture/UploadPartResponse.proto"
     s3
     (Proxy :: Proxy UploadPart)
+
+responseSelectObjectContent :: SelectObjectContentResponse -> TestTree
+responseSelectObjectContent = res
+    "SelectObjectContentResponse"
+    "fixture/SelectObjectContentResponse.proto"
+    s3
+    (Proxy :: Proxy SelectObjectContent)
 
 responseGetBucketReplication :: GetBucketReplicationResponse -> TestTree
 responseGetBucketReplication = res

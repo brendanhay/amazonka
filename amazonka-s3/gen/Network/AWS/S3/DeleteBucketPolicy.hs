@@ -58,7 +58,7 @@ deleteBucketPolicy pBucket_ = DeleteBucketPolicy' {_dbpBucket = pBucket_}
 
 -- | Undocumented member.
 dbpBucket :: Lens' DeleteBucketPolicy BucketName
-dbpBucket = lens _dbpBucket (\ s a -> s{_dbpBucket = a});
+dbpBucket = lens _dbpBucket (\ s a -> s{_dbpBucket = a})
 
 instance AWSRequest DeleteBucketPolicy where
         type Rs DeleteBucketPolicy =

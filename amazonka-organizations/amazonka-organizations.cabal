@@ -63,11 +63,14 @@ library
         , Network.AWS.Organizations.DescribeOrganizationalUnit
         , Network.AWS.Organizations.DescribePolicy
         , Network.AWS.Organizations.DetachPolicy
+        , Network.AWS.Organizations.DisableAWSServiceAccess
         , Network.AWS.Organizations.DisablePolicyType
+        , Network.AWS.Organizations.EnableAWSServiceAccess
         , Network.AWS.Organizations.EnableAllFeatures
         , Network.AWS.Organizations.EnablePolicyType
         , Network.AWS.Organizations.InviteAccountToOrganization
         , Network.AWS.Organizations.LeaveOrganization
+        , Network.AWS.Organizations.ListAWSServiceAccessForOrganization
         , Network.AWS.Organizations.ListAccounts
         , Network.AWS.Organizations.ListAccountsForParent
         , Network.AWS.Organizations.ListChildren

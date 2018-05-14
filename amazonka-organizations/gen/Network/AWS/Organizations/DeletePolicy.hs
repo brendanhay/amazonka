@@ -62,7 +62,7 @@ deletePolicy pPolicyId_ = DeletePolicy' {_dPolicyId = pPolicyId_}
 
 -- | The unique identifier (ID) of the policy that you want to delete. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
 dPolicyId :: Lens' DeletePolicy Text
-dPolicyId = lens _dPolicyId (\ s a -> s{_dPolicyId = a});
+dPolicyId = lens _dPolicyId (\ s a -> s{_dPolicyId = a})
 
 instance AWSRequest DeletePolicy where
         type Rs DeletePolicy = DeletePolicyResponse

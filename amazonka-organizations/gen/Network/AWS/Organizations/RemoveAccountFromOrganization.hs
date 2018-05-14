@@ -71,7 +71,7 @@ removeAccountFromOrganization pAccountId_ =
 
 -- | The unique identifier (ID) of the member account that you want to remove from the organization. The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
 rafoAccountId :: Lens' RemoveAccountFromOrganization Text
-rafoAccountId = lens _rafoAccountId (\ s a -> s{_rafoAccountId = a});
+rafoAccountId = lens _rafoAccountId (\ s a -> s{_rafoAccountId = a})
 
 instance AWSRequest RemoveAccountFromOrganization
          where

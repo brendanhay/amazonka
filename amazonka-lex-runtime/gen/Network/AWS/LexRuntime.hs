@@ -75,6 +75,9 @@ module Network.AWS.LexRuntime
     -- ** DialogState
     , DialogState (..)
 
+    -- ** MessageFormatType
+    , MessageFormatType (..)
+
     -- ** Button
     , Button
     , button

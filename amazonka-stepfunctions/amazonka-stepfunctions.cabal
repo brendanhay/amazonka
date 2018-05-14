@@ -52,6 +52,7 @@ library
         , Network.AWS.StepFunctions.DescribeActivity
         , Network.AWS.StepFunctions.DescribeExecution
         , Network.AWS.StepFunctions.DescribeStateMachine
+        , Network.AWS.StepFunctions.DescribeStateMachineForExecution
         , Network.AWS.StepFunctions.GetActivityTask
         , Network.AWS.StepFunctions.GetExecutionHistory
         , Network.AWS.StepFunctions.ListActivities
@@ -63,6 +64,7 @@ library
         , Network.AWS.StepFunctions.StartExecution
         , Network.AWS.StepFunctions.StopExecution
         , Network.AWS.StepFunctions.Types
+        , Network.AWS.StepFunctions.UpdateStateMachine
         , Network.AWS.StepFunctions.Waiters
 
     other-modules:

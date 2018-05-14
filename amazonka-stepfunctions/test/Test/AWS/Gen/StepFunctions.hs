@@ -49,6 +49,12 @@ import Test.Tasty
 --         , requestDeleteStateMachine $
 --             deleteStateMachine
 --
+--         , requestUpdateStateMachine $
+--             updateStateMachine
+--
+--         , requestDescribeStateMachineForExecution $
+--             describeStateMachineForExecution
+--
 --         , requestGetActivityTask $
 --             getActivityTask
 --
@@ -102,6 +108,12 @@ import Test.Tasty
 --
 --         , responseDeleteStateMachine $
 --             deleteStateMachineResponse
+--
+--         , responseUpdateStateMachine $
+--             updateStateMachineResponse
+--
+--         , responseDescribeStateMachineForExecution $
+--             describeStateMachineForExecutionResponse
 --
 --         , responseGetActivityTask $
 --             getActivityTaskResponse
@@ -172,6 +184,16 @@ requestDeleteStateMachine :: DeleteStateMachine -> TestTree
 requestDeleteStateMachine = req
     "DeleteStateMachine"
     "fixture/DeleteStateMachine.yaml"
+
+requestUpdateStateMachine :: UpdateStateMachine -> TestTree
+requestUpdateStateMachine = req
+    "UpdateStateMachine"
+    "fixture/UpdateStateMachine.yaml"
+
+requestDescribeStateMachineForExecution :: DescribeStateMachineForExecution -> TestTree
+requestDescribeStateMachineForExecution = req
+    "DescribeStateMachineForExecution"
+    "fixture/DescribeStateMachineForExecution.yaml"
 
 requestGetActivityTask :: GetActivityTask -> TestTree
 requestGetActivityTask = req
@@ -273,6 +295,20 @@ responseDeleteStateMachine = res
     "fixture/DeleteStateMachineResponse.proto"
     stepFunctions
     (Proxy :: Proxy DeleteStateMachine)
+
+responseUpdateStateMachine :: UpdateStateMachineResponse -> TestTree
+responseUpdateStateMachine = res
+    "UpdateStateMachineResponse"
+    "fixture/UpdateStateMachineResponse.proto"
+    stepFunctions
+    (Proxy :: Proxy UpdateStateMachine)
+
+responseDescribeStateMachineForExecution :: DescribeStateMachineForExecutionResponse -> TestTree
+responseDescribeStateMachineForExecution = res
+    "DescribeStateMachineForExecutionResponse"
+    "fixture/DescribeStateMachineForExecutionResponse.proto"
+    stepFunctions
+    (Proxy :: Proxy DescribeStateMachineForExecution)
 
 responseGetActivityTask :: GetActivityTaskResponse -> TestTree
 responseGetActivityTask = res

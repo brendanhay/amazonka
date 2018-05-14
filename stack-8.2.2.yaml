@@ -1,7 +1,11 @@
-compiler: ghc-8.2.2
-resolver: lts-11.1
+resolver: lts-11.9
 
 local-bin-path: bin
+
+nix:
+  enable: false
+  packages: [zlib, icu]
+  add-gc-roots: true
 
 flags: {}
 

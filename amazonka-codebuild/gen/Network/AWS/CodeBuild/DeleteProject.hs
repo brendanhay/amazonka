@@ -62,7 +62,7 @@ deleteProject pName_ = DeleteProject' {_dpName = pName_}
 
 -- | The name of the build project.
 dpName :: Lens' DeleteProject Text
-dpName = lens _dpName (\ s a -> s{_dpName = a});
+dpName = lens _dpName (\ s a -> s{_dpName = a})
 
 instance AWSRequest DeleteProject where
         type Rs DeleteProject = DeleteProjectResponse
@@ -115,6 +115,6 @@ deleteProjectResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dprsResponseStatus :: Lens' DeleteProjectResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
+dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a})
 
 instance NFData DeleteProjectResponse where

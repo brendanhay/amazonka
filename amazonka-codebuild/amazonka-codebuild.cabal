@@ -52,6 +52,7 @@ library
         , Network.AWS.CodeBuild.CreateWebhook
         , Network.AWS.CodeBuild.DeleteProject
         , Network.AWS.CodeBuild.DeleteWebhook
+        , Network.AWS.CodeBuild.InvalidateProjectCache
         , Network.AWS.CodeBuild.ListBuilds
         , Network.AWS.CodeBuild.ListBuildsForProject
         , Network.AWS.CodeBuild.ListCuratedEnvironmentImages
@@ -60,6 +61,7 @@ library
         , Network.AWS.CodeBuild.StopBuild
         , Network.AWS.CodeBuild.Types
         , Network.AWS.CodeBuild.UpdateProject
+        , Network.AWS.CodeBuild.UpdateWebhook
         , Network.AWS.CodeBuild.Waiters
 
     other-modules:

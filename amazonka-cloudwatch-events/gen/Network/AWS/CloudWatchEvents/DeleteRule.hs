@@ -64,7 +64,7 @@ deleteRule pName_ = DeleteRule' {_drName = pName_}
 
 -- | The name of the rule.
 drName :: Lens' DeleteRule Text
-drName = lens _drName (\ s a -> s{_drName = a});
+drName = lens _drName (\ s a -> s{_drName = a})
 
 instance AWSRequest DeleteRule where
         type Rs DeleteRule = DeleteRuleResponse

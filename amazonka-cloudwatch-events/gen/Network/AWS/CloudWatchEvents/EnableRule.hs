@@ -62,7 +62,7 @@ enableRule pName_ = EnableRule' {_erName = pName_}
 
 -- | The name of the rule.
 erName :: Lens' EnableRule Text
-erName = lens _erName (\ s a -> s{_erName = a});
+erName = lens _erName (\ s a -> s{_erName = a})
 
 instance AWSRequest EnableRule where
         type Rs EnableRule = EnableRuleResponse

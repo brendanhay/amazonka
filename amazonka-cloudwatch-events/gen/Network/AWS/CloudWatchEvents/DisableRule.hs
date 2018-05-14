@@ -62,7 +62,7 @@ disableRule pName_ = DisableRule' {_dName = pName_}
 
 -- | The name of the rule.
 dName :: Lens' DisableRule Text
-dName = lens _dName (\ s a -> s{_dName = a});
+dName = lens _dName (\ s a -> s{_dName = a})
 
 instance AWSRequest DisableRule where
         type Rs DisableRule = DisableRuleResponse

@@ -106,6 +106,24 @@ module Network.AWS.CloudWatchEvents
     -- ** RuleState
     , RuleState (..)
 
+    -- ** BatchArrayProperties
+    , BatchArrayProperties
+    , batchArrayProperties
+    , bapSize
+
+    -- ** BatchParameters
+    , BatchParameters
+    , batchParameters
+    , bpRetryStrategy
+    , bpArrayProperties
+    , bpJobDefinition
+    , bpJobName
+
+    -- ** BatchRetryStrategy
+    , BatchRetryStrategy
+    , batchRetryStrategy
+    , brsAttempts
+
     -- ** EcsParameters
     , EcsParameters
     , ecsParameters
@@ -175,13 +193,20 @@ module Network.AWS.CloudWatchEvents
     , rctKey
     , rctValues
 
+    -- ** SqsParameters
+    , SqsParameters
+    , sqsParameters
+    , spMessageGroupId
+
     -- ** Target
     , Target
     , target
     , tRunCommandParameters
     , tKinesisParameters
     , tInputTransformer
+    , tSqsParameters
     , tInput
+    , tBatchParameters
     , tEcsParameters
     , tInputPath
     , tRoleARN

@@ -61,7 +61,7 @@ removePermission pStatementId_ =
 
 -- | The statement ID corresponding to the account that is no longer allowed to put events to the default event bus.
 rpStatementId :: Lens' RemovePermission Text
-rpStatementId = lens _rpStatementId (\ s a -> s{_rpStatementId = a});
+rpStatementId = lens _rpStatementId (\ s a -> s{_rpStatementId = a})
 
 instance AWSRequest RemovePermission where
         type Rs RemovePermission = RemovePermissionResponse

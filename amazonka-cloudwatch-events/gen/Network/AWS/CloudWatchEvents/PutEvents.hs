@@ -64,7 +64,7 @@ putEvents pEntries_ = PutEvents' {_peEntries = _List1 # pEntries_}
 
 -- | The entry that defines an event in your system. You can specify several parameters for the entry such as the source and type of the event, resources associated with the event, and so on.
 peEntries :: Lens' PutEvents (NonEmpty PutEventsRequestEntry)
-peEntries = lens _peEntries (\ s a -> s{_peEntries = a}) . _List1;
+peEntries = lens _peEntries (\ s a -> s{_peEntries = a}) . _List1
 
 instance AWSRequest PutEvents where
         type Rs PutEvents = PutEventsResponse
@@ -122,22 +122,22 @@ putEventsResponse
     -> PutEventsResponse
 putEventsResponse pResponseStatus_ =
   PutEventsResponse'
-  { _persFailedEntryCount = Nothing
-  , _persEntries = Nothing
-  , _persResponseStatus = pResponseStatus_
-  }
+    { _persFailedEntryCount = Nothing
+    , _persEntries = Nothing
+    , _persResponseStatus = pResponseStatus_
+    }
 
 
 -- | The number of failed entries.
 persFailedEntryCount :: Lens' PutEventsResponse (Maybe Int)
-persFailedEntryCount = lens _persFailedEntryCount (\ s a -> s{_persFailedEntryCount = a});
+persFailedEntryCount = lens _persFailedEntryCount (\ s a -> s{_persFailedEntryCount = a})
 
 -- | The successfully and unsuccessfully ingested events results. If the ingestion was successful, the entry has the event ID in it. Otherwise, you can use the error code and error message to identify the problem with the entry.
 persEntries :: Lens' PutEventsResponse [PutEventsResultEntry]
-persEntries = lens _persEntries (\ s a -> s{_persEntries = a}) . _Default . _Coerce;
+persEntries = lens _persEntries (\ s a -> s{_persEntries = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 persResponseStatus :: Lens' PutEventsResponse Int
-persResponseStatus = lens _persResponseStatus (\ s a -> s{_persResponseStatus = a});
+persResponseStatus = lens _persResponseStatus (\ s a -> s{_persResponseStatus = a})
 
 instance NFData PutEventsResponse where

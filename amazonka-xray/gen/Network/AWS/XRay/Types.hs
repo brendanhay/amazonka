@@ -19,6 +19,12 @@ module Network.AWS.XRay.Types
     , _InvalidRequestException
     , _ThrottledException
 
+    -- * EncryptionStatus
+    , EncryptionStatus (..)
+
+    -- * EncryptionType
+    , EncryptionType (..)
+
     -- * Alias
     , Alias
     , alias
@@ -61,6 +67,13 @@ module Network.AWS.XRay.Types
     , esTotalResponseTime
     , esErrorStatistics
     , esTotalCount
+
+    -- * EncryptionConfig
+    , EncryptionConfig
+    , encryptionConfig
+    , ecStatus
+    , ecKeyId
+    , ecType
 
     -- * ErrorStatistics
     , ErrorStatistics
@@ -137,8 +150,8 @@ module Network.AWS.XRay.Types
     , trSegmentsSentCount
     , trSegmentsSpilloverCount
     , trSegmentsRejectedCount
-    , trTimestamp
     , trBackendConnectionErrors
+    , trTimestamp
 
     -- * Trace
     , Trace
@@ -192,24 +205,24 @@ import Network.AWS.XRay.Types.Sum
 xRay :: Service
 xRay =
   Service
-  { _svcAbbrev = "XRay"
-  , _svcSigner = v4
-  , _svcPrefix = "xray"
-  , _svcVersion = "2016-04-12"
-  , _svcEndpoint = defaultEndpoint xRay
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "XRay"
-  , _svcRetry = retry
-  }
+    { _svcAbbrev = "XRay"
+    , _svcSigner = v4
+    , _svcPrefix = "xray"
+    , _svcVersion = "2016-04-12"
+    , _svcEndpoint = defaultEndpoint xRay
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "XRay"
+    , _svcRetry = retry
+    }
   where
     retry =
       Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
         Just "throttled_exception"
@@ -218,6 +231,8 @@ xRay =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
+        Just "request_throttled_exception"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"

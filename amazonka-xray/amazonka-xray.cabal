@@ -46,9 +46,11 @@ library
     exposed-modules:
           Network.AWS.XRay
         , Network.AWS.XRay.BatchGetTraces
+        , Network.AWS.XRay.GetEncryptionConfig
         , Network.AWS.XRay.GetServiceGraph
         , Network.AWS.XRay.GetTraceGraph
         , Network.AWS.XRay.GetTraceSummaries
+        , Network.AWS.XRay.PutEncryptionConfig
         , Network.AWS.XRay.PutTelemetryRecords
         , Network.AWS.XRay.PutTraceSegments
         , Network.AWS.XRay.Types

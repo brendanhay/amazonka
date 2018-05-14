@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified collection. Note that this operation removes all faces in the collection. For an example, see 'example1' .
+-- Deletes the specified collection. Note that this operation removes all faces in the collection. For an example, see 'delete-collection-procedure' .
 --
 --
 -- This operation requires permissions to perform the @rekognition:DeleteCollection@ action.
@@ -66,7 +66,7 @@ deleteCollection pCollectionId_ =
 
 -- | ID of the collection to delete.
 dcCollectionId :: Lens' DeleteCollection Text
-dcCollectionId = lens _dcCollectionId (\ s a -> s{_dcCollectionId = a});
+dcCollectionId = lens _dcCollectionId (\ s a -> s{_dcCollectionId = a})
 
 instance AWSRequest DeleteCollection where
         type Rs DeleteCollection = DeleteCollectionResponse
@@ -122,15 +122,15 @@ deleteCollectionResponse
     -> DeleteCollectionResponse
 deleteCollectionResponse pResponseStatus_ =
   DeleteCollectionResponse'
-  {_dcrsStatusCode = Nothing, _dcrsResponseStatus = pResponseStatus_}
+    {_dcrsStatusCode = Nothing, _dcrsResponseStatus = pResponseStatus_}
 
 
 -- | HTTP status code that indicates the result of the operation.
 dcrsStatusCode :: Lens' DeleteCollectionResponse (Maybe Natural)
-dcrsStatusCode = lens _dcrsStatusCode (\ s a -> s{_dcrsStatusCode = a}) . mapping _Nat;
+dcrsStatusCode = lens _dcrsStatusCode (\ s a -> s{_dcrsStatusCode = a}) . mapping _Nat
 
 -- | -- | The response status code.
 dcrsResponseStatus :: Lens' DeleteCollectionResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
 
 instance NFData DeleteCollectionResponse where

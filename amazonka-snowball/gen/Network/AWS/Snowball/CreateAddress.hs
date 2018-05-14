@@ -63,7 +63,7 @@ createAddress pAddress_ = CreateAddress' {_caAddress = pAddress_}
 
 -- | The address that you want the Snowball shipped to.
 caAddress :: Lens' CreateAddress Address
-caAddress = lens _caAddress (\ s a -> s{_caAddress = a});
+caAddress = lens _caAddress (\ s a -> s{_caAddress = a})
 
 instance AWSRequest CreateAddress where
         type Rs CreateAddress = CreateAddressResponse
@@ -117,15 +117,15 @@ createAddressResponse
     -> CreateAddressResponse
 createAddressResponse pResponseStatus_ =
   CreateAddressResponse'
-  {_carsAddressId = Nothing, _carsResponseStatus = pResponseStatus_}
+    {_carsAddressId = Nothing, _carsResponseStatus = pResponseStatus_}
 
 
 -- | The automatically generated ID for a specific address. You'll use this ID when you create a job to specify which address you want the Snowball for that job shipped to.
 carsAddressId :: Lens' CreateAddressResponse (Maybe Text)
-carsAddressId = lens _carsAddressId (\ s a -> s{_carsAddressId = a});
+carsAddressId = lens _carsAddressId (\ s a -> s{_carsAddressId = a})
 
 -- | -- | The response status code.
 carsResponseStatus :: Lens' CreateAddressResponse Int
-carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
+carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a})
 
 instance NFData CreateAddressResponse where

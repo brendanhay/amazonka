@@ -61,7 +61,7 @@ deleteAssessmentTarget pAssessmentTargetARN_ =
 
 -- | The ARN that specifies the assessment target that you want to delete.
 datAssessmentTargetARN :: Lens' DeleteAssessmentTarget Text
-datAssessmentTargetARN = lens _datAssessmentTargetARN (\ s a -> s{_datAssessmentTargetARN = a});
+datAssessmentTargetARN = lens _datAssessmentTargetARN (\ s a -> s{_datAssessmentTargetARN = a})
 
 instance AWSRequest DeleteAssessmentTarget where
         type Rs DeleteAssessmentTarget =

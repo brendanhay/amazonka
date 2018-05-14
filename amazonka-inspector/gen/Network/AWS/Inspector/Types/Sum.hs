@@ -22,6 +22,7 @@ import Network.AWS.Prelude
 data AgentHealth
   = AHHealthy
   | AHUnhealthy
+  | AHUnknown
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -29,13 +30,15 @@ instance FromText AgentHealth where
     parser = takeLowerText >>= \case
         "healthy" -> pure AHHealthy
         "unhealthy" -> pure AHUnhealthy
+        "unknown" -> pure AHUnknown
         e -> fromTextError $ "Failure parsing AgentHealth from value: '" <> e
-           <> "'. Accepted values: healthy, unhealthy"
+           <> "'. Accepted values: healthy, unhealthy, unknown"
 
 instance ToText AgentHealth where
     toText = \case
         AHHealthy -> "HEALTHY"
         AHUnhealthy -> "UNHEALTHY"
+        AHUnknown -> "UNKNOWN"
 
 instance Hashable     AgentHealth
 instance NFData       AgentHealth

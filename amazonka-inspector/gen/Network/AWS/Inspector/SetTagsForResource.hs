@@ -65,11 +65,11 @@ setTagsForResource pResourceARN_ =
 
 -- | A collection of key and value pairs that you want to set to the assessment template.
 stfrTags :: Lens' SetTagsForResource [Tag]
-stfrTags = lens _stfrTags (\ s a -> s{_stfrTags = a}) . _Default . _Coerce;
+stfrTags = lens _stfrTags (\ s a -> s{_stfrTags = a}) . _Default . _Coerce
 
 -- | The ARN of the assessment template that you want to set tags to.
 stfrResourceARN :: Lens' SetTagsForResource Text
-stfrResourceARN = lens _stfrResourceARN (\ s a -> s{_stfrResourceARN = a});
+stfrResourceARN = lens _stfrResourceARN (\ s a -> s{_stfrResourceARN = a})
 
 instance AWSRequest SetTagsForResource where
         type Rs SetTagsForResource =

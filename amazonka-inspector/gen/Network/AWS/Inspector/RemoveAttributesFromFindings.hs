@@ -64,16 +64,16 @@ removeAttributesFromFindings
     -> RemoveAttributesFromFindings
 removeAttributesFromFindings pFindingARNs_ =
   RemoveAttributesFromFindings'
-  {_raffFindingARNs = _List1 # pFindingARNs_, _raffAttributeKeys = mempty}
+    {_raffFindingARNs = _List1 # pFindingARNs_, _raffAttributeKeys = mempty}
 
 
 -- | The ARNs that specify the findings that you want to remove attributes from.
 raffFindingARNs :: Lens' RemoveAttributesFromFindings (NonEmpty Text)
-raffFindingARNs = lens _raffFindingARNs (\ s a -> s{_raffFindingARNs = a}) . _List1;
+raffFindingARNs = lens _raffFindingARNs (\ s a -> s{_raffFindingARNs = a}) . _List1
 
 -- | The array of attribute keys that you want to remove from specified findings.
 raffAttributeKeys :: Lens' RemoveAttributesFromFindings [Text]
-raffAttributeKeys = lens _raffAttributeKeys (\ s a -> s{_raffAttributeKeys = a}) . _Coerce;
+raffAttributeKeys = lens _raffAttributeKeys (\ s a -> s{_raffAttributeKeys = a}) . _Coerce
 
 instance AWSRequest RemoveAttributesFromFindings
          where
@@ -133,16 +133,16 @@ removeAttributesFromFindingsResponse
     -> RemoveAttributesFromFindingsResponse
 removeAttributesFromFindingsResponse pResponseStatus_ =
   RemoveAttributesFromFindingsResponse'
-  {_raffrsResponseStatus = pResponseStatus_, _raffrsFailedItems = mempty}
+    {_raffrsResponseStatus = pResponseStatus_, _raffrsFailedItems = mempty}
 
 
 -- | -- | The response status code.
 raffrsResponseStatus :: Lens' RemoveAttributesFromFindingsResponse Int
-raffrsResponseStatus = lens _raffrsResponseStatus (\ s a -> s{_raffrsResponseStatus = a});
+raffrsResponseStatus = lens _raffrsResponseStatus (\ s a -> s{_raffrsResponseStatus = a})
 
 -- | Attributes details that cannot be described. An error code is provided for each failed item.
 raffrsFailedItems :: Lens' RemoveAttributesFromFindingsResponse (HashMap Text FailedItemDetails)
-raffrsFailedItems = lens _raffrsFailedItems (\ s a -> s{_raffrsFailedItems = a}) . _Map;
+raffrsFailedItems = lens _raffrsFailedItems (\ s a -> s{_raffrsFailedItems = a}) . _Map
 
 instance NFData RemoveAttributesFromFindingsResponse
          where

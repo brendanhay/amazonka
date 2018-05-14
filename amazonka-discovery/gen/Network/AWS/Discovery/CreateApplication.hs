@@ -68,11 +68,11 @@ createApplication pName_ =
 
 -- | Description of the application to be created.
 caDescription :: Lens' CreateApplication (Maybe Text)
-caDescription = lens _caDescription (\ s a -> s{_caDescription = a});
+caDescription = lens _caDescription (\ s a -> s{_caDescription = a})
 
 -- | Name of the application to be created.
 caName :: Lens' CreateApplication Text
-caName = lens _caName (\ s a -> s{_caName = a});
+caName = lens _caName (\ s a -> s{_caName = a})
 
 instance AWSRequest CreateApplication where
         type Rs CreateApplication = CreateApplicationResponse
@@ -129,15 +129,15 @@ createApplicationResponse
     -> CreateApplicationResponse
 createApplicationResponse pResponseStatus_ =
   CreateApplicationResponse'
-  {_carsConfigurationId = Nothing, _carsResponseStatus = pResponseStatus_}
+    {_carsConfigurationId = Nothing, _carsResponseStatus = pResponseStatus_}
 
 
 -- | Configuration ID of an application to be created.
 carsConfigurationId :: Lens' CreateApplicationResponse (Maybe Text)
-carsConfigurationId = lens _carsConfigurationId (\ s a -> s{_carsConfigurationId = a});
+carsConfigurationId = lens _carsConfigurationId (\ s a -> s{_carsConfigurationId = a})
 
 -- | -- | The response status code.
 carsResponseStatus :: Lens' CreateApplicationResponse Int
-carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
+carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a})
 
 instance NFData CreateApplicationResponse where

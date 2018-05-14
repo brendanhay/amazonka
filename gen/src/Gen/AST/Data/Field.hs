@@ -36,6 +36,8 @@ import Language.Haskell.Exts.Syntax (Name (..))
 import qualified Data.HashMap.Strict as Map
 import qualified Data.Text           as Text
 
+import Debug.Trace
+
 -- | Convenience type to package up some information from the struct with the
 -- related field, namely the memberId and the (Set.member required).
 data Field = Field
@@ -48,7 +50,7 @@ data Field = Field
     , _fieldPrefix    :: Maybe Text
     , _fieldNamespace :: Maybe Text
     , _fieldDirection :: Maybe Direction
-    }
+    } deriving (Show)
 
 makeLenses ''Field
 
@@ -57,7 +59,7 @@ instance IsStreaming Field where
 
 instance TypeOf Field where
     typeOf f
-        | isStreaming r         = t
+        | isStreaming r       = t
         | typ, loc            = t
         | f ^. fieldRequired' = t
         | otherwise           = TMaybe t
@@ -181,7 +183,13 @@ fieldBody x =
 
 -- | Is this primitive field set as the payload in the parent shape?
 fieldLitPayload :: Field -> Bool
-fieldLitPayload x = _fieldPayload x && fieldLit x
+fieldLitPayload x =
+    _fieldPayload x && (fieldLit x || bytes)
+  where
+    bytes =
+        case typeOf x of
+            TType "ByteString" _ -> True
+            _                    -> False
 
 fieldMaybe :: Field -> Bool
 fieldMaybe f =

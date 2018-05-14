@@ -386,11 +386,13 @@ responseE p r fs = Exts.app (responseF p r fs) bdy
 
     parseAll :: Exp
     parseAll = flip Exts.app (var "x") $
-        case p of
-            JSON       -> var "eitherParseJSON"
-            RestJSON   -> var "eitherParseJSON"
-            APIGateway -> var "eitherParseJSON"
-            _          -> var "parseXML"
+        if any fieldLitPayload fs
+            then var "pure"
+            else case p of
+                     JSON       -> var "eitherParseJSON"
+                     RestJSON   -> var "eitherParseJSON"
+                     APIGateway -> var "eitherParseJSON"
+                     _          -> var "parseXML"
 
     body = any fieldStream fs
 
@@ -719,7 +721,7 @@ responseF :: Protocol -> RefF a -> [Field] -> Exp
 responseF p r fs
     | null fs                         = var "receiveNull"
     | any fieldStream fs              = var "receiveBody"
-    | any fieldLitPayload fs          = var "receiveJSON" -- Currently assumes JSON body literal.
+    | any fieldLitPayload fs          = var "receiveBytes"
     | Just x <- r ^. refResultWrapper = Exts.app (var (suf <> "Wrapper")) (str x)
     | all (not . fieldBody) fs        = var "receiveEmpty"
     | otherwise                       = var suf
@@ -877,9 +879,9 @@ literal i ts = \case
     Time | i         -> tycon (tsToText ts)
          | otherwise -> tycon "UTCTime"
 
-    Json             ->
-        tyapp (tyapp (tycon "HashMap") (tycon "Text"))
-                      (tycon "Value")
+    Json             -> tycon "ByteString"
+        -- tyapp (tyapp (tycon "HashMap") (tycon "Text"))
+        --               (tycon "Value")
 
 strict :: Type -> Type
 strict = Exts.TyBang () (Exts.BangedTy ()) (Exts.NoUnpackPragma ()) . \case

@@ -111,14 +111,17 @@ requestInsts m oname h r fs = do
   where
     toHeaders :: Inst
     toHeaders = ToHeaders
-         $ map Right (satisfies [Header, Headers] fs)
+         $ map Right headers
         ++ map Left  protocolHeaders
 
     toPath :: Either Error Inst
     toPath = ToPath <$> uriFields oname h uriPath id fs
 
     toBody :: Maybe Inst
-    toBody = ToBody <$> (stream <|> pay)
+    toBody = ToBody <$> (stream <|> find fieldLitPayload fields)
+
+    body :: Bool
+    body = isJust toBody
 
     concatQuery :: [Inst] -> Either Error [Inst]
     concatQuery is = do
@@ -176,7 +179,6 @@ requestInsts m oname h r fs = do
             ToXML [f] -> Just f
             _         -> Nothing
 
-
     removeInsts :: [Inst] -> [Inst]
     removeInsts = mapMaybe go
       where
@@ -187,11 +189,8 @@ requestInsts m oname h r fs = do
             i                           -> Just i
 
         idem = (h ^. method) `elem` [HEAD, GET, DELETE]
-        body = isJust toBody
 
     (listToMaybe -> stream, fields) = partition fieldStream (notLocated fs)
-
-    pay = find fieldLitPayload fields
 
     protocolHeaders :: [(Text, Text)]
     protocolHeaders = case p of
@@ -213,8 +212,18 @@ requestInsts m oname h r fs = do
         a = ("Action",  Just action)
         v = ("Version", Just version)
 
-    content = ("application/x-amz-json-" <>) <$> m ^. jsonVersion
-    target  = (<> ("." <> action))           <$> m ^. targetPrefix
+    headers :: [Field]
+    headers = satisfies [Header, Headers] fs
+
+    target = (<> ("." <> action)) <$> m ^. targetPrefix
+
+    -- Skip adding the x-amz-json-* JSON version if the request data structure
+    -- already has a field serialized to the Content-Type header.
+    content =
+        let go x = x ^. fieldRef . refLocationName == Just "Content-Type"
+         in if isJust (find go headers)
+                then Nothing
+                else ("application/x-amz-json-" <>) <$> m ^. jsonVersion
 
     action  = memberId n
     version = m ^. apiVersion

@@ -431,6 +431,9 @@ data Metadata f = Metadata
     , _targetPrefix     :: Maybe Text
     } deriving (Generic)
 
+deriving instance Show (Metadata Maybe)
+deriving instance Show (Metadata Identity)
+
 $(TH.makeClassy ''Metadata)
 
 instance FromJSON (Metadata Maybe) where

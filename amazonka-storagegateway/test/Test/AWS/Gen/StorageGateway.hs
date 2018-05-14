@@ -67,6 +67,9 @@ import Test.Tasty
 --         , requestListTagsForResource $
 --             listTagsForResource
 --
+--         , requestNotifyWhenUploaded $
+--             notifyWhenUploaded
+--
 --         , requestUpdateGatewayInformation $
 --             updateGatewayInformation
 --
@@ -255,6 +258,9 @@ import Test.Tasty
 --
 --         , responseListTagsForResource $
 --             listTagsForResourceResponse
+--
+--         , responseNotifyWhenUploaded $
+--             notifyWhenUploadedResponse
 --
 --         , responseUpdateGatewayInformation $
 --             updateGatewayInformationResponse
@@ -472,6 +478,11 @@ requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestNotifyWhenUploaded :: NotifyWhenUploaded -> TestTree
+requestNotifyWhenUploaded = req
+    "NotifyWhenUploaded"
+    "fixture/NotifyWhenUploaded.yaml"
 
 requestUpdateGatewayInformation :: UpdateGatewayInformation -> TestTree
 requestUpdateGatewayInformation = req
@@ -810,6 +821,13 @@ responseListTagsForResource = res
     "fixture/ListTagsForResourceResponse.proto"
     storageGateway
     (Proxy :: Proxy ListTagsForResource)
+
+responseNotifyWhenUploaded :: NotifyWhenUploadedResponse -> TestTree
+responseNotifyWhenUploaded = res
+    "NotifyWhenUploadedResponse"
+    "fixture/NotifyWhenUploadedResponse.proto"
+    storageGateway
+    (Proxy :: Proxy NotifyWhenUploaded)
 
 responseUpdateGatewayInformation :: UpdateGatewayInformationResponse -> TestTree
 responseUpdateGatewayInformation = res

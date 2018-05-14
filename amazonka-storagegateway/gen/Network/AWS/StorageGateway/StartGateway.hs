@@ -69,7 +69,7 @@ startGateway pGatewayARN_ = StartGateway' {_sgGatewayARN = pGatewayARN_}
 
 -- | Undocumented member.
 sgGatewayARN :: Lens' StartGateway Text
-sgGatewayARN = lens _sgGatewayARN (\ s a -> s{_sgGatewayARN = a});
+sgGatewayARN = lens _sgGatewayARN (\ s a -> s{_sgGatewayARN = a})
 
 instance AWSRequest StartGateway where
         type Rs StartGateway = StartGatewayResponse
@@ -128,15 +128,15 @@ startGatewayResponse
     -> StartGatewayResponse
 startGatewayResponse pResponseStatus_ =
   StartGatewayResponse'
-  {_sgrsGatewayARN = Nothing, _sgrsResponseStatus = pResponseStatus_}
+    {_sgrsGatewayARN = Nothing, _sgrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 sgrsGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
-sgrsGatewayARN = lens _sgrsGatewayARN (\ s a -> s{_sgrsGatewayARN = a});
+sgrsGatewayARN = lens _sgrsGatewayARN (\ s a -> s{_sgrsGatewayARN = a})
 
 -- | -- | The response status code.
 sgrsResponseStatus :: Lens' StartGatewayResponse Int
-sgrsResponseStatus = lens _sgrsResponseStatus (\ s a -> s{_sgrsResponseStatus = a});
+sgrsResponseStatus = lens _sgrsResponseStatus (\ s a -> s{_sgrsResponseStatus = a})
 
 instance NFData StartGatewayResponse where

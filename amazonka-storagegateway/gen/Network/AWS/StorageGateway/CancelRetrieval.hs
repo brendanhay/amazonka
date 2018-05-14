@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway after the retrieval process is initiated. The virtual tape is returned to the VTS.
+-- Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway after the retrieval process is initiated. The virtual tape is returned to the VTS. This operation is only supported in the tape gateway type.
 --
 --
 module Network.AWS.StorageGateway.CancelRetrieval
@@ -73,11 +73,11 @@ cancelRetrieval pGatewayARN_ pTapeARN_ =
 
 -- | Undocumented member.
 crGatewayARN :: Lens' CancelRetrieval Text
-crGatewayARN = lens _crGatewayARN (\ s a -> s{_crGatewayARN = a});
+crGatewayARN = lens _crGatewayARN (\ s a -> s{_crGatewayARN = a})
 
 -- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel retrieval for.
 crTapeARN :: Lens' CancelRetrieval Text
-crTapeARN = lens _crTapeARN (\ s a -> s{_crTapeARN = a});
+crTapeARN = lens _crTapeARN (\ s a -> s{_crTapeARN = a})
 
 instance AWSRequest CancelRetrieval where
         type Rs CancelRetrieval = CancelRetrievalResponse
@@ -138,15 +138,15 @@ cancelRetrievalResponse
     -> CancelRetrievalResponse
 cancelRetrievalResponse pResponseStatus_ =
   CancelRetrievalResponse'
-  {_crrsTapeARN = Nothing, _crrsResponseStatus = pResponseStatus_}
+    {_crrsTapeARN = Nothing, _crrsResponseStatus = pResponseStatus_}
 
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which retrieval was canceled.
 crrsTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
-crrsTapeARN = lens _crrsTapeARN (\ s a -> s{_crrsTapeARN = a});
+crrsTapeARN = lens _crrsTapeARN (\ s a -> s{_crrsTapeARN = a})
 
 -- | -- | The response status code.
 crrsResponseStatus :: Lens' CancelRetrievalResponse Int
-crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
+crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a})
 
 instance NFData CancelRetrievalResponse where

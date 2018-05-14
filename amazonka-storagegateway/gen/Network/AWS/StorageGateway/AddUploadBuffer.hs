@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures one or more gateway local disks as upload buffer for a specified gateway. This operation is supported for the stored volume, cached volume and tape gateway architectures.
+-- Configures one or more gateway local disks as upload buffer for a specified gateway. This operation is supported for the stored volume, cached volume and tape gateway types.
 --
 --
 -- In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to add upload buffer, and one or more disk IDs that you want to configure as upload buffer.
@@ -70,11 +70,11 @@ addUploadBuffer pGatewayARN_ =
 
 -- | Undocumented member.
 aubGatewayARN :: Lens' AddUploadBuffer Text
-aubGatewayARN = lens _aubGatewayARN (\ s a -> s{_aubGatewayARN = a});
+aubGatewayARN = lens _aubGatewayARN (\ s a -> s{_aubGatewayARN = a})
 
 -- | Undocumented member.
 aubDiskIds :: Lens' AddUploadBuffer [Text]
-aubDiskIds = lens _aubDiskIds (\ s a -> s{_aubDiskIds = a}) . _Coerce;
+aubDiskIds = lens _aubDiskIds (\ s a -> s{_aubDiskIds = a}) . _Coerce
 
 instance AWSRequest AddUploadBuffer where
         type Rs AddUploadBuffer = AddUploadBufferResponse
@@ -131,15 +131,15 @@ addUploadBufferResponse
     -> AddUploadBufferResponse
 addUploadBufferResponse pResponseStatus_ =
   AddUploadBufferResponse'
-  {_aubrsGatewayARN = Nothing, _aubrsResponseStatus = pResponseStatus_}
+    {_aubrsGatewayARN = Nothing, _aubrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 aubrsGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
-aubrsGatewayARN = lens _aubrsGatewayARN (\ s a -> s{_aubrsGatewayARN = a});
+aubrsGatewayARN = lens _aubrsGatewayARN (\ s a -> s{_aubrsGatewayARN = a})
 
 -- | -- | The response status code.
 aubrsResponseStatus :: Lens' AddUploadBufferResponse Int
-aubrsResponseStatus = lens _aubrsResponseStatus (\ s a -> s{_aubrsResponseStatus = a});
+aubrsResponseStatus = lens _aubrsResponseStatus (\ s a -> s{_aubrsResponseStatus = a})
 
 instance NFData AddUploadBufferResponse where

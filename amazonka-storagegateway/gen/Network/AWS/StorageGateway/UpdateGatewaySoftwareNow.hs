@@ -70,7 +70,7 @@ updateGatewaySoftwareNow pGatewayARN_ =
 
 -- | Undocumented member.
 ugsnGatewayARN :: Lens' UpdateGatewaySoftwareNow Text
-ugsnGatewayARN = lens _ugsnGatewayARN (\ s a -> s{_ugsnGatewayARN = a});
+ugsnGatewayARN = lens _ugsnGatewayARN (\ s a -> s{_ugsnGatewayARN = a})
 
 instance AWSRequest UpdateGatewaySoftwareNow where
         type Rs UpdateGatewaySoftwareNow =
@@ -130,16 +130,16 @@ updateGatewaySoftwareNowResponse
     -> UpdateGatewaySoftwareNowResponse
 updateGatewaySoftwareNowResponse pResponseStatus_ =
   UpdateGatewaySoftwareNowResponse'
-  {_ugsnrsGatewayARN = Nothing, _ugsnrsResponseStatus = pResponseStatus_}
+    {_ugsnrsGatewayARN = Nothing, _ugsnrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 ugsnrsGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
-ugsnrsGatewayARN = lens _ugsnrsGatewayARN (\ s a -> s{_ugsnrsGatewayARN = a});
+ugsnrsGatewayARN = lens _ugsnrsGatewayARN (\ s a -> s{_ugsnrsGatewayARN = a})
 
 -- | -- | The response status code.
 ugsnrsResponseStatus :: Lens' UpdateGatewaySoftwareNowResponse Int
-ugsnrsResponseStatus = lens _ugsnrsResponseStatus (\ s a -> s{_ugsnrsResponseStatus = a});
+ugsnrsResponseStatus = lens _ugsnrsResponseStatus (\ s a -> s{_ugsnrsResponseStatus = a})
 
 instance NFData UpdateGatewaySoftwareNowResponse
          where

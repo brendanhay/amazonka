@@ -53,7 +53,7 @@ data DeactivateUser = DeactivateUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dAuthenticationToken' - Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- * 'dAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- * 'dUserId' - The ID of the user.
 deactivateUser
@@ -63,13 +63,13 @@ deactivateUser pUserId_ =
   DeactivateUser' {_dAuthenticationToken = Nothing, _dUserId = pUserId_}
 
 
--- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
+-- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 dAuthenticationToken :: Lens' DeactivateUser (Maybe Text)
-dAuthenticationToken = lens _dAuthenticationToken (\ s a -> s{_dAuthenticationToken = a}) . mapping _Sensitive;
+dAuthenticationToken = lens _dAuthenticationToken (\ s a -> s{_dAuthenticationToken = a}) . mapping _Sensitive
 
 -- | The ID of the user.
 dUserId :: Lens' DeactivateUser Text
-dUserId = lens _dUserId (\ s a -> s{_dUserId = a});
+dUserId = lens _dUserId (\ s a -> s{_dUserId = a})
 
 instance AWSRequest DeactivateUser where
         type Rs DeactivateUser = DeactivateUserResponse

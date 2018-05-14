@@ -62,16 +62,18 @@ deleteNotificationSubscription
     -> DeleteNotificationSubscription
 deleteNotificationSubscription pSubscriptionId_ pOrganizationId_ =
   DeleteNotificationSubscription'
-  {_dnsSubscriptionId = pSubscriptionId_, _dnsOrganizationId = pOrganizationId_}
+    { _dnsSubscriptionId = pSubscriptionId_
+    , _dnsOrganizationId = pOrganizationId_
+    }
 
 
 -- | The ID of the subscription.
 dnsSubscriptionId :: Lens' DeleteNotificationSubscription Text
-dnsSubscriptionId = lens _dnsSubscriptionId (\ s a -> s{_dnsSubscriptionId = a});
+dnsSubscriptionId = lens _dnsSubscriptionId (\ s a -> s{_dnsSubscriptionId = a})
 
 -- | The ID of the organization.
 dnsOrganizationId :: Lens' DeleteNotificationSubscription Text
-dnsOrganizationId = lens _dnsOrganizationId (\ s a -> s{_dnsOrganizationId = a});
+dnsOrganizationId = lens _dnsOrganizationId (\ s a -> s{_dnsOrganizationId = a})
 
 instance AWSRequest DeleteNotificationSubscription
          where

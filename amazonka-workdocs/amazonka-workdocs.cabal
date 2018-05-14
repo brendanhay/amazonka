@@ -67,6 +67,7 @@ library
         , Network.AWS.WorkDocs.DescribeComments
         , Network.AWS.WorkDocs.DescribeDocumentVersions
         , Network.AWS.WorkDocs.DescribeFolderContents
+        , Network.AWS.WorkDocs.DescribeGroups
         , Network.AWS.WorkDocs.DescribeNotificationSubscriptions
         , Network.AWS.WorkDocs.DescribeResourcePermissions
         , Network.AWS.WorkDocs.DescribeRootFolders

@@ -116,7 +116,7 @@ instance AWSRequest GetExport where
         type Rs GetExport = GetExportResponse
         request = get apiGateway
         response
-          = receiveJSON
+          = receiveBytes
               (\ s h x ->
                  GetExportResponse' <$>
                    (pure (Just x)) <*> (h .#? "Content-Disposition") <*>
@@ -152,7 +152,7 @@ instance ToQuery GetExport where
 --
 -- /See:/ 'getExportResponse' smart constructor.
 data GetExportResponse = GetExportResponse'
-  { _gersBody               :: !(Maybe (HashMap Text Value))
+  { _gersBody               :: !(Maybe ByteString)
   , _gersContentDisposition :: !(Maybe Text)
   , _gersContentType        :: !(Maybe Text)
   , _gersResponseStatus     :: !Int
@@ -183,7 +183,7 @@ getExportResponse pResponseStatus_ =
 
 
 -- | The binary blob response to 'GetExport' , which contains the export.
-gersBody :: Lens' GetExportResponse (Maybe (HashMap Text Value))
+gersBody :: Lens' GetExportResponse (Maybe ByteString)
 gersBody = lens _gersBody (\ s a -> s{_gersBody = a})
 
 -- | The content-disposition header value in the HTTP response.

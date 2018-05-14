@@ -47,7 +47,7 @@ data PutBucketPolicy = PutBucketPolicy'
   { _pbpConfirmRemoveSelfBucketAccess :: !(Maybe Bool)
   , _pbpContentMD5                    :: !(Maybe Text)
   , _pbpBucket                        :: !BucketName
-  , _pbpPolicy                        :: !(HashMap Text Value)
+  , _pbpPolicy                        :: !ByteString
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -64,7 +64,7 @@ data PutBucketPolicy = PutBucketPolicy'
 -- * 'pbpPolicy' - The bucket policy as a JSON document.
 putBucketPolicy
     :: BucketName -- ^ 'pbpBucket'
-    -> HashMap Text Value -- ^ 'pbpPolicy'
+    -> ByteString -- ^ 'pbpPolicy'
     -> PutBucketPolicy
 putBucketPolicy pBucket_ pPolicy_ =
   PutBucketPolicy'
@@ -88,7 +88,7 @@ pbpBucket :: Lens' PutBucketPolicy BucketName
 pbpBucket = lens _pbpBucket (\ s a -> s{_pbpBucket = a})
 
 -- | The bucket policy as a JSON document.
-pbpPolicy :: Lens' PutBucketPolicy (HashMap Text Value)
+pbpPolicy :: Lens' PutBucketPolicy ByteString
 pbpPolicy = lens _pbpPolicy (\ s a -> s{_pbpPolicy = a})
 
 instance AWSRequest PutBucketPolicy where

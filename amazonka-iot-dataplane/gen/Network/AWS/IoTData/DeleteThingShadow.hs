@@ -75,7 +75,7 @@ instance AWSRequest DeleteThingShadow where
         type Rs DeleteThingShadow = DeleteThingShadowResponse
         request = delete ioTData
         response
-          = receiveJSON
+          = receiveBytes
               (\ s h x ->
                  DeleteThingShadowResponse' <$>
                    (pure (fromEnum s)) <*> (pure x))
@@ -101,7 +101,7 @@ instance ToQuery DeleteThingShadow where
 -- /See:/ 'deleteThingShadowResponse' smart constructor.
 data DeleteThingShadowResponse = DeleteThingShadowResponse'
   { _dtsrsResponseStatus :: !Int
-  , _dtsrsPayload        :: !(HashMap Text Value)
+  , _dtsrsPayload        :: !ByteString
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -114,7 +114,7 @@ data DeleteThingShadowResponse = DeleteThingShadowResponse'
 -- * 'dtsrsPayload' - The state information, in JSON format.
 deleteThingShadowResponse
     :: Int -- ^ 'dtsrsResponseStatus'
-    -> HashMap Text Value -- ^ 'dtsrsPayload'
+    -> ByteString -- ^ 'dtsrsPayload'
     -> DeleteThingShadowResponse
 deleteThingShadowResponse pResponseStatus_ pPayload_ =
   DeleteThingShadowResponse'
@@ -126,7 +126,7 @@ dtsrsResponseStatus :: Lens' DeleteThingShadowResponse Int
 dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus = a})
 
 -- | The state information, in JSON format.
-dtsrsPayload :: Lens' DeleteThingShadowResponse (HashMap Text Value)
+dtsrsPayload :: Lens' DeleteThingShadowResponse ByteString
 dtsrsPayload = lens _dtsrsPayload (\ s a -> s{_dtsrsPayload = a})
 
 instance NFData DeleteThingShadowResponse where

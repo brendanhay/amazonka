@@ -63,7 +63,7 @@ import Network.AWS.Response
 data ImportRestAPI = ImportRestAPI'
   { _iraFailOnWarnings :: !(Maybe Bool)
   , _iraParameters     :: !(Maybe (Map Text Text))
-  , _iraBody           :: !(HashMap Text Value)
+  , _iraBody           :: !ByteString
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -77,7 +77,7 @@ data ImportRestAPI = ImportRestAPI'
 --
 -- * 'iraBody' - [Required] The POST request body containing external API definitions. Currently, only Swagger definition JSON files are supported. The maximum size of the API definition file is 2MB.
 importRestAPI
-    :: HashMap Text Value -- ^ 'iraBody'
+    :: ByteString -- ^ 'iraBody'
     -> ImportRestAPI
 importRestAPI pBody_ =
   ImportRestAPI'
@@ -93,7 +93,7 @@ iraParameters :: Lens' ImportRestAPI (HashMap Text Text)
 iraParameters = lens _iraParameters (\ s a -> s{_iraParameters = a}) . _Default . _Map
 
 -- | [Required] The POST request body containing external API definitions. Currently, only Swagger definition JSON files are supported. The maximum size of the API definition file is 2MB.
-iraBody :: Lens' ImportRestAPI (HashMap Text Value)
+iraBody :: Lens' ImportRestAPI ByteString
 iraBody = lens _iraBody (\ s a -> s{_iraBody = a})
 
 instance AWSRequest ImportRestAPI where

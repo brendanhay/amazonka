@@ -103,10 +103,7 @@ instance ToBody UploadDocuments where
 
 instance ToHeaders UploadDocuments where
         toHeaders UploadDocuments'{..}
-          = mconcat
-              ["Content-Type" =# _udContentType,
-               "Content-Type" =#
-                 ("application/x-amz-json-1.1" :: ByteString)]
+          = mconcat ["Content-Type" =# _udContentType]
 
 instance ToPath UploadDocuments where
         toPath = const "/2013-01-01/documents/batch"

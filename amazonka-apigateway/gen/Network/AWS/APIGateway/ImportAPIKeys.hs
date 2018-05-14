@@ -54,7 +54,7 @@ import Network.AWS.Response
 -- /See:/ 'importAPIKeys' smart constructor.
 data ImportAPIKeys = ImportAPIKeys'
   { _iakFailOnWarnings :: !(Maybe Bool)
-  , _iakBody           :: !(HashMap Text Value)
+  , _iakBody           :: !ByteString
   , _iakFormat         :: !APIKeysFormat
   } deriving (Eq, Show, Data, Typeable, Generic)
 
@@ -69,7 +69,7 @@ data ImportAPIKeys = ImportAPIKeys'
 --
 -- * 'iakFormat' - A query parameter to specify the input format to imported API keys. Currently, only the @csv@ format is supported.
 importAPIKeys
-    :: HashMap Text Value -- ^ 'iakBody'
+    :: ByteString -- ^ 'iakBody'
     -> APIKeysFormat -- ^ 'iakFormat'
     -> ImportAPIKeys
 importAPIKeys pBody_ pFormat_ =
@@ -82,7 +82,7 @@ iakFailOnWarnings :: Lens' ImportAPIKeys (Maybe Bool)
 iakFailOnWarnings = lens _iakFailOnWarnings (\ s a -> s{_iakFailOnWarnings = a})
 
 -- | The payload of the POST request to import API keys. For the payload format, see <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html API Key File Format> .
-iakBody :: Lens' ImportAPIKeys (HashMap Text Value)
+iakBody :: Lens' ImportAPIKeys ByteString
 iakBody = lens _iakBody (\ s a -> s{_iakBody = a})
 
 -- | A query parameter to specify the input format to imported API keys. Currently, only the @csv@ format is supported.

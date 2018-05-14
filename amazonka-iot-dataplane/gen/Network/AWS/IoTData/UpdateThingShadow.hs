@@ -54,7 +54,7 @@ import Network.AWS.Response
 -- /See:/ 'updateThingShadow' smart constructor.
 data UpdateThingShadow = UpdateThingShadow'
   { _utsThingName :: !Text
-  , _utsPayload   :: !(HashMap Text Value)
+  , _utsPayload   :: !ByteString
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -67,7 +67,7 @@ data UpdateThingShadow = UpdateThingShadow'
 -- * 'utsPayload' - The state information, in JSON format.
 updateThingShadow
     :: Text -- ^ 'utsThingName'
-    -> HashMap Text Value -- ^ 'utsPayload'
+    -> ByteString -- ^ 'utsPayload'
     -> UpdateThingShadow
 updateThingShadow pThingName_ pPayload_ =
   UpdateThingShadow' {_utsThingName = pThingName_, _utsPayload = pPayload_}
@@ -78,14 +78,14 @@ utsThingName :: Lens' UpdateThingShadow Text
 utsThingName = lens _utsThingName (\ s a -> s{_utsThingName = a})
 
 -- | The state information, in JSON format.
-utsPayload :: Lens' UpdateThingShadow (HashMap Text Value)
+utsPayload :: Lens' UpdateThingShadow ByteString
 utsPayload = lens _utsPayload (\ s a -> s{_utsPayload = a})
 
 instance AWSRequest UpdateThingShadow where
         type Rs UpdateThingShadow = UpdateThingShadowResponse
         request = postBody ioTData
         response
-          = receiveJSON
+          = receiveBytes
               (\ s h x ->
                  UpdateThingShadowResponse' <$>
                    (pure (Just x)) <*> (pure (fromEnum s)))
@@ -113,7 +113,7 @@ instance ToQuery UpdateThingShadow where
 --
 -- /See:/ 'updateThingShadowResponse' smart constructor.
 data UpdateThingShadowResponse = UpdateThingShadowResponse'
-  { _utsrsPayload        :: !(Maybe (HashMap Text Value))
+  { _utsrsPayload        :: !(Maybe ByteString)
   , _utsrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
@@ -134,7 +134,7 @@ updateThingShadowResponse pResponseStatus_ =
 
 
 -- | The state information, in JSON format.
-utsrsPayload :: Lens' UpdateThingShadowResponse (Maybe (HashMap Text Value))
+utsrsPayload :: Lens' UpdateThingShadowResponse (Maybe ByteString)
 utsrsPayload = lens _utsrsPayload (\ s a -> s{_utsrsPayload = a})
 
 -- | -- | The response status code.

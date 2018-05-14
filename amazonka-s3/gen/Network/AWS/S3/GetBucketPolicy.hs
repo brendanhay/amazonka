@@ -67,7 +67,7 @@ instance AWSRequest GetBucketPolicy where
         type Rs GetBucketPolicy = GetBucketPolicyResponse
         request = get s3
         response
-          = receiveJSON
+          = receiveBytes
               (\ s h x ->
                  GetBucketPolicyResponse' <$>
                    (pure (fromEnum s)) <*> (pure x))
@@ -89,7 +89,7 @@ instance ToQuery GetBucketPolicy where
 -- | /See:/ 'getBucketPolicyResponse' smart constructor.
 data GetBucketPolicyResponse = GetBucketPolicyResponse'
   { _gbprsResponseStatus :: !Int
-  , _gbprsPolicy         :: !(HashMap Text Value)
+  , _gbprsPolicy         :: !ByteString
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -102,7 +102,7 @@ data GetBucketPolicyResponse = GetBucketPolicyResponse'
 -- * 'gbprsPolicy' - The bucket policy as a JSON document.
 getBucketPolicyResponse
     :: Int -- ^ 'gbprsResponseStatus'
-    -> HashMap Text Value -- ^ 'gbprsPolicy'
+    -> ByteString -- ^ 'gbprsPolicy'
     -> GetBucketPolicyResponse
 getBucketPolicyResponse pResponseStatus_ pPolicy_ =
   GetBucketPolicyResponse'
@@ -114,7 +114,7 @@ gbprsResponseStatus :: Lens' GetBucketPolicyResponse Int
 gbprsResponseStatus = lens _gbprsResponseStatus (\ s a -> s{_gbprsResponseStatus = a})
 
 -- | The bucket policy as a JSON document.
-gbprsPolicy :: Lens' GetBucketPolicyResponse (HashMap Text Value)
+gbprsPolicy :: Lens' GetBucketPolicyResponse ByteString
 gbprsPolicy = lens _gbprsPolicy (\ s a -> s{_gbprsPolicy = a})
 
 instance NFData GetBucketPolicyResponse where

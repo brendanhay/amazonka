@@ -58,8 +58,8 @@ data InvokeEndpoint = InvokeEndpoint'
   { _ieAccept       :: !(Maybe Text)
   , _ieContentType  :: !(Maybe Text)
   , _ieEndpointName :: !Text
-  , _ieBody         :: !(Sensitive Base64)
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  , _ieBody         :: !ByteString
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'InvokeEndpoint' with the minimum fields required to make a request.
@@ -72,7 +72,7 @@ data InvokeEndpoint = InvokeEndpoint'
 --
 -- * 'ieEndpointName' - The name of the endpoint that you specified when you created the endpoint using the <http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html CreateEndpoint> API.
 --
--- * 'ieBody' - Provides input data, in the format specified in the @ContentType@ request header. Amazon SageMaker passes all of the data in the body to the model. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'ieBody' - Provides input data, in the format specified in the @ContentType@ request header. Amazon SageMaker passes all of the data in the body to the model.
 invokeEndpoint
     :: Text -- ^ 'ieEndpointName'
     -> ByteString -- ^ 'ieBody'
@@ -82,7 +82,7 @@ invokeEndpoint pEndpointName_ pBody_ =
     { _ieAccept = Nothing
     , _ieContentType = Nothing
     , _ieEndpointName = pEndpointName_
-    , _ieBody = _Sensitive . _Base64 # pBody_
+    , _ieBody = pBody_
     }
 
 
@@ -98,15 +98,15 @@ ieContentType = lens _ieContentType (\ s a -> s{_ieContentType = a})
 ieEndpointName :: Lens' InvokeEndpoint Text
 ieEndpointName = lens _ieEndpointName (\ s a -> s{_ieEndpointName = a})
 
--- | Provides input data, in the format specified in the @ContentType@ request header. Amazon SageMaker passes all of the data in the body to the model. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | Provides input data, in the format specified in the @ContentType@ request header. Amazon SageMaker passes all of the data in the body to the model.
 ieBody :: Lens' InvokeEndpoint ByteString
-ieBody = lens _ieBody (\ s a -> s{_ieBody = a}) . _Sensitive . _Base64
+ieBody = lens _ieBody (\ s a -> s{_ieBody = a})
 
 instance AWSRequest InvokeEndpoint where
         type Rs InvokeEndpoint = InvokeEndpointResponse
         request = postBody sageMakerRuntime
         response
-          = receiveJSON
+          = receiveBytes
               (\ s h x ->
                  InvokeEndpointResponse' <$>
                    (h .#? "x-Amzn-Invoked-Production-Variant") <*>
@@ -125,9 +125,7 @@ instance ToHeaders InvokeEndpoint where
         toHeaders InvokeEndpoint'{..}
           = mconcat
               ["Accept" =# _ieAccept,
-               "Content-Type" =# _ieContentType,
-               "Content-Type" =#
-                 ("application/x-amz-json-1.1" :: ByteString)]
+               "Content-Type" =# _ieContentType]
 
 instance ToPath InvokeEndpoint where
         toPath InvokeEndpoint'{..}
@@ -142,8 +140,8 @@ data InvokeEndpointResponse = InvokeEndpointResponse'
   { _iersInvokedProductionVariant :: !(Maybe Text)
   , _iersContentType              :: !(Maybe Text)
   , _iersResponseStatus           :: !Int
-  , _iersBody                     :: !(Sensitive Base64)
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  , _iersBody                     :: !ByteString
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'InvokeEndpointResponse' with the minimum fields required to make a request.
@@ -156,7 +154,7 @@ data InvokeEndpointResponse = InvokeEndpointResponse'
 --
 -- * 'iersResponseStatus' - -- | The response status code.
 --
--- * 'iersBody' - Includes the inference provided by the model.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'iersBody' - Includes the inference provided by the model.
 invokeEndpointResponse
     :: Int -- ^ 'iersResponseStatus'
     -> ByteString -- ^ 'iersBody'
@@ -166,7 +164,7 @@ invokeEndpointResponse pResponseStatus_ pBody_ =
     { _iersInvokedProductionVariant = Nothing
     , _iersContentType = Nothing
     , _iersResponseStatus = pResponseStatus_
-    , _iersBody = _Sensitive . _Base64 # pBody_
+    , _iersBody = pBody_
     }
 
 
@@ -182,8 +180,8 @@ iersContentType = lens _iersContentType (\ s a -> s{_iersContentType = a})
 iersResponseStatus :: Lens' InvokeEndpointResponse Int
 iersResponseStatus = lens _iersResponseStatus (\ s a -> s{_iersResponseStatus = a})
 
--- | Includes the inference provided by the model.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | Includes the inference provided by the model.
 iersBody :: Lens' InvokeEndpointResponse ByteString
-iersBody = lens _iersBody (\ s a -> s{_iersBody = a}) . _Sensitive . _Base64
+iersBody = lens _iersBody (\ s a -> s{_iersBody = a})
 
 instance NFData InvokeEndpointResponse where

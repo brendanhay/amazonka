@@ -107,7 +107,7 @@ instance AWSRequest GetSDK where
         type Rs GetSDK = GetSDKResponse
         request = get apiGateway
         response
-          = receiveJSON
+          = receiveBytes
               (\ s h x ->
                  GetSDKResponse' <$>
                    (pure (Just x)) <*> (h .#? "Content-Disposition") <*>
@@ -144,7 +144,7 @@ instance ToQuery GetSDK where
 --
 -- /See:/ 'getSDKResponse' smart constructor.
 data GetSDKResponse = GetSDKResponse'
-  { _gsdkrsBody               :: !(Maybe (HashMap Text Value))
+  { _gsdkrsBody               :: !(Maybe ByteString)
   , _gsdkrsContentDisposition :: !(Maybe Text)
   , _gsdkrsContentType        :: !(Maybe Text)
   , _gsdkrsResponseStatus     :: !Int
@@ -175,7 +175,7 @@ getSDKResponse pResponseStatus_ =
 
 
 -- | The binary blob response to 'GetSdk' , which contains the generated SDK.
-gsdkrsBody :: Lens' GetSDKResponse (Maybe (HashMap Text Value))
+gsdkrsBody :: Lens' GetSDKResponse (Maybe ByteString)
 gsdkrsBody = lens _gsdkrsBody (\ s a -> s{_gsdkrsBody = a})
 
 -- | The content-disposition header value in the HTTP response.

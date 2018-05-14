@@ -75,7 +75,7 @@ instance AWSRequest GetThingShadow where
         type Rs GetThingShadow = GetThingShadowResponse
         request = get ioTData
         response
-          = receiveJSON
+          = receiveBytes
               (\ s h x ->
                  GetThingShadowResponse' <$>
                    (pure (Just x)) <*> (pure (fromEnum s)))
@@ -100,7 +100,7 @@ instance ToQuery GetThingShadow where
 --
 -- /See:/ 'getThingShadowResponse' smart constructor.
 data GetThingShadowResponse = GetThingShadowResponse'
-  { _gtsrsPayload        :: !(Maybe (HashMap Text Value))
+  { _gtsrsPayload        :: !(Maybe ByteString)
   , _gtsrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
@@ -121,7 +121,7 @@ getThingShadowResponse pResponseStatus_ =
 
 
 -- | The state information, in JSON format.
-gtsrsPayload :: Lens' GetThingShadowResponse (Maybe (HashMap Text Value))
+gtsrsPayload :: Lens' GetThingShadowResponse (Maybe ByteString)
 gtsrsPayload = lens _gtsrsPayload (\ s a -> s{_gtsrsPayload = a})
 
 -- | -- | The response status code.

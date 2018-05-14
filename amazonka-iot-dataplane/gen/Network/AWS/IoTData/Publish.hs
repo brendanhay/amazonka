@@ -51,7 +51,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'publish' smart constructor.
 data Publish = Publish'
-  { _pPayload :: !(Maybe (HashMap Text Value))
+  { _pPayload :: !(Maybe ByteString)
   , _pQos     :: !(Maybe Nat)
   , _pTopic   :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
@@ -74,7 +74,7 @@ publish pTopic_ =
 
 
 -- | The state information, in JSON format.
-pPayload :: Lens' Publish (Maybe (HashMap Text Value))
+pPayload :: Lens' Publish (Maybe ByteString)
 pPayload = lens _pPayload (\ s a -> s{_pPayload = a})
 
 -- | The Quality of Service (QoS) level.

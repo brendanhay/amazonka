@@ -80,7 +80,7 @@ instance AWSRequest GetIntrospectionSchema where
              GetIntrospectionSchemaResponse
         request = get appSync
         response
-          = receiveJSON
+          = receiveBytes
               (\ s h x ->
                  GetIntrospectionSchemaResponse' <$>
                    (pure (Just x)) <*> (pure (fromEnum s)))

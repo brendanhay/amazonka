@@ -55,7 +55,7 @@ data ImportDocumentationParts = ImportDocumentationParts'
   { _idpMode           :: !(Maybe PutMode)
   , _idpFailOnWarnings :: !(Maybe Bool)
   , _idpRestAPIId      :: !Text
-  , _idpBody           :: !(HashMap Text Value)
+  , _idpBody           :: !ByteString
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -72,7 +72,7 @@ data ImportDocumentationParts = ImportDocumentationParts'
 -- * 'idpBody' - [Required] Raw byte array representing the to-be-imported documentation parts. To import from a Swagger file, this is a JSON object.
 importDocumentationParts
     :: Text -- ^ 'idpRestAPIId'
-    -> HashMap Text Value -- ^ 'idpBody'
+    -> ByteString -- ^ 'idpBody'
     -> ImportDocumentationParts
 importDocumentationParts pRestAPIId_ pBody_ =
   ImportDocumentationParts'
@@ -96,7 +96,7 @@ idpRestAPIId :: Lens' ImportDocumentationParts Text
 idpRestAPIId = lens _idpRestAPIId (\ s a -> s{_idpRestAPIId = a})
 
 -- | [Required] Raw byte array representing the to-be-imported documentation parts. To import from a Swagger file, this is a JSON object.
-idpBody :: Lens' ImportDocumentationParts (HashMap Text Value)
+idpBody :: Lens' ImportDocumentationParts ByteString
 idpBody = lens _idpBody (\ s a -> s{_idpBody = a})
 
 instance AWSRequest ImportDocumentationParts where

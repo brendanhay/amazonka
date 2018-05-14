@@ -67,7 +67,7 @@ data PutRestAPI = PutRestAPI'
   , _praFailOnWarnings :: !(Maybe Bool)
   , _praParameters     :: !(Maybe (Map Text Text))
   , _praRestAPIId      :: !Text
-  , _praBody           :: !(HashMap Text Value)
+  , _praBody           :: !ByteString
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -86,7 +86,7 @@ data PutRestAPI = PutRestAPI'
 -- * 'praBody' - [Required] The PUT request body containing external API definitions. Currently, only Swagger definition JSON files are supported. The maximum size of the API definition file is 2MB.
 putRestAPI
     :: Text -- ^ 'praRestAPIId'
-    -> HashMap Text Value -- ^ 'praBody'
+    -> ByteString -- ^ 'praBody'
     -> PutRestAPI
 putRestAPI pRestAPIId_ pBody_ =
   PutRestAPI'
@@ -115,7 +115,7 @@ praRestAPIId :: Lens' PutRestAPI Text
 praRestAPIId = lens _praRestAPIId (\ s a -> s{_praRestAPIId = a})
 
 -- | [Required] The PUT request body containing external API definitions. Currently, only Swagger definition JSON files are supported. The maximum size of the API definition file is 2MB.
-praBody :: Lens' PutRestAPI (HashMap Text Value)
+praBody :: Lens' PutRestAPI ByteString
 praBody = lens _praBody (\ s a -> s{_praBody = a})
 
 instance AWSRequest PutRestAPI where

@@ -67,7 +67,7 @@ data Invoke = Invoke'
   , _iQualifier      :: !(Maybe Text)
   , _iClientContext  :: !(Maybe Text)
   , _iFunctionName   :: !Text
-  , _iPayload        :: !(HashMap Text Value)
+  , _iPayload        :: !ByteString
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -88,7 +88,7 @@ data Invoke = Invoke'
 -- * 'iPayload' - JSON that you want to provide to your Lambda function as input.
 invoke
     :: Text -- ^ 'iFunctionName'
-    -> HashMap Text Value -- ^ 'iPayload'
+    -> ByteString -- ^ 'iPayload'
     -> Invoke
 invoke pFunctionName_ pPayload_ =
   Invoke'
@@ -122,14 +122,14 @@ iFunctionName :: Lens' Invoke Text
 iFunctionName = lens _iFunctionName (\ s a -> s{_iFunctionName = a})
 
 -- | JSON that you want to provide to your Lambda function as input.
-iPayload :: Lens' Invoke (HashMap Text Value)
+iPayload :: Lens' Invoke ByteString
 iPayload = lens _iPayload (\ s a -> s{_iPayload = a})
 
 instance AWSRequest Invoke where
         type Rs Invoke = InvokeResponse
         request = postBody lambda
         response
-          = receiveJSON
+          = receiveBytes
               (\ s h x ->
                  InvokeResponse' <$>
                    (h .#? "X-Amz-Function-Error") <*>
@@ -170,7 +170,7 @@ instance ToQuery Invoke where
 data InvokeResponse = InvokeResponse'
   { _irsFunctionError   :: !(Maybe Text)
   , _irsLogResult       :: !(Maybe Text)
-  , _irsPayload         :: !(Maybe (HashMap Text Value))
+  , _irsPayload         :: !(Maybe ByteString)
   , _irsExecutedVersion :: !(Maybe Text)
   , _irsStatusCode      :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
@@ -211,7 +211,7 @@ irsLogResult :: Lens' InvokeResponse (Maybe Text)
 irsLogResult = lens _irsLogResult (\ s a -> s{_irsLogResult = a})
 
 -- | It is the JSON representation of the object returned by the Lambda function. This is present only if the invocation type is @RequestResponse@ .  In the event of a function error this field contains a message describing the error. For the @Handled@ errors the Lambda function will report this message. For @Unhandled@ errors AWS Lambda reports the message.
-irsPayload :: Lens' InvokeResponse (Maybe (HashMap Text Value))
+irsPayload :: Lens' InvokeResponse (Maybe ByteString)
 irsPayload = lens _irsPayload (\ s a -> s{_irsPayload = a})
 
 -- | The function version that has been executed. This value is returned only if the invocation type is @RequestResponse@ . For more information, see 'lambda-traffic-shifting-using-aliases' .

@@ -208,9 +208,7 @@ instance ToHeaders PostContent where
                  _pcRequestAttributes,
                "x-amz-lex-session-attributes" =#
                  _pcSessionAttributes,
-               "Content-Type" =# _pcContentType,
-               "Content-Type" =#
-                 ("application/x-amz-json-1.1" :: ByteString)]
+               "Content-Type" =# _pcContentType]
 
 instance ToPath PostContent where
         toPath PostContent'{..}

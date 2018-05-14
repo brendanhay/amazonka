@@ -10,7 +10,7 @@ nix:
 flags: {}
 
 extra-deps:
-- ede-0.2.8.7 # TODO: replace this with a newer version that fixes: https://github.com/brendanhay/ede/issues/28
+- ede-0.2.9
 - text-regex-replace-0.1.1.1
 
 packages:

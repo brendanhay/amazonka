@@ -75,7 +75,7 @@ executable amazonka-gen
         , containers
         , data-default-class
         , directory-tree
-        , ede
+        , ede                  >= 0.2.9
         , errors               == 2.*
         , formatting
         , free

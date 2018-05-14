@@ -67,11 +67,11 @@ deregisterTargets pTargetGroupARN_ =
 
 -- | The Amazon Resource Name (ARN) of the target group.
 dtTargetGroupARN :: Lens' DeregisterTargets Text
-dtTargetGroupARN = lens _dtTargetGroupARN (\ s a -> s{_dtTargetGroupARN = a});
+dtTargetGroupARN = lens _dtTargetGroupARN (\ s a -> s{_dtTargetGroupARN = a})
 
 -- | The targets. If you specified a port override when you registered a target, you must specify both the target ID and the port when you deregister it.
 dtTargets :: Lens' DeregisterTargets [TargetDescription]
-dtTargets = lens _dtTargets (\ s a -> s{_dtTargets = a}) . _Coerce;
+dtTargets = lens _dtTargets (\ s a -> s{_dtTargets = a}) . _Coerce
 
 instance AWSRequest DeregisterTargets where
         type Rs DeregisterTargets = DeregisterTargetsResponse
@@ -119,6 +119,6 @@ deregisterTargetsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dtsrsResponseStatus :: Lens' DeregisterTargetsResponse Int
-dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus = a});
+dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus = a})
 
 instance NFData DeregisterTargetsResponse where

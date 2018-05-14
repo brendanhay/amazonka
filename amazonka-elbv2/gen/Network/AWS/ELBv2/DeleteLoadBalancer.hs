@@ -67,7 +67,7 @@ deleteLoadBalancer pLoadBalancerARN_ =
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
 dlbLoadBalancerARN :: Lens' DeleteLoadBalancer Text
-dlbLoadBalancerARN = lens _dlbLoadBalancerARN (\ s a -> s{_dlbLoadBalancerARN = a});
+dlbLoadBalancerARN = lens _dlbLoadBalancerARN (\ s a -> s{_dlbLoadBalancerARN = a})
 
 instance AWSRequest DeleteLoadBalancer where
         type Rs DeleteLoadBalancer =
@@ -115,6 +115,6 @@ deleteLoadBalancerResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteLoadBalancerResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteLoadBalancerResponse where

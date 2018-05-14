@@ -67,11 +67,11 @@ removeTags = RemoveTags' {_rtResourceARNs = mempty, _rtTagKeys = mempty}
 
 -- | The Amazon Resource Name (ARN) of the resource.
 rtResourceARNs :: Lens' RemoveTags [Text]
-rtResourceARNs = lens _rtResourceARNs (\ s a -> s{_rtResourceARNs = a}) . _Coerce;
+rtResourceARNs = lens _rtResourceARNs (\ s a -> s{_rtResourceARNs = a}) . _Coerce
 
 -- | The tag keys for the tags to remove.
 rtTagKeys :: Lens' RemoveTags [Text]
-rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a}) . _Coerce;
+rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a}) . _Coerce
 
 instance AWSRequest RemoveTags where
         type Rs RemoveTags = RemoveTagsResponse
@@ -120,6 +120,6 @@ removeTagsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 rtrsResponseStatus :: Lens' RemoveTagsResponse Int
-rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});
+rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a})
 
 instance NFData RemoveTagsResponse where

@@ -62,7 +62,7 @@ describeTags = DescribeTags' {_dtResourceARNs = mempty}
 
 -- | The Amazon Resource Names (ARN) of the resources.
 dtResourceARNs :: Lens' DescribeTags [Text]
-dtResourceARNs = lens _dtResourceARNs (\ s a -> s{_dtResourceARNs = a}) . _Coerce;
+dtResourceARNs = lens _dtResourceARNs (\ s a -> s{_dtResourceARNs = a}) . _Coerce
 
 instance AWSRequest DescribeTags where
         type Rs DescribeTags = DescribeTagsResponse
@@ -112,15 +112,15 @@ describeTagsResponse
     -> DescribeTagsResponse
 describeTagsResponse pResponseStatus_ =
   DescribeTagsResponse'
-  {_dtrsTagDescriptions = Nothing, _dtrsResponseStatus = pResponseStatus_}
+    {_dtrsTagDescriptions = Nothing, _dtrsResponseStatus = pResponseStatus_}
 
 
 -- | Information about the tags.
 dtrsTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
-dtrsTagDescriptions = lens _dtrsTagDescriptions (\ s a -> s{_dtrsTagDescriptions = a}) . _Default . _Coerce;
+dtrsTagDescriptions = lens _dtrsTagDescriptions (\ s a -> s{_dtrsTagDescriptions = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a})
 
 instance NFData DescribeTagsResponse where

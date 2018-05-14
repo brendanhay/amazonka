@@ -155,6 +155,21 @@ module Network.AWS.ELBv2
     -- * Waiters
     -- $waiters
 
+    -- ** LoadBalancersDeleted
+    , loadBalancersDeleted
+
+    -- ** TargetDeregistered
+    , targetDeregistered
+
+    -- ** LoadBalancerAvailable
+    , loadBalancerAvailable
+
+    -- ** TargetInService
+    , targetInService
+
+    -- ** LoadBalancerExists
+    , loadBalancerExists
+
     -- * Operations
     -- $operations
 

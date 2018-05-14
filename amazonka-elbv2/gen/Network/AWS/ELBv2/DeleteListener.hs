@@ -64,7 +64,7 @@ deleteListener pListenerARN_ = DeleteListener' {_dlListenerARN = pListenerARN_}
 
 -- | The Amazon Resource Name (ARN) of the listener.
 dlListenerARN :: Lens' DeleteListener Text
-dlListenerARN = lens _dlListenerARN (\ s a -> s{_dlListenerARN = a});
+dlListenerARN = lens _dlListenerARN (\ s a -> s{_dlListenerARN = a})
 
 instance AWSRequest DeleteListener where
         type Rs DeleteListener = DeleteListenerResponse
@@ -111,6 +111,6 @@ deleteListenerResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dlrsResponseStatus :: Lens' DeleteListenerResponse Int
-dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
+dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a})
 
 instance NFData DeleteListenerResponse where

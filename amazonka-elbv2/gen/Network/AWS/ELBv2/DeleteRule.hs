@@ -62,7 +62,7 @@ deleteRule pRuleARN_ = DeleteRule' {_drRuleARN = pRuleARN_}
 
 -- | The Amazon Resource Name (ARN) of the rule.
 drRuleARN :: Lens' DeleteRule Text
-drRuleARN = lens _drRuleARN (\ s a -> s{_drRuleARN = a});
+drRuleARN = lens _drRuleARN (\ s a -> s{_drRuleARN = a})
 
 instance AWSRequest DeleteRule where
         type Rs DeleteRule = DeleteRuleResponse
@@ -109,6 +109,6 @@ deleteRuleResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drrsResponseStatus :: Lens' DeleteRuleResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
+drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a})
 
 instance NFData DeleteRuleResponse where

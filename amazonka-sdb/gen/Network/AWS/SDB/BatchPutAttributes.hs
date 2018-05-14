@@ -77,11 +77,11 @@ batchPutAttributes pDomainName_ =
 
 -- | The name of the domain in which the attributes are being stored.
 bpaDomainName :: Lens' BatchPutAttributes Text
-bpaDomainName = lens _bpaDomainName (\ s a -> s{_bpaDomainName = a});
+bpaDomainName = lens _bpaDomainName (\ s a -> s{_bpaDomainName = a})
 
 -- | A list of items on which to perform the operation.
 bpaItems :: Lens' BatchPutAttributes [ReplaceableItem]
-bpaItems = lens _bpaItems (\ s a -> s{_bpaItems = a}) . _Coerce;
+bpaItems = lens _bpaItems (\ s a -> s{_bpaItems = a}) . _Coerce
 
 instance AWSRequest BatchPutAttributes where
         type Rs BatchPutAttributes =

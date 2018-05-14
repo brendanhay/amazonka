@@ -69,11 +69,11 @@ batchDeleteAttributes pDomainName_ =
 
 -- | The name of the domain in which the attributes are being deleted.
 bdaDomainName :: Lens' BatchDeleteAttributes Text
-bdaDomainName = lens _bdaDomainName (\ s a -> s{_bdaDomainName = a});
+bdaDomainName = lens _bdaDomainName (\ s a -> s{_bdaDomainName = a})
 
 -- | A list of items on which to perform the operation.
 bdaItems :: Lens' BatchDeleteAttributes [DeletableItem]
-bdaItems = lens _bdaItems (\ s a -> s{_bdaItems = a}) . _Coerce;
+bdaItems = lens _bdaItems (\ s a -> s{_bdaItems = a}) . _Coerce
 
 instance AWSRequest BatchDeleteAttributes where
         type Rs BatchDeleteAttributes =

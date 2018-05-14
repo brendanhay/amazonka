@@ -82,28 +82,28 @@ putAttributes
     -> PutAttributes
 putAttributes pDomainName_ pItemName_ =
   PutAttributes'
-  { _paExpected = Nothing
-  , _paDomainName = pDomainName_
-  , _paItemName = pItemName_
-  , _paAttributes = mempty
-  }
+    { _paExpected = Nothing
+    , _paDomainName = pDomainName_
+    , _paItemName = pItemName_
+    , _paAttributes = mempty
+    }
 
 
 -- | The update condition which, if specified, determines whether the specified attributes will be updated or not. The update condition must be satisfied in order for this request to be processed and the attributes to be updated.
 paExpected :: Lens' PutAttributes (Maybe UpdateCondition)
-paExpected = lens _paExpected (\ s a -> s{_paExpected = a});
+paExpected = lens _paExpected (\ s a -> s{_paExpected = a})
 
 -- | The name of the domain in which to perform the operation.
 paDomainName :: Lens' PutAttributes Text
-paDomainName = lens _paDomainName (\ s a -> s{_paDomainName = a});
+paDomainName = lens _paDomainName (\ s a -> s{_paDomainName = a})
 
 -- | The name of the item.
 paItemName :: Lens' PutAttributes Text
-paItemName = lens _paItemName (\ s a -> s{_paItemName = a});
+paItemName = lens _paItemName (\ s a -> s{_paItemName = a})
 
 -- | The list of attributes.
 paAttributes :: Lens' PutAttributes [ReplaceableAttribute]
-paAttributes = lens _paAttributes (\ s a -> s{_paAttributes = a}) . _Coerce;
+paAttributes = lens _paAttributes (\ s a -> s{_paAttributes = a}) . _Coerce
 
 instance AWSRequest PutAttributes where
         type Rs PutAttributes = PutAttributesResponse

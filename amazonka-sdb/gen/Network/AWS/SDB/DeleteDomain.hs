@@ -60,7 +60,7 @@ deleteDomain pDomainName_ = DeleteDomain' {_ddDomainName = pDomainName_}
 
 -- | The name of the domain to delete.
 ddDomainName :: Lens' DeleteDomain Text
-ddDomainName = lens _ddDomainName (\ s a -> s{_ddDomainName = a});
+ddDomainName = lens _ddDomainName (\ s a -> s{_ddDomainName = a})
 
 instance AWSRequest DeleteDomain where
         type Rs DeleteDomain = DeleteDomainResponse

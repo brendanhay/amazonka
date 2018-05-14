@@ -47,21 +47,35 @@ library
           Network.AWS.DynamoDB
         , Network.AWS.DynamoDB.BatchGetItem
         , Network.AWS.DynamoDB.BatchWriteItem
+        , Network.AWS.DynamoDB.CreateBackup
+        , Network.AWS.DynamoDB.CreateGlobalTable
         , Network.AWS.DynamoDB.CreateTable
+        , Network.AWS.DynamoDB.DeleteBackup
         , Network.AWS.DynamoDB.DeleteItem
         , Network.AWS.DynamoDB.DeleteTable
+        , Network.AWS.DynamoDB.DescribeBackup
+        , Network.AWS.DynamoDB.DescribeContinuousBackups
+        , Network.AWS.DynamoDB.DescribeGlobalTable
+        , Network.AWS.DynamoDB.DescribeGlobalTableSettings
         , Network.AWS.DynamoDB.DescribeLimits
         , Network.AWS.DynamoDB.DescribeTable
         , Network.AWS.DynamoDB.DescribeTimeToLive
         , Network.AWS.DynamoDB.GetItem
+        , Network.AWS.DynamoDB.ListBackups
+        , Network.AWS.DynamoDB.ListGlobalTables
         , Network.AWS.DynamoDB.ListTables
         , Network.AWS.DynamoDB.ListTagsOfResource
         , Network.AWS.DynamoDB.PutItem
         , Network.AWS.DynamoDB.Query
+        , Network.AWS.DynamoDB.RestoreTableFromBackup
+        , Network.AWS.DynamoDB.RestoreTableToPointInTime
         , Network.AWS.DynamoDB.Scan
         , Network.AWS.DynamoDB.TagResource
         , Network.AWS.DynamoDB.Types
         , Network.AWS.DynamoDB.UntagResource
+        , Network.AWS.DynamoDB.UpdateContinuousBackups
+        , Network.AWS.DynamoDB.UpdateGlobalTable
+        , Network.AWS.DynamoDB.UpdateGlobalTableSettings
         , Network.AWS.DynamoDB.UpdateItem
         , Network.AWS.DynamoDB.UpdateTable
         , Network.AWS.DynamoDB.UpdateTimeToLive

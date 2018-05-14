@@ -67,11 +67,11 @@ tagResource pResourceARN_ =
 
 -- | Identifies the Amazon DynamoDB resource to which tags should be added. This value is an Amazon Resource Name (ARN).
 trResourceARN :: Lens' TagResource Text
-trResourceARN = lens _trResourceARN (\ s a -> s{_trResourceARN = a});
+trResourceARN = lens _trResourceARN (\ s a -> s{_trResourceARN = a})
 
 -- | The tags to be assigned to the Amazon DynamoDB resource.
 trTags :: Lens' TagResource [Tag]
-trTags = lens _trTags (\ s a -> s{_trTags = a}) . _Coerce;
+trTags = lens _trTags (\ s a -> s{_trTags = a}) . _Coerce
 
 instance AWSRequest TagResource where
         type Rs TagResource = TagResourceResponse

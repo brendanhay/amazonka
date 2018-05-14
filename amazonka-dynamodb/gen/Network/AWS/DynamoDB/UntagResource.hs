@@ -67,11 +67,11 @@ untagResource pResourceARN_ =
 
 -- | The Amazon DyanamoDB resource the tags will be removed from. This value is an Amazon Resource Name (ARN).
 urResourceARN :: Lens' UntagResource Text
-urResourceARN = lens _urResourceARN (\ s a -> s{_urResourceARN = a});
+urResourceARN = lens _urResourceARN (\ s a -> s{_urResourceARN = a})
 
 -- | A list of tag keys. Existing tags of the resource whose keys are members of this list will be removed from the Amazon DynamoDB resource.
 urTagKeys :: Lens' UntagResource [Text]
-urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _Coerce;
+urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _Coerce
 
 instance AWSRequest UntagResource where
         type Rs UntagResource = UntagResourceResponse

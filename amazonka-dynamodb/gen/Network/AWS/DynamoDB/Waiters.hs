@@ -26,26 +26,26 @@ import Network.AWS.Waiter
 tableNotExists :: Wait DescribeTable
 tableNotExists =
   Wait
-  { _waitName = "TableNotExists"
-  , _waitAttempts = 25
-  , _waitDelay = 20
-  , _waitAcceptors = [matchError "ResourceNotFoundException" AcceptSuccess]
-  }
+    { _waitName = "TableNotExists"
+    , _waitAttempts = 25
+    , _waitDelay = 20
+    , _waitAcceptors = [matchError "ResourceNotFoundException" AcceptSuccess]
+    }
 
 
 -- | Polls 'Network.AWS.DynamoDB.DescribeTable' every 20 seconds until a successful state is reached. An error is returned after 25 failed checks.
 tableExists :: Wait DescribeTable
 tableExists =
   Wait
-  { _waitName = "TableExists"
-  , _waitAttempts = 25
-  , _waitDelay = 20
-  , _waitAcceptors =
-      [ matchAll
-          "ACTIVE"
-          AcceptSuccess
-          (drsTable . _Just . tdTableStatus . _Just . to toTextCI)
-      , matchError "ResourceNotFoundException" AcceptRetry
-      ]
-  }
+    { _waitName = "TableExists"
+    , _waitAttempts = 25
+    , _waitDelay = 20
+    , _waitAcceptors =
+        [ matchAll
+            "ACTIVE"
+            AcceptSuccess
+            (drsTable . _Just . tdTableStatus . _Just . to toTextCI)
+        , matchError "ResourceNotFoundException" AcceptRetry
+        ]
+    }
 

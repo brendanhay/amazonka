@@ -70,23 +70,23 @@ detachInternetGateway
     -> DetachInternetGateway
 detachInternetGateway pInternetGatewayId_ pVPCId_ =
   DetachInternetGateway'
-  { _digDryRun = Nothing
-  , _digInternetGatewayId = pInternetGatewayId_
-  , _digVPCId = pVPCId_
-  }
+    { _digDryRun = Nothing
+    , _digInternetGatewayId = pInternetGatewayId_
+    , _digVPCId = pVPCId_
+    }
 
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 digDryRun :: Lens' DetachInternetGateway (Maybe Bool)
-digDryRun = lens _digDryRun (\ s a -> s{_digDryRun = a});
+digDryRun = lens _digDryRun (\ s a -> s{_digDryRun = a})
 
 -- | The ID of the Internet gateway.
 digInternetGatewayId :: Lens' DetachInternetGateway Text
-digInternetGatewayId = lens _digInternetGatewayId (\ s a -> s{_digInternetGatewayId = a});
+digInternetGatewayId = lens _digInternetGatewayId (\ s a -> s{_digInternetGatewayId = a})
 
 -- | The ID of the VPC.
 digVPCId :: Lens' DetachInternetGateway Text
-digVPCId = lens _digVPCId (\ s a -> s{_digVPCId = a});
+digVPCId = lens _digVPCId (\ s a -> s{_digVPCId = a})
 
 instance AWSRequest DetachInternetGateway where
         type Rs DetachInternetGateway =

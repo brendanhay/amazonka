@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the data feed for Spot instances.
+-- Deletes the data feed for Spot Instances.
 --
 --
 module Network.AWS.EC2.DeleteSpotDatafeedSubscription
@@ -64,7 +64,7 @@ deleteSpotDatafeedSubscription =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dsdssDryRun :: Lens' DeleteSpotDatafeedSubscription (Maybe Bool)
-dsdssDryRun = lens _dsdssDryRun (\ s a -> s{_dsdssDryRun = a});
+dsdssDryRun = lens _dsdssDryRun (\ s a -> s{_dsdssDryRun = a})
 
 instance AWSRequest DeleteSpotDatafeedSubscription
          where

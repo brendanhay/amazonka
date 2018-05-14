@@ -69,11 +69,11 @@ deleteVPNGateway pVPNGatewayId_ =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvgDryRun :: Lens' DeleteVPNGateway (Maybe Bool)
-dvgDryRun = lens _dvgDryRun (\ s a -> s{_dvgDryRun = a});
+dvgDryRun = lens _dvgDryRun (\ s a -> s{_dvgDryRun = a})
 
 -- | The ID of the virtual private gateway.
 dvgVPNGatewayId :: Lens' DeleteVPNGateway Text
-dvgVPNGatewayId = lens _dvgVPNGatewayId (\ s a -> s{_dvgVPNGatewayId = a});
+dvgVPNGatewayId = lens _dvgVPNGatewayId (\ s a -> s{_dvgVPNGatewayId = a})
 
 instance AWSRequest DeleteVPNGateway where
         type Rs DeleteVPNGateway = DeleteVPNGatewayResponse

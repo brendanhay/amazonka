@@ -67,7 +67,7 @@ disableVPCClassicLinkDNSSupport =
 
 -- | The ID of the VPC.
 dvcldsVPCId :: Lens' DisableVPCClassicLinkDNSSupport (Maybe Text)
-dvcldsVPCId = lens _dvcldsVPCId (\ s a -> s{_dvcldsVPCId = a});
+dvcldsVPCId = lens _dvcldsVPCId (\ s a -> s{_dvcldsVPCId = a})
 
 instance AWSRequest DisableVPCClassicLinkDNSSupport
          where
@@ -124,16 +124,16 @@ disableVPCClassicLinkDNSSupportResponse
     -> DisableVPCClassicLinkDNSSupportResponse
 disableVPCClassicLinkDNSSupportResponse pResponseStatus_ =
   DisableVPCClassicLinkDNSSupportResponse'
-  {_dvcldsrsReturn = Nothing, _dvcldsrsResponseStatus = pResponseStatus_}
+    {_dvcldsrsReturn = Nothing, _dvcldsrsResponseStatus = pResponseStatus_}
 
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 dvcldsrsReturn :: Lens' DisableVPCClassicLinkDNSSupportResponse (Maybe Bool)
-dvcldsrsReturn = lens _dvcldsrsReturn (\ s a -> s{_dvcldsrsReturn = a});
+dvcldsrsReturn = lens _dvcldsrsReturn (\ s a -> s{_dvcldsrsReturn = a})
 
 -- | -- | The response status code.
 dvcldsrsResponseStatus :: Lens' DisableVPCClassicLinkDNSSupportResponse Int
-dvcldsrsResponseStatus = lens _dvcldsrsResponseStatus (\ s a -> s{_dvcldsrsResponseStatus = a});
+dvcldsrsResponseStatus = lens _dvcldsrsResponseStatus (\ s a -> s{_dvcldsrsResponseStatus = a})
 
 instance NFData
            DisableVPCClassicLinkDNSSupportResponse

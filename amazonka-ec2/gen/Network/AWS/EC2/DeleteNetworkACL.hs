@@ -69,11 +69,11 @@ deleteNetworkACL pNetworkACLId_ =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dnaDryRun :: Lens' DeleteNetworkACL (Maybe Bool)
-dnaDryRun = lens _dnaDryRun (\ s a -> s{_dnaDryRun = a});
+dnaDryRun = lens _dnaDryRun (\ s a -> s{_dnaDryRun = a})
 
 -- | The ID of the network ACL.
 dnaNetworkACLId :: Lens' DeleteNetworkACL Text
-dnaNetworkACLId = lens _dnaNetworkACLId (\ s a -> s{_dnaNetworkACLId = a});
+dnaNetworkACLId = lens _dnaNetworkACLId (\ s a -> s{_dnaNetworkACLId = a})
 
 instance AWSRequest DeleteNetworkACL where
         type Rs DeleteNetworkACL = DeleteNetworkACLResponse

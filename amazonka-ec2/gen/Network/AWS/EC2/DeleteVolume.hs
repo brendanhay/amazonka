@@ -71,11 +71,11 @@ deleteVolume pVolumeId_ =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvvDryRun :: Lens' DeleteVolume (Maybe Bool)
-dvvDryRun = lens _dvvDryRun (\ s a -> s{_dvvDryRun = a});
+dvvDryRun = lens _dvvDryRun (\ s a -> s{_dvvDryRun = a})
 
 -- | The ID of the volume.
 dvvVolumeId :: Lens' DeleteVolume Text
-dvvVolumeId = lens _dvvVolumeId (\ s a -> s{_dvvVolumeId = a});
+dvvVolumeId = lens _dvvVolumeId (\ s a -> s{_dvvVolumeId = a})
 
 instance AWSRequest DeleteVolume where
         type Rs DeleteVolume = DeleteVolumeResponse

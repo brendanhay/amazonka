@@ -66,16 +66,16 @@ enableVGWRoutePropagation
     -> EnableVGWRoutePropagation
 enableVGWRoutePropagation pGatewayId_ pRouteTableId_ =
   EnableVGWRoutePropagation'
-  {_evrpGatewayId = pGatewayId_, _evrpRouteTableId = pRouteTableId_}
+    {_evrpGatewayId = pGatewayId_, _evrpRouteTableId = pRouteTableId_}
 
 
 -- | The ID of the virtual private gateway.
 evrpGatewayId :: Lens' EnableVGWRoutePropagation Text
-evrpGatewayId = lens _evrpGatewayId (\ s a -> s{_evrpGatewayId = a});
+evrpGatewayId = lens _evrpGatewayId (\ s a -> s{_evrpGatewayId = a})
 
 -- | The ID of the route table.
 evrpRouteTableId :: Lens' EnableVGWRoutePropagation Text
-evrpRouteTableId = lens _evrpRouteTableId (\ s a -> s{_evrpRouteTableId = a});
+evrpRouteTableId = lens _evrpRouteTableId (\ s a -> s{_evrpRouteTableId = a})
 
 instance AWSRequest EnableVGWRoutePropagation where
         type Rs EnableVGWRoutePropagation =

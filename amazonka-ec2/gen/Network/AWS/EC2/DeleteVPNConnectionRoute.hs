@@ -66,18 +66,18 @@ deleteVPNConnectionRoute
     -> DeleteVPNConnectionRoute
 deleteVPNConnectionRoute pDestinationCidrBlock_ pVPNConnectionId_ =
   DeleteVPNConnectionRoute'
-  { _dvcrDestinationCidrBlock = pDestinationCidrBlock_
-  , _dvcrVPNConnectionId = pVPNConnectionId_
-  }
+    { _dvcrDestinationCidrBlock = pDestinationCidrBlock_
+    , _dvcrVPNConnectionId = pVPNConnectionId_
+    }
 
 
 -- | The CIDR block associated with the local subnet of the customer network.
 dvcrDestinationCidrBlock :: Lens' DeleteVPNConnectionRoute Text
-dvcrDestinationCidrBlock = lens _dvcrDestinationCidrBlock (\ s a -> s{_dvcrDestinationCidrBlock = a});
+dvcrDestinationCidrBlock = lens _dvcrDestinationCidrBlock (\ s a -> s{_dvcrDestinationCidrBlock = a})
 
 -- | The ID of the VPN connection.
 dvcrVPNConnectionId :: Lens' DeleteVPNConnectionRoute Text
-dvcrVPNConnectionId = lens _dvcrVPNConnectionId (\ s a -> s{_dvcrVPNConnectionId = a});
+dvcrVPNConnectionId = lens _dvcrVPNConnectionId (\ s a -> s{_dvcrVPNConnectionId = a})
 
 instance AWSRequest DeleteVPNConnectionRoute where
         type Rs DeleteVPNConnectionRoute =

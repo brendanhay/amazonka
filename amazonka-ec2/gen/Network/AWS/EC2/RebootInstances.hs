@@ -72,11 +72,11 @@ rebootInstances =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rebDryRun :: Lens' RebootInstances (Maybe Bool)
-rebDryRun = lens _rebDryRun (\ s a -> s{_rebDryRun = a});
+rebDryRun = lens _rebDryRun (\ s a -> s{_rebDryRun = a})
 
 -- | One or more instance IDs.
 rebInstanceIds :: Lens' RebootInstances [Text]
-rebInstanceIds = lens _rebInstanceIds (\ s a -> s{_rebInstanceIds = a}) . _Coerce;
+rebInstanceIds = lens _rebInstanceIds (\ s a -> s{_rebInstanceIds = a}) . _Coerce
 
 instance AWSRequest RebootInstances where
         type Rs RebootInstances = RebootInstancesResponse

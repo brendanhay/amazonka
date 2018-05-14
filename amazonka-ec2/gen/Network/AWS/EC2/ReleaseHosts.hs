@@ -71,7 +71,7 @@ releaseHosts = ReleaseHosts' {_rhHostIds = mempty}
 
 -- | The IDs of the Dedicated Hosts you want to release.
 rhHostIds :: Lens' ReleaseHosts [Text]
-rhHostIds = lens _rhHostIds (\ s a -> s{_rhHostIds = a}) . _Coerce;
+rhHostIds = lens _rhHostIds (\ s a -> s{_rhHostIds = a}) . _Coerce
 
 instance AWSRequest ReleaseHosts where
         type Rs ReleaseHosts = ReleaseHostsResponse
@@ -130,22 +130,22 @@ releaseHostsResponse
     -> ReleaseHostsResponse
 releaseHostsResponse pResponseStatus_ =
   ReleaseHostsResponse'
-  { _rhrsUnsuccessful = Nothing
-  , _rhrsSuccessful = Nothing
-  , _rhrsResponseStatus = pResponseStatus_
-  }
+    { _rhrsUnsuccessful = Nothing
+    , _rhrsSuccessful = Nothing
+    , _rhrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The IDs of the Dedicated Hosts that could not be released, including an error message.
 rhrsUnsuccessful :: Lens' ReleaseHostsResponse [UnsuccessfulItem]
-rhrsUnsuccessful = lens _rhrsUnsuccessful (\ s a -> s{_rhrsUnsuccessful = a}) . _Default . _Coerce;
+rhrsUnsuccessful = lens _rhrsUnsuccessful (\ s a -> s{_rhrsUnsuccessful = a}) . _Default . _Coerce
 
 -- | The IDs of the Dedicated Hosts that were successfully released.
 rhrsSuccessful :: Lens' ReleaseHostsResponse [Text]
-rhrsSuccessful = lens _rhrsSuccessful (\ s a -> s{_rhrsSuccessful = a}) . _Default . _Coerce;
+rhrsSuccessful = lens _rhrsSuccessful (\ s a -> s{_rhrsSuccessful = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 rhrsResponseStatus :: Lens' ReleaseHostsResponse Int
-rhrsResponseStatus = lens _rhrsResponseStatus (\ s a -> s{_rhrsResponseStatus = a});
+rhrsResponseStatus = lens _rhrsResponseStatus (\ s a -> s{_rhrsResponseStatus = a})
 
 instance NFData ReleaseHostsResponse where

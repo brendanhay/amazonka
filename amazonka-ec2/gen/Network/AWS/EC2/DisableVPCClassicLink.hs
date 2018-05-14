@@ -72,11 +72,11 @@ disableVPCClassicLink pVPCId_ =
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvpcclDryRun :: Lens' DisableVPCClassicLink (Maybe Bool)
-dvpcclDryRun = lens _dvpcclDryRun (\ s a -> s{_dvpcclDryRun = a});
+dvpcclDryRun = lens _dvpcclDryRun (\ s a -> s{_dvpcclDryRun = a})
 
 -- | The ID of the VPC.
 dvpcclVPCId :: Lens' DisableVPCClassicLink Text
-dvpcclVPCId = lens _dvpcclVPCId (\ s a -> s{_dvpcclVPCId = a});
+dvpcclVPCId = lens _dvpcclVPCId (\ s a -> s{_dvpcclVPCId = a})
 
 instance AWSRequest DisableVPCClassicLink where
         type Rs DisableVPCClassicLink =
@@ -128,15 +128,15 @@ disableVPCClassicLinkResponse
     -> DisableVPCClassicLinkResponse
 disableVPCClassicLinkResponse pResponseStatus_ =
   DisableVPCClassicLinkResponse'
-  {_dvpcclrsReturn = Nothing, _dvpcclrsResponseStatus = pResponseStatus_}
+    {_dvpcclrsReturn = Nothing, _dvpcclrsResponseStatus = pResponseStatus_}
 
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 dvpcclrsReturn :: Lens' DisableVPCClassicLinkResponse (Maybe Bool)
-dvpcclrsReturn = lens _dvpcclrsReturn (\ s a -> s{_dvpcclrsReturn = a});
+dvpcclrsReturn = lens _dvpcclrsReturn (\ s a -> s{_dvpcclrsReturn = a})
 
 -- | -- | The response status code.
 dvpcclrsResponseStatus :: Lens' DisableVPCClassicLinkResponse Int
-dvpcclrsResponseStatus = lens _dvpcclrsResponseStatus (\ s a -> s{_dvpcclrsResponseStatus = a});
+dvpcclrsResponseStatus = lens _dvpcclrsResponseStatus (\ s a -> s{_dvpcclrsResponseStatus = a})
 
 instance NFData DisableVPCClassicLinkResponse where

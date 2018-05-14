@@ -63,7 +63,7 @@ disableDomainAutoRenew pDomainName_ =
 
 -- | The name of the domain that you want to disable automatic renewal for.
 ddarDomainName :: Lens' DisableDomainAutoRenew Text
-ddarDomainName = lens _ddarDomainName (\ s a -> s{_ddarDomainName = a});
+ddarDomainName = lens _ddarDomainName (\ s a -> s{_ddarDomainName = a})
 
 instance AWSRequest DisableDomainAutoRenew where
         type Rs DisableDomainAutoRenew =
@@ -120,6 +120,6 @@ disableDomainAutoRenewResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ddarrsResponseStatus :: Lens' DisableDomainAutoRenewResponse Int
-ddarrsResponseStatus = lens _ddarrsResponseStatus (\ s a -> s{_ddarrsResponseStatus = a});
+ddarrsResponseStatus = lens _ddarrsResponseStatus (\ s a -> s{_ddarrsResponseStatus = a})
 
 instance NFData DisableDomainAutoRenewResponse where

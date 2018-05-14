@@ -21,7 +21,7 @@
 -- This operation configures Amazon Route 53 to automatically renew the specified domain before the domain registration expires. The cost of renewing your domain registration is billed to your AWS account.
 --
 --
--- The period during which you can renew a domain name varies by TLD. For a list of TLDs and their renewal policies, see <http://wiki.gandi.net/en/domains/renew#renewal_restoration_and_deletion_times "Renewal, restoration, and deletion times"> on the website for our registrar partner, Gandi. Route 53 requires that you renew before the end of the renewal period that is listed on the Gandi website so we can complete processing before the deadline.
+-- The period during which you can renew a domain name varies by TLD. For a list of TLDs and their renewal policies, see <http://wiki.gandi.net/en/domains/renew#renewal_restoration_and_deletion_times "Renewal, restoration, and deletion times"> on the website for our registrar associate, Gandi. Amazon Route 53 requires that you renew before the end of the renewal period that is listed on the Gandi website so we can complete processing before the deadline.
 --
 module Network.AWS.Route53Domains.EnableDomainAutoRenew
     (
@@ -65,7 +65,7 @@ enableDomainAutoRenew pDomainName_ =
 
 -- | The name of the domain that you want to enable automatic renewal for.
 edarDomainName :: Lens' EnableDomainAutoRenew Text
-edarDomainName = lens _edarDomainName (\ s a -> s{_edarDomainName = a});
+edarDomainName = lens _edarDomainName (\ s a -> s{_edarDomainName = a})
 
 instance AWSRequest EnableDomainAutoRenew where
         type Rs EnableDomainAutoRenew =
@@ -122,6 +122,6 @@ enableDomainAutoRenewResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 edarrsResponseStatus :: Lens' EnableDomainAutoRenewResponse Int
-edarrsResponseStatus = lens _edarrsResponseStatus (\ s a -> s{_edarrsResponseStatus = a});
+edarrsResponseStatus = lens _edarrsResponseStatus (\ s a -> s{_edarrsResponseStatus = a})
 
 instance NFData EnableDomainAutoRenewResponse where

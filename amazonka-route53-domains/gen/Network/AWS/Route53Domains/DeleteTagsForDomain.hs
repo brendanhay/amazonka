@@ -69,16 +69,16 @@ deleteTagsForDomain
     -> DeleteTagsForDomain
 deleteTagsForDomain pDomainName_ =
   DeleteTagsForDomain'
-  {_dtfdDomainName = pDomainName_, _dtfdTagsToDelete = mempty}
+    {_dtfdDomainName = pDomainName_, _dtfdTagsToDelete = mempty}
 
 
 -- | The domain for which you want to delete one or more tags.
 dtfdDomainName :: Lens' DeleteTagsForDomain Text
-dtfdDomainName = lens _dtfdDomainName (\ s a -> s{_dtfdDomainName = a});
+dtfdDomainName = lens _dtfdDomainName (\ s a -> s{_dtfdDomainName = a})
 
 -- | A list of tag keys to delete.
 dtfdTagsToDelete :: Lens' DeleteTagsForDomain [Text]
-dtfdTagsToDelete = lens _dtfdTagsToDelete (\ s a -> s{_dtfdTagsToDelete = a}) . _Coerce;
+dtfdTagsToDelete = lens _dtfdTagsToDelete (\ s a -> s{_dtfdTagsToDelete = a}) . _Coerce
 
 instance AWSRequest DeleteTagsForDomain where
         type Rs DeleteTagsForDomain =
@@ -136,6 +136,6 @@ deleteTagsForDomainResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dtfdrsResponseStatus :: Lens' DeleteTagsForDomainResponse Int
-dtfdrsResponseStatus = lens _dtfdrsResponseStatus (\ s a -> s{_dtfdrsResponseStatus = a});
+dtfdrsResponseStatus = lens _dtfdrsResponseStatus (\ s a -> s{_dtfdrsResponseStatus = a})
 
 instance NFData DeleteTagsForDomainResponse where

@@ -52,6 +52,7 @@ library
         , Network.AWS.Shield.DescribeAttack
         , Network.AWS.Shield.DescribeProtection
         , Network.AWS.Shield.DescribeSubscription
+        , Network.AWS.Shield.GetSubscriptionState
         , Network.AWS.Shield.ListAttacks
         , Network.AWS.Shield.ListProtections
         , Network.AWS.Shield.Types

@@ -106,6 +106,6 @@ createSubscriptionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 csrsResponseStatus :: Lens' CreateSubscriptionResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
+csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a})
 
 instance NFData CreateSubscriptionResponse where

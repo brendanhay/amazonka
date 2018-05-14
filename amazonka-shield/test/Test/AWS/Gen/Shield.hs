@@ -52,6 +52,9 @@ import Test.Tasty
 --         , requestDeleteProtection $
 --             deleteProtection
 --
+--         , requestGetSubscriptionState $
+--             getSubscriptionState
+--
 --         , requestDescribeSubscription $
 --             describeSubscription
 --
@@ -81,6 +84,9 @@ import Test.Tasty
 --
 --         , responseDeleteProtection $
 --             deleteProtectionResponse
+--
+--         , responseGetSubscriptionState $
+--             getSubscriptionStateResponse
 --
 --         , responseDescribeSubscription $
 --             describeSubscriptionResponse
@@ -129,6 +135,11 @@ requestDeleteProtection :: DeleteProtection -> TestTree
 requestDeleteProtection = req
     "DeleteProtection"
     "fixture/DeleteProtection.yaml"
+
+requestGetSubscriptionState :: GetSubscriptionState -> TestTree
+requestGetSubscriptionState = req
+    "GetSubscriptionState"
+    "fixture/GetSubscriptionState.yaml"
 
 requestDescribeSubscription :: DescribeSubscription -> TestTree
 requestDescribeSubscription = req
@@ -192,6 +203,13 @@ responseDeleteProtection = res
     "fixture/DeleteProtectionResponse.proto"
     shield
     (Proxy :: Proxy DeleteProtection)
+
+responseGetSubscriptionState :: GetSubscriptionStateResponse -> TestTree
+responseGetSubscriptionState = res
+    "GetSubscriptionStateResponse"
+    "fixture/GetSubscriptionStateResponse.proto"
+    shield
+    (Proxy :: Proxy GetSubscriptionState)
 
 responseDescribeSubscription :: DescribeSubscriptionResponse -> TestTree
 responseDescribeSubscription = res

@@ -57,6 +57,7 @@ library
         , Network.AWS.SSM.DeleteActivation
         , Network.AWS.SSM.DeleteAssociation
         , Network.AWS.SSM.DeleteDocument
+        , Network.AWS.SSM.DeleteInventory
         , Network.AWS.SSM.DeleteMaintenanceWindow
         , Network.AWS.SSM.DeleteParameter
         , Network.AWS.SSM.DeleteParameters
@@ -69,6 +70,7 @@ library
         , Network.AWS.SSM.DescribeActivations
         , Network.AWS.SSM.DescribeAssociation
         , Network.AWS.SSM.DescribeAutomationExecutions
+        , Network.AWS.SSM.DescribeAutomationStepExecutions
         , Network.AWS.SSM.DescribeAvailablePatches
         , Network.AWS.SSM.DescribeDocument
         , Network.AWS.SSM.DescribeDocumentPermission
@@ -79,6 +81,7 @@ library
         , Network.AWS.SSM.DescribeInstancePatchStates
         , Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup
         , Network.AWS.SSM.DescribeInstancePatches
+        , Network.AWS.SSM.DescribeInventoryDeletions
         , Network.AWS.SSM.DescribeMaintenanceWindowExecutionTaskInvocations
         , Network.AWS.SSM.DescribeMaintenanceWindowExecutionTasks
         , Network.AWS.SSM.DescribeMaintenanceWindowExecutions

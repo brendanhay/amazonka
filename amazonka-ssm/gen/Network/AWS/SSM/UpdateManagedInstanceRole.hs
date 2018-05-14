@@ -64,16 +64,16 @@ updateManagedInstanceRole
     -> UpdateManagedInstanceRole
 updateManagedInstanceRole pInstanceId_ pIAMRole_ =
   UpdateManagedInstanceRole'
-  {_umirInstanceId = pInstanceId_, _umirIAMRole = pIAMRole_}
+    {_umirInstanceId = pInstanceId_, _umirIAMRole = pIAMRole_}
 
 
 -- | The ID of the managed instance where you want to update the role.
 umirInstanceId :: Lens' UpdateManagedInstanceRole Text
-umirInstanceId = lens _umirInstanceId (\ s a -> s{_umirInstanceId = a});
+umirInstanceId = lens _umirInstanceId (\ s a -> s{_umirInstanceId = a})
 
 -- | The IAM role you want to assign or change.
 umirIAMRole :: Lens' UpdateManagedInstanceRole Text
-umirIAMRole = lens _umirIAMRole (\ s a -> s{_umirIAMRole = a});
+umirIAMRole = lens _umirIAMRole (\ s a -> s{_umirIAMRole = a})
 
 instance AWSRequest UpdateManagedInstanceRole where
         type Rs UpdateManagedInstanceRole =
@@ -132,7 +132,7 @@ updateManagedInstanceRoleResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 umirrsResponseStatus :: Lens' UpdateManagedInstanceRoleResponse Int
-umirrsResponseStatus = lens _umirrsResponseStatus (\ s a -> s{_umirrsResponseStatus = a});
+umirrsResponseStatus = lens _umirrsResponseStatus (\ s a -> s{_umirrsResponseStatus = a})
 
 instance NFData UpdateManagedInstanceRoleResponse
          where

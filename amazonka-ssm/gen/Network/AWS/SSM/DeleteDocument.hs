@@ -64,7 +64,7 @@ deleteDocument pName_ = DeleteDocument' {_dddName = pName_}
 
 -- | The name of the document.
 dddName :: Lens' DeleteDocument Text
-dddName = lens _dddName (\ s a -> s{_dddName = a});
+dddName = lens _dddName (\ s a -> s{_dddName = a})
 
 instance AWSRequest DeleteDocument where
         type Rs DeleteDocument = DeleteDocumentResponse
@@ -117,6 +117,6 @@ deleteDocumentResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ddrsResponseStatus :: Lens' DeleteDocumentResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a})
 
 instance NFData DeleteDocumentResponse where

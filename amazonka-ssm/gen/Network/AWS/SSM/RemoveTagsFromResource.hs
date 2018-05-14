@@ -59,7 +59,7 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
 --
 -- * 'rtfrResourceType' - The type of resource of which you want to remove a tag.
 --
--- * 'rtfrResourceId' - The resource ID for which you want to remove tags.
+-- * 'rtfrResourceId' - The resource ID for which you want to remove tags. Use the ID of the resource. Here are some examples: ManagedInstance: mi-012345abcde MaintenanceWindow: mw-012345abcde PatchBaseline: pb-012345abcde For the Document and Parameter values, use the name of the resource.
 --
 -- * 'rtfrTagKeys' - Tag keys that you want to remove from the specified resource.
 removeTagsFromResource
@@ -68,23 +68,23 @@ removeTagsFromResource
     -> RemoveTagsFromResource
 removeTagsFromResource pResourceType_ pResourceId_ =
   RemoveTagsFromResource'
-  { _rtfrResourceType = pResourceType_
-  , _rtfrResourceId = pResourceId_
-  , _rtfrTagKeys = mempty
-  }
+    { _rtfrResourceType = pResourceType_
+    , _rtfrResourceId = pResourceId_
+    , _rtfrTagKeys = mempty
+    }
 
 
 -- | The type of resource of which you want to remove a tag.
 rtfrResourceType :: Lens' RemoveTagsFromResource ResourceTypeForTagging
-rtfrResourceType = lens _rtfrResourceType (\ s a -> s{_rtfrResourceType = a});
+rtfrResourceType = lens _rtfrResourceType (\ s a -> s{_rtfrResourceType = a})
 
--- | The resource ID for which you want to remove tags.
+-- | The resource ID for which you want to remove tags. Use the ID of the resource. Here are some examples: ManagedInstance: mi-012345abcde MaintenanceWindow: mw-012345abcde PatchBaseline: pb-012345abcde For the Document and Parameter values, use the name of the resource.
 rtfrResourceId :: Lens' RemoveTagsFromResource Text
-rtfrResourceId = lens _rtfrResourceId (\ s a -> s{_rtfrResourceId = a});
+rtfrResourceId = lens _rtfrResourceId (\ s a -> s{_rtfrResourceId = a})
 
 -- | Tag keys that you want to remove from the specified resource.
 rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
-rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce;
+rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce
 
 instance AWSRequest RemoveTagsFromResource where
         type Rs RemoveTagsFromResource =
@@ -143,6 +143,6 @@ removeTagsFromResourceResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 rtfrrsResponseStatus :: Lens' RemoveTagsFromResourceResponse Int
-rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a});
+rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a})
 
 instance NFData RemoveTagsFromResourceResponse where

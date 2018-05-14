@@ -69,16 +69,16 @@ createLoadBalancerListeners
     -> CreateLoadBalancerListeners
 createLoadBalancerListeners pLoadBalancerName_ =
   CreateLoadBalancerListeners'
-  {_clblLoadBalancerName = pLoadBalancerName_, _clblListeners = mempty}
+    {_clblLoadBalancerName = pLoadBalancerName_, _clblListeners = mempty}
 
 
 -- | The name of the load balancer.
 clblLoadBalancerName :: Lens' CreateLoadBalancerListeners Text
-clblLoadBalancerName = lens _clblLoadBalancerName (\ s a -> s{_clblLoadBalancerName = a});
+clblLoadBalancerName = lens _clblLoadBalancerName (\ s a -> s{_clblLoadBalancerName = a})
 
 -- | The listeners.
 clblListeners :: Lens' CreateLoadBalancerListeners [Listener]
-clblListeners = lens _clblListeners (\ s a -> s{_clblListeners = a}) . _Coerce;
+clblListeners = lens _clblListeners (\ s a -> s{_clblListeners = a}) . _Coerce
 
 instance AWSRequest CreateLoadBalancerListeners where
         type Rs CreateLoadBalancerListeners =
@@ -130,12 +130,12 @@ createLoadBalancerListenersResponse
     -> CreateLoadBalancerListenersResponse
 createLoadBalancerListenersResponse pResponseStatus_ =
   CreateLoadBalancerListenersResponse'
-  {_clblrsResponseStatus = pResponseStatus_}
+    {_clblrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 clblrsResponseStatus :: Lens' CreateLoadBalancerListenersResponse Int
-clblrsResponseStatus = lens _clblrsResponseStatus (\ s a -> s{_clblrsResponseStatus = a});
+clblrsResponseStatus = lens _clblrsResponseStatus (\ s a -> s{_clblrsResponseStatus = a})
 
 instance NFData CreateLoadBalancerListenersResponse
          where

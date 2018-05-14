@@ -70,16 +70,16 @@ detachLoadBalancerFromSubnets
     -> DetachLoadBalancerFromSubnets
 detachLoadBalancerFromSubnets pLoadBalancerName_ =
   DetachLoadBalancerFromSubnets'
-  {_dlbfsLoadBalancerName = pLoadBalancerName_, _dlbfsSubnets = mempty}
+    {_dlbfsLoadBalancerName = pLoadBalancerName_, _dlbfsSubnets = mempty}
 
 
 -- | The name of the load balancer.
 dlbfsLoadBalancerName :: Lens' DetachLoadBalancerFromSubnets Text
-dlbfsLoadBalancerName = lens _dlbfsLoadBalancerName (\ s a -> s{_dlbfsLoadBalancerName = a});
+dlbfsLoadBalancerName = lens _dlbfsLoadBalancerName (\ s a -> s{_dlbfsLoadBalancerName = a})
 
 -- | The IDs of the subnets.
 dlbfsSubnets :: Lens' DetachLoadBalancerFromSubnets [Text]
-dlbfsSubnets = lens _dlbfsSubnets (\ s a -> s{_dlbfsSubnets = a}) . _Coerce;
+dlbfsSubnets = lens _dlbfsSubnets (\ s a -> s{_dlbfsSubnets = a}) . _Coerce
 
 instance AWSRequest DetachLoadBalancerFromSubnets
          where
@@ -138,16 +138,16 @@ detachLoadBalancerFromSubnetsResponse
     -> DetachLoadBalancerFromSubnetsResponse
 detachLoadBalancerFromSubnetsResponse pResponseStatus_ =
   DetachLoadBalancerFromSubnetsResponse'
-  {_dlbfsrsSubnets = Nothing, _dlbfsrsResponseStatus = pResponseStatus_}
+    {_dlbfsrsSubnets = Nothing, _dlbfsrsResponseStatus = pResponseStatus_}
 
 
 -- | The IDs of the remaining subnets for the load balancer.
 dlbfsrsSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
-dlbfsrsSubnets = lens _dlbfsrsSubnets (\ s a -> s{_dlbfsrsSubnets = a}) . _Default . _Coerce;
+dlbfsrsSubnets = lens _dlbfsrsSubnets (\ s a -> s{_dlbfsrsSubnets = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dlbfsrsResponseStatus :: Lens' DetachLoadBalancerFromSubnetsResponse Int
-dlbfsrsResponseStatus = lens _dlbfsrsResponseStatus (\ s a -> s{_dlbfsrsResponseStatus = a});
+dlbfsrsResponseStatus = lens _dlbfsrsResponseStatus (\ s a -> s{_dlbfsrsResponseStatus = a})
 
 instance NFData DetachLoadBalancerFromSubnetsResponse
          where

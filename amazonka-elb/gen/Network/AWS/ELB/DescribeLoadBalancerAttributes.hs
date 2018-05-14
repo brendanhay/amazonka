@@ -68,7 +68,7 @@ describeLoadBalancerAttributes pLoadBalancerName_ =
 
 -- | The name of the load balancer.
 dlbaLoadBalancerName :: Lens' DescribeLoadBalancerAttributes Text
-dlbaLoadBalancerName = lens _dlbaLoadBalancerName (\ s a -> s{_dlbaLoadBalancerName = a});
+dlbaLoadBalancerName = lens _dlbaLoadBalancerName (\ s a -> s{_dlbaLoadBalancerName = a})
 
 instance AWSRequest DescribeLoadBalancerAttributes
          where
@@ -126,18 +126,18 @@ describeLoadBalancerAttributesResponse
     -> DescribeLoadBalancerAttributesResponse
 describeLoadBalancerAttributesResponse pResponseStatus_ =
   DescribeLoadBalancerAttributesResponse'
-  { _dlbarsLoadBalancerAttributes = Nothing
-  , _dlbarsResponseStatus = pResponseStatus_
-  }
+    { _dlbarsLoadBalancerAttributes = Nothing
+    , _dlbarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the load balancer attributes.
 dlbarsLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
-dlbarsLoadBalancerAttributes = lens _dlbarsLoadBalancerAttributes (\ s a -> s{_dlbarsLoadBalancerAttributes = a});
+dlbarsLoadBalancerAttributes = lens _dlbarsLoadBalancerAttributes (\ s a -> s{_dlbarsLoadBalancerAttributes = a})
 
 -- | -- | The response status code.
 dlbarsResponseStatus :: Lens' DescribeLoadBalancerAttributesResponse Int
-dlbarsResponseStatus = lens _dlbarsResponseStatus (\ s a -> s{_dlbarsResponseStatus = a});
+dlbarsResponseStatus = lens _dlbarsResponseStatus (\ s a -> s{_dlbarsResponseStatus = a})
 
 instance NFData
            DescribeLoadBalancerAttributesResponse

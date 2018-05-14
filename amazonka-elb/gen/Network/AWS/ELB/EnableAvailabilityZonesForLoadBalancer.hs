@@ -72,18 +72,18 @@ enableAvailabilityZonesForLoadBalancer
     -> EnableAvailabilityZonesForLoadBalancer
 enableAvailabilityZonesForLoadBalancer pLoadBalancerName_ =
   EnableAvailabilityZonesForLoadBalancer'
-  { _eazflbLoadBalancerName = pLoadBalancerName_
-  , _eazflbAvailabilityZones = mempty
-  }
+    { _eazflbLoadBalancerName = pLoadBalancerName_
+    , _eazflbAvailabilityZones = mempty
+    }
 
 
 -- | The name of the load balancer.
 eazflbLoadBalancerName :: Lens' EnableAvailabilityZonesForLoadBalancer Text
-eazflbLoadBalancerName = lens _eazflbLoadBalancerName (\ s a -> s{_eazflbLoadBalancerName = a});
+eazflbLoadBalancerName = lens _eazflbLoadBalancerName (\ s a -> s{_eazflbLoadBalancerName = a})
 
 -- | The Availability Zones. These must be in the same region as the load balancer.
 eazflbAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancer [Text]
-eazflbAvailabilityZones = lens _eazflbAvailabilityZones (\ s a -> s{_eazflbAvailabilityZones = a}) . _Coerce;
+eazflbAvailabilityZones = lens _eazflbAvailabilityZones (\ s a -> s{_eazflbAvailabilityZones = a}) . _Coerce
 
 instance AWSRequest
            EnableAvailabilityZonesForLoadBalancer
@@ -154,18 +154,18 @@ enableAvailabilityZonesForLoadBalancerResponse
     -> EnableAvailabilityZonesForLoadBalancerResponse
 enableAvailabilityZonesForLoadBalancerResponse pResponseStatus_ =
   EnableAvailabilityZonesForLoadBalancerResponse'
-  { _eazflbrsAvailabilityZones = Nothing
-  , _eazflbrsResponseStatus = pResponseStatus_
-  }
+    { _eazflbrsAvailabilityZones = Nothing
+    , _eazflbrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The updated list of Availability Zones for the load balancer.
 eazflbrsAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse [Text]
-eazflbrsAvailabilityZones = lens _eazflbrsAvailabilityZones (\ s a -> s{_eazflbrsAvailabilityZones = a}) . _Default . _Coerce;
+eazflbrsAvailabilityZones = lens _eazflbrsAvailabilityZones (\ s a -> s{_eazflbrsAvailabilityZones = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 eazflbrsResponseStatus :: Lens' EnableAvailabilityZonesForLoadBalancerResponse Int
-eazflbrsResponseStatus = lens _eazflbrsResponseStatus (\ s a -> s{_eazflbrsResponseStatus = a});
+eazflbrsResponseStatus = lens _eazflbrsResponseStatus (\ s a -> s{_eazflbrsResponseStatus = a})
 
 instance NFData
            EnableAvailabilityZonesForLoadBalancerResponse

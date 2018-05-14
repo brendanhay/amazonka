@@ -55,7 +55,7 @@ newtype DeleteUsagePlan = DeleteUsagePlan'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dupUsagePlanId' - The Id of the to-be-deleted usage plan.
+-- * 'dupUsagePlanId' - [Required] The Id of the to-be-deleted usage plan.
 deleteUsagePlan
     :: Text -- ^ 'dupUsagePlanId'
     -> DeleteUsagePlan
@@ -63,9 +63,9 @@ deleteUsagePlan pUsagePlanId_ =
   DeleteUsagePlan' {_dupUsagePlanId = pUsagePlanId_}
 
 
--- | The Id of the to-be-deleted usage plan.
+-- | [Required] The Id of the to-be-deleted usage plan.
 dupUsagePlanId :: Lens' DeleteUsagePlan Text
-dupUsagePlanId = lens _dupUsagePlanId (\ s a -> s{_dupUsagePlanId = a});
+dupUsagePlanId = lens _dupUsagePlanId (\ s a -> s{_dupUsagePlanId = a})
 
 instance AWSRequest DeleteUsagePlan where
         type Rs DeleteUsagePlan = DeleteUsagePlanResponse

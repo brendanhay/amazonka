@@ -70,7 +70,7 @@ generateClientCertificate =
 
 -- | The description of the 'ClientCertificate' .
 gccDescription :: Lens' GenerateClientCertificate (Maybe Text)
-gccDescription = lens _gccDescription (\ s a -> s{_gccDescription = a});
+gccDescription = lens _gccDescription (\ s a -> s{_gccDescription = a})
 
 instance AWSRequest GenerateClientCertificate where
         type Rs GenerateClientCertificate = ClientCertificate

@@ -74,20 +74,20 @@ importAPIKeys
     -> ImportAPIKeys
 importAPIKeys pBody_ pFormat_ =
   ImportAPIKeys'
-  {_iakFailOnWarnings = Nothing, _iakBody = pBody_, _iakFormat = pFormat_}
+    {_iakFailOnWarnings = Nothing, _iakBody = pBody_, _iakFormat = pFormat_}
 
 
 -- | A query parameter to indicate whether to rollback 'ApiKey' importation (@true@ ) or not (@false@ ) when error is encountered.
 iakFailOnWarnings :: Lens' ImportAPIKeys (Maybe Bool)
-iakFailOnWarnings = lens _iakFailOnWarnings (\ s a -> s{_iakFailOnWarnings = a});
+iakFailOnWarnings = lens _iakFailOnWarnings (\ s a -> s{_iakFailOnWarnings = a})
 
 -- | The payload of the POST request to import API keys. For the payload format, see <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html API Key File Format> .
 iakBody :: Lens' ImportAPIKeys (HashMap Text Value)
-iakBody = lens _iakBody (\ s a -> s{_iakBody = a});
+iakBody = lens _iakBody (\ s a -> s{_iakBody = a})
 
 -- | A query parameter to specify the input format to imported API keys. Currently, only the @csv@ format is supported.
 iakFormat :: Lens' ImportAPIKeys APIKeysFormat
-iakFormat = lens _iakFormat (\ s a -> s{_iakFormat = a});
+iakFormat = lens _iakFormat (\ s a -> s{_iakFormat = a})
 
 instance AWSRequest ImportAPIKeys where
         type Rs ImportAPIKeys = ImportAPIKeysResponse
@@ -148,22 +148,22 @@ importAPIKeysResponse
     -> ImportAPIKeysResponse
 importAPIKeysResponse pResponseStatus_ =
   ImportAPIKeysResponse'
-  { _iakrsIds = Nothing
-  , _iakrsWarnings = Nothing
-  , _iakrsResponseStatus = pResponseStatus_
-  }
+    { _iakrsIds = Nothing
+    , _iakrsWarnings = Nothing
+    , _iakrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of all the 'ApiKey' identifiers.
 iakrsIds :: Lens' ImportAPIKeysResponse [Text]
-iakrsIds = lens _iakrsIds (\ s a -> s{_iakrsIds = a}) . _Default . _Coerce;
+iakrsIds = lens _iakrsIds (\ s a -> s{_iakrsIds = a}) . _Default . _Coerce
 
 -- | A list of warning messages.
 iakrsWarnings :: Lens' ImportAPIKeysResponse [Text]
-iakrsWarnings = lens _iakrsWarnings (\ s a -> s{_iakrsWarnings = a}) . _Default . _Coerce;
+iakrsWarnings = lens _iakrsWarnings (\ s a -> s{_iakrsWarnings = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 iakrsResponseStatus :: Lens' ImportAPIKeysResponse Int
-iakrsResponseStatus = lens _iakrsResponseStatus (\ s a -> s{_iakrsResponseStatus = a});
+iakrsResponseStatus = lens _iakrsResponseStatus (\ s a -> s{_iakrsResponseStatus = a})
 
 instance NFData ImportAPIKeysResponse where

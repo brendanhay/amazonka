@@ -55,7 +55,7 @@ newtype DeleteClientCertificate = DeleteClientCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dccClientCertificateId' - The identifier of the 'ClientCertificate' resource to be deleted.
+-- * 'dccClientCertificateId' - [Required] The identifier of the 'ClientCertificate' resource to be deleted.
 deleteClientCertificate
     :: Text -- ^ 'dccClientCertificateId'
     -> DeleteClientCertificate
@@ -63,9 +63,9 @@ deleteClientCertificate pClientCertificateId_ =
   DeleteClientCertificate' {_dccClientCertificateId = pClientCertificateId_}
 
 
--- | The identifier of the 'ClientCertificate' resource to be deleted.
+-- | [Required] The identifier of the 'ClientCertificate' resource to be deleted.
 dccClientCertificateId :: Lens' DeleteClientCertificate Text
-dccClientCertificateId = lens _dccClientCertificateId (\ s a -> s{_dccClientCertificateId = a});
+dccClientCertificateId = lens _dccClientCertificateId (\ s a -> s{_dccClientCertificateId = a})
 
 instance AWSRequest DeleteClientCertificate where
         type Rs DeleteClientCertificate =

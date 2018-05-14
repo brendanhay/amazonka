@@ -68,16 +68,18 @@ getDocumentationPart
     -> GetDocumentationPart
 getDocumentationPart pRestAPIId_ pDocumentationPartId_ =
   GetDocumentationPart'
-  {_getRestAPIId = pRestAPIId_, _getDocumentationPartId = pDocumentationPartId_}
+    { _getRestAPIId = pRestAPIId_
+    , _getDocumentationPartId = pDocumentationPartId_
+    }
 
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 getRestAPIId :: Lens' GetDocumentationPart Text
-getRestAPIId = lens _getRestAPIId (\ s a -> s{_getRestAPIId = a});
+getRestAPIId = lens _getRestAPIId (\ s a -> s{_getRestAPIId = a})
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 getDocumentationPartId :: Lens' GetDocumentationPart Text
-getDocumentationPartId = lens _getDocumentationPartId (\ s a -> s{_getDocumentationPartId = a});
+getDocumentationPartId = lens _getDocumentationPartId (\ s a -> s{_getDocumentationPartId = a})
 
 instance AWSRequest GetDocumentationPart where
         type Rs GetDocumentationPart = DocumentationPart

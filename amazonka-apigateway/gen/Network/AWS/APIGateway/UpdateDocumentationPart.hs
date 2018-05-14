@@ -72,23 +72,23 @@ updateDocumentationPart
     -> UpdateDocumentationPart
 updateDocumentationPart pRestAPIId_ pDocumentationPartId_ =
   UpdateDocumentationPart'
-  { _udpPatchOperations = Nothing
-  , _udpRestAPIId = pRestAPIId_
-  , _udpDocumentationPartId = pDocumentationPartId_
-  }
+    { _udpPatchOperations = Nothing
+    , _udpRestAPIId = pRestAPIId_
+    , _udpDocumentationPartId = pDocumentationPartId_
+    }
 
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 udpPatchOperations :: Lens' UpdateDocumentationPart [PatchOperation]
-udpPatchOperations = lens _udpPatchOperations (\ s a -> s{_udpPatchOperations = a}) . _Default . _Coerce;
+udpPatchOperations = lens _udpPatchOperations (\ s a -> s{_udpPatchOperations = a}) . _Default . _Coerce
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 udpRestAPIId :: Lens' UpdateDocumentationPart Text
-udpRestAPIId = lens _udpRestAPIId (\ s a -> s{_udpRestAPIId = a});
+udpRestAPIId = lens _udpRestAPIId (\ s a -> s{_udpRestAPIId = a})
 
 -- | [Required] The identifier of the to-be-updated documentation part.
 udpDocumentationPartId :: Lens' UpdateDocumentationPart Text
-udpDocumentationPartId = lens _udpDocumentationPartId (\ s a -> s{_udpDocumentationPartId = a});
+udpDocumentationPartId = lens _udpDocumentationPartId (\ s a -> s{_udpDocumentationPartId = a})
 
 instance AWSRequest UpdateDocumentationPart where
         type Rs UpdateDocumentationPart = DocumentationPart

@@ -59,6 +59,7 @@ library
         , Network.AWS.APIGateway.CreateStage
         , Network.AWS.APIGateway.CreateUsagePlan
         , Network.AWS.APIGateway.CreateUsagePlanKey
+        , Network.AWS.APIGateway.CreateVPCLink
         , Network.AWS.APIGateway.DeleteAPIKey
         , Network.AWS.APIGateway.DeleteAuthorizer
         , Network.AWS.APIGateway.DeleteBasePathMapping
@@ -79,6 +80,7 @@ library
         , Network.AWS.APIGateway.DeleteStage
         , Network.AWS.APIGateway.DeleteUsagePlan
         , Network.AWS.APIGateway.DeleteUsagePlanKey
+        , Network.AWS.APIGateway.DeleteVPCLink
         , Network.AWS.APIGateway.FlushStageAuthorizersCache
         , Network.AWS.APIGateway.FlushStageCache
         , Network.AWS.APIGateway.GenerateClientCertificate
@@ -120,11 +122,14 @@ library
         , Network.AWS.APIGateway.GetSDKTypes
         , Network.AWS.APIGateway.GetStage
         , Network.AWS.APIGateway.GetStages
+        , Network.AWS.APIGateway.GetTags
         , Network.AWS.APIGateway.GetUsage
         , Network.AWS.APIGateway.GetUsagePlan
         , Network.AWS.APIGateway.GetUsagePlanKey
         , Network.AWS.APIGateway.GetUsagePlanKeys
         , Network.AWS.APIGateway.GetUsagePlans
+        , Network.AWS.APIGateway.GetVPCLink
+        , Network.AWS.APIGateway.GetVPCLinks
         , Network.AWS.APIGateway.ImportAPIKeys
         , Network.AWS.APIGateway.ImportDocumentationParts
         , Network.AWS.APIGateway.ImportRestAPI
@@ -134,9 +139,11 @@ library
         , Network.AWS.APIGateway.PutMethod
         , Network.AWS.APIGateway.PutMethodResponse
         , Network.AWS.APIGateway.PutRestAPI
+        , Network.AWS.APIGateway.TagResource
         , Network.AWS.APIGateway.TestInvokeAuthorizer
         , Network.AWS.APIGateway.TestInvokeMethod
         , Network.AWS.APIGateway.Types
+        , Network.AWS.APIGateway.UntagResource
         , Network.AWS.APIGateway.UpdateAPIKey
         , Network.AWS.APIGateway.UpdateAccount
         , Network.AWS.APIGateway.UpdateAuthorizer
@@ -158,6 +165,7 @@ library
         , Network.AWS.APIGateway.UpdateStage
         , Network.AWS.APIGateway.UpdateUsage
         , Network.AWS.APIGateway.UpdateUsagePlan
+        , Network.AWS.APIGateway.UpdateVPCLink
         , Network.AWS.APIGateway.Waiters
 
     other-modules:

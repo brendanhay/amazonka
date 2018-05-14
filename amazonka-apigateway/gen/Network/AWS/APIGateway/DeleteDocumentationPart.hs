@@ -64,16 +64,18 @@ deleteDocumentationPart
     -> DeleteDocumentationPart
 deleteDocumentationPart pRestAPIId_ pDocumentationPartId_ =
   DeleteDocumentationPart'
-  {_ddpRestAPIId = pRestAPIId_, _ddpDocumentationPartId = pDocumentationPartId_}
+    { _ddpRestAPIId = pRestAPIId_
+    , _ddpDocumentationPartId = pDocumentationPartId_
+    }
 
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 ddpRestAPIId :: Lens' DeleteDocumentationPart Text
-ddpRestAPIId = lens _ddpRestAPIId (\ s a -> s{_ddpRestAPIId = a});
+ddpRestAPIId = lens _ddpRestAPIId (\ s a -> s{_ddpRestAPIId = a})
 
 -- | [Required] The identifier of the to-be-deleted documentation part.
 ddpDocumentationPartId :: Lens' DeleteDocumentationPart Text
-ddpDocumentationPartId = lens _ddpDocumentationPartId (\ s a -> s{_ddpDocumentationPartId = a});
+ddpDocumentationPartId = lens _ddpDocumentationPartId (\ s a -> s{_ddpDocumentationPartId = a})
 
 instance AWSRequest DeleteDocumentationPart where
         type Rs DeleteDocumentationPart =

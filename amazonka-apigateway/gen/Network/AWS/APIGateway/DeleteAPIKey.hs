@@ -55,16 +55,16 @@ newtype DeleteAPIKey = DeleteAPIKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dakApiKey' - The identifier of the 'ApiKey' resource to be deleted.
+-- * 'dakApiKey' - [Required] The identifier of the 'ApiKey' resource to be deleted.
 deleteAPIKey
     :: Text -- ^ 'dakApiKey'
     -> DeleteAPIKey
 deleteAPIKey pApiKey_ = DeleteAPIKey' {_dakApiKey = pApiKey_}
 
 
--- | The identifier of the 'ApiKey' resource to be deleted.
+-- | [Required] The identifier of the 'ApiKey' resource to be deleted.
 dakApiKey :: Lens' DeleteAPIKey Text
-dakApiKey = lens _dakApiKey (\ s a -> s{_dakApiKey = a});
+dakApiKey = lens _dakApiKey (\ s a -> s{_dakApiKey = a})
 
 instance AWSRequest DeleteAPIKey where
         type Rs DeleteAPIKey = DeleteAPIKeyResponse

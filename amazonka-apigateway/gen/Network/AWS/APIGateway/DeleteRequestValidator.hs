@@ -57,7 +57,7 @@ data DeleteRequestValidator = DeleteRequestValidator'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drvRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'drvRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
 -- * 'drvRequestValidatorId' - [Required] The identifier of the 'RequestValidator' to be deleted.
 deleteRequestValidator
@@ -66,16 +66,16 @@ deleteRequestValidator
     -> DeleteRequestValidator
 deleteRequestValidator pRestAPIId_ pRequestValidatorId_ =
   DeleteRequestValidator'
-  {_drvRestAPIId = pRestAPIId_, _drvRequestValidatorId = pRequestValidatorId_}
+    {_drvRestAPIId = pRestAPIId_, _drvRequestValidatorId = pRequestValidatorId_}
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 drvRestAPIId :: Lens' DeleteRequestValidator Text
-drvRestAPIId = lens _drvRestAPIId (\ s a -> s{_drvRestAPIId = a});
+drvRestAPIId = lens _drvRestAPIId (\ s a -> s{_drvRestAPIId = a})
 
 -- | [Required] The identifier of the 'RequestValidator' to be deleted.
 drvRequestValidatorId :: Lens' DeleteRequestValidator Text
-drvRequestValidatorId = lens _drvRequestValidatorId (\ s a -> s{_drvRequestValidatorId = a});
+drvRequestValidatorId = lens _drvRequestValidatorId (\ s a -> s{_drvRequestValidatorId = a})
 
 instance AWSRequest DeleteRequestValidator where
         type Rs DeleteRequestValidator =

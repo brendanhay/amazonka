@@ -66,7 +66,7 @@ data UpdateRequestValidator = UpdateRequestValidator'
 --
 -- * 'urvPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'urvRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'urvRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
 -- * 'urvRequestValidatorId' - [Required] The identifier of 'RequestValidator' to be updated.
 updateRequestValidator
@@ -75,23 +75,23 @@ updateRequestValidator
     -> UpdateRequestValidator
 updateRequestValidator pRestAPIId_ pRequestValidatorId_ =
   UpdateRequestValidator'
-  { _urvPatchOperations = Nothing
-  , _urvRestAPIId = pRestAPIId_
-  , _urvRequestValidatorId = pRequestValidatorId_
-  }
+    { _urvPatchOperations = Nothing
+    , _urvRestAPIId = pRestAPIId_
+    , _urvRequestValidatorId = pRequestValidatorId_
+    }
 
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 urvPatchOperations :: Lens' UpdateRequestValidator [PatchOperation]
-urvPatchOperations = lens _urvPatchOperations (\ s a -> s{_urvPatchOperations = a}) . _Default . _Coerce;
+urvPatchOperations = lens _urvPatchOperations (\ s a -> s{_urvPatchOperations = a}) . _Default . _Coerce
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 urvRestAPIId :: Lens' UpdateRequestValidator Text
-urvRestAPIId = lens _urvRestAPIId (\ s a -> s{_urvRestAPIId = a});
+urvRestAPIId = lens _urvRestAPIId (\ s a -> s{_urvRestAPIId = a})
 
 -- | [Required] The identifier of 'RequestValidator' to be updated.
 urvRequestValidatorId :: Lens' UpdateRequestValidator Text
-urvRequestValidatorId = lens _urvRequestValidatorId (\ s a -> s{_urvRequestValidatorId = a});
+urvRequestValidatorId = lens _urvRequestValidatorId (\ s a -> s{_urvRequestValidatorId = a})
 
 instance AWSRequest UpdateRequestValidator where
         type Rs UpdateRequestValidator = RequestValidator

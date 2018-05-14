@@ -61,13 +61,13 @@ data DeleteMethodResponse = DeleteMethodResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'dmRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'dmResourceId' - The 'Resource' identifier for the 'MethodResponse' resource.
+-- * 'dmResourceId' - [Required] The 'Resource' identifier for the 'MethodResponse' resource.
 --
--- * 'dmHttpMethod' - The HTTP verb of the 'Method' resource.
+-- * 'dmHttpMethod' - [Required] The HTTP verb of the 'Method' resource.
 --
--- * 'dmStatusCode' - The status code identifier for the 'MethodResponse' resource.
+-- * 'dmStatusCode' - [Required] The status code identifier for the 'MethodResponse' resource.
 deleteMethodResponse
     :: Text -- ^ 'dmRestAPIId'
     -> Text -- ^ 'dmResourceId'
@@ -76,28 +76,28 @@ deleteMethodResponse
     -> DeleteMethodResponse
 deleteMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
   DeleteMethodResponse'
-  { _dmRestAPIId = pRestAPIId_
-  , _dmResourceId = pResourceId_
-  , _dmHttpMethod = pHttpMethod_
-  , _dmStatusCode = pStatusCode_
-  }
+    { _dmRestAPIId = pRestAPIId_
+    , _dmResourceId = pResourceId_
+    , _dmHttpMethod = pHttpMethod_
+    , _dmStatusCode = pStatusCode_
+    }
 
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 dmRestAPIId :: Lens' DeleteMethodResponse Text
-dmRestAPIId = lens _dmRestAPIId (\ s a -> s{_dmRestAPIId = a});
+dmRestAPIId = lens _dmRestAPIId (\ s a -> s{_dmRestAPIId = a})
 
--- | The 'Resource' identifier for the 'MethodResponse' resource.
+-- | [Required] The 'Resource' identifier for the 'MethodResponse' resource.
 dmResourceId :: Lens' DeleteMethodResponse Text
-dmResourceId = lens _dmResourceId (\ s a -> s{_dmResourceId = a});
+dmResourceId = lens _dmResourceId (\ s a -> s{_dmResourceId = a})
 
--- | The HTTP verb of the 'Method' resource.
+-- | [Required] The HTTP verb of the 'Method' resource.
 dmHttpMethod :: Lens' DeleteMethodResponse Text
-dmHttpMethod = lens _dmHttpMethod (\ s a -> s{_dmHttpMethod = a});
+dmHttpMethod = lens _dmHttpMethod (\ s a -> s{_dmHttpMethod = a})
 
--- | The status code identifier for the 'MethodResponse' resource.
+-- | [Required] The status code identifier for the 'MethodResponse' resource.
 dmStatusCode :: Lens' DeleteMethodResponse Text
-dmStatusCode = lens _dmStatusCode (\ s a -> s{_dmStatusCode = a});
+dmStatusCode = lens _dmStatusCode (\ s a -> s{_dmStatusCode = a})
 
 instance AWSRequest DeleteMethodResponse where
         type Rs DeleteMethodResponse =

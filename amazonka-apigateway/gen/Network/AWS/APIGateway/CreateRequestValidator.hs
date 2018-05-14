@@ -72,34 +72,34 @@ data CreateRequestValidator = CreateRequestValidator'
 --
 -- * 'crvValidateRequestBody' - A Boolean flag to indicate whether to validate request body according to the configured model schema for the method (@true@ ) or not (@false@ ).
 --
--- * 'crvRestAPIId' - The string identifier of the associated 'RestApi' .
+-- * 'crvRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 createRequestValidator
     :: Text -- ^ 'crvRestAPIId'
     -> CreateRequestValidator
 createRequestValidator pRestAPIId_ =
   CreateRequestValidator'
-  { _crvValidateRequestParameters = Nothing
-  , _crvName = Nothing
-  , _crvValidateRequestBody = Nothing
-  , _crvRestAPIId = pRestAPIId_
-  }
+    { _crvValidateRequestParameters = Nothing
+    , _crvName = Nothing
+    , _crvValidateRequestBody = Nothing
+    , _crvRestAPIId = pRestAPIId_
+    }
 
 
 -- | A Boolean flag to indicate whether to validate request parameters, @true@ , or not @false@ .
 crvValidateRequestParameters :: Lens' CreateRequestValidator (Maybe Bool)
-crvValidateRequestParameters = lens _crvValidateRequestParameters (\ s a -> s{_crvValidateRequestParameters = a});
+crvValidateRequestParameters = lens _crvValidateRequestParameters (\ s a -> s{_crvValidateRequestParameters = a})
 
 -- | The name of the to-be-created 'RequestValidator' .
 crvName :: Lens' CreateRequestValidator (Maybe Text)
-crvName = lens _crvName (\ s a -> s{_crvName = a});
+crvName = lens _crvName (\ s a -> s{_crvName = a})
 
 -- | A Boolean flag to indicate whether to validate request body according to the configured model schema for the method (@true@ ) or not (@false@ ).
 crvValidateRequestBody :: Lens' CreateRequestValidator (Maybe Bool)
-crvValidateRequestBody = lens _crvValidateRequestBody (\ s a -> s{_crvValidateRequestBody = a});
+crvValidateRequestBody = lens _crvValidateRequestBody (\ s a -> s{_crvValidateRequestBody = a})
 
--- | The string identifier of the associated 'RestApi' .
+-- | [Required] The string identifier of the associated 'RestApi' .
 crvRestAPIId :: Lens' CreateRequestValidator Text
-crvRestAPIId = lens _crvRestAPIId (\ s a -> s{_crvRestAPIId = a});
+crvRestAPIId = lens _crvRestAPIId (\ s a -> s{_crvRestAPIId = a})
 
 instance AWSRequest CreateRequestValidator where
         type Rs CreateRequestValidator = RequestValidator

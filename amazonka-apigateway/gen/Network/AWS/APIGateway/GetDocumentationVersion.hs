@@ -68,18 +68,18 @@ getDocumentationVersion
     -> GetDocumentationVersion
 getDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
   GetDocumentationVersion'
-  { _gdvdRestAPIId = pRestAPIId_
-  , _gdvdDocumentationVersion = pDocumentationVersion_
-  }
+    { _gdvdRestAPIId = pRestAPIId_
+    , _gdvdDocumentationVersion = pDocumentationVersion_
+    }
 
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 gdvdRestAPIId :: Lens' GetDocumentationVersion Text
-gdvdRestAPIId = lens _gdvdRestAPIId (\ s a -> s{_gdvdRestAPIId = a});
+gdvdRestAPIId = lens _gdvdRestAPIId (\ s a -> s{_gdvdRestAPIId = a})
 
 -- | [Required] The version identifier of the to-be-retrieved documentation snapshot.
 gdvdDocumentationVersion :: Lens' GetDocumentationVersion Text
-gdvdDocumentationVersion = lens _gdvdDocumentationVersion (\ s a -> s{_gdvdDocumentationVersion = a});
+gdvdDocumentationVersion = lens _gdvdDocumentationVersion (\ s a -> s{_gdvdDocumentationVersion = a})
 
 instance AWSRequest GetDocumentationVersion where
         type Rs GetDocumentationVersion =

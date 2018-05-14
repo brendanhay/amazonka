@@ -61,7 +61,7 @@ deleteDestination pDestinationName_ =
 
 -- | The name of the destination.
 ddDestinationName :: Lens' DeleteDestination Text
-ddDestinationName = lens _ddDestinationName (\ s a -> s{_ddDestinationName = a});
+ddDestinationName = lens _ddDestinationName (\ s a -> s{_ddDestinationName = a})
 
 instance AWSRequest DeleteDestination where
         type Rs DeleteDestination = DeleteDestinationResponse

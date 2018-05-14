@@ -69,11 +69,11 @@ tagLogGroup pLogGroupName_ =
 
 -- | The name of the log group.
 tlgLogGroupName :: Lens' TagLogGroup Text
-tlgLogGroupName = lens _tlgLogGroupName (\ s a -> s{_tlgLogGroupName = a});
+tlgLogGroupName = lens _tlgLogGroupName (\ s a -> s{_tlgLogGroupName = a})
 
 -- | The key-value pairs to use for the tags.
 tlgTags :: Lens' TagLogGroup (HashMap Text Text)
-tlgTags = lens _tlgTags (\ s a -> s{_tlgTags = a}) . _Map;
+tlgTags = lens _tlgTags (\ s a -> s{_tlgTags = a}) . _Map
 
 instance AWSRequest TagLogGroup where
         type Rs TagLogGroup = TagLogGroupResponse

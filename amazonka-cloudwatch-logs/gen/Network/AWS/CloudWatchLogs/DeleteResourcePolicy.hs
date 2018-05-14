@@ -59,7 +59,7 @@ deleteResourcePolicy = DeleteResourcePolicy' {_drpPolicyName = Nothing}
 
 -- | The name of the policy to be revoked. This parameter is required.
 drpPolicyName :: Lens' DeleteResourcePolicy (Maybe Text)
-drpPolicyName = lens _drpPolicyName (\ s a -> s{_drpPolicyName = a});
+drpPolicyName = lens _drpPolicyName (\ s a -> s{_drpPolicyName = a})
 
 instance AWSRequest DeleteResourcePolicy where
         type Rs DeleteResourcePolicy =

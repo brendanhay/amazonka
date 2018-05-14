@@ -74,16 +74,16 @@ createLogStream
     -> CreateLogStream
 createLogStream pLogGroupName_ pLogStreamName_ =
   CreateLogStream'
-  {_clsLogGroupName = pLogGroupName_, _clsLogStreamName = pLogStreamName_}
+    {_clsLogGroupName = pLogGroupName_, _clsLogStreamName = pLogStreamName_}
 
 
 -- | The name of the log group.
 clsLogGroupName :: Lens' CreateLogStream Text
-clsLogGroupName = lens _clsLogGroupName (\ s a -> s{_clsLogGroupName = a});
+clsLogGroupName = lens _clsLogGroupName (\ s a -> s{_clsLogGroupName = a})
 
 -- | The name of the log stream.
 clsLogStreamName :: Lens' CreateLogStream Text
-clsLogStreamName = lens _clsLogStreamName (\ s a -> s{_clsLogStreamName = a});
+clsLogStreamName = lens _clsLogStreamName (\ s a -> s{_clsLogStreamName = a})
 
 instance AWSRequest CreateLogStream where
         type Rs CreateLogStream = CreateLogStreamResponse

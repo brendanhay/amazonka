@@ -62,7 +62,7 @@ cancelExportTask pTaskId_ = CancelExportTask' {_cetTaskId = pTaskId_}
 
 -- | The ID of the export task.
 cetTaskId :: Lens' CancelExportTask Text
-cetTaskId = lens _cetTaskId (\ s a -> s{_cetTaskId = a});
+cetTaskId = lens _cetTaskId (\ s a -> s{_cetTaskId = a})
 
 instance AWSRequest CancelExportTask where
         type Rs CancelExportTask = CancelExportTaskResponse

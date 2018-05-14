@@ -62,16 +62,16 @@ deleteLogStream
     -> DeleteLogStream
 deleteLogStream pLogGroupName_ pLogStreamName_ =
   DeleteLogStream'
-  {_dlsLogGroupName = pLogGroupName_, _dlsLogStreamName = pLogStreamName_}
+    {_dlsLogGroupName = pLogGroupName_, _dlsLogStreamName = pLogStreamName_}
 
 
 -- | The name of the log group.
 dlsLogGroupName :: Lens' DeleteLogStream Text
-dlsLogGroupName = lens _dlsLogGroupName (\ s a -> s{_dlsLogGroupName = a});
+dlsLogGroupName = lens _dlsLogGroupName (\ s a -> s{_dlsLogGroupName = a})
 
 -- | The name of the log stream.
 dlsLogStreamName :: Lens' DeleteLogStream Text
-dlsLogStreamName = lens _dlsLogStreamName (\ s a -> s{_dlsLogStreamName = a});
+dlsLogStreamName = lens _dlsLogStreamName (\ s a -> s{_dlsLogStreamName = a})
 
 instance AWSRequest DeleteLogStream where
         type Rs DeleteLogStream = DeleteLogStreamResponse

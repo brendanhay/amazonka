@@ -63,7 +63,7 @@ deleteRetentionPolicy pLogGroupName_ =
 
 -- | The name of the log group.
 drpLogGroupName :: Lens' DeleteRetentionPolicy Text
-drpLogGroupName = lens _drpLogGroupName (\ s a -> s{_drpLogGroupName = a});
+drpLogGroupName = lens _drpLogGroupName (\ s a -> s{_drpLogGroupName = a})
 
 instance AWSRequest DeleteRetentionPolicy where
         type Rs DeleteRetentionPolicy =

@@ -81,23 +81,23 @@ createLogGroup
     -> CreateLogGroup
 createLogGroup pLogGroupName_ =
   CreateLogGroup'
-  { _clgKmsKeyId = Nothing
-  , _clgTags = Nothing
-  , _clgLogGroupName = pLogGroupName_
-  }
+    { _clgKmsKeyId = Nothing
+    , _clgTags = Nothing
+    , _clgLogGroupName = pLogGroupName_
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)> .
 clgKmsKeyId :: Lens' CreateLogGroup (Maybe Text)
-clgKmsKeyId = lens _clgKmsKeyId (\ s a -> s{_clgKmsKeyId = a});
+clgKmsKeyId = lens _clgKmsKeyId (\ s a -> s{_clgKmsKeyId = a})
 
 -- | The key-value pairs to use for the tags.
 clgTags :: Lens' CreateLogGroup (HashMap Text Text)
-clgTags = lens _clgTags (\ s a -> s{_clgTags = a}) . _Default . _Map;
+clgTags = lens _clgTags (\ s a -> s{_clgTags = a}) . _Default . _Map
 
 -- | The name of the log group.
 clgLogGroupName :: Lens' CreateLogGroup Text
-clgLogGroupName = lens _clgLogGroupName (\ s a -> s{_clgLogGroupName = a});
+clgLogGroupName = lens _clgLogGroupName (\ s a -> s{_clgLogGroupName = a})
 
 instance AWSRequest CreateLogGroup where
         type Rs CreateLogGroup = CreateLogGroupResponse

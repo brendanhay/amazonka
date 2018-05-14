@@ -61,7 +61,7 @@ deleteLogGroup pLogGroupName_ =
 
 -- | The name of the log group.
 dlgLogGroupName :: Lens' DeleteLogGroup Text
-dlgLogGroupName = lens _dlgLogGroupName (\ s a -> s{_dlgLogGroupName = a});
+dlgLogGroupName = lens _dlgLogGroupName (\ s a -> s{_dlgLogGroupName = a})
 
 instance AWSRequest DeleteLogGroup where
         type Rs DeleteLogGroup = DeleteLogGroupResponse

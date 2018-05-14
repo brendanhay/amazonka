@@ -65,7 +65,7 @@ disassociateKMSKey pLogGroupName_ =
 
 -- | The name of the log group.
 dkkLogGroupName :: Lens' DisassociateKMSKey Text
-dkkLogGroupName = lens _dkkLogGroupName (\ s a -> s{_dkkLogGroupName = a});
+dkkLogGroupName = lens _dkkLogGroupName (\ s a -> s{_dkkLogGroupName = a})
 
 instance AWSRequest DisassociateKMSKey where
         type Rs DisassociateKMSKey =

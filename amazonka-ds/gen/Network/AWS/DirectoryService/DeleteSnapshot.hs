@@ -67,7 +67,7 @@ deleteSnapshot pSnapshotId_ = DeleteSnapshot' {_dsSnapshotId = pSnapshotId_}
 
 -- | The identifier of the directory snapshot to be deleted.
 dsSnapshotId :: Lens' DeleteSnapshot Text
-dsSnapshotId = lens _dsSnapshotId (\ s a -> s{_dsSnapshotId = a});
+dsSnapshotId = lens _dsSnapshotId (\ s a -> s{_dsSnapshotId = a})
 
 instance AWSRequest DeleteSnapshot where
         type Rs DeleteSnapshot = DeleteSnapshotResponse
@@ -126,15 +126,15 @@ deleteSnapshotResponse
     -> DeleteSnapshotResponse
 deleteSnapshotResponse pResponseStatus_ =
   DeleteSnapshotResponse'
-  {_dsrsSnapshotId = Nothing, _dsrsResponseStatus = pResponseStatus_}
+    {_dsrsSnapshotId = Nothing, _dsrsResponseStatus = pResponseStatus_}
 
 
 -- | The identifier of the directory snapshot that was deleted.
 dsrsSnapshotId :: Lens' DeleteSnapshotResponse (Maybe Text)
-dsrsSnapshotId = lens _dsrsSnapshotId (\ s a -> s{_dsrsSnapshotId = a});
+dsrsSnapshotId = lens _dsrsSnapshotId (\ s a -> s{_dsrsSnapshotId = a})
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DeleteSnapshotResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
 
 instance NFData DeleteSnapshotResponse where

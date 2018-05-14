@@ -67,11 +67,11 @@ removeIPRoutes pDirectoryId_ =
 
 -- | Identifier (ID) of the directory from which you want to remove the IP addresses.
 rirDirectoryId :: Lens' RemoveIPRoutes Text
-rirDirectoryId = lens _rirDirectoryId (\ s a -> s{_rirDirectoryId = a});
+rirDirectoryId = lens _rirDirectoryId (\ s a -> s{_rirDirectoryId = a})
 
 -- | IP address blocks that you want to remove.
 rirCidrIPs :: Lens' RemoveIPRoutes [Text]
-rirCidrIPs = lens _rirCidrIPs (\ s a -> s{_rirCidrIPs = a}) . _Coerce;
+rirCidrIPs = lens _rirCidrIPs (\ s a -> s{_rirCidrIPs = a}) . _Coerce
 
 instance AWSRequest RemoveIPRoutes where
         type Rs RemoveIPRoutes = RemoveIPRoutesResponse
@@ -128,6 +128,6 @@ removeIPRoutesResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 rirrsResponseStatus :: Lens' RemoveIPRoutesResponse Int
-rirrsResponseStatus = lens _rirrsResponseStatus (\ s a -> s{_rirrsResponseStatus = a});
+rirrsResponseStatus = lens _rirrsResponseStatus (\ s a -> s{_rirrsResponseStatus = a})
 
 instance NFData RemoveIPRoutesResponse where

@@ -69,7 +69,7 @@ verifyTrust pTrustId_ = VerifyTrust' {_vtTrustId = pTrustId_}
 
 -- | The unique Trust ID of the trust relationship to verify.
 vtTrustId :: Lens' VerifyTrust Text
-vtTrustId = lens _vtTrustId (\ s a -> s{_vtTrustId = a});
+vtTrustId = lens _vtTrustId (\ s a -> s{_vtTrustId = a})
 
 instance AWSRequest VerifyTrust where
         type Rs VerifyTrust = VerifyTrustResponse
@@ -127,15 +127,15 @@ verifyTrustResponse
     -> VerifyTrustResponse
 verifyTrustResponse pResponseStatus_ =
   VerifyTrustResponse'
-  {_vtrsTrustId = Nothing, _vtrsResponseStatus = pResponseStatus_}
+    {_vtrsTrustId = Nothing, _vtrsResponseStatus = pResponseStatus_}
 
 
 -- | The unique Trust ID of the trust relationship that was verified.
 vtrsTrustId :: Lens' VerifyTrustResponse (Maybe Text)
-vtrsTrustId = lens _vtrsTrustId (\ s a -> s{_vtrsTrustId = a});
+vtrsTrustId = lens _vtrsTrustId (\ s a -> s{_vtrsTrustId = a})
 
 -- | -- | The response status code.
 vtrsResponseStatus :: Lens' VerifyTrustResponse Int
-vtrsResponseStatus = lens _vtrsResponseStatus (\ s a -> s{_vtrsResponseStatus = a});
+vtrsResponseStatus = lens _vtrsResponseStatus (\ s a -> s{_vtrsResponseStatus = a})
 
 instance NFData VerifyTrustResponse where

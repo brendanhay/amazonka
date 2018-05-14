@@ -68,16 +68,16 @@ deleteConditionalForwarder
     -> DeleteConditionalForwarder
 deleteConditionalForwarder pDirectoryId_ pRemoteDomainName_ =
   DeleteConditionalForwarder'
-  {_delDirectoryId = pDirectoryId_, _delRemoteDomainName = pRemoteDomainName_}
+    {_delDirectoryId = pDirectoryId_, _delRemoteDomainName = pRemoteDomainName_}
 
 
 -- | The directory ID for which you are deleting the conditional forwarder.
 delDirectoryId :: Lens' DeleteConditionalForwarder Text
-delDirectoryId = lens _delDirectoryId (\ s a -> s{_delDirectoryId = a});
+delDirectoryId = lens _delDirectoryId (\ s a -> s{_delDirectoryId = a})
 
 -- | The fully qualified domain name (FQDN) of the remote domain with which you are deleting the conditional forwarder.
 delRemoteDomainName :: Lens' DeleteConditionalForwarder Text
-delRemoteDomainName = lens _delRemoteDomainName (\ s a -> s{_delRemoteDomainName = a});
+delRemoteDomainName = lens _delRemoteDomainName (\ s a -> s{_delRemoteDomainName = a})
 
 instance AWSRequest DeleteConditionalForwarder where
         type Rs DeleteConditionalForwarder =
@@ -140,7 +140,7 @@ deleteConditionalForwarderResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteConditionalForwarderResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteConditionalForwarderResponse
          where

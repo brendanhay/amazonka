@@ -72,23 +72,23 @@ createConditionalForwarder
     -> CreateConditionalForwarder
 createConditionalForwarder pDirectoryId_ pRemoteDomainName_ =
   CreateConditionalForwarder'
-  { _ccfDirectoryId = pDirectoryId_
-  , _ccfRemoteDomainName = pRemoteDomainName_
-  , _ccfDNSIPAddrs = mempty
-  }
+    { _ccfDirectoryId = pDirectoryId_
+    , _ccfRemoteDomainName = pRemoteDomainName_
+    , _ccfDNSIPAddrs = mempty
+    }
 
 
 -- | The directory ID of the AWS directory for which you are creating the conditional forwarder.
 ccfDirectoryId :: Lens' CreateConditionalForwarder Text
-ccfDirectoryId = lens _ccfDirectoryId (\ s a -> s{_ccfDirectoryId = a});
+ccfDirectoryId = lens _ccfDirectoryId (\ s a -> s{_ccfDirectoryId = a})
 
 -- | The fully qualified domain name (FQDN) of the remote domain with which you will set up a trust relationship.
 ccfRemoteDomainName :: Lens' CreateConditionalForwarder Text
-ccfRemoteDomainName = lens _ccfRemoteDomainName (\ s a -> s{_ccfRemoteDomainName = a});
+ccfRemoteDomainName = lens _ccfRemoteDomainName (\ s a -> s{_ccfRemoteDomainName = a})
 
 -- | The IP addresses of the remote DNS server associated with RemoteDomainName.
 ccfDNSIPAddrs :: Lens' CreateConditionalForwarder [Text]
-ccfDNSIPAddrs = lens _ccfDNSIPAddrs (\ s a -> s{_ccfDNSIPAddrs = a}) . _Coerce;
+ccfDNSIPAddrs = lens _ccfDNSIPAddrs (\ s a -> s{_ccfDNSIPAddrs = a}) . _Coerce
 
 instance AWSRequest CreateConditionalForwarder where
         type Rs CreateConditionalForwarder =
@@ -152,7 +152,7 @@ createConditionalForwarderResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ccfrsResponseStatus :: Lens' CreateConditionalForwarderResponse Int
-ccfrsResponseStatus = lens _ccfrsResponseStatus (\ s a -> s{_ccfrsResponseStatus = a});
+ccfrsResponseStatus = lens _ccfrsResponseStatus (\ s a -> s{_ccfrsResponseStatus = a})
 
 instance NFData CreateConditionalForwarderResponse
          where

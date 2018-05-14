@@ -68,7 +68,7 @@ deleteVirtualInterface pVirtualInterfaceId_ =
 
 -- | Undocumented member.
 delVirtualInterfaceId :: Lens' DeleteVirtualInterface Text
-delVirtualInterfaceId = lens _delVirtualInterfaceId (\ s a -> s{_delVirtualInterfaceId = a});
+delVirtualInterfaceId = lens _delVirtualInterfaceId (\ s a -> s{_delVirtualInterfaceId = a})
 
 instance AWSRequest DeleteVirtualInterface where
         type Rs DeleteVirtualInterface =
@@ -131,17 +131,17 @@ deleteVirtualInterfaceResponse
     -> DeleteVirtualInterfaceResponse
 deleteVirtualInterfaceResponse pResponseStatus_ =
   DeleteVirtualInterfaceResponse'
-  { _dvirsVirtualInterfaceState = Nothing
-  , _dvirsResponseStatus = pResponseStatus_
-  }
+    { _dvirsVirtualInterfaceState = Nothing
+    , _dvirsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 dvirsVirtualInterfaceState :: Lens' DeleteVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-dvirsVirtualInterfaceState = lens _dvirsVirtualInterfaceState (\ s a -> s{_dvirsVirtualInterfaceState = a});
+dvirsVirtualInterfaceState = lens _dvirsVirtualInterfaceState (\ s a -> s{_dvirsVirtualInterfaceState = a})
 
 -- | -- | The response status code.
 dvirsResponseStatus :: Lens' DeleteVirtualInterfaceResponse Int
-dvirsResponseStatus = lens _dvirsResponseStatus (\ s a -> s{_dvirsResponseStatus = a});
+dvirsResponseStatus = lens _dvirsResponseStatus (\ s a -> s{_dvirsResponseStatus = a})
 
 instance NFData DeleteVirtualInterfaceResponse where

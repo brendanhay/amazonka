@@ -77,7 +77,7 @@ deleteLag pLagId_ = DeleteLag' {_dLagId = pLagId_}
 
 -- | The ID of the LAG to delete. Example: dxlag-abc123 Default: None
 dLagId :: Lens' DeleteLag Text
-dLagId = lens _dLagId (\ s a -> s{_dLagId = a});
+dLagId = lens _dLagId (\ s a -> s{_dLagId = a})
 
 instance AWSRequest DeleteLag where
         type Rs DeleteLag = Lag

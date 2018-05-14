@@ -71,11 +71,11 @@ untagResource pResourceARN_ =
 
 -- | The Amazon Resource Name (ARN) of the Direct Connect resource.
 urResourceARN :: Lens' UntagResource Text
-urResourceARN = lens _urResourceARN (\ s a -> s{_urResourceARN = a});
+urResourceARN = lens _urResourceARN (\ s a -> s{_urResourceARN = a})
 
 -- | The list of tag keys to remove.
 urTagKeys :: Lens' UntagResource [Text]
-urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _Coerce;
+urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _Coerce
 
 instance AWSRequest UntagResource where
         type Rs UntagResource = UntagResourceResponse
@@ -135,6 +135,6 @@ untagResourceResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 urrsResponseStatus :: Lens' UntagResourceResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
+urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a})
 
 instance NFData UntagResourceResponse where

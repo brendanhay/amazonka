@@ -86,18 +86,18 @@ createPrivateVirtualInterface
     -> CreatePrivateVirtualInterface
 createPrivateVirtualInterface pConnectionId_ pNewPrivateVirtualInterface_ =
   CreatePrivateVirtualInterface'
-  { _creConnectionId = pConnectionId_
-  , _creNewPrivateVirtualInterface = pNewPrivateVirtualInterface_
-  }
+    { _creConnectionId = pConnectionId_
+    , _creNewPrivateVirtualInterface = pNewPrivateVirtualInterface_
+    }
 
 
 -- | Undocumented member.
 creConnectionId :: Lens' CreatePrivateVirtualInterface Text
-creConnectionId = lens _creConnectionId (\ s a -> s{_creConnectionId = a});
+creConnectionId = lens _creConnectionId (\ s a -> s{_creConnectionId = a})
 
 -- | Detailed information for the private virtual interface to be created. Default: None
 creNewPrivateVirtualInterface :: Lens' CreatePrivateVirtualInterface NewPrivateVirtualInterface
-creNewPrivateVirtualInterface = lens _creNewPrivateVirtualInterface (\ s a -> s{_creNewPrivateVirtualInterface = a});
+creNewPrivateVirtualInterface = lens _creNewPrivateVirtualInterface (\ s a -> s{_creNewPrivateVirtualInterface = a})
 
 instance AWSRequest CreatePrivateVirtualInterface
          where

@@ -80,7 +80,7 @@ deleteConnection pConnectionId_ =
 
 -- | Undocumented member.
 dcConnectionId :: Lens' DeleteConnection Text
-dcConnectionId = lens _dcConnectionId (\ s a -> s{_dcConnectionId = a});
+dcConnectionId = lens _dcConnectionId (\ s a -> s{_dcConnectionId = a})
 
 instance AWSRequest DeleteConnection where
         type Rs DeleteConnection = Connection

@@ -67,7 +67,7 @@ describeConnections = DescribeConnections' {_dConnectionId = Nothing}
 
 -- | Undocumented member.
 dConnectionId :: Lens' DescribeConnections (Maybe Text)
-dConnectionId = lens _dConnectionId (\ s a -> s{_dConnectionId = a});
+dConnectionId = lens _dConnectionId (\ s a -> s{_dConnectionId = a})
 
 instance AWSRequest DescribeConnections where
         type Rs DescribeConnections = Connections

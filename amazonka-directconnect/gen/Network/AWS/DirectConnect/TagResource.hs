@@ -74,11 +74,11 @@ tagResource pResourceARN_ pTags_ =
 
 -- | The Amazon Resource Name (ARN) of the Direct Connect resource. Example: arn:aws:directconnect:us-east-1:123456789012:dxcon/dxcon-fg5678gh
 trResourceARN :: Lens' TagResource Text
-trResourceARN = lens _trResourceARN (\ s a -> s{_trResourceARN = a});
+trResourceARN = lens _trResourceARN (\ s a -> s{_trResourceARN = a})
 
 -- | The list of tags to add.
 trTags :: Lens' TagResource (NonEmpty Tag)
-trTags = lens _trTags (\ s a -> s{_trTags = a}) . _List1;
+trTags = lens _trTags (\ s a -> s{_trTags = a}) . _List1
 
 instance AWSRequest TagResource where
         type Rs TagResource = TagResourceResponse
@@ -138,6 +138,6 @@ tagResourceResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 trrsResponseStatus :: Lens' TagResourceResponse Int
-trrsResponseStatus = lens _trrsResponseStatus (\ s a -> s{_trrsResponseStatus = a});
+trrsResponseStatus = lens _trrsResponseStatus (\ s a -> s{_trrsResponseStatus = a})
 
 instance NFData TagResourceResponse where

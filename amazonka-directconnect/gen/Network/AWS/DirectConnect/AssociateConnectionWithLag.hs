@@ -83,16 +83,16 @@ associateConnectionWithLag
     -> AssociateConnectionWithLag
 associateConnectionWithLag pConnectionId_ pLagId_ =
   AssociateConnectionWithLag'
-  {_acwlConnectionId = pConnectionId_, _acwlLagId = pLagId_}
+    {_acwlConnectionId = pConnectionId_, _acwlLagId = pLagId_}
 
 
 -- | The ID of the connection. Example: dxcon-abc123 Default: None
 acwlConnectionId :: Lens' AssociateConnectionWithLag Text
-acwlConnectionId = lens _acwlConnectionId (\ s a -> s{_acwlConnectionId = a});
+acwlConnectionId = lens _acwlConnectionId (\ s a -> s{_acwlConnectionId = a})
 
 -- | The ID of the LAG with which to associate the connection. Example: dxlag-abc123 Default: None
 acwlLagId :: Lens' AssociateConnectionWithLag Text
-acwlLagId = lens _acwlLagId (\ s a -> s{_acwlLagId = a});
+acwlLagId = lens _acwlLagId (\ s a -> s{_acwlLagId = a})
 
 instance AWSRequest AssociateConnectionWithLag where
         type Rs AssociateConnectionWithLag = Connection

@@ -110,15 +110,15 @@ describeLocationsResponse
     -> DescribeLocationsResponse
 describeLocationsResponse pResponseStatus_ =
   DescribeLocationsResponse'
-  {_dlsrsLocations = Nothing, _dlsrsResponseStatus = pResponseStatus_}
+    {_dlsrsLocations = Nothing, _dlsrsResponseStatus = pResponseStatus_}
 
 
 -- | A list of colocation hubs where network providers have equipment. Most regions have multiple locations available.
 dlsrsLocations :: Lens' DescribeLocationsResponse [Location]
-dlsrsLocations = lens _dlsrsLocations (\ s a -> s{_dlsrsLocations = a}) . _Default . _Coerce;
+dlsrsLocations = lens _dlsrsLocations (\ s a -> s{_dlsrsLocations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dlsrsResponseStatus :: Lens' DescribeLocationsResponse Int
-dlsrsResponseStatus = lens _dlsrsResponseStatus (\ s a -> s{_dlsrsResponseStatus = a});
+dlsrsResponseStatus = lens _dlsrsResponseStatus (\ s a -> s{_dlsrsResponseStatus = a})
 
 instance NFData DescribeLocationsResponse where

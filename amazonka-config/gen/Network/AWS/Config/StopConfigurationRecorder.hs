@@ -61,12 +61,12 @@ stopConfigurationRecorder
     -> StopConfigurationRecorder
 stopConfigurationRecorder pConfigurationRecorderName_ =
   StopConfigurationRecorder'
-  {_scrConfigurationRecorderName = pConfigurationRecorderName_}
+    {_scrConfigurationRecorderName = pConfigurationRecorderName_}
 
 
 -- | The name of the recorder object that records each configuration change made to the resources.
 scrConfigurationRecorderName :: Lens' StopConfigurationRecorder Text
-scrConfigurationRecorderName = lens _scrConfigurationRecorderName (\ s a -> s{_scrConfigurationRecorderName = a});
+scrConfigurationRecorderName = lens _scrConfigurationRecorderName (\ s a -> s{_scrConfigurationRecorderName = a})
 
 instance AWSRequest StopConfigurationRecorder where
         type Rs StopConfigurationRecorder =

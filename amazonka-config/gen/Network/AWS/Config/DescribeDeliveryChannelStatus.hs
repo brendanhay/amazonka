@@ -67,7 +67,7 @@ describeDeliveryChannelStatus =
 
 -- | A list of delivery channel names.
 ddcsDeliveryChannelNames :: Lens' DescribeDeliveryChannelStatus [Text]
-ddcsDeliveryChannelNames = lens _ddcsDeliveryChannelNames (\ s a -> s{_ddcsDeliveryChannelNames = a}) . _Default . _Coerce;
+ddcsDeliveryChannelNames = lens _ddcsDeliveryChannelNames (\ s a -> s{_ddcsDeliveryChannelNames = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeDeliveryChannelStatus
          where
@@ -132,18 +132,18 @@ describeDeliveryChannelStatusResponse
     -> DescribeDeliveryChannelStatusResponse
 describeDeliveryChannelStatusResponse pResponseStatus_ =
   DescribeDeliveryChannelStatusResponse'
-  { _ddcsrsDeliveryChannelsStatus = Nothing
-  , _ddcsrsResponseStatus = pResponseStatus_
-  }
+    { _ddcsrsDeliveryChannelsStatus = Nothing
+    , _ddcsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list that contains the status of a specified delivery channel.
 ddcsrsDeliveryChannelsStatus :: Lens' DescribeDeliveryChannelStatusResponse [DeliveryChannelStatus]
-ddcsrsDeliveryChannelsStatus = lens _ddcsrsDeliveryChannelsStatus (\ s a -> s{_ddcsrsDeliveryChannelsStatus = a}) . _Default . _Coerce;
+ddcsrsDeliveryChannelsStatus = lens _ddcsrsDeliveryChannelsStatus (\ s a -> s{_ddcsrsDeliveryChannelsStatus = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ddcsrsResponseStatus :: Lens' DescribeDeliveryChannelStatusResponse Int
-ddcsrsResponseStatus = lens _ddcsrsResponseStatus (\ s a -> s{_ddcsrsResponseStatus = a});
+ddcsrsResponseStatus = lens _ddcsrsResponseStatus (\ s a -> s{_ddcsrsResponseStatus = a})
 
 instance NFData DescribeDeliveryChannelStatusResponse
          where

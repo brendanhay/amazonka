@@ -45,19 +45,30 @@ library
 
     exposed-modules:
           Network.AWS.Config
+        , Network.AWS.Config.BatchGetResourceConfig
+        , Network.AWS.Config.DeleteAggregationAuthorization
         , Network.AWS.Config.DeleteConfigRule
+        , Network.AWS.Config.DeleteConfigurationAggregator
         , Network.AWS.Config.DeleteConfigurationRecorder
         , Network.AWS.Config.DeleteDeliveryChannel
         , Network.AWS.Config.DeleteEvaluationResults
+        , Network.AWS.Config.DeletePendingAggregationRequest
         , Network.AWS.Config.DeliverConfigSnapshot
+        , Network.AWS.Config.DescribeAggregateComplianceByConfigRules
+        , Network.AWS.Config.DescribeAggregationAuthorizations
         , Network.AWS.Config.DescribeComplianceByConfigRule
         , Network.AWS.Config.DescribeComplianceByResource
         , Network.AWS.Config.DescribeConfigRuleEvaluationStatus
         , Network.AWS.Config.DescribeConfigRules
+        , Network.AWS.Config.DescribeConfigurationAggregatorSourcesStatus
+        , Network.AWS.Config.DescribeConfigurationAggregators
         , Network.AWS.Config.DescribeConfigurationRecorderStatus
         , Network.AWS.Config.DescribeConfigurationRecorders
         , Network.AWS.Config.DescribeDeliveryChannelStatus
         , Network.AWS.Config.DescribeDeliveryChannels
+        , Network.AWS.Config.DescribePendingAggregationRequests
+        , Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule
+        , Network.AWS.Config.GetAggregateConfigRuleComplianceSummary
         , Network.AWS.Config.GetComplianceDetailsByConfigRule
         , Network.AWS.Config.GetComplianceDetailsByResource
         , Network.AWS.Config.GetComplianceSummaryByConfigRule
@@ -65,7 +76,9 @@ library
         , Network.AWS.Config.GetDiscoveredResourceCounts
         , Network.AWS.Config.GetResourceConfigHistory
         , Network.AWS.Config.ListDiscoveredResources
+        , Network.AWS.Config.PutAggregationAuthorization
         , Network.AWS.Config.PutConfigRule
+        , Network.AWS.Config.PutConfigurationAggregator
         , Network.AWS.Config.PutConfigurationRecorder
         , Network.AWS.Config.PutDeliveryChannel
         , Network.AWS.Config.PutEvaluations

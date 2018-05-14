@@ -66,7 +66,7 @@ deletePipeline pPipelineId_ = DeletePipeline' {_dpPipelineId = pPipelineId_}
 
 -- | The ID of the pipeline.
 dpPipelineId :: Lens' DeletePipeline Text
-dpPipelineId = lens _dpPipelineId (\ s a -> s{_dpPipelineId = a});
+dpPipelineId = lens _dpPipelineId (\ s a -> s{_dpPipelineId = a})
 
 instance AWSRequest DeletePipeline where
         type Rs DeletePipeline = DeletePipelineResponse

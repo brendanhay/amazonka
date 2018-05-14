@@ -70,11 +70,11 @@ addTags pPipelineId_ = AddTags' {_atPipelineId = pPipelineId_, _atTags = mempty}
 
 -- | The ID of the pipeline.
 atPipelineId :: Lens' AddTags Text
-atPipelineId = lens _atPipelineId (\ s a -> s{_atPipelineId = a});
+atPipelineId = lens _atPipelineId (\ s a -> s{_atPipelineId = a})
 
 -- | The tags to add, as key/value pairs.
 atTags :: Lens' AddTags [Tag]
-atTags = lens _atTags (\ s a -> s{_atTags = a}) . _Coerce;
+atTags = lens _atTags (\ s a -> s{_atTags = a}) . _Coerce
 
 instance AWSRequest AddTags where
         type Rs AddTags = AddTagsResponse
@@ -133,6 +133,6 @@ addTagsResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 atrsResponseStatus :: Lens' AddTagsResponse Int
-atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a});
+atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a})
 
 instance NFData AddTagsResponse where

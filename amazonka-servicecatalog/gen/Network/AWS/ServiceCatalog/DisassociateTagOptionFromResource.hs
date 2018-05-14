@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates a TagOption from a resource.
+-- Disassociates the specified TagOption from the specified resource.
 --
 --
 module Network.AWS.ServiceCatalog.DisassociateTagOptionFromResource
@@ -55,25 +55,25 @@ data DisassociateTagOptionFromResource = DisassociateTagOptionFromResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtofrResourceId' - Identifier of the resource from which to disassociate the TagOption.
+-- * 'dtofrResourceId' - The resource identifier.
 --
--- * 'dtofrTagOptionId' - Identifier of the TagOption to disassociate from the resource.
+-- * 'dtofrTagOptionId' - The TagOption identifier.
 disassociateTagOptionFromResource
     :: Text -- ^ 'dtofrResourceId'
     -> Text -- ^ 'dtofrTagOptionId'
     -> DisassociateTagOptionFromResource
 disassociateTagOptionFromResource pResourceId_ pTagOptionId_ =
   DisassociateTagOptionFromResource'
-  {_dtofrResourceId = pResourceId_, _dtofrTagOptionId = pTagOptionId_}
+    {_dtofrResourceId = pResourceId_, _dtofrTagOptionId = pTagOptionId_}
 
 
--- | Identifier of the resource from which to disassociate the TagOption.
+-- | The resource identifier.
 dtofrResourceId :: Lens' DisassociateTagOptionFromResource Text
-dtofrResourceId = lens _dtofrResourceId (\ s a -> s{_dtofrResourceId = a});
+dtofrResourceId = lens _dtofrResourceId (\ s a -> s{_dtofrResourceId = a})
 
--- | Identifier of the TagOption to disassociate from the resource.
+-- | The TagOption identifier.
 dtofrTagOptionId :: Lens' DisassociateTagOptionFromResource Text
-dtofrTagOptionId = lens _dtofrTagOptionId (\ s a -> s{_dtofrTagOptionId = a});
+dtofrTagOptionId = lens _dtofrTagOptionId (\ s a -> s{_dtofrTagOptionId = a})
 
 instance AWSRequest DisassociateTagOptionFromResource
          where
@@ -135,12 +135,12 @@ disassociateTagOptionFromResourceResponse
     -> DisassociateTagOptionFromResourceResponse
 disassociateTagOptionFromResourceResponse pResponseStatus_ =
   DisassociateTagOptionFromResourceResponse'
-  {_dtofrrsResponseStatus = pResponseStatus_}
+    {_dtofrrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 dtofrrsResponseStatus :: Lens' DisassociateTagOptionFromResourceResponse Int
-dtofrrsResponseStatus = lens _dtofrrsResponseStatus (\ s a -> s{_dtofrrsResponseStatus = a});
+dtofrrsResponseStatus = lens _dtofrrsResponseStatus (\ s a -> s{_dtofrrsResponseStatus = a})
 
 instance NFData
            DisassociateTagOptionFromResourceResponse

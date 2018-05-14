@@ -68,7 +68,7 @@ listThingPrincipals pThingName_ =
 
 -- | The name of the thing.
 ltpThingName :: Lens' ListThingPrincipals Text
-ltpThingName = lens _ltpThingName (\ s a -> s{_ltpThingName = a});
+ltpThingName = lens _ltpThingName (\ s a -> s{_ltpThingName = a})
 
 instance AWSRequest ListThingPrincipals where
         type Rs ListThingPrincipals =
@@ -119,15 +119,15 @@ listThingPrincipalsResponse
     -> ListThingPrincipalsResponse
 listThingPrincipalsResponse pResponseStatus_ =
   ListThingPrincipalsResponse'
-  {_ltprsPrincipals = Nothing, _ltprsResponseStatus = pResponseStatus_}
+    {_ltprsPrincipals = Nothing, _ltprsResponseStatus = pResponseStatus_}
 
 
 -- | The principals associated with the thing.
 ltprsPrincipals :: Lens' ListThingPrincipalsResponse [Text]
-ltprsPrincipals = lens _ltprsPrincipals (\ s a -> s{_ltprsPrincipals = a}) . _Default . _Coerce;
+ltprsPrincipals = lens _ltprsPrincipals (\ s a -> s{_ltprsPrincipals = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ltprsResponseStatus :: Lens' ListThingPrincipalsResponse Int
-ltprsResponseStatus = lens _ltprsResponseStatus (\ s a -> s{_ltprsResponseStatus = a});
+ltprsResponseStatus = lens _ltprsResponseStatus (\ s a -> s{_ltprsResponseStatus = a})
 
 instance NFData ListThingPrincipalsResponse where

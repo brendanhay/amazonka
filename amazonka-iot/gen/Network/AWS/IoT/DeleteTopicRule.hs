@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified rule.
+-- Deletes the rule.
 --
 --
 module Network.AWS.IoT.DeleteTopicRule
@@ -64,7 +64,7 @@ deleteTopicRule pRuleName_ = DeleteTopicRule' {_dRuleName = pRuleName_}
 
 -- | The name of the rule.
 dRuleName :: Lens' DeleteTopicRule Text
-dRuleName = lens _dRuleName (\ s a -> s{_dRuleName = a});
+dRuleName = lens _dRuleName (\ s a -> s{_dRuleName = a})
 
 instance AWSRequest DeleteTopicRule where
         type Rs DeleteTopicRule = DeleteTopicRuleResponse

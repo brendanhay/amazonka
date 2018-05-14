@@ -65,7 +65,7 @@ setLoggingOptions pLoggingOptionsPayload_ =
 
 -- | The logging options payload.
 sloLoggingOptionsPayload :: Lens' SetLoggingOptions LoggingOptionsPayload
-sloLoggingOptionsPayload = lens _sloLoggingOptionsPayload (\ s a -> s{_sloLoggingOptionsPayload = a});
+sloLoggingOptionsPayload = lens _sloLoggingOptionsPayload (\ s a -> s{_sloLoggingOptionsPayload = a})
 
 instance AWSRequest SetLoggingOptions where
         type Rs SetLoggingOptions = SetLoggingOptionsResponse

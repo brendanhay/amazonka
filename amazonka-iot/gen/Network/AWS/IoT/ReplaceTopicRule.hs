@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Replaces the specified rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.
+-- Replaces the rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.
 --
 --
 module Network.AWS.IoT.ReplaceTopicRule
@@ -66,16 +66,16 @@ replaceTopicRule
     -> ReplaceTopicRule
 replaceTopicRule pRuleName_ pTopicRulePayload_ =
   ReplaceTopicRule'
-  {_rtrRuleName = pRuleName_, _rtrTopicRulePayload = pTopicRulePayload_}
+    {_rtrRuleName = pRuleName_, _rtrTopicRulePayload = pTopicRulePayload_}
 
 
 -- | The name of the rule.
 rtrRuleName :: Lens' ReplaceTopicRule Text
-rtrRuleName = lens _rtrRuleName (\ s a -> s{_rtrRuleName = a});
+rtrRuleName = lens _rtrRuleName (\ s a -> s{_rtrRuleName = a})
 
 -- | The rule payload.
 rtrTopicRulePayload :: Lens' ReplaceTopicRule TopicRulePayload
-rtrTopicRulePayload = lens _rtrTopicRulePayload (\ s a -> s{_rtrTopicRulePayload = a});
+rtrTopicRulePayload = lens _rtrTopicRulePayload (\ s a -> s{_rtrTopicRulePayload = a})
 
 instance AWSRequest ReplaceTopicRule where
         type Rs ReplaceTopicRule = ReplaceTopicRuleResponse

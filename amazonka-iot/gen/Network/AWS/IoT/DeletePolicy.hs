@@ -70,7 +70,7 @@ deletePolicy pPolicyName_ = DeletePolicy' {_dpPolicyName = pPolicyName_}
 
 -- | The name of the policy to delete.
 dpPolicyName :: Lens' DeletePolicy Text
-dpPolicyName = lens _dpPolicyName (\ s a -> s{_dpPolicyName = a});
+dpPolicyName = lens _dpPolicyName (\ s a -> s{_dpPolicyName = a})
 
 instance AWSRequest DeletePolicy where
         type Rs DeletePolicy = DeletePolicyResponse

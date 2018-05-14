@@ -75,20 +75,20 @@ listPolicies
     :: ListPolicies
 listPolicies =
   ListPolicies'
-  {_lpMarker = Nothing, _lpAscendingOrder = Nothing, _lpPageSize = Nothing}
+    {_lpMarker = Nothing, _lpAscendingOrder = Nothing, _lpPageSize = Nothing}
 
 
 -- | The marker for the next set of results.
 lpMarker :: Lens' ListPolicies (Maybe Text)
-lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
+lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a})
 
 -- | Specifies the order for results. If true, the results are returned in ascending creation order.
 lpAscendingOrder :: Lens' ListPolicies (Maybe Bool)
-lpAscendingOrder = lens _lpAscendingOrder (\ s a -> s{_lpAscendingOrder = a});
+lpAscendingOrder = lens _lpAscendingOrder (\ s a -> s{_lpAscendingOrder = a})
 
 -- | The result page size.
 lpPageSize :: Lens' ListPolicies (Maybe Natural)
-lpPageSize = lens _lpPageSize (\ s a -> s{_lpPageSize = a}) . mapping _Nat;
+lpPageSize = lens _lpPageSize (\ s a -> s{_lpPageSize = a}) . mapping _Nat
 
 instance AWSPager ListPolicies where
         page rq rs
@@ -151,22 +151,22 @@ listPoliciesResponse
     -> ListPoliciesResponse
 listPoliciesResponse pResponseStatus_ =
   ListPoliciesResponse'
-  { _lprsNextMarker = Nothing
-  , _lprsPolicies = Nothing
-  , _lprsResponseStatus = pResponseStatus_
-  }
+    { _lprsNextMarker = Nothing
+    , _lprsPolicies = Nothing
+    , _lprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The marker for the next set of results, or null if there are no additional results.
 lprsNextMarker :: Lens' ListPoliciesResponse (Maybe Text)
-lprsNextMarker = lens _lprsNextMarker (\ s a -> s{_lprsNextMarker = a});
+lprsNextMarker = lens _lprsNextMarker (\ s a -> s{_lprsNextMarker = a})
 
 -- | The descriptions of the policies.
 lprsPolicies :: Lens' ListPoliciesResponse [Policy]
-lprsPolicies = lens _lprsPolicies (\ s a -> s{_lprsPolicies = a}) . _Default . _Coerce;
+lprsPolicies = lens _lprsPolicies (\ s a -> s{_lprsPolicies = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lprsResponseStatus :: Lens' ListPoliciesResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
+lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a})
 
 instance NFData ListPoliciesResponse where

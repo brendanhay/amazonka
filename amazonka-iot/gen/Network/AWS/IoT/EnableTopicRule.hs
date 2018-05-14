@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables the specified rule.
+-- Enables the rule.
 --
 --
 module Network.AWS.IoT.EnableTopicRule
@@ -64,7 +64,7 @@ enableTopicRule pRuleName_ = EnableTopicRule' {_etrRuleName = pRuleName_}
 
 -- | The name of the topic rule to enable.
 etrRuleName :: Lens' EnableTopicRule Text
-etrRuleName = lens _etrRuleName (\ s a -> s{_etrRuleName = a});
+etrRuleName = lens _etrRuleName (\ s a -> s{_etrRuleName = a})
 
 instance AWSRequest EnableTopicRule where
         type Rs EnableTopicRule = EnableTopicRuleResponse

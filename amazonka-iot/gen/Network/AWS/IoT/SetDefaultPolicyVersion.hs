@@ -66,16 +66,16 @@ setDefaultPolicyVersion
     -> SetDefaultPolicyVersion
 setDefaultPolicyVersion pPolicyName_ pPolicyVersionId_ =
   SetDefaultPolicyVersion'
-  {_sdpvPolicyName = pPolicyName_, _sdpvPolicyVersionId = pPolicyVersionId_}
+    {_sdpvPolicyName = pPolicyName_, _sdpvPolicyVersionId = pPolicyVersionId_}
 
 
 -- | The policy name.
 sdpvPolicyName :: Lens' SetDefaultPolicyVersion Text
-sdpvPolicyName = lens _sdpvPolicyName (\ s a -> s{_sdpvPolicyName = a});
+sdpvPolicyName = lens _sdpvPolicyName (\ s a -> s{_sdpvPolicyName = a})
 
 -- | The policy version ID.
 sdpvPolicyVersionId :: Lens' SetDefaultPolicyVersion Text
-sdpvPolicyVersionId = lens _sdpvPolicyVersionId (\ s a -> s{_sdpvPolicyVersionId = a});
+sdpvPolicyVersionId = lens _sdpvPolicyVersionId (\ s a -> s{_sdpvPolicyVersionId = a})
 
 instance AWSRequest SetDefaultPolicyVersion where
         type Rs SetDefaultPolicyVersion =

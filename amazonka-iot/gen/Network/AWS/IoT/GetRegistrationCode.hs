@@ -105,15 +105,15 @@ getRegistrationCodeResponse
     -> GetRegistrationCodeResponse
 getRegistrationCodeResponse pResponseStatus_ =
   GetRegistrationCodeResponse'
-  {_grcrsRegistrationCode = Nothing, _grcrsResponseStatus = pResponseStatus_}
+    {_grcrsRegistrationCode = Nothing, _grcrsResponseStatus = pResponseStatus_}
 
 
 -- | The CA certificate registration code.
 grcrsRegistrationCode :: Lens' GetRegistrationCodeResponse (Maybe Text)
-grcrsRegistrationCode = lens _grcrsRegistrationCode (\ s a -> s{_grcrsRegistrationCode = a});
+grcrsRegistrationCode = lens _grcrsRegistrationCode (\ s a -> s{_grcrsRegistrationCode = a})
 
 -- | -- | The response status code.
 grcrsResponseStatus :: Lens' GetRegistrationCodeResponse Int
-grcrsResponseStatus = lens _grcrsResponseStatus (\ s a -> s{_grcrsResponseStatus = a});
+grcrsResponseStatus = lens _grcrsResponseStatus (\ s a -> s{_grcrsResponseStatus = a})
 
 instance NFData GetRegistrationCodeResponse where

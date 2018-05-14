@@ -105,6 +105,6 @@ deleteRegistrationCodeResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drcrsResponseStatus :: Lens' DeleteRegistrationCodeResponse Int
-drcrsResponseStatus = lens _drcrsResponseStatus (\ s a -> s{_drcrsResponseStatus = a});
+drcrsResponseStatus = lens _drcrsResponseStatus (\ s a -> s{_drcrsResponseStatus = a})
 
 instance NFData DeleteRegistrationCodeResponse where

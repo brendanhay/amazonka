@@ -61,22 +61,22 @@ data AcceptCertificateTransfer = AcceptCertificateTransfer'
 --
 -- * 'actSetAsActive' - Specifies whether the certificate is active.
 --
--- * 'actCertificateId' - The ID of the certificate.
+-- * 'actCertificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
 acceptCertificateTransfer
     :: Text -- ^ 'actCertificateId'
     -> AcceptCertificateTransfer
 acceptCertificateTransfer pCertificateId_ =
   AcceptCertificateTransfer'
-  {_actSetAsActive = Nothing, _actCertificateId = pCertificateId_}
+    {_actSetAsActive = Nothing, _actCertificateId = pCertificateId_}
 
 
 -- | Specifies whether the certificate is active.
 actSetAsActive :: Lens' AcceptCertificateTransfer (Maybe Bool)
-actSetAsActive = lens _actSetAsActive (\ s a -> s{_actSetAsActive = a});
+actSetAsActive = lens _actSetAsActive (\ s a -> s{_actSetAsActive = a})
 
--- | The ID of the certificate.
+-- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
 actCertificateId :: Lens' AcceptCertificateTransfer Text
-actCertificateId = lens _actCertificateId (\ s a -> s{_actCertificateId = a});
+actCertificateId = lens _actCertificateId (\ s a -> s{_actCertificateId = a})
 
 instance AWSRequest AcceptCertificateTransfer where
         type Rs AcceptCertificateTransfer =

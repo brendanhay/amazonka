@@ -62,7 +62,7 @@ getEmailChannel pApplicationId_ =
 
 -- | Undocumented member.
 gecApplicationId :: Lens' GetEmailChannel Text
-gecApplicationId = lens _gecApplicationId (\ s a -> s{_gecApplicationId = a});
+gecApplicationId = lens _gecApplicationId (\ s a -> s{_gecApplicationId = a})
 
 instance AWSRequest GetEmailChannel where
         type Rs GetEmailChannel = GetEmailChannelResponse
@@ -113,17 +113,17 @@ getEmailChannelResponse
     -> GetEmailChannelResponse
 getEmailChannelResponse pResponseStatus_ pEmailChannelResponse_ =
   GetEmailChannelResponse'
-  { _gecrsResponseStatus = pResponseStatus_
-  , _gecrsEmailChannelResponse = pEmailChannelResponse_
-  }
+    { _gecrsResponseStatus = pResponseStatus_
+    , _gecrsEmailChannelResponse = pEmailChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 gecrsResponseStatus :: Lens' GetEmailChannelResponse Int
-gecrsResponseStatus = lens _gecrsResponseStatus (\ s a -> s{_gecrsResponseStatus = a});
+gecrsResponseStatus = lens _gecrsResponseStatus (\ s a -> s{_gecrsResponseStatus = a})
 
 -- | Undocumented member.
 gecrsEmailChannelResponse :: Lens' GetEmailChannelResponse EmailChannelResponse
-gecrsEmailChannelResponse = lens _gecrsEmailChannelResponse (\ s a -> s{_gecrsEmailChannelResponse = a});
+gecrsEmailChannelResponse = lens _gecrsEmailChannelResponse (\ s a -> s{_gecrsEmailChannelResponse = a})
 
 instance NFData GetEmailChannelResponse where

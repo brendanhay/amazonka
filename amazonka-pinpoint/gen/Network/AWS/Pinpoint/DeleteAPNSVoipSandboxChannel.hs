@@ -62,7 +62,7 @@ deleteAPNSVoipSandboxChannel pApplicationId_ =
 
 -- | Undocumented member.
 davscApplicationId :: Lens' DeleteAPNSVoipSandboxChannel Text
-davscApplicationId = lens _davscApplicationId (\ s a -> s{_davscApplicationId = a});
+davscApplicationId = lens _davscApplicationId (\ s a -> s{_davscApplicationId = a})
 
 instance AWSRequest DeleteAPNSVoipSandboxChannel
          where
@@ -115,18 +115,18 @@ deleteAPNSVoipSandboxChannelResponse
     -> DeleteAPNSVoipSandboxChannelResponse
 deleteAPNSVoipSandboxChannelResponse pResponseStatus_ pAPNSVoipSandboxChannelResponse_ =
   DeleteAPNSVoipSandboxChannelResponse'
-  { _davscrsResponseStatus = pResponseStatus_
-  , _davscrsAPNSVoipSandboxChannelResponse = pAPNSVoipSandboxChannelResponse_
-  }
+    { _davscrsResponseStatus = pResponseStatus_
+    , _davscrsAPNSVoipSandboxChannelResponse = pAPNSVoipSandboxChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 davscrsResponseStatus :: Lens' DeleteAPNSVoipSandboxChannelResponse Int
-davscrsResponseStatus = lens _davscrsResponseStatus (\ s a -> s{_davscrsResponseStatus = a});
+davscrsResponseStatus = lens _davscrsResponseStatus (\ s a -> s{_davscrsResponseStatus = a})
 
 -- | Undocumented member.
 davscrsAPNSVoipSandboxChannelResponse :: Lens' DeleteAPNSVoipSandboxChannelResponse APNSVoipSandboxChannelResponse
-davscrsAPNSVoipSandboxChannelResponse = lens _davscrsAPNSVoipSandboxChannelResponse (\ s a -> s{_davscrsAPNSVoipSandboxChannelResponse = a});
+davscrsAPNSVoipSandboxChannelResponse = lens _davscrsAPNSVoipSandboxChannelResponse (\ s a -> s{_davscrsAPNSVoipSandboxChannelResponse = a})
 
 instance NFData DeleteAPNSVoipSandboxChannelResponse
          where

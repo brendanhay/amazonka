@@ -63,18 +63,18 @@ updateAPNSChannel
     -> UpdateAPNSChannel
 updateAPNSChannel pApplicationId_ pAPNSChannelRequest_ =
   UpdateAPNSChannel'
-  { _uacApplicationId = pApplicationId_
-  , _uacAPNSChannelRequest = pAPNSChannelRequest_
-  }
+    { _uacApplicationId = pApplicationId_
+    , _uacAPNSChannelRequest = pAPNSChannelRequest_
+    }
 
 
 -- | Undocumented member.
 uacApplicationId :: Lens' UpdateAPNSChannel Text
-uacApplicationId = lens _uacApplicationId (\ s a -> s{_uacApplicationId = a});
+uacApplicationId = lens _uacApplicationId (\ s a -> s{_uacApplicationId = a})
 
 -- | Undocumented member.
 uacAPNSChannelRequest :: Lens' UpdateAPNSChannel APNSChannelRequest
-uacAPNSChannelRequest = lens _uacAPNSChannelRequest (\ s a -> s{_uacAPNSChannelRequest = a});
+uacAPNSChannelRequest = lens _uacAPNSChannelRequest (\ s a -> s{_uacAPNSChannelRequest = a})
 
 instance AWSRequest UpdateAPNSChannel where
         type Rs UpdateAPNSChannel = UpdateAPNSChannelResponse
@@ -132,17 +132,17 @@ updateAPNSChannelResponse
     -> UpdateAPNSChannelResponse
 updateAPNSChannelResponse pResponseStatus_ pAPNSChannelResponse_ =
   UpdateAPNSChannelResponse'
-  { _uacrsResponseStatus = pResponseStatus_
-  , _uacrsAPNSChannelResponse = pAPNSChannelResponse_
-  }
+    { _uacrsResponseStatus = pResponseStatus_
+    , _uacrsAPNSChannelResponse = pAPNSChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 uacrsResponseStatus :: Lens' UpdateAPNSChannelResponse Int
-uacrsResponseStatus = lens _uacrsResponseStatus (\ s a -> s{_uacrsResponseStatus = a});
+uacrsResponseStatus = lens _uacrsResponseStatus (\ s a -> s{_uacrsResponseStatus = a})
 
 -- | Undocumented member.
 uacrsAPNSChannelResponse :: Lens' UpdateAPNSChannelResponse APNSChannelResponse
-uacrsAPNSChannelResponse = lens _uacrsAPNSChannelResponse (\ s a -> s{_uacrsAPNSChannelResponse = a});
+uacrsAPNSChannelResponse = lens _uacrsAPNSChannelResponse (\ s a -> s{_uacrsAPNSChannelResponse = a})
 
 instance NFData UpdateAPNSChannelResponse where

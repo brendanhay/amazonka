@@ -64,7 +64,7 @@ deleteEventStream pApplicationId_ =
 
 -- | ApplicationId
 desApplicationId :: Lens' DeleteEventStream Text
-desApplicationId = lens _desApplicationId (\ s a -> s{_desApplicationId = a});
+desApplicationId = lens _desApplicationId (\ s a -> s{_desApplicationId = a})
 
 instance AWSRequest DeleteEventStream where
         type Rs DeleteEventStream = DeleteEventStreamResponse
@@ -114,15 +114,15 @@ deleteEventStreamResponse
     -> DeleteEventStreamResponse
 deleteEventStreamResponse pResponseStatus_ pEventStream_ =
   DeleteEventStreamResponse'
-  {_desrsResponseStatus = pResponseStatus_, _desrsEventStream = pEventStream_}
+    {_desrsResponseStatus = pResponseStatus_, _desrsEventStream = pEventStream_}
 
 
 -- | -- | The response status code.
 desrsResponseStatus :: Lens' DeleteEventStreamResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a})
 
 -- | Undocumented member.
 desrsEventStream :: Lens' DeleteEventStreamResponse EventStream
-desrsEventStream = lens _desrsEventStream (\ s a -> s{_desrsEventStream = a});
+desrsEventStream = lens _desrsEventStream (\ s a -> s{_desrsEventStream = a})
 
 instance NFData DeleteEventStreamResponse where

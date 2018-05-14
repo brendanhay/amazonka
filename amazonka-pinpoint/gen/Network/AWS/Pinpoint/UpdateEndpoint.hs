@@ -68,23 +68,23 @@ updateEndpoint
     -> UpdateEndpoint
 updateEndpoint pApplicationId_ pEndpointId_ pEndpointRequest_ =
   UpdateEndpoint'
-  { _ueApplicationId = pApplicationId_
-  , _ueEndpointId = pEndpointId_
-  , _ueEndpointRequest = pEndpointRequest_
-  }
+    { _ueApplicationId = pApplicationId_
+    , _ueEndpointId = pEndpointId_
+    , _ueEndpointRequest = pEndpointRequest_
+    }
 
 
 -- | Undocumented member.
 ueApplicationId :: Lens' UpdateEndpoint Text
-ueApplicationId = lens _ueApplicationId (\ s a -> s{_ueApplicationId = a});
+ueApplicationId = lens _ueApplicationId (\ s a -> s{_ueApplicationId = a})
 
 -- | Undocumented member.
 ueEndpointId :: Lens' UpdateEndpoint Text
-ueEndpointId = lens _ueEndpointId (\ s a -> s{_ueEndpointId = a});
+ueEndpointId = lens _ueEndpointId (\ s a -> s{_ueEndpointId = a})
 
 -- | Undocumented member.
 ueEndpointRequest :: Lens' UpdateEndpoint EndpointRequest
-ueEndpointRequest = lens _ueEndpointRequest (\ s a -> s{_ueEndpointRequest = a});
+ueEndpointRequest = lens _ueEndpointRequest (\ s a -> s{_ueEndpointRequest = a})
 
 instance AWSRequest UpdateEndpoint where
         type Rs UpdateEndpoint = UpdateEndpointResponse
@@ -141,15 +141,15 @@ updateEndpointResponse
     -> UpdateEndpointResponse
 updateEndpointResponse pResponseStatus_ pMessageBody_ =
   UpdateEndpointResponse'
-  {_uersResponseStatus = pResponseStatus_, _uersMessageBody = pMessageBody_}
+    {_uersResponseStatus = pResponseStatus_, _uersMessageBody = pMessageBody_}
 
 
 -- | -- | The response status code.
 uersResponseStatus :: Lens' UpdateEndpointResponse Int
-uersResponseStatus = lens _uersResponseStatus (\ s a -> s{_uersResponseStatus = a});
+uersResponseStatus = lens _uersResponseStatus (\ s a -> s{_uersResponseStatus = a})
 
 -- | Undocumented member.
 uersMessageBody :: Lens' UpdateEndpointResponse MessageBody
-uersMessageBody = lens _uersMessageBody (\ s a -> s{_uersMessageBody = a});
+uersMessageBody = lens _uersMessageBody (\ s a -> s{_uersMessageBody = a})
 
 instance NFData UpdateEndpointResponse where

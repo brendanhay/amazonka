@@ -62,7 +62,7 @@ deleteADMChannel pApplicationId_ =
 
 -- | Undocumented member.
 dadmcApplicationId :: Lens' DeleteADMChannel Text
-dadmcApplicationId = lens _dadmcApplicationId (\ s a -> s{_dadmcApplicationId = a});
+dadmcApplicationId = lens _dadmcApplicationId (\ s a -> s{_dadmcApplicationId = a})
 
 instance AWSRequest DeleteADMChannel where
         type Rs DeleteADMChannel = DeleteADMChannelResponse
@@ -113,17 +113,17 @@ deleteADMChannelResponse
     -> DeleteADMChannelResponse
 deleteADMChannelResponse pResponseStatus_ pADMChannelResponse_ =
   DeleteADMChannelResponse'
-  { _dadmcrsResponseStatus = pResponseStatus_
-  , _dadmcrsADMChannelResponse = pADMChannelResponse_
-  }
+    { _dadmcrsResponseStatus = pResponseStatus_
+    , _dadmcrsADMChannelResponse = pADMChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 dadmcrsResponseStatus :: Lens' DeleteADMChannelResponse Int
-dadmcrsResponseStatus = lens _dadmcrsResponseStatus (\ s a -> s{_dadmcrsResponseStatus = a});
+dadmcrsResponseStatus = lens _dadmcrsResponseStatus (\ s a -> s{_dadmcrsResponseStatus = a})
 
 -- | Undocumented member.
 dadmcrsADMChannelResponse :: Lens' DeleteADMChannelResponse ADMChannelResponse
-dadmcrsADMChannelResponse = lens _dadmcrsADMChannelResponse (\ s a -> s{_dadmcrsADMChannelResponse = a});
+dadmcrsADMChannelResponse = lens _dadmcrsADMChannelResponse (\ s a -> s{_dadmcrsADMChannelResponse = a})
 
 instance NFData DeleteADMChannelResponse where

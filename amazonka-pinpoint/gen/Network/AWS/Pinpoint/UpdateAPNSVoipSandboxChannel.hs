@@ -63,18 +63,18 @@ updateAPNSVoipSandboxChannel
     -> UpdateAPNSVoipSandboxChannel
 updateAPNSVoipSandboxChannel pApplicationId_ pAPNSVoipSandboxChannelRequest_ =
   UpdateAPNSVoipSandboxChannel'
-  { _uavscApplicationId = pApplicationId_
-  , _uavscAPNSVoipSandboxChannelRequest = pAPNSVoipSandboxChannelRequest_
-  }
+    { _uavscApplicationId = pApplicationId_
+    , _uavscAPNSVoipSandboxChannelRequest = pAPNSVoipSandboxChannelRequest_
+    }
 
 
 -- | Undocumented member.
 uavscApplicationId :: Lens' UpdateAPNSVoipSandboxChannel Text
-uavscApplicationId = lens _uavscApplicationId (\ s a -> s{_uavscApplicationId = a});
+uavscApplicationId = lens _uavscApplicationId (\ s a -> s{_uavscApplicationId = a})
 
 -- | Undocumented member.
 uavscAPNSVoipSandboxChannelRequest :: Lens' UpdateAPNSVoipSandboxChannel APNSVoipSandboxChannelRequest
-uavscAPNSVoipSandboxChannelRequest = lens _uavscAPNSVoipSandboxChannelRequest (\ s a -> s{_uavscAPNSVoipSandboxChannelRequest = a});
+uavscAPNSVoipSandboxChannelRequest = lens _uavscAPNSVoipSandboxChannelRequest (\ s a -> s{_uavscAPNSVoipSandboxChannelRequest = a})
 
 instance AWSRequest UpdateAPNSVoipSandboxChannel
          where
@@ -135,18 +135,18 @@ updateAPNSVoipSandboxChannelResponse
     -> UpdateAPNSVoipSandboxChannelResponse
 updateAPNSVoipSandboxChannelResponse pResponseStatus_ pAPNSVoipSandboxChannelResponse_ =
   UpdateAPNSVoipSandboxChannelResponse'
-  { _uavscrsResponseStatus = pResponseStatus_
-  , _uavscrsAPNSVoipSandboxChannelResponse = pAPNSVoipSandboxChannelResponse_
-  }
+    { _uavscrsResponseStatus = pResponseStatus_
+    , _uavscrsAPNSVoipSandboxChannelResponse = pAPNSVoipSandboxChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 uavscrsResponseStatus :: Lens' UpdateAPNSVoipSandboxChannelResponse Int
-uavscrsResponseStatus = lens _uavscrsResponseStatus (\ s a -> s{_uavscrsResponseStatus = a});
+uavscrsResponseStatus = lens _uavscrsResponseStatus (\ s a -> s{_uavscrsResponseStatus = a})
 
 -- | Undocumented member.
 uavscrsAPNSVoipSandboxChannelResponse :: Lens' UpdateAPNSVoipSandboxChannelResponse APNSVoipSandboxChannelResponse
-uavscrsAPNSVoipSandboxChannelResponse = lens _uavscrsAPNSVoipSandboxChannelResponse (\ s a -> s{_uavscrsAPNSVoipSandboxChannelResponse = a});
+uavscrsAPNSVoipSandboxChannelResponse = lens _uavscrsAPNSVoipSandboxChannelResponse (\ s a -> s{_uavscrsAPNSVoipSandboxChannelResponse = a})
 
 instance NFData UpdateAPNSVoipSandboxChannelResponse
          where

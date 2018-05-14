@@ -64,7 +64,7 @@ getEventStream pApplicationId_ =
 
 -- | ApplicationId
 gesApplicationId :: Lens' GetEventStream Text
-gesApplicationId = lens _gesApplicationId (\ s a -> s{_gesApplicationId = a});
+gesApplicationId = lens _gesApplicationId (\ s a -> s{_gesApplicationId = a})
 
 instance AWSRequest GetEventStream where
         type Rs GetEventStream = GetEventStreamResponse
@@ -114,15 +114,15 @@ getEventStreamResponse
     -> GetEventStreamResponse
 getEventStreamResponse pResponseStatus_ pEventStream_ =
   GetEventStreamResponse'
-  {_gesrsResponseStatus = pResponseStatus_, _gesrsEventStream = pEventStream_}
+    {_gesrsResponseStatus = pResponseStatus_, _gesrsEventStream = pEventStream_}
 
 
 -- | -- | The response status code.
 gesrsResponseStatus :: Lens' GetEventStreamResponse Int
-gesrsResponseStatus = lens _gesrsResponseStatus (\ s a -> s{_gesrsResponseStatus = a});
+gesrsResponseStatus = lens _gesrsResponseStatus (\ s a -> s{_gesrsResponseStatus = a})
 
 -- | Undocumented member.
 gesrsEventStream :: Lens' GetEventStreamResponse EventStream
-gesrsEventStream = lens _gesrsEventStream (\ s a -> s{_gesrsEventStream = a});
+gesrsEventStream = lens _gesrsEventStream (\ s a -> s{_gesrsEventStream = a})
 
 instance NFData GetEventStreamResponse where

@@ -67,11 +67,11 @@ getImportJob pApplicationId_ pJobId_ =
 
 -- | Undocumented member.
 gijApplicationId :: Lens' GetImportJob Text
-gijApplicationId = lens _gijApplicationId (\ s a -> s{_gijApplicationId = a});
+gijApplicationId = lens _gijApplicationId (\ s a -> s{_gijApplicationId = a})
 
 -- | Undocumented member.
 gijJobId :: Lens' GetImportJob Text
-gijJobId = lens _gijJobId (\ s a -> s{_gijJobId = a});
+gijJobId = lens _gijJobId (\ s a -> s{_gijJobId = a})
 
 instance AWSRequest GetImportJob where
         type Rs GetImportJob = GetImportJobResponse
@@ -122,17 +122,17 @@ getImportJobResponse
     -> GetImportJobResponse
 getImportJobResponse pResponseStatus_ pImportJobResponse_ =
   GetImportJobResponse'
-  { _gijrsResponseStatus = pResponseStatus_
-  , _gijrsImportJobResponse = pImportJobResponse_
-  }
+    { _gijrsResponseStatus = pResponseStatus_
+    , _gijrsImportJobResponse = pImportJobResponse_
+    }
 
 
 -- | -- | The response status code.
 gijrsResponseStatus :: Lens' GetImportJobResponse Int
-gijrsResponseStatus = lens _gijrsResponseStatus (\ s a -> s{_gijrsResponseStatus = a});
+gijrsResponseStatus = lens _gijrsResponseStatus (\ s a -> s{_gijrsResponseStatus = a})
 
 -- | Undocumented member.
 gijrsImportJobResponse :: Lens' GetImportJobResponse ImportJobResponse
-gijrsImportJobResponse = lens _gijrsImportJobResponse (\ s a -> s{_gijrsImportJobResponse = a});
+gijrsImportJobResponse = lens _gijrsImportJobResponse (\ s a -> s{_gijrsImportJobResponse = a})
 
 instance NFData GetImportJobResponse where

@@ -47,6 +47,7 @@ library
           Network.AWS.Pinpoint
         , Network.AWS.Pinpoint.CreateApp
         , Network.AWS.Pinpoint.CreateCampaign
+        , Network.AWS.Pinpoint.CreateExportJob
         , Network.AWS.Pinpoint.CreateImportJob
         , Network.AWS.Pinpoint.CreateSegment
         , Network.AWS.Pinpoint.DeleteADMChannel
@@ -58,6 +59,7 @@ library
         , Network.AWS.Pinpoint.DeleteBaiduChannel
         , Network.AWS.Pinpoint.DeleteCampaign
         , Network.AWS.Pinpoint.DeleteEmailChannel
+        , Network.AWS.Pinpoint.DeleteEndpoint
         , Network.AWS.Pinpoint.DeleteEventStream
         , Network.AWS.Pinpoint.DeleteGCMChannel
         , Network.AWS.Pinpoint.DeleteSegment
@@ -79,10 +81,13 @@ library
         , Network.AWS.Pinpoint.GetEmailChannel
         , Network.AWS.Pinpoint.GetEndpoint
         , Network.AWS.Pinpoint.GetEventStream
+        , Network.AWS.Pinpoint.GetExportJob
+        , Network.AWS.Pinpoint.GetExportJobs
         , Network.AWS.Pinpoint.GetGCMChannel
         , Network.AWS.Pinpoint.GetImportJob
         , Network.AWS.Pinpoint.GetImportJobs
         , Network.AWS.Pinpoint.GetSegment
+        , Network.AWS.Pinpoint.GetSegmentExportJobs
         , Network.AWS.Pinpoint.GetSegmentImportJobs
         , Network.AWS.Pinpoint.GetSegmentVersion
         , Network.AWS.Pinpoint.GetSegmentVersions

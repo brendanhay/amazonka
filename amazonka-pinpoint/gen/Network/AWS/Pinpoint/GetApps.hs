@@ -64,11 +64,11 @@ getApps = GetApps' {_gaToken = Nothing, _gaPageSize = Nothing}
 
 -- | Undocumented member.
 gaToken :: Lens' GetApps (Maybe Text)
-gaToken = lens _gaToken (\ s a -> s{_gaToken = a});
+gaToken = lens _gaToken (\ s a -> s{_gaToken = a})
 
 -- | Undocumented member.
 gaPageSize :: Lens' GetApps (Maybe Text)
-gaPageSize = lens _gaPageSize (\ s a -> s{_gaPageSize = a});
+gaPageSize = lens _gaPageSize (\ s a -> s{_gaPageSize = a})
 
 instance AWSRequest GetApps where
         type Rs GetApps = GetAppsResponse
@@ -118,17 +118,17 @@ getAppsResponse
     -> GetAppsResponse
 getAppsResponse pResponseStatus_ pApplicationsResponse_ =
   GetAppsResponse'
-  { _gasrsResponseStatus = pResponseStatus_
-  , _gasrsApplicationsResponse = pApplicationsResponse_
-  }
+    { _gasrsResponseStatus = pResponseStatus_
+    , _gasrsApplicationsResponse = pApplicationsResponse_
+    }
 
 
 -- | -- | The response status code.
 gasrsResponseStatus :: Lens' GetAppsResponse Int
-gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a});
+gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a})
 
 -- | Undocumented member.
 gasrsApplicationsResponse :: Lens' GetAppsResponse ApplicationsResponse
-gasrsApplicationsResponse = lens _gasrsApplicationsResponse (\ s a -> s{_gasrsApplicationsResponse = a});
+gasrsApplicationsResponse = lens _gasrsApplicationsResponse (\ s a -> s{_gasrsApplicationsResponse = a})
 
 instance NFData GetAppsResponse where

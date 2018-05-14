@@ -62,7 +62,7 @@ createApp pCreateApplicationRequest_ =
 
 -- | Undocumented member.
 caCreateApplicationRequest :: Lens' CreateApp CreateApplicationRequest
-caCreateApplicationRequest = lens _caCreateApplicationRequest (\ s a -> s{_caCreateApplicationRequest = a});
+caCreateApplicationRequest = lens _caCreateApplicationRequest (\ s a -> s{_caCreateApplicationRequest = a})
 
 instance AWSRequest CreateApp where
         type Rs CreateApp = CreateAppResponse
@@ -118,17 +118,17 @@ createAppResponse
     -> CreateAppResponse
 createAppResponse pResponseStatus_ pApplicationResponse_ =
   CreateAppResponse'
-  { _carsResponseStatus = pResponseStatus_
-  , _carsApplicationResponse = pApplicationResponse_
-  }
+    { _carsResponseStatus = pResponseStatus_
+    , _carsApplicationResponse = pApplicationResponse_
+    }
 
 
 -- | -- | The response status code.
 carsResponseStatus :: Lens' CreateAppResponse Int
-carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
+carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a})
 
 -- | Undocumented member.
 carsApplicationResponse :: Lens' CreateAppResponse ApplicationResponse
-carsApplicationResponse = lens _carsApplicationResponse (\ s a -> s{_carsApplicationResponse = a});
+carsApplicationResponse = lens _carsApplicationResponse (\ s a -> s{_carsApplicationResponse = a})
 
 instance NFData CreateAppResponse where

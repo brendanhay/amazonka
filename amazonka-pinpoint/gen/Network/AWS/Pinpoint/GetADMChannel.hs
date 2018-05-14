@@ -62,7 +62,7 @@ getADMChannel pApplicationId_ =
 
 -- | Undocumented member.
 gadmcApplicationId :: Lens' GetADMChannel Text
-gadmcApplicationId = lens _gadmcApplicationId (\ s a -> s{_gadmcApplicationId = a});
+gadmcApplicationId = lens _gadmcApplicationId (\ s a -> s{_gadmcApplicationId = a})
 
 instance AWSRequest GetADMChannel where
         type Rs GetADMChannel = GetADMChannelResponse
@@ -113,17 +113,17 @@ getADMChannelResponse
     -> GetADMChannelResponse
 getADMChannelResponse pResponseStatus_ pADMChannelResponse_ =
   GetADMChannelResponse'
-  { _gadmcrsResponseStatus = pResponseStatus_
-  , _gadmcrsADMChannelResponse = pADMChannelResponse_
-  }
+    { _gadmcrsResponseStatus = pResponseStatus_
+    , _gadmcrsADMChannelResponse = pADMChannelResponse_
+    }
 
 
 -- | -- | The response status code.
 gadmcrsResponseStatus :: Lens' GetADMChannelResponse Int
-gadmcrsResponseStatus = lens _gadmcrsResponseStatus (\ s a -> s{_gadmcrsResponseStatus = a});
+gadmcrsResponseStatus = lens _gadmcrsResponseStatus (\ s a -> s{_gadmcrsResponseStatus = a})
 
 -- | Undocumented member.
 gadmcrsADMChannelResponse :: Lens' GetADMChannelResponse ADMChannelResponse
-gadmcrsADMChannelResponse = lens _gadmcrsADMChannelResponse (\ s a -> s{_gadmcrsADMChannelResponse = a});
+gadmcrsADMChannelResponse = lens _gadmcrsADMChannelResponse (\ s a -> s{_gadmcrsADMChannelResponse = a})
 
 instance NFData GetADMChannelResponse where

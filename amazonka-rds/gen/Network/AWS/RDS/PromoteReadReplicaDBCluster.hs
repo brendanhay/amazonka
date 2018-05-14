@@ -64,12 +64,12 @@ promoteReadReplicaDBCluster
     -> PromoteReadReplicaDBCluster
 promoteReadReplicaDBCluster pDBClusterIdentifier_ =
   PromoteReadReplicaDBCluster'
-  {_prrdcDBClusterIdentifier = pDBClusterIdentifier_}
+    {_prrdcDBClusterIdentifier = pDBClusterIdentifier_}
 
 
 -- | The identifier of the DB cluster Read Replica to promote. This parameter is not case-sensitive.  Constraints:     * Must match the identifier of an existing DBCluster Read Replica. Example: @my-cluster-replica1@
 prrdcDBClusterIdentifier :: Lens' PromoteReadReplicaDBCluster Text
-prrdcDBClusterIdentifier = lens _prrdcDBClusterIdentifier (\ s a -> s{_prrdcDBClusterIdentifier = a});
+prrdcDBClusterIdentifier = lens _prrdcDBClusterIdentifier (\ s a -> s{_prrdcDBClusterIdentifier = a})
 
 instance AWSRequest PromoteReadReplicaDBCluster where
         type Rs PromoteReadReplicaDBCluster =
@@ -119,16 +119,16 @@ promoteReadReplicaDBClusterResponse
     -> PromoteReadReplicaDBClusterResponse
 promoteReadReplicaDBClusterResponse pResponseStatus_ =
   PromoteReadReplicaDBClusterResponse'
-  {_prrdcrsDBCluster = Nothing, _prrdcrsResponseStatus = pResponseStatus_}
+    {_prrdcrsDBCluster = Nothing, _prrdcrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 prrdcrsDBCluster :: Lens' PromoteReadReplicaDBClusterResponse (Maybe DBCluster)
-prrdcrsDBCluster = lens _prrdcrsDBCluster (\ s a -> s{_prrdcrsDBCluster = a});
+prrdcrsDBCluster = lens _prrdcrsDBCluster (\ s a -> s{_prrdcrsDBCluster = a})
 
 -- | -- | The response status code.
 prrdcrsResponseStatus :: Lens' PromoteReadReplicaDBClusterResponse Int
-prrdcrsResponseStatus = lens _prrdcrsResponseStatus (\ s a -> s{_prrdcrsResponseStatus = a});
+prrdcrsResponseStatus = lens _prrdcrsResponseStatus (\ s a -> s{_prrdcrsResponseStatus = a})
 
 instance NFData PromoteReadReplicaDBClusterResponse
          where

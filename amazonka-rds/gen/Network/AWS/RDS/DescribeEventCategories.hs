@@ -71,11 +71,11 @@ describeEventCategories =
 
 -- | The type of source that is generating the events. Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot
 decSourceType :: Lens' DescribeEventCategories (Maybe Text)
-decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a});
+decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a})
 
 -- | This parameter is not currently supported.
 decFilters :: Lens' DescribeEventCategories [Filter]
-decFilters = lens _decFilters (\ s a -> s{_decFilters = a}) . _Default . _Coerce;
+decFilters = lens _decFilters (\ s a -> s{_decFilters = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeEventCategories where
         type Rs DescribeEventCategories =
@@ -132,17 +132,17 @@ describeEventCategoriesResponse
     -> DescribeEventCategoriesResponse
 describeEventCategoriesResponse pResponseStatus_ =
   DescribeEventCategoriesResponse'
-  { _decrsEventCategoriesMapList = Nothing
-  , _decrsResponseStatus = pResponseStatus_
-  }
+    { _decrsEventCategoriesMapList = Nothing
+    , _decrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | A list of EventCategoriesMap data types.
 decrsEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
-decrsEventCategoriesMapList = lens _decrsEventCategoriesMapList (\ s a -> s{_decrsEventCategoriesMapList = a}) . _Default . _Coerce;
+decrsEventCategoriesMapList = lens _decrsEventCategoriesMapList (\ s a -> s{_decrsEventCategoriesMapList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 decrsResponseStatus :: Lens' DescribeEventCategoriesResponse Int
-decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus = a});
+decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus = a})
 
 instance NFData DescribeEventCategoriesResponse where

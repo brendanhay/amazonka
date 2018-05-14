@@ -68,7 +68,7 @@ deleteDBSnapshot pDBSnapshotIdentifier_ =
 
 -- | The DBSnapshot identifier. Constraints: Must be the name of an existing DB snapshot in the @available@ state.
 ddbsDBSnapshotIdentifier :: Lens' DeleteDBSnapshot Text
-ddbsDBSnapshotIdentifier = lens _ddbsDBSnapshotIdentifier (\ s a -> s{_ddbsDBSnapshotIdentifier = a});
+ddbsDBSnapshotIdentifier = lens _ddbsDBSnapshotIdentifier (\ s a -> s{_ddbsDBSnapshotIdentifier = a})
 
 instance AWSRequest DeleteDBSnapshot where
         type Rs DeleteDBSnapshot = DeleteDBSnapshotResponse
@@ -115,15 +115,15 @@ deleteDBSnapshotResponse
     -> DeleteDBSnapshotResponse
 deleteDBSnapshotResponse pResponseStatus_ =
   DeleteDBSnapshotResponse'
-  {_ddbsrsDBSnapshot = Nothing, _ddbsrsResponseStatus = pResponseStatus_}
+    {_ddbsrsDBSnapshot = Nothing, _ddbsrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 ddbsrsDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
-ddbsrsDBSnapshot = lens _ddbsrsDBSnapshot (\ s a -> s{_ddbsrsDBSnapshot = a});
+ddbsrsDBSnapshot = lens _ddbsrsDBSnapshot (\ s a -> s{_ddbsrsDBSnapshot = a})
 
 -- | -- | The response status code.
 ddbsrsResponseStatus :: Lens' DeleteDBSnapshotResponse Int
-ddbsrsResponseStatus = lens _ddbsrsResponseStatus (\ s a -> s{_ddbsrsResponseStatus = a});
+ddbsrsResponseStatus = lens _ddbsrsResponseStatus (\ s a -> s{_ddbsrsResponseStatus = a})
 
 instance NFData DeleteDBSnapshotResponse where

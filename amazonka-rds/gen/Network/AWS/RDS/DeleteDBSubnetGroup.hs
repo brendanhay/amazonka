@@ -65,7 +65,7 @@ deleteDBSubnetGroup pDBSubnetGroupName_ =
 
 -- | The name of the database subnet group to delete. Constraints: Constraints: Must match the name of an existing DBSubnetGroup. Must not be default. Example: @mySubnetgroup@
 ddbsgDBSubnetGroupName :: Lens' DeleteDBSubnetGroup Text
-ddbsgDBSubnetGroupName = lens _ddbsgDBSubnetGroupName (\ s a -> s{_ddbsgDBSubnetGroupName = a});
+ddbsgDBSubnetGroupName = lens _ddbsgDBSubnetGroupName (\ s a -> s{_ddbsgDBSubnetGroupName = a})
 
 instance AWSRequest DeleteDBSubnetGroup where
         type Rs DeleteDBSubnetGroup =

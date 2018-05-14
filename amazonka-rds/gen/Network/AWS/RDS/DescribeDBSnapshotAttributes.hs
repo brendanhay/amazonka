@@ -68,12 +68,12 @@ describeDBSnapshotAttributes
     -> DescribeDBSnapshotAttributes
 describeDBSnapshotAttributes pDBSnapshotIdentifier_ =
   DescribeDBSnapshotAttributes'
-  {_ddsaDBSnapshotIdentifier = pDBSnapshotIdentifier_}
+    {_ddsaDBSnapshotIdentifier = pDBSnapshotIdentifier_}
 
 
 -- | The identifier for the DB snapshot to describe the attributes for.
 ddsaDBSnapshotIdentifier :: Lens' DescribeDBSnapshotAttributes Text
-ddsaDBSnapshotIdentifier = lens _ddsaDBSnapshotIdentifier (\ s a -> s{_ddsaDBSnapshotIdentifier = a});
+ddsaDBSnapshotIdentifier = lens _ddsaDBSnapshotIdentifier (\ s a -> s{_ddsaDBSnapshotIdentifier = a})
 
 instance AWSRequest DescribeDBSnapshotAttributes
          where
@@ -125,18 +125,18 @@ describeDBSnapshotAttributesResponse
     -> DescribeDBSnapshotAttributesResponse
 describeDBSnapshotAttributesResponse pResponseStatus_ =
   DescribeDBSnapshotAttributesResponse'
-  { _ddsarsDBSnapshotAttributesResult = Nothing
-  , _ddsarsResponseStatus = pResponseStatus_
-  }
+    { _ddsarsDBSnapshotAttributesResult = Nothing
+    , _ddsarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 ddsarsDBSnapshotAttributesResult :: Lens' DescribeDBSnapshotAttributesResponse (Maybe DBSnapshotAttributesResult)
-ddsarsDBSnapshotAttributesResult = lens _ddsarsDBSnapshotAttributesResult (\ s a -> s{_ddsarsDBSnapshotAttributesResult = a});
+ddsarsDBSnapshotAttributesResult = lens _ddsarsDBSnapshotAttributesResult (\ s a -> s{_ddsarsDBSnapshotAttributesResult = a})
 
 -- | -- | The response status code.
 ddsarsResponseStatus :: Lens' DescribeDBSnapshotAttributesResponse Int
-ddsarsResponseStatus = lens _ddsarsResponseStatus (\ s a -> s{_ddsarsResponseStatus = a});
+ddsarsResponseStatus = lens _ddsarsResponseStatus (\ s a -> s{_ddsarsResponseStatus = a})
 
 instance NFData DescribeDBSnapshotAttributesResponse
          where

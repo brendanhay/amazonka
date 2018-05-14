@@ -62,16 +62,18 @@ addRoleToDBCluster
     -> AddRoleToDBCluster
 addRoleToDBCluster pDBClusterIdentifier_ pRoleARN_ =
   AddRoleToDBCluster'
-  {_artdcDBClusterIdentifier = pDBClusterIdentifier_, _artdcRoleARN = pRoleARN_}
+    { _artdcDBClusterIdentifier = pDBClusterIdentifier_
+    , _artdcRoleARN = pRoleARN_
+    }
 
 
 -- | The name of the DB cluster to associate the IAM role with.
 artdcDBClusterIdentifier :: Lens' AddRoleToDBCluster Text
-artdcDBClusterIdentifier = lens _artdcDBClusterIdentifier (\ s a -> s{_artdcDBClusterIdentifier = a});
+artdcDBClusterIdentifier = lens _artdcDBClusterIdentifier (\ s a -> s{_artdcDBClusterIdentifier = a})
 
 -- | The Amazon Resource Name (ARN) of the IAM role to associate with the Aurora DB cluster, for example @arn:aws:iam::123456789012:role/AuroraAccessRole@ .
 artdcRoleARN :: Lens' AddRoleToDBCluster Text
-artdcRoleARN = lens _artdcRoleARN (\ s a -> s{_artdcRoleARN = a});
+artdcRoleARN = lens _artdcRoleARN (\ s a -> s{_artdcRoleARN = a})
 
 instance AWSRequest AddRoleToDBCluster where
         type Rs AddRoleToDBCluster =

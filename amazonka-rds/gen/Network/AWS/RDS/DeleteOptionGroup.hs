@@ -65,7 +65,7 @@ deleteOptionGroup pOptionGroupName_ =
 
 -- | The name of the option group to be deleted.
 dOptionGroupName :: Lens' DeleteOptionGroup Text
-dOptionGroupName = lens _dOptionGroupName (\ s a -> s{_dOptionGroupName = a});
+dOptionGroupName = lens _dOptionGroupName (\ s a -> s{_dOptionGroupName = a})
 
 instance AWSRequest DeleteOptionGroup where
         type Rs DeleteOptionGroup = DeleteOptionGroupResponse

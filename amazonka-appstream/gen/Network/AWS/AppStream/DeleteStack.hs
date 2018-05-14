@@ -62,7 +62,7 @@ deleteStack pName_ = DeleteStack' {_dsName = pName_}
 
 -- | The name of the stack.
 dsName :: Lens' DeleteStack Text
-dsName = lens _dsName (\ s a -> s{_dsName = a});
+dsName = lens _dsName (\ s a -> s{_dsName = a})
 
 instance AWSRequest DeleteStack where
         type Rs DeleteStack = DeleteStackResponse
@@ -116,6 +116,6 @@ deleteStackResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DeleteStackResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
 
 instance NFData DeleteStackResponse where

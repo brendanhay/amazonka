@@ -62,7 +62,7 @@ expireSession pSessionId_ = ExpireSession' {_esSessionId = pSessionId_}
 
 -- | The ID of the streaming session.
 esSessionId :: Lens' ExpireSession Text
-esSessionId = lens _esSessionId (\ s a -> s{_esSessionId = a});
+esSessionId = lens _esSessionId (\ s a -> s{_esSessionId = a})
 
 instance AWSRequest ExpireSession where
         type Rs ExpireSession = ExpireSessionResponse
@@ -117,6 +117,6 @@ expireSessionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 esrsResponseStatus :: Lens' ExpireSessionResponse Int
-esrsResponseStatus = lens _esrsResponseStatus (\ s a -> s{_esrsResponseStatus = a});
+esrsResponseStatus = lens _esrsResponseStatus (\ s a -> s{_esrsResponseStatus = a})
 
 instance NFData ExpireSessionResponse where

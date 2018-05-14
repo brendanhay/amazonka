@@ -62,7 +62,7 @@ stopFleet pName_ = StopFleet' {_sfName = pName_}
 
 -- | The name of the fleet.
 sfName :: Lens' StopFleet Text
-sfName = lens _sfName (\ s a -> s{_sfName = a});
+sfName = lens _sfName (\ s a -> s{_sfName = a})
 
 instance AWSRequest StopFleet where
         type Rs StopFleet = StopFleetResponse
@@ -115,6 +115,6 @@ stopFleetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 storsResponseStatus :: Lens' StopFleetResponse Int
-storsResponseStatus = lens _storsResponseStatus (\ s a -> s{_storsResponseStatus = a});
+storsResponseStatus = lens _storsResponseStatus (\ s a -> s{_storsResponseStatus = a})
 
 instance NFData StopFleetResponse where

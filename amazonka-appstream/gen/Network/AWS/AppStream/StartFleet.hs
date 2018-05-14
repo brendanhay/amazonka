@@ -62,7 +62,7 @@ startFleet pName_ = StartFleet' {_staName = pName_}
 
 -- | The name of the fleet.
 staName :: Lens' StartFleet Text
-staName = lens _staName (\ s a -> s{_staName = a});
+staName = lens _staName (\ s a -> s{_staName = a})
 
 instance AWSRequest StartFleet where
         type Rs StartFleet = StartFleetResponse
@@ -115,6 +115,6 @@ startFleetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 sfrsResponseStatus :: Lens' StartFleetResponse Int
-sfrsResponseStatus = lens _sfrsResponseStatus (\ s a -> s{_sfrsResponseStatus = a});
+sfrsResponseStatus = lens _sfrsResponseStatus (\ s a -> s{_sfrsResponseStatus = a})
 
 instance NFData StartFleetResponse where

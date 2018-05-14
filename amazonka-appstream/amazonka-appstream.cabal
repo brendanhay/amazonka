@@ -46,6 +46,7 @@ library
     exposed-modules:
           Network.AWS.AppStream
         , Network.AWS.AppStream.AssociateFleet
+        , Network.AWS.AppStream.CopyImage
         , Network.AWS.AppStream.CreateDirectoryConfig
         , Network.AWS.AppStream.CreateFleet
         , Network.AWS.AppStream.CreateImageBuilder
@@ -67,11 +68,14 @@ library
         , Network.AWS.AppStream.ExpireSession
         , Network.AWS.AppStream.ListAssociatedFleets
         , Network.AWS.AppStream.ListAssociatedStacks
+        , Network.AWS.AppStream.ListTagsForResource
         , Network.AWS.AppStream.StartFleet
         , Network.AWS.AppStream.StartImageBuilder
         , Network.AWS.AppStream.StopFleet
         , Network.AWS.AppStream.StopImageBuilder
+        , Network.AWS.AppStream.TagResource
         , Network.AWS.AppStream.Types
+        , Network.AWS.AppStream.UntagResource
         , Network.AWS.AppStream.UpdateDirectoryConfig
         , Network.AWS.AppStream.UpdateFleet
         , Network.AWS.AppStream.UpdateStack

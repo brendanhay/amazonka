@@ -63,7 +63,7 @@ deleteDirectoryConfig pDirectoryName_ =
 
 -- | The name of the directory configuration.
 ddcDirectoryName :: Lens' DeleteDirectoryConfig Text
-ddcDirectoryName = lens _ddcDirectoryName (\ s a -> s{_ddcDirectoryName = a});
+ddcDirectoryName = lens _ddcDirectoryName (\ s a -> s{_ddcDirectoryName = a})
 
 instance AWSRequest DeleteDirectoryConfig where
         type Rs DeleteDirectoryConfig =
@@ -121,6 +121,6 @@ deleteDirectoryConfigResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteDirectoryConfigResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
 
 instance NFData DeleteDirectoryConfigResponse where

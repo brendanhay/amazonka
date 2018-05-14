@@ -62,7 +62,7 @@ deleteFleet pName_ = DeleteFleet' {_dfName = pName_}
 
 -- | The name of the fleet.
 dfName :: Lens' DeleteFleet Text
-dfName = lens _dfName (\ s a -> s{_dfName = a});
+dfName = lens _dfName (\ s a -> s{_dfName = a})
 
 instance AWSRequest DeleteFleet where
         type Rs DeleteFleet = DeleteFleetResponse
@@ -116,6 +116,6 @@ deleteFleetResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dfrsResponseStatus :: Lens' DeleteFleetResponse Int
-dfrsResponseStatus = lens _dfrsResponseStatus (\ s a -> s{_dfrsResponseStatus = a});
+dfrsResponseStatus = lens _dfrsResponseStatus (\ s a -> s{_dfrsResponseStatus = a})
 
 instance NFData DeleteFleetResponse where

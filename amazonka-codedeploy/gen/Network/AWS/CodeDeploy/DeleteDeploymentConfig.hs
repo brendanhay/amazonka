@@ -65,7 +65,7 @@ deleteDeploymentConfig pDeploymentConfigName_ =
 
 -- | The name of a deployment configuration associated with the applicable IAM user or AWS account.
 ddcDeploymentConfigName :: Lens' DeleteDeploymentConfig Text
-ddcDeploymentConfigName = lens _ddcDeploymentConfigName (\ s a -> s{_ddcDeploymentConfigName = a});
+ddcDeploymentConfigName = lens _ddcDeploymentConfigName (\ s a -> s{_ddcDeploymentConfigName = a})
 
 instance AWSRequest DeleteDeploymentConfig where
         type Rs DeleteDeploymentConfig =

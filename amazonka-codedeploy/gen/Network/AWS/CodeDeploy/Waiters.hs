@@ -25,22 +25,22 @@ import Network.AWS.Waiter
 deploymentSuccessful :: Wait GetDeployment
 deploymentSuccessful =
   Wait
-  { _waitName = "DeploymentSuccessful"
-  , _waitAttempts = 120
-  , _waitDelay = 15
-  , _waitAcceptors =
-      [ matchAll
-          "Succeeded"
-          AcceptSuccess
-          (gdrsDeploymentInfo . _Just . diStatus . _Just . to toTextCI)
-      , matchAll
-          "Failed"
-          AcceptFailure
-          (gdrsDeploymentInfo . _Just . diStatus . _Just . to toTextCI)
-      , matchAll
-          "Stopped"
-          AcceptFailure
-          (gdrsDeploymentInfo . _Just . diStatus . _Just . to toTextCI)
-      ]
-  }
+    { _waitName = "DeploymentSuccessful"
+    , _waitAttempts = 120
+    , _waitDelay = 15
+    , _waitAcceptors =
+        [ matchAll
+            "Succeeded"
+            AcceptSuccess
+            (gdrsDeploymentInfo . _Just . diStatus . _Just . to toTextCI)
+        , matchAll
+            "Failed"
+            AcceptFailure
+            (gdrsDeploymentInfo . _Just . diStatus . _Just . to toTextCI)
+        , matchAll
+            "Stopped"
+            AcceptFailure
+            (gdrsDeploymentInfo . _Just . diStatus . _Just . to toTextCI)
+        ]
+    }
 

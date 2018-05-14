@@ -65,7 +65,7 @@ deleteApplication pApplicationName_ =
 
 -- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 daApplicationName :: Lens' DeleteApplication Text
-daApplicationName = lens _daApplicationName (\ s a -> s{_daApplicationName = a});
+daApplicationName = lens _daApplicationName (\ s a -> s{_daApplicationName = a})
 
 instance AWSRequest DeleteApplication where
         type Rs DeleteApplication = DeleteApplicationResponse

@@ -64,16 +64,16 @@ addTagsToOnPremisesInstances
     :: AddTagsToOnPremisesInstances
 addTagsToOnPremisesInstances =
   AddTagsToOnPremisesInstances'
-  {_attopiTags = mempty, _attopiInstanceNames = mempty}
+    {_attopiTags = mempty, _attopiInstanceNames = mempty}
 
 
 -- | The tag key-value pairs to add to the on-premises instances. Keys and values are both required. Keys cannot be null or empty strings. Value-only tags are not allowed.
 attopiTags :: Lens' AddTagsToOnPremisesInstances [Tag]
-attopiTags = lens _attopiTags (\ s a -> s{_attopiTags = a}) . _Coerce;
+attopiTags = lens _attopiTags (\ s a -> s{_attopiTags = a}) . _Coerce
 
 -- | The names of the on-premises instances to which to add tags.
 attopiInstanceNames :: Lens' AddTagsToOnPremisesInstances [Text]
-attopiInstanceNames = lens _attopiInstanceNames (\ s a -> s{_attopiInstanceNames = a}) . _Coerce;
+attopiInstanceNames = lens _attopiInstanceNames (\ s a -> s{_attopiInstanceNames = a}) . _Coerce
 
 instance AWSRequest AddTagsToOnPremisesInstances
          where

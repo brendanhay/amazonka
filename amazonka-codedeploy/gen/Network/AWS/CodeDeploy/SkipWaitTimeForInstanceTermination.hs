@@ -60,7 +60,7 @@ skipWaitTimeForInstanceTermination =
 
 -- | The ID of the blue/green deployment for which you want to skip the instance termination wait time.
 swtfitDeploymentId :: Lens' SkipWaitTimeForInstanceTermination (Maybe Text)
-swtfitDeploymentId = lens _swtfitDeploymentId (\ s a -> s{_swtfitDeploymentId = a});
+swtfitDeploymentId = lens _swtfitDeploymentId (\ s a -> s{_swtfitDeploymentId = a})
 
 instance AWSRequest
            SkipWaitTimeForInstanceTermination

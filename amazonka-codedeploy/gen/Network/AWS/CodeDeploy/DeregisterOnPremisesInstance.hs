@@ -65,7 +65,7 @@ deregisterOnPremisesInstance pInstanceName_ =
 
 -- | The name of the on-premises instance to deregister.
 dopiInstanceName :: Lens' DeregisterOnPremisesInstance Text
-dopiInstanceName = lens _dopiInstanceName (\ s a -> s{_dopiInstanceName = a});
+dopiInstanceName = lens _dopiInstanceName (\ s a -> s{_dopiInstanceName = a})
 
 instance AWSRequest DeregisterOnPremisesInstance
          where

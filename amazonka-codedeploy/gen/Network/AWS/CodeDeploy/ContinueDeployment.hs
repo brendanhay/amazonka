@@ -59,7 +59,7 @@ continueDeployment = ContinueDeployment' {_cdDeploymentId = Nothing}
 
 -- | The deployment ID of the blue/green deployment for which you want to start rerouting traffic to the replacement environment.
 cdDeploymentId :: Lens' ContinueDeployment (Maybe Text)
-cdDeploymentId = lens _cdDeploymentId (\ s a -> s{_cdDeploymentId = a});
+cdDeploymentId = lens _cdDeploymentId (\ s a -> s{_cdDeploymentId = a})
 
 instance AWSRequest ContinueDeployment where
         type Rs ContinueDeployment =

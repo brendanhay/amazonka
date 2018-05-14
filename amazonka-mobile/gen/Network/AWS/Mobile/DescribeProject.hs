@@ -72,11 +72,11 @@ describeProject pProjectId_ =
 
 -- | If set to true, causes AWS Mobile Hub to synchronize information from other services, e.g., update state of AWS CloudFormation stacks in the AWS Mobile Hub project.
 dSyncFromResources :: Lens' DescribeProject (Maybe Bool)
-dSyncFromResources = lens _dSyncFromResources (\ s a -> s{_dSyncFromResources = a});
+dSyncFromResources = lens _dSyncFromResources (\ s a -> s{_dSyncFromResources = a})
 
 -- | Unique project identifier.
 dProjectId :: Lens' DescribeProject Text
-dProjectId = lens _dProjectId (\ s a -> s{_dProjectId = a});
+dProjectId = lens _dProjectId (\ s a -> s{_dProjectId = a})
 
 instance AWSRequest DescribeProject where
         type Rs DescribeProject = DescribeProjectResponse
@@ -130,15 +130,15 @@ describeProjectResponse
     -> DescribeProjectResponse
 describeProjectResponse pResponseStatus_ =
   DescribeProjectResponse'
-  {_drsDetails = Nothing, _drsResponseStatus = pResponseStatus_}
+    {_drsDetails = Nothing, _drsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 drsDetails :: Lens' DescribeProjectResponse (Maybe ProjectDetails)
-drsDetails = lens _drsDetails (\ s a -> s{_drsDetails = a});
+drsDetails = lens _drsDetails (\ s a -> s{_drsDetails = a})
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeProjectResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DescribeProjectResponse where

@@ -72,11 +72,11 @@ updateProject pProjectId_ =
 
 -- | ZIP or YAML file which contains project configuration to be updated. This should be the contents of the file downloaded from the URL provided in an export project operation. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 upContents :: Lens' UpdateProject (Maybe ByteString)
-upContents = lens _upContents (\ s a -> s{_upContents = a}) . mapping _Base64;
+upContents = lens _upContents (\ s a -> s{_upContents = a}) . mapping _Base64
 
 -- | Unique project identifier.
 upProjectId :: Lens' UpdateProject Text
-upProjectId = lens _upProjectId (\ s a -> s{_upProjectId = a});
+upProjectId = lens _upProjectId (\ s a -> s{_upProjectId = a})
 
 instance AWSRequest UpdateProject where
         type Rs UpdateProject = UpdateProjectResponse
@@ -131,15 +131,15 @@ updateProjectResponse
     -> UpdateProjectResponse
 updateProjectResponse pResponseStatus_ =
   UpdateProjectResponse'
-  {_uprsDetails = Nothing, _uprsResponseStatus = pResponseStatus_}
+    {_uprsDetails = Nothing, _uprsResponseStatus = pResponseStatus_}
 
 
 -- | Detailed information about the updated AWS Mobile Hub project.
 uprsDetails :: Lens' UpdateProjectResponse (Maybe ProjectDetails)
-uprsDetails = lens _uprsDetails (\ s a -> s{_uprsDetails = a});
+uprsDetails = lens _uprsDetails (\ s a -> s{_uprsDetails = a})
 
 -- | -- | The response status code.
 uprsResponseStatus :: Lens' UpdateProjectResponse Int
-uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
+uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a})
 
 instance NFData UpdateProjectResponse where

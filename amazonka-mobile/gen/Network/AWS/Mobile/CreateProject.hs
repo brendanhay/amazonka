@@ -75,28 +75,28 @@ createProject
     :: CreateProject
 createProject =
   CreateProject'
-  { _cpContents = Nothing
-  , _cpName = Nothing
-  , _cpRegion = Nothing
-  , _cpSnapshotId = Nothing
-  }
+    { _cpContents = Nothing
+    , _cpName = Nothing
+    , _cpRegion = Nothing
+    , _cpSnapshotId = Nothing
+    }
 
 
 -- | ZIP or YAML file which contains configuration settings to be used when creating the project. This may be the contents of the file downloaded from the URL provided in an export project operation. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 cpContents :: Lens' CreateProject (Maybe ByteString)
-cpContents = lens _cpContents (\ s a -> s{_cpContents = a}) . mapping _Base64;
+cpContents = lens _cpContents (\ s a -> s{_cpContents = a}) . mapping _Base64
 
 -- | Name of the project.
 cpName :: Lens' CreateProject (Maybe Text)
-cpName = lens _cpName (\ s a -> s{_cpName = a});
+cpName = lens _cpName (\ s a -> s{_cpName = a})
 
 -- | Default region where project resources should be created.
 cpRegion :: Lens' CreateProject (Maybe Text)
-cpRegion = lens _cpRegion (\ s a -> s{_cpRegion = a});
+cpRegion = lens _cpRegion (\ s a -> s{_cpRegion = a})
 
 -- | Unique identifier for an exported snapshot of project configuration. This snapshot identifier is included in the share URL when a project is exported.
 cpSnapshotId :: Lens' CreateProject (Maybe Text)
-cpSnapshotId = lens _cpSnapshotId (\ s a -> s{_cpSnapshotId = a});
+cpSnapshotId = lens _cpSnapshotId (\ s a -> s{_cpSnapshotId = a})
 
 instance AWSRequest CreateProject where
         type Rs CreateProject = CreateProjectResponse
@@ -153,15 +153,15 @@ createProjectResponse
     -> CreateProjectResponse
 createProjectResponse pResponseStatus_ =
   CreateProjectResponse'
-  {_cprsDetails = Nothing, _cprsResponseStatus = pResponseStatus_}
+    {_cprsDetails = Nothing, _cprsResponseStatus = pResponseStatus_}
 
 
 -- | Detailed information about the created AWS Mobile Hub project.
 cprsDetails :: Lens' CreateProjectResponse (Maybe ProjectDetails)
-cprsDetails = lens _cprsDetails (\ s a -> s{_cprsDetails = a});
+cprsDetails = lens _cprsDetails (\ s a -> s{_cprsDetails = a})
 
 -- | -- | The response status code.
 cprsResponseStatus :: Lens' CreateProjectResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
+cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a})
 
 instance NFData CreateProjectResponse where

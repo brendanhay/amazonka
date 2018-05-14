@@ -68,7 +68,7 @@ deleteProject pProjectId_ = DeleteProject' {_dpProjectId = pProjectId_}
 
 -- | Unique project identifier.
 dpProjectId :: Lens' DeleteProject Text
-dpProjectId = lens _dpProjectId (\ s a -> s{_dpProjectId = a});
+dpProjectId = lens _dpProjectId (\ s a -> s{_dpProjectId = a})
 
 instance AWSRequest DeleteProject where
         type Rs DeleteProject = DeleteProjectResponse
@@ -125,22 +125,22 @@ deleteProjectResponse
     -> DeleteProjectResponse
 deleteProjectResponse pResponseStatus_ =
   DeleteProjectResponse'
-  { _dprsDeletedResources = Nothing
-  , _dprsOrphanedResources = Nothing
-  , _dprsResponseStatus = pResponseStatus_
-  }
+    { _dprsDeletedResources = Nothing
+    , _dprsOrphanedResources = Nothing
+    , _dprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Resources which were deleted.
 dprsDeletedResources :: Lens' DeleteProjectResponse [Resource]
-dprsDeletedResources = lens _dprsDeletedResources (\ s a -> s{_dprsDeletedResources = a}) . _Default . _Coerce;
+dprsDeletedResources = lens _dprsDeletedResources (\ s a -> s{_dprsDeletedResources = a}) . _Default . _Coerce
 
 -- | Resources which were not deleted, due to a risk of losing potentially important data or files.
 dprsOrphanedResources :: Lens' DeleteProjectResponse [Resource]
-dprsOrphanedResources = lens _dprsOrphanedResources (\ s a -> s{_dprsOrphanedResources = a}) . _Default . _Coerce;
+dprsOrphanedResources = lens _dprsOrphanedResources (\ s a -> s{_dprsOrphanedResources = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dprsResponseStatus :: Lens' DeleteProjectResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
+dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a})
 
 instance NFData DeleteProjectResponse where

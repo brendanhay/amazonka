@@ -52,7 +52,7 @@ module Network.AWS.Mobile
     -- * Operations
     -- $operations
 
-    -- ** ListProjects
+    -- ** ListProjects (Paginated)
     , module Network.AWS.Mobile.ListProjects
 
     -- ** DeleteProject
@@ -61,7 +61,7 @@ module Network.AWS.Mobile
     -- ** UpdateProject
     , module Network.AWS.Mobile.UpdateProject
 
-    -- ** ListBundles
+    -- ** ListBundles (Paginated)
     , module Network.AWS.Mobile.ListBundles
 
     -- ** DescribeProject

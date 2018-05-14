@@ -59,7 +59,7 @@ enableAlarmActions = EnableAlarmActions' {_eaaAlarmNames = mempty}
 
 -- | The names of the alarms.
 eaaAlarmNames :: Lens' EnableAlarmActions [Text]
-eaaAlarmNames = lens _eaaAlarmNames (\ s a -> s{_eaaAlarmNames = a}) . _Coerce;
+eaaAlarmNames = lens _eaaAlarmNames (\ s a -> s{_eaaAlarmNames = a}) . _Coerce
 
 instance AWSRequest EnableAlarmActions where
         type Rs EnableAlarmActions =

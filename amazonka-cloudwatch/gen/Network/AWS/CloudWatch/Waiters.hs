@@ -25,10 +25,10 @@ import Network.AWS.Waiter
 alarmExists :: Wait DescribeAlarms
 alarmExists =
   Wait
-  { _waitName = "AlarmExists"
-  , _waitAttempts = 40
-  , _waitDelay = 5
-  , _waitAcceptors =
-      [matchNonEmpty True AcceptSuccess (folding (concatOf darsMetricAlarms))]
-  }
+    { _waitName = "AlarmExists"
+    , _waitAttempts = 40
+    , _waitDelay = 5
+    , _waitAcceptors =
+        [matchNonEmpty True AcceptSuccess (folding (concatOf darsMetricAlarms))]
+    }
 

@@ -34,6 +34,9 @@ import Test.Tasty
 --         , requestGetDashboard $
 --             getDashboard
 --
+--         , requestGetMetricData $
+--             getMetricData
+--
 --         , requestPutMetricData $
 --             putMetricData
 --
@@ -81,6 +84,9 @@ import Test.Tasty
 --
 --         , responseGetDashboard $
 --             getDashboardResponse
+--
+--         , responseGetMetricData $
+--             getMetricDataResponse
 --
 --         , responsePutMetricData $
 --             putMetricDataResponse
@@ -135,6 +141,11 @@ requestGetDashboard :: GetDashboard -> TestTree
 requestGetDashboard = req
     "GetDashboard"
     "fixture/GetDashboard.yaml"
+
+requestGetMetricData :: GetMetricData -> TestTree
+requestGetMetricData = req
+    "GetMetricData"
+    "fixture/GetMetricData.yaml"
 
 requestPutMetricData :: PutMetricData -> TestTree
 requestPutMetricData = req
@@ -216,6 +227,13 @@ responseGetDashboard = res
     "fixture/GetDashboardResponse.proto"
     cloudWatch
     (Proxy :: Proxy GetDashboard)
+
+responseGetMetricData :: GetMetricDataResponse -> TestTree
+responseGetMetricData = res
+    "GetMetricDataResponse"
+    "fixture/GetMetricDataResponse.proto"
+    cloudWatch
+    (Proxy :: Proxy GetMetricData)
 
 responsePutMetricData :: PutMetricDataResponse -> TestTree
 responsePutMetricData = res

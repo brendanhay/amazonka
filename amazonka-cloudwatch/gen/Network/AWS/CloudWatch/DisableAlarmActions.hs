@@ -59,7 +59,7 @@ disableAlarmActions = DisableAlarmActions' {_daaAlarmNames = mempty}
 
 -- | The names of the alarms.
 daaAlarmNames :: Lens' DisableAlarmActions [Text]
-daaAlarmNames = lens _daaAlarmNames (\ s a -> s{_daaAlarmNames = a}) . _Coerce;
+daaAlarmNames = lens _daaAlarmNames (\ s a -> s{_daaAlarmNames = a}) . _Coerce
 
 instance AWSRequest DisableAlarmActions where
         type Rs DisableAlarmActions =

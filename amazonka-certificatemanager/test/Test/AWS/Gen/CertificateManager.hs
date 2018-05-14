@@ -31,6 +31,9 @@ import Test.Tasty
 --         [ requestResendValidationEmail $
 --             resendValidationEmail
 --
+--         , requestUpdateCertificateOptions $
+--             updateCertificateOptions
+--
 --         , requestListTagsForCertificate $
 --             listTagsForCertificate
 --
@@ -58,11 +61,17 @@ import Test.Tasty
 --         , requestDescribeCertificate $
 --             describeCertificate
 --
+--         , requestExportCertificate $
+--             exportCertificate
+--
 --           ]
 
 --     , testGroup "response"
 --         [ responseResendValidationEmail $
 --             resendValidationEmailResponse
+--
+--         , responseUpdateCertificateOptions $
+--             updateCertificateOptionsResponse
 --
 --         , responseListTagsForCertificate $
 --             listTagsForCertificateResponse
@@ -91,6 +100,9 @@ import Test.Tasty
 --         , responseDescribeCertificate $
 --             describeCertificateResponse
 --
+--         , responseExportCertificate $
+--             exportCertificateResponse
+--
 --           ]
 --     ]
 
@@ -100,6 +112,11 @@ requestResendValidationEmail :: ResendValidationEmail -> TestTree
 requestResendValidationEmail = req
     "ResendValidationEmail"
     "fixture/ResendValidationEmail.yaml"
+
+requestUpdateCertificateOptions :: UpdateCertificateOptions -> TestTree
+requestUpdateCertificateOptions = req
+    "UpdateCertificateOptions"
+    "fixture/UpdateCertificateOptions.yaml"
 
 requestListTagsForCertificate :: ListTagsForCertificate -> TestTree
 requestListTagsForCertificate = req
@@ -146,6 +163,11 @@ requestDescribeCertificate = req
     "DescribeCertificate"
     "fixture/DescribeCertificate.yaml"
 
+requestExportCertificate :: ExportCertificate -> TestTree
+requestExportCertificate = req
+    "ExportCertificate"
+    "fixture/ExportCertificate.yaml"
+
 -- Responses
 
 responseResendValidationEmail :: ResendValidationEmailResponse -> TestTree
@@ -154,6 +176,13 @@ responseResendValidationEmail = res
     "fixture/ResendValidationEmailResponse.proto"
     certificateManager
     (Proxy :: Proxy ResendValidationEmail)
+
+responseUpdateCertificateOptions :: UpdateCertificateOptionsResponse -> TestTree
+responseUpdateCertificateOptions = res
+    "UpdateCertificateOptionsResponse"
+    "fixture/UpdateCertificateOptionsResponse.proto"
+    certificateManager
+    (Proxy :: Proxy UpdateCertificateOptions)
 
 responseListTagsForCertificate :: ListTagsForCertificateResponse -> TestTree
 responseListTagsForCertificate = res
@@ -217,3 +246,10 @@ responseDescribeCertificate = res
     "fixture/DescribeCertificateResponse.proto"
     certificateManager
     (Proxy :: Proxy DescribeCertificate)
+
+responseExportCertificate :: ExportCertificateResponse -> TestTree
+responseExportCertificate = res
+    "ExportCertificateResponse"
+    "fixture/ExportCertificateResponse.proto"
+    certificateManager
+    (Proxy :: Proxy ExportCertificate)

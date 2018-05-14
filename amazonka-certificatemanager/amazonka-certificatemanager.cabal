@@ -48,6 +48,7 @@ library
         , Network.AWS.CertificateManager.AddTagsToCertificate
         , Network.AWS.CertificateManager.DeleteCertificate
         , Network.AWS.CertificateManager.DescribeCertificate
+        , Network.AWS.CertificateManager.ExportCertificate
         , Network.AWS.CertificateManager.GetCertificate
         , Network.AWS.CertificateManager.ImportCertificate
         , Network.AWS.CertificateManager.ListCertificates
@@ -56,6 +57,7 @@ library
         , Network.AWS.CertificateManager.RequestCertificate
         , Network.AWS.CertificateManager.ResendValidationEmail
         , Network.AWS.CertificateManager.Types
+        , Network.AWS.CertificateManager.UpdateCertificateOptions
         , Network.AWS.CertificateManager.Waiters
 
     other-modules:

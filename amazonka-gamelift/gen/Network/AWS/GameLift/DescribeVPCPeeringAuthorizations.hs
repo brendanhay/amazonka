@@ -131,18 +131,18 @@ describeVPCPeeringAuthorizationsResponse
     -> DescribeVPCPeeringAuthorizationsResponse
 describeVPCPeeringAuthorizationsResponse pResponseStatus_ =
   DescribeVPCPeeringAuthorizationsResponse'
-  { _dvpcparsVPCPeeringAuthorizations = Nothing
-  , _dvpcparsResponseStatus = pResponseStatus_
-  }
+    { _dvpcparsVPCPeeringAuthorizations = Nothing
+    , _dvpcparsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Collection of objects that describe all valid VPC peering operations for the current AWS account.
 dvpcparsVPCPeeringAuthorizations :: Lens' DescribeVPCPeeringAuthorizationsResponse [VPCPeeringAuthorization]
-dvpcparsVPCPeeringAuthorizations = lens _dvpcparsVPCPeeringAuthorizations (\ s a -> s{_dvpcparsVPCPeeringAuthorizations = a}) . _Default . _Coerce;
+dvpcparsVPCPeeringAuthorizations = lens _dvpcparsVPCPeeringAuthorizations (\ s a -> s{_dvpcparsVPCPeeringAuthorizations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dvpcparsResponseStatus :: Lens' DescribeVPCPeeringAuthorizationsResponse Int
-dvpcparsResponseStatus = lens _dvpcparsResponseStatus (\ s a -> s{_dvpcparsResponseStatus = a});
+dvpcparsResponseStatus = lens _dvpcparsResponseStatus (\ s a -> s{_dvpcparsResponseStatus = a})
 
 instance NFData
            DescribeVPCPeeringAuthorizationsResponse

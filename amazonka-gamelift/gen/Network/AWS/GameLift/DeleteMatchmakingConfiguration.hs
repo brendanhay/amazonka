@@ -85,7 +85,7 @@ deleteMatchmakingConfiguration pName_ =
 
 -- | Unique identifier for a matchmaking configuration
 dmcName :: Lens' DeleteMatchmakingConfiguration Text
-dmcName = lens _dmcName (\ s a -> s{_dmcName = a});
+dmcName = lens _dmcName (\ s a -> s{_dmcName = a})
 
 instance AWSRequest DeleteMatchmakingConfiguration
          where
@@ -140,12 +140,12 @@ deleteMatchmakingConfigurationResponse
     -> DeleteMatchmakingConfigurationResponse
 deleteMatchmakingConfigurationResponse pResponseStatus_ =
   DeleteMatchmakingConfigurationResponse'
-  {_dmcrsResponseStatus = pResponseStatus_}
+    {_dmcrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 dmcrsResponseStatus :: Lens' DeleteMatchmakingConfigurationResponse Int
-dmcrsResponseStatus = lens _dmcrsResponseStatus (\ s a -> s{_dmcrsResponseStatus = a});
+dmcrsResponseStatus = lens _dmcrsResponseStatus (\ s a -> s{_dmcrsResponseStatus = a})
 
 instance NFData
            DeleteMatchmakingConfigurationResponse

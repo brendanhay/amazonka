@@ -37,6 +37,8 @@
 --
 --     * 'AcceptMatch'
 --
+--     * 'StartMatchBackfill'
+--
 --
 --
 module Network.AWS.GameLift.AcceptMatch
@@ -90,23 +92,23 @@ acceptMatch
     -> AcceptMatch
 acceptMatch pTicketId_ pAcceptanceType_ =
   AcceptMatch'
-  { _amTicketId = pTicketId_
-  , _amPlayerIds = mempty
-  , _amAcceptanceType = pAcceptanceType_
-  }
+    { _amTicketId = pTicketId_
+    , _amPlayerIds = mempty
+    , _amAcceptanceType = pAcceptanceType_
+    }
 
 
 -- | Unique identifier for a matchmaking ticket. The ticket must be in status @REQUIRES_ACCEPTANCE@ ; otherwise this request will fail.
 amTicketId :: Lens' AcceptMatch Text
-amTicketId = lens _amTicketId (\ s a -> s{_amTicketId = a});
+amTicketId = lens _amTicketId (\ s a -> s{_amTicketId = a})
 
 -- | Unique identifier for a player delivering the response. This parameter can include one or multiple player IDs.
 amPlayerIds :: Lens' AcceptMatch [Text]
-amPlayerIds = lens _amPlayerIds (\ s a -> s{_amPlayerIds = a}) . _Coerce;
+amPlayerIds = lens _amPlayerIds (\ s a -> s{_amPlayerIds = a}) . _Coerce
 
 -- | Player response to the proposed match.
 amAcceptanceType :: Lens' AcceptMatch AcceptanceType
-amAcceptanceType = lens _amAcceptanceType (\ s a -> s{_amAcceptanceType = a});
+amAcceptanceType = lens _amAcceptanceType (\ s a -> s{_amAcceptanceType = a})
 
 instance AWSRequest AcceptMatch where
         type Rs AcceptMatch = AcceptMatchResponse
@@ -163,6 +165,6 @@ acceptMatchResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 amrsResponseStatus :: Lens' AcceptMatchResponse Int
-amrsResponseStatus = lens _amrsResponseStatus (\ s a -> s{_amrsResponseStatus = a});
+amrsResponseStatus = lens _amrsResponseStatus (\ s a -> s{_amrsResponseStatus = a})
 
 instance NFData AcceptMatchResponse where

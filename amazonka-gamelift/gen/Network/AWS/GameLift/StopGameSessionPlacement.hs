@@ -94,7 +94,7 @@ stopGameSessionPlacement pPlacementId_ =
 
 -- | Unique identifier for a game session placement to cancel.
 sPlacementId :: Lens' StopGameSessionPlacement Text
-sPlacementId = lens _sPlacementId (\ s a -> s{_sPlacementId = a});
+sPlacementId = lens _sPlacementId (\ s a -> s{_sPlacementId = a})
 
 instance AWSRequest StopGameSessionPlacement where
         type Rs StopGameSessionPlacement =
@@ -154,18 +154,18 @@ stopGameSessionPlacementResponse
     -> StopGameSessionPlacementResponse
 stopGameSessionPlacementResponse pResponseStatus_ =
   StopGameSessionPlacementResponse'
-  { _storsGameSessionPlacement = Nothing
-  , _storsResponseStatus = pResponseStatus_
-  }
+    { _storsGameSessionPlacement = Nothing
+    , _storsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Object that describes the canceled game session placement, with @CANCELLED@ status and an end time stamp.
 storsGameSessionPlacement :: Lens' StopGameSessionPlacementResponse (Maybe GameSessionPlacement)
-storsGameSessionPlacement = lens _storsGameSessionPlacement (\ s a -> s{_storsGameSessionPlacement = a});
+storsGameSessionPlacement = lens _storsGameSessionPlacement (\ s a -> s{_storsGameSessionPlacement = a})
 
 -- | -- | The response status code.
 storsResponseStatus :: Lens' StopGameSessionPlacementResponse Int
-storsResponseStatus = lens _storsResponseStatus (\ s a -> s{_storsResponseStatus = a});
+storsResponseStatus = lens _storsResponseStatus (\ s a -> s{_storsResponseStatus = a})
 
 instance NFData StopGameSessionPlacementResponse
          where

@@ -80,7 +80,7 @@ deleteBuild pBuildId_ = DeleteBuild' {_dbBuildId = pBuildId_}
 
 -- | Unique identifier for a build to delete.
 dbBuildId :: Lens' DeleteBuild Text
-dbBuildId = lens _dbBuildId (\ s a -> s{_dbBuildId = a});
+dbBuildId = lens _dbBuildId (\ s a -> s{_dbBuildId = a})
 
 instance AWSRequest DeleteBuild where
         type Rs DeleteBuild = DeleteBuildResponse

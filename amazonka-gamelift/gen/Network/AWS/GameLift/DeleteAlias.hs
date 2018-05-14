@@ -80,7 +80,7 @@ deleteAlias pAliasId_ = DeleteAlias' {_daAliasId = pAliasId_}
 
 -- | Unique identifier for a fleet alias. Specify the alias you want to delete.
 daAliasId :: Lens' DeleteAlias Text
-daAliasId = lens _daAliasId (\ s a -> s{_daAliasId = a});
+daAliasId = lens _daAliasId (\ s a -> s{_daAliasId = a})
 
 instance AWSRequest DeleteAlias where
         type Rs DeleteAlias = DeleteAliasResponse

@@ -118,16 +118,16 @@ describeAccountAttributesResponse
     -> DescribeAccountAttributesResponse
 describeAccountAttributesResponse pResponseStatus_ =
   DescribeAccountAttributesResponse'
-  {_daarsAccountQuotas = Nothing, _daarsResponseStatus = pResponseStatus_}
+    {_daarsAccountQuotas = Nothing, _daarsResponseStatus = pResponseStatus_}
 
 
 -- | Account quota information.
 daarsAccountQuotas :: Lens' DescribeAccountAttributesResponse [AccountQuota]
-daarsAccountQuotas = lens _daarsAccountQuotas (\ s a -> s{_daarsAccountQuotas = a}) . _Default . _Coerce;
+daarsAccountQuotas = lens _daarsAccountQuotas (\ s a -> s{_daarsAccountQuotas = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 daarsResponseStatus :: Lens' DescribeAccountAttributesResponse Int
-daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});
+daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a})
 
 instance NFData DescribeAccountAttributesResponse
          where

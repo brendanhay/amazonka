@@ -68,7 +68,7 @@ deleteEventSubscription pSubscriptionName_ =
 
 -- | The name of the DMS event notification subscription to be deleted.
 desSubscriptionName :: Lens' DeleteEventSubscription Text
-desSubscriptionName = lens _desSubscriptionName (\ s a -> s{_desSubscriptionName = a});
+desSubscriptionName = lens _desSubscriptionName (\ s a -> s{_desSubscriptionName = a})
 
 instance AWSRequest DeleteEventSubscription where
         type Rs DeleteEventSubscription =
@@ -129,15 +129,17 @@ deleteEventSubscriptionResponse
     -> DeleteEventSubscriptionResponse
 deleteEventSubscriptionResponse pResponseStatus_ =
   DeleteEventSubscriptionResponse'
-  {_desersEventSubscription = Nothing, _desersResponseStatus = pResponseStatus_}
+    { _desersEventSubscription = Nothing
+    , _desersResponseStatus = pResponseStatus_
+    }
 
 
 -- | The event subscription that was deleted.
 desersEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
-desersEventSubscription = lens _desersEventSubscription (\ s a -> s{_desersEventSubscription = a});
+desersEventSubscription = lens _desersEventSubscription (\ s a -> s{_desersEventSubscription = a})
 
 -- | -- | The response status code.
 desersResponseStatus :: Lens' DeleteEventSubscriptionResponse Int
-desersResponseStatus = lens _desersResponseStatus (\ s a -> s{_desersResponseStatus = a});
+desersResponseStatus = lens _desersResponseStatus (\ s a -> s{_desersResponseStatus = a})
 
 instance NFData DeleteEventSubscriptionResponse where

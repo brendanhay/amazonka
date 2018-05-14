@@ -69,18 +69,18 @@ testConnection
     -> TestConnection
 testConnection pReplicationInstanceARN_ pEndpointARN_ =
   TestConnection'
-  { _tcReplicationInstanceARN = pReplicationInstanceARN_
-  , _tcEndpointARN = pEndpointARN_
-  }
+    { _tcReplicationInstanceARN = pReplicationInstanceARN_
+    , _tcEndpointARN = pEndpointARN_
+    }
 
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
 tcReplicationInstanceARN :: Lens' TestConnection Text
-tcReplicationInstanceARN = lens _tcReplicationInstanceARN (\ s a -> s{_tcReplicationInstanceARN = a});
+tcReplicationInstanceARN = lens _tcReplicationInstanceARN (\ s a -> s{_tcReplicationInstanceARN = a})
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 tcEndpointARN :: Lens' TestConnection Text
-tcEndpointARN = lens _tcEndpointARN (\ s a -> s{_tcEndpointARN = a});
+tcEndpointARN = lens _tcEndpointARN (\ s a -> s{_tcEndpointARN = a})
 
 instance AWSRequest TestConnection where
         type Rs TestConnection = TestConnectionResponse
@@ -142,15 +142,15 @@ testConnectionResponse
     -> TestConnectionResponse
 testConnectionResponse pResponseStatus_ =
   TestConnectionResponse'
-  {_tcrsConnection = Nothing, _tcrsResponseStatus = pResponseStatus_}
+    {_tcrsConnection = Nothing, _tcrsResponseStatus = pResponseStatus_}
 
 
 -- | The connection tested.
 tcrsConnection :: Lens' TestConnectionResponse (Maybe Connection)
-tcrsConnection = lens _tcrsConnection (\ s a -> s{_tcrsConnection = a});
+tcrsConnection = lens _tcrsConnection (\ s a -> s{_tcrsConnection = a})
 
 -- | -- | The response status code.
 tcrsResponseStatus :: Lens' TestConnectionResponse Int
-tcrsResponseStatus = lens _tcrsResponseStatus (\ s a -> s{_tcrsResponseStatus = a});
+tcrsResponseStatus = lens _tcrsResponseStatus (\ s a -> s{_tcrsResponseStatus = a})
 
 instance NFData TestConnectionResponse where

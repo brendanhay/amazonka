@@ -80,11 +80,11 @@ tagQueue pQueueURL_ = TagQueue' {_tqQueueURL = pQueueURL_, _tqTags = mempty}
 
 -- | The URL of the queue.
 tqQueueURL :: Lens' TagQueue Text
-tqQueueURL = lens _tqQueueURL (\ s a -> s{_tqQueueURL = a});
+tqQueueURL = lens _tqQueueURL (\ s a -> s{_tqQueueURL = a})
 
 -- | The list of tags to be added to the specified queue.
 tqTags :: Lens' TagQueue (HashMap Text Text)
-tqTags = lens _tqTags (\ s a -> s{_tqTags = a}) . _Map;
+tqTags = lens _tqTags (\ s a -> s{_tqTags = a}) . _Map
 
 instance AWSRequest TagQueue where
         type Rs TagQueue = TagQueueResponse

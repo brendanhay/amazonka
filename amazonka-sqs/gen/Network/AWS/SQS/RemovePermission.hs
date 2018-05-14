@@ -70,11 +70,11 @@ removePermission pQueueURL_ pLabel_ =
 
 -- | The URL of the Amazon SQS queue from which permissions are removed. Queue URLs are case-sensitive.
 rpQueueURL :: Lens' RemovePermission Text
-rpQueueURL = lens _rpQueueURL (\ s a -> s{_rpQueueURL = a});
+rpQueueURL = lens _rpQueueURL (\ s a -> s{_rpQueueURL = a})
 
 -- | The identification of the permission to remove. This is the label added using the @'AddPermission' @ action.
 rpLabel :: Lens' RemovePermission Text
-rpLabel = lens _rpLabel (\ s a -> s{_rpLabel = a});
+rpLabel = lens _rpLabel (\ s a -> s{_rpLabel = a})
 
 instance AWSRequest RemovePermission where
         type Rs RemovePermission = RemovePermissionResponse

@@ -70,7 +70,7 @@ deleteQueue pQueueURL_ = DeleteQueue' {_dqQueueURL = pQueueURL_}
 
 -- | The URL of the Amazon SQS queue to delete. Queue URLs are case-sensitive.
 dqQueueURL :: Lens' DeleteQueue Text
-dqQueueURL = lens _dqQueueURL (\ s a -> s{_dqQueueURL = a});
+dqQueueURL = lens _dqQueueURL (\ s a -> s{_dqQueueURL = a})
 
 instance AWSRequest DeleteQueue where
         type Rs DeleteQueue = DeleteQueueResponse

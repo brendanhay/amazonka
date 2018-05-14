@@ -68,7 +68,7 @@ purgeQueue pQueueURL_ = PurgeQueue' {_pqQueueURL = pQueueURL_}
 
 -- | The URL of the queue from which the @PurgeQueue@ action deletes messages. Queue URLs are case-sensitive.
 pqQueueURL :: Lens' PurgeQueue Text
-pqQueueURL = lens _pqQueueURL (\ s a -> s{_pqQueueURL = a});
+pqQueueURL = lens _pqQueueURL (\ s a -> s{_pqQueueURL = a})
 
 instance AWSRequest PurgeQueue where
         type Rs PurgeQueue = PurgeQueueResponse

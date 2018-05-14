@@ -81,11 +81,11 @@ untagQueue pQueueURL_ =
 
 -- | The URL of the queue.
 uqQueueURL :: Lens' UntagQueue Text
-uqQueueURL = lens _uqQueueURL (\ s a -> s{_uqQueueURL = a});
+uqQueueURL = lens _uqQueueURL (\ s a -> s{_uqQueueURL = a})
 
 -- | The list of tags to be removed from the specified queue.
 uqTagKeys :: Lens' UntagQueue [Text]
-uqTagKeys = lens _uqTagKeys (\ s a -> s{_uqTagKeys = a}) . _Coerce;
+uqTagKeys = lens _uqTagKeys (\ s a -> s{_uqTagKeys = a}) . _Coerce
 
 instance AWSRequest UntagQueue where
         type Rs UntagQueue = UntagQueueResponse

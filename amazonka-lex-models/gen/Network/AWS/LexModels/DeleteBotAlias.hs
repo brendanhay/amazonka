@@ -68,11 +68,11 @@ deleteBotAlias pName_ pBotName_ =
 
 -- | The name of the alias to delete. The name is case sensitive.
 dbaName :: Lens' DeleteBotAlias Text
-dbaName = lens _dbaName (\ s a -> s{_dbaName = a});
+dbaName = lens _dbaName (\ s a -> s{_dbaName = a})
 
 -- | The name of the bot that the alias points to.
 dbaBotName :: Lens' DeleteBotAlias Text
-dbaBotName = lens _dbaBotName (\ s a -> s{_dbaBotName = a});
+dbaBotName = lens _dbaBotName (\ s a -> s{_dbaBotName = a})
 
 instance AWSRequest DeleteBotAlias where
         type Rs DeleteBotAlias = DeleteBotAliasResponse

@@ -64,7 +64,7 @@ deleteIntent pName_ = DeleteIntent' {_diName = pName_}
 
 -- | The name of the intent. The name is case sensitive.
 diName :: Lens' DeleteIntent Text
-diName = lens _diName (\ s a -> s{_diName = a});
+diName = lens _diName (\ s a -> s{_diName = a})
 
 instance AWSRequest DeleteIntent where
         type Rs DeleteIntent = DeleteIntentResponse

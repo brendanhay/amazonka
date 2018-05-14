@@ -69,20 +69,20 @@ deleteBotChannelAssociation
     -> DeleteBotChannelAssociation
 deleteBotChannelAssociation pName_ pBotName_ pBotAlias_ =
   DeleteBotChannelAssociation'
-  {_dbcaName = pName_, _dbcaBotName = pBotName_, _dbcaBotAlias = pBotAlias_}
+    {_dbcaName = pName_, _dbcaBotName = pBotName_, _dbcaBotAlias = pBotAlias_}
 
 
 -- | The name of the association. The name is case sensitive.
 dbcaName :: Lens' DeleteBotChannelAssociation Text
-dbcaName = lens _dbcaName (\ s a -> s{_dbcaName = a});
+dbcaName = lens _dbcaName (\ s a -> s{_dbcaName = a})
 
 -- | The name of the Amazon Lex bot.
 dbcaBotName :: Lens' DeleteBotChannelAssociation Text
-dbcaBotName = lens _dbcaBotName (\ s a -> s{_dbcaBotName = a});
+dbcaBotName = lens _dbcaBotName (\ s a -> s{_dbcaBotName = a})
 
 -- | An alias that points to the specific version of the Amazon Lex bot to which this association is being made.
 dbcaBotAlias :: Lens' DeleteBotChannelAssociation Text
-dbcaBotAlias = lens _dbcaBotAlias (\ s a -> s{_dbcaBotAlias = a});
+dbcaBotAlias = lens _dbcaBotAlias (\ s a -> s{_dbcaBotAlias = a})
 
 instance AWSRequest DeleteBotChannelAssociation where
         type Rs DeleteBotChannelAssociation =

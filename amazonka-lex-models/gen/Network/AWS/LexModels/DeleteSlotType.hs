@@ -64,7 +64,7 @@ deleteSlotType pName_ = DeleteSlotType' {_dstName = pName_}
 
 -- | The name of the slot type. The name is case sensitive.
 dstName :: Lens' DeleteSlotType Text
-dstName = lens _dstName (\ s a -> s{_dstName = a});
+dstName = lens _dstName (\ s a -> s{_dstName = a})
 
 instance AWSRequest DeleteSlotType where
         type Rs DeleteSlotType = DeleteSlotTypeResponse

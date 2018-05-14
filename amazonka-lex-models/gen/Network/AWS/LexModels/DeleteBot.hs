@@ -64,7 +64,7 @@ deleteBot pName_ = DeleteBot' {_dbName = pName_}
 
 -- | The name of the bot. The name is case sensitive.
 dbName :: Lens' DeleteBot Text
-dbName = lens _dbName (\ s a -> s{_dbName = a});
+dbName = lens _dbName (\ s a -> s{_dbName = a})
 
 instance AWSRequest DeleteBot where
         type Rs DeleteBot = DeleteBotResponse

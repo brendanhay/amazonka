@@ -101,15 +101,15 @@ listDomainNamesResponse
     -> ListDomainNamesResponse
 listDomainNamesResponse pResponseStatus_ =
   ListDomainNamesResponse'
-  {_ldnrsDomainNames = Nothing, _ldnrsResponseStatus = pResponseStatus_}
+    {_ldnrsDomainNames = Nothing, _ldnrsResponseStatus = pResponseStatus_}
 
 
 -- | List of Elasticsearch domain names.
 ldnrsDomainNames :: Lens' ListDomainNamesResponse [DomainInfo]
-ldnrsDomainNames = lens _ldnrsDomainNames (\ s a -> s{_ldnrsDomainNames = a}) . _Default . _Coerce;
+ldnrsDomainNames = lens _ldnrsDomainNames (\ s a -> s{_ldnrsDomainNames = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 ldnrsResponseStatus :: Lens' ListDomainNamesResponse Int
-ldnrsResponseStatus = lens _ldnrsResponseStatus (\ s a -> s{_ldnrsResponseStatus = a});
+ldnrsResponseStatus = lens _ldnrsResponseStatus (\ s a -> s{_ldnrsResponseStatus = a})
 
 instance NFData ListDomainNamesResponse where

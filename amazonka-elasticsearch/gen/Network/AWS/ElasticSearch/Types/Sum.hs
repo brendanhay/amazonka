@@ -233,6 +233,36 @@ instance ToHeader     OptionState
 instance FromJSON OptionState where
     parseJSON = parseJSONText "OptionState"
 
+data ReservedElasticsearchInstancePaymentOption
+  = AllUpfront
+  | NoUpfront
+  | PartialUpfront
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ReservedElasticsearchInstancePaymentOption where
+    parser = takeLowerText >>= \case
+        "all_upfront" -> pure AllUpfront
+        "no_upfront" -> pure NoUpfront
+        "partial_upfront" -> pure PartialUpfront
+        e -> fromTextError $ "Failure parsing ReservedElasticsearchInstancePaymentOption from value: '" <> e
+           <> "'. Accepted values: all_upfront, no_upfront, partial_upfront"
+
+instance ToText ReservedElasticsearchInstancePaymentOption where
+    toText = \case
+        AllUpfront -> "ALL_UPFRONT"
+        NoUpfront -> "NO_UPFRONT"
+        PartialUpfront -> "PARTIAL_UPFRONT"
+
+instance Hashable     ReservedElasticsearchInstancePaymentOption
+instance NFData       ReservedElasticsearchInstancePaymentOption
+instance ToByteString ReservedElasticsearchInstancePaymentOption
+instance ToQuery      ReservedElasticsearchInstancePaymentOption
+instance ToHeader     ReservedElasticsearchInstancePaymentOption
+
+instance FromJSON ReservedElasticsearchInstancePaymentOption where
+    parseJSON = parseJSONText "ReservedElasticsearchInstancePaymentOption"
+
 -- | The type of EBS volume, standard, gp2, or io1. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs Configuring EBS-based Storage> for more information.
 --
 --

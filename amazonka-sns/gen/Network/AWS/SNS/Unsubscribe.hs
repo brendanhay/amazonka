@@ -65,7 +65,7 @@ unsubscribe pSubscriptionARN_ =
 
 -- | The ARN of the subscription to be deleted.
 uSubscriptionARN :: Lens' Unsubscribe Text
-uSubscriptionARN = lens _uSubscriptionARN (\ s a -> s{_uSubscriptionARN = a});
+uSubscriptionARN = lens _uSubscriptionARN (\ s a -> s{_uSubscriptionARN = a})
 
 instance AWSRequest Unsubscribe where
         type Rs Unsubscribe = UnsubscribeResponse

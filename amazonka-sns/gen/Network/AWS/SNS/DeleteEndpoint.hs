@@ -66,7 +66,7 @@ deleteEndpoint pEndpointARN_ = DeleteEndpoint' {_deEndpointARN = pEndpointARN_}
 
 -- | EndpointArn of endpoint to delete.
 deEndpointARN :: Lens' DeleteEndpoint Text
-deEndpointARN = lens _deEndpointARN (\ s a -> s{_deEndpointARN = a});
+deEndpointARN = lens _deEndpointARN (\ s a -> s{_deEndpointARN = a})
 
 instance AWSRequest DeleteEndpoint where
         type Rs DeleteEndpoint = DeleteEndpointResponse

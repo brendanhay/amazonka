@@ -60,7 +60,7 @@ deleteTopic pTopicARN_ = DeleteTopic' {_dtTopicARN = pTopicARN_}
 
 -- | The ARN of the topic you want to delete.
 dtTopicARN :: Lens' DeleteTopic Text
-dtTopicARN = lens _dtTopicARN (\ s a -> s{_dtTopicARN = a});
+dtTopicARN = lens _dtTopicARN (\ s a -> s{_dtTopicARN = a})
 
 instance AWSRequest DeleteTopic where
         type Rs DeleteTopic = DeleteTopicResponse

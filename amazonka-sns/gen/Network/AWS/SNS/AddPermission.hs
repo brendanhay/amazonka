@@ -70,28 +70,28 @@ addPermission
     -> AddPermission
 addPermission pTopicARN_ pLabel_ =
   AddPermission'
-  { _apTopicARN = pTopicARN_
-  , _apLabel = pLabel_
-  , _apAWSAccountId = mempty
-  , _apActionName = mempty
-  }
+    { _apTopicARN = pTopicARN_
+    , _apLabel = pLabel_
+    , _apAWSAccountId = mempty
+    , _apActionName = mempty
+    }
 
 
 -- | The ARN of the topic whose access control policy you wish to modify.
 apTopicARN :: Lens' AddPermission Text
-apTopicARN = lens _apTopicARN (\ s a -> s{_apTopicARN = a});
+apTopicARN = lens _apTopicARN (\ s a -> s{_apTopicARN = a})
 
 -- | A unique identifier for the new policy statement.
 apLabel :: Lens' AddPermission Text
-apLabel = lens _apLabel (\ s a -> s{_apLabel = a});
+apLabel = lens _apLabel (\ s a -> s{_apLabel = a})
 
 -- | The AWS account IDs of the users (principals) who will be given access to the specified actions. The users must have AWS accounts, but do not need to be signed up for this service.
 apAWSAccountId :: Lens' AddPermission [Text]
-apAWSAccountId = lens _apAWSAccountId (\ s a -> s{_apAWSAccountId = a}) . _Coerce;
+apAWSAccountId = lens _apAWSAccountId (\ s a -> s{_apAWSAccountId = a}) . _Coerce
 
 -- | The action you want to allow for the specified principal(s). Valid values: any Amazon SNS action name.
 apActionName :: Lens' AddPermission [Text]
-apActionName = lens _apActionName (\ s a -> s{_apActionName = a}) . _Coerce;
+apActionName = lens _apActionName (\ s a -> s{_apActionName = a}) . _Coerce
 
 instance AWSRequest AddPermission where
         type Rs AddPermission = AddPermissionResponse

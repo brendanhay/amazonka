@@ -64,12 +64,12 @@ getPlatformApplicationAttributes
     -> GetPlatformApplicationAttributes
 getPlatformApplicationAttributes pPlatformApplicationARN_ =
   GetPlatformApplicationAttributes'
-  {_gpaaPlatformApplicationARN = pPlatformApplicationARN_}
+    {_gpaaPlatformApplicationARN = pPlatformApplicationARN_}
 
 
 -- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.
 gpaaPlatformApplicationARN :: Lens' GetPlatformApplicationAttributes Text
-gpaaPlatformApplicationARN = lens _gpaaPlatformApplicationARN (\ s a -> s{_gpaaPlatformApplicationARN = a});
+gpaaPlatformApplicationARN = lens _gpaaPlatformApplicationARN (\ s a -> s{_gpaaPlatformApplicationARN = a})
 
 instance AWSRequest GetPlatformApplicationAttributes
          where
@@ -132,16 +132,16 @@ getPlatformApplicationAttributesResponse
     -> GetPlatformApplicationAttributesResponse
 getPlatformApplicationAttributesResponse pResponseStatus_ =
   GetPlatformApplicationAttributesResponse'
-  {_gpaarsAttributes = Nothing, _gpaarsResponseStatus = pResponseStatus_}
+    {_gpaarsAttributes = Nothing, _gpaarsResponseStatus = pResponseStatus_}
 
 
 -- | Attributes include the following:     * @EventEndpointCreated@ -- Topic ARN to which EndpointCreated event notifications should be sent.     * @EventEndpointDeleted@ -- Topic ARN to which EndpointDeleted event notifications should be sent.     * @EventEndpointUpdated@ -- Topic ARN to which EndpointUpdate event notifications should be sent.     * @EventDeliveryFailure@ -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.
 gpaarsAttributes :: Lens' GetPlatformApplicationAttributesResponse (HashMap Text Text)
-gpaarsAttributes = lens _gpaarsAttributes (\ s a -> s{_gpaarsAttributes = a}) . _Default . _Map;
+gpaarsAttributes = lens _gpaarsAttributes (\ s a -> s{_gpaarsAttributes = a}) . _Default . _Map
 
 -- | -- | The response status code.
 gpaarsResponseStatus :: Lens' GetPlatformApplicationAttributesResponse Int
-gpaarsResponseStatus = lens _gpaarsResponseStatus (\ s a -> s{_gpaarsResponseStatus = a});
+gpaarsResponseStatus = lens _gpaarsResponseStatus (\ s a -> s{_gpaarsResponseStatus = a})
 
 instance NFData
            GetPlatformApplicationAttributesResponse

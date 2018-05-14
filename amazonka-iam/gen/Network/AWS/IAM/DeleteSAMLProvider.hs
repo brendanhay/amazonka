@@ -63,7 +63,7 @@ deleteSAMLProvider pSAMLProviderARN_ =
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to delete.
 dsamlpSAMLProviderARN :: Lens' DeleteSAMLProvider Text
-dsamlpSAMLProviderARN = lens _dsamlpSAMLProviderARN (\ s a -> s{_dsamlpSAMLProviderARN = a});
+dsamlpSAMLProviderARN = lens _dsamlpSAMLProviderARN (\ s a -> s{_dsamlpSAMLProviderARN = a})
 
 instance AWSRequest DeleteSAMLProvider where
         type Rs DeleteSAMLProvider =

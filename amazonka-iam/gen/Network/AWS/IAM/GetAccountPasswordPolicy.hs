@@ -107,18 +107,18 @@ getAccountPasswordPolicyResponse
     -> GetAccountPasswordPolicyResponse
 getAccountPasswordPolicyResponse pResponseStatus_ pPasswordPolicy_ =
   GetAccountPasswordPolicyResponse'
-  { _gapprsResponseStatus = pResponseStatus_
-  , _gapprsPasswordPolicy = pPasswordPolicy_
-  }
+    { _gapprsResponseStatus = pResponseStatus_
+    , _gapprsPasswordPolicy = pPasswordPolicy_
+    }
 
 
 -- | -- | The response status code.
 gapprsResponseStatus :: Lens' GetAccountPasswordPolicyResponse Int
-gapprsResponseStatus = lens _gapprsResponseStatus (\ s a -> s{_gapprsResponseStatus = a});
+gapprsResponseStatus = lens _gapprsResponseStatus (\ s a -> s{_gapprsResponseStatus = a})
 
 -- | A structure that contains details about the account's password policy.
 gapprsPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
-gapprsPasswordPolicy = lens _gapprsPasswordPolicy (\ s a -> s{_gapprsPasswordPolicy = a});
+gapprsPasswordPolicy = lens _gapprsPasswordPolicy (\ s a -> s{_gapprsPasswordPolicy = a})
 
 instance NFData GetAccountPasswordPolicyResponse
          where

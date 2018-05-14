@@ -106,17 +106,17 @@ listSAMLProvidersResponse
     -> ListSAMLProvidersResponse
 listSAMLProvidersResponse pResponseStatus_ =
   ListSAMLProvidersResponse'
-  { _lsamlprsSAMLProviderList = Nothing
-  , _lsamlprsResponseStatus = pResponseStatus_
-  }
+    { _lsamlprsSAMLProviderList = Nothing
+    , _lsamlprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The list of SAML provider resource objects defined in IAM for this AWS account.
 lsamlprsSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
-lsamlprsSAMLProviderList = lens _lsamlprsSAMLProviderList (\ s a -> s{_lsamlprsSAMLProviderList = a}) . _Default . _Coerce;
+lsamlprsSAMLProviderList = lens _lsamlprsSAMLProviderList (\ s a -> s{_lsamlprsSAMLProviderList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lsamlprsResponseStatus :: Lens' ListSAMLProvidersResponse Int
-lsamlprsResponseStatus = lens _lsamlprsResponseStatus (\ s a -> s{_lsamlprsResponseStatus = a});
+lsamlprsResponseStatus = lens _lsamlprsResponseStatus (\ s a -> s{_lsamlprsResponseStatus = a})
 
 instance NFData ListSAMLProvidersResponse where

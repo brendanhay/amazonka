@@ -61,7 +61,7 @@ deleteVirtualMFADevice pSerialNumber_ =
 
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the same as the ARN. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
 dvmdSerialNumber :: Lens' DeleteVirtualMFADevice Text
-dvmdSerialNumber = lens _dvmdSerialNumber (\ s a -> s{_dvmdSerialNumber = a});
+dvmdSerialNumber = lens _dvmdSerialNumber (\ s a -> s{_dvmdSerialNumber = a})
 
 instance AWSRequest DeleteVirtualMFADevice where
         type Rs DeleteVirtualMFADevice =

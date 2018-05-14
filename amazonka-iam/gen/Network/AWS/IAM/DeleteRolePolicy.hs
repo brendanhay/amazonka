@@ -57,7 +57,7 @@ data DeleteRolePolicy = DeleteRolePolicy'
 --
 -- * 'delRoleName' - The name (friendly name, not ARN) identifying the role that the policy is embedded in. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
--- * 'delPolicyName' - The name of the inline policy to delete from the specified IAM role. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+
+-- * 'delPolicyName' - The name of the inline policy to delete from the specified IAM role. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 deleteRolePolicy
     :: Text -- ^ 'delRoleName'
     -> Text -- ^ 'delPolicyName'
@@ -68,11 +68,11 @@ deleteRolePolicy pRoleName_ pPolicyName_ =
 
 -- | The name (friendly name, not ARN) identifying the role that the policy is embedded in. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 delRoleName :: Lens' DeleteRolePolicy Text
-delRoleName = lens _delRoleName (\ s a -> s{_delRoleName = a});
+delRoleName = lens _delRoleName (\ s a -> s{_delRoleName = a})
 
--- | The name of the inline policy to delete from the specified IAM role. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+
+-- | The name of the inline policy to delete from the specified IAM role. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 delPolicyName :: Lens' DeleteRolePolicy Text
-delPolicyName = lens _delPolicyName (\ s a -> s{_delPolicyName = a});
+delPolicyName = lens _delPolicyName (\ s a -> s{_delPolicyName = a})
 
 instance AWSRequest DeleteRolePolicy where
         type Rs DeleteRolePolicy = DeleteRolePolicyResponse

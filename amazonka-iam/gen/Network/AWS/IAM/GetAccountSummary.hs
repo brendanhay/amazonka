@@ -108,15 +108,15 @@ getAccountSummaryResponse
     -> GetAccountSummaryResponse
 getAccountSummaryResponse pResponseStatus_ =
   GetAccountSummaryResponse'
-  {_gasrsSummaryMap = Nothing, _gasrsResponseStatus = pResponseStatus_}
+    {_gasrsSummaryMap = Nothing, _gasrsResponseStatus = pResponseStatus_}
 
 
 -- | A set of key value pairs containing information about IAM entity usage and IAM quotas.
 gasrsSummaryMap :: Lens' GetAccountSummaryResponse (HashMap SummaryKeyType Int)
-gasrsSummaryMap = lens _gasrsSummaryMap (\ s a -> s{_gasrsSummaryMap = a}) . _Default . _Map;
+gasrsSummaryMap = lens _gasrsSummaryMap (\ s a -> s{_gasrsSummaryMap = a}) . _Default . _Map
 
 -- | -- | The response status code.
 gasrsResponseStatus :: Lens' GetAccountSummaryResponse Int
-gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a});
+gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a})
 
 instance NFData GetAccountSummaryResponse where

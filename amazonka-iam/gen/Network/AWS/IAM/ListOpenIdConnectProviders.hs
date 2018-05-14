@@ -109,18 +109,18 @@ listOpenIdConnectProvidersResponse
     -> ListOpenIdConnectProvidersResponse
 listOpenIdConnectProvidersResponse pResponseStatus_ =
   ListOpenIdConnectProvidersResponse'
-  { _loicprsOpenIdConnectProviderList = Nothing
-  , _loicprsResponseStatus = pResponseStatus_
-  }
+    { _loicprsOpenIdConnectProviderList = Nothing
+    , _loicprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The list of IAM OIDC provider resource objects defined in the AWS account.
 loicprsOpenIdConnectProviderList :: Lens' ListOpenIdConnectProvidersResponse [OpenIdConnectProviderListEntry]
-loicprsOpenIdConnectProviderList = lens _loicprsOpenIdConnectProviderList (\ s a -> s{_loicprsOpenIdConnectProviderList = a}) . _Default . _Coerce;
+loicprsOpenIdConnectProviderList = lens _loicprsOpenIdConnectProviderList (\ s a -> s{_loicprsOpenIdConnectProviderList = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 loicprsResponseStatus :: Lens' ListOpenIdConnectProvidersResponse Int
-loicprsResponseStatus = lens _loicprsResponseStatus (\ s a -> s{_loicprsResponseStatus = a});
+loicprsResponseStatus = lens _loicprsResponseStatus (\ s a -> s{_loicprsResponseStatus = a})
 
 instance NFData ListOpenIdConnectProvidersResponse
          where

@@ -115,27 +115,27 @@ getCredentialReportResponse
     -> GetCredentialReportResponse
 getCredentialReportResponse pResponseStatus_ =
   GetCredentialReportResponse'
-  { _grsContent = Nothing
-  , _grsGeneratedTime = Nothing
-  , _grsReportFormat = Nothing
-  , _grsResponseStatus = pResponseStatus_
-  }
+    { _grsContent = Nothing
+    , _grsGeneratedTime = Nothing
+    , _grsReportFormat = Nothing
+    , _grsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Contains the credential report. The report is Base64-encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 grsContent :: Lens' GetCredentialReportResponse (Maybe ByteString)
-grsContent = lens _grsContent (\ s a -> s{_grsContent = a}) . mapping _Base64;
+grsContent = lens _grsContent (\ s a -> s{_grsContent = a}) . mapping _Base64
 
 -- | The date and time when the credential report was created, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> .
 grsGeneratedTime :: Lens' GetCredentialReportResponse (Maybe UTCTime)
-grsGeneratedTime = lens _grsGeneratedTime (\ s a -> s{_grsGeneratedTime = a}) . mapping _Time;
+grsGeneratedTime = lens _grsGeneratedTime (\ s a -> s{_grsGeneratedTime = a}) . mapping _Time
 
 -- | The format (MIME type) of the credential report.
 grsReportFormat :: Lens' GetCredentialReportResponse (Maybe ReportFormatType)
-grsReportFormat = lens _grsReportFormat (\ s a -> s{_grsReportFormat = a});
+grsReportFormat = lens _grsReportFormat (\ s a -> s{_grsReportFormat = a})
 
 -- | -- | The response status code.
 grsResponseStatus :: Lens' GetCredentialReportResponse Int
-grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
+grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a})
 
 instance NFData GetCredentialReportResponse where

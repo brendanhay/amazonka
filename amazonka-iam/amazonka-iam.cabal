@@ -158,6 +158,7 @@ library
         , Network.AWS.IAM.UpdateGroup
         , Network.AWS.IAM.UpdateLoginProfile
         , Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
+        , Network.AWS.IAM.UpdateRole
         , Network.AWS.IAM.UpdateRoleDescription
         , Network.AWS.IAM.UpdateSAMLProvider
         , Network.AWS.IAM.UpdateSSHPublicKey

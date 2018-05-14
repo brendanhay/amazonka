@@ -71,23 +71,23 @@ describeLaunchConfigurations
     :: DescribeLaunchConfigurations
 describeLaunchConfigurations =
   DescribeLaunchConfigurations'
-  { _dlcLaunchConfigurationNames = Nothing
-  , _dlcNextToken = Nothing
-  , _dlcMaxRecords = Nothing
-  }
+    { _dlcLaunchConfigurationNames = Nothing
+    , _dlcNextToken = Nothing
+    , _dlcMaxRecords = Nothing
+    }
 
 
 -- | The launch configuration names. If you omit this parameter, all launch configurations are described.
 dlcLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
-dlcLaunchConfigurationNames = lens _dlcLaunchConfigurationNames (\ s a -> s{_dlcLaunchConfigurationNames = a}) . _Default . _Coerce;
+dlcLaunchConfigurationNames = lens _dlcLaunchConfigurationNames (\ s a -> s{_dlcLaunchConfigurationNames = a}) . _Default . _Coerce
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dlcNextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
-dlcNextToken = lens _dlcNextToken (\ s a -> s{_dlcNextToken = a});
+dlcNextToken = lens _dlcNextToken (\ s a -> s{_dlcNextToken = a})
 
 -- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 dlcMaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Int)
-dlcMaxRecords = lens _dlcMaxRecords (\ s a -> s{_dlcMaxRecords = a});
+dlcMaxRecords = lens _dlcMaxRecords (\ s a -> s{_dlcMaxRecords = a})
 
 instance AWSPager DescribeLaunchConfigurations where
         page rq rs
@@ -155,23 +155,23 @@ describeLaunchConfigurationsResponse
     -> DescribeLaunchConfigurationsResponse
 describeLaunchConfigurationsResponse pResponseStatus_ =
   DescribeLaunchConfigurationsResponse'
-  { _dlcrsNextToken = Nothing
-  , _dlcrsResponseStatus = pResponseStatus_
-  , _dlcrsLaunchConfigurations = mempty
-  }
+    { _dlcrsNextToken = Nothing
+    , _dlcrsResponseStatus = pResponseStatus_
+    , _dlcrsLaunchConfigurations = mempty
+    }
 
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dlcrsNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
-dlcrsNextToken = lens _dlcrsNextToken (\ s a -> s{_dlcrsNextToken = a});
+dlcrsNextToken = lens _dlcrsNextToken (\ s a -> s{_dlcrsNextToken = a})
 
 -- | -- | The response status code.
 dlcrsResponseStatus :: Lens' DescribeLaunchConfigurationsResponse Int
-dlcrsResponseStatus = lens _dlcrsResponseStatus (\ s a -> s{_dlcrsResponseStatus = a});
+dlcrsResponseStatus = lens _dlcrsResponseStatus (\ s a -> s{_dlcrsResponseStatus = a})
 
 -- | The launch configurations.
 dlcrsLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
-dlcrsLaunchConfigurations = lens _dlcrsLaunchConfigurations (\ s a -> s{_dlcrsLaunchConfigurations = a}) . _Coerce;
+dlcrsLaunchConfigurations = lens _dlcrsLaunchConfigurations (\ s a -> s{_dlcrsLaunchConfigurations = a}) . _Coerce
 
 instance NFData DescribeLaunchConfigurationsResponse
          where

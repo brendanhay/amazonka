@@ -108,18 +108,18 @@ describeTerminationPolicyTypesResponse
     -> DescribeTerminationPolicyTypesResponse
 describeTerminationPolicyTypesResponse pResponseStatus_ =
   DescribeTerminationPolicyTypesResponse'
-  { _dtptrsTerminationPolicyTypes = Nothing
-  , _dtptrsResponseStatus = pResponseStatus_
-  }
+    { _dtptrsTerminationPolicyTypes = Nothing
+    , _dtptrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The termination policies supported by Auto Scaling (@OldestInstance@ , @OldestLaunchConfiguration@ , @NewestInstance@ , @ClosestToNextInstanceHour@ , and @Default@ ).
 dtptrsTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
-dtptrsTerminationPolicyTypes = lens _dtptrsTerminationPolicyTypes (\ s a -> s{_dtptrsTerminationPolicyTypes = a}) . _Default . _Coerce;
+dtptrsTerminationPolicyTypes = lens _dtptrsTerminationPolicyTypes (\ s a -> s{_dtptrsTerminationPolicyTypes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dtptrsResponseStatus :: Lens' DescribeTerminationPolicyTypesResponse Int
-dtptrsResponseStatus = lens _dtptrsResponseStatus (\ s a -> s{_dtptrsResponseStatus = a});
+dtptrsResponseStatus = lens _dtptrsResponseStatus (\ s a -> s{_dtptrsResponseStatus = a})
 
 instance NFData
            DescribeTerminationPolicyTypesResponse

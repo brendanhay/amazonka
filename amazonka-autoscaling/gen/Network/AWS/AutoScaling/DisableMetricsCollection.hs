@@ -55,22 +55,22 @@ data DisableMetricsCollection = DisableMetricsCollection'
 --
 -- * 'dmcMetrics' - One or more of the following metrics. If you omit this parameter, all metrics are disabled.     * @GroupMinSize@      * @GroupMaxSize@      * @GroupDesiredCapacity@      * @GroupInServiceInstances@      * @GroupPendingInstances@      * @GroupStandbyInstances@      * @GroupTerminatingInstances@      * @GroupTotalInstances@
 --
--- * 'dmcAutoScalingGroupName' - The name or Amazon Resource Name (ARN) of the group.
+-- * 'dmcAutoScalingGroupName' - The name of the Auto Scaling group.
 disableMetricsCollection
     :: Text -- ^ 'dmcAutoScalingGroupName'
     -> DisableMetricsCollection
 disableMetricsCollection pAutoScalingGroupName_ =
   DisableMetricsCollection'
-  {_dmcMetrics = Nothing, _dmcAutoScalingGroupName = pAutoScalingGroupName_}
+    {_dmcMetrics = Nothing, _dmcAutoScalingGroupName = pAutoScalingGroupName_}
 
 
 -- | One or more of the following metrics. If you omit this parameter, all metrics are disabled.     * @GroupMinSize@      * @GroupMaxSize@      * @GroupDesiredCapacity@      * @GroupInServiceInstances@      * @GroupPendingInstances@      * @GroupStandbyInstances@      * @GroupTerminatingInstances@      * @GroupTotalInstances@
 dmcMetrics :: Lens' DisableMetricsCollection [Text]
-dmcMetrics = lens _dmcMetrics (\ s a -> s{_dmcMetrics = a}) . _Default . _Coerce;
+dmcMetrics = lens _dmcMetrics (\ s a -> s{_dmcMetrics = a}) . _Default . _Coerce
 
--- | The name or Amazon Resource Name (ARN) of the group.
+-- | The name of the Auto Scaling group.
 dmcAutoScalingGroupName :: Lens' DisableMetricsCollection Text
-dmcAutoScalingGroupName = lens _dmcAutoScalingGroupName (\ s a -> s{_dmcAutoScalingGroupName = a});
+dmcAutoScalingGroupName = lens _dmcAutoScalingGroupName (\ s a -> s{_dmcAutoScalingGroupName = a})
 
 instance AWSRequest DisableMetricsCollection where
         type Rs DisableMetricsCollection =

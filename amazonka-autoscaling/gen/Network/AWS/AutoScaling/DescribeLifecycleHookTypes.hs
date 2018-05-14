@@ -105,18 +105,18 @@ describeLifecycleHookTypesResponse
     -> DescribeLifecycleHookTypesResponse
 describeLifecycleHookTypesResponse pResponseStatus_ =
   DescribeLifecycleHookTypesResponse'
-  { _dlhtrsLifecycleHookTypes = Nothing
-  , _dlhtrsResponseStatus = pResponseStatus_
-  }
+    { _dlhtrsLifecycleHookTypes = Nothing
+    , _dlhtrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The lifecycle hook types.
 dlhtrsLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
-dlhtrsLifecycleHookTypes = lens _dlhtrsLifecycleHookTypes (\ s a -> s{_dlhtrsLifecycleHookTypes = a}) . _Default . _Coerce;
+dlhtrsLifecycleHookTypes = lens _dlhtrsLifecycleHookTypes (\ s a -> s{_dlhtrsLifecycleHookTypes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dlhtrsResponseStatus :: Lens' DescribeLifecycleHookTypesResponse Int
-dlhtrsResponseStatus = lens _dlhtrsResponseStatus (\ s a -> s{_dlhtrsResponseStatus = a});
+dlhtrsResponseStatus = lens _dlhtrsResponseStatus (\ s a -> s{_dlhtrsResponseStatus = a})
 
 instance NFData DescribeLifecycleHookTypesResponse
          where

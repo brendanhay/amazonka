@@ -70,23 +70,23 @@ putNotificationConfiguration
     -> PutNotificationConfiguration
 putNotificationConfiguration pAutoScalingGroupName_ pTopicARN_ =
   PutNotificationConfiguration'
-  { _pncAutoScalingGroupName = pAutoScalingGroupName_
-  , _pncTopicARN = pTopicARN_
-  , _pncNotificationTypes = mempty
-  }
+    { _pncAutoScalingGroupName = pAutoScalingGroupName_
+    , _pncTopicARN = pTopicARN_
+    , _pncNotificationTypes = mempty
+    }
 
 
 -- | The name of the Auto Scaling group.
 pncAutoScalingGroupName :: Lens' PutNotificationConfiguration Text
-pncAutoScalingGroupName = lens _pncAutoScalingGroupName (\ s a -> s{_pncAutoScalingGroupName = a});
+pncAutoScalingGroupName = lens _pncAutoScalingGroupName (\ s a -> s{_pncAutoScalingGroupName = a})
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic.
 pncTopicARN :: Lens' PutNotificationConfiguration Text
-pncTopicARN = lens _pncTopicARN (\ s a -> s{_pncTopicARN = a});
+pncTopicARN = lens _pncTopicARN (\ s a -> s{_pncTopicARN = a})
 
 -- | The type of event that will cause the notification to be sent. For details about notification types supported by Auto Scaling, see 'DescribeAutoScalingNotificationTypes' .
 pncNotificationTypes :: Lens' PutNotificationConfiguration [Text]
-pncNotificationTypes = lens _pncNotificationTypes (\ s a -> s{_pncNotificationTypes = a}) . _Coerce;
+pncNotificationTypes = lens _pncNotificationTypes (\ s a -> s{_pncNotificationTypes = a}) . _Coerce
 
 instance AWSRequest PutNotificationConfiguration
          where

@@ -115,18 +115,18 @@ describeAutoScalingNotificationTypesResponse
     -> DescribeAutoScalingNotificationTypesResponse
 describeAutoScalingNotificationTypesResponse pResponseStatus_ =
   DescribeAutoScalingNotificationTypesResponse'
-  { _dasntrsAutoScalingNotificationTypes = Nothing
-  , _dasntrsResponseStatus = pResponseStatus_
-  }
+    { _dasntrsAutoScalingNotificationTypes = Nothing
+    , _dasntrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The notification types.
 dasntrsAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse [Text]
-dasntrsAutoScalingNotificationTypes = lens _dasntrsAutoScalingNotificationTypes (\ s a -> s{_dasntrsAutoScalingNotificationTypes = a}) . _Default . _Coerce;
+dasntrsAutoScalingNotificationTypes = lens _dasntrsAutoScalingNotificationTypes (\ s a -> s{_dasntrsAutoScalingNotificationTypes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dasntrsResponseStatus :: Lens' DescribeAutoScalingNotificationTypesResponse Int
-dasntrsResponseStatus = lens _dasntrsResponseStatus (\ s a -> s{_dasntrsResponseStatus = a});
+dasntrsResponseStatus = lens _dasntrsResponseStatus (\ s a -> s{_dasntrsResponseStatus = a})
 
 instance NFData
            DescribeAutoScalingNotificationTypesResponse

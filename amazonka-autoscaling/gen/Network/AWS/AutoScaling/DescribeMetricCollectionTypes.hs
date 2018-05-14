@@ -116,23 +116,23 @@ describeMetricCollectionTypesResponse
     -> DescribeMetricCollectionTypesResponse
 describeMetricCollectionTypesResponse pResponseStatus_ =
   DescribeMetricCollectionTypesResponse'
-  { _dmctrsMetrics = Nothing
-  , _dmctrsGranularities = Nothing
-  , _dmctrsResponseStatus = pResponseStatus_
-  }
+    { _dmctrsMetrics = Nothing
+    , _dmctrsGranularities = Nothing
+    , _dmctrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | One or more metrics.
 dmctrsMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
-dmctrsMetrics = lens _dmctrsMetrics (\ s a -> s{_dmctrsMetrics = a}) . _Default . _Coerce;
+dmctrsMetrics = lens _dmctrsMetrics (\ s a -> s{_dmctrsMetrics = a}) . _Default . _Coerce
 
 -- | The granularities for the metrics.
 dmctrsGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranularityType]
-dmctrsGranularities = lens _dmctrsGranularities (\ s a -> s{_dmctrsGranularities = a}) . _Default . _Coerce;
+dmctrsGranularities = lens _dmctrsGranularities (\ s a -> s{_dmctrsGranularities = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dmctrsResponseStatus :: Lens' DescribeMetricCollectionTypesResponse Int
-dmctrsResponseStatus = lens _dmctrsResponseStatus (\ s a -> s{_dmctrsResponseStatus = a});
+dmctrsResponseStatus = lens _dmctrsResponseStatus (\ s a -> s{_dmctrsResponseStatus = a})
 
 instance NFData DescribeMetricCollectionTypesResponse
          where

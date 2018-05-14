@@ -59,7 +59,7 @@ deleteTags = DeleteTags' {_dtTags = mempty}
 
 -- | One or more tags.
 dtTags :: Lens' DeleteTags [Tag]
-dtTags = lens _dtTags (\ s a -> s{_dtTags = a}) . _Coerce;
+dtTags = lens _dtTags (\ s a -> s{_dtTags = a}) . _Coerce
 
 instance AWSRequest DeleteTags where
         type Rs DeleteTags = DeleteTagsResponse

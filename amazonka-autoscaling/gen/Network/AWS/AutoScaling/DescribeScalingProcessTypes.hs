@@ -105,16 +105,16 @@ describeScalingProcessTypesResponse
     -> DescribeScalingProcessTypesResponse
 describeScalingProcessTypesResponse pResponseStatus_ =
   DescribeScalingProcessTypesResponse'
-  {_dsptrsProcesses = Nothing, _dsptrsResponseStatus = pResponseStatus_}
+    {_dsptrsProcesses = Nothing, _dsptrsResponseStatus = pResponseStatus_}
 
 
 -- | The names of the process types.
 dsptrsProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
-dsptrsProcesses = lens _dsptrsProcesses (\ s a -> s{_dsptrsProcesses = a}) . _Default . _Coerce;
+dsptrsProcesses = lens _dsptrsProcesses (\ s a -> s{_dsptrsProcesses = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dsptrsResponseStatus :: Lens' DescribeScalingProcessTypesResponse Int
-dsptrsResponseStatus = lens _dsptrsResponseStatus (\ s a -> s{_dsptrsResponseStatus = a});
+dsptrsResponseStatus = lens _dsptrsResponseStatus (\ s a -> s{_dsptrsResponseStatus = a})
 
 instance NFData DescribeScalingProcessTypesResponse
          where

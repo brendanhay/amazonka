@@ -63,16 +63,16 @@ deletePolicy
     -> DeletePolicy
 deletePolicy pPolicyName_ =
   DeletePolicy'
-  {_dpAutoScalingGroupName = Nothing, _dpPolicyName = pPolicyName_}
+    {_dpAutoScalingGroupName = Nothing, _dpPolicyName = pPolicyName_}
 
 
 -- | The name of the Auto Scaling group.
 dpAutoScalingGroupName :: Lens' DeletePolicy (Maybe Text)
-dpAutoScalingGroupName = lens _dpAutoScalingGroupName (\ s a -> s{_dpAutoScalingGroupName = a});
+dpAutoScalingGroupName = lens _dpAutoScalingGroupName (\ s a -> s{_dpAutoScalingGroupName = a})
 
 -- | The name or Amazon Resource Name (ARN) of the policy.
 dpPolicyName :: Lens' DeletePolicy Text
-dpPolicyName = lens _dpPolicyName (\ s a -> s{_dpPolicyName = a});
+dpPolicyName = lens _dpPolicyName (\ s a -> s{_dpPolicyName = a})
 
 instance AWSRequest DeletePolicy where
         type Rs DeletePolicy = DeletePolicyResponse

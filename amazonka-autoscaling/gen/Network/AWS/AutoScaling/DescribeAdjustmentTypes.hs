@@ -104,15 +104,15 @@ describeAdjustmentTypesResponse
     -> DescribeAdjustmentTypesResponse
 describeAdjustmentTypesResponse pResponseStatus_ =
   DescribeAdjustmentTypesResponse'
-  {_datrsAdjustmentTypes = Nothing, _datrsResponseStatus = pResponseStatus_}
+    {_datrsAdjustmentTypes = Nothing, _datrsResponseStatus = pResponseStatus_}
 
 
 -- | The policy adjustment types.
 datrsAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
-datrsAdjustmentTypes = lens _datrsAdjustmentTypes (\ s a -> s{_datrsAdjustmentTypes = a}) . _Default . _Coerce;
+datrsAdjustmentTypes = lens _datrsAdjustmentTypes (\ s a -> s{_datrsAdjustmentTypes = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 datrsResponseStatus :: Lens' DescribeAdjustmentTypesResponse Int
-datrsResponseStatus = lens _datrsResponseStatus (\ s a -> s{_datrsResponseStatus = a});
+datrsResponseStatus = lens _datrsResponseStatus (\ s a -> s{_datrsResponseStatus = a})
 
 instance NFData DescribeAdjustmentTypesResponse where

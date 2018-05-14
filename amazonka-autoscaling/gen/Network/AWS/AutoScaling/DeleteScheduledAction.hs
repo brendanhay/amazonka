@@ -62,18 +62,18 @@ deleteScheduledAction
     -> DeleteScheduledAction
 deleteScheduledAction pAutoScalingGroupName_ pScheduledActionName_ =
   DeleteScheduledAction'
-  { _dsaAutoScalingGroupName = pAutoScalingGroupName_
-  , _dsaScheduledActionName = pScheduledActionName_
-  }
+    { _dsaAutoScalingGroupName = pAutoScalingGroupName_
+    , _dsaScheduledActionName = pScheduledActionName_
+    }
 
 
 -- | The name of the Auto Scaling group.
 dsaAutoScalingGroupName :: Lens' DeleteScheduledAction Text
-dsaAutoScalingGroupName = lens _dsaAutoScalingGroupName (\ s a -> s{_dsaAutoScalingGroupName = a});
+dsaAutoScalingGroupName = lens _dsaAutoScalingGroupName (\ s a -> s{_dsaAutoScalingGroupName = a})
 
 -- | The name of the action to delete.
 dsaScheduledActionName :: Lens' DeleteScheduledAction Text
-dsaScheduledActionName = lens _dsaScheduledActionName (\ s a -> s{_dsaScheduledActionName = a});
+dsaScheduledActionName = lens _dsaScheduledActionName (\ s a -> s{_dsaScheduledActionName = a})
 
 instance AWSRequest DeleteScheduledAction where
         type Rs DeleteScheduledAction =

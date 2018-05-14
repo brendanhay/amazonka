@@ -59,12 +59,12 @@ deleteLaunchConfiguration
     -> DeleteLaunchConfiguration
 deleteLaunchConfiguration pLaunchConfigurationName_ =
   DeleteLaunchConfiguration'
-  {_dlcLaunchConfigurationName = pLaunchConfigurationName_}
+    {_dlcLaunchConfigurationName = pLaunchConfigurationName_}
 
 
 -- | The name of the launch configuration.
 dlcLaunchConfigurationName :: Lens' DeleteLaunchConfiguration Text
-dlcLaunchConfigurationName = lens _dlcLaunchConfigurationName (\ s a -> s{_dlcLaunchConfigurationName = a});
+dlcLaunchConfigurationName = lens _dlcLaunchConfigurationName (\ s a -> s{_dlcLaunchConfigurationName = a})
 
 instance AWSRequest DeleteLaunchConfiguration where
         type Rs DeleteLaunchConfiguration =

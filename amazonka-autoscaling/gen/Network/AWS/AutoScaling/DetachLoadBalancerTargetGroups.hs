@@ -57,24 +57,24 @@ data DetachLoadBalancerTargetGroups = DetachLoadBalancerTargetGroups'
 --
 -- * 'dlbtgAutoScalingGroupName' - The name of the Auto Scaling group.
 --
--- * 'dlbtgTargetGroupARNs' - The Amazon Resource Names (ARN) of the target groups.
+-- * 'dlbtgTargetGroupARNs' - The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups.
 detachLoadBalancerTargetGroups
     :: Text -- ^ 'dlbtgAutoScalingGroupName'
     -> DetachLoadBalancerTargetGroups
 detachLoadBalancerTargetGroups pAutoScalingGroupName_ =
   DetachLoadBalancerTargetGroups'
-  { _dlbtgAutoScalingGroupName = pAutoScalingGroupName_
-  , _dlbtgTargetGroupARNs = mempty
-  }
+    { _dlbtgAutoScalingGroupName = pAutoScalingGroupName_
+    , _dlbtgTargetGroupARNs = mempty
+    }
 
 
 -- | The name of the Auto Scaling group.
 dlbtgAutoScalingGroupName :: Lens' DetachLoadBalancerTargetGroups Text
-dlbtgAutoScalingGroupName = lens _dlbtgAutoScalingGroupName (\ s a -> s{_dlbtgAutoScalingGroupName = a});
+dlbtgAutoScalingGroupName = lens _dlbtgAutoScalingGroupName (\ s a -> s{_dlbtgAutoScalingGroupName = a})
 
--- | The Amazon Resource Names (ARN) of the target groups.
+-- | The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups.
 dlbtgTargetGroupARNs :: Lens' DetachLoadBalancerTargetGroups [Text]
-dlbtgTargetGroupARNs = lens _dlbtgTargetGroupARNs (\ s a -> s{_dlbtgTargetGroupARNs = a}) . _Coerce;
+dlbtgTargetGroupARNs = lens _dlbtgTargetGroupARNs (\ s a -> s{_dlbtgTargetGroupARNs = a}) . _Coerce
 
 instance AWSRequest DetachLoadBalancerTargetGroups
          where
@@ -126,12 +126,12 @@ detachLoadBalancerTargetGroupsResponse
     -> DetachLoadBalancerTargetGroupsResponse
 detachLoadBalancerTargetGroupsResponse pResponseStatus_ =
   DetachLoadBalancerTargetGroupsResponse'
-  {_dlbtgrsResponseStatus = pResponseStatus_}
+    {_dlbtgrsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
 dlbtgrsResponseStatus :: Lens' DetachLoadBalancerTargetGroupsResponse Int
-dlbtgrsResponseStatus = lens _dlbtgrsResponseStatus (\ s a -> s{_dlbtgrsResponseStatus = a});
+dlbtgrsResponseStatus = lens _dlbtgrsResponseStatus (\ s a -> s{_dlbtgrsResponseStatus = a})
 
 instance NFData
            DetachLoadBalancerTargetGroupsResponse

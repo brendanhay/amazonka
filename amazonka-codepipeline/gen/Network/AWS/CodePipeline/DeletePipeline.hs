@@ -64,7 +64,7 @@ deletePipeline pName_ = DeletePipeline' {_dpName = pName_}
 
 -- | The name of the pipeline to be deleted.
 dpName :: Lens' DeletePipeline Text
-dpName = lens _dpName (\ s a -> s{_dpName = a});
+dpName = lens _dpName (\ s a -> s{_dpName = a})
 
 instance AWSRequest DeletePipeline where
         type Rs DeletePipeline = DeletePipelineResponse

@@ -483,3 +483,36 @@ instance ToHeader     StageTransitionType
 
 instance ToJSON StageTransitionType where
     toJSON = toJSONText
+
+data WebhookAuthenticationType
+  = GithubHmac
+  | IP
+  | Unauthenticated
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText WebhookAuthenticationType where
+    parser = takeLowerText >>= \case
+        "github_hmac" -> pure GithubHmac
+        "ip" -> pure IP
+        "unauthenticated" -> pure Unauthenticated
+        e -> fromTextError $ "Failure parsing WebhookAuthenticationType from value: '" <> e
+           <> "'. Accepted values: github_hmac, ip, unauthenticated"
+
+instance ToText WebhookAuthenticationType where
+    toText = \case
+        GithubHmac -> "GITHUB_HMAC"
+        IP -> "IP"
+        Unauthenticated -> "UNAUTHENTICATED"
+
+instance Hashable     WebhookAuthenticationType
+instance NFData       WebhookAuthenticationType
+instance ToByteString WebhookAuthenticationType
+instance ToQuery      WebhookAuthenticationType
+instance ToHeader     WebhookAuthenticationType
+
+instance ToJSON WebhookAuthenticationType where
+    toJSON = toJSONText
+
+instance FromJSON WebhookAuthenticationType where
+    parseJSON = parseJSONText "WebhookAuthenticationType"

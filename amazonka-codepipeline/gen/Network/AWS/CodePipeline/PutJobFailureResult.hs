@@ -66,16 +66,16 @@ putJobFailureResult
     -> PutJobFailureResult
 putJobFailureResult pJobId_ pFailureDetails_ =
   PutJobFailureResult'
-  {_pjfrJobId = pJobId_, _pjfrFailureDetails = pFailureDetails_}
+    {_pjfrJobId = pJobId_, _pjfrFailureDetails = pFailureDetails_}
 
 
 -- | The unique system-generated ID of the job that failed. This is the same ID returned from PollForJobs.
 pjfrJobId :: Lens' PutJobFailureResult Text
-pjfrJobId = lens _pjfrJobId (\ s a -> s{_pjfrJobId = a});
+pjfrJobId = lens _pjfrJobId (\ s a -> s{_pjfrJobId = a})
 
 -- | The details about the failure of a job.
 pjfrFailureDetails :: Lens' PutJobFailureResult FailureDetails
-pjfrFailureDetails = lens _pjfrFailureDetails (\ s a -> s{_pjfrFailureDetails = a});
+pjfrFailureDetails = lens _pjfrFailureDetails (\ s a -> s{_pjfrFailureDetails = a})
 
 instance AWSRequest PutJobFailureResult where
         type Rs PutJobFailureResult =

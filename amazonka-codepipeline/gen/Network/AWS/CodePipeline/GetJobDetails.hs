@@ -69,7 +69,7 @@ getJobDetails pJobId_ = GetJobDetails' {_gjdJobId = pJobId_}
 
 -- | The unique system-generated ID for the job.
 gjdJobId :: Lens' GetJobDetails Text
-gjdJobId = lens _gjdJobId (\ s a -> s{_gjdJobId = a});
+gjdJobId = lens _gjdJobId (\ s a -> s{_gjdJobId = a})
 
 instance AWSRequest GetJobDetails where
         type Rs GetJobDetails = GetJobDetailsResponse
@@ -127,15 +127,15 @@ getJobDetailsResponse
     -> GetJobDetailsResponse
 getJobDetailsResponse pResponseStatus_ =
   GetJobDetailsResponse'
-  {_gjdrsJobDetails = Nothing, _gjdrsResponseStatus = pResponseStatus_}
+    {_gjdrsJobDetails = Nothing, _gjdrsResponseStatus = pResponseStatus_}
 
 
 -- | The details of the job.
 gjdrsJobDetails :: Lens' GetJobDetailsResponse (Maybe JobDetails)
-gjdrsJobDetails = lens _gjdrsJobDetails (\ s a -> s{_gjdrsJobDetails = a});
+gjdrsJobDetails = lens _gjdrsJobDetails (\ s a -> s{_gjdrsJobDetails = a})
 
 -- | -- | The response status code.
 gjdrsResponseStatus :: Lens' GetJobDetailsResponse Int
-gjdrsResponseStatus = lens _gjdrsResponseStatus (\ s a -> s{_gjdrsResponseStatus = a});
+gjdrsResponseStatus = lens _gjdrsResponseStatus (\ s a -> s{_gjdrsResponseStatus = a})
 
 instance NFData GetJobDetailsResponse where

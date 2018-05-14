@@ -73,11 +73,11 @@ acknowledgeJob pJobId_ pNonce_ =
 
 -- | The unique system-generated ID of the job for which you want to confirm receipt.
 ajJobId :: Lens' AcknowledgeJob Text
-ajJobId = lens _ajJobId (\ s a -> s{_ajJobId = a});
+ajJobId = lens _ajJobId (\ s a -> s{_ajJobId = a})
 
 -- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Get this number from the response of the 'PollForJobs' request that returned this job.
 ajNonce :: Lens' AcknowledgeJob Text
-ajNonce = lens _ajNonce (\ s a -> s{_ajNonce = a});
+ajNonce = lens _ajNonce (\ s a -> s{_ajNonce = a})
 
 instance AWSRequest AcknowledgeJob where
         type Rs AcknowledgeJob = AcknowledgeJobResponse
@@ -138,15 +138,15 @@ acknowledgeJobResponse
     -> AcknowledgeJobResponse
 acknowledgeJobResponse pResponseStatus_ =
   AcknowledgeJobResponse'
-  {_ajrsStatus = Nothing, _ajrsResponseStatus = pResponseStatus_}
+    {_ajrsStatus = Nothing, _ajrsResponseStatus = pResponseStatus_}
 
 
 -- | Whether the job worker has received the specified job.
 ajrsStatus :: Lens' AcknowledgeJobResponse (Maybe JobStatus)
-ajrsStatus = lens _ajrsStatus (\ s a -> s{_ajrsStatus = a});
+ajrsStatus = lens _ajrsStatus (\ s a -> s{_ajrsStatus = a})
 
 -- | -- | The response status code.
 ajrsResponseStatus :: Lens' AcknowledgeJobResponse Int
-ajrsResponseStatus = lens _ajrsResponseStatus (\ s a -> s{_ajrsResponseStatus = a});
+ajrsResponseStatus = lens _ajrsResponseStatus (\ s a -> s{_ajrsResponseStatus = a})
 
 instance NFData AcknowledgeJobResponse where

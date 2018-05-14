@@ -51,6 +51,8 @@ library
         , Network.AWS.CodePipeline.CreatePipeline
         , Network.AWS.CodePipeline.DeleteCustomActionType
         , Network.AWS.CodePipeline.DeletePipeline
+        , Network.AWS.CodePipeline.DeleteWebhook
+        , Network.AWS.CodePipeline.DeregisterWebhookWithThirdParty
         , Network.AWS.CodePipeline.DisableStageTransition
         , Network.AWS.CodePipeline.EnableStageTransition
         , Network.AWS.CodePipeline.GetJobDetails
@@ -61,6 +63,7 @@ library
         , Network.AWS.CodePipeline.ListActionTypes
         , Network.AWS.CodePipeline.ListPipelineExecutions
         , Network.AWS.CodePipeline.ListPipelines
+        , Network.AWS.CodePipeline.ListWebhooks
         , Network.AWS.CodePipeline.PollForJobs
         , Network.AWS.CodePipeline.PollForThirdPartyJobs
         , Network.AWS.CodePipeline.PutActionRevision
@@ -69,6 +72,8 @@ library
         , Network.AWS.CodePipeline.PutJobSuccessResult
         , Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
         , Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult
+        , Network.AWS.CodePipeline.PutWebhook
+        , Network.AWS.CodePipeline.RegisterWebhookWithThirdParty
         , Network.AWS.CodePipeline.RetryStageExecution
         , Network.AWS.CodePipeline.StartPipelineExecution
         , Network.AWS.CodePipeline.Types

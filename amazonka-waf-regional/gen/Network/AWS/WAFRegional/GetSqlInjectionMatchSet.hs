@@ -64,12 +64,12 @@ getSqlInjectionMatchSet
     -> GetSqlInjectionMatchSet
 getSqlInjectionMatchSet pSqlInjectionMatchSetId_ =
   GetSqlInjectionMatchSet'
-  {_gsimsSqlInjectionMatchSetId = pSqlInjectionMatchSetId_}
+    {_gsimsSqlInjectionMatchSetId = pSqlInjectionMatchSetId_}
 
 
 -- | The @SqlInjectionMatchSetId@ of the 'SqlInjectionMatchSet' that you want to get. @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
 gsimsSqlInjectionMatchSetId :: Lens' GetSqlInjectionMatchSet Text
-gsimsSqlInjectionMatchSetId = lens _gsimsSqlInjectionMatchSetId (\ s a -> s{_gsimsSqlInjectionMatchSetId = a});
+gsimsSqlInjectionMatchSetId = lens _gsimsSqlInjectionMatchSetId (\ s a -> s{_gsimsSqlInjectionMatchSetId = a})
 
 instance AWSRequest GetSqlInjectionMatchSet where
         type Rs GetSqlInjectionMatchSet =
@@ -133,17 +133,17 @@ getSqlInjectionMatchSetResponse
     -> GetSqlInjectionMatchSetResponse
 getSqlInjectionMatchSetResponse pResponseStatus_ =
   GetSqlInjectionMatchSetResponse'
-  { _gsimsrsSqlInjectionMatchSet = Nothing
-  , _gsimsrsResponseStatus = pResponseStatus_
-  }
+    { _gsimsrsSqlInjectionMatchSet = Nothing
+    , _gsimsrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the 'SqlInjectionMatchSet' that you specified in the @GetSqlInjectionMatchSet@ request. For more information, see the following topics:     * 'SqlInjectionMatchSet' : Contains @Name@ , @SqlInjectionMatchSetId@ , and an array of @SqlInjectionMatchTuple@ objects     * 'SqlInjectionMatchTuple' : Each @SqlInjectionMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
 gsimsrsSqlInjectionMatchSet :: Lens' GetSqlInjectionMatchSetResponse (Maybe SqlInjectionMatchSet)
-gsimsrsSqlInjectionMatchSet = lens _gsimsrsSqlInjectionMatchSet (\ s a -> s{_gsimsrsSqlInjectionMatchSet = a});
+gsimsrsSqlInjectionMatchSet = lens _gsimsrsSqlInjectionMatchSet (\ s a -> s{_gsimsrsSqlInjectionMatchSet = a})
 
 -- | -- | The response status code.
 gsimsrsResponseStatus :: Lens' GetSqlInjectionMatchSetResponse Int
-gsimsrsResponseStatus = lens _gsimsrsResponseStatus (\ s a -> s{_gsimsrsResponseStatus = a});
+gsimsrsResponseStatus = lens _gsimsrsResponseStatus (\ s a -> s{_gsimsrsResponseStatus = a})
 
 instance NFData GetSqlInjectionMatchSetResponse where

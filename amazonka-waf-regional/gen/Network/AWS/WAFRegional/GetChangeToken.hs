@@ -110,15 +110,15 @@ getChangeTokenResponse
     -> GetChangeTokenResponse
 getChangeTokenResponse pResponseStatus_ =
   GetChangeTokenResponse'
-  {_gctrsChangeToken = Nothing, _gctrsResponseStatus = pResponseStatus_}
+    {_gctrsChangeToken = Nothing, _gctrsResponseStatus = pResponseStatus_}
 
 
 -- | The @ChangeToken@ that you used in the request. Use this value in a @GetChangeTokenStatus@ request to get the current status of the request.
 gctrsChangeToken :: Lens' GetChangeTokenResponse (Maybe Text)
-gctrsChangeToken = lens _gctrsChangeToken (\ s a -> s{_gctrsChangeToken = a});
+gctrsChangeToken = lens _gctrsChangeToken (\ s a -> s{_gctrsChangeToken = a})
 
 -- | -- | The response status code.
 gctrsResponseStatus :: Lens' GetChangeTokenResponse Int
-gctrsResponseStatus = lens _gctrsResponseStatus (\ s a -> s{_gctrsResponseStatus = a});
+gctrsResponseStatus = lens _gctrsResponseStatus (\ s a -> s{_gctrsResponseStatus = a})
 
 instance NFData GetChangeTokenResponse where

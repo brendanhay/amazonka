@@ -45,21 +45,30 @@ library
 
     exposed-modules:
           Network.AWS.WorkSpaces
+        , Network.AWS.WorkSpaces.AssociateIPGroups
+        , Network.AWS.WorkSpaces.AuthorizeIPRules
+        , Network.AWS.WorkSpaces.CreateIPGroup
         , Network.AWS.WorkSpaces.CreateTags
         , Network.AWS.WorkSpaces.CreateWorkspaces
+        , Network.AWS.WorkSpaces.DeleteIPGroup
         , Network.AWS.WorkSpaces.DeleteTags
+        , Network.AWS.WorkSpaces.DescribeIPGroups
         , Network.AWS.WorkSpaces.DescribeTags
         , Network.AWS.WorkSpaces.DescribeWorkspaceBundles
         , Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
         , Network.AWS.WorkSpaces.DescribeWorkspaces
         , Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
+        , Network.AWS.WorkSpaces.DisassociateIPGroups
         , Network.AWS.WorkSpaces.ModifyWorkspaceProperties
+        , Network.AWS.WorkSpaces.ModifyWorkspaceState
         , Network.AWS.WorkSpaces.RebootWorkspaces
         , Network.AWS.WorkSpaces.RebuildWorkspaces
+        , Network.AWS.WorkSpaces.RevokeIPRules
         , Network.AWS.WorkSpaces.StartWorkspaces
         , Network.AWS.WorkSpaces.StopWorkspaces
         , Network.AWS.WorkSpaces.TerminateWorkspaces
         , Network.AWS.WorkSpaces.Types
+        , Network.AWS.WorkSpaces.UpdateRulesOfIPGroup
         , Network.AWS.WorkSpaces.Waiters
 
     other-modules:

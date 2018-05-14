@@ -59,7 +59,7 @@ deleteServiceLinkedRole pRoleName_ =
 
 -- | Undocumented member.
 dslrRoleName :: Lens' DeleteServiceLinkedRole Text
-dslrRoleName = lens _dslrRoleName (\ s a -> s{_dslrRoleName = a});
+dslrRoleName = lens _dslrRoleName (\ s a -> s{_dslrRoleName = a})
 
 instance AWSRequest DeleteServiceLinkedRole where
         type Rs DeleteServiceLinkedRole =
@@ -78,7 +78,7 @@ instance ToHeaders DeleteServiceLinkedRole where
 instance ToPath DeleteServiceLinkedRole where
         toPath DeleteServiceLinkedRole'{..}
           = mconcat
-              ["/2017-03-25/service-linked-role/",
+              ["/2017-10-30/service-linked-role/",
                toBS _dslrRoleName]
 
 instance ToQuery DeleteServiceLinkedRole where

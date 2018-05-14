@@ -27,46 +27,46 @@ import Network.AWS.Waiter
 streamingDistributionDeployed :: Wait GetStreamingDistribution
 streamingDistributionDeployed =
   Wait
-  { _waitName = "StreamingDistributionDeployed"
-  , _waitAttempts = 25
-  , _waitDelay = 60
-  , _waitAcceptors =
-      [ matchAll
-          "Deployed"
-          AcceptSuccess
-          (gsdrsStreamingDistribution . _Just . sdStatus . to toTextCI)
-      ]
-  }
+    { _waitName = "StreamingDistributionDeployed"
+    , _waitAttempts = 25
+    , _waitDelay = 60
+    , _waitAcceptors =
+        [ matchAll
+            "Deployed"
+            AcceptSuccess
+            (gsdrsStreamingDistribution . _Just . sdStatus . to toTextCI)
+        ]
+    }
 
 
 -- | Polls 'Network.AWS.CloudFront.GetDistribution' every 60 seconds until a successful state is reached. An error is returned after 25 failed checks.
 distributionDeployed :: Wait GetDistribution
 distributionDeployed =
   Wait
-  { _waitName = "DistributionDeployed"
-  , _waitAttempts = 25
-  , _waitDelay = 60
-  , _waitAcceptors =
-      [ matchAll
-          "Deployed"
-          AcceptSuccess
-          (gdrsDistribution . _Just . dStatus . to toTextCI)
-      ]
-  }
+    { _waitName = "DistributionDeployed"
+    , _waitAttempts = 25
+    , _waitDelay = 60
+    , _waitAcceptors =
+        [ matchAll
+            "Deployed"
+            AcceptSuccess
+            (gdrsDistribution . _Just . dStatus . to toTextCI)
+        ]
+    }
 
 
--- | Polls 'Network.AWS.CloudFront.GetInvalidation' every 20 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Network.AWS.CloudFront.GetInvalidation' every 20 seconds until a successful state is reached. An error is returned after 30 failed checks.
 invalidationCompleted :: Wait GetInvalidation
 invalidationCompleted =
   Wait
-  { _waitName = "InvalidationCompleted"
-  , _waitAttempts = 60
-  , _waitDelay = 20
-  , _waitAcceptors =
-      [ matchAll
-          "Completed"
-          AcceptSuccess
-          (girsInvalidation . _Just . iStatus . to toTextCI)
-      ]
-  }
+    { _waitName = "InvalidationCompleted"
+    , _waitAttempts = 30
+    , _waitDelay = 20
+    , _waitAcceptors =
+        [ matchAll
+            "Completed"
+            AcceptSuccess
+            (girsInvalidation . _Just . iStatus . to toTextCI)
+        ]
+    }
 

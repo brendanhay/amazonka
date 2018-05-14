@@ -88,6 +88,33 @@ instance FromXML EventType where
 instance ToXML EventType where
     toXML = toXMLText
 
+data Format =
+  URLEncoded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText Format where
+    parser = takeLowerText >>= \case
+        "urlencoded" -> pure URLEncoded
+        e -> fromTextError $ "Failure parsing Format from value: '" <> e
+           <> "'. Accepted values: urlencoded"
+
+instance ToText Format where
+    toText = \case
+        URLEncoded -> "URLEncoded"
+
+instance Hashable     Format
+instance NFData       Format
+instance ToByteString Format
+instance ToQuery      Format
+instance ToHeader     Format
+
+instance FromXML Format where
+    parseXML = parseXMLText "Format"
+
+instance ToXML Format where
+    toXML = toXMLText
+
 data GeoRestrictionType
   = Blacklist
   | None

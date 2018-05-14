@@ -91,11 +91,11 @@ deleteDistribution pId_ =
 
 -- | The value of the @ETag@ header that you received when you disabled the distribution. For example: @E2QWRUHAPOMQZL@ .
 ddIfMatch :: Lens' DeleteDistribution (Maybe Text)
-ddIfMatch = lens _ddIfMatch (\ s a -> s{_ddIfMatch = a});
+ddIfMatch = lens _ddIfMatch (\ s a -> s{_ddIfMatch = a})
 
 -- | The distribution ID.
 ddId :: Lens' DeleteDistribution Text
-ddId = lens _ddId (\ s a -> s{_ddId = a});
+ddId = lens _ddId (\ s a -> s{_ddId = a})
 
 instance AWSRequest DeleteDistribution where
         type Rs DeleteDistribution =
@@ -113,7 +113,7 @@ instance ToHeaders DeleteDistribution where
 
 instance ToPath DeleteDistribution where
         toPath DeleteDistribution'{..}
-          = mconcat ["/2017-03-25/distribution/", toBS _ddId]
+          = mconcat ["/2017-10-30/distribution/", toBS _ddId]
 
 instance ToQuery DeleteDistribution where
         toQuery = const mempty

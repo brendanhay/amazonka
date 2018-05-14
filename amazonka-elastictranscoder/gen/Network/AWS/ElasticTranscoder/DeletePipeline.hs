@@ -68,7 +68,7 @@ deletePipeline pId_ = DeletePipeline' {_dId = pId_}
 
 -- | The identifier of the pipeline that you want to delete.
 dId :: Lens' DeletePipeline Text
-dId = lens _dId (\ s a -> s{_dId = a});
+dId = lens _dId (\ s a -> s{_dId = a})
 
 instance AWSRequest DeletePipeline where
         type Rs DeletePipeline = DeletePipelineResponse
@@ -116,6 +116,6 @@ deletePipelineResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeletePipelineResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeletePipelineResponse where

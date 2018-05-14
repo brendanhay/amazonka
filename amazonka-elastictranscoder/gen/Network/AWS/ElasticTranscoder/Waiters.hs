@@ -25,19 +25,22 @@ import Network.AWS.Waiter
 jobComplete :: Wait ReadJob
 jobComplete =
   Wait
-  { _waitName = "JobComplete"
-  , _waitAttempts = 120
-  , _waitDelay = 30
-  , _waitAcceptors =
-      [ matchAll
-          "Complete"
-          AcceptSuccess
-          (rjrsJob . jStatus . _Just . to toTextCI)
-      , matchAll
-          "Canceled"
-          AcceptFailure
-          (rjrsJob . jStatus . _Just . to toTextCI)
-      , matchAll "Error" AcceptFailure (rjrsJob . jStatus . _Just . to toTextCI)
-      ]
-  }
+    { _waitName = "JobComplete"
+    , _waitAttempts = 120
+    , _waitDelay = 30
+    , _waitAcceptors =
+        [ matchAll
+            "Complete"
+            AcceptSuccess
+            (rjrsJob . jStatus . _Just . to toTextCI)
+        , matchAll
+            "Canceled"
+            AcceptFailure
+            (rjrsJob . jStatus . _Just . to toTextCI)
+        , matchAll
+            "Error"
+            AcceptFailure
+            (rjrsJob . jStatus . _Just . to toTextCI)
+        ]
+    }
 

@@ -76,7 +76,7 @@ describeIdentityPool pIdentityPoolId_ =
 
 -- | An identity pool ID in the format REGION:GUID.
 dipIdentityPoolId :: Lens' DescribeIdentityPool Text
-dipIdentityPoolId = lens _dipIdentityPoolId (\ s a -> s{_dipIdentityPoolId = a});
+dipIdentityPoolId = lens _dipIdentityPoolId (\ s a -> s{_dipIdentityPoolId = a})
 
 instance AWSRequest DescribeIdentityPool where
         type Rs DescribeIdentityPool = IdentityPool

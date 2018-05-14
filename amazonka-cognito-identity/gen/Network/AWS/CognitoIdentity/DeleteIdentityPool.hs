@@ -67,7 +67,7 @@ deleteIdentityPool pIdentityPoolId_ =
 
 -- | An identity pool ID in the format REGION:GUID.
 dIdentityPoolId :: Lens' DeleteIdentityPool Text
-dIdentityPoolId = lens _dIdentityPoolId (\ s a -> s{_dIdentityPoolId = a});
+dIdentityPoolId = lens _dIdentityPoolId (\ s a -> s{_dIdentityPoolId = a})
 
 instance AWSRequest DeleteIdentityPool where
         type Rs DeleteIdentityPool =

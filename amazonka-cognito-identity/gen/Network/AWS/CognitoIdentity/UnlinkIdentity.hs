@@ -71,20 +71,23 @@ unlinkIdentity
     -> UnlinkIdentity
 unlinkIdentity pIdentityId_ =
   UnlinkIdentity'
-  {_uiIdentityId = pIdentityId_, _uiLogins = mempty, _uiLoginsToRemove = mempty}
+    { _uiIdentityId = pIdentityId_
+    , _uiLogins = mempty
+    , _uiLoginsToRemove = mempty
+    }
 
 
 -- | A unique identifier in the format REGION:GUID.
 uiIdentityId :: Lens' UnlinkIdentity Text
-uiIdentityId = lens _uiIdentityId (\ s a -> s{_uiIdentityId = a});
+uiIdentityId = lens _uiIdentityId (\ s a -> s{_uiIdentityId = a})
 
 -- | A set of optional name-value pairs that map provider names to provider tokens.
 uiLogins :: Lens' UnlinkIdentity (HashMap Text Text)
-uiLogins = lens _uiLogins (\ s a -> s{_uiLogins = a}) . _Map;
+uiLogins = lens _uiLogins (\ s a -> s{_uiLogins = a}) . _Map
 
 -- | Provider names to unlink from this identity.
 uiLoginsToRemove :: Lens' UnlinkIdentity [Text]
-uiLoginsToRemove = lens _uiLoginsToRemove (\ s a -> s{_uiLoginsToRemove = a}) . _Coerce;
+uiLoginsToRemove = lens _uiLoginsToRemove (\ s a -> s{_uiLoginsToRemove = a}) . _Coerce
 
 instance AWSRequest UnlinkIdentity where
         type Rs UnlinkIdentity = UnlinkIdentityResponse

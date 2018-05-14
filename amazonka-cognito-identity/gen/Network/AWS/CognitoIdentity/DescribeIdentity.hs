@@ -71,7 +71,7 @@ describeIdentity pIdentityId_ = DescribeIdentity' {_diIdentityId = pIdentityId_}
 
 -- | A unique identifier in the format REGION:GUID.
 diIdentityId :: Lens' DescribeIdentity Text
-diIdentityId = lens _diIdentityId (\ s a -> s{_diIdentityId = a});
+diIdentityId = lens _diIdentityId (\ s a -> s{_diIdentityId = a})
 
 instance AWSRequest DescribeIdentity where
         type Rs DescribeIdentity = IdentityDescription

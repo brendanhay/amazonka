@@ -74,6 +74,7 @@ executable amazonka-gen
         , comonad
         , containers
         , data-default-class
+        , deriving-compat
         , directory-tree
         , ede                  >= 0.2.9
         , errors               == 2.*

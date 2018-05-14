@@ -163,7 +163,7 @@ errorD m n s c =
     rhs = Exts.appFun (var "_MatchServiceError") [var (m ^. serviceConfig), str c]
 
 dataD :: Id -> [QualConDecl] -> [Derive] -> Decl
-dataD n fs cs = Exts.DataDecl () arity Nothing head' fs (Just derives)
+dataD n fs cs = Exts.DataDecl () arity Nothing head' fs [derives]
   where
     arity =
         case fs of
@@ -175,11 +175,11 @@ dataD n fs cs = Exts.DataDecl () arity Nothing head' fs (Just derives)
         Exts.DHead () (ident (typeId n))
 
     derives =
-        Exts.Deriving () (map (rule . Text.pack) (mapMaybe derivingName cs))
+        Exts.Deriving () Nothing $
+            map (rule . Text.pack) (mapMaybe derivingName cs)
 
     rule c =
         Exts.IRule () Nothing Nothing (Exts.IHCon () (unqual c))
-
 
 recordD :: HasMetadata a Identity => a -> Id -> [Field] -> QualConDecl
 recordD m n = conD . \case

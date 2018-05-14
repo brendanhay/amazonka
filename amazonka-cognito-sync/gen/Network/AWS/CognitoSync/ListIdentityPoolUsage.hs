@@ -74,11 +74,11 @@ listIdentityPoolUsage =
 
 -- | A pagination token for obtaining the next page of results.
 lipuNextToken :: Lens' ListIdentityPoolUsage (Maybe Text)
-lipuNextToken = lens _lipuNextToken (\ s a -> s{_lipuNextToken = a});
+lipuNextToken = lens _lipuNextToken (\ s a -> s{_lipuNextToken = a})
 
 -- | The maximum number of results to be returned.
 lipuMaxResults :: Lens' ListIdentityPoolUsage (Maybe Int)
-lipuMaxResults = lens _lipuMaxResults (\ s a -> s{_lipuMaxResults = a});
+lipuMaxResults = lens _lipuMaxResults (\ s a -> s{_lipuMaxResults = a})
 
 instance AWSRequest ListIdentityPoolUsage where
         type Rs ListIdentityPoolUsage =
@@ -144,32 +144,32 @@ listIdentityPoolUsageResponse
     -> ListIdentityPoolUsageResponse
 listIdentityPoolUsageResponse pResponseStatus_ =
   ListIdentityPoolUsageResponse'
-  { _lipursIdentityPoolUsages = Nothing
-  , _lipursCount = Nothing
-  , _lipursNextToken = Nothing
-  , _lipursMaxResults = Nothing
-  , _lipursResponseStatus = pResponseStatus_
-  }
+    { _lipursIdentityPoolUsages = Nothing
+    , _lipursCount = Nothing
+    , _lipursNextToken = Nothing
+    , _lipursMaxResults = Nothing
+    , _lipursResponseStatus = pResponseStatus_
+    }
 
 
 -- | Usage information for the identity pools.
 lipursIdentityPoolUsages :: Lens' ListIdentityPoolUsageResponse [IdentityPoolUsage]
-lipursIdentityPoolUsages = lens _lipursIdentityPoolUsages (\ s a -> s{_lipursIdentityPoolUsages = a}) . _Default . _Coerce;
+lipursIdentityPoolUsages = lens _lipursIdentityPoolUsages (\ s a -> s{_lipursIdentityPoolUsages = a}) . _Default . _Coerce
 
 -- | Total number of identities for the identity pool.
 lipursCount :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
-lipursCount = lens _lipursCount (\ s a -> s{_lipursCount = a});
+lipursCount = lens _lipursCount (\ s a -> s{_lipursCount = a})
 
 -- | A pagination token for obtaining the next page of results.
 lipursNextToken :: Lens' ListIdentityPoolUsageResponse (Maybe Text)
-lipursNextToken = lens _lipursNextToken (\ s a -> s{_lipursNextToken = a});
+lipursNextToken = lens _lipursNextToken (\ s a -> s{_lipursNextToken = a})
 
 -- | The maximum number of results to be returned.
 lipursMaxResults :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
-lipursMaxResults = lens _lipursMaxResults (\ s a -> s{_lipursMaxResults = a});
+lipursMaxResults = lens _lipursMaxResults (\ s a -> s{_lipursMaxResults = a})
 
 -- | -- | The response status code.
 lipursResponseStatus :: Lens' ListIdentityPoolUsageResponse Int
-lipursResponseStatus = lens _lipursResponseStatus (\ s a -> s{_lipursResponseStatus = a});
+lipursResponseStatus = lens _lipursResponseStatus (\ s a -> s{_lipursResponseStatus = a})
 
 instance NFData ListIdentityPoolUsageResponse where

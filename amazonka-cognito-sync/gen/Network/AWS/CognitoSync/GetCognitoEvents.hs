@@ -70,7 +70,7 @@ getCognitoEvents pIdentityPoolId_ =
 
 -- | The Cognito Identity Pool ID for the request
 gceIdentityPoolId :: Lens' GetCognitoEvents Text
-gceIdentityPoolId = lens _gceIdentityPoolId (\ s a -> s{_gceIdentityPoolId = a});
+gceIdentityPoolId = lens _gceIdentityPoolId (\ s a -> s{_gceIdentityPoolId = a})
 
 instance AWSRequest GetCognitoEvents where
         type Rs GetCognitoEvents = GetCognitoEventsResponse
@@ -124,15 +124,15 @@ getCognitoEventsResponse
     -> GetCognitoEventsResponse
 getCognitoEventsResponse pResponseStatus_ =
   GetCognitoEventsResponse'
-  {_gcersEvents = Nothing, _gcersResponseStatus = pResponseStatus_}
+    {_gcersEvents = Nothing, _gcersResponseStatus = pResponseStatus_}
 
 
 -- | The Cognito Events returned from the GetCognitoEvents request
 gcersEvents :: Lens' GetCognitoEventsResponse (HashMap Text Text)
-gcersEvents = lens _gcersEvents (\ s a -> s{_gcersEvents = a}) . _Default . _Map;
+gcersEvents = lens _gcersEvents (\ s a -> s{_gcersEvents = a}) . _Default . _Map
 
 -- | -- | The response status code.
 gcersResponseStatus :: Lens' GetCognitoEventsResponse Int
-gcersResponseStatus = lens _gcersResponseStatus (\ s a -> s{_gcersResponseStatus = a});
+gcersResponseStatus = lens _gcersResponseStatus (\ s a -> s{_gcersResponseStatus = a})
 
 instance NFData GetCognitoEventsResponse where

@@ -66,7 +66,7 @@ stopLogging pName_ = StopLogging' {_slName = pName_}
 
 -- | Specifies the name or the CloudTrail ARN of the trail for which CloudTrail will stop logging AWS API calls. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 slName :: Lens' StopLogging Text
-slName = lens _slName (\ s a -> s{_slName = a});
+slName = lens _slName (\ s a -> s{_slName = a})
 
 instance AWSRequest StopLogging where
         type Rs StopLogging = StopLoggingResponse
@@ -124,6 +124,6 @@ stopLoggingResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 slrsResponseStatus :: Lens' StopLoggingResponse Int
-slrsResponseStatus = lens _slrsResponseStatus (\ s a -> s{_slrsResponseStatus = a});
+slrsResponseStatus = lens _slrsResponseStatus (\ s a -> s{_slrsResponseStatus = a})
 
 instance NFData StopLoggingResponse where

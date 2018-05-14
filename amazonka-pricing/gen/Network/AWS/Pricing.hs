@@ -55,13 +55,13 @@ module Network.AWS.Pricing
     -- * Operations
     -- $operations
 
-    -- ** GetAttributeValues
+    -- ** GetAttributeValues (Paginated)
     , module Network.AWS.Pricing.GetAttributeValues
 
-    -- ** DescribeServices
+    -- ** DescribeServices (Paginated)
     , module Network.AWS.Pricing.DescribeServices
 
-    -- ** GetProducts
+    -- ** GetProducts (Paginated)
     , module Network.AWS.Pricing.GetProducts
 
     -- * Types

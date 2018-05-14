@@ -64,16 +64,16 @@ getInstanceAccessDetails
     -> GetInstanceAccessDetails
 getInstanceAccessDetails pInstanceName_ =
   GetInstanceAccessDetails'
-  {_giadProtocol = Nothing, _giadInstanceName = pInstanceName_}
+    {_giadProtocol = Nothing, _giadInstanceName = pInstanceName_}
 
 
 -- | The protocol to use to connect to your instance. Defaults to @ssh@ .
 giadProtocol :: Lens' GetInstanceAccessDetails (Maybe InstanceAccessProtocol)
-giadProtocol = lens _giadProtocol (\ s a -> s{_giadProtocol = a});
+giadProtocol = lens _giadProtocol (\ s a -> s{_giadProtocol = a})
 
 -- | The name of the instance to access.
 giadInstanceName :: Lens' GetInstanceAccessDetails Text
-giadInstanceName = lens _giadInstanceName (\ s a -> s{_giadInstanceName = a});
+giadInstanceName = lens _giadInstanceName (\ s a -> s{_giadInstanceName = a})
 
 instance AWSRequest GetInstanceAccessDetails where
         type Rs GetInstanceAccessDetails =
@@ -131,16 +131,16 @@ getInstanceAccessDetailsResponse
     -> GetInstanceAccessDetailsResponse
 getInstanceAccessDetailsResponse pResponseStatus_ =
   GetInstanceAccessDetailsResponse'
-  {_giadrsAccessDetails = Nothing, _giadrsResponseStatus = pResponseStatus_}
+    {_giadrsAccessDetails = Nothing, _giadrsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about a get instance access request.
 giadrsAccessDetails :: Lens' GetInstanceAccessDetailsResponse (Maybe InstanceAccessDetails)
-giadrsAccessDetails = lens _giadrsAccessDetails (\ s a -> s{_giadrsAccessDetails = a});
+giadrsAccessDetails = lens _giadrsAccessDetails (\ s a -> s{_giadrsAccessDetails = a})
 
 -- | -- | The response status code.
 giadrsResponseStatus :: Lens' GetInstanceAccessDetailsResponse Int
-giadrsResponseStatus = lens _giadrsResponseStatus (\ s a -> s{_giadrsResponseStatus = a});
+giadrsResponseStatus = lens _giadrsResponseStatus (\ s a -> s{_giadrsResponseStatus = a})
 
 instance NFData GetInstanceAccessDetailsResponse
          where

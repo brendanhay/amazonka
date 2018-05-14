@@ -105,15 +105,15 @@ isVPCPeeredResponse
     -> IsVPCPeeredResponse
 isVPCPeeredResponse pResponseStatus_ =
   IsVPCPeeredResponse'
-  {_ivprsIsPeered = Nothing, _ivprsResponseStatus = pResponseStatus_}
+    {_ivprsIsPeered = Nothing, _ivprsResponseStatus = pResponseStatus_}
 
 
 -- | Returns @true@ if the Lightsail VPC is peered; otherwise, @false@ .
 ivprsIsPeered :: Lens' IsVPCPeeredResponse (Maybe Bool)
-ivprsIsPeered = lens _ivprsIsPeered (\ s a -> s{_ivprsIsPeered = a});
+ivprsIsPeered = lens _ivprsIsPeered (\ s a -> s{_ivprsIsPeered = a})
 
 -- | -- | The response status code.
 ivprsResponseStatus :: Lens' IsVPCPeeredResponse Int
-ivprsResponseStatus = lens _ivprsResponseStatus (\ s a -> s{_ivprsResponseStatus = a});
+ivprsResponseStatus = lens _ivprsResponseStatus (\ s a -> s{_ivprsResponseStatus = a})
 
 instance NFData IsVPCPeeredResponse where

@@ -64,7 +64,7 @@ detachStaticIP pStaticIPName_ =
 
 -- | The name of the static IP to detach from the instance.
 dsiStaticIPName :: Lens' DetachStaticIP Text
-dsiStaticIPName = lens _dsiStaticIPName (\ s a -> s{_dsiStaticIPName = a});
+dsiStaticIPName = lens _dsiStaticIPName (\ s a -> s{_dsiStaticIPName = a})
 
 instance AWSRequest DetachStaticIP where
         type Rs DetachStaticIP = DetachStaticIPResponse
@@ -120,15 +120,15 @@ detachStaticIPResponse
     -> DetachStaticIPResponse
 detachStaticIPResponse pResponseStatus_ =
   DetachStaticIPResponse'
-  {_dsirsOperations = Nothing, _dsirsResponseStatus = pResponseStatus_}
+    {_dsirsOperations = Nothing, _dsirsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the results of your detach static IP request.
 dsirsOperations :: Lens' DetachStaticIPResponse [Operation]
-dsirsOperations = lens _dsirsOperations (\ s a -> s{_dsirsOperations = a}) . _Default . _Coerce;
+dsirsOperations = lens _dsirsOperations (\ s a -> s{_dsirsOperations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dsirsResponseStatus :: Lens' DetachStaticIPResponse Int
-dsirsResponseStatus = lens _dsirsResponseStatus (\ s a -> s{_dsirsResponseStatus = a});
+dsirsResponseStatus = lens _dsirsResponseStatus (\ s a -> s{_dsirsResponseStatus = a})
 
 instance NFData DetachStaticIPResponse where

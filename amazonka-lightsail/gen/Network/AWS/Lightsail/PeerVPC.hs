@@ -105,15 +105,15 @@ peerVPCResponse
     -> PeerVPCResponse
 peerVPCResponse pResponseStatus_ =
   PeerVPCResponse'
-  {_pvrsOperation = Nothing, _pvrsResponseStatus = pResponseStatus_}
+    {_pvrsOperation = Nothing, _pvrsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the request operation.
 pvrsOperation :: Lens' PeerVPCResponse (Maybe Operation)
-pvrsOperation = lens _pvrsOperation (\ s a -> s{_pvrsOperation = a});
+pvrsOperation = lens _pvrsOperation (\ s a -> s{_pvrsOperation = a})
 
 -- | -- | The response status code.
 pvrsResponseStatus :: Lens' PeerVPCResponse Int
-pvrsResponseStatus = lens _pvrsResponseStatus (\ s a -> s{_pvrsResponseStatus = a});
+pvrsResponseStatus = lens _pvrsResponseStatus (\ s a -> s{_pvrsResponseStatus = a})
 
 instance NFData PeerVPCResponse where

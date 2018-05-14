@@ -63,7 +63,7 @@ getDomain pDomainName_ = GetDomain' {_gdDomainName = pDomainName_}
 
 -- | The domain name for which your want to return information about.
 gdDomainName :: Lens' GetDomain Text
-gdDomainName = lens _gdDomainName (\ s a -> s{_gdDomainName = a});
+gdDomainName = lens _gdDomainName (\ s a -> s{_gdDomainName = a})
 
 instance AWSRequest GetDomain where
         type Rs GetDomain = GetDomainResponse
@@ -117,15 +117,15 @@ getDomainResponse
     -> GetDomainResponse
 getDomainResponse pResponseStatus_ =
   GetDomainResponse'
-  {_gdrsDomain = Nothing, _gdrsResponseStatus = pResponseStatus_}
+    {_gdrsDomain = Nothing, _gdrsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about your get domain request.
 gdrsDomain :: Lens' GetDomainResponse (Maybe Domain)
-gdrsDomain = lens _gdrsDomain (\ s a -> s{_gdrsDomain = a});
+gdrsDomain = lens _gdrsDomain (\ s a -> s{_gdrsDomain = a})
 
 -- | -- | The response status code.
 gdrsResponseStatus :: Lens' GetDomainResponse Int
-gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
+gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a})
 
 instance NFData GetDomainResponse where

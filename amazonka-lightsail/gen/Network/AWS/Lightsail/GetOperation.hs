@@ -63,7 +63,7 @@ getOperation pOperationId_ = GetOperation' {_goOperationId = pOperationId_}
 
 -- | A GUID used to identify the operation.
 goOperationId :: Lens' GetOperation Text
-goOperationId = lens _goOperationId (\ s a -> s{_goOperationId = a});
+goOperationId = lens _goOperationId (\ s a -> s{_goOperationId = a})
 
 instance AWSRequest GetOperation where
         type Rs GetOperation = GetOperationResponse
@@ -117,15 +117,15 @@ getOperationResponse
     -> GetOperationResponse
 getOperationResponse pResponseStatus_ =
   GetOperationResponse'
-  {_gorsOperation = Nothing, _gorsResponseStatus = pResponseStatus_}
+    {_gorsOperation = Nothing, _gorsResponseStatus = pResponseStatus_}
 
 
 -- | An array of key-value pairs containing information about the results of your get operation request.
 gorsOperation :: Lens' GetOperationResponse (Maybe Operation)
-gorsOperation = lens _gorsOperation (\ s a -> s{_gorsOperation = a});
+gorsOperation = lens _gorsOperation (\ s a -> s{_gorsOperation = a})
 
 -- | -- | The response status code.
 gorsResponseStatus :: Lens' GetOperationResponse Int
-gorsResponseStatus = lens _gorsResponseStatus (\ s a -> s{_gorsResponseStatus = a});
+gorsResponseStatus = lens _gorsResponseStatus (\ s a -> s{_gorsResponseStatus = a})
 
 instance NFData GetOperationResponse where

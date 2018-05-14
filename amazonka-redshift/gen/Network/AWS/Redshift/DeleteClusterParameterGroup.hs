@@ -65,7 +65,7 @@ deleteClusterParameterGroup pParameterGroupName_ =
 
 -- | The name of the parameter group to be deleted. Constraints:     * Must be the name of an existing cluster parameter group.     * Cannot delete a default cluster parameter group.
 dParameterGroupName :: Lens' DeleteClusterParameterGroup Text
-dParameterGroupName = lens _dParameterGroupName (\ s a -> s{_dParameterGroupName = a});
+dParameterGroupName = lens _dParameterGroupName (\ s a -> s{_dParameterGroupName = a})
 
 instance AWSRequest DeleteClusterParameterGroup where
         type Rs DeleteClusterParameterGroup =

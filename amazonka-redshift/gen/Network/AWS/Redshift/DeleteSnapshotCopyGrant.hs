@@ -61,12 +61,12 @@ deleteSnapshotCopyGrant
     -> DeleteSnapshotCopyGrant
 deleteSnapshotCopyGrant pSnapshotCopyGrantName_ =
   DeleteSnapshotCopyGrant'
-  {_dscgSnapshotCopyGrantName = pSnapshotCopyGrantName_}
+    {_dscgSnapshotCopyGrantName = pSnapshotCopyGrantName_}
 
 
 -- | The name of the snapshot copy grant to delete.
 dscgSnapshotCopyGrantName :: Lens' DeleteSnapshotCopyGrant Text
-dscgSnapshotCopyGrantName = lens _dscgSnapshotCopyGrantName (\ s a -> s{_dscgSnapshotCopyGrantName = a});
+dscgSnapshotCopyGrantName = lens _dscgSnapshotCopyGrantName (\ s a -> s{_dscgSnapshotCopyGrantName = a})
 
 instance AWSRequest DeleteSnapshotCopyGrant where
         type Rs DeleteSnapshotCopyGrant =

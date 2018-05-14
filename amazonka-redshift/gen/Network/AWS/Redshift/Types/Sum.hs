@@ -47,6 +47,33 @@ instance ToHeader     ParameterApplyType
 instance FromXML ParameterApplyType where
     parseXML = parseXMLText "ParameterApplyType"
 
+data ReservedNodeOfferingType
+  = Regular
+  | Upgradable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ReservedNodeOfferingType where
+    parser = takeLowerText >>= \case
+        "regular" -> pure Regular
+        "upgradable" -> pure Upgradable
+        e -> fromTextError $ "Failure parsing ReservedNodeOfferingType from value: '" <> e
+           <> "'. Accepted values: regular, upgradable"
+
+instance ToText ReservedNodeOfferingType where
+    toText = \case
+        Regular -> "Regular"
+        Upgradable -> "Upgradable"
+
+instance Hashable     ReservedNodeOfferingType
+instance NFData       ReservedNodeOfferingType
+instance ToByteString ReservedNodeOfferingType
+instance ToQuery      ReservedNodeOfferingType
+instance ToHeader     ReservedNodeOfferingType
+
+instance FromXML ReservedNodeOfferingType where
+    parseXML = parseXMLText "ReservedNodeOfferingType"
+
 data SourceType
   = Cluster
   | ClusterParameterGroup

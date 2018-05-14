@@ -69,11 +69,11 @@ deleteTags pResourceName_ =
 
 -- | The Amazon Resource Name (ARN) from which you want to remove the tag or tags. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@ .
 dtsResourceName :: Lens' DeleteTags Text
-dtsResourceName = lens _dtsResourceName (\ s a -> s{_dtsResourceName = a});
+dtsResourceName = lens _dtsResourceName (\ s a -> s{_dtsResourceName = a})
 
 -- | The tag key that you want to delete.
 dtsTagKeys :: Lens' DeleteTags [Text]
-dtsTagKeys = lens _dtsTagKeys (\ s a -> s{_dtsTagKeys = a}) . _Coerce;
+dtsTagKeys = lens _dtsTagKeys (\ s a -> s{_dtsTagKeys = a}) . _Coerce
 
 instance AWSRequest DeleteTags where
         type Rs DeleteTags = DeleteTagsResponse

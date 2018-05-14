@@ -72,7 +72,7 @@ disableLogging pClusterIdentifier_ =
 
 -- | The identifier of the cluster on which logging is to be stopped. Example: @examplecluster@
 dlClusterIdentifier :: Lens' DisableLogging Text
-dlClusterIdentifier = lens _dlClusterIdentifier (\ s a -> s{_dlClusterIdentifier = a});
+dlClusterIdentifier = lens _dlClusterIdentifier (\ s a -> s{_dlClusterIdentifier = a})
 
 instance AWSRequest DisableLogging where
         type Rs DisableLogging = LoggingStatus

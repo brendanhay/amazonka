@@ -61,12 +61,12 @@ deleteClusterSubnetGroup
     -> DeleteClusterSubnetGroup
 deleteClusterSubnetGroup pClusterSubnetGroupName_ =
   DeleteClusterSubnetGroup'
-  {_dcsgClusterSubnetGroupName = pClusterSubnetGroupName_}
+    {_dcsgClusterSubnetGroupName = pClusterSubnetGroupName_}
 
 
 -- | The name of the cluster subnet group name to be deleted.
 dcsgClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroup Text
-dcsgClusterSubnetGroupName = lens _dcsgClusterSubnetGroupName (\ s a -> s{_dcsgClusterSubnetGroupName = a});
+dcsgClusterSubnetGroupName = lens _dcsgClusterSubnetGroupName (\ s a -> s{_dcsgClusterSubnetGroupName = a})
 
 instance AWSRequest DeleteClusterSubnetGroup where
         type Rs DeleteClusterSubnetGroup =

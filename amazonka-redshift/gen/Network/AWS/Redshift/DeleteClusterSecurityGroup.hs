@@ -63,12 +63,12 @@ deleteClusterSecurityGroup
     -> DeleteClusterSecurityGroup
 deleteClusterSecurityGroup pClusterSecurityGroupName_ =
   DeleteClusterSecurityGroup'
-  {_dClusterSecurityGroupName = pClusterSecurityGroupName_}
+    {_dClusterSecurityGroupName = pClusterSecurityGroupName_}
 
 
 -- | The name of the cluster security group to be deleted.
 dClusterSecurityGroupName :: Lens' DeleteClusterSecurityGroup Text
-dClusterSecurityGroupName = lens _dClusterSecurityGroupName (\ s a -> s{_dClusterSecurityGroupName = a});
+dClusterSecurityGroupName = lens _dClusterSecurityGroupName (\ s a -> s{_dClusterSecurityGroupName = a})
 
 instance AWSRequest DeleteClusterSecurityGroup where
         type Rs DeleteClusterSecurityGroup =

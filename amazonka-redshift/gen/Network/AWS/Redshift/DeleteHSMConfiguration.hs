@@ -61,12 +61,12 @@ deleteHSMConfiguration
     -> DeleteHSMConfiguration
 deleteHSMConfiguration pHSMConfigurationIdentifier_ =
   DeleteHSMConfiguration'
-  {_dhcHSMConfigurationIdentifier = pHSMConfigurationIdentifier_}
+    {_dhcHSMConfigurationIdentifier = pHSMConfigurationIdentifier_}
 
 
 -- | The identifier of the Amazon Redshift HSM configuration to be deleted.
 dhcHSMConfigurationIdentifier :: Lens' DeleteHSMConfiguration Text
-dhcHSMConfigurationIdentifier = lens _dhcHSMConfigurationIdentifier (\ s a -> s{_dhcHSMConfigurationIdentifier = a});
+dhcHSMConfigurationIdentifier = lens _dhcHSMConfigurationIdentifier (\ s a -> s{_dhcHSMConfigurationIdentifier = a})
 
 instance AWSRequest DeleteHSMConfiguration where
         type Rs DeleteHSMConfiguration =

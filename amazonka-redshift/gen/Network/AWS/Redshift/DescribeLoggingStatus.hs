@@ -72,7 +72,7 @@ describeLoggingStatus pClusterIdentifier_ =
 
 -- | The identifier of the cluster from which to get the logging status. Example: @examplecluster@
 dlsClusterIdentifier :: Lens' DescribeLoggingStatus Text
-dlsClusterIdentifier = lens _dlsClusterIdentifier (\ s a -> s{_dlsClusterIdentifier = a});
+dlsClusterIdentifier = lens _dlsClusterIdentifier (\ s a -> s{_dlsClusterIdentifier = a})
 
 instance AWSRequest DescribeLoggingStatus where
         type Rs DescribeLoggingStatus = LoggingStatus

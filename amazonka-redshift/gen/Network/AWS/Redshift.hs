@@ -286,6 +286,9 @@ module Network.AWS.Redshift
     -- * Waiters
     -- $waiters
 
+    -- ** ClusterRestored
+    , clusterRestored
+
     -- ** ClusterDeleted
     , clusterDeleted
 
@@ -495,6 +498,9 @@ module Network.AWS.Redshift
     -- ** ParameterApplyType
     , ParameterApplyType (..)
 
+    -- ** ReservedNodeOfferingType
+    , ReservedNodeOfferingType (..)
+
     -- ** SourceType
     , SourceType (..)
 
@@ -511,6 +517,7 @@ module Network.AWS.Redshift
     , AvailabilityZone
     , availabilityZone
     , azName
+    , azSupportedPlatforms
 
     -- ** Cluster
     , Cluster
@@ -779,6 +786,7 @@ module Network.AWS.Redshift
     -- ** ReservedNode
     , ReservedNode
     , reservedNode
+    , rnReservedNodeOfferingType
     , rnState
     , rnCurrencyCode
     , rnStartTime
@@ -795,6 +803,7 @@ module Network.AWS.Redshift
     -- ** ReservedNodeOffering
     , ReservedNodeOffering
     , reservedNodeOffering
+    , rnoReservedNodeOfferingType
     , rnoCurrencyCode
     , rnoReservedNodeOfferingId
     , rnoRecurringCharges
@@ -860,6 +869,11 @@ module Network.AWS.Redshift
     , sSubnetStatus
     , sSubnetIdentifier
     , sSubnetAvailabilityZone
+
+    -- ** SupportedPlatform
+    , SupportedPlatform
+    , supportedPlatform
+    , spName
 
     -- ** TableRestoreStatus
     , TableRestoreStatus

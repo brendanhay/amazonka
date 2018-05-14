@@ -61,12 +61,12 @@ deleteHSMClientCertificate
     -> DeleteHSMClientCertificate
 deleteHSMClientCertificate pHSMClientCertificateIdentifier_ =
   DeleteHSMClientCertificate'
-  {_dhsmccHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier_}
+    {_dhsmccHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier_}
 
 
 -- | The identifier of the HSM client certificate to be deleted.
 dhsmccHSMClientCertificateIdentifier :: Lens' DeleteHSMClientCertificate Text
-dhsmccHSMClientCertificateIdentifier = lens _dhsmccHSMClientCertificateIdentifier (\ s a -> s{_dhsmccHSMClientCertificateIdentifier = a});
+dhsmccHSMClientCertificateIdentifier = lens _dhsmccHSMClientCertificateIdentifier (\ s a -> s{_dhsmccHSMClientCertificateIdentifier = a})
 
 instance AWSRequest DeleteHSMClientCertificate where
         type Rs DeleteHSMClientCertificate =

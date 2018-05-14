@@ -64,7 +64,7 @@ deleteAlias pAliasName_ = DeleteAlias' {_daAliasName = pAliasName_}
 
 -- | The alias to be deleted. The name must start with the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/aws" are reserved.
 daAliasName :: Lens' DeleteAlias Text
-daAliasName = lens _daAliasName (\ s a -> s{_daAliasName = a});
+daAliasName = lens _daAliasName (\ s a -> s{_daAliasName = a})
 
 instance AWSRequest DeleteAlias where
         type Rs DeleteAlias = DeleteAliasResponse

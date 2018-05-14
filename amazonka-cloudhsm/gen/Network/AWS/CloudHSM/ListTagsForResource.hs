@@ -68,7 +68,7 @@ listTagsForResource pResourceARN_ =
 
 -- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
 ltfrResourceARN :: Lens' ListTagsForResource Text
-ltfrResourceARN = lens _ltfrResourceARN (\ s a -> s{_ltfrResourceARN = a});
+ltfrResourceARN = lens _ltfrResourceARN (\ s a -> s{_ltfrResourceARN = a})
 
 instance AWSRequest ListTagsForResource where
         type Rs ListTagsForResource =
@@ -125,15 +125,15 @@ listTagsForResourceResponse
     -> ListTagsForResourceResponse
 listTagsForResourceResponse pResponseStatus_ =
   ListTagsForResourceResponse'
-  {_ltfrrsResponseStatus = pResponseStatus_, _ltfrrsTagList = mempty}
+    {_ltfrrsResponseStatus = pResponseStatus_, _ltfrrsTagList = mempty}
 
 
 -- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
-ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
+ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a})
 
 -- | One or more tags.
 ltfrrsTagList :: Lens' ListTagsForResourceResponse [Tag]
-ltfrrsTagList = lens _ltfrrsTagList (\ s a -> s{_ltfrrsTagList = a}) . _Coerce;
+ltfrrsTagList = lens _ltfrrsTagList (\ s a -> s{_ltfrrsTagList = a}) . _Coerce
 
 instance NFData ListTagsForResourceResponse where

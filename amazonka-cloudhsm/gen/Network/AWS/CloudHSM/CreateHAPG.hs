@@ -71,7 +71,7 @@ createHAPG pLabel_ = CreateHAPG' {_chLabel = pLabel_}
 
 -- | The label of the new high-availability partition group.
 chLabel :: Lens' CreateHAPG Text
-chLabel = lens _chLabel (\ s a -> s{_chLabel = a});
+chLabel = lens _chLabel (\ s a -> s{_chLabel = a})
 
 instance AWSRequest CreateHAPG where
         type Rs CreateHAPG = CreateHAPGResponse
@@ -128,15 +128,15 @@ createHAPGResponse
     -> CreateHAPGResponse
 createHAPGResponse pResponseStatus_ =
   CreateHAPGResponse'
-  {_chapgrsHAPGARN = Nothing, _chapgrsResponseStatus = pResponseStatus_}
+    {_chapgrsHAPGARN = Nothing, _chapgrsResponseStatus = pResponseStatus_}
 
 
 -- | The ARN of the high-availability partition group.
 chapgrsHAPGARN :: Lens' CreateHAPGResponse (Maybe Text)
-chapgrsHAPGARN = lens _chapgrsHAPGARN (\ s a -> s{_chapgrsHAPGARN = a});
+chapgrsHAPGARN = lens _chapgrsHAPGARN (\ s a -> s{_chapgrsHAPGARN = a})
 
 -- | -- | The response status code.
 chapgrsResponseStatus :: Lens' CreateHAPGResponse Int
-chapgrsResponseStatus = lens _chapgrsResponseStatus (\ s a -> s{_chapgrsResponseStatus = a});
+chapgrsResponseStatus = lens _chapgrsResponseStatus (\ s a -> s{_chapgrsResponseStatus = a})
 
 instance NFData CreateHAPGResponse where

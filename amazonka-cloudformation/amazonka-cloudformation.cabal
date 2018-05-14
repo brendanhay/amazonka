@@ -83,6 +83,7 @@ library
         , Network.AWS.CloudFormation.StopStackSetOperation
         , Network.AWS.CloudFormation.Types
         , Network.AWS.CloudFormation.UpdateStack
+        , Network.AWS.CloudFormation.UpdateStackInstances
         , Network.AWS.CloudFormation.UpdateStackSet
         , Network.AWS.CloudFormation.UpdateTerminationProtection
         , Network.AWS.CloudFormation.ValidateTemplate

@@ -75,11 +75,11 @@ describeStackEvents =
 
 -- | A string that identifies the next page of events that you want to retrieve.
 dseNextToken :: Lens' DescribeStackEvents (Maybe Text)
-dseNextToken = lens _dseNextToken (\ s a -> s{_dseNextToken = a});
+dseNextToken = lens _dseNextToken (\ s a -> s{_dseNextToken = a})
 
 -- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value.
 dseStackName :: Lens' DescribeStackEvents (Maybe Text)
-dseStackName = lens _dseStackName (\ s a -> s{_dseStackName = a});
+dseStackName = lens _dseStackName (\ s a -> s{_dseStackName = a})
 
 instance AWSPager DescribeStackEvents where
         page rq rs
@@ -145,22 +145,22 @@ describeStackEventsResponse
     -> DescribeStackEventsResponse
 describeStackEventsResponse pResponseStatus_ =
   DescribeStackEventsResponse'
-  { _dsersNextToken = Nothing
-  , _dsersStackEvents = Nothing
-  , _dsersResponseStatus = pResponseStatus_
-  }
+    { _dsersNextToken = Nothing
+    , _dsersStackEvents = Nothing
+    , _dsersResponseStatus = pResponseStatus_
+    }
 
 
 -- | If the output exceeds 1 MB in size, a string that identifies the next page of events. If no additional page exists, this value is null.
 dsersNextToken :: Lens' DescribeStackEventsResponse (Maybe Text)
-dsersNextToken = lens _dsersNextToken (\ s a -> s{_dsersNextToken = a});
+dsersNextToken = lens _dsersNextToken (\ s a -> s{_dsersNextToken = a})
 
 -- | A list of @StackEvents@ structures.
 dsersStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
-dsersStackEvents = lens _dsersStackEvents (\ s a -> s{_dsersStackEvents = a}) . _Default . _Coerce;
+dsersStackEvents = lens _dsersStackEvents (\ s a -> s{_dsersStackEvents = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dsersResponseStatus :: Lens' DescribeStackEventsResponse Int
-dsersResponseStatus = lens _dsersResponseStatus (\ s a -> s{_dsersResponseStatus = a});
+dsersResponseStatus = lens _dsersResponseStatus (\ s a -> s{_dsersResponseStatus = a})
 
 instance NFData DescribeStackEventsResponse where

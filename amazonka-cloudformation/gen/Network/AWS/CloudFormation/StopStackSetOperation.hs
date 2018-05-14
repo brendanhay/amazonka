@@ -64,16 +64,16 @@ stopStackSetOperation
     -> StopStackSetOperation
 stopStackSetOperation pStackSetName_ pOperationId_ =
   StopStackSetOperation'
-  {_sssoStackSetName = pStackSetName_, _sssoOperationId = pOperationId_}
+    {_sssoStackSetName = pStackSetName_, _sssoOperationId = pOperationId_}
 
 
 -- | The name or unique ID of the stack set that you want to stop the operation for.
 sssoStackSetName :: Lens' StopStackSetOperation Text
-sssoStackSetName = lens _sssoStackSetName (\ s a -> s{_sssoStackSetName = a});
+sssoStackSetName = lens _sssoStackSetName (\ s a -> s{_sssoStackSetName = a})
 
 -- | The ID of the stack operation.
 sssoOperationId :: Lens' StopStackSetOperation Text
-sssoOperationId = lens _sssoOperationId (\ s a -> s{_sssoOperationId = a});
+sssoOperationId = lens _sssoOperationId (\ s a -> s{_sssoOperationId = a})
 
 instance AWSRequest StopStackSetOperation where
         type Rs StopStackSetOperation =
@@ -123,6 +123,6 @@ stopStackSetOperationResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 sssorsResponseStatus :: Lens' StopStackSetOperationResponse Int
-sssorsResponseStatus = lens _sssorsResponseStatus (\ s a -> s{_sssorsResponseStatus = a});
+sssorsResponseStatus = lens _sssorsResponseStatus (\ s a -> s{_sssorsResponseStatus = a})
 
 instance NFData StopStackSetOperationResponse where

@@ -46,6 +46,9 @@ import Test.Tasty
 --         , requestListStackResources $
 --             listStackResources
 --
+--         , requestUpdateStackInstances $
+--             updateStackInstances
+--
 --         , requestDeleteStackInstances $
 --             deleteStackInstances
 --
@@ -168,6 +171,9 @@ import Test.Tasty
 --
 --         , responseListStackResources $
 --             listStackResourcesResponse
+--
+--         , responseUpdateStackInstances $
+--             updateStackInstancesResponse
 --
 --         , responseDeleteStackInstances $
 --             deleteStackInstancesResponse
@@ -305,6 +311,11 @@ requestListStackResources :: ListStackResources -> TestTree
 requestListStackResources = req
     "ListStackResources"
     "fixture/ListStackResources.yaml"
+
+requestUpdateStackInstances :: UpdateStackInstances -> TestTree
+requestUpdateStackInstances = req
+    "UpdateStackInstances"
+    "fixture/UpdateStackInstances.yaml"
 
 requestDeleteStackInstances :: DeleteStackInstances -> TestTree
 requestDeleteStackInstances = req
@@ -519,6 +530,13 @@ responseListStackResources = res
     "fixture/ListStackResourcesResponse.proto"
     cloudFormation
     (Proxy :: Proxy ListStackResources)
+
+responseUpdateStackInstances :: UpdateStackInstancesResponse -> TestTree
+responseUpdateStackInstances = res
+    "UpdateStackInstancesResponse"
+    "fixture/UpdateStackInstancesResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy UpdateStackInstances)
 
 responseDeleteStackInstances :: DeleteStackInstancesResponse -> TestTree
 responseDeleteStackInstances = res

@@ -1,5 +1,5 @@
 name:                  amazonka-examples
-version:               1.5.0
+version:               1.6.0
 synopsis:              Basic examples for various amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
@@ -34,7 +34,7 @@ library
         , Example.SQS
 
     build-depends:
-          amazonka            == 1.5.0.*
+          amazonka            == 1.6.0.*
         , amazonka-apigateway
         , amazonka-core
         , amazonka-dynamodb

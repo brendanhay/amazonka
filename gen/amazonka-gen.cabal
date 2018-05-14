@@ -1,5 +1,5 @@
 name:                  amazonka-gen
-version:               1.5.0
+version:               1.6.0
 synopsis:              Amazonka Code Generator
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0

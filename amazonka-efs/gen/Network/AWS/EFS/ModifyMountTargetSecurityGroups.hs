@@ -75,16 +75,16 @@ modifyMountTargetSecurityGroups
     -> ModifyMountTargetSecurityGroups
 modifyMountTargetSecurityGroups pMountTargetId_ =
   ModifyMountTargetSecurityGroups'
-  {_mmtsgSecurityGroups = Nothing, _mmtsgMountTargetId = pMountTargetId_}
+    {_mmtsgSecurityGroups = Nothing, _mmtsgMountTargetId = pMountTargetId_}
 
 
 -- | Array of up to five VPC security group IDs.
 mmtsgSecurityGroups :: Lens' ModifyMountTargetSecurityGroups [Text]
-mmtsgSecurityGroups = lens _mmtsgSecurityGroups (\ s a -> s{_mmtsgSecurityGroups = a}) . _Default . _Coerce;
+mmtsgSecurityGroups = lens _mmtsgSecurityGroups (\ s a -> s{_mmtsgSecurityGroups = a}) . _Default . _Coerce
 
 -- | ID of the mount target whose security groups you want to modify.
 mmtsgMountTargetId :: Lens' ModifyMountTargetSecurityGroups Text
-mmtsgMountTargetId = lens _mmtsgMountTargetId (\ s a -> s{_mmtsgMountTargetId = a});
+mmtsgMountTargetId = lens _mmtsgMountTargetId (\ s a -> s{_mmtsgMountTargetId = a})
 
 instance AWSRequest ModifyMountTargetSecurityGroups
          where

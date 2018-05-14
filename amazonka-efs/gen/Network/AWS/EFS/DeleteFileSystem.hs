@@ -69,7 +69,7 @@ deleteFileSystem pFileSystemId_ =
 
 -- | ID of the file system you want to delete.
 delFileSystemId :: Lens' DeleteFileSystem Text
-delFileSystemId = lens _delFileSystemId (\ s a -> s{_delFileSystemId = a});
+delFileSystemId = lens _delFileSystemId (\ s a -> s{_delFileSystemId = a})
 
 instance AWSRequest DeleteFileSystem where
         type Rs DeleteFileSystem = DeleteFileSystemResponse

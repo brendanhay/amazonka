@@ -79,7 +79,7 @@ deleteMountTarget pMountTargetId_ =
 
 -- | ID of the mount target to delete (String).
 dMountTargetId :: Lens' DeleteMountTarget Text
-dMountTargetId = lens _dMountTargetId (\ s a -> s{_dMountTargetId = a});
+dMountTargetId = lens _dMountTargetId (\ s a -> s{_dMountTargetId = a})
 
 instance AWSRequest DeleteMountTarget where
         type Rs DeleteMountTarget = DeleteMountTargetResponse

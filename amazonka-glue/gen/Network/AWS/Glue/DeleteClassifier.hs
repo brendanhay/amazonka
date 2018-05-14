@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes a @Classifier@ from the metadata store.
+-- Removes a classifier from the Data Catalog.
 --
 --
 module Network.AWS.Glue.DeleteClassifier
@@ -53,16 +53,16 @@ newtype DeleteClassifier = DeleteClassifier'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delName' - Name of the @Classifier@ to remove.
+-- * 'delName' - Name of the classifier to remove.
 deleteClassifier
     :: Text -- ^ 'delName'
     -> DeleteClassifier
 deleteClassifier pName_ = DeleteClassifier' {_delName = pName_}
 
 
--- | Name of the @Classifier@ to remove.
+-- | Name of the classifier to remove.
 delName :: Lens' DeleteClassifier Text
-delName = lens _delName (\ s a -> s{_delName = a});
+delName = lens _delName (\ s a -> s{_delName = a})
 
 instance AWSRequest DeleteClassifier where
         type Rs DeleteClassifier = DeleteClassifierResponse
@@ -115,6 +115,6 @@ deleteClassifierResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteClassifierResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeleteClassifierResponse where

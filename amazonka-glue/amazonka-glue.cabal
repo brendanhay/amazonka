@@ -49,6 +49,7 @@ library
         , Network.AWS.Glue.BatchDeleteConnection
         , Network.AWS.Glue.BatchDeletePartition
         , Network.AWS.Glue.BatchDeleteTable
+        , Network.AWS.Glue.BatchDeleteTableVersion
         , Network.AWS.Glue.BatchGetPartition
         , Network.AWS.Glue.BatchStopJobRun
         , Network.AWS.Glue.CreateClassifier
@@ -70,6 +71,7 @@ library
         , Network.AWS.Glue.DeleteJob
         , Network.AWS.Glue.DeletePartition
         , Network.AWS.Glue.DeleteTable
+        , Network.AWS.Glue.DeleteTableVersion
         , Network.AWS.Glue.DeleteTrigger
         , Network.AWS.Glue.DeleteUserDefinedFunction
         , Network.AWS.Glue.GetCatalogImportStatus
@@ -94,6 +96,7 @@ library
         , Network.AWS.Glue.GetPartitions
         , Network.AWS.Glue.GetPlan
         , Network.AWS.Glue.GetTable
+        , Network.AWS.Glue.GetTableVersion
         , Network.AWS.Glue.GetTableVersions
         , Network.AWS.Glue.GetTables
         , Network.AWS.Glue.GetTrigger

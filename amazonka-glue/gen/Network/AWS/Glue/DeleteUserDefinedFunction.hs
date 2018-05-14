@@ -68,23 +68,23 @@ deleteUserDefinedFunction
     -> DeleteUserDefinedFunction
 deleteUserDefinedFunction pDatabaseName_ pFunctionName_ =
   DeleteUserDefinedFunction'
-  { _dudfCatalogId = Nothing
-  , _dudfDatabaseName = pDatabaseName_
-  , _dudfFunctionName = pFunctionName_
-  }
+    { _dudfCatalogId = Nothing
+    , _dudfDatabaseName = pDatabaseName_
+    , _dudfFunctionName = pFunctionName_
+    }
 
 
 -- | The ID of the Data Catalog where the function to be deleted is located. If none is supplied, the AWS account ID is used by default.
 dudfCatalogId :: Lens' DeleteUserDefinedFunction (Maybe Text)
-dudfCatalogId = lens _dudfCatalogId (\ s a -> s{_dudfCatalogId = a});
+dudfCatalogId = lens _dudfCatalogId (\ s a -> s{_dudfCatalogId = a})
 
 -- | The name of the catalog database where the function is located.
 dudfDatabaseName :: Lens' DeleteUserDefinedFunction Text
-dudfDatabaseName = lens _dudfDatabaseName (\ s a -> s{_dudfDatabaseName = a});
+dudfDatabaseName = lens _dudfDatabaseName (\ s a -> s{_dudfDatabaseName = a})
 
 -- | The name of the function definition to be deleted.
 dudfFunctionName :: Lens' DeleteUserDefinedFunction Text
-dudfFunctionName = lens _dudfFunctionName (\ s a -> s{_dudfFunctionName = a});
+dudfFunctionName = lens _dudfFunctionName (\ s a -> s{_dudfFunctionName = a})
 
 instance AWSRequest DeleteUserDefinedFunction where
         type Rs DeleteUserDefinedFunction =
@@ -143,7 +143,7 @@ deleteUserDefinedFunctionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dudfrsResponseStatus :: Lens' DeleteUserDefinedFunctionResponse Int
-dudfrsResponseStatus = lens _dudfrsResponseStatus (\ s a -> s{_dudfrsResponseStatus = a});
+dudfrsResponseStatus = lens _dudfrsResponseStatus (\ s a -> s{_dudfrsResponseStatus = a})
 
 instance NFData DeleteUserDefinedFunctionResponse
          where

@@ -63,7 +63,7 @@ startCrawlerSchedule pCrawlerName_ =
 
 -- | Name of the crawler to schedule.
 scsCrawlerName :: Lens' StartCrawlerSchedule Text
-scsCrawlerName = lens _scsCrawlerName (\ s a -> s{_scsCrawlerName = a});
+scsCrawlerName = lens _scsCrawlerName (\ s a -> s{_scsCrawlerName = a})
 
 instance AWSRequest StartCrawlerSchedule where
         type Rs StartCrawlerSchedule =
@@ -119,6 +119,6 @@ startCrawlerScheduleResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 scsrsResponseStatus :: Lens' StartCrawlerScheduleResponse Int
-scsrsResponseStatus = lens _scsrsResponseStatus (\ s a -> s{_scsrsResponseStatus = a});
+scsrsResponseStatus = lens _scsrsResponseStatus (\ s a -> s{_scsrsResponseStatus = a})
 
 instance NFData StartCrawlerScheduleResponse where

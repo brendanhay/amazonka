@@ -63,7 +63,7 @@ deleteDevEndpoint pEndpointName_ =
 
 -- | The name of the DevEndpoint.
 ddeEndpointName :: Lens' DeleteDevEndpoint Text
-ddeEndpointName = lens _ddeEndpointName (\ s a -> s{_ddeEndpointName = a});
+ddeEndpointName = lens _ddeEndpointName (\ s a -> s{_ddeEndpointName = a})
 
 instance AWSRequest DeleteDevEndpoint where
         type Rs DeleteDevEndpoint = DeleteDevEndpointResponse
@@ -118,6 +118,6 @@ deleteDevEndpointResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 ddersResponseStatus :: Lens' DeleteDevEndpointResponse Int
-ddersResponseStatus = lens _ddersResponseStatus (\ s a -> s{_ddersResponseStatus = a});
+ddersResponseStatus = lens _ddersResponseStatus (\ s a -> s{_ddersResponseStatus = a})
 
 instance NFData DeleteDevEndpointResponse where

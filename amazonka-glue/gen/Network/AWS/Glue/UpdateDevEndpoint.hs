@@ -71,28 +71,28 @@ updateDevEndpoint
     -> UpdateDevEndpoint
 updateDevEndpoint pEndpointName_ =
   UpdateDevEndpoint'
-  { _udeCustomLibraries = Nothing
-  , _udePublicKey = Nothing
-  , _udeUpdateEtlLibraries = Nothing
-  , _udeEndpointName = pEndpointName_
-  }
+    { _udeCustomLibraries = Nothing
+    , _udePublicKey = Nothing
+    , _udeUpdateEtlLibraries = Nothing
+    , _udeEndpointName = pEndpointName_
+    }
 
 
 -- | Custom Python or Java libraries to be loaded in the DevEndpoint.
 udeCustomLibraries :: Lens' UpdateDevEndpoint (Maybe DevEndpointCustomLibraries)
-udeCustomLibraries = lens _udeCustomLibraries (\ s a -> s{_udeCustomLibraries = a});
+udeCustomLibraries = lens _udeCustomLibraries (\ s a -> s{_udeCustomLibraries = a})
 
 -- | The public key for the DevEndpoint to use.
 udePublicKey :: Lens' UpdateDevEndpoint (Maybe Text)
-udePublicKey = lens _udePublicKey (\ s a -> s{_udePublicKey = a});
+udePublicKey = lens _udePublicKey (\ s a -> s{_udePublicKey = a})
 
 -- | True if the list of custom libraries to be loaded in the development endpoint needs to be updated, or False otherwise.
 udeUpdateEtlLibraries :: Lens' UpdateDevEndpoint (Maybe Bool)
-udeUpdateEtlLibraries = lens _udeUpdateEtlLibraries (\ s a -> s{_udeUpdateEtlLibraries = a});
+udeUpdateEtlLibraries = lens _udeUpdateEtlLibraries (\ s a -> s{_udeUpdateEtlLibraries = a})
 
 -- | The name of the DevEndpoint to be updated.
 udeEndpointName :: Lens' UpdateDevEndpoint Text
-udeEndpointName = lens _udeEndpointName (\ s a -> s{_udeEndpointName = a});
+udeEndpointName = lens _udeEndpointName (\ s a -> s{_udeEndpointName = a})
 
 instance AWSRequest UpdateDevEndpoint where
         type Rs UpdateDevEndpoint = UpdateDevEndpointResponse
@@ -150,6 +150,6 @@ updateDevEndpointResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 udersResponseStatus :: Lens' UpdateDevEndpointResponse Int
-udersResponseStatus = lens _udersResponseStatus (\ s a -> s{_udersResponseStatus = a});
+udersResponseStatus = lens _udersResponseStatus (\ s a -> s{_udersResponseStatus = a})
 
 instance NFData UpdateDevEndpointResponse where

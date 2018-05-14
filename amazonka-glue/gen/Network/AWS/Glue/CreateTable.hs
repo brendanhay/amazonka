@@ -59,7 +59,7 @@ data CreateTable = CreateTable'
 --
 -- * 'ctCatalogId' - The ID of the Data Catalog in which to create the @Table@ . If none is supplied, the AWS account ID is used by default.
 --
--- * 'ctDatabaseName' - The catalog database in which to create the new table.
+-- * 'ctDatabaseName' - The catalog database in which to create the new table. For Hive compatibility, this name is entirely lowercase.
 --
 -- * 'ctTableInput' - The @TableInput@ object that defines the metadata table to create in the catalog.
 createTable
@@ -68,23 +68,23 @@ createTable
     -> CreateTable
 createTable pDatabaseName_ pTableInput_ =
   CreateTable'
-  { _ctCatalogId = Nothing
-  , _ctDatabaseName = pDatabaseName_
-  , _ctTableInput = pTableInput_
-  }
+    { _ctCatalogId = Nothing
+    , _ctDatabaseName = pDatabaseName_
+    , _ctTableInput = pTableInput_
+    }
 
 
 -- | The ID of the Data Catalog in which to create the @Table@ . If none is supplied, the AWS account ID is used by default.
 ctCatalogId :: Lens' CreateTable (Maybe Text)
-ctCatalogId = lens _ctCatalogId (\ s a -> s{_ctCatalogId = a});
+ctCatalogId = lens _ctCatalogId (\ s a -> s{_ctCatalogId = a})
 
--- | The catalog database in which to create the new table.
+-- | The catalog database in which to create the new table. For Hive compatibility, this name is entirely lowercase.
 ctDatabaseName :: Lens' CreateTable Text
-ctDatabaseName = lens _ctDatabaseName (\ s a -> s{_ctDatabaseName = a});
+ctDatabaseName = lens _ctDatabaseName (\ s a -> s{_ctDatabaseName = a})
 
 -- | The @TableInput@ object that defines the metadata table to create in the catalog.
 ctTableInput :: Lens' CreateTable TableInput
-ctTableInput = lens _ctTableInput (\ s a -> s{_ctTableInput = a});
+ctTableInput = lens _ctTableInput (\ s a -> s{_ctTableInput = a})
 
 instance AWSRequest CreateTable where
         type Rs CreateTable = CreateTableResponse
@@ -141,6 +141,6 @@ createTableResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 cttrsResponseStatus :: Lens' CreateTableResponse Int
-cttrsResponseStatus = lens _cttrsResponseStatus (\ s a -> s{_cttrsResponseStatus = a});
+cttrsResponseStatus = lens _cttrsResponseStatus (\ s a -> s{_cttrsResponseStatus = a})
 
 instance NFData CreateTableResponse where

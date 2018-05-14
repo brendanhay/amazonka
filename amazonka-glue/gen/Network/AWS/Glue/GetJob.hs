@@ -54,16 +54,16 @@ newtype GetJob = GetJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gjJobName' - The name of the job to retrieve.
+-- * 'gjJobName' - The name of the job definition to retrieve.
 getJob
     :: Text -- ^ 'gjJobName'
     -> GetJob
 getJob pJobName_ = GetJob' {_gjJobName = pJobName_}
 
 
--- | The name of the job to retrieve.
+-- | The name of the job definition to retrieve.
 gjJobName :: Lens' GetJob Text
-gjJobName = lens _gjJobName (\ s a -> s{_gjJobName = a});
+gjJobName = lens _gjJobName (\ s a -> s{_gjJobName = a})
 
 instance AWSRequest GetJob where
         type Rs GetJob = GetJobResponse
@@ -119,10 +119,10 @@ getJobResponse pResponseStatus_ =
 
 -- | The requested job definition.
 gjrsJob :: Lens' GetJobResponse (Maybe Job)
-gjrsJob = lens _gjrsJob (\ s a -> s{_gjrsJob = a});
+gjrsJob = lens _gjrsJob (\ s a -> s{_gjrsJob = a})
 
 -- | -- | The response status code.
 gjrsResponseStatus :: Lens' GetJobResponse Int
-gjrsResponseStatus = lens _gjrsResponseStatus (\ s a -> s{_gjrsResponseStatus = a});
+gjrsResponseStatus = lens _gjrsResponseStatus (\ s a -> s{_gjrsResponseStatus = a})
 
 instance NFData GetJobResponse where

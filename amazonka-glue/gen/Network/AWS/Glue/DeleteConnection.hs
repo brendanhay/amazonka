@@ -63,16 +63,16 @@ deleteConnection
     -> DeleteConnection
 deleteConnection pConnectionName_ =
   DeleteConnection'
-  {_dcCatalogId = Nothing, _dcConnectionName = pConnectionName_}
+    {_dcCatalogId = Nothing, _dcConnectionName = pConnectionName_}
 
 
 -- | The ID of the Data Catalog in which the connection resides. If none is supplied, the AWS account ID is used by default.
 dcCatalogId :: Lens' DeleteConnection (Maybe Text)
-dcCatalogId = lens _dcCatalogId (\ s a -> s{_dcCatalogId = a});
+dcCatalogId = lens _dcCatalogId (\ s a -> s{_dcCatalogId = a})
 
 -- | The name of the connection to delete.
 dcConnectionName :: Lens' DeleteConnection Text
-dcConnectionName = lens _dcConnectionName (\ s a -> s{_dcConnectionName = a});
+dcConnectionName = lens _dcConnectionName (\ s a -> s{_dcConnectionName = a})
 
 instance AWSRequest DeleteConnection where
         type Rs DeleteConnection = DeleteConnectionResponse
@@ -128,6 +128,6 @@ deleteConnectionResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dcrsResponseStatus :: Lens' DeleteConnectionResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
 
 instance NFData DeleteConnectionResponse where

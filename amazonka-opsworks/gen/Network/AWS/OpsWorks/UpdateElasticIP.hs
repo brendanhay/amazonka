@@ -67,11 +67,11 @@ updateElasticIP pElasticIP_ =
 
 -- | The new name.
 ueiName :: Lens' UpdateElasticIP (Maybe Text)
-ueiName = lens _ueiName (\ s a -> s{_ueiName = a});
+ueiName = lens _ueiName (\ s a -> s{_ueiName = a})
 
 -- | The address.
 ueiElasticIP :: Lens' UpdateElasticIP Text
-ueiElasticIP = lens _ueiElasticIP (\ s a -> s{_ueiElasticIP = a});
+ueiElasticIP = lens _ueiElasticIP (\ s a -> s{_ueiElasticIP = a})
 
 instance AWSRequest UpdateElasticIP where
         type Rs UpdateElasticIP = UpdateElasticIPResponse

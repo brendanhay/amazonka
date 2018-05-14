@@ -62,7 +62,7 @@ unassignVolume pVolumeId_ = UnassignVolume' {_uvVolumeId = pVolumeId_}
 
 -- | The volume ID.
 uvVolumeId :: Lens' UnassignVolume Text
-uvVolumeId = lens _uvVolumeId (\ s a -> s{_uvVolumeId = a});
+uvVolumeId = lens _uvVolumeId (\ s a -> s{_uvVolumeId = a})
 
 instance AWSRequest UnassignVolume where
         type Rs UnassignVolume = UnassignVolumeResponse

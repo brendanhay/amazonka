@@ -62,7 +62,7 @@ stopStack pStackId_ = StopStack' {_stoStackId = pStackId_}
 
 -- | The stack ID.
 stoStackId :: Lens' StopStack Text
-stoStackId = lens _stoStackId (\ s a -> s{_stoStackId = a});
+stoStackId = lens _stoStackId (\ s a -> s{_stoStackId = a})
 
 instance AWSRequest StopStack where
         type Rs StopStack = StopStackResponse

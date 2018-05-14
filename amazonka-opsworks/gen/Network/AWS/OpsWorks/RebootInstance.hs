@@ -62,7 +62,7 @@ rebootInstance pInstanceId_ = RebootInstance' {_riInstanceId = pInstanceId_}
 
 -- | The instance ID.
 riInstanceId :: Lens' RebootInstance Text
-riInstanceId = lens _riInstanceId (\ s a -> s{_riInstanceId = a});
+riInstanceId = lens _riInstanceId (\ s a -> s{_riInstanceId = a})
 
 instance AWSRequest RebootInstance where
         type Rs RebootInstance = RebootInstanceResponse

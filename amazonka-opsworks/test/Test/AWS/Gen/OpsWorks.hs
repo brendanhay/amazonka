@@ -220,6 +220,9 @@ import Test.Tasty
 --         , requestCreateUserProfile $
 --             createUserProfile
 --
+--         , requestDescribeOperatingSystems $
+--             describeOperatingSystems
+--
 --         , requestDescribeCommands $
 --             describeCommands
 --
@@ -441,6 +444,9 @@ import Test.Tasty
 --
 --         , responseCreateUserProfile $
 --             createUserProfileResponse
+--
+--         , responseDescribeOperatingSystems $
+--             describeOperatingSystemsResponse
 --
 --         , responseDescribeCommands $
 --             describeCommandsResponse
@@ -793,6 +799,11 @@ requestCreateUserProfile :: CreateUserProfile -> TestTree
 requestCreateUserProfile = req
     "CreateUserProfile"
     "fixture/CreateUserProfile.yaml"
+
+requestDescribeOperatingSystems :: DescribeOperatingSystems -> TestTree
+requestDescribeOperatingSystems = req
+    "DescribeOperatingSystems"
+    "fixture/DescribeOperatingSystems.yaml"
 
 requestDescribeCommands :: DescribeCommands -> TestTree
 requestDescribeCommands = req
@@ -1288,6 +1299,13 @@ responseCreateUserProfile = res
     "fixture/CreateUserProfileResponse.proto"
     opsWorks
     (Proxy :: Proxy CreateUserProfile)
+
+responseDescribeOperatingSystems :: DescribeOperatingSystemsResponse -> TestTree
+responseDescribeOperatingSystems = res
+    "DescribeOperatingSystemsResponse"
+    "fixture/DescribeOperatingSystemsResponse.proto"
+    opsWorks
+    (Proxy :: Proxy DescribeOperatingSystems)
 
 responseDescribeCommands :: DescribeCommandsResponse -> TestTree
 responseDescribeCommands = res

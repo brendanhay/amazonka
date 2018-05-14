@@ -63,7 +63,7 @@ disassociateElasticIP pElasticIP_ =
 
 -- | The Elastic IP address.
 deiElasticIP :: Lens' DisassociateElasticIP Text
-deiElasticIP = lens _deiElasticIP (\ s a -> s{_deiElasticIP = a});
+deiElasticIP = lens _deiElasticIP (\ s a -> s{_deiElasticIP = a})
 
 instance AWSRequest DisassociateElasticIP where
         type Rs DisassociateElasticIP =

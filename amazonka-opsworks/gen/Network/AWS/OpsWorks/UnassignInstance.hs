@@ -62,7 +62,7 @@ unassignInstance pInstanceId_ = UnassignInstance' {_uInstanceId = pInstanceId_}
 
 -- | The instance ID.
 uInstanceId :: Lens' UnassignInstance Text
-uInstanceId = lens _uInstanceId (\ s a -> s{_uInstanceId = a});
+uInstanceId = lens _uInstanceId (\ s a -> s{_uInstanceId = a})
 
 instance AWSRequest UnassignInstance where
         type Rs UnassignInstance = UnassignInstanceResponse

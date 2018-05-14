@@ -62,7 +62,7 @@ startStack pStackId_ = StartStack' {_staStackId = pStackId_}
 
 -- | The stack ID.
 staStackId :: Lens' StartStack Text
-staStackId = lens _staStackId (\ s a -> s{_staStackId = a});
+staStackId = lens _staStackId (\ s a -> s{_staStackId = a})
 
 instance AWSRequest StartStack where
         type Rs StartStack = StartStackResponse

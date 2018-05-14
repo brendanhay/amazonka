@@ -113,15 +113,15 @@ describeMyUserProfileResponse
     -> DescribeMyUserProfileResponse
 describeMyUserProfileResponse pResponseStatus_ =
   DescribeMyUserProfileResponse'
-  {_dmuprsUserProfile = Nothing, _dmuprsResponseStatus = pResponseStatus_}
+    {_dmuprsUserProfile = Nothing, _dmuprsResponseStatus = pResponseStatus_}
 
 
 -- | A @UserProfile@ object that describes the user's SSH information.
 dmuprsUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
-dmuprsUserProfile = lens _dmuprsUserProfile (\ s a -> s{_dmuprsUserProfile = a});
+dmuprsUserProfile = lens _dmuprsUserProfile (\ s a -> s{_dmuprsUserProfile = a})
 
 -- | -- | The response status code.
 dmuprsResponseStatus :: Lens' DescribeMyUserProfileResponse Int
-dmuprsResponseStatus = lens _dmuprsResponseStatus (\ s a -> s{_dmuprsResponseStatus = a});
+dmuprsResponseStatus = lens _dmuprsResponseStatus (\ s a -> s{_dmuprsResponseStatus = a})
 
 instance NFData DescribeMyUserProfileResponse where

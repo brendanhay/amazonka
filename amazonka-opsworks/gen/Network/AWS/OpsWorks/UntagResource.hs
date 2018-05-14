@@ -65,11 +65,11 @@ untagResource pResourceARN_ =
 
 -- | The stack or layer's Amazon Resource Number (ARN).
 urResourceARN :: Lens' UntagResource Text
-urResourceARN = lens _urResourceARN (\ s a -> s{_urResourceARN = a});
+urResourceARN = lens _urResourceARN (\ s a -> s{_urResourceARN = a})
 
 -- | A list of the keys of tags to be removed from a stack or layer.
 urTagKeys :: Lens' UntagResource [Text]
-urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _Coerce;
+urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _Coerce
 
 instance AWSRequest UntagResource where
         type Rs UntagResource = UntagResourceResponse

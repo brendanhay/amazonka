@@ -61,7 +61,7 @@ updateMyUserProfile = UpdateMyUserProfile' {_umupSSHPublicKey = Nothing}
 
 -- | The user's SSH public key.
 umupSSHPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
-umupSSHPublicKey = lens _umupSSHPublicKey (\ s a -> s{_umupSSHPublicKey = a});
+umupSSHPublicKey = lens _umupSSHPublicKey (\ s a -> s{_umupSSHPublicKey = a})
 
 instance AWSRequest UpdateMyUserProfile where
         type Rs UpdateMyUserProfile =

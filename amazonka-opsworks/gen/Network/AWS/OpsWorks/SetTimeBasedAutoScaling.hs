@@ -63,16 +63,16 @@ setTimeBasedAutoScaling
     -> SetTimeBasedAutoScaling
 setTimeBasedAutoScaling pInstanceId_ =
   SetTimeBasedAutoScaling'
-  {_stbasAutoScalingSchedule = Nothing, _stbasInstanceId = pInstanceId_}
+    {_stbasAutoScalingSchedule = Nothing, _stbasInstanceId = pInstanceId_}
 
 
 -- | An @AutoScalingSchedule@ with the instance schedule.
 stbasAutoScalingSchedule :: Lens' SetTimeBasedAutoScaling (Maybe WeeklyAutoScalingSchedule)
-stbasAutoScalingSchedule = lens _stbasAutoScalingSchedule (\ s a -> s{_stbasAutoScalingSchedule = a});
+stbasAutoScalingSchedule = lens _stbasAutoScalingSchedule (\ s a -> s{_stbasAutoScalingSchedule = a})
 
 -- | The instance ID.
 stbasInstanceId :: Lens' SetTimeBasedAutoScaling Text
-stbasInstanceId = lens _stbasInstanceId (\ s a -> s{_stbasInstanceId = a});
+stbasInstanceId = lens _stbasInstanceId (\ s a -> s{_stbasInstanceId = a})
 
 instance AWSRequest SetTimeBasedAutoScaling where
         type Rs SetTimeBasedAutoScaling =

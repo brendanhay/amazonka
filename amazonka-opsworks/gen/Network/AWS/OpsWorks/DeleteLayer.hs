@@ -62,7 +62,7 @@ deleteLayer pLayerId_ = DeleteLayer' {_dlLayerId = pLayerId_}
 
 -- | The layer ID.
 dlLayerId :: Lens' DeleteLayer Text
-dlLayerId = lens _dlLayerId (\ s a -> s{_dlLayerId = a});
+dlLayerId = lens _dlLayerId (\ s a -> s{_dlLayerId = a})
 
 instance AWSRequest DeleteLayer where
         type Rs DeleteLayer = DeleteLayerResponse

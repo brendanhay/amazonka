@@ -62,7 +62,7 @@ deleteApp pAppId_ = DeleteApp' {_daAppId = pAppId_}
 
 -- | The app ID.
 daAppId :: Lens' DeleteApp Text
-daAppId = lens _daAppId (\ s a -> s{_daAppId = a});
+daAppId = lens _daAppId (\ s a -> s{_daAppId = a})
 
 instance AWSRequest DeleteApp where
         type Rs DeleteApp = DeleteAppResponse

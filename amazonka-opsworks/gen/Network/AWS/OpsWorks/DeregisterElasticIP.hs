@@ -63,7 +63,7 @@ deregisterElasticIP pElasticIP_ =
 
 -- | The Elastic IP address.
 deipElasticIP :: Lens' DeregisterElasticIP Text
-deipElasticIP = lens _deipElasticIP (\ s a -> s{_deipElasticIP = a});
+deipElasticIP = lens _deipElasticIP (\ s a -> s{_deipElasticIP = a})
 
 instance AWSRequest DeregisterElasticIP where
         type Rs DeregisterElasticIP =

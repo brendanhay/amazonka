@@ -63,7 +63,7 @@ deregisterEcsCluster pEcsClusterARN_ =
 
 -- | The cluster's ARN.
 decEcsClusterARN :: Lens' DeregisterEcsCluster Text
-decEcsClusterARN = lens _decEcsClusterARN (\ s a -> s{_decEcsClusterARN = a});
+decEcsClusterARN = lens _decEcsClusterARN (\ s a -> s{_decEcsClusterARN = a})
 
 instance AWSRequest DeregisterEcsCluster where
         type Rs DeregisterEcsCluster =

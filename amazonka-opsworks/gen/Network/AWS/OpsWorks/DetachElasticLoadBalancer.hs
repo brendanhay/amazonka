@@ -64,18 +64,18 @@ detachElasticLoadBalancer
     -> DetachElasticLoadBalancer
 detachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
   DetachElasticLoadBalancer'
-  { _delbElasticLoadBalancerName = pElasticLoadBalancerName_
-  , _delbLayerId = pLayerId_
-  }
+    { _delbElasticLoadBalancerName = pElasticLoadBalancerName_
+    , _delbLayerId = pLayerId_
+    }
 
 
 -- | The Elastic Load Balancing instance's name.
 delbElasticLoadBalancerName :: Lens' DetachElasticLoadBalancer Text
-delbElasticLoadBalancerName = lens _delbElasticLoadBalancerName (\ s a -> s{_delbElasticLoadBalancerName = a});
+delbElasticLoadBalancerName = lens _delbElasticLoadBalancerName (\ s a -> s{_delbElasticLoadBalancerName = a})
 
 -- | The ID of the layer that the Elastic Load Balancing instance is attached to.
 delbLayerId :: Lens' DetachElasticLoadBalancer Text
-delbLayerId = lens _delbLayerId (\ s a -> s{_delbLayerId = a});
+delbLayerId = lens _delbLayerId (\ s a -> s{_delbLayerId = a})
 
 instance AWSRequest DetachElasticLoadBalancer where
         type Rs DetachElasticLoadBalancer =

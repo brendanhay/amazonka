@@ -67,7 +67,7 @@ describeStackProvisioningParameters pStackId_ =
 
 -- | The stack ID
 dsppStackId :: Lens' DescribeStackProvisioningParameters Text
-dsppStackId = lens _dsppStackId (\ s a -> s{_dsppStackId = a});
+dsppStackId = lens _dsppStackId (\ s a -> s{_dsppStackId = a})
 
 instance AWSRequest
            DescribeStackProvisioningParameters
@@ -141,23 +141,23 @@ describeStackProvisioningParametersResponse
     -> DescribeStackProvisioningParametersResponse
 describeStackProvisioningParametersResponse pResponseStatus_ =
   DescribeStackProvisioningParametersResponse'
-  { _dspprsAgentInstallerURL = Nothing
-  , _dspprsParameters = Nothing
-  , _dspprsResponseStatus = pResponseStatus_
-  }
+    { _dspprsAgentInstallerURL = Nothing
+    , _dspprsParameters = Nothing
+    , _dspprsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The AWS OpsWorks Stacks agent installer's URL.
 dspprsAgentInstallerURL :: Lens' DescribeStackProvisioningParametersResponse (Maybe Text)
-dspprsAgentInstallerURL = lens _dspprsAgentInstallerURL (\ s a -> s{_dspprsAgentInstallerURL = a});
+dspprsAgentInstallerURL = lens _dspprsAgentInstallerURL (\ s a -> s{_dspprsAgentInstallerURL = a})
 
 -- | An embedded object that contains the provisioning parameters.
 dspprsParameters :: Lens' DescribeStackProvisioningParametersResponse (HashMap Text Text)
-dspprsParameters = lens _dspprsParameters (\ s a -> s{_dspprsParameters = a}) . _Default . _Map;
+dspprsParameters = lens _dspprsParameters (\ s a -> s{_dspprsParameters = a}) . _Default . _Map
 
 -- | -- | The response status code.
 dspprsResponseStatus :: Lens' DescribeStackProvisioningParametersResponse Int
-dspprsResponseStatus = lens _dspprsResponseStatus (\ s a -> s{_dspprsResponseStatus = a});
+dspprsResponseStatus = lens _dspprsResponseStatus (\ s a -> s{_dspprsResponseStatus = a})
 
 instance NFData
            DescribeStackProvisioningParametersResponse

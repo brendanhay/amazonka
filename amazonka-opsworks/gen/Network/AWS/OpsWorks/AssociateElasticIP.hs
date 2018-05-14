@@ -67,11 +67,11 @@ associateElasticIP pElasticIP_ =
 
 -- | The instance ID.
 aeiInstanceId :: Lens' AssociateElasticIP (Maybe Text)
-aeiInstanceId = lens _aeiInstanceId (\ s a -> s{_aeiInstanceId = a});
+aeiInstanceId = lens _aeiInstanceId (\ s a -> s{_aeiInstanceId = a})
 
 -- | The Elastic IP address.
 aeiElasticIP :: Lens' AssociateElasticIP Text
-aeiElasticIP = lens _aeiElasticIP (\ s a -> s{_aeiElasticIP = a});
+aeiElasticIP = lens _aeiElasticIP (\ s a -> s{_aeiElasticIP = a})
 
 instance AWSRequest AssociateElasticIP where
         type Rs AssociateElasticIP =

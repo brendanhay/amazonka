@@ -64,7 +64,7 @@ describeStacks = DescribeStacks' {_dsStackIds = Nothing}
 
 -- | An array of stack IDs that specify the stacks to be described. If you omit this parameter, @DescribeStacks@ returns a description of every stack.
 dsStackIds :: Lens' DescribeStacks [Text]
-dsStackIds = lens _dsStackIds (\ s a -> s{_dsStackIds = a}) . _Default . _Coerce;
+dsStackIds = lens _dsStackIds (\ s a -> s{_dsStackIds = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeStacks where
         type Rs DescribeStacks = DescribeStacksResponse
@@ -122,15 +122,15 @@ describeStacksResponse
     -> DescribeStacksResponse
 describeStacksResponse pResponseStatus_ =
   DescribeStacksResponse'
-  {_dsrsStacks = Nothing, _dsrsResponseStatus = pResponseStatus_}
+    {_dsrsStacks = Nothing, _dsrsResponseStatus = pResponseStatus_}
 
 
 -- | An array of @Stack@ objects that describe the stacks.
 dsrsStacks :: Lens' DescribeStacksResponse [Stack]
-dsrsStacks = lens _dsrsStacks (\ s a -> s{_dsrsStacks = a}) . _Default . _Coerce;
+dsrsStacks = lens _dsrsStacks (\ s a -> s{_dsrsStacks = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeStacksResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
 
 instance NFData DescribeStacksResponse where

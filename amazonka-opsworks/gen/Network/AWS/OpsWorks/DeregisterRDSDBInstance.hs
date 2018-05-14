@@ -63,7 +63,7 @@ deregisterRDSDBInstance pRDSDBInstanceARN_ =
 
 -- | The Amazon RDS instance's ARN.
 drdiRDSDBInstanceARN :: Lens' DeregisterRDSDBInstance Text
-drdiRDSDBInstanceARN = lens _drdiRDSDBInstanceARN (\ s a -> s{_drdiRDSDBInstanceARN = a});
+drdiRDSDBInstanceARN = lens _drdiRDSDBInstanceARN (\ s a -> s{_drdiRDSDBInstanceARN = a})
 
 instance AWSRequest DeregisterRDSDBInstance where
         type Rs DeregisterRDSDBInstance =

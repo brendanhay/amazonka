@@ -62,7 +62,7 @@ startInstance pInstanceId_ = StartInstance' {_sInstanceId = pInstanceId_}
 
 -- | The instance ID.
 sInstanceId :: Lens' StartInstance Text
-sInstanceId = lens _sInstanceId (\ s a -> s{_sInstanceId = a});
+sInstanceId = lens _sInstanceId (\ s a -> s{_sInstanceId = a})
 
 instance AWSRequest StartInstance where
         type Rs StartInstance = StartInstanceResponse

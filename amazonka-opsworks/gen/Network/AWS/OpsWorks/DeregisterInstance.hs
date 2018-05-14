@@ -63,7 +63,7 @@ deregisterInstance pInstanceId_ =
 
 -- | The instance ID.
 dInstanceId :: Lens' DeregisterInstance Text
-dInstanceId = lens _dInstanceId (\ s a -> s{_dInstanceId = a});
+dInstanceId = lens _dInstanceId (\ s a -> s{_dInstanceId = a})
 
 instance AWSRequest DeregisterInstance where
         type Rs DeregisterInstance =

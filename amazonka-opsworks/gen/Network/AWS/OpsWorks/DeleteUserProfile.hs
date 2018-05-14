@@ -63,7 +63,7 @@ deleteUserProfile pIAMUserARN_ =
 
 -- | The user's IAM ARN. This can also be a federated user's ARN.
 dupIAMUserARN :: Lens' DeleteUserProfile Text
-dupIAMUserARN = lens _dupIAMUserARN (\ s a -> s{_dupIAMUserARN = a});
+dupIAMUserARN = lens _dupIAMUserARN (\ s a -> s{_dupIAMUserARN = a})
 
 instance AWSRequest DeleteUserProfile where
         type Rs DeleteUserProfile = DeleteUserProfileResponse

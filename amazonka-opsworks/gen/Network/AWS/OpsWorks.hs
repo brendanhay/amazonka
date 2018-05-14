@@ -49,9 +49,13 @@
 --
 --     * opsworks.us-west-2.amazonaws.com
 --
+--     * opsworks.ca-central-1.amazonaws.com (API only; not available in the AWS console)
+--
 --     * opsworks.eu-west-1.amazonaws.com
 --
 --     * opsworks.eu-west-2.amazonaws.com
+--
+--     * opsworks.eu-west-3.amazonaws.com
 --
 --     * opsworks.eu-central-1.amazonaws.com
 --
@@ -302,6 +306,9 @@ module Network.AWS.OpsWorks
 
     -- ** CreateUserProfile
     , module Network.AWS.OpsWorks.CreateUserProfile
+
+    -- ** DescribeOperatingSystems
+    , module Network.AWS.OpsWorks.DescribeOperatingSystems
 
     -- ** DescribeCommands
     , module Network.AWS.OpsWorks.DescribeCommands
@@ -597,6 +604,7 @@ module Network.AWS.OpsWorks
     , icDeregistering
     , icRunningSetup
     , icRequested
+    , icStopFailed
     , icBooting
     , icStopped
     , icRebooting
@@ -649,6 +657,23 @@ module Network.AWS.OpsWorks
     , lbascEnable
     , lbascDownScaling
     , lbascLayerId
+
+    -- ** OperatingSystem
+    , OperatingSystem
+    , operatingSystem
+    , osReportedVersion
+    , osSupported
+    , osName
+    , osId
+    , osConfigurationManagers
+    , osType
+    , osReportedName
+
+    -- ** OperatingSystemConfigurationManager
+    , OperatingSystemConfigurationManager
+    , operatingSystemConfigurationManager
+    , oscmName
+    , oscmVersion
 
     -- ** Permission
     , Permission
@@ -819,6 +844,7 @@ module Network.AWS.OpsWorks
     , vSize
     , vIOPS
     , vDevice
+    , vEncrypted
     , vAvailabilityZone
     , vName
     , vRAIdArrayId
@@ -833,6 +859,7 @@ module Network.AWS.OpsWorks
     , volumeConfiguration
     , vcIOPS
     , vcRAIdLevel
+    , vcEncrypted
     , vcVolumeType
     , vcMountPoint
     , vcNumberOfDisks
@@ -882,6 +909,7 @@ import Network.AWS.OpsWorks.DescribeInstances
 import Network.AWS.OpsWorks.DescribeLayers
 import Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
 import Network.AWS.OpsWorks.DescribeMyUserProfile
+import Network.AWS.OpsWorks.DescribeOperatingSystems
 import Network.AWS.OpsWorks.DescribePermissions
 import Network.AWS.OpsWorks.DescribeRAIdArrays
 import Network.AWS.OpsWorks.DescribeRDSDBInstances

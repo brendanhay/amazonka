@@ -61,12 +61,12 @@ deleteCacheParameterGroup
     -> DeleteCacheParameterGroup
 deleteCacheParameterGroup pCacheParameterGroupName_ =
   DeleteCacheParameterGroup'
-  {_dCacheParameterGroupName = pCacheParameterGroupName_}
+    {_dCacheParameterGroupName = pCacheParameterGroupName_}
 
 
 -- | The name of the cache parameter group to delete.
 dCacheParameterGroupName :: Lens' DeleteCacheParameterGroup Text
-dCacheParameterGroupName = lens _dCacheParameterGroupName (\ s a -> s{_dCacheParameterGroupName = a});
+dCacheParameterGroupName = lens _dCacheParameterGroupName (\ s a -> s{_dCacheParameterGroupName = a})
 
 instance AWSRequest DeleteCacheParameterGroup where
         type Rs DeleteCacheParameterGroup =

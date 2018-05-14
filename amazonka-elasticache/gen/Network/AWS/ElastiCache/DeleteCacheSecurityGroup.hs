@@ -61,12 +61,12 @@ deleteCacheSecurityGroup
     -> DeleteCacheSecurityGroup
 deleteCacheSecurityGroup pCacheSecurityGroupName_ =
   DeleteCacheSecurityGroup'
-  {_dcsgCacheSecurityGroupName = pCacheSecurityGroupName_}
+    {_dcsgCacheSecurityGroupName = pCacheSecurityGroupName_}
 
 
 -- | The name of the cache security group to delete.
 dcsgCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroup Text
-dcsgCacheSecurityGroupName = lens _dcsgCacheSecurityGroupName (\ s a -> s{_dcsgCacheSecurityGroupName = a});
+dcsgCacheSecurityGroupName = lens _dcsgCacheSecurityGroupName (\ s a -> s{_dcsgCacheSecurityGroupName = a})
 
 instance AWSRequest DeleteCacheSecurityGroup where
         type Rs DeleteCacheSecurityGroup =

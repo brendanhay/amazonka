@@ -76,16 +76,16 @@ rebootCacheCluster
     -> RebootCacheCluster
 rebootCacheCluster pCacheClusterId_ =
   RebootCacheCluster'
-  {_rccCacheClusterId = pCacheClusterId_, _rccCacheNodeIdsToReboot = mempty}
+    {_rccCacheClusterId = pCacheClusterId_, _rccCacheNodeIdsToReboot = mempty}
 
 
 -- | The cluster identifier. This parameter is stored as a lowercase string.
 rccCacheClusterId :: Lens' RebootCacheCluster Text
-rccCacheClusterId = lens _rccCacheClusterId (\ s a -> s{_rccCacheClusterId = a});
+rccCacheClusterId = lens _rccCacheClusterId (\ s a -> s{_rccCacheClusterId = a})
 
 -- | A list of cache node IDs to reboot. A node ID is a numeric identifier (0001, 0002, etc.). To reboot an entire cluster, specify all of the cache node IDs.
 rccCacheNodeIdsToReboot :: Lens' RebootCacheCluster [Text]
-rccCacheNodeIdsToReboot = lens _rccCacheNodeIdsToReboot (\ s a -> s{_rccCacheNodeIdsToReboot = a}) . _Coerce;
+rccCacheNodeIdsToReboot = lens _rccCacheNodeIdsToReboot (\ s a -> s{_rccCacheNodeIdsToReboot = a}) . _Coerce
 
 instance AWSRequest RebootCacheCluster where
         type Rs RebootCacheCluster =
@@ -135,15 +135,15 @@ rebootCacheClusterResponse
     -> RebootCacheClusterResponse
 rebootCacheClusterResponse pResponseStatus_ =
   RebootCacheClusterResponse'
-  {_rccrsCacheCluster = Nothing, _rccrsResponseStatus = pResponseStatus_}
+    {_rccrsCacheCluster = Nothing, _rccrsResponseStatus = pResponseStatus_}
 
 
 -- | Undocumented member.
 rccrsCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
-rccrsCacheCluster = lens _rccrsCacheCluster (\ s a -> s{_rccrsCacheCluster = a});
+rccrsCacheCluster = lens _rccrsCacheCluster (\ s a -> s{_rccrsCacheCluster = a})
 
 -- | -- | The response status code.
 rccrsResponseStatus :: Lens' RebootCacheClusterResponse Int
-rccrsResponseStatus = lens _rccrsResponseStatus (\ s a -> s{_rccrsResponseStatus = a});
+rccrsResponseStatus = lens _rccrsResponseStatus (\ s a -> s{_rccrsResponseStatus = a})
 
 instance NFData RebootCacheClusterResponse where

@@ -65,7 +65,7 @@ deleteCacheSubnetGroup pCacheSubnetGroupName_ =
 
 -- | The name of the cache subnet group to delete. Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
 dCacheSubnetGroupName :: Lens' DeleteCacheSubnetGroup Text
-dCacheSubnetGroupName = lens _dCacheSubnetGroupName (\ s a -> s{_dCacheSubnetGroupName = a});
+dCacheSubnetGroupName = lens _dCacheSubnetGroupName (\ s a -> s{_dCacheSubnetGroupName = a})
 
 instance AWSRequest DeleteCacheSubnetGroup where
         type Rs DeleteCacheSubnetGroup =

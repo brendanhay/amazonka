@@ -69,7 +69,7 @@ listTagsForResource pResourceName_ =
 
 -- | The Amazon Resource Name (ARN) of the resource for which you want the list of tags, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ . For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 ltfrResourceName :: Lens' ListTagsForResource Text
-ltfrResourceName = lens _ltfrResourceName (\ s a -> s{_ltfrResourceName = a});
+ltfrResourceName = lens _ltfrResourceName (\ s a -> s{_ltfrResourceName = a})
 
 instance AWSRequest ListTagsForResource where
         type Rs ListTagsForResource = TagListMessage

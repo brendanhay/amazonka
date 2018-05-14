@@ -104,6 +104,6 @@ importServerCatalogResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 iscrsResponseStatus :: Lens' ImportServerCatalogResponse Int
-iscrsResponseStatus = lens _iscrsResponseStatus (\ s a -> s{_iscrsResponseStatus = a});
+iscrsResponseStatus = lens _iscrsResponseStatus (\ s a -> s{_iscrsResponseStatus = a})
 
 instance NFData ImportServerCatalogResponse where

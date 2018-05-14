@@ -62,16 +62,16 @@ startOnDemandReplicationRun
     -> StartOnDemandReplicationRun
 startOnDemandReplicationRun pReplicationJobId_ =
   StartOnDemandReplicationRun'
-  {_sodrrDescription = Nothing, _sodrrReplicationJobId = pReplicationJobId_}
+    {_sodrrDescription = Nothing, _sodrrReplicationJobId = pReplicationJobId_}
 
 
 -- | Undocumented member.
 sodrrDescription :: Lens' StartOnDemandReplicationRun (Maybe Text)
-sodrrDescription = lens _sodrrDescription (\ s a -> s{_sodrrDescription = a});
+sodrrDescription = lens _sodrrDescription (\ s a -> s{_sodrrDescription = a})
 
 -- | Undocumented member.
 sodrrReplicationJobId :: Lens' StartOnDemandReplicationRun Text
-sodrrReplicationJobId = lens _sodrrReplicationJobId (\ s a -> s{_sodrrReplicationJobId = a});
+sodrrReplicationJobId = lens _sodrrReplicationJobId (\ s a -> s{_sodrrReplicationJobId = a})
 
 instance AWSRequest StartOnDemandReplicationRun where
         type Rs StartOnDemandReplicationRun =
@@ -129,18 +129,18 @@ startOnDemandReplicationRunResponse
     -> StartOnDemandReplicationRunResponse
 startOnDemandReplicationRunResponse pResponseStatus_ =
   StartOnDemandReplicationRunResponse'
-  { _sodrrrsReplicationRunId = Nothing
-  , _sodrrrsResponseStatus = pResponseStatus_
-  }
+    { _sodrrrsReplicationRunId = Nothing
+    , _sodrrrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 sodrrrsReplicationRunId :: Lens' StartOnDemandReplicationRunResponse (Maybe Text)
-sodrrrsReplicationRunId = lens _sodrrrsReplicationRunId (\ s a -> s{_sodrrrsReplicationRunId = a});
+sodrrrsReplicationRunId = lens _sodrrrsReplicationRunId (\ s a -> s{_sodrrrsReplicationRunId = a})
 
 -- | -- | The response status code.
 sodrrrsResponseStatus :: Lens' StartOnDemandReplicationRunResponse Int
-sodrrrsResponseStatus = lens _sodrrrsResponseStatus (\ s a -> s{_sodrrrsResponseStatus = a});
+sodrrrsResponseStatus = lens _sodrrrsResponseStatus (\ s a -> s{_sodrrrsResponseStatus = a})
 
 instance NFData StartOnDemandReplicationRunResponse
          where

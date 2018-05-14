@@ -61,7 +61,7 @@ disassociateConnector pConnectorId_ =
 
 -- | Undocumented member.
 dcConnectorId :: Lens' DisassociateConnector Text
-dcConnectorId = lens _dcConnectorId (\ s a -> s{_dcConnectorId = a});
+dcConnectorId = lens _dcConnectorId (\ s a -> s{_dcConnectorId = a})
 
 instance AWSRequest DisassociateConnector where
         type Rs DisassociateConnector =
@@ -118,6 +118,6 @@ disassociateConnectorResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dcrsResponseStatus :: Lens' DisassociateConnectorResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
 
 instance NFData DisassociateConnectorResponse where

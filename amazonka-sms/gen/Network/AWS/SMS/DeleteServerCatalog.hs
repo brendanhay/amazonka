@@ -104,6 +104,6 @@ deleteServerCatalogResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 dscrsResponseStatus :: Lens' DeleteServerCatalogResponse Int
-dscrsResponseStatus = lens _dscrsResponseStatus (\ s a -> s{_dscrsResponseStatus = a});
+dscrsResponseStatus = lens _dscrsResponseStatus (\ s a -> s{_dscrsResponseStatus = a})
 
 instance NFData DeleteServerCatalogResponse where

@@ -61,7 +61,7 @@ deleteReplicationJob pReplicationJobId_ =
 
 -- | Undocumented member.
 drjReplicationJobId :: Lens' DeleteReplicationJob Text
-drjReplicationJobId = lens _drjReplicationJobId (\ s a -> s{_drjReplicationJobId = a});
+drjReplicationJobId = lens _drjReplicationJobId (\ s a -> s{_drjReplicationJobId = a})
 
 instance AWSRequest DeleteReplicationJob where
         type Rs DeleteReplicationJob =
@@ -119,6 +119,6 @@ deleteReplicationJobResponse pResponseStatus_ =
 
 -- | -- | The response status code.
 drjrsResponseStatus :: Lens' DeleteReplicationJobResponse Int
-drjrsResponseStatus = lens _drjrsResponseStatus (\ s a -> s{_drjrsResponseStatus = a});
+drjrsResponseStatus = lens _drjrsResponseStatus (\ s a -> s{_drjrsResponseStatus = a})
 
 instance NFData DeleteReplicationJobResponse where

@@ -1,3 +1,4 @@
+{-# LANGUAGE DeriveFunctor      #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE FlexibleInstances  #-}
 {-# LANGUAGE LambdaCase         #-}
@@ -120,23 +121,27 @@ data Lit
     | Long
     | Double
     | Text
-    | Blob
+    | Base64
+    | Bytes
     | Time
     | Bool
     | Json
       deriving (Eq, Show)
 
-data TType
+data TypeF a
     = TType      Text [Derive]
-    | TLit       Lit
+    | TLit       a
     | TNatural
     | TStream
-    | TMaybe     TType
-    | TSensitive TType
-    | TList      TType
-    | TList1     TType
-    | TMap       TType TType
-      deriving (Eq, Show)
+    | TMaybe     (TypeF a)
+    | TSensitive (TypeF a)
+    | TList      (TypeF a)
+    | TList1     (TypeF a)
+    | TMap       (TypeF a) (TypeF a)
+      deriving (Eq, Show, Functor)
+
+-- FIXME: Moving to a fixpoint required too many initial changes - revisit.
+type TType = TypeF Lit
 
 data Related = Related
     { _annId       :: Id

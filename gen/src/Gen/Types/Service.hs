@@ -366,7 +366,7 @@ instance FromJSON (ShapeF ()) where
             "long"      -> pure (Lit i Long)
             "double"    -> pure (Lit i Double)
             "float"     -> pure (Lit i Double)
-            "blob"      -> pure (Lit i Blob)
+            "blob"      -> pure (Lit i Base64)
             "boolean"   -> pure (Lit i Bool)
             "timestamp" -> pure (Lit i Time)
             "json"      -> pure (Lit i Json)

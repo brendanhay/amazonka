@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TemplateHaskell   #-}
@@ -36,8 +37,6 @@ import Language.Haskell.Exts.Syntax (Name (..))
 import qualified Data.HashMap.Strict as Map
 import qualified Data.Text           as Text
 
-import Debug.Trace
-
 -- | Convenience type to package up some information from the struct with the
 -- related field, namely the memberId and the (Set.member required).
 data Field = Field
@@ -45,7 +44,7 @@ data Field = Field
     , _fieldOrdinal   :: !Int
     , _fieldId        :: Id    -- ^ The memberId from the struct members map.
     , _fieldRef       :: Ref   -- ^ The original struct member reference.
-    , _fieldRequired' :: !Bool -- ^ Does the struct have this member in the required set.
+    , _fieldRequire   :: !Bool -- ^ Does the struct have this member in the required set.
     , _fieldPayload   :: !Bool -- ^ Does the struct have this memeber marked as the payload.
     , _fieldPrefix    :: Maybe Text
     , _fieldNamespace :: Maybe Text
@@ -59,23 +58,29 @@ instance IsStreaming Field where
 
 instance TypeOf Field where
     typeOf f
-        | isStreaming r       = t
-        | typ, loc            = t
-        | f ^. fieldRequired' = t
-        | otherwise           = TMaybe t
+        | isStreaming ref    = typ
+        | isKinded, isHeader = typ
+        | f ^. fieldRequire  = typ
+        | otherwise          = TMaybe typ
       where
-        t = typeOf r
-        r = f ^. fieldRef
 
-        typ = case t of
-            TMap  {} -> True
-            TList {} -> True
-            _        -> False
+        isKinded =
+            case typ of
+                TMap  {} -> True
+                TList {} -> True
+                _        -> False
 
-        loc = fieldLocation f `elem` map Just
+        isHeader = fieldLocation f `elem` map Just
             [ Headers
             , Header
             ]
+
+        ref = f ^. fieldRef
+        typ = fmap unBase64 (typeOf ref)
+
+        unBase64 = \case
+            Base64 | f ^. fieldPayload -> Bytes
+            lit                        -> lit
 
 instance HasInfo Field where
     info = fieldAnn . info
@@ -96,7 +101,7 @@ mkFields (view metadata -> m) s st = sortFields rs $
         , _fieldOrdinal   = i
         , _fieldId        = k
         , _fieldRef       = v
-        , _fieldRequired' = req
+        , _fieldRequire   = req
         , _fieldPayload   = pay
         , _fieldPrefix    = p
         , _fieldNamespace = ns
@@ -153,7 +158,7 @@ fieldHelp f =
   where
     ann (TMaybe     t) = ann t
     ann (TSensitive t) = ann t
-    ann (TLit Blob)    = base64
+    ann (TLit Base64)  = base64
     ann _              = mempty
 
     base64 =

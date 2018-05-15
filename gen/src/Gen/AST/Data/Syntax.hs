@@ -795,7 +795,9 @@ internal m f = directed True  m (_fieldDirection f) f
 external m f = directed False m (_fieldDirection f) f
 
 -- FIXME: split again into internal/external
-directed :: (HasMetadata a Identity, TypeOf b)
+directed :: ( HasMetadata a Identity
+            , TypeOf b
+            )
          => Bool
          -> a
          -> Maybe Direction
@@ -857,7 +859,7 @@ mapping t e = infixE e "." (go t)
 iso :: TType -> Maybe Exp
 iso = \case
     TLit Time     -> Just (var "_Time")
-    TLit Blob     -> Just (var "_Base64")
+    TLit Base64   -> Just (var "_Base64")
     TNatural      -> Just (var "_Nat")
     TSensitive x  -> Just (infixE (var "_Sensitive") "." (maybeToList (iso x)))
     TList1     {} -> Just (var "_List1")
@@ -867,19 +869,23 @@ iso = \case
 
 literal :: Bool -> Timestamp -> Lit -> Type
 literal i ts = \case
-    Bool             -> tycon "Bool"
-    Int              -> tycon "Int"
-    Long             -> tycon "Integer"
-    Double           -> tycon "Double"
-    Text             -> tycon "Text"
+    Bool            -> tycon "Bool"
+    Int             -> tycon "Int"
+    Long            -> tycon "Integer"
+    Double          -> tycon "Double"
+    Text            -> tycon "Text"
+    Bytes           -> tycon "ByteString"
 
-    Blob | i         -> tycon "Base64"
-         | otherwise -> tycon "ByteString"
+    Base64
+        | i         -> tycon "Base64"
+        | otherwise -> tycon "ByteString"
 
-    Time | i         -> tycon (tsToText ts)
-         | otherwise -> tycon "UTCTime"
 
-    Json             -> tycon "ByteString"
+    Time
+        | i         -> tycon (tsToText ts)
+        | otherwise -> tycon "UTCTime"
+
+    Json            -> tycon "ByteString"
         -- tyapp (tyapp (tycon "HashMap") (tycon "Text"))
         --               (tycon "Value")
 

@@ -106,7 +106,7 @@ instance ToQuery GetIntrospectionSchema where
 
 -- | /See:/ 'getIntrospectionSchemaResponse' smart constructor.
 data GetIntrospectionSchemaResponse = GetIntrospectionSchemaResponse'
-  { _gisrsSchema         :: !(Maybe Base64)
+  { _gisrsSchema         :: !(Maybe ByteString)
   , _gisrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -115,7 +115,7 @@ data GetIntrospectionSchemaResponse = GetIntrospectionSchemaResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gisrsSchema' - The schema, in GraphQL Schema Definition Language (SDL) format. For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'gisrsSchema' - The schema, in GraphQL Schema Definition Language (SDL) format. For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .
 --
 -- * 'gisrsResponseStatus' - -- | The response status code.
 getIntrospectionSchemaResponse
@@ -126,9 +126,9 @@ getIntrospectionSchemaResponse pResponseStatus_ =
     {_gisrsSchema = Nothing, _gisrsResponseStatus = pResponseStatus_}
 
 
--- | The schema, in GraphQL Schema Definition Language (SDL) format. For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | The schema, in GraphQL Schema Definition Language (SDL) format. For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .
 gisrsSchema :: Lens' GetIntrospectionSchemaResponse (Maybe ByteString)
-gisrsSchema = lens _gisrsSchema (\ s a -> s{_gisrsSchema = a}) . mapping _Base64
+gisrsSchema = lens _gisrsSchema (\ s a -> s{_gisrsSchema = a})
 
 -- | -- | The response status code.
 gisrsResponseStatus :: Lens' GetIntrospectionSchemaResponse Int

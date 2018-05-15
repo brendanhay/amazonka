@@ -117,7 +117,7 @@ instance ToQuery DescribeThingRegistrationTask where
 
 -- | /See:/ 'describeThingRegistrationTaskResponse' smart constructor.
 data DescribeThingRegistrationTaskResponse = DescribeThingRegistrationTaskResponse'
-  { _dtrtrsStatus             :: !(Maybe Status)
+  { _dtrtrsStatus             :: !(Maybe TaskStatus)
   , _dtrtrsLastModifiedDate   :: !(Maybe POSIX)
   , _dtrtrsInputFileKey       :: !(Maybe Text)
   , _dtrtrsTaskId             :: !(Maybe Text)
@@ -184,7 +184,7 @@ describeThingRegistrationTaskResponse pResponseStatus_ =
 
 
 -- | The status of the bulk thing provisioning task.
-dtrtrsStatus :: Lens' DescribeThingRegistrationTaskResponse (Maybe Status)
+dtrtrsStatus :: Lens' DescribeThingRegistrationTaskResponse (Maybe TaskStatus)
 dtrtrsStatus = lens _dtrtrsStatus (\ s a -> s{_dtrtrsStatus = a})
 
 -- | The date when the task was last modified.

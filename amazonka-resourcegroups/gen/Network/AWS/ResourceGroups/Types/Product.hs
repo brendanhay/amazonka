@@ -168,8 +168,8 @@ instance NFData ResourceIdentifier where
 --
 -- /See:/ 'resourceQuery' smart constructor.
 data ResourceQuery = ResourceQuery'
-  { _rqType  :: !QueryType
-  , _rqQuery :: !Text
+  { _rqType        :: !QueryType
+  , _rqSearchQuery :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -179,13 +179,13 @@ data ResourceQuery = ResourceQuery'
 --
 -- * 'rqType' - The type of the query. The valid value in this release is @TAG_FILTERS_1_0@ . /@TAG_FILTERS_1_0:@ / A JSON syntax that lets you specify a collection of simple tag filters for resource types and tags, as supported by the AWS Tagging API GetResources operation. When more than one element is present, only resources that match all filters are part of the result. If a filter specifies more than one value for a key, a resource matches the filter if its tag value matches any of the specified values.
 --
--- * 'rqQuery' - The query that defines a group or a search.
+-- * 'rqSearchQuery' - The query that defines a group or a search.
 resourceQuery
     :: QueryType -- ^ 'rqType'
-    -> Text -- ^ 'rqQuery'
+    -> Text -- ^ 'rqSearchQuery'
     -> ResourceQuery
-resourceQuery pType_ pQuery_ =
-  ResourceQuery' {_rqType = pType_, _rqQuery = pQuery_}
+resourceQuery pType_ pSearchQuery_ =
+  ResourceQuery' {_rqType = pType_, _rqSearchQuery = pSearchQuery_}
 
 
 -- | The type of the query. The valid value in this release is @TAG_FILTERS_1_0@ . /@TAG_FILTERS_1_0:@ / A JSON syntax that lets you specify a collection of simple tag filters for resource types and tags, as supported by the AWS Tagging API GetResources operation. When more than one element is present, only resources that match all filters are part of the result. If a filter specifies more than one value for a key, a resource matches the filter if its tag value matches any of the specified values.
@@ -193,8 +193,8 @@ rqType :: Lens' ResourceQuery QueryType
 rqType = lens _rqType (\ s a -> s{_rqType = a})
 
 -- | The query that defines a group or a search.
-rqQuery :: Lens' ResourceQuery Text
-rqQuery = lens _rqQuery (\ s a -> s{_rqQuery = a})
+rqSearchQuery :: Lens' ResourceQuery Text
+rqSearchQuery = lens _rqSearchQuery (\ s a -> s{_rqSearchQuery = a})
 
 instance FromJSON ResourceQuery where
         parseJSON
@@ -211,4 +211,4 @@ instance ToJSON ResourceQuery where
           = object
               (catMaybes
                  [Just ("Type" .= _rqType),
-                  Just ("Query" .= _rqQuery)])
+                  Just ("Query" .= _rqSearchQuery)])

@@ -49,7 +49,7 @@ import Network.AWS.Response
 
 -- | /See:/ 'listThingRegistrationTasks' smart constructor.
 data ListThingRegistrationTasks = ListThingRegistrationTasks'
-  { _ltrtStatus     :: !(Maybe Status)
+  { _ltrtStatus     :: !(Maybe TaskStatus)
   , _ltrtNextToken  :: !(Maybe Text)
   , _ltrtMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -72,7 +72,7 @@ listThingRegistrationTasks =
 
 
 -- | The status of the bulk thing provisioning task.
-ltrtStatus :: Lens' ListThingRegistrationTasks (Maybe Status)
+ltrtStatus :: Lens' ListThingRegistrationTasks (Maybe TaskStatus)
 ltrtStatus = lens _ltrtStatus (\ s a -> s{_ltrtStatus = a})
 
 -- | The token used to get the next set of results, or __null__ if there are no additional results.

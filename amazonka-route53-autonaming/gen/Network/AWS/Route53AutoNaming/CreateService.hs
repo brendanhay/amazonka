@@ -167,7 +167,7 @@ instance ToQuery CreateService where
 
 -- | /See:/ 'createServiceResponse' smart constructor.
 data CreateServiceResponse = CreateServiceResponse'
-  { _csrsService        :: !(Maybe Service)
+  { _csrsService        :: !(Maybe ServiceInfo)
   , _csrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -188,7 +188,7 @@ createServiceResponse pResponseStatus_ =
 
 
 -- | A complex type that contains information about the new service.
-csrsService :: Lens' CreateServiceResponse (Maybe Service)
+csrsService :: Lens' CreateServiceResponse (Maybe ServiceInfo)
 csrsService = lens _csrsService (\ s a -> s{_csrsService = a})
 
 -- | -- | The response status code.

@@ -487,7 +487,7 @@ instance NFData DomainDetails where
 --
 -- /See:/ 'finding' smart constructor.
 data Finding = Finding'
-  { _fService       :: !(Maybe Service)
+  { _fService       :: !(Maybe ServiceInfo)
   , _fConfidence    :: !(Maybe Double)
   , _fPartition     :: !(Maybe Text)
   , _fTitle         :: !(Maybe Text)
@@ -571,7 +571,7 @@ finding pAccountId_ pSchemaVersion_ pCreatedAt_ pResource_ pSeverity_ pUpdatedAt
 
 
 -- | Additional information assigned to the generated finding by GuardDuty.
-fService :: Lens' Finding (Maybe Service)
+fService :: Lens' Finding (Maybe ServiceInfo)
 fService = lens _fService (\ s a -> s{_fService = a})
 
 -- | The confidence level of a finding.
@@ -1825,98 +1825,98 @@ instance NFData SecurityGroup where
 
 -- | Additional information assigned to the generated finding by GuardDuty.
 --
--- /See:/ 'service' smart constructor.
-data Service = Service'
-  { _sCount          :: !(Maybe Int)
-  , _sEventFirstSeen :: !(Maybe Text)
-  , _sAction         :: !(Maybe Action)
-  , _sDetectorId     :: !(Maybe Text)
-  , _sServiceName    :: !(Maybe Text)
-  , _sUserFeedback   :: !(Maybe Text)
-  , _sEventLastSeen  :: !(Maybe Text)
-  , _sResourceRole   :: !(Maybe Text)
-  , _sArchived       :: !(Maybe Bool)
+-- /See:/ 'serviceInfo' smart constructor.
+data ServiceInfo = ServiceInfo'
+  { _siCount          :: !(Maybe Int)
+  , _siEventFirstSeen :: !(Maybe Text)
+  , _siAction         :: !(Maybe Action)
+  , _siDetectorId     :: !(Maybe Text)
+  , _siServiceName    :: !(Maybe Text)
+  , _siUserFeedback   :: !(Maybe Text)
+  , _siEventLastSeen  :: !(Maybe Text)
+  , _siResourceRole   :: !(Maybe Text)
+  , _siArchived       :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
--- | Creates a value of 'Service' with the minimum fields required to make a request.
+-- | Creates a value of 'ServiceInfo' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sCount' - Total count of the occurrences of this finding type.
+-- * 'siCount' - Total count of the occurrences of this finding type.
 --
--- * 'sEventFirstSeen' - First seen timestamp of the activity that prompted GuardDuty to generate this finding.
+-- * 'siEventFirstSeen' - First seen timestamp of the activity that prompted GuardDuty to generate this finding.
 --
--- * 'sAction' - Information about the activity described in a finding.
+-- * 'siAction' - Information about the activity described in a finding.
 --
--- * 'sDetectorId' - Detector ID for the GuardDuty service.
+-- * 'siDetectorId' - Detector ID for the GuardDuty service.
 --
--- * 'sServiceName' - The name of the AWS service (GuardDuty) that generated a finding.
+-- * 'siServiceName' - The name of the AWS service (GuardDuty) that generated a finding.
 --
--- * 'sUserFeedback' - Feedback left about the finding.
+-- * 'siUserFeedback' - Feedback left about the finding.
 --
--- * 'sEventLastSeen' - Last seen timestamp of the activity that prompted GuardDuty to generate this finding.
+-- * 'siEventLastSeen' - Last seen timestamp of the activity that prompted GuardDuty to generate this finding.
 --
--- * 'sResourceRole' - Resource role information for this finding.
+-- * 'siResourceRole' - Resource role information for this finding.
 --
--- * 'sArchived' - Indicates whether this finding is archived.
-service
-    :: Service
-service =
-  Service'
-    { _sCount = Nothing
-    , _sEventFirstSeen = Nothing
-    , _sAction = Nothing
-    , _sDetectorId = Nothing
-    , _sServiceName = Nothing
-    , _sUserFeedback = Nothing
-    , _sEventLastSeen = Nothing
-    , _sResourceRole = Nothing
-    , _sArchived = Nothing
+-- * 'siArchived' - Indicates whether this finding is archived.
+serviceInfo
+    :: ServiceInfo
+serviceInfo =
+  ServiceInfo'
+    { _siCount = Nothing
+    , _siEventFirstSeen = Nothing
+    , _siAction = Nothing
+    , _siDetectorId = Nothing
+    , _siServiceName = Nothing
+    , _siUserFeedback = Nothing
+    , _siEventLastSeen = Nothing
+    , _siResourceRole = Nothing
+    , _siArchived = Nothing
     }
 
 
 -- | Total count of the occurrences of this finding type.
-sCount :: Lens' Service (Maybe Int)
-sCount = lens _sCount (\ s a -> s{_sCount = a})
+siCount :: Lens' ServiceInfo (Maybe Int)
+siCount = lens _siCount (\ s a -> s{_siCount = a})
 
 -- | First seen timestamp of the activity that prompted GuardDuty to generate this finding.
-sEventFirstSeen :: Lens' Service (Maybe Text)
-sEventFirstSeen = lens _sEventFirstSeen (\ s a -> s{_sEventFirstSeen = a})
+siEventFirstSeen :: Lens' ServiceInfo (Maybe Text)
+siEventFirstSeen = lens _siEventFirstSeen (\ s a -> s{_siEventFirstSeen = a})
 
 -- | Information about the activity described in a finding.
-sAction :: Lens' Service (Maybe Action)
-sAction = lens _sAction (\ s a -> s{_sAction = a})
+siAction :: Lens' ServiceInfo (Maybe Action)
+siAction = lens _siAction (\ s a -> s{_siAction = a})
 
 -- | Detector ID for the GuardDuty service.
-sDetectorId :: Lens' Service (Maybe Text)
-sDetectorId = lens _sDetectorId (\ s a -> s{_sDetectorId = a})
+siDetectorId :: Lens' ServiceInfo (Maybe Text)
+siDetectorId = lens _siDetectorId (\ s a -> s{_siDetectorId = a})
 
 -- | The name of the AWS service (GuardDuty) that generated a finding.
-sServiceName :: Lens' Service (Maybe Text)
-sServiceName = lens _sServiceName (\ s a -> s{_sServiceName = a})
+siServiceName :: Lens' ServiceInfo (Maybe Text)
+siServiceName = lens _siServiceName (\ s a -> s{_siServiceName = a})
 
 -- | Feedback left about the finding.
-sUserFeedback :: Lens' Service (Maybe Text)
-sUserFeedback = lens _sUserFeedback (\ s a -> s{_sUserFeedback = a})
+siUserFeedback :: Lens' ServiceInfo (Maybe Text)
+siUserFeedback = lens _siUserFeedback (\ s a -> s{_siUserFeedback = a})
 
 -- | Last seen timestamp of the activity that prompted GuardDuty to generate this finding.
-sEventLastSeen :: Lens' Service (Maybe Text)
-sEventLastSeen = lens _sEventLastSeen (\ s a -> s{_sEventLastSeen = a})
+siEventLastSeen :: Lens' ServiceInfo (Maybe Text)
+siEventLastSeen = lens _siEventLastSeen (\ s a -> s{_siEventLastSeen = a})
 
 -- | Resource role information for this finding.
-sResourceRole :: Lens' Service (Maybe Text)
-sResourceRole = lens _sResourceRole (\ s a -> s{_sResourceRole = a})
+siResourceRole :: Lens' ServiceInfo (Maybe Text)
+siResourceRole = lens _siResourceRole (\ s a -> s{_siResourceRole = a})
 
 -- | Indicates whether this finding is archived.
-sArchived :: Lens' Service (Maybe Bool)
-sArchived = lens _sArchived (\ s a -> s{_sArchived = a})
+siArchived :: Lens' ServiceInfo (Maybe Bool)
+siArchived = lens _siArchived (\ s a -> s{_siArchived = a})
 
-instance FromJSON Service where
+instance FromJSON ServiceInfo where
         parseJSON
-          = withObject "Service"
+          = withObject "ServiceInfo"
               (\ x ->
-                 Service' <$>
+                 ServiceInfo' <$>
                    (x .:? "count") <*> (x .:? "eventFirstSeen") <*>
                      (x .:? "action")
                      <*> (x .:? "detectorId")
@@ -1926,9 +1926,9 @@ instance FromJSON Service where
                      <*> (x .:? "resourceRole")
                      <*> (x .:? "archived"))
 
-instance Hashable Service where
+instance Hashable ServiceInfo where
 
-instance NFData Service where
+instance NFData ServiceInfo where
 
 -- | Represents the criteria used for sorting findings.
 --

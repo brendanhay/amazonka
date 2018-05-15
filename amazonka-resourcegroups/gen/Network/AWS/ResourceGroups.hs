@@ -132,7 +132,7 @@ module Network.AWS.ResourceGroups
     , ResourceQuery
     , resourceQuery
     , rqType
-    , rqQuery
+    , rqSearchQuery
     ) where
 
 import Network.AWS.ResourceGroups.CreateGroup

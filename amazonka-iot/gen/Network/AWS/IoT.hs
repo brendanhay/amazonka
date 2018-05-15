@@ -519,11 +519,11 @@ module Network.AWS.IoT
     -- ** ReportType
     , ReportType (..)
 
-    -- ** Status
-    , Status (..)
-
     -- ** TargetSelection
     , TargetSelection (..)
+
+    -- ** TaskStatus
+    , TaskStatus (..)
 
     -- ** ThingIndexingMode
     , ThingIndexingMode (..)

@@ -282,18 +282,18 @@ module Network.AWS.GuardDuty.Types
     , sgGroupId
     , sgGroupName
 
-    -- * Service
-    , Service
-    , service
-    , sCount
-    , sEventFirstSeen
-    , sAction
-    , sDetectorId
-    , sServiceName
-    , sUserFeedback
-    , sEventLastSeen
-    , sResourceRole
-    , sArchived
+    -- * ServiceInfo
+    , ServiceInfo
+    , serviceInfo
+    , siCount
+    , siEventFirstSeen
+    , siAction
+    , siDetectorId
+    , siServiceName
+    , siUserFeedback
+    , siEventLastSeen
+    , siResourceRole
+    , siArchived
 
     -- * SortCriteria
     , SortCriteria

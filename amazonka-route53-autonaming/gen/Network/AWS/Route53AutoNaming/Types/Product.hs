@@ -874,124 +874,6 @@ instance Hashable OperationSummary where
 
 instance NFData OperationSummary where
 
--- | A complex type that contains information about the specified service.
---
---
---
--- /See:/ 'service' smart constructor.
-data Service = Service'
-  { _sInstanceCount           :: !(Maybe Int)
-  , _sARN                     :: !(Maybe Text)
-  , _sHealthCheckConfig       :: !(Maybe HealthCheckConfig)
-  , _sCreatorRequestId        :: !(Maybe Text)
-  , _sCreateDate              :: !(Maybe POSIX)
-  , _sHealthCheckCustomConfig :: !(Maybe HealthCheckCustomConfig)
-  , _sName                    :: !(Maybe Text)
-  , _sId                      :: !(Maybe Text)
-  , _sDNSConfig               :: !(Maybe DNSConfig)
-  , _sDescription             :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'Service' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sInstanceCount' - The number of instances that are currently associated with the service. Instances that were previously associated with the service but that have been deleted are not included in the count.
---
--- * 'sARN' - The Amazon Resource Name (ARN) that Route 53 assigns to the service when you create it.
---
--- * 'sHealthCheckConfig' - /Public DNS namespaces only./ A complex type that contains settings for an optional health check. If you specify settings for a health check, Route 53 associates the health check with all the records that you specify in @DnsConfig@ . For information about the charges for health checks, see <http://aws.amazon.com/route53/pricing Route 53 Pricing> .
---
--- * 'sCreatorRequestId' - A unique string that identifies the request and that allows failed requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
---
--- * 'sCreateDate' - The date and time that the service was created, in Unix format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
---
--- * 'sHealthCheckCustomConfig' - Undocumented member.
---
--- * 'sName' - The name of the service.
---
--- * 'sId' - The ID that Route 53 assigned to the service when you created it.
---
--- * 'sDNSConfig' - A complex type that contains information about the records that you want Route 53 to create when you register an instance.
---
--- * 'sDescription' - The description of the service.
-service
-    :: Service
-service =
-  Service'
-    { _sInstanceCount = Nothing
-    , _sARN = Nothing
-    , _sHealthCheckConfig = Nothing
-    , _sCreatorRequestId = Nothing
-    , _sCreateDate = Nothing
-    , _sHealthCheckCustomConfig = Nothing
-    , _sName = Nothing
-    , _sId = Nothing
-    , _sDNSConfig = Nothing
-    , _sDescription = Nothing
-    }
-
-
--- | The number of instances that are currently associated with the service. Instances that were previously associated with the service but that have been deleted are not included in the count.
-sInstanceCount :: Lens' Service (Maybe Int)
-sInstanceCount = lens _sInstanceCount (\ s a -> s{_sInstanceCount = a})
-
--- | The Amazon Resource Name (ARN) that Route 53 assigns to the service when you create it.
-sARN :: Lens' Service (Maybe Text)
-sARN = lens _sARN (\ s a -> s{_sARN = a})
-
--- | /Public DNS namespaces only./ A complex type that contains settings for an optional health check. If you specify settings for a health check, Route 53 associates the health check with all the records that you specify in @DnsConfig@ . For information about the charges for health checks, see <http://aws.amazon.com/route53/pricing Route 53 Pricing> .
-sHealthCheckConfig :: Lens' Service (Maybe HealthCheckConfig)
-sHealthCheckConfig = lens _sHealthCheckConfig (\ s a -> s{_sHealthCheckConfig = a})
-
--- | A unique string that identifies the request and that allows failed requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
-sCreatorRequestId :: Lens' Service (Maybe Text)
-sCreatorRequestId = lens _sCreatorRequestId (\ s a -> s{_sCreatorRequestId = a})
-
--- | The date and time that the service was created, in Unix format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
-sCreateDate :: Lens' Service (Maybe UTCTime)
-sCreateDate = lens _sCreateDate (\ s a -> s{_sCreateDate = a}) . mapping _Time
-
--- | Undocumented member.
-sHealthCheckCustomConfig :: Lens' Service (Maybe HealthCheckCustomConfig)
-sHealthCheckCustomConfig = lens _sHealthCheckCustomConfig (\ s a -> s{_sHealthCheckCustomConfig = a})
-
--- | The name of the service.
-sName :: Lens' Service (Maybe Text)
-sName = lens _sName (\ s a -> s{_sName = a})
-
--- | The ID that Route 53 assigned to the service when you created it.
-sId :: Lens' Service (Maybe Text)
-sId = lens _sId (\ s a -> s{_sId = a})
-
--- | A complex type that contains information about the records that you want Route 53 to create when you register an instance.
-sDNSConfig :: Lens' Service (Maybe DNSConfig)
-sDNSConfig = lens _sDNSConfig (\ s a -> s{_sDNSConfig = a})
-
--- | The description of the service.
-sDescription :: Lens' Service (Maybe Text)
-sDescription = lens _sDescription (\ s a -> s{_sDescription = a})
-
-instance FromJSON Service where
-        parseJSON
-          = withObject "Service"
-              (\ x ->
-                 Service' <$>
-                   (x .:? "InstanceCount") <*> (x .:? "Arn") <*>
-                     (x .:? "HealthCheckConfig")
-                     <*> (x .:? "CreatorRequestId")
-                     <*> (x .:? "CreateDate")
-                     <*> (x .:? "HealthCheckCustomConfig")
-                     <*> (x .:? "Name")
-                     <*> (x .:? "Id")
-                     <*> (x .:? "DnsConfig")
-                     <*> (x .:? "Description"))
-
-instance Hashable Service where
-
-instance NFData Service where
-
 -- | A complex type that contains changes to an existing service.
 --
 --
@@ -1099,6 +981,124 @@ instance ToJSON ServiceFilter where
                  [("Condition" .=) <$> _sfCondition,
                   Just ("Name" .= _sfName),
                   Just ("Values" .= _sfValues)])
+
+-- | A complex type that contains information about the specified service.
+--
+--
+--
+-- /See:/ 'serviceInfo' smart constructor.
+data ServiceInfo = ServiceInfo'
+  { _siInstanceCount           :: !(Maybe Int)
+  , _siARN                     :: !(Maybe Text)
+  , _siHealthCheckConfig       :: !(Maybe HealthCheckConfig)
+  , _siCreatorRequestId        :: !(Maybe Text)
+  , _siCreateDate              :: !(Maybe POSIX)
+  , _siHealthCheckCustomConfig :: !(Maybe HealthCheckCustomConfig)
+  , _siName                    :: !(Maybe Text)
+  , _siId                      :: !(Maybe Text)
+  , _siDNSConfig               :: !(Maybe DNSConfig)
+  , _siDescription             :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ServiceInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'siInstanceCount' - The number of instances that are currently associated with the service. Instances that were previously associated with the service but that have been deleted are not included in the count.
+--
+-- * 'siARN' - The Amazon Resource Name (ARN) that Route 53 assigns to the service when you create it.
+--
+-- * 'siHealthCheckConfig' - /Public DNS namespaces only./ A complex type that contains settings for an optional health check. If you specify settings for a health check, Route 53 associates the health check with all the records that you specify in @DnsConfig@ . For information about the charges for health checks, see <http://aws.amazon.com/route53/pricing Route 53 Pricing> .
+--
+-- * 'siCreatorRequestId' - A unique string that identifies the request and that allows failed requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
+--
+-- * 'siCreateDate' - The date and time that the service was created, in Unix format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
+--
+-- * 'siHealthCheckCustomConfig' - Undocumented member.
+--
+-- * 'siName' - The name of the service.
+--
+-- * 'siId' - The ID that Route 53 assigned to the service when you created it.
+--
+-- * 'siDNSConfig' - A complex type that contains information about the records that you want Route 53 to create when you register an instance.
+--
+-- * 'siDescription' - The description of the service.
+serviceInfo
+    :: ServiceInfo
+serviceInfo =
+  ServiceInfo'
+    { _siInstanceCount = Nothing
+    , _siARN = Nothing
+    , _siHealthCheckConfig = Nothing
+    , _siCreatorRequestId = Nothing
+    , _siCreateDate = Nothing
+    , _siHealthCheckCustomConfig = Nothing
+    , _siName = Nothing
+    , _siId = Nothing
+    , _siDNSConfig = Nothing
+    , _siDescription = Nothing
+    }
+
+
+-- | The number of instances that are currently associated with the service. Instances that were previously associated with the service but that have been deleted are not included in the count.
+siInstanceCount :: Lens' ServiceInfo (Maybe Int)
+siInstanceCount = lens _siInstanceCount (\ s a -> s{_siInstanceCount = a})
+
+-- | The Amazon Resource Name (ARN) that Route 53 assigns to the service when you create it.
+siARN :: Lens' ServiceInfo (Maybe Text)
+siARN = lens _siARN (\ s a -> s{_siARN = a})
+
+-- | /Public DNS namespaces only./ A complex type that contains settings for an optional health check. If you specify settings for a health check, Route 53 associates the health check with all the records that you specify in @DnsConfig@ . For information about the charges for health checks, see <http://aws.amazon.com/route53/pricing Route 53 Pricing> .
+siHealthCheckConfig :: Lens' ServiceInfo (Maybe HealthCheckConfig)
+siHealthCheckConfig = lens _siHealthCheckConfig (\ s a -> s{_siHealthCheckConfig = a})
+
+-- | A unique string that identifies the request and that allows failed requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
+siCreatorRequestId :: Lens' ServiceInfo (Maybe Text)
+siCreatorRequestId = lens _siCreatorRequestId (\ s a -> s{_siCreatorRequestId = a})
+
+-- | The date and time that the service was created, in Unix format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
+siCreateDate :: Lens' ServiceInfo (Maybe UTCTime)
+siCreateDate = lens _siCreateDate (\ s a -> s{_siCreateDate = a}) . mapping _Time
+
+-- | Undocumented member.
+siHealthCheckCustomConfig :: Lens' ServiceInfo (Maybe HealthCheckCustomConfig)
+siHealthCheckCustomConfig = lens _siHealthCheckCustomConfig (\ s a -> s{_siHealthCheckCustomConfig = a})
+
+-- | The name of the service.
+siName :: Lens' ServiceInfo (Maybe Text)
+siName = lens _siName (\ s a -> s{_siName = a})
+
+-- | The ID that Route 53 assigned to the service when you created it.
+siId :: Lens' ServiceInfo (Maybe Text)
+siId = lens _siId (\ s a -> s{_siId = a})
+
+-- | A complex type that contains information about the records that you want Route 53 to create when you register an instance.
+siDNSConfig :: Lens' ServiceInfo (Maybe DNSConfig)
+siDNSConfig = lens _siDNSConfig (\ s a -> s{_siDNSConfig = a})
+
+-- | The description of the service.
+siDescription :: Lens' ServiceInfo (Maybe Text)
+siDescription = lens _siDescription (\ s a -> s{_siDescription = a})
+
+instance FromJSON ServiceInfo where
+        parseJSON
+          = withObject "ServiceInfo"
+              (\ x ->
+                 ServiceInfo' <$>
+                   (x .:? "InstanceCount") <*> (x .:? "Arn") <*>
+                     (x .:? "HealthCheckConfig")
+                     <*> (x .:? "CreatorRequestId")
+                     <*> (x .:? "CreateDate")
+                     <*> (x .:? "HealthCheckCustomConfig")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "DnsConfig")
+                     <*> (x .:? "Description"))
+
+instance Hashable ServiceInfo where
+
+instance NFData ServiceInfo where
 
 -- | A complex type that contains information about a specified service.
 --

@@ -262,20 +262,6 @@ module Network.AWS.Route53AutoNaming
     , osStatus
     , osId
 
-    -- ** Service
-    , Service
-    , service
-    , sInstanceCount
-    , sARN
-    , sHealthCheckConfig
-    , sCreatorRequestId
-    , sCreateDate
-    , sHealthCheckCustomConfig
-    , sName
-    , sId
-    , sDNSConfig
-    , sDescription
-
     -- ** ServiceChange
     , ServiceChange
     , serviceChange
@@ -289,6 +275,20 @@ module Network.AWS.Route53AutoNaming
     , sfCondition
     , sfName
     , sfValues
+
+    -- ** ServiceInfo
+    , ServiceInfo
+    , serviceInfo
+    , siInstanceCount
+    , siARN
+    , siHealthCheckConfig
+    , siCreatorRequestId
+    , siCreateDate
+    , siHealthCheckCustomConfig
+    , siName
+    , siId
+    , siDNSConfig
+    , siDescription
 
     -- ** ServiceSummary
     , ServiceSummary

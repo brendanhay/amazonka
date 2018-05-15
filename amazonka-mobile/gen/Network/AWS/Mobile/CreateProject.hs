@@ -53,7 +53,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'createProject' smart constructor.
 data CreateProject = CreateProject'
-  { _cpContents   :: !(Maybe Base64)
+  { _cpContents   :: !(Maybe ByteString)
   , _cpName       :: !(Maybe Text)
   , _cpRegion     :: !(Maybe Text)
   , _cpSnapshotId :: !(Maybe Text)
@@ -64,7 +64,7 @@ data CreateProject = CreateProject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpContents' - ZIP or YAML file which contains configuration settings to be used when creating the project. This may be the contents of the file downloaded from the URL provided in an export project operation. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'cpContents' - ZIP or YAML file which contains configuration settings to be used when creating the project. This may be the contents of the file downloaded from the URL provided in an export project operation.
 --
 -- * 'cpName' - Name of the project.
 --
@@ -82,9 +82,9 @@ createProject =
     }
 
 
--- | ZIP or YAML file which contains configuration settings to be used when creating the project. This may be the contents of the file downloaded from the URL provided in an export project operation. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | ZIP or YAML file which contains configuration settings to be used when creating the project. This may be the contents of the file downloaded from the URL provided in an export project operation.
 cpContents :: Lens' CreateProject (Maybe ByteString)
-cpContents = lens _cpContents (\ s a -> s{_cpContents = a}) . mapping _Base64
+cpContents = lens _cpContents (\ s a -> s{_cpContents = a})
 
 -- | Name of the project.
 cpName :: Lens' CreateProject (Maybe Text)

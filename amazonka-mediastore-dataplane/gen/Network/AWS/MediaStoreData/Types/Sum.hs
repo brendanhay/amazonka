@@ -20,22 +20,22 @@ module Network.AWS.MediaStoreData.Types.Sum where
 import Network.AWS.Prelude
 
 data ItemType
-  = Folder
-  | Object
+  = TypeFolder
+  | TypeObject
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ItemType where
     parser = takeLowerText >>= \case
-        "folder" -> pure Folder
-        "object" -> pure Object
+        "folder" -> pure TypeFolder
+        "object" -> pure TypeObject
         e -> fromTextError $ "Failure parsing ItemType from value: '" <> e
            <> "'. Accepted values: folder, object"
 
 instance ToText ItemType where
     toText = \case
-        Folder -> "FOLDER"
-        Object -> "OBJECT"
+        TypeFolder -> "FOLDER"
+        TypeObject -> "OBJECT"
 
 instance Hashable     ItemType
 instance NFData       ItemType

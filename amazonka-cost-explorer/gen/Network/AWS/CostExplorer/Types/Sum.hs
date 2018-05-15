@@ -74,76 +74,76 @@ instance ToJSON Context where
     toJSON = toJSONText
 
 data Dimension
-  = AZ
-  | CacheEngine
-  | DatabaseEngine
-  | DeploymentOption
-  | InstanceType
-  | InstanceTypeFamily
-  | LegalEntityName
-  | LinkedAccount
-  | OperatingSystem
-  | Operation
-  | Platform
-  | PurchaseType
-  | RecordType
-  | Region
-  | Scope
-  | Service
-  | SubscriptionId
-  | Tenancy
-  | UsageType
-  | UsageTypeGroup
+  = DimensionAZ
+  | DimensionCacheEngine
+  | DimensionDatabaseEngine
+  | DimensionDeploymentOption
+  | DimensionInstanceType
+  | DimensionInstanceTypeFamily
+  | DimensionLegalEntityName
+  | DimensionLinkedAccount
+  | DimensionOperatingSystem
+  | DimensionOperation
+  | DimensionPlatform
+  | DimensionPurchaseType
+  | DimensionRecordType
+  | DimensionRegion
+  | DimensionScope
+  | DimensionService
+  | DimensionSubscriptionId
+  | DimensionTenancy
+  | DimensionUsageType
+  | DimensionUsageTypeGroup
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText Dimension where
     parser = takeLowerText >>= \case
-        "az" -> pure AZ
-        "cache_engine" -> pure CacheEngine
-        "database_engine" -> pure DatabaseEngine
-        "deployment_option" -> pure DeploymentOption
-        "instance_type" -> pure InstanceType
-        "instance_type_family" -> pure InstanceTypeFamily
-        "legal_entity_name" -> pure LegalEntityName
-        "linked_account" -> pure LinkedAccount
-        "operating_system" -> pure OperatingSystem
-        "operation" -> pure Operation
-        "platform" -> pure Platform
-        "purchase_type" -> pure PurchaseType
-        "record_type" -> pure RecordType
-        "region" -> pure Region
-        "scope" -> pure Scope
-        "service" -> pure Service
-        "subscription_id" -> pure SubscriptionId
-        "tenancy" -> pure Tenancy
-        "usage_type" -> pure UsageType
-        "usage_type_group" -> pure UsageTypeGroup
+        "az" -> pure DimensionAZ
+        "cache_engine" -> pure DimensionCacheEngine
+        "database_engine" -> pure DimensionDatabaseEngine
+        "deployment_option" -> pure DimensionDeploymentOption
+        "instance_type" -> pure DimensionInstanceType
+        "instance_type_family" -> pure DimensionInstanceTypeFamily
+        "legal_entity_name" -> pure DimensionLegalEntityName
+        "linked_account" -> pure DimensionLinkedAccount
+        "operating_system" -> pure DimensionOperatingSystem
+        "operation" -> pure DimensionOperation
+        "platform" -> pure DimensionPlatform
+        "purchase_type" -> pure DimensionPurchaseType
+        "record_type" -> pure DimensionRecordType
+        "region" -> pure DimensionRegion
+        "scope" -> pure DimensionScope
+        "service" -> pure DimensionService
+        "subscription_id" -> pure DimensionSubscriptionId
+        "tenancy" -> pure DimensionTenancy
+        "usage_type" -> pure DimensionUsageType
+        "usage_type_group" -> pure DimensionUsageTypeGroup
         e -> fromTextError $ "Failure parsing Dimension from value: '" <> e
            <> "'. Accepted values: az, cache_engine, database_engine, deployment_option, instance_type, instance_type_family, legal_entity_name, linked_account, operating_system, operation, platform, purchase_type, record_type, region, scope, service, subscription_id, tenancy, usage_type, usage_type_group"
 
 instance ToText Dimension where
     toText = \case
-        AZ -> "AZ"
-        CacheEngine -> "CACHE_ENGINE"
-        DatabaseEngine -> "DATABASE_ENGINE"
-        DeploymentOption -> "DEPLOYMENT_OPTION"
-        InstanceType -> "INSTANCE_TYPE"
-        InstanceTypeFamily -> "INSTANCE_TYPE_FAMILY"
-        LegalEntityName -> "LEGAL_ENTITY_NAME"
-        LinkedAccount -> "LINKED_ACCOUNT"
-        OperatingSystem -> "OPERATING_SYSTEM"
-        Operation -> "OPERATION"
-        Platform -> "PLATFORM"
-        PurchaseType -> "PURCHASE_TYPE"
-        RecordType -> "RECORD_TYPE"
-        Region -> "REGION"
-        Scope -> "SCOPE"
-        Service -> "SERVICE"
-        SubscriptionId -> "SUBSCRIPTION_ID"
-        Tenancy -> "TENANCY"
-        UsageType -> "USAGE_TYPE"
-        UsageTypeGroup -> "USAGE_TYPE_GROUP"
+        DimensionAZ -> "AZ"
+        DimensionCacheEngine -> "CACHE_ENGINE"
+        DimensionDatabaseEngine -> "DATABASE_ENGINE"
+        DimensionDeploymentOption -> "DEPLOYMENT_OPTION"
+        DimensionInstanceType -> "INSTANCE_TYPE"
+        DimensionInstanceTypeFamily -> "INSTANCE_TYPE_FAMILY"
+        DimensionLegalEntityName -> "LEGAL_ENTITY_NAME"
+        DimensionLinkedAccount -> "LINKED_ACCOUNT"
+        DimensionOperatingSystem -> "OPERATING_SYSTEM"
+        DimensionOperation -> "OPERATION"
+        DimensionPlatform -> "PLATFORM"
+        DimensionPurchaseType -> "PURCHASE_TYPE"
+        DimensionRecordType -> "RECORD_TYPE"
+        DimensionRegion -> "REGION"
+        DimensionScope -> "SCOPE"
+        DimensionService -> "SERVICE"
+        DimensionSubscriptionId -> "SUBSCRIPTION_ID"
+        DimensionTenancy -> "TENANCY"
+        DimensionUsageType -> "USAGE_TYPE"
+        DimensionUsageTypeGroup -> "USAGE_TYPE_GROUP"
 
 instance Hashable     Dimension
 instance NFData       Dimension

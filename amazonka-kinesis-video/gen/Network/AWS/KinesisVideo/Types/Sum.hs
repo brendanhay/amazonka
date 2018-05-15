@@ -76,7 +76,7 @@ instance ToHeader     ComparisonOperator
 instance ToJSON ComparisonOperator where
     toJSON = toJSONText
 
-data Status
+data StreamStatus
   = Active
   | Creating
   | Deleting
@@ -84,30 +84,30 @@ data Status
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
-instance FromText Status where
+instance FromText StreamStatus where
     parser = takeLowerText >>= \case
         "active" -> pure Active
         "creating" -> pure Creating
         "deleting" -> pure Deleting
         "updating" -> pure Updating
-        e -> fromTextError $ "Failure parsing Status from value: '" <> e
+        e -> fromTextError $ "Failure parsing StreamStatus from value: '" <> e
            <> "'. Accepted values: active, creating, deleting, updating"
 
-instance ToText Status where
+instance ToText StreamStatus where
     toText = \case
         Active -> "ACTIVE"
         Creating -> "CREATING"
         Deleting -> "DELETING"
         Updating -> "UPDATING"
 
-instance Hashable     Status
-instance NFData       Status
-instance ToByteString Status
-instance ToQuery      Status
-instance ToHeader     Status
+instance Hashable     StreamStatus
+instance NFData       StreamStatus
+instance ToByteString StreamStatus
+instance ToQuery      StreamStatus
+instance ToHeader     StreamStatus
 
-instance FromJSON Status where
-    parseJSON = parseJSONText "Status"
+instance FromJSON StreamStatus where
+    parseJSON = parseJSONText "StreamStatus"
 
 data UpdateDataRetentionOperation
   = DecreaseDataRetention

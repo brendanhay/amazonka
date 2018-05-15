@@ -1017,25 +1017,25 @@ instance FromXML FleetActivityStatus where
     parseXML = parseXMLText "FleetActivityStatus"
 
 data FleetEventType
-  = FleetChange
-  | InstanceChange
-  | ServiceError
+  = FETFleetChange
+  | FETInstanceChange
+  | FETServiceError
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText FleetEventType where
     parser = takeLowerText >>= \case
-        "fleet-change" -> pure FleetChange
-        "instance-change" -> pure InstanceChange
-        "service-error" -> pure ServiceError
+        "fleet-change" -> pure FETFleetChange
+        "instance-change" -> pure FETInstanceChange
+        "service-error" -> pure FETServiceError
         e -> fromTextError $ "Failure parsing FleetEventType from value: '" <> e
            <> "'. Accepted values: fleet-change, instance-change, service-error"
 
 instance ToText FleetEventType where
     toText = \case
-        FleetChange -> "fleet-change"
-        InstanceChange -> "instance-change"
-        ServiceError -> "service-error"
+        FETFleetChange -> "fleet-change"
+        FETInstanceChange -> "instance-change"
+        FETServiceError -> "service-error"
 
 instance Hashable     FleetEventType
 instance NFData       FleetEventType

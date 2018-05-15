@@ -25,8 +25,8 @@ module Network.AWS.GuardDuty.StartMonitoringMembers
       startMonitoringMembers
     , StartMonitoringMembers
     -- * Request Lenses
-    , smmsAccountIds
-    , smmsDetectorId
+    , sAccountIds
+    , sDetectorId
 
     -- * Destructuring the Response
     , startMonitoringMembersResponse
@@ -47,8 +47,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'startMonitoringMembers' smart constructor.
 data StartMonitoringMembers = StartMonitoringMembers'
-  { _smmsAccountIds :: !(Maybe [Text])
-  , _smmsDetectorId :: !Text
+  { _sAccountIds :: !(Maybe [Text])
+  , _sDetectorId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -56,24 +56,23 @@ data StartMonitoringMembers = StartMonitoringMembers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'smmsAccountIds' - A list of account IDs of the GuardDuty member accounts whose findings you want the master account to monitor.
+-- * 'sAccountIds' - A list of account IDs of the GuardDuty member accounts whose findings you want the master account to monitor.
 --
--- * 'smmsDetectorId' - The unique ID of the detector of the GuardDuty account whom you want to re-enable to monitor members' findings.
+-- * 'sDetectorId' - The unique ID of the detector of the GuardDuty account whom you want to re-enable to monitor members' findings.
 startMonitoringMembers
-    :: Text -- ^ 'smmsDetectorId'
+    :: Text -- ^ 'sDetectorId'
     -> StartMonitoringMembers
 startMonitoringMembers pDetectorId_ =
-  StartMonitoringMembers'
-    {_smmsAccountIds = Nothing, _smmsDetectorId = pDetectorId_}
+  StartMonitoringMembers' {_sAccountIds = Nothing, _sDetectorId = pDetectorId_}
 
 
 -- | A list of account IDs of the GuardDuty member accounts whose findings you want the master account to monitor.
-smmsAccountIds :: Lens' StartMonitoringMembers [Text]
-smmsAccountIds = lens _smmsAccountIds (\ s a -> s{_smmsAccountIds = a}) . _Default . _Coerce
+sAccountIds :: Lens' StartMonitoringMembers [Text]
+sAccountIds = lens _sAccountIds (\ s a -> s{_sAccountIds = a}) . _Default . _Coerce
 
 -- | The unique ID of the detector of the GuardDuty account whom you want to re-enable to monitor members' findings.
-smmsDetectorId :: Lens' StartMonitoringMembers Text
-smmsDetectorId = lens _smmsDetectorId (\ s a -> s{_smmsDetectorId = a})
+sDetectorId :: Lens' StartMonitoringMembers Text
+sDetectorId = lens _sDetectorId (\ s a -> s{_sDetectorId = a})
 
 instance AWSRequest StartMonitoringMembers where
         type Rs StartMonitoringMembers =
@@ -100,12 +99,12 @@ instance ToHeaders StartMonitoringMembers where
 instance ToJSON StartMonitoringMembers where
         toJSON StartMonitoringMembers'{..}
           = object
-              (catMaybes [("accountIds" .=) <$> _smmsAccountIds])
+              (catMaybes [("accountIds" .=) <$> _sAccountIds])
 
 instance ToPath StartMonitoringMembers where
         toPath StartMonitoringMembers'{..}
           = mconcat
-              ["/detector/", toBS _smmsDetectorId, "/member/start"]
+              ["/detector/", toBS _sDetectorId, "/member/start"]
 
 instance ToQuery StartMonitoringMembers where
         toQuery = const mempty

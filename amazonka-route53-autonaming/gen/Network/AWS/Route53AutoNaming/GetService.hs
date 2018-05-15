@@ -100,7 +100,7 @@ instance ToQuery GetService where
 
 -- | /See:/ 'getServiceResponse' smart constructor.
 data GetServiceResponse = GetServiceResponse'
-  { _gsrsService        :: !(Maybe Service)
+  { _gsrsService        :: !(Maybe ServiceInfo)
   , _gsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -121,7 +121,7 @@ getServiceResponse pResponseStatus_ =
 
 
 -- | A complex type that contains information about the service.
-gsrsService :: Lens' GetServiceResponse (Maybe Service)
+gsrsService :: Lens' GetServiceResponse (Maybe ServiceInfo)
 gsrsService = lens _gsrsService (\ s a -> s{_gsrsService = a})
 
 -- | -- | The response status code.

@@ -374,37 +374,37 @@ instance FromJSON IndexStatus where
     parseJSON = parseJSONText "IndexStatus"
 
 data JobExecutionStatus
-  = JESCanceled
-  | JESFailed
-  | JESInProgress
-  | JESQueued
-  | JESRejected
-  | JESRemoved
-  | JESSucceeded
+  = Canceled
+  | Failed
+  | InProgress
+  | Queued
+  | Rejected
+  | Removed
+  | Succeeded
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText JobExecutionStatus where
     parser = takeLowerText >>= \case
-        "canceled" -> pure JESCanceled
-        "failed" -> pure JESFailed
-        "in_progress" -> pure JESInProgress
-        "queued" -> pure JESQueued
-        "rejected" -> pure JESRejected
-        "removed" -> pure JESRemoved
-        "succeeded" -> pure JESSucceeded
+        "canceled" -> pure Canceled
+        "failed" -> pure Failed
+        "in_progress" -> pure InProgress
+        "queued" -> pure Queued
+        "rejected" -> pure Rejected
+        "removed" -> pure Removed
+        "succeeded" -> pure Succeeded
         e -> fromTextError $ "Failure parsing JobExecutionStatus from value: '" <> e
            <> "'. Accepted values: canceled, failed, in_progress, queued, rejected, removed, succeeded"
 
 instance ToText JobExecutionStatus where
     toText = \case
-        JESCanceled -> "CANCELED"
-        JESFailed -> "FAILED"
-        JESInProgress -> "IN_PROGRESS"
-        JESQueued -> "QUEUED"
-        JESRejected -> "REJECTED"
-        JESRemoved -> "REMOVED"
-        JESSucceeded -> "SUCCEEDED"
+        Canceled -> "CANCELED"
+        Failed -> "FAILED"
+        InProgress -> "IN_PROGRESS"
+        Queued -> "QUEUED"
+        Rejected -> "REJECTED"
+        Removed -> "REMOVED"
+        Succeeded -> "SUCCEEDED"
 
 instance Hashable     JobExecutionStatus
 instance NFData       JobExecutionStatus
@@ -616,45 +616,6 @@ instance ToJSON ReportType where
 instance FromJSON ReportType where
     parseJSON = parseJSONText "ReportType"
 
-data Status
-  = Cancelled
-  | Cancelling
-  | Completed
-  | Failed
-  | InProgress
-  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
-
-
-instance FromText Status where
-    parser = takeLowerText >>= \case
-        "cancelled" -> pure Cancelled
-        "cancelling" -> pure Cancelling
-        "completed" -> pure Completed
-        "failed" -> pure Failed
-        "inprogress" -> pure InProgress
-        e -> fromTextError $ "Failure parsing Status from value: '" <> e
-           <> "'. Accepted values: cancelled, cancelling, completed, failed, inprogress"
-
-instance ToText Status where
-    toText = \case
-        Cancelled -> "Cancelled"
-        Cancelling -> "Cancelling"
-        Completed -> "Completed"
-        Failed -> "Failed"
-        InProgress -> "InProgress"
-
-instance Hashable     Status
-instance NFData       Status
-instance ToByteString Status
-instance ToQuery      Status
-instance ToHeader     Status
-
-instance ToJSON Status where
-    toJSON = toJSONText
-
-instance FromJSON Status where
-    parseJSON = parseJSONText "Status"
-
 data TargetSelection
   = Continuous
   | Snapshot
@@ -684,6 +645,45 @@ instance ToJSON TargetSelection where
 
 instance FromJSON TargetSelection where
     parseJSON = parseJSONText "TargetSelection"
+
+data TaskStatus
+  = TSCancelled
+  | TSCancelling
+  | TSCompleted
+  | TSFailed
+  | TSInProgress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TaskStatus where
+    parser = takeLowerText >>= \case
+        "cancelled" -> pure TSCancelled
+        "cancelling" -> pure TSCancelling
+        "completed" -> pure TSCompleted
+        "failed" -> pure TSFailed
+        "inprogress" -> pure TSInProgress
+        e -> fromTextError $ "Failure parsing TaskStatus from value: '" <> e
+           <> "'. Accepted values: cancelled, cancelling, completed, failed, inprogress"
+
+instance ToText TaskStatus where
+    toText = \case
+        TSCancelled -> "Cancelled"
+        TSCancelling -> "Cancelling"
+        TSCompleted -> "Completed"
+        TSFailed -> "Failed"
+        TSInProgress -> "InProgress"
+
+instance Hashable     TaskStatus
+instance NFData       TaskStatus
+instance ToByteString TaskStatus
+instance ToQuery      TaskStatus
+instance ToHeader     TaskStatus
+
+instance ToJSON TaskStatus where
+    toJSON = toJSONText
+
+instance FromJSON TaskStatus where
+    parseJSON = parseJSONText "TaskStatus"
 
 data ThingIndexingMode
   = Off

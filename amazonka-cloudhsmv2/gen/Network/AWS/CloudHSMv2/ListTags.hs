@@ -107,7 +107,7 @@ instance AWSRequest ListTags where
               (\ s h x ->
                  ListTagsResponse' <$>
                    (x .?> "NextToken") <*> (pure (fromEnum s)) <*>
-                     (x .:> "TagList"))
+                     (x .?> "TagList" .!@ mempty))
 
 instance Hashable ListTags where
 
@@ -140,7 +140,7 @@ instance ToQuery ListTags where
 data ListTagsResponse = ListTagsResponse'
   { _ltrsNextToken      :: !(Maybe Text)
   , _ltrsResponseStatus :: !Int
-  , _ltrsTagList        :: !(List1 Tag)
+  , _ltrsTagList        :: ![Tag]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -155,13 +155,12 @@ data ListTagsResponse = ListTagsResponse'
 -- * 'ltrsTagList' - A list of tags.
 listTagsResponse
     :: Int -- ^ 'ltrsResponseStatus'
-    -> NonEmpty Tag -- ^ 'ltrsTagList'
     -> ListTagsResponse
-listTagsResponse pResponseStatus_ pTagList_ =
+listTagsResponse pResponseStatus_ =
   ListTagsResponse'
     { _ltrsNextToken = Nothing
     , _ltrsResponseStatus = pResponseStatus_
-    , _ltrsTagList = _List1 # pTagList_
+    , _ltrsTagList = mempty
     }
 
 
@@ -174,7 +173,7 @@ ltrsResponseStatus :: Lens' ListTagsResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a})
 
 -- | A list of tags.
-ltrsTagList :: Lens' ListTagsResponse (NonEmpty Tag)
-ltrsTagList = lens _ltrsTagList (\ s a -> s{_ltrsTagList = a}) . _List1
+ltrsTagList :: Lens' ListTagsResponse [Tag]
+ltrsTagList = lens _ltrsTagList (\ s a -> s{_ltrsTagList = a}) . _Coerce
 
 instance NFData ListTagsResponse where

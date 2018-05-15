@@ -94,11 +94,11 @@ module Network.AWS.IoT.Types
     -- * ReportType
     , ReportType (..)
 
-    -- * Status
-    , Status (..)
-
     -- * TargetSelection
     , TargetSelection (..)
+
+    -- * TaskStatus
+    , TaskStatus (..)
 
     -- * ThingIndexingMode
     , ThingIndexingMode (..)

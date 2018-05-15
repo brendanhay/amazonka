@@ -51,7 +51,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateProject' smart constructor.
 data UpdateProject = UpdateProject'
-  { _upContents  :: !(Maybe Base64)
+  { _upContents  :: !(Maybe ByteString)
   , _upProjectId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -60,7 +60,7 @@ data UpdateProject = UpdateProject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upContents' - ZIP or YAML file which contains project configuration to be updated. This should be the contents of the file downloaded from the URL provided in an export project operation. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'upContents' - ZIP or YAML file which contains project configuration to be updated. This should be the contents of the file downloaded from the URL provided in an export project operation.
 --
 -- * 'upProjectId' - Unique project identifier.
 updateProject
@@ -70,9 +70,9 @@ updateProject pProjectId_ =
   UpdateProject' {_upContents = Nothing, _upProjectId = pProjectId_}
 
 
--- | ZIP or YAML file which contains project configuration to be updated. This should be the contents of the file downloaded from the URL provided in an export project operation. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | ZIP or YAML file which contains project configuration to be updated. This should be the contents of the file downloaded from the URL provided in an export project operation.
 upContents :: Lens' UpdateProject (Maybe ByteString)
-upContents = lens _upContents (\ s a -> s{_upContents = a}) . mapping _Base64
+upContents = lens _upContents (\ s a -> s{_upContents = a})
 
 -- | Unique project identifier.
 upProjectId :: Lens' UpdateProject Text

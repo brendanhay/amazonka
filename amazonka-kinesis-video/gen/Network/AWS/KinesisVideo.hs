@@ -99,8 +99,8 @@ module Network.AWS.KinesisVideo
     -- ** ComparisonOperator
     , ComparisonOperator (..)
 
-    -- ** Status
-    , Status (..)
+    -- ** StreamStatus
+    , StreamStatus (..)
 
     -- ** UpdateDataRetentionOperation
     , UpdateDataRetentionOperation (..)

@@ -34,8 +34,8 @@ module Network.AWS.KinesisVideo.Types
     -- * ComparisonOperator
     , ComparisonOperator (..)
 
-    -- * Status
-    , Status (..)
+    -- * StreamStatus
+    , StreamStatus (..)
 
     -- * UpdateDataRetentionOperation
     , UpdateDataRetentionOperation (..)

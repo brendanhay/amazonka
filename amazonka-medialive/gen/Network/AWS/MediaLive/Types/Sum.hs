@@ -820,7 +820,7 @@ instance FromJSON BlackoutSlateState where
 -- | Placeholder documentation for BurnInAlignment
 data BurnInAlignment
   = BIACentered
-  | BIALeft
+  | BIALeft'
   | BIASmart
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
@@ -828,7 +828,7 @@ data BurnInAlignment
 instance FromText BurnInAlignment where
     parser = takeLowerText >>= \case
         "centered" -> pure BIACentered
-        "left" -> pure BIALeft
+        "left" -> pure BIALeft'
         "smart" -> pure BIASmart
         e -> fromTextError $ "Failure parsing BurnInAlignment from value: '" <> e
            <> "'. Accepted values: centered, left, smart"
@@ -836,7 +836,7 @@ instance FromText BurnInAlignment where
 instance ToText BurnInAlignment where
     toText = \case
         BIACentered -> "CENTERED"
-        BIALeft -> "LEFT"
+        BIALeft' -> "LEFT"
         BIASmart -> "SMART"
 
 instance Hashable     BurnInAlignment
@@ -1125,7 +1125,7 @@ instance FromJSON DvbSdtOutputSdt where
 -- | Placeholder documentation for DvbSubDestinationAlignment
 data DvbSubDestinationAlignment
   = Centered
-  | Left
+  | Left'
   | Smart
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
@@ -1133,7 +1133,7 @@ data DvbSubDestinationAlignment
 instance FromText DvbSubDestinationAlignment where
     parser = takeLowerText >>= \case
         "centered" -> pure Centered
-        "left" -> pure Left
+        "left" -> pure Left'
         "smart" -> pure Smart
         e -> fromTextError $ "Failure parsing DvbSubDestinationAlignment from value: '" <> e
            <> "'. Accepted values: centered, left, smart"
@@ -1141,7 +1141,7 @@ instance FromText DvbSubDestinationAlignment where
 instance ToText DvbSubDestinationAlignment where
     toText = \case
         Centered -> "CENTERED"
-        Left -> "LEFT"
+        Left' -> "LEFT"
         Smart -> "SMART"
 
 instance Hashable     DvbSubDestinationAlignment
@@ -2733,22 +2733,22 @@ instance FromJSON HlsAdMarkers where
 
 -- | Placeholder documentation for HlsAkamaiHttpTransferMode
 data HlsAkamaiHTTPTransferMode
-  = Chunked
-  | NonChunked
+  = AkamaiChunked
+  | AkamaiNonChunked
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText HlsAkamaiHTTPTransferMode where
     parser = takeLowerText >>= \case
-        "chunked" -> pure Chunked
-        "non_chunked" -> pure NonChunked
+        "chunked" -> pure AkamaiChunked
+        "non_chunked" -> pure AkamaiNonChunked
         e -> fromTextError $ "Failure parsing HlsAkamaiHTTPTransferMode from value: '" <> e
            <> "'. Accepted values: chunked, non_chunked"
 
 instance ToText HlsAkamaiHTTPTransferMode where
     toText = \case
-        Chunked -> "CHUNKED"
-        NonChunked -> "NON_CHUNKED"
+        AkamaiChunked -> "CHUNKED"
+        AkamaiNonChunked -> "NON_CHUNKED"
 
 instance Hashable     HlsAkamaiHTTPTransferMode
 instance NFData       HlsAkamaiHTTPTransferMode
@@ -3294,22 +3294,22 @@ instance FromJSON HlsTsFileMode where
 
 -- | Placeholder documentation for HlsWebdavHttpTransferMode
 data HlsWebdavHTTPTransferMode
-  = HWHTTPTMChunked
-  | HWHTTPTMNonChunked
+  = WebdavChunked
+  | WebdavNonChunked
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText HlsWebdavHTTPTransferMode where
     parser = takeLowerText >>= \case
-        "chunked" -> pure HWHTTPTMChunked
-        "non_chunked" -> pure HWHTTPTMNonChunked
+        "chunked" -> pure WebdavChunked
+        "non_chunked" -> pure WebdavNonChunked
         e -> fromTextError $ "Failure parsing HlsWebdavHTTPTransferMode from value: '" <> e
            <> "'. Accepted values: chunked, non_chunked"
 
 instance ToText HlsWebdavHTTPTransferMode where
     toText = \case
-        HWHTTPTMChunked -> "CHUNKED"
-        HWHTTPTMNonChunked -> "NON_CHUNKED"
+        WebdavChunked -> "CHUNKED"
+        WebdavNonChunked -> "NON_CHUNKED"
 
 instance Hashable     HlsWebdavHTTPTransferMode
 instance NFData       HlsWebdavHTTPTransferMode

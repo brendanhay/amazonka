@@ -28,7 +28,7 @@ import Network.AWS.Prelude
 -- /See:/ 'streamInfo' smart constructor.
 data StreamInfo = StreamInfo'
   { _siCreationTime         :: !(Maybe POSIX)
-  , _siStatus               :: !(Maybe Status)
+  , _siStatus               :: !(Maybe StreamStatus)
   , _siMediaType            :: !(Maybe Text)
   , _siDataRetentionInHours :: !(Maybe Nat)
   , _siStreamARN            :: !(Maybe Text)
@@ -81,7 +81,7 @@ siCreationTime :: Lens' StreamInfo (Maybe UTCTime)
 siCreationTime = lens _siCreationTime (\ s a -> s{_siCreationTime = a}) . mapping _Time
 
 -- | The status of the stream.
-siStatus :: Lens' StreamInfo (Maybe Status)
+siStatus :: Lens' StreamInfo (Maybe StreamStatus)
 siStatus = lens _siStatus (\ s a -> s{_siStatus = a})
 
 -- | The @MediaType@ of the stream.

@@ -42,13 +42,13 @@ module Network.AWS.SageMaker.DescribeNotebookInstance
     , dnirsNetworkInterfaceId
     , dnirsSubnetId
     , dnirsInstanceType
-    , dnirsNotebookInstanceStatus
     , dnirsKMSKeyId
     , dnirsDirectInternetAccess
     , dnirsNotebookInstanceARN
     , dnirsNotebookInstanceLifecycleConfigName
     , dnirsRoleARN
     , dnirsResponseStatus
+    , dnirsNotebookInstanceStatus
     ) where
 
 import Network.AWS.Lens
@@ -96,13 +96,13 @@ instance AWSRequest DescribeNotebookInstance where
                      <*> (x .?> "NetworkInterfaceId")
                      <*> (x .?> "SubnetId")
                      <*> (x .?> "InstanceType")
-                     <*> (x .?> "NotebookInstanceStatus")
                      <*> (x .?> "KmsKeyId")
                      <*> (x .?> "DirectInternetAccess")
                      <*> (x .?> "NotebookInstanceArn")
                      <*> (x .?> "NotebookInstanceLifecycleConfigName")
                      <*> (x .?> "RoleArn")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure (fromEnum s))
+                     <*> (x .:> "NotebookInstanceStatus"))
 
 instance Hashable DescribeNotebookInstance where
 
@@ -142,13 +142,13 @@ data DescribeNotebookInstanceResponse = DescribeNotebookInstanceResponse'
   , _dnirsNetworkInterfaceId                  :: !(Maybe Text)
   , _dnirsSubnetId                            :: !(Maybe Text)
   , _dnirsInstanceType                        :: !(Maybe InstanceType)
-  , _dnirsNotebookInstanceStatus              :: !(Maybe NotebookInstanceStatus)
   , _dnirsKMSKeyId                            :: !(Maybe Text)
   , _dnirsDirectInternetAccess                :: !(Maybe DirectInternetAccess)
   , _dnirsNotebookInstanceARN                 :: !(Maybe Text)
   , _dnirsNotebookInstanceLifecycleConfigName :: !(Maybe Text)
   , _dnirsRoleARN                             :: !(Maybe Text)
   , _dnirsResponseStatus                      :: !Int
+  , _dnirsNotebookInstanceStatus              :: !NotebookInstanceStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -174,8 +174,6 @@ data DescribeNotebookInstanceResponse = DescribeNotebookInstanceResponse'
 --
 -- * 'dnirsInstanceType' - The type of ML compute instance running on the notebook instance.
 --
--- * 'dnirsNotebookInstanceStatus' - The status of the notebook instance.
---
 -- * 'dnirsKMSKeyId' - AWS KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage volume attached to the instance.
 --
 -- * 'dnirsDirectInternetAccess' - Describes whether Amazon SageMaker provides internet access to the notebook instance. If this value is set to /Disabled, he notebook instance does not have internet access, and cannot connect to Amazon SageMaker training and endpoint services/ . For more information, see 'appendix-notebook-and-internet-access' .
@@ -187,10 +185,13 @@ data DescribeNotebookInstanceResponse = DescribeNotebookInstanceResponse'
 -- * 'dnirsRoleARN' - Amazon Resource Name (ARN) of the IAM role associated with the instance.
 --
 -- * 'dnirsResponseStatus' - -- | The response status code.
+--
+-- * 'dnirsNotebookInstanceStatus' - The status of the notebook instance.
 describeNotebookInstanceResponse
     :: Int -- ^ 'dnirsResponseStatus'
+    -> NotebookInstanceStatus -- ^ 'dnirsNotebookInstanceStatus'
     -> DescribeNotebookInstanceResponse
-describeNotebookInstanceResponse pResponseStatus_ =
+describeNotebookInstanceResponse pResponseStatus_ pNotebookInstanceStatus_ =
   DescribeNotebookInstanceResponse'
     { _dnirsCreationTime = Nothing
     , _dnirsFailureReason = Nothing
@@ -201,13 +202,13 @@ describeNotebookInstanceResponse pResponseStatus_ =
     , _dnirsNetworkInterfaceId = Nothing
     , _dnirsSubnetId = Nothing
     , _dnirsInstanceType = Nothing
-    , _dnirsNotebookInstanceStatus = Nothing
     , _dnirsKMSKeyId = Nothing
     , _dnirsDirectInternetAccess = Nothing
     , _dnirsNotebookInstanceARN = Nothing
     , _dnirsNotebookInstanceLifecycleConfigName = Nothing
     , _dnirsRoleARN = Nothing
     , _dnirsResponseStatus = pResponseStatus_
+    , _dnirsNotebookInstanceStatus = pNotebookInstanceStatus_
     }
 
 
@@ -247,10 +248,6 @@ dnirsSubnetId = lens _dnirsSubnetId (\ s a -> s{_dnirsSubnetId = a})
 dnirsInstanceType :: Lens' DescribeNotebookInstanceResponse (Maybe InstanceType)
 dnirsInstanceType = lens _dnirsInstanceType (\ s a -> s{_dnirsInstanceType = a})
 
--- | The status of the notebook instance.
-dnirsNotebookInstanceStatus :: Lens' DescribeNotebookInstanceResponse (Maybe NotebookInstanceStatus)
-dnirsNotebookInstanceStatus = lens _dnirsNotebookInstanceStatus (\ s a -> s{_dnirsNotebookInstanceStatus = a})
-
 -- | AWS KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage volume attached to the instance.
 dnirsKMSKeyId :: Lens' DescribeNotebookInstanceResponse (Maybe Text)
 dnirsKMSKeyId = lens _dnirsKMSKeyId (\ s a -> s{_dnirsKMSKeyId = a})
@@ -274,6 +271,10 @@ dnirsRoleARN = lens _dnirsRoleARN (\ s a -> s{_dnirsRoleARN = a})
 -- | -- | The response status code.
 dnirsResponseStatus :: Lens' DescribeNotebookInstanceResponse Int
 dnirsResponseStatus = lens _dnirsResponseStatus (\ s a -> s{_dnirsResponseStatus = a})
+
+-- | The status of the notebook instance.
+dnirsNotebookInstanceStatus :: Lens' DescribeNotebookInstanceResponse NotebookInstanceStatus
+dnirsNotebookInstanceStatus = lens _dnirsNotebookInstanceStatus (\ s a -> s{_dnirsNotebookInstanceStatus = a})
 
 instance NFData DescribeNotebookInstanceResponse
          where

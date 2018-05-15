@@ -260,25 +260,25 @@ instance FromJSON OperationStatus where
     parseJSON = parseJSONText "OperationStatus"
 
 data OperationTargetType
-  = Instance
-  | Namespace
-  | Service
+  = OTTInstance
+  | OTTNamespace
+  | OTTService
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText OperationTargetType where
     parser = takeLowerText >>= \case
-        "instance" -> pure Instance
-        "namespace" -> pure Namespace
-        "service" -> pure Service
+        "instance" -> pure OTTInstance
+        "namespace" -> pure OTTNamespace
+        "service" -> pure OTTService
         e -> fromTextError $ "Failure parsing OperationTargetType from value: '" <> e
            <> "'. Accepted values: instance, namespace, service"
 
 instance ToText OperationTargetType where
     toText = \case
-        Instance -> "INSTANCE"
-        Namespace -> "NAMESPACE"
-        Service -> "SERVICE"
+        OTTInstance -> "INSTANCE"
+        OTTNamespace -> "NAMESPACE"
+        OTTService -> "SERVICE"
 
 instance Hashable     OperationTargetType
 instance NFData       OperationTargetType

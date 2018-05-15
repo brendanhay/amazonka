@@ -50,7 +50,7 @@ module Network.AWS.ResourceGroups.Types
     , ResourceQuery
     , resourceQuery
     , rqType
-    , rqQuery
+    , rqSearchQuery
     ) where
 
 import Network.AWS.Lens

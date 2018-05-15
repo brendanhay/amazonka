@@ -3,7 +3,6 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE KindSignatures             #-}
 {-# LANGUAGE LambdaCase                 #-}
@@ -74,16 +73,8 @@ deriving instance Typeable 'BasicFormat
 deriving instance Typeable 'AWSFormat
 deriving instance Typeable 'POSIXFormat
 
-data Time :: Format -> * where
-    Time :: UTCTime -> Time a
-      deriving (Data, Typeable, Generic)
-
-deriving instance Eq   (Time a)
-deriving instance Ord  (Time a)
-deriving instance Read (Time a)
-deriving instance Show (Time a)
-
-instance NFData (Time a)
+newtype Time (a :: Format) = Time { fromTime :: UTCTime }
+    deriving (Show, Read, Eq, Ord, Data, Typeable, Generic, NFData)
 
 instance Hashable (Time a) where
     hashWithSalt salt (Time (UTCTime (ModifiedJulianDay d) t)) =
@@ -91,10 +82,10 @@ instance Hashable (Time a) where
              `hashWithSalt` toRational t
 
 _Time :: Iso' (Time a) UTCTime
-_Time = iso (\(Time t) -> t) Time
+_Time = iso fromTime Time
 
 convert :: Time a -> Time b
-convert (Time t) = Time t
+convert = Time . fromTime
 
 type RFC822    = Time 'RFC822Format
 type ISO8601   = Time 'ISO8601Format

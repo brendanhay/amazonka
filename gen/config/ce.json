@@ -1,3 +1,8 @@
 {
-    "libraryName": "amazonka-cost-explorer"
+    "libraryName": "amazonka-cost-explorer",
+    "typeOverrides": {
+        "Dimension": {
+            "enumPrefix": "Dimension"
+        }
+    }
 }

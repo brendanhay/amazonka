@@ -1,12 +1,23 @@
-compiler:   ghc-7.10.3
-resolver:   lts-7.6
+compiler: ghc-7.10.3
+resolver: lts-7.6
+
+local-bin-path: bin
+
+nix:
+  enable: false
+  packages: [zlib, icu]
+  add-gc-roots: true
+
 flags:
   semigroups:
     bytestring-builder: false
+
 extra-deps:
   - http-conduit-2.2.0
   - http-client-0.5.0.1
   - http-client-tls-0.3.0
+  - xml-conduit-1.7.0.1
+
 packages:
   - core
   - test

@@ -7,11 +7,9 @@ nix:
   packages: [zlib, icu]
   add-gc-roots: true
 
-flags: {}
-
 extra-deps:
-- ede-0.2.9
-- text-regex-replace-0.1.1.1
+  - ede-0.2.9
+  - text-regex-replace-0.1.1.1
 
 packages:
   - gen
